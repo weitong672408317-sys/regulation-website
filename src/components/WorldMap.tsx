@@ -134,18 +134,6 @@ export default function WorldMap() {
           {hoveredCountry} - 点击查看详情
         </div>
       )}
-      <div className="mt-6 flex flex-wrap gap-3 justify-center">
-        {countries.map((country) => (
-          <div
-            key={country.id}
-            className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity bg-white px-3 py-1.5 rounded-full border border-gray-200 hover:border-business-orange"
-            onClick={() => router.push(`/country/${country.id}`)}
-          >
-            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: mapHighlightColor }} />
-            <span className="text-sm text-gray-700">{country.name}</span>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
