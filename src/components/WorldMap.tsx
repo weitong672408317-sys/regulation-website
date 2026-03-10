@@ -15,7 +15,7 @@ const countryDataMap: Record<string, any> = {
   'Singapore': { labelPos: [108, 8], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG' },
   'Malaysia': { labelPos: [98, 0], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY' },
   'Paraguay': { labelPos: [-58, -26], countryCenter: [-58, -23], name: '巴拉圭', id: 'paraguay', isoCode: 'PY' },
-  'Taiwan': { labelPos: [122, 25], countryCenter: [121, 23.5], name: '台湾', id: null, isoCode: 'TW' },
+  'Taiwan': { labelPos: null, countryCenter: [121, 23.5], name: '台湾', id: null, isoCode: 'TW' },
   'Hong Kong': { labelPos: [115, 22], countryCenter: [114.17, 22.32], name: '中国香港', id: 'hongkong', isoCode: 'HK' },
 };
 
@@ -24,11 +24,17 @@ const highlightCountryNames = new Set(Object.keys(countryDataMap));
 export default function WorldMap() {
   const router = useRouter();
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
 
   const handleCountryClick = (geo: any) => {
     const name = geo.properties?.name;
     const data = countryDataMap[name];
     if (data && data.id) {
+      if (data.id === 'china') {
+        setSelectedCountry('china');
+      } else {
+        setSelectedCountry(null);
+      }
       router.push(`/country/${data.id}`);
     }
   };
@@ -41,6 +47,9 @@ export default function WorldMap() {
 
   const isCountryHighlighted = (geo: any) => {
     const name = geo.properties?.name;
+    if (selectedCountry === 'china') {
+      return name === 'China' || name === 'Taiwan';
+    }
     return highlightCountryNames.has(name);
   };
 
@@ -99,34 +108,36 @@ export default function WorldMap() {
 
             {Object.values(countryDataMap).map((data) => {
               return (
-                <g key={data.id}>
+                <g key={data.id || data.isoCode}>
                   <Marker coordinates={data.countryCenter}>
                     <circle
                       r={4}
                       fill={mapHighlightColor}
                       stroke="white"
                       strokeWidth="2"
-                      style={{ cursor: 'pointer' }}
+                      style={{ cursor: data.id ? 'pointer' : 'default' }}
                       onClick={() => handleLabelClick(data.id)}
                     />
                   </Marker>
                   
-                  <Marker coordinates={data.labelPos}>
-                    <text
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      style={{
-                        fontSize: '12px',
-                        fontWeight: 'bold',
-                        fill: '#1f2937',
-                        textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                        cursor: 'pointer',
-                      }}
-                      onClick={() => handleLabelClick(data.id)}
-                    >
-                      {data.name}
-                    </text>
-                  </Marker>
+                  {data.labelPos && (
+                    <Marker coordinates={data.labelPos}>
+                      <text
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        style={{
+                          fontSize: '12px',
+                          fontWeight: 'bold',
+                          fill: '#1f2937',
+                          textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                          cursor: data.id ? 'pointer' : 'default',
+                        }}
+                        onClick={() => handleLabelClick(data.id)}
+                      >
+                        {data.name}
+                      </text>
+                    </Marker>
+                  )}
                 </g>
               );
             })}
