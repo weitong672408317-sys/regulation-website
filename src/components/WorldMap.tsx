@@ -13,7 +13,7 @@ const countryDataMap: Record<string, any> = {
   'United Arab Emirates': { labelPos: [54, 26], countryCenter: [54, 24], name: '阿联酋', id: 'uae', isoCode: 'AE' },
   'Russia': { labelPos: [100, 62], countryCenter: [100, 60], name: '俄罗斯', id: 'russia', isoCode: 'RU' },
   'Singapore': { labelPos: [108, 8], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG' },
-  'Malaysia': { labelPos: [98, 0], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY' },
+  'Malaysia': { labelPos: [95, 0], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY' },
   'Paraguay': { labelPos: [-58, -26], countryCenter: [-58, -23], name: '巴拉圭', id: 'paraguay', isoCode: 'PY' },
   'Taiwan': { labelPos: null, countryCenter: [121, 23.5], name: '台湾', id: null, isoCode: 'TW' },
   'Hong Kong': { labelPos: [110, 22], countryCenter: [114.17, 22.32], name: '中国香港', id: 'hongkong', isoCode: 'HK' },
@@ -107,39 +107,43 @@ export default function WorldMap() {
             </Geographies>
 
             {Object.values(countryDataMap).map((data) => {
-              return (
-                <g key={data.id || data.isoCode}>
-                  <Marker coordinates={data.countryCenter}>
-                    <circle
-                      r={4}
-                      fill={mapHighlightColor}
-                      stroke="white"
-                      strokeWidth="2"
-                      style={{ cursor: data.id ? 'pointer' : 'default' }}
-                      onClick={() => handleLabelClick(data.id)}
-                    />
-                  </Marker>
-                  
-                  {data.labelPos && (
-                    <Marker coordinates={data.labelPos}>
-                      <text
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        style={{
-                          fontSize: '12px',
-                          fontWeight: 'bold',
-                          fill: '#1f2937',
-                          textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                          cursor: data.id ? 'pointer' : 'default',
-                        }}
+              // 跳过台湾的标记点
+              if (data.isoCode !== 'TW') {
+                return (
+                  <g key={data.id || data.isoCode}>
+                    <Marker coordinates={data.countryCenter}>
+                      <circle
+                        r={4}
+                        fill={mapHighlightColor}
+                        stroke="white"
+                        strokeWidth="2"
+                        style={{ cursor: data.id ? 'pointer' : 'default' }}
                         onClick={() => handleLabelClick(data.id)}
-                      >
-                        {data.name}
-                      </text>
+                      />
                     </Marker>
-                  )}
-                </g>
-              );
+                    
+                    {data.labelPos && (
+                      <Marker coordinates={data.labelPos}>
+                        <text
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          style={{
+                            fontSize: '12px',
+                            fontWeight: 'bold',
+                            fill: '#1f2937',
+                            textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                            cursor: data.id ? 'pointer' : 'default',
+                          }}
+                          onClick={() => handleLabelClick(data.id)}
+                        >
+                          {data.name}
+                        </text>
+                      </Marker>
+                    )}
+                  </g>
+                );
+              }
+              return null;
             })}
           </ComposableMap>
         </div>
