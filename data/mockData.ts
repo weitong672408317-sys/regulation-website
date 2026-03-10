@@ -54,14 +54,14 @@ export const countries: CountryData[] = [
     isoCode: 'CN',
     status: '严格监管',
     productQualification: '受管控',
-    restrictions: '销售渠道限制，广告严格禁止',
+    restrictions: '专卖证，严格管控',
     regulatoryIntensity: '高',
     hasChangesThisSeason: true,
     seasonSummary: '本季度发布新的监管细则，进一步明确产品合规标准',
     regulatoryUpdates: [
-      '2024年1月：国家烟草专卖局发布《产品合规管理细则》',
-      '2024年2月：市场监管总局开展专项检查行动',
-      '2024年3月：新增产品技术标准3项'
+      '2026年1月：国家烟草专卖局发布《产品合规管理细则》',
+      '2026年2月：市场监管总局开展专项检查行动',
+      '2026年3月：新增产品技术标准3项'
     ],
     regulatorySystem: {
       overview: '中国对特殊物质产品实施严格的监管制度，由国家烟草专卖局统一管理。产品需通过严格的安全评估和质量检测方可上市销售。',
