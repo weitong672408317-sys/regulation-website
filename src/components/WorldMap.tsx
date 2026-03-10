@@ -16,7 +16,7 @@ const countryDataMap: Record<string, any> = {
   'Malaysia': { labelPos: [98, 0], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY' },
   'Paraguay': { labelPos: [-58, -26], countryCenter: [-58, -23], name: '巴拉圭', id: 'paraguay', isoCode: 'PY' },
   'Taiwan': { labelPos: null, countryCenter: [121, 23.5], name: '台湾', id: null, isoCode: 'TW' },
-  'Hong Kong': { labelPos: [115, 22], countryCenter: [114.17, 22.32], name: '中国香港', id: 'hongkong', isoCode: 'HK' },
+  'Hong Kong': { labelPos: [110, 22], countryCenter: [114.17, 22.32], name: '中国香港', id: 'hongkong', isoCode: 'HK' },
 };
 
 const highlightCountryNames = new Set(Object.keys(countryDataMap));

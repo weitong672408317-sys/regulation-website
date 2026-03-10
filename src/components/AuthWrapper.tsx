@@ -13,19 +13,21 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    const savedAuth = localStorage.getItem('siteAuth');
-    if (savedAuth === 'true') {
-      setIsAuthenticated(true);
-    }
-  }, []);
+  // 暂时注释掉本地存储，确保每次都需要输入密码
+  // useEffect(() => {
+  //   const savedAuth = localStorage.getItem('siteAuth');
+  //   if (savedAuth === 'true') {
+  //     setIsAuthenticated(true);
+  //   }
+  // }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === SITE_PASSWORD) {
       setIsAuthenticated(true);
       setError('');
-      localStorage.setItem('siteAuth', 'true');
+      // 暂时注释掉本地存储，确保每次都需要输入密码
+      // localStorage.setItem('siteAuth', 'true');
     } else {
       setError('密码错误，请重试');
     }
