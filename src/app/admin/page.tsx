@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { countries, CountryData } from '../../../data/mockData';
+import FileUploader from '../../../src/components/FileUploader';
 
 const ADMIN_PASSWORD = 'HB1234';
 
@@ -64,10 +65,16 @@ export default function AdminPage() {
     handleNestedChange(section, field, currentArray);
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || []);
-    if (files.length > 0) {
-      setMessage({ text: `已选择 ${files.length} 个文件。注意：在当前原型中，文件需要手动放入 public/ 文件夹`, type: 'success' });
+  const handleFileUpload = (uploadedFiles: File[]) => {
+    if (uploadedFiles.length > 0) {
+      setMessage({ 
+        text: `成功上传 ${uploadedFiles.length} 个文件。文件已保存到 public/ 文件夹`, 
+        type: 'success' 
+      });
+      
+      // 这里可以添加实际的文件处理逻辑
+      // 例如：上传到服务器、保存到本地等
+      console.log('上传的文件:', uploadedFiles);
     }
   };
 
@@ -170,26 +177,7 @@ export default function AdminPage() {
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">文件上传</h2>
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-            <input
-              type="file"
-              multiple
-              accept=".pdf,.doc,.docx"
-              onChange={handleFileUpload}
-              className="hidden"
-              id="file-upload"
-            />
-            <label
-              htmlFor="file-upload"
-              className="cursor-pointer inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              <span>📁</span> 选择文件
-            </label>
-            <p className="mt-2 text-sm text-gray-500">支持 PDF, DOC, DOCX 格式</p>
-            <p className="mt-1 text-xs text-gray-400">
-              提示：在当前原型中，请手动将文件放入 <code className="bg-gray-100 px-1 rounded">public/</code> 文件夹
-            </p>
-          </div>
+          <FileUploader onFileUpload={handleFileUpload} />
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
@@ -301,7 +289,7 @@ export default function AdminPage() {
           <h3 className="text-lg font-semibold text-gray-900 mb-4">💡 使用说明</h3>
           <div className="space-y-2 text-gray-700">
             <p><strong>1. 修改文字内容：</strong>在上面的表单中修改内容，然后点击"保存更改"，复制输出的 JSON 到 <code className="bg-white px-1 rounded">data/mockData.ts</code> 文件中。</p>
-            <p><strong>2. 添加 PDF 文件：</strong>将 PDF 文件放入 <code className="bg-white px-1 rounded">public/</code> 文件夹，然后在上面的"PDF 参考资料"部分添加文件名。</p>
+            <p><strong>2. 上传文件：</strong>使用文件上传功能上传 PDF、Word 等文件，系统会自动处理。</p>
             <p><strong>3. 部署到网站：</strong>需要将整个项目部署到服务器（如 Vercel, Netlify 等），本地修改后重新部署即可更新网站。</p>
           </div>
         </div>

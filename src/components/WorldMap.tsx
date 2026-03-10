@@ -8,13 +8,15 @@ import { countries, mapHighlightColor } from '../../data/mockData';
 const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
 const countryDataMap: Record<string, any> = {
-  'China': { labelPos: [105, 38], countryCenter: [105, 35], name: '中国', id: 'china', isoCode: 'CN' },
+  'China': { labelPos: [105, 38], countryCenter: [105, 35], name: '中国内地', id: 'china', isoCode: 'CN' },
   'Indonesia': { labelPos: [115, -3], countryCenter: [115, -5], name: '印尼', id: 'indonesia', isoCode: 'ID' },
   'United Arab Emirates': { labelPos: [54, 26], countryCenter: [54, 24], name: '阿联酋', id: 'uae', isoCode: 'AE' },
   'Russia': { labelPos: [100, 62], countryCenter: [100, 60], name: '俄罗斯', id: 'russia', isoCode: 'RU' },
   'Singapore': { labelPos: [108, 8], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG' },
   'Malaysia': { labelPos: [98, 0], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY' },
   'Paraguay': { labelPos: [-58, -26], countryCenter: [-58, -23], name: '巴拉圭', id: 'paraguay', isoCode: 'PY' },
+  'Taiwan': { labelPos: [122, 25], countryCenter: [121, 23.5], name: '台湾', id: null, isoCode: 'TW' },
+  'Hong Kong': { labelPos: [115, 22], countryCenter: [114.17, 22.32], name: '中国香港', id: 'hongkong', isoCode: 'HK' },
 };
 
 const highlightCountryNames = new Set(Object.keys(countryDataMap));
@@ -26,13 +28,15 @@ export default function WorldMap() {
   const handleCountryClick = (geo: any) => {
     const name = geo.properties?.name;
     const data = countryDataMap[name];
-    if (data) {
+    if (data && data.id) {
       router.push(`/country/${data.id}`);
     }
   };
 
-  const handleLabelClick = (countryId: string) => {
-    router.push(`/country/${countryId}`);
+  const handleLabelClick = (countryId: string | null) => {
+    if (countryId) {
+      router.push(`/country/${countryId}`);
+    }
   };
 
   const isCountryHighlighted = (geo: any) => {

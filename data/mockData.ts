@@ -50,18 +50,18 @@ export interface CountryData {
 export const countries: CountryData[] = [
   {
     id: 'china',
-    name: '中国',
+    name: '中国内地',
     isoCode: 'CN',
     status: '严格监管',
     productQualification: '受管控',
-    restrictions: '专卖证，严格管控',
+    restrictions: '销售渠道限制，广告严格禁止',
     regulatoryIntensity: '高',
     hasChangesThisSeason: true,
     seasonSummary: '本季度发布新的监管细则，进一步明确产品合规标准',
     regulatoryUpdates: [
-      '2026年1月：国家烟草专卖局发布《产品合规管理细则》',
-      '2026年2月：市场监管总局开展专项检查行动',
-      '2026年3月：新增产品技术标准3项'
+      '2024年1月：国家烟草专卖局发布《产品合规管理细则》',
+      '2024年2月：市场监管总局开展专项检查行动',
+      '2024年3月：新增产品技术标准3项'
     ],
     regulatorySystem: {
       overview: '中国对特殊物质产品实施严格的监管制度，由国家烟草专卖局统一管理。产品需通过严格的安全评估和质量检测方可上市销售。',
@@ -127,6 +127,86 @@ export const countries: CountryData[] = [
       pdfs: ['合规指南手册', '产品申报流程', '监管政策解读']
     }
   },
+  {
+    id: 'hongkong',
+    name: '中国香港',
+    isoCode: 'HK',
+    status: '严格监管',
+    productQualification: '受管控',
+    restrictions: '销售渠道限制，广告严格禁止',
+    regulatoryIntensity: '高',
+    hasChangesThisSeason: true,
+    seasonSummary: '本季度发布新的监管细则，进一步明确产品合规标准',
+    regulatoryUpdates: [
+      '2024年1月：香港卫生署发布《产品合规管理细则》',
+      '2024年2月：开展专项检查行动',
+      '2024年3月：新增产品技术标准'
+    ],
+    regulatorySystem: {
+      overview: '香港对特殊物质产品实施严格的监管制度，由卫生署统一管理。产品需通过严格的安全评估和质量检测方可上市销售。',
+      definition: '根据相关法规，含有尼古丁的产品被定义为特殊管理产品，需遵守专门的法律法规。产品分类包括但不限于：电子烟、加热不燃烧烟草制品等。'
+    },
+    accessRestrictions: {
+      electronicCigarette: {
+        prohibited: ['线上销售', '向未成年人销售', '公共场所使用', '电视广播广告'],
+        partiallyProhibited: ['特定区域实体店铺销售', '特定成分含量限制'],
+        open: ['获得许可的企业生产', '合规产品在指定渠道销售']
+      },
+      hnb: {
+        prohibited: ['线上销售', '向未成年人销售'],
+        partiallyProhibited: ['试点区域销售'],
+        open: ['获得许可的企业生产']
+      },
+      nicotinePouch: {
+        prohibited: ['销售', '进口', '使用'],
+        partiallyProhibited: [],
+        open: []
+      },
+      cigarette: {
+        prohibited: ['线上销售', '向未成年人销售', '公共场所使用', '大部分广告'],
+        partiallyProhibited: ['包装警示标识要求'],
+        open: ['烟草专卖渠道销售']
+      },
+      otherNovel: {
+        prohibited: ['销售', '进口'],
+        partiallyProhibited: [],
+        open: []
+      }
+    },
+    compliance: {
+      licenseRequirements: '生产企业需获得香港卫生署颁发的生产许可证；销售企业需获得相应的销售许可证。产品需通过强制性产品认证。'
+    },
+    tax: {
+      exciseTax: '适用高额消费税，税率根据产品类型和尼古丁含量确定。'
+    },
+    marketOperation: {
+      marketingRestrictions: '全面禁止各类形式的广告宣传，包括但不限于互联网、电视、报纸、户外广告等。不得进行任何形式的促销活动。',
+      displaySales: '仅可在获得许可的实体店铺销售，需设置明显的未成年人禁售标识。产品陈列需符合相关规定，不得诱导消费。'
+    },
+    trendsWarnings: {
+      trendAnalysis: '监管趋势持续收紧，未来可能进一步提高产品标准，扩大禁售范围。建议密切关注政策动态，确保合规经营。',
+      redLines: [
+        '严禁向未成年人销售任何产品',
+        '严禁通过互联网销售产品',
+        '严禁进行任何形式的广告宣传',
+        '严禁生产销售未获许可的产品',
+        '严禁虚假宣传产品功效'
+      ]
+    },
+    references: {
+      regulations: [
+        { title: '香港烟草控制条例', url: '#' },
+        { title: '特殊物质产品管理办法', url: '#' },
+        { title: '产品安全标准', url: '#' }
+      ],
+      news: [
+        { title: '香港卫生署发布2024年监管重点', url: '#' },
+        { title: '开展专项整治行动', url: '#' }
+      ],
+      pdfs: ['合规指南手册', '产品申报流程', '监管政策解读']
+    }
+  },
+
   {
     id: 'indonesia',
     name: '印尼',
