@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 interface FileUploaderProps {
   onFileUpload: (files: File[]) => void;
   accept?: string;
   maxFiles?: number;
   maxSize?: number; // in MB
+  countryId?: string;
 }
 
 export default function FileUploader({
@@ -14,6 +16,7 @@ export default function FileUploader({
   accept = '.pdf,.doc,.docx,.xls,.xlsx,.csv,.jpg,.jpeg,.png',
   maxFiles = 5,
   maxSize = 10,
+  countryId,
 }: FileUploaderProps) {
   const [files, setFiles] = useState<File[]>([]);
   const [error, setError] = useState<string>('');
@@ -57,11 +60,41 @@ export default function FileUploader({
     setError('');
 
     try {
-      // 模拟上传过程
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      onFileUpload(files);
+      const uploadedFiles = [];
+      
+      for (const file of files) {
+        const fileName = `${Date.now()}_${file.name}`;
+        const filePath = countryId ? `${countryId}/${fileName}` : fileName;
+        
+        // 上传文件到 Supabase 存储
+        const { data, error } = await supabase
+          .storage
+          .from('files')
+          .upload(filePath, file, {
+            cacheControl: '3600',
+            upsert: false
+          });
+        
+        if (error) {
+          throw error;
+        }
+        
+        // 获取文件的公共 URL
+        const { data: urlData } = supabase
+          .storage
+          .from('files')
+          .getPublicUrl(filePath);
+        
+        uploadedFiles.push({
+          ...file,
+          url: urlData.publicUrl
+        });
+      }
+      
+      onFileUpload(uploadedFiles);
       setFiles([]);
     } catch (err) {
+      console.error('Error uploading files:', err);
       setError('上传失败，请重试');
     } finally {
       setIsUploading(false);

@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { countries, CountryData } from '../../../data/mockData';
+import { baseCountries, CountryData, fetchCountries } from '../../../data/mockData';
 import FileUploader from '../../../src/components/FileUploader';
+import { supabase } from '../../../src/lib/supabase';
 
 const ADMIN_PASSWORD = 'HB1234';
 
@@ -11,9 +12,32 @@ export default function AdminPage() {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState('');
-  const [selectedCountry, setSelectedCountry] = useState<string>(countries[0].id);
-  const [formData, setFormData] = useState<Partial<CountryData>>(countries[0]);
+  const [countries, setCountries] = useState<CountryData[]>(baseCountries);
+  const [selectedCountry, setSelectedCountry] = useState<string>(baseCountries[0].id);
+  const [formData, setFormData] = useState<Partial<CountryData>>(baseCountries[0]);
   const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  // 从 Supabase 获取数据
+  useEffect(() => {
+    const loadCountries = async () => {
+      setLoading(true);
+      try {
+        const data = await fetchCountries();
+        setCountries(data);
+        if (data.length > 0) {
+          setSelectedCountry(data[0].id);
+          setFormData(data[0]);
+        }
+      } catch (error) {
+        console.error('Error loading countries:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadCountries();
+  }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,22 +89,76 @@ export default function AdminPage() {
     handleNestedChange(section, field, currentArray);
   };
 
-  const handleFileUpload = (uploadedFiles: File[]) => {
+  const handleFileUpload = async (uploadedFiles: any[]) => {
     if (uploadedFiles.length > 0) {
-      setMessage({ 
-        text: `成功上传 ${uploadedFiles.length} 个文件。文件已保存到 public/ 文件夹`, 
-        type: 'success' 
-      });
-      
-      // 这里可以添加实际的文件处理逻辑
-      // 例如：上传到服务器、保存到本地等
-      console.log('上传的文件:', uploadedFiles);
+      try {
+        // 提取文件 URL
+        const fileUrls = uploadedFiles.map(file => file.url);
+        
+        // 更新当前国家的 PDF 列表
+        const updatedFormData = {
+          ...formData,
+          references: {
+            ...formData.references,
+            pdfs: [...(formData.references?.pdfs || []), ...fileUrls],
+            regulations: formData.references?.regulations || [],
+            news: formData.references?.news || []
+          }
+        };
+        
+        // 保存到 Supabase
+        const { error } = await supabase
+          .from('countries')
+          .upsert(updatedFormData, { onConflict: 'id' });
+        
+        if (error) {
+          throw error;
+        }
+        
+        setMessage({ 
+          text: `成功上传 ${uploadedFiles.length} 个文件。文件已保存到云端并关联到当前国家`, 
+          type: 'success' 
+        });
+        
+        // 更新本地状态
+        setFormData(updatedFormData);
+        
+        // 重新加载数据以确保同步
+        const updatedCountries = await fetchCountries();
+        setCountries(updatedCountries);
+        
+        console.log('上传的文件:', uploadedFiles);
+      } catch (error) {
+        console.error('Error handling file upload:', error);
+        setMessage({ text: '文件处理失败，请重试', type: 'error' });
+      }
     }
   };
 
-  const handleSave = () => {
-    setMessage({ text: '内容已更新！请将以下内容复制到 data/mockData.ts 文件中', type: 'success' });
-    console.log('更新后的国家数据:', JSON.stringify(formData, null, 2));
+  const handleSave = async () => {
+    setLoading(true);
+    try {
+      // 保存到 Supabase
+      const { error } = await supabase
+        .from('countries')
+        .upsert(formData, { onConflict: 'id' });
+      
+      if (error) {
+        throw error;
+      }
+      
+      setMessage({ text: '内容已更新！全球用户都能看到新内容', type: 'success' });
+      console.log('更新后的国家数据:', JSON.stringify(formData, null, 2));
+      
+      // 重新加载数据以确保同步
+      const updatedCountries = await fetchCountries();
+      setCountries(updatedCountries);
+    } catch (error) {
+      console.error('Error saving country data:', error);
+      setMessage({ text: '保存失败，请重试', type: 'error' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!isAuthenticated) {
@@ -177,7 +255,8 @@ export default function AdminPage() {
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">文件上传</h2>
-          <FileUploader onFileUpload={handleFileUpload} />
+          <p className="text-sm text-gray-600 mb-4">上传的文件将自动保存到当前选中国家的文件夹中</p>
+          <FileUploader onFileUpload={handleFileUpload} countryId={selectedCountry} />
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">

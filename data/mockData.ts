@@ -1,3 +1,5 @@
+import { supabase } from '../src/lib/supabase';
+
 export interface ProductCategoryRestrictions {
   prohibited: string[];
   partiallyProhibited: string[];
@@ -47,7 +49,8 @@ export interface CountryData {
   };
 }
 
-export const countries: CountryData[] = [
+// 基础国家数据
+export const baseCountries: CountryData[] = [
   {
     id: 'china',
     name: '中国内地',
@@ -676,6 +679,7 @@ export const countries: CountryData[] = [
   }
 ];
 
+
 export const mapHighlightColor = '#f59e0b';
 
 export const getCountryById = (id: string): CountryData | undefined => {
@@ -685,3 +689,30 @@ export const getCountryById = (id: string): CountryData | undefined => {
 export const getCountryByIsoCode = (isoCode: string): CountryData | undefined => {
   return countries.find(country => country.isoCode === isoCode);
 };
+
+// 从 Supabase 读取数据的函数
+export const fetchCountries = async (): Promise<CountryData[]> => {
+  try {
+    const { data, error } = await supabase
+      .from('countries')
+      .select('*');
+    
+    if (error) {
+      console.error('Error fetching countries:', error);
+      return baseCountries;
+    }
+    
+    // 如果 Supabase 中有数据，使用它；否则使用基础数据
+    if (data && data.length > 0) {
+      return data as CountryData[];
+    } else {
+      return baseCountries;
+    }
+  } catch (error) {
+    console.error('Error fetching countries:', error);
+    return baseCountries;
+  }
+};
+
+// 用于初始化的默认国家数据
+export const countries: CountryData[] = baseCountries;

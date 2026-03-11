@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { getCountryById, CountryData } from '../../../../data/mockData';
+import { fetchCountries, CountryData } from '../../../../data/mockData';
 
 const productCategories = [
   { key: 'electronicCigarette', name: '电子烟' },
@@ -16,9 +16,35 @@ const productCategories = [
 export default function CountryDetail() {
   const params = useParams();
   const countryId = params.id as string;
-  const country = getCountryById(countryId);
+  const [country, setCountry] = useState<CountryData | null>(null);
+  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'prohibited' | 'partiallyProhibited' | 'open'>('prohibited');
   const [activeCategory, setActiveCategory] = useState<string>('electronicCigarette');
+
+  useEffect(() => {
+    const loadCountry = async () => {
+      try {
+        const countries = await fetchCountries();
+        const foundCountry = countries.find(c => c.id === countryId);
+        setCountry(foundCountry || null);
+      } catch (error) {
+        console.error('Error loading country:', error);
+        setCountry(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadCountry();
+  }, [countryId]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-business-orange"></div>
+      </div>
+    );
+  }
 
   if (!country) {
     return (
