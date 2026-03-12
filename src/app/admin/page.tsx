@@ -141,7 +141,8 @@ export default function AdminPage() {
         }
       } catch (error) {
         console.error('Error handling file upload:', error);
-        setMessage({ text: '文件处理失败，请重试', type: 'error' });
+        const errorMessage = error instanceof Error ? error.message : '文件处理失败，请重试';
+        setMessage({ text: errorMessage, type: 'error' });
       } finally {
         setLoading(false);
       }
@@ -166,7 +167,8 @@ export default function AdminPage() {
       }
     } catch (error) {
       console.error('Error saving country data:', error);
-      setMessage({ text: '保存失败，请重试', type: 'error' });
+      const errorMessage = error instanceof Error ? error.message : '保存失败，请重试';
+      setMessage({ text: errorMessage, type: 'error' });
     } finally {
       setLoading(false);
     }
