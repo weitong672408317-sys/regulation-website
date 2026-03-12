@@ -17,7 +17,7 @@ export async function saveCountryData(countryData: Partial<CountryData>) {
     return { success: true, message: '内容已更新！全球用户都能看到新内容' };
   } catch (error) {
     console.error('Error saving country data:', error);
-    return { success: false, message: '保存失败，请重试' };
+    return { success: false, message: (error as Error).message || '保存失败，请重试' };
   }
 }
 
@@ -49,7 +49,7 @@ export async function uploadFile(file: File, countryId: string) {
     return { success: true, url: urlData.publicUrl };
   } catch (error) {
     console.error('Error uploading file:', error);
-    return { success: false, message: '上传失败，请重试' };
+    return { success: false, message: (error as Error).message || '上传失败，请重试' };
   }
 }
 
@@ -86,6 +86,6 @@ export async function updateCountryPdfs(countryId: string, pdfUrls: string[]) {
     return { success: true, message: '文件已成功关联到国家' };
   } catch (error) {
     console.error('Error updating country PDFs:', error);
-    return { success: false, message: '更新失败，请重试' };
+    return { success: false, message: (error as Error).message || '更新失败，请重试' };
   }
 }
