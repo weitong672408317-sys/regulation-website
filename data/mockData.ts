@@ -68,7 +68,7 @@ export const baseCountries: CountryData[] = [
     ],
     regulatorySystem: {
       overview: '中国对特殊物质产品实施严格的监管制度，由国家烟草专卖局统一管理。产品需通过严格的安全评估和质量检测方可上市销售。',
-      definition: '根据相关法规，含有尼古丁的产品被定义为特殊管理产品，需遵守专门的法律法规。产品分类包括但不限于：电子烟、加热不燃烧烟草制品等。'
+      definition: '根据相关法规， 含有尼古丁的产品被定义为特殊管理产品，需遵守专门的法律法规。产品分类包括但不限于：电子烟、加热不燃烧烟草制品等。'
     },
     accessRestrictions: {
       electronicCigarette: {
