@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { fetchCountries, CountryData } from '../../../../data/mockData';
+import { CountryData } from '../../../../data/mockData';
+import { getCountries } from '../../admin/actions';
 
 const productCategories = [
   { key: 'electronicCigarette', name: '电子烟' },
@@ -24,7 +25,7 @@ export default function CountryDetail() {
   useEffect(() => {
     const loadCountry = async () => {
       try {
-        const countries = await fetchCountries();
+        const countries = await getCountries();
         const foundCountry = countries.find(c => c.id === countryId);
         setCountry(foundCountry || null);
       } catch (error) {

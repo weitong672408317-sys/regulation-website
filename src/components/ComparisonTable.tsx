@@ -2,7 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { baseCountries, fetchCountries, CountryData } from '../../data/mockData';
+import { baseCountries, CountryData } from '../../data/mockData';
+import { getCountries } from '../app/admin/actions';
 
 export default function ComparisonTable() {
   const router = useRouter();
@@ -12,10 +13,11 @@ export default function ComparisonTable() {
   useEffect(() => {
     const loadCountries = async () => {
       try {
-        const data = await fetchCountries();
-        setCountries(data);
+        const data = await getCountries();
+        setCountries(data.length > 0 ? data : baseCountries);
       } catch (error) {
         console.error('Error loading countries:', error);
+        setCountries(baseCountries);
       } finally {
         setLoading(false);
       }

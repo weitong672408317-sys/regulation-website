@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { baseCountries, CountryData, fetchCountries } from '../../../data/mockData';
+import { baseCountries, CountryData } from '../../../data/mockData';
 import FileUploader from '../../../src/components/FileUploader';
-import { supabase } from '../../../src/lib/supabase';
+import { saveCountryData, getCountries, uploadFile, updateCountryPdfs } from './actions';
 
 const ADMIN_PASSWORD = 'HB1234';
 
@@ -18,19 +18,24 @@ export default function AdminPage() {
   const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // 从 Supabase 获取数据
+  // 从服务器获取数据
   useEffect(() => {
     const loadCountries = async () => {
       setLoading(true);
       try {
-        const data = await fetchCountries();
-        setCountries(data);
+        const data = await getCountries();
+        setCountries(data.length > 0 ? data : baseCountries);
         if (data.length > 0) {
           setSelectedCountry(data[0].id);
           setFormData(data[0]);
         }
       } catch (error) {
         console.error('Error loading countries:', error);
+        setCountries(baseCountries);
+        if (baseCountries.length > 0) {
+          setSelectedCountry(baseCountries[0].id);
+          setFormData(baseCountries[0]);
+        }
       } finally {
         setLoading(false);
       }
@@ -89,48 +94,56 @@ export default function AdminPage() {
     handleNestedChange(section, field, currentArray);
   };
 
-  const handleFileUpload = async (uploadedFiles: any[]) => {
-    if (uploadedFiles.length > 0) {
+  const handleFileUpload = async (files: File[]) => {
+    if (files.length > 0) {
+      setLoading(true);
       try {
-        // 提取文件 URL
-        const fileUrls = uploadedFiles.map(file => file.url);
+        const fileUrls = [];
         
-        // 更新当前国家的 PDF 列表
-        const updatedFormData = {
-          ...formData,
-          references: {
-            ...formData.references,
-            pdfs: [...(formData.references?.pdfs || []), ...fileUrls],
-            regulations: formData.references?.regulations || [],
-            news: formData.references?.news || []
+        // 逐个上传文件
+        for (const file of files) {
+          const result = await uploadFile(file, selectedCountry);
+          if (result.success) {
+            fileUrls.push(result.url);
+          } else {
+            throw new Error(result.message || '文件上传失败');
           }
-        };
-        
-        // 保存到 Supabase
-        const { error } = await supabase
-          .from('countries')
-          .upsert(updatedFormData, { onConflict: 'id' });
-        
-        if (error) {
-          throw error;
         }
         
-        setMessage({ 
-          text: `成功上传 ${uploadedFiles.length} 个文件。文件已保存到云端并关联到当前国家`, 
-          type: 'success' 
-        });
+        // 更新国家的 PDF 列表
+        const existingPdfs = formData.references?.pdfs || [];
+        const updatedPdfs = [...existingPdfs.filter(Boolean), ...fileUrls] as string[];
         
-        // 更新本地状态
-        setFormData(updatedFormData);
+        const updateResult = await updateCountryPdfs(selectedCountry, updatedPdfs);
         
-        // 重新加载数据以确保同步
-        const updatedCountries = await fetchCountries();
-        setCountries(updatedCountries);
-        
-        console.log('上传的文件:', uploadedFiles);
+        if (updateResult.success) {
+          setMessage({ 
+            text: `成功上传 ${files.length} 个文件。文件已保存到云端并关联到当前国家`, 
+            type: 'success' 
+          });
+          
+          // 更新本地状态
+          setFormData(prev => ({
+            ...prev,
+            references: {
+              ...prev.references,
+              pdfs: updatedPdfs,
+              regulations: prev.references?.regulations || [],
+              news: prev.references?.news || []
+            }
+          }));
+          
+          // 重新加载数据以确保同步
+          const updatedCountries = await getCountries();
+          setCountries(updatedCountries.length > 0 ? updatedCountries : baseCountries);
+        } else {
+          setMessage({ text: updateResult.message, type: 'error' });
+        }
       } catch (error) {
         console.error('Error handling file upload:', error);
         setMessage({ text: '文件处理失败，请重试', type: 'error' });
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -138,21 +151,19 @@ export default function AdminPage() {
   const handleSave = async () => {
     setLoading(true);
     try {
-      // 保存到 Supabase
-      const { error } = await supabase
-        .from('countries')
-        .upsert(formData, { onConflict: 'id' });
+      // 使用 Server Action 保存数据
+      const result = await saveCountryData(formData);
       
-      if (error) {
-        throw error;
+      if (result.success) {
+        setMessage({ text: result.message, type: 'success' });
+        console.log('更新后的国家数据:', JSON.stringify(formData, null, 2));
+        
+        // 重新加载数据以确保同步
+        const updatedCountries = await getCountries();
+        setCountries(updatedCountries.length > 0 ? updatedCountries : baseCountries);
+      } else {
+        setMessage({ text: result.message, type: 'error' });
       }
-      
-      setMessage({ text: '内容已更新！全球用户都能看到新内容', type: 'success' });
-      console.log('更新后的国家数据:', JSON.stringify(formData, null, 2));
-      
-      // 重新加载数据以确保同步
-      const updatedCountries = await fetchCountries();
-      setCountries(updatedCountries);
     } catch (error) {
       console.error('Error saving country data:', error);
       setMessage({ text: '保存失败，请重试', type: 'error' });

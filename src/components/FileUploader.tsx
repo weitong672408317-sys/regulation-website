@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { supabase } from '../lib/supabase';
 
 interface FileUploaderProps {
   onFileUpload: (files: File[]) => void;
@@ -60,38 +59,8 @@ export default function FileUploader({
     setError('');
 
     try {
-      const uploadedFiles = [];
-      
-      for (const file of files) {
-        const fileName = `${Date.now()}_${file.name}`;
-        const filePath = countryId ? `${countryId}/${fileName}` : fileName;
-        
-        // 上传文件到 Supabase 存储
-        const { data, error } = await supabase
-          .storage
-          .from('files')
-          .upload(filePath, file, {
-            cacheControl: '3600',
-            upsert: false
-          });
-        
-        if (error) {
-          throw error;
-        }
-        
-        // 获取文件的公共 URL
-        const { data: urlData } = supabase
-          .storage
-          .from('files')
-          .getPublicUrl(filePath);
-        
-        uploadedFiles.push({
-          ...file,
-          url: urlData.publicUrl
-        });
-      }
-      
-      onFileUpload(uploadedFiles);
+      // 直接返回选择的文件，由父组件通过 Server Action 处理上传
+      onFileUpload(files);
       setFiles([]);
     } catch (err) {
       console.error('Error uploading files:', err);
