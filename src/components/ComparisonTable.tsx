@@ -1,30 +1,11 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
 import { baseCountries, CountryData } from '../../data/mockData';
-import { getCountries } from '../app/admin/actions';
 
 export default function ComparisonTable() {
   const router = useRouter();
-  const [countries, setCountries] = useState<CountryData[]>(baseCountries);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadCountries = async () => {
-      try {
-        const data = await getCountries();
-        setCountries(data.length > 0 ? data : baseCountries);
-      } catch (error) {
-        console.error('Error loading countries:', error);
-        setCountries(baseCountries);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadCountries();
-  }, []);
+  const countries: CountryData[] = baseCountries;
 
   const getIntensityColor = (intensity: string) => {
     switch (intensity) {
@@ -38,14 +19,6 @@ export default function ComparisonTable() {
         return 'bg-gray-100 text-gray-800';
     }
   };
-
-  if (loading) {
-    return (
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-business-orange"></div>
-      </div>
-    );
-  }
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">

@@ -10,7 +10,7 @@ console.log('SUPABASE_CONFIG: Using URL:', supabaseUrl);
 console.log('SUPABASE_CONFIG: URL length:', supabaseUrl.length);
 console.log('SUPABASE_CONFIG: URL ends with supabase.co:', supabaseUrl.endsWith('supabase.co'));
 
-let supabase: SupabaseClient;
+let supabase: SupabaseClient | null = null;
 try {
   supabase = createClient(supabaseUrl, supabaseAnonKey);
   console.log('SUPABASE_CONFIG: Client initialized successfully');
@@ -18,7 +18,8 @@ try {
   console.error('SUPABASE_CONFIG: Failed to initialize client:', error);
   console.error('SUPABASE_CONFIG: URL length:', supabaseUrl.length);
   console.error('SUPABASE_CONFIG: URL characters:', Array.from(supabaseUrl).map((char, index) => ({ index, char, code: char.charCodeAt(0) })));
-  throw error;
+  // 不再抛出错误，允许应用继续运行
+  console.warn('SUPABASE_CONFIG: Continuing without Supabase');
 }
 
 export { supabase };

@@ -49,8 +49,8 @@ export interface CountryData {
   };
 }
 
-// 基础国家数据
-export const baseCountries: CountryData[] = [
+// 基础国家数据 - 作为备份，当无法读取 data.json 时使用
+const fallbackCountries: CountryData[] = [
   {
     id: 'china',
     name: '中国内地',
@@ -209,7 +209,6 @@ export const baseCountries: CountryData[] = [
       pdfs: ['合规指南手册', '产品申报流程', '监管政策解读']
     }
   },
-
   {
     id: 'indonesia',
     name: '印尼',
@@ -679,15 +678,18 @@ export const baseCountries: CountryData[] = [
   }
 ];
 
-
+// 地图高亮颜色
 export const mapHighlightColor = '#f59e0b';
 
+// 基础国家数据 - 直接使用 fallbackCountries 确保客户端和服务器端都能正常工作
+export const baseCountries: CountryData[] = fallbackCountries;
+
 export const getCountryById = (id: string): CountryData | undefined => {
-  return countries.find(country => country.id === id);
+  return baseCountries.find(country => country.id === id);
 };
 
 export const getCountryByIsoCode = (isoCode: string): CountryData | undefined => {
-  return countries.find(country => country.isoCode === isoCode);
+  return baseCountries.find(country => country.isoCode === isoCode);
 };
 
 // 用于初始化的默认国家数据

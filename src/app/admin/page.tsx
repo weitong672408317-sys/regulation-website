@@ -1,48 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { baseCountries, CountryData } from '../../../data/mockData';
-import FileUploader from '../../../src/components/FileUploader';
-import { saveCountryData, getCountries, uploadFile, updateCountryPdfs } from './actions';
 
 const ADMIN_PASSWORD = 'HB1234';
+
+// 假设你的 GitHub 仓库地址
+const GITHUB_REPO = 'https://github.com/your-username/regulation-website';
 
 export default function AdminPage() {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState('');
-  const [countries, setCountries] = useState<CountryData[]>(baseCountries);
-  const [selectedCountry, setSelectedCountry] = useState<string>(baseCountries[0].id);
-  const [formData, setFormData] = useState<Partial<CountryData>>(baseCountries[0]);
-  const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  // 从服务器获取数据
-  useEffect(() => {
-    const loadCountries = async () => {
-      setLoading(true);
-      try {
-        const data = await getCountries();
-        setCountries(data.length > 0 ? data : baseCountries);
-        if (data.length > 0) {
-          setSelectedCountry(data[0].id);
-          setFormData(data[0]);
-        }
-      } catch (error) {
-        console.error('Error loading countries:', error);
-        setCountries(baseCountries);
-        if (baseCountries.length > 0) {
-          setSelectedCountry(baseCountries[0].id);
-          setFormData(baseCountries[0]);
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadCountries();
-  }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,126 +20,6 @@ export default function AdminPage() {
       setError('');
     } else {
       setError('密码错误，请重试');
-    }
-  };
-
-  const handleCountryChange = (countryId: string) => {
-    const country = countries.find(c => c.id === countryId);
-    if (country) {
-      setSelectedCountry(countryId);
-      setFormData(country);
-    }
-  };
-
-  const handleInputChange = (field: string, value: any) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const handleNestedChange = (section: string, field: string, value: any) => {
-    setFormData(prev => ({
-      ...prev,
-      [section]: {
-        ...(prev as any)[section],
-        [field]: value
-      }
-    }));
-  };
-
-  const handleArrayChange = (section: string, field: string, index: number, value: string) => {
-    const currentArray = [...((formData as any)[section]?.[field] || [])];
-    currentArray[index] = value;
-    handleNestedChange(section, field, currentArray);
-  };
-
-  const addArrayItem = (section: string, field: string) => {
-    const currentArray = [...((formData as any)[section]?.[field] || [])];
-    currentArray.push('');
-    handleNestedChange(section, field, currentArray);
-  };
-
-  const removeArrayItem = (section: string, field: string, index: number) => {
-    const currentArray = [...((formData as any)[section]?.[field] || [])];
-    currentArray.splice(index, 1);
-    handleNestedChange(section, field, currentArray);
-  };
-
-  const handleFileUpload = async (files: File[]) => {
-    if (files.length > 0) {
-      setLoading(true);
-      try {
-        const fileUrls = [];
-        
-        // 逐个上传文件
-        for (const file of files) {
-          const result = await uploadFile(file, selectedCountry);
-          if (result.success) {
-            fileUrls.push(result.url);
-          } else {
-            throw new Error(result.message || '文件上传失败');
-          }
-        }
-        
-        // 更新国家的 PDF 列表
-        const existingPdfs = formData.references?.pdfs || [];
-        const updatedPdfs = [...existingPdfs.filter(Boolean), ...fileUrls] as string[];
-        
-        const updateResult = await updateCountryPdfs(selectedCountry, updatedPdfs);
-        
-        if (updateResult.success) {
-          setMessage({ 
-            text: `成功上传 ${files.length} 个文件。文件已保存到云端并关联到当前国家`, 
-            type: 'success' 
-          });
-          
-          // 更新本地状态
-          setFormData(prev => ({
-            ...prev,
-            references: {
-              ...prev.references,
-              pdfs: updatedPdfs,
-              regulations: prev.references?.regulations || [],
-              news: prev.references?.news || []
-            }
-          }));
-          
-          // 重新加载数据以确保同步
-          const updatedCountries = await getCountries();
-          setCountries(updatedCountries.length > 0 ? updatedCountries : baseCountries);
-        } else {
-          setMessage({ text: updateResult.message, type: 'error' });
-        }
-      } catch (error) {
-        console.error('Error handling file upload:', error);
-        const errorMessage = error instanceof Error ? error.message : '文件处理失败，请重试';
-        setMessage({ text: errorMessage, type: 'error' });
-      } finally {
-        setLoading(false);
-      }
-    }
-  };
-
-  const handleSave = async () => {
-    setLoading(true);
-    try {
-      // 使用 Server Action 保存数据
-      const result = await saveCountryData(formData);
-      
-      if (result.success) {
-        setMessage({ text: result.message, type: 'success' });
-        console.log('更新后的国家数据:', JSON.stringify(formData, null, 2));
-        
-        // 重新加载数据以确保同步
-        const updatedCountries = await getCountries();
-        setCountries(updatedCountries.length > 0 ? updatedCountries : baseCountries);
-      } else {
-        setMessage({ text: result.message, type: 'error' });
-      }
-    } catch (error) {
-      console.error('Error saving country data:', error);
-      const errorMessage = error instanceof Error ? error.message : '保存失败，请重试';
-      setMessage({ text: errorMessage, type: 'error' });
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -241,148 +90,58 @@ export default function AdminPage() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {message && (
-          <div className={`mb-6 p-4 rounded-lg ${message.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
-            {message.text}
-          </div>
-        )}
-
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">选择要编辑的国家</h2>
-          <div className="flex flex-wrap gap-2">
-            {countries.map(country => (
-              <button
-                key={country.id}
-                onClick={() => handleCountryChange(country.id)}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  selectedCountry === country.id
-                    ? 'bg-business-orange text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {country.name}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">文件上传</h2>
-          <p className="text-sm text-gray-600 mb-4">上传的文件将自动保存到当前选中国家的文件夹中</p>
-          <FileUploader onFileUpload={handleFileUpload} countryId={selectedCountry} />
-        </div>
-
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">基本信息</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">国家名称</label>
-              <input
-                type="text"
-                value={formData.name || ''}
-                onChange={(e) => handleInputChange('name', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-business-orange focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">总体状态</label>
-              <input
-                type="text"
-                value={formData.status || ''}
-                onChange={(e) => handleInputChange('status', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-business-orange focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">本季动态摘要</label>
-              <textarea
-                value={formData.seasonSummary || ''}
-                onChange={(e) => handleInputChange('seasonSummary', e.target.value)}
-                rows={2}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-business-orange focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">本季是否有变化</label>
-              <select
-                value={formData.hasChangesThisSeason ? 'true' : 'false'}
-                onChange={(e) => handleInputChange('hasChangesThisSeason', e.target.value === 'true')}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-business-orange focus:border-transparent"
-              >
-                <option value="true">是</option>
-                <option value="false">否</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">监管体系与定义</h2>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">监管概述</label>
-              <textarea
-                value={formData.regulatorySystem?.overview || ''}
-                onChange={(e) => handleNestedChange('regulatorySystem', 'overview', e.target.value)}
-                rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-business-orange focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">品类定义</label>
-              <textarea
-                value={formData.regulatorySystem?.definition || ''}
-                onChange={(e) => handleNestedChange('regulatorySystem', 'definition', e.target.value)}
-                rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-business-orange focus:border-transparent"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">PDF 参考资料</h2>
-          <div className="space-y-2">
-            {(formData.references?.pdfs || []).map((pdf, index) => (
-              <div key={index} className="flex gap-2">
-                <input
-                  type="text"
-                  value={pdf}
-                  onChange={(e) => handleArrayChange('references', 'pdfs', index, e.target.value)}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-business-orange focus:border-transparent"
-                />
-                <button
-                  onClick={() => removeArrayItem('references', 'pdfs', index)}
-                  className="px-3 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200"
-                >
-                  删除
-                </button>
-              </div>
-            ))}
-            <button
-              onClick={() => addArrayItem('references', 'pdfs')}
-              className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 flex flex-col items-center justify-center text-center">
+            <div className="text-5xl mb-4">📝</div>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">修改网站内容</h2>
+            <p className="text-gray-600 mb-6">点击下方按钮前往 GitHub 编辑 data.json 文件</p>
+            <a 
+              href={`${GITHUB_REPO}/edit/main/data.json`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-business-orange text-white rounded-lg hover:opacity-90 transition-opacity font-medium"
             >
-              + 添加 PDF
-            </button>
+              前往 GitHub 修改内容
+            </a>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 flex flex-col items-center justify-center text-center">
+            <div className="text-5xl mb-4">📁</div>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">上传文件</h2>
+            <p className="text-gray-600 mb-6">点击下方按钮前往 GitHub 上传文件到 public/pdfs 文件夹</p>
+            <a 
+              href={`${GITHUB_REPO}/upload/main/public/pdfs`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-business-orange text-white rounded-lg hover:opacity-90 transition-opacity font-medium"
+            >
+              前往 GitHub 上传文件
+            </a>
           </div>
         </div>
 
-        <div className="flex justify-end">
-          <button
-            onClick={handleSave}
-            className="px-6 py-3 bg-business-orange text-white rounded-lg hover:opacity-90 transition-opacity font-medium"
-          >
-            保存更改
-          </button>
-        </div>
-
-        <div className="mt-8 bg-gray-50 rounded-lg p-6 border border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">💡 使用说明</h3>
-          <div className="space-y-2 text-gray-700">
-            <p><strong>1. 修改文字内容：</strong>在上面的表单中修改内容，然后点击"保存更改"，复制输出的 JSON 到 <code className="bg-white px-1 rounded">data/mockData.ts</code> 文件中。</p>
-            <p><strong>2. 上传文件：</strong>使用文件上传功能上传 PDF、Word 等文件，系统会自动处理。</p>
-            <p><strong>3. 部署到网站：</strong>需要将整个项目部署到服务器（如 Vercel, Netlify 等），本地修改后重新部署即可更新网站。</p>
+        <div className="bg-gray-50 rounded-lg p-8 border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6">💡 操作指南</h3>
+          <div className="space-y-4 text-gray-700">
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-medium text-gray-900 mb-2">1. 修改网站内容</h4>
+              <p>点击"前往 GitHub 修改内容"按钮，在 GitHub 编辑器中修改 data.json 文件，然后点击"Commit changes"保存更改。</p>
+            </div>
+            
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-medium text-gray-900 mb-2">2. 上传文件</h4>
+              <p>点击"前往 GitHub 上传文件"按钮，将 PDF、Word 等文件上传到 public/pdfs 文件夹，然后点击"Commit changes"保存更改。</p>
+            </div>
+            
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-medium text-gray-900 mb-2">3. 自动部署</h4>
+              <p>修改 JSON 文件并保存（Commit）后，Vercel 会在 1 分钟内自动重新部署并更新网页内容。</p>
+            </div>
+            
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h4 className="font-medium text-gray-900 mb-2">4. 查看更新</h4>
+              <p>部署完成后，刷新网站即可看到最新的内容。</p>
+            </div>
           </div>
         </div>
       </main>
