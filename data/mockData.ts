@@ -118,16 +118,9 @@ const fallbackCountries: CountryData[] = [
       ]
     },
     references: {
-      regulations: [
-        { title: '中华人民共和国烟草专卖法', url: '#' },
-        { title: '特殊物质产品管理办法', url: '#' },
-        { title: '产品安全国家标准', url: '#' }
-      ],
-      news: [
-        { title: '国家烟草专卖局发布2024年监管重点', url: '#' },
-        { title: '市场监管总局开展专项整治行动', url: '#' }
-      ],
-      pdfs: ['合规指南手册', '产品申报流程', '监管政策解读']
+      regulations: [],
+      news: [],
+      pdfs: []
     }
   },
   {
@@ -197,16 +190,9 @@ const fallbackCountries: CountryData[] = [
       ]
     },
     references: {
-      regulations: [
-        { title: '香港烟草控制条例', url: '#' },
-        { title: '特殊物质产品管理办法', url: '#' },
-        { title: '产品安全标准', url: '#' }
-      ],
-      news: [
-        { title: '香港卫生署发布2024年监管重点', url: '#' },
-        { title: '开展专项整治行动', url: '#' }
-      ],
-      pdfs: ['合规指南手册', '产品申报流程', '监管政策解读']
+      regulations: [],
+      news: [],
+      pdfs: []
     }
   },
   {
@@ -275,16 +261,9 @@ const fallbackCountries: CountryData[] = [
       ]
     },
     references: {
-      regulations: [
-        { title: '印度尼西亚卫生部第XX号条例', url: '#' },
-        { title: '产品注册管理规定', url: '#' },
-        { title: '包装标识标准', url: '#' }
-      ],
-      news: [
-        { title: '印尼卫生部加强产品监管', url: '#' },
-        { title: '税务总局发布消费税征管细则', url: '#' }
-      ],
-      pdfs: ['注册申请指南', '产品检测要求', '税务申报手册']
+      regulations: [],
+      news: [],
+      pdfs: []
     }
   },
   {
@@ -354,16 +333,9 @@ const fallbackCountries: CountryData[] = [
       ]
     },
     references: {
-      regulations: [
-        { title: '阿联酋FDA产品管理规定', url: '#' },
-        { title: '迪拜自由区许可政策', url: '#' },
-        { title: '消费税法实施细则', url: '#' }
-      ],
-      news: [
-        { title: '阿联酋FDA简化许可流程', url: '#' },
-        { title: '迪拜自由区推出企业优惠政策', url: '#' }
-      ],
-      pdfs: ['FDA注册指南', '迪拜自由区投资手册', '税务合规指南']
+      regulations: [],
+      news: [],
+      pdfs: []
     }
   },
   {
@@ -432,16 +404,9 @@ const fallbackCountries: CountryData[] = [
       ]
     },
     references: {
-      regulations: [
-        { title: '俄罗斯联邦烟草制品管理法', url: '#' },
-        { title: '技术法规要求', url: '#' },
-        { title: '消费者权益保护法', url: '#' }
-      ],
-      news: [
-        { title: '俄联邦加强市场监管', url: '#' },
-        { title: '烟草税调整政策解读', url: '#' }
-      ],
-      pdfs: ['合规经营手册', '产品认证指南', '税务申报流程']
+      regulations: [],
+      news: [],
+      pdfs: []
     }
   },
   {
@@ -511,16 +476,9 @@ const fallbackCountries: CountryData[] = [
       ]
     },
     references: {
-      regulations: [
-        { title: '新加坡烟草（广告和销售控制）法', url: '#' },
-        { title: '卫生科学局公告', url: '#' },
-        { title: '海关禁运清单', url: '#' }
-      ],
-      news: [
-        { title: '新加坡加大执法力度', url: '#' },
-        { title: 'HSA发布最新禁令', url: '#' }
-      ],
-      pdfs: ['禁令解读手册', '执法案例汇编']
+      regulations: [],
+      news: [],
+      pdfs: []
     }
   },
   {
@@ -588,14 +546,9 @@ const fallbackCountries: CountryData[] = [
       ]
     },
     references: {
-      regulations: [
-        { title: '马来西亚烟草控制法', url: '#' },
-        { title: '卫生部禁令', url: '#' }
-      ],
-      news: [
-        { title: '马来西亚加强边境检查', url: '#' }
-      ],
-      pdfs: ['政策解读']
+      regulations: [],
+      news: [],
+      pdfs: []
     }
   },
   {
@@ -664,16 +617,9 @@ const fallbackCountries: CountryData[] = [
       ]
     },
     references: {
-      regulations: [
-        { title: '巴拉圭消费者保护法', url: '#' },
-        { title: '产品安全指南', url: '#' },
-        { title: '工商登记管理规定', url: '#' }
-      ],
-      news: [
-        { title: '巴拉圭出台新监管框架', url: '#' },
-        { title: '市场开放政策解读', url: '#' }
-      ],
-      pdfs: ['市场准入指南', '工商注册流程', '投资机会分析']
+      regulations: [],
+      news: [],
+      pdfs: []
     }
   }
 ];

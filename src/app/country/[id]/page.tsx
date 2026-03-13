@@ -246,38 +246,50 @@ export default function CountryDetail() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">法规汇编</h3>
-                <ul className="space-y-2">
-                  {country.references.regulations.map((reg, index) => (
-                    <li key={index}>
-                      <a href={reg.url} className="text-blue-600 hover:underline">{reg.title}</a>
-                    </li>
-                  ))}
-                </ul>
+                {country.references.regulations.length > 0 ? (
+                  <ul className="space-y-2">
+                    {country.references.regulations.map((reg, index) => (
+                      <li key={index}>
+                        <a href={reg.url} className="text-blue-600 hover:underline">{reg.title}</a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-500 italic">资料收录中...</p>
+                )}
               </div>
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">重要资讯</h3>
-                <ul className="space-y-2">
-                  {country.references.news.map((news, index) => (
-                    <li key={index}>
-                      <a href={news.url} className="text-blue-600 hover:underline">{news.title}</a>
-                    </li>
-                  ))}
-                </ul>
+                {country.references.news.length > 0 ? (
+                  <ul className="space-y-2">
+                    {country.references.news.map((news, index) => (
+                      <li key={index}>
+                        <a href={news.url} className="text-blue-600 hover:underline">{news.title}</a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-500 italic">资料收录中...</p>
+                )}
               </div>
             </div>
             <div className="mt-6">
               <h3 className="text-lg font-medium text-gray-900 mb-3">PDF 下载</h3>
-              <div className="flex flex-wrap gap-3">
-                {country.references.pdfs.map((pdf, index) => (
-                  <button
-                    key={index}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg transition-colors"
-                  >
-                    <span>📄</span>
-                    {pdf}
-                  </button>
-                ))}
-              </div>
+              {country.references.pdfs.length > 0 ? (
+                <div className="flex flex-wrap gap-3">
+                  {country.references.pdfs.map((pdf, index) => (
+                    <button
+                      key={index}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg transition-colors"
+                    >
+                      <span>📄</span>
+                      {pdf}
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500 italic">资料收录中...</p>
+              )}
             </div>
           </div>
         </section>
