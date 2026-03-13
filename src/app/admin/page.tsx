@@ -53,11 +53,16 @@ export default function AdminPage() {
         if (titleInputRef.current) titleInputRef.current.value = '';
         if (fileInputRef.current) fileInputRef.current.value = '';
       } else {
-        setMessage({ text: result.message || '上传失败，请重试', type: 'error' });
+        let errorText = result.message || '上传失败，请重试';
+        if (result.errorDetails) {
+          errorText += `\n\n详细信息：${JSON.stringify(result.errorDetails, null, 2)}`;
+        }
+        setMessage({ text: errorText, type: 'error' });
       }
     } catch (error) {
       console.error('Upload error:', error);
-      setMessage({ text: '上传失败，请重试', type: 'error' });
+      const errorText = error instanceof Error ? error.message : '上传失败，请重试';
+      setMessage({ text: errorText, type: 'error' });
     } finally {
       setUploading(false);
     }
@@ -207,7 +212,7 @@ export default function AdminPage() {
 
               <div className="p-6">
                 {message && (
-                  <div className={`mb-4 p-4 rounded-lg ${
+                  <div className={`mb-4 p-4 rounded-lg whitespace-pre-wrap ${
                     message.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'
                   }`}>
                     {message.text}
