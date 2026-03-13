@@ -45,7 +45,7 @@ export interface CountryData {
   references: {
     regulations: { title: string; url: string }[];
     news: { title: string; url: string }[];
-    pdfs: string[];
+    pdfs: { title: string; url: string }[];
   };
 }
 

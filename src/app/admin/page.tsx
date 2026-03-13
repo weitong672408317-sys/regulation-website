@@ -14,10 +14,11 @@ export default function AdminPage() {
   const [selectedCountry, setSelectedCountry] = useState<string>('');
   const [activeTab, setActiveTab] = useState<'regulations' | 'news' | 'files'>('regulations');
   const [uploading, setUploading] = useState(false);
-  const [uploadedData, setUploadedData] = useState<{ title: string; url: string } | null>(null);
+  const [generatedData, setGeneratedData] = useState<{ title: string; url: string } | null>(null);
   const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
   
   const titleInputRef = useRef<HTMLInputElement>(null);
+  const urlInputRef = useRef<HTMLInputElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleLogin = (e: React.FormEvent) => {
@@ -28,6 +29,22 @@ export default function AdminPage() {
     } else {
       setError('密码错误，请重试');
     }
+  };
+
+  const handleUrlSubmit = () => {
+    const title = titleInputRef.current?.value;
+    const url = urlInputRef.current?.value;
+    
+    if (!title || !url) {
+      setMessage({ text: '请填写标题和链接', type: 'error' });
+      return;
+    }
+
+    setGeneratedData({ title, url });
+    setMessage({ text: '链接信息已生成！请复制下方的 JSON 对象', type: 'success' });
+    
+    if (titleInputRef.current) titleInputRef.current.value = '';
+    if (urlInputRef.current) urlInputRef.current.value = '';
   };
 
   const handleFileUpload = async () => {
@@ -41,7 +58,7 @@ export default function AdminPage() {
 
     setUploading(true);
     setMessage(null);
-    setUploadedData(null);
+    setGeneratedData(null);
 
     try {
       const formData = new FormData();
@@ -52,7 +69,7 @@ export default function AdminPage() {
       const result = await uploadFile(formData);
       
       if (result.success && result.url) {
-        setUploadedData({ title, url: result.url });
+        setGeneratedData({ title, url: result.url });
         setMessage({ text: '上传成功！请复制下方的 JSON 对象', type: 'success' });
         
         if (titleInputRef.current) titleInputRef.current.value = '';
@@ -139,7 +156,7 @@ export default function AdminPage() {
           <Link href="/" className="text-gray-600 hover:text-gray-900 flex items-center gap-2">
             <span>←</span> 返回首页
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">文件管理中心</h1>
+          <h1 className="text-2xl font-bold text-gray-900">内容管理中心</h1>
           <button
             onClick={() => setIsAuthenticated(false)}
             className="text-gray-600 hover:text-gray-900 text-sm"
@@ -158,7 +175,7 @@ export default function AdminPage() {
                 key={country.id}
                 onClick={() => {
                   setSelectedCountry(country.id);
-                  setUploadedData(null);
+                  setGeneratedData(null);
                   setMessage(null);
                 }}
                 className={`px-4 py-2 rounded-lg transition-colors ${
@@ -177,14 +194,18 @@ export default function AdminPage() {
           <>
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mb-6">
               <p className="text-blue-900 font-medium">
-                正在为【{baseCountries.find(c => c.id === selectedCountry)?.name}】管理文件...
+                正在为【{baseCountries.find(c => c.id === selectedCountry)?.name}】管理内容...
               </p>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
               <div className="flex border-b border-gray-200">
                 <button
-                  onClick={() => setActiveTab('regulations')}
+                  onClick={() => {
+                    setActiveTab('regulations');
+                    setGeneratedData(null);
+                    setMessage(null);
+                  }}
                   className={`flex-1 px-6 py-4 font-medium transition-colors ${
                     activeTab === 'regulations'
                       ? 'text-business-orange border-b-2 border-business-orange bg-orange-50'
@@ -194,7 +215,11 @@ export default function AdminPage() {
                   📜 法规链接
                 </button>
                 <button
-                  onClick={() => setActiveTab('news')}
+                  onClick={() => {
+                    setActiveTab('news');
+                    setGeneratedData(null);
+                    setMessage(null);
+                  }}
                   className={`flex-1 px-6 py-4 font-medium transition-colors ${
                     activeTab === 'news'
                       ? 'text-business-orange border-b-2 border-business-orange bg-orange-50'
@@ -204,7 +229,11 @@ export default function AdminPage() {
                   📰 资讯链接
                 </button>
                 <button
-                  onClick={() => setActiveTab('files')}
+                  onClick={() => {
+                    setActiveTab('files');
+                    setGeneratedData(null);
+                    setMessage(null);
+                  }}
                   className={`flex-1 px-6 py-4 font-medium transition-colors ${
                     activeTab === 'files'
                       ? 'text-business-orange border-b-2 border-business-orange bg-orange-50'
@@ -236,23 +265,42 @@ export default function AdminPage() {
                   />
                 </div>
 
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    选择文件
-                  </label>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.gif"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
-                  />
-                  <p className="text-sm text-gray-500 mt-1">
-                    支持 PDF、Word、Excel、图片格式
-                  </p>
-                </div>
+                {(activeTab === 'regulations' || activeTab === 'news') && (
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      网页链接 (URL)
+                    </label>
+                    <input
+                      ref={urlInputRef}
+                      type="url"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-business-orange focus:border-transparent"
+                      placeholder="https://example.com/article"
+                    />
+                    <p className="text-sm text-gray-500 mt-1">
+                      请输入完整的网页链接地址
+                    </p>
+                  </div>
+                )}
+
+                {activeTab === 'files' && (
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      选择文件
+                    </label>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.gif"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                    />
+                    <p className="text-sm text-gray-500 mt-1">
+                      支持 PDF、Word、Excel、图片格式
+                    </p>
+                  </div>
+                )}
 
                 <button
-                  onClick={handleFileUpload}
+                  onClick={activeTab === 'files' ? handleFileUpload : handleUrlSubmit}
                   disabled={uploading}
                   className={`w-full py-3 rounded-lg font-medium transition-colors ${
                     uploading
@@ -266,22 +314,24 @@ export default function AdminPage() {
                       上传中...
                     </span>
                   ) : (
-                    '上传文件'
+                    activeTab === 'files' ? '上传文件' : '生成链接'
                   )}
                 </button>
 
-                {uploadedData && (
+                {generatedData && (
                   <div className="mt-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">上传成功！请复制以下 JSON 对象：</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      {activeTab === 'files' ? '上传成功！' : '链接信息已生成！'}请复制以下 JSON 对象：
+                    </h3>
                     <div className="bg-gray-900 rounded-lg p-4 relative">
                       <pre className="text-green-400 text-sm overflow-x-auto">
-                        {JSON.stringify(uploadedData, null, 2)}
+                        {JSON.stringify(generatedData, null, 2)}
                       </pre>
                       <button
-                        onClick={() => copyToClipboard(JSON.stringify(uploadedData, null, 2))}
+                        onClick={() => copyToClipboard(JSON.stringify(generatedData, null, 2))}
                         className="absolute top-2 right-2 px-3 py-1 bg-business-orange text-white text-sm rounded hover:opacity-90"
                       >
-                        复制
+                        一键复制
                       </button>
                     </div>
                     <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded mt-4">
@@ -309,21 +359,17 @@ export default function AdminPage() {
             
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <h4 className="font-medium text-gray-900 mb-2">2. 选择类型</h4>
-              <p>选择要添加的内容类型：法规链接、资讯链接或文件上传。</p>
+              <p><strong>法规链接/资讯链接：</strong>输入标题和网页链接地址</p>
+              <p><strong>文件上传：</strong>输入标题并选择要上传的文件</p>
             </div>
             
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-medium text-gray-900 mb-2">3. 填写信息</h4>
-              <p>输入标题并选择要上传的文件。</p>
+              <h4 className="font-medium text-gray-900 mb-2">3. 复制 JSON</h4>
+              <p>操作完成后，点击"一键复制"按钮复制生成的 JSON 对象。</p>
             </div>
             
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-medium text-gray-900 mb-2">4. 复制 JSON</h4>
-              <p>上传成功后，复制生成的 JSON 对象。</p>
-            </div>
-            
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-medium text-gray-900 mb-2">5. 更新 data.json</h4>
+              <h4 className="font-medium text-gray-900 mb-2">4. 更新 data.json</h4>
               <p>前往 GitHub 编辑 data.json 文件，将 JSON 对象粘贴到对应数组中。</p>
             </div>
           </div>

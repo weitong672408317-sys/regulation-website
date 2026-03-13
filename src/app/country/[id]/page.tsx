@@ -278,13 +278,16 @@ export default function CountryDetail() {
               {country.references.pdfs.length > 0 ? (
                 <div className="flex flex-wrap gap-3">
                   {country.references.pdfs.map((pdf, index) => (
-                    <button
+                    <a
                       key={index}
+                      href={pdf.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg transition-colors"
                     >
                       <span>📄</span>
-                      {pdf}
-                    </button>
+                      {pdf.title}
+                    </a>
                   ))}
                 </div>
               ) : (
