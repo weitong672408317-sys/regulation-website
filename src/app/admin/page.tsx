@@ -44,7 +44,12 @@ export default function AdminPage() {
     setUploadedData(null);
 
     try {
-      const result = await uploadFile(file, selectedCountry, title);
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('countryId', selectedCountry);
+      formData.append('title', title);
+      
+      const result = await uploadFile(formData);
       
       if (result.success && result.url) {
         setUploadedData({ title, url: result.url });

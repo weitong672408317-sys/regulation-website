@@ -3,12 +3,17 @@
 import { put } from '@vercel/blob';
 import { baseCountries, CountryData } from '../../../data/mockData';
 
-export async function uploadFile(file: File, countryId: string, title: string) {
+export async function uploadFile(formData: FormData) {
   console.log('=== SERVER_ACTION: uploadFile START ===');
+  
+  const file = formData.get('file') as File;
+  const countryId = formData.get('countryId') as string;
+  const title = formData.get('title') as string;
+  
   console.log('SERVER_ACTION: Input parameters:', { 
-    fileName: file.name, 
-    fileSize: file.size,
-    fileType: file.type,
+    fileName: file?.name, 
+    fileSize: file?.size,
+    fileType: file?.type,
     countryId, 
     title 
   });
@@ -24,6 +29,14 @@ export async function uploadFile(file: File, countryId: string, title: string) {
       return {
         success: false,
         message: '错误：BLOB_READ_WRITE_TOKEN 环境变量未配置。请在 Vercel 项目设置中添加此环境变量。'
+      };
+    }
+    
+    if (!file || !countryId || !title) {
+      console.error('SERVER_ACTION: ERROR - Missing required parameters');
+      return {
+        success: false,
+        message: '错误：缺少必要参数（文件、国家ID或标题）'
       };
     }
     
