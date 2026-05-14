@@ -281,28 +281,266 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">合规资质</h2>
-            <FormattedText text={country.compliance.licenseRequirements} />
+            <p className="text-gray-700 mb-6">
+              基础资质：印尼烟草及尼古丁相关业务一般需要先通过 OSS 系统取得 NIB，并根据具体经营范围和风险等级办理相应营业许可。若业务涉及 BKC 产品，还需取得 NPPBKC；若涉及限制类进口商品，还需取得 PI 进口批准。巴淡岛等自由贸易区内经营，还可能涉及区域经营许可及空间利用许可。
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-gray-50">
+                    <th className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">产品</th>
+                    <th className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">NPPBKC</th>
+                    <th className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">PI 进口批准</th>
+                    <th className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">BPOM 注册</th>
+                    <th className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200">Halal 认证</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-4 py-3 border-b border-gray-200">传统卷烟</td>
+                    <td className="px-4 py-3 border-b border-gray-200">✓ 需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">✓ 需要（极少发放）</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">不强制</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-4 py-3 border-b border-gray-200">HNB烟支</td>
+                    <td className="px-4 py-3 border-b border-gray-200">✓ 需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">不强制</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-4 py-3 border-b border-gray-200">烟草薄片</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">✓ 需要（仅限工厂自用）</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">不强制</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-4 py-3 border-b border-gray-200">尼古丁口含膜/尼古丁袋</td>
+                    <td className="px-4 py-3 border-b border-gray-200">需评估（烟草来源需取得）</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">需评估（宣称功效需）</td>
+                    <td className="px-4 py-3 border-b border-gray-200">不强制</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-4 py-3 border-b border-gray-200">爆珠/香精胶囊</td>
+                    <td className="px-4 py-3 border-b border-gray-200">需评估（含烟草/尼古丁需）</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">不强制</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-4 py-3 border-b border-gray-200">滤嘴棒</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">× 不需要</td>
+                    <td className="px-4 py-3 border-b border-gray-200">不强制</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-4 py-3">烟叶</td>
+                    <td className="px-4 py-3">需评估（消费品需取得）</td>
+                    <td className="px-4 py-3">✓ 需要（政府管控）</td>
+                    <td className="px-4 py-3">× 不需要</td>
+                    <td className="px-4 py-3">不强制</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
 
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">税收政策</h2>
-            <FormattedText text={country.tax.exciseTax} />
+            <div className="space-y-6">
+              <div>
+                <div className="flex items-start gap-2">
+                  <span className="text-gray-500 mt-1">•</span>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">消费税 Cukai</h4>
+                    <p className="text-gray-700 mt-1">
+                      适用于 BKC 产品，如传统卷烟、HNB烟支、尼古丁口含膜等。消费税不是统一百分比税率，而是按产品类别、每支/每克/每毫升固定税额、生产者分组及最低零售指导价 HJE 档位确定。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-start gap-2">
+                  <span className="text-gray-500 mt-1">•</span>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">税票 Pita Cukai</h4>
+                    <p className="text-gray-700 mt-1">
+                      税票不是独立税种，而是表明 BKC 产品已按规定完成消费税管理、允许流通的关键合规标识。BKC 产品在印尼本土流通时必须依法贴附税票；非 BKC 产品不适用消费税，也不需要贴附消费税税票。未贴税票销售 BKC 产品，是印尼烟草业务的核心合规红线。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-start gap-2">
+                  <span className="text-gray-500 mt-1">•</span>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">烟草税 Pajak Rokok</h4>
+                    <p className="text-gray-700 mt-1">
+                      烟草税通常以消费税为税基，按消费税的10%计征。消费税、烟草税和增值税可以并行适用。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-start gap-2">
+                  <span className="text-gray-500 mt-1">•</span>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">增值税 PPN</h4>
+                    <p className="text-gray-700 mt-1">
+                      烟草制品适用特殊折算机制，通常以 HJE 为折算基础，按 9.9% × HJE 计征。原材料及一般货物按一般 PPN 规则处理。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-start gap-2">
+                  <span className="text-gray-500 mt-1">•</span>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">巴淡岛税务提示</h4>
+                    <p className="text-gray-700 mt-1">
+                      巴淡岛自由贸易区便利原则上限于区内使用或区内监管流转。一旦货物从巴淡进入印尼本土市场，需按进入印尼关境或国内流通规则处理。对 BKC 产品而言，巴淡岛不当然免除消费税和联动烟草税。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">市场运营规范</h2>
+            
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-3">营销限制</h3>
-                <FormattedText text={country.marketOperation.marketingRestrictions} />
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">销售与陈列</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">不得向21岁以下人员及孕妇销售烟草制品和电子烟</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">不得使用自动售货机销售烟草制品和电子烟</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">不得单支零售传统卷烟，雪茄和电子烟产品除外</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">不得在教育机构和儿童游乐场200米范围内销售烟草制品和电子烟</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">不得将烟草制品和电子烟放置在出入口或人流密集区域附近</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">使用商业网站或社交媒体销售的，应设置有效年龄验证机制</span>
+                  </li>
+                </ul>
               </div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-3">陈列与销售</h3>
-                <FormattedText text={country.marketOperation.displaySales} />
+              
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">包装与标签</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">烟草制品和电子烟包装需标注图文健康警示</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">健康警示应印制于包装正反面宽面上方区域，各占50%</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">烟草制品包装应标注尼古丁和焦油声明、禁止向21岁以下人员及孕妇销售、批号、生产日期、生产者名称和地址等信息</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">电子烟包装应标注含尼古丁声明、禁止向21岁以下人员及孕妇销售、批号、生产日期、生产者名称和地址等信息</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">不得使用误导性或促销性标识</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">出口产品如不符合印尼本地包装要求，应先向海关备案并取得批准</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">广告与宣传</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">禁止在数字社交媒体进行烟草制品和电子烟广告宣传</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">网站、商业应用、销售场所、户外媒体、印刷媒体、电视和广播广告均受到限制</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">广告不得描述或暗示吸烟、使用电子烟对健康有益</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">不得使用误导性或鼓励消费的语言</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">不得展示儿童、青少年、孕妇、卡通或动画形象</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">电视和广播广告仅允许在当地时间22:00至次日05:00之间播放</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">户外广告不得设置在无烟区、主干道、教育机构和儿童游乐场周边500米范围内</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">赞助、促销与CSR</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">禁止免费赠送、打折促销、附赠烟草或电子烟产品</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">禁止将烟草或电子烟品牌用于非烟草/非电子烟产品</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">赞助活动不得使用烟草或电子烟商标、品牌标识或品牌形象</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">CSR 活动不得以推广烟草或电子烟为目的</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">不得免费发放烟草或电子烟产品，也不得作为奖品、折扣或赠品</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">CSR 或赞助活动不得由媒体报道或公开宣传</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
