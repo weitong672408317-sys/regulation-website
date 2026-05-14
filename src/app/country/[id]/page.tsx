@@ -1,9 +1,78 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { baseCountries, CountryData } from '../../../../data/mockData';
+
+// 文本格式化组件
+const FormattedText = ({ text }: { text: string }) => {
+  // 处理分段（\n\n）和换行（\n）
+  const paragraphs = text.split(/\n\n+/);
+  
+  return (
+    <div className="space-y-4">
+      {paragraphs.map((paragraph, pIndex) => {
+        // 检查是否是 "标题：内容" 格式
+        const titleContentMatch = paragraph.match(/^([^：\n]+)：([\s\S]*)$/);
+        if (titleContentMatch) {
+          const [, title, content] = titleContentMatch;
+          return (
+            <div key={pIndex} className="space-y-2">
+              <h4 className="font-semibold text-gray-900">{title}：</h4>
+              <FormattedContent content={content} />
+            </div>
+          );
+        }
+        
+        // 检查是否是 bullet list（以 • 或 - 或数字开头）
+        const bulletLines = paragraph.split('\n');
+        const hasBullets = bulletLines.some(line => 
+          line.trim().startsWith('•') || 
+          line.trim().startsWith('-') || 
+          /^\d+[.、]/.test(line.trim())
+        );
+        
+        if (hasBullets && bulletLines.length > 1) {
+          return (
+            <ul key={pIndex} className="space-y-2">
+              {bulletLines.map((line, lIndex) => {
+                const trimmed = line.trim();
+                if (!trimmed) return null;
+                
+                // 移除 bullet 标记
+                const content = trimmed.replace(/^•\s*/, '').replace(/^-\s*/, '').replace(/^\d+[.、]\s*/, '');
+                return (
+                  <li key={lIndex} className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">{content}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          );
+        }
+        
+        // 普通段落，处理内部换行
+        return <FormattedContent key={pIndex} content={paragraph} />;
+      })}
+    </div>
+  );
+};
+
+// 处理单段内容的内部换行
+const FormattedContent = ({ content }: { content: string }) => {
+  const lines = content.split('\n');
+  return (
+    <div className="space-y-2">
+      {lines.map((line, index) => {
+        const trimmed = line.trim();
+        if (!trimmed) return null;
+        return <p key={index} className="text-gray-700">{trimmed}</p>;
+      })}
+    </div>
+  );
+};
 
 const productCategories = [
   { key: 'electronicCigarette', name: '电子烟' },
@@ -39,8 +108,17 @@ export default function CountryDetail() {
     });
   };
 
-  const currentCategoryRestrictions = country.accessRestrictions[activeCategory as keyof typeof country.accessRestrictions];
   const categoriesWithContent = getCategoriesWithContent(activeTab);
+  
+  // 当 activeTab 变化时，自动选中第一个有内容的产品类别
+  React.useEffect(() => {
+    const categories = getCategoriesWithContent(activeTab);
+    if (categories.length > 0) {
+      setActiveCategory(categories[0].key);
+    }
+  }, [activeTab]);
+
+  const currentCategoryRestrictions = country.accessRestrictions[activeCategory as keyof typeof country.accessRestrictions];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -82,11 +160,11 @@ export default function CountryDetail() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">监管概述</h3>
-                <p className="text-gray-700">{country.regulatorySystem.overview}</p>
+                <FormattedText text={country.regulatorySystem.overview} />
               </div>
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">品类定义</h3>
-                <p className="text-gray-700">{country.regulatorySystem.definition}</p>
+                <FormattedText text={country.regulatorySystem.definition} />
               </div>
             </div>
           </div>
@@ -203,14 +281,14 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">合规资质</h2>
-            <p className="text-gray-700">{country.compliance.licenseRequirements}</p>
+            <FormattedText text={country.compliance.licenseRequirements} />
           </div>
         </section>
 
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">税收政策</h2>
-            <p className="text-gray-700">{country.tax.exciseTax}</p>
+            <FormattedText text={country.tax.exciseTax} />
           </div>
         </section>
 
@@ -220,11 +298,11 @@ export default function CountryDetail() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">营销限制</h3>
-                <p className="text-gray-700">{country.marketOperation.marketingRestrictions}</p>
+                <FormattedText text={country.marketOperation.marketingRestrictions} />
               </div>
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">陈列与销售</h3>
-                <p className="text-gray-700">{country.marketOperation.displaySales}</p>
+                <FormattedText text={country.marketOperation.displaySales} />
               </div>
             </div>
           </div>
@@ -239,7 +317,7 @@ export default function CountryDetail() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded p-4 border border-red-200">
                 <h3 className="text-lg font-medium text-red-900 mb-3">政策趋势分析</h3>
-                <p className="text-gray-800">{country.trendsWarnings.trendAnalysis}</p>
+                <FormattedText text={country.trendsWarnings.trendAnalysis} />
               </div>
               <div className="bg-red-100 rounded p-4 border border-red-300">
                 <h3 className="text-lg font-medium text-red-900 mb-3">合规红线清单</h3>
