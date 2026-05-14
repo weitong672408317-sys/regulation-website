@@ -32,7 +32,15 @@ export default function CountryDetail() {
     );
   }
 
+  const getCategoriesWithContent = (tab: 'prohibited' | 'partiallyProhibited' | 'open') => {
+    return productCategories.filter((category) => {
+      const restrictions = country.accessRestrictions[category.key as keyof typeof country.accessRestrictions];
+      return restrictions[tab].length > 0;
+    });
+  };
+
   const currentCategoryRestrictions = country.accessRestrictions[activeCategory as keyof typeof country.accessRestrictions];
+  const categoriesWithContent = getCategoriesWithContent(activeTab);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -121,66 +129,74 @@ export default function CountryDetail() {
               </button>
             </div>
 
-            <div className="flex flex-wrap gap-2 mb-6">
-              {productCategories.map((category) => (
-                <button
-                  key={category.key}
-                  onClick={() => setActiveCategory(category.key)}
-                  className={`px-4 py-2 font-medium rounded-lg transition-colors ${
-                    activeCategory === category.key
-                      ? 'bg-business-orange text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
+            {categoriesWithContent.length > 0 ? (
+              <>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {categoriesWithContent.map((category) => (
+                    <button
+                      key={category.key}
+                      onClick={() => setActiveCategory(category.key)}
+                      className={`px-4 py-2 font-medium rounded-lg transition-colors ${
+                        activeCategory === category.key
+                          ? 'bg-business-orange text-white'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      {category.name}
+                    </button>
+                  ))}
+                </div>
 
-            <div>
-              {activeTab === 'prohibited' && (
-                <ul className="space-y-2">
-                  {currentCategoryRestrictions.prohibited.length > 0 ? (
-                    currentCategoryRestrictions.prohibited.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-red-500 mt-1">•</span>
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))
-                  ) : (
-                    <p className="text-gray-500">无完全禁止项目</p>
+                <div>
+                  {activeTab === 'prohibited' && (
+                    <ul className="space-y-2">
+                      {currentCategoryRestrictions.prohibited.length > 0 ? (
+                        currentCategoryRestrictions.prohibited.map((item, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <span className="text-red-500 mt-1">•</span>
+                            <span className="text-gray-700">{item}</span>
+                          </li>
+                        ))
+                      ) : (
+                        <p className="text-gray-500">无完全禁止项目</p>
+                      )}
+                    </ul>
                   )}
-                </ul>
-              )}
-              {activeTab === 'partiallyProhibited' && (
-                <ul className="space-y-2">
-                  {currentCategoryRestrictions.partiallyProhibited.length > 0 ? (
-                    currentCategoryRestrictions.partiallyProhibited.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-yellow-500 mt-1">•</span>
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))
-                  ) : (
-                    <p className="text-gray-500">无部分禁止项目</p>
+                  {activeTab === 'partiallyProhibited' && (
+                    <ul className="space-y-2">
+                      {currentCategoryRestrictions.partiallyProhibited.length > 0 ? (
+                        currentCategoryRestrictions.partiallyProhibited.map((item, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <span className="text-yellow-500 mt-1">•</span>
+                            <span className="text-gray-700">{item}</span>
+                          </li>
+                        ))
+                      ) : (
+                        <p className="text-gray-500">无部分禁止项目</p>
+                      )}
+                    </ul>
                   )}
-                </ul>
-              )}
-              {activeTab === 'open' && (
-                <ul className="space-y-2">
-                  {currentCategoryRestrictions.open.length > 0 ? (
-                    currentCategoryRestrictions.open.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-green-500 mt-1">•</span>
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))
-                  ) : (
-                    <p className="text-gray-500">无开放项目</p>
+                  {activeTab === 'open' && (
+                    <ul className="space-y-2">
+                      {currentCategoryRestrictions.open.length > 0 ? (
+                        currentCategoryRestrictions.open.map((item, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <span className="text-green-500 mt-1">•</span>
+                            <span className="text-gray-700">{item}</span>
+                          </li>
+                        ))
+                      ) : (
+                        <p className="text-gray-500">无开放项目</p>
+                      )}
+                    </ul>
                   )}
-                </ul>
-              )}
-            </div>
+                </div>
+              </>
+            ) : (
+              <div className="text-center py-8">
+                <p className="text-gray-500">暂无适用产品</p>
+              </div>
+            )}
           </div>
         </section>
 
