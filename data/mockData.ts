@@ -430,11 +430,11 @@ const fallbackCountries: CountryData[] = [
     news: [
       {
         title: '2026年1月：印尼政府讨论新增卷烟消费税层级，以治理非法卷烟市场',
-        url: 'https://en.antaranews.com/news/399833/indonesia-plans-new-cigarette-excise-layer-to-tackle-illegal-tobacco?utm_source=chatgpt.com'
+        url: 'https://en.antaranews.com/news/399833/indonesia-plans-new-cigarette-excise-layer-to-tackle-illegal-tobacco'
       },
       {
         title: '2026年2月：印尼海关2026年1月查获约2.49亿支非法卷烟',
-        url: 'https://jakartaglobe.id/news/customs-seizes-249-million-illegal-cigarettes-in-january?utm_source=chatgpt.com'
+        url: 'https://jakartaglobe.id/news/customs-seizes-249-million-illegal-cigarettes-in-january'
       },
       {
         title: '2026年5月：BPOM 表示将加强电子烟流通监管，但未明确支持全面禁售',
@@ -442,7 +442,7 @@ const fallbackCountries: CountryData[] = [
       },
       {
         title: '2026年5月：印尼公共卫生团体反对新增低价卷烟消费税层级方案',
-        url: 'https://en.tempo.co/read/2101298/indonesian-civil-groups-rejects-new-tobacco-excise-tier-plan?utm_source=chatgpt.com'
+        url: 'https://en.tempo.co/read/2101298/indonesian-civil-groups-rejects-new-tobacco-excise-tier-plan'
       }
     ],
     pdfs: []
