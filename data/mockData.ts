@@ -6,6 +6,24 @@ export interface ProductCategoryRestrictions {
   open: string[];
 }
 
+export interface ComplianceTable {
+  product: string;
+  nppbkc: string | string[];
+  piImportApproval: string | string[];
+  bpomRegistration: string | string[];
+  halalCertification: string | string[];
+}
+
+export interface TaxPolicy {
+  title: string;
+  description: string;
+}
+
+export interface MarketOperationItem {
+  category: string;
+  items: string[];
+}
+
 export interface CountryData {
   id: string;
   name: string;
@@ -30,13 +48,16 @@ export interface CountryData {
   };
   compliance: {
     licenseRequirements: string;
+    table: ComplianceTable[];
   };
   tax: {
     exciseTax: string;
+    policies: TaxPolicy[];
   };
   marketOperation: {
     marketingRestrictions: string;
     displaySales: string;
+    regulations: MarketOperationItem[];
   };
   trendsWarnings: {
     trendAnalysis: string;
@@ -98,14 +119,17 @@ const fallbackCountries: CountryData[] = [
       }
     },
     compliance: {
-      licenseRequirements: '生产企业需获得国家烟草专卖局颁发的生产许可证；销售企业需获得相应的销售许可证。产品需通过强制性产品认证。'
+      licenseRequirements: '生产企业需获得国家烟草专卖局颁发的生产许可证；销售企业需获得相应的销售许可证。产品需通过强制性产品认证。',
+      table: []
     },
     tax: {
-      exciseTax: '适用高额消费税，税率根据产品类型和尼古丁含量确定。增值税13%，消费税从价计征。'
+      exciseTax: '适用高额消费税，税率根据产品类型和尼古丁含量确定。增值税13%，消费税从价计征。',
+      policies: []
     },
     marketOperation: {
       marketingRestrictions: '全面禁止各类形式的广告宣传，包括但不限于互联网、电视、报纸、户外广告等。不得进行任何形式的促销活动。',
-      displaySales: '仅可在获得许可的实体店铺销售，需设置明显的未成年人禁售标识。产品陈列需符合相关规定，不得诱导消费。'
+      displaySales: '仅可在获得许可的实体店铺销售，需设置明显的未成年人禁售标识。产品陈列需符合相关规定，不得诱导消费。',
+      regulations: []
     },
     trendsWarnings: {
       trendAnalysis: '监管趋势持续收紧，未来可能进一步提高产品标准，扩大禁售范围。建议密切关注政策动态，确保合规经营。',
@@ -170,14 +194,17 @@ const fallbackCountries: CountryData[] = [
       }
     },
     compliance: {
-      licenseRequirements: '生产企业需获得香港卫生署颁发的生产许可证；销售企业需获得相应的销售许可证。产品需通过强制性产品认证。'
+      licenseRequirements: '生产企业需获得香港卫生署颁发的生产许可证；销售企业需获得相应的销售许可证。产品需通过强制性产品认证。',
+      table: []
     },
     tax: {
-      exciseTax: '适用高额消费税，税率根据产品类型和尼古丁含量确定。'
+      exciseTax: '适用高额消费税，税率根据产品类型和尼古丁含量确定。',
+      policies: []
     },
     marketOperation: {
       marketingRestrictions: '全面禁止各类形式的广告宣传，包括但不限于互联网、电视、报纸、户外广告等。不得进行任何形式的促销活动。',
-      displaySales: '仅可在获得许可的实体店铺销售，需设置明显的未成年人禁售标识。产品陈列需符合相关规定，不得诱导消费。'
+      displaySales: '仅可在获得许可的实体店铺销售，需设置明显的未成年人禁售标识。产品陈列需符合相关规定，不得诱导消费。',
+      regulations: []
     },
     trendsWarnings: {
       trendAnalysis: '监管趋势持续收紧，未来可能进一步提高产品标准，扩大禁售范围。建议密切关注政策动态，确保合规经营。',
@@ -264,14 +291,95 @@ const fallbackCountries: CountryData[] = [
     }
   },
   compliance: {
-    licenseRequirements: '基础资质：印尼烟草及尼古丁相关业务一般需要先通过 OSS 系统取得 NIB，并根据具体经营范围和风险等级办理相应营业许可。若业务涉及 BKC 产品，还需取得 NPPBKC；若涉及限制类进口商品，还需取得 PI 进口批准。巴淡岛等自由贸易区内经营，还可能涉及区域经营许可及空间利用许可。\n\n传统卷烟：NPPBKC 需要取得；进口卷烟需要取得 PI 进口批准，但实务中卷烟进口许可极少发放，获批主体和数量受到严格限制；不需要取得 BPOM 食品/药品上市前注册审批；不强制 Halal 清真认证。\n\nHNB烟支：NPPBKC 需要取得；不需要取得 PI 进口批准；不需要取得 BPOM 食品/药品上市前注册审批；不强制 Halal 清真认证。\n\n烟草薄片：作为工业原材料使用时不需要取得 NPPBKC；进口需要取得 PI 进口批准，且仅限有生产资质的工厂进口自用，并受政府进口总量和用途管理；不需要取得 BPOM 产品注册；不强制 Halal 清真认证。\n\n尼古丁口含膜 / 尼古丁袋：使用烟草来源尼古丁制成的，需要取得 NPPBKC；使用非烟草来源尼古丁制成的，不强制取得 NPPBKC；不需要取得 PI 进口批准；不需要取得 BPOM 食品/药品上市前注册审批，但如宣称戒烟、治疗或药品功效，应另行评估 BPOM 药品路径；不强制 Halal 清真认证。\n\n爆珠 / 香精胶囊：含烟草提取物或尼古丁的，需要取得 NPPBKC；不含烟草提取物或尼古丁的，不需要取得 NPPBKC；不需要取得 PI 进口批准；不需要取得 BPOM 产品注册；不强制 Halal 清真认证。\n\n滤嘴棒：不需要取得 NPPBKC；不需要取得 PI 进口批准；不需要取得 BPOM 产品注册；不强制 Halal 清真认证。\n\n烟叶：作为原料使用不需要取得 NPPBKC；作为消费品销售需要取得 NPPBKC；进口需要取得 PI 进口批准，政府根据国内收成、品种需求和供需情况决定是否允许进口；不需要取得 BPOM 产品注册；不强制 Halal 清真认证。'
+    licenseRequirements: '基础资质：印尼烟草及尼古丁相关业务一般需要先通过 OSS 系统取得 NIB，并根据具体经营范围和风险等级办理相应营业许可。若业务涉及 BKC 产品，还需取得 NPPBKC；若涉及限制类进口商品，还需取得 PI 进口批准。巴淡岛等自由贸易区内经营，还可能涉及区域经营许可及空间利用许可。',
+    table: [
+      { product: '传统卷烟', nppbkc: '✓ 需要', piImportApproval: '✓ 需要（极少发放）', bpomRegistration: '× 不需要', halalCertification: '不强制' },
+      { product: 'HNB烟支', nppbkc: '✓ 需要', piImportApproval: '× 不需要', bpomRegistration: '× 不需要', halalCertification: '不强制' },
+      { product: '烟草薄片', nppbkc: '× 不需要', piImportApproval: '✓ 需要（仅限工厂自用）', bpomRegistration: '× 不需要', halalCertification: '不强制' },
+      { 
+        product: '尼古丁口含膜/尼古丁袋', 
+        nppbkc: ['使用烟草来源尼古丁制成：需要取得', '使用非烟草来源尼古丁制成：不强制取得'], 
+        piImportApproval: '× 不需要', 
+        bpomRegistration: ['不宣称戒烟、治疗或药品功效：不需要取得', '宣称戒烟、治疗或药品功效：需另行评估 BPOM 药品路径'], 
+        halalCertification: '不强制' 
+      },
+      { 
+        product: '爆珠/香精胶囊', 
+        nppbkc: ['含烟草提取物或尼古丁：需要取得', '不含烟草提取物或尼古丁：不需要取得'], 
+        piImportApproval: '× 不需要', 
+        bpomRegistration: '× 不需要', 
+        halalCertification: '不强制' 
+      },
+      { product: '滤嘴棒', nppbkc: '× 不需要', piImportApproval: '× 不需要', bpomRegistration: '× 不需要', halalCertification: '不强制' },
+      { 
+        product: '烟叶', 
+        nppbkc: ['作为原料使用：不需要取得', '作为消费品销售：需要取得'], 
+        piImportApproval: '✓ 需要（政府管控）', 
+        bpomRegistration: '× 不需要', 
+        halalCertification: '不强制' 
+      }
+    ]
   },
   tax: {
-    exciseTax: '印尼税务判断的核心是区分产品是否属于 BKC（应税消费品），以及产品是否进入印尼本土市场流通。烟草薄片作为工业原材料使用时，按非 BKC 处理；HNB烟支、传统卷烟、尼古丁口含膜等成品按 BKC 处理。\n\n消费税 Cukai：适用于 BKC 产品，如传统卷烟、HNB烟支、尼古丁口含膜等。消费税不是统一百分比税率，而是按产品类别、每支/每克/每毫升固定税额、生产者分组及最低零售指导价 HJE 档位确定。\n\n税票 Pita Cukai：税票不是独立税种，而是表明 BKC 产品已按规定完成消费税管理、允许流通的关键合规标识。BKC 产品在印尼本土流通时必须依法贴附税票；非 BKC 产品不适用消费税，也不需要贴附消费税税票。未贴税票销售 BKC 产品，是印尼烟草业务的核心合规红线。\n\n烟草税 Pajak Rokok：烟草税通常以消费税为税基，按消费税的10%计征。消费税、烟草税和增值税可以并行适用。\n\n增值税 PPN：烟草制品适用特殊折算机制，通常以 HJE 为折算基础，按 9.9% × HJE 计征。原材料及一般货物按一般 PPN 规则处理。\n\n巴淡岛税务提示：巴淡岛自由贸易区便利原则上限于区内使用或区内监管流转。一旦货物从巴淡进入印尼本土市场，需按进入印尼关境或国内流通规则处理。对 BKC 产品而言，巴淡岛不当然免除消费税和联动烟草税。'
+    exciseTax: '印尼税务判断的核心是区分产品是否属于 BKC（应税消费品），以及产品是否进入印尼本土市场流通。烟草薄片作为工业原材料使用时，按非 BKC 处理；HNB烟支、传统卷烟、尼古丁口含膜等成品按 BKC 处理。',
+    policies: [
+      { title: '消费税 Cukai', description: '适用于 BKC 产品，如传统卷烟、HNB烟支、尼古丁口含膜等。消费税不是统一百分比税率，而是按产品类别、每支/每克/每毫升固定税额、生产者分组及最低零售指导价 HJE 档位确定。' },
+      { title: '税票 Pita Cukai', description: '税票不是独立税种，而是表明 BKC 产品已按规定完成消费税管理、允许流通的关键合规标识。BKC 产品在印尼本土流通时必须依法贴附税票；非 BKC 产品不适用消费税，也不需要贴附消费税税票。未贴税票销售 BKC 产品，是印尼烟草业务的核心合规红线。' },
+      { title: '烟草税 Pajak Rokok', description: '烟草税通常以消费税为税基，按消费税的10%计征。消费税、烟草税和增值税可以并行适用。' },
+      { title: '增值税 PPN', description: '烟草制品适用特殊折算机制，通常以 HJE 为折算基础，按 9.9% × HJE 计征。原材料及一般货物按一般 PPN 规则处理。' },
+      { title: '巴淡岛税务提示', description: '巴淡岛自由贸易区便利原则上限于区内使用或区内监管流转。一旦货物从巴淡进入印尼本土市场，需按进入印尼关境或国内流通规则处理。对 BKC 产品而言，巴淡岛不当然免除消费税和联动烟草税。' }
+    ]
   },
   marketOperation: {
-    marketingRestrictions: '广告与宣传：禁止在数字社交媒体进行烟草制品和电子烟广告宣传。网站、商业应用、销售场所、户外媒体、印刷媒体、电视和广播广告均受到限制。广告不得描述或暗示吸烟、使用电子烟对健康有益，不得使用误导性或鼓励消费的语言，不得展示儿童、青少年、孕妇、卡通或动画形象。电视和广播广告仅允许在当地时间22:00至次日05:00之间播放。户外广告不得设置在无烟区、主干道、教育机构和儿童游乐场周边500米范围内。\n\n赞助、促销与CSR：禁止免费赠送、打折促销、附赠烟草或电子烟产品；禁止将烟草或电子烟品牌用于非烟草/非电子烟产品；赞助活动不得使用烟草或电子烟商标、品牌标识或品牌形象；CSR 活动不得以推广烟草或电子烟为目的，不得免费发放烟草或电子烟产品，也不得作为奖品、折扣或赠品；CSR 或赞助活动不得由媒体报道或公开宣传。',
-    displaySales: '销售与陈列：不得向21岁以下人员及孕妇销售烟草制品和电子烟；不得使用自动售货机销售烟草制品和电子烟；不得单支零售传统卷烟，雪茄和电子烟产品除外；不得在教育机构和儿童游乐场200米范围内销售烟草制品和电子烟；不得将烟草制品和电子烟放置在出入口或人流密集区域附近；使用商业网站或社交媒体销售的，应设置有效年龄验证机制。\n\n包装与标签：烟草制品和电子烟包装需标注图文健康警示。健康警示应印制于包装正反面宽面上方区域，各占50%。烟草制品包装应标注尼古丁和焦油声明、禁止向21岁以下人员及孕妇销售、批号、生产日期、生产者名称和地址等信息。电子烟包装应标注含尼古丁声明、禁止向21岁以下人员及孕妇销售、批号、生产日期、生产者名称和地址等信息。不得使用误导性或促销性标识。出口产品如不符合印尼本地包装要求，应先向海关备案并取得批准。'
+    marketingRestrictions: '广告与宣传：禁止在数字社交媒体进行烟草制品和电子烟广告宣传。网站、商业应用、销售场所、户外媒体、印刷媒体、电视和广播广告均受到限制。广告不得描述或暗示吸烟、使用电子烟对健康有益，不得使用误导性或鼓励消费的语言，不得展示儿童、青少年、孕妇、卡通或动画形象。电视和广播广告仅允许在当地时间22:00至次日05:00之间播放。户外广告不得设置在无烟区、主干道、教育机构和儿童游乐场周边500米范围内。',
+    displaySales: '销售与陈列：不得向21岁以下人员及孕妇销售烟草制品和电子烟；不得使用自动售货机销售烟草制品和电子烟；不得单支零售传统卷烟，雪茄和电子烟产品除外；不得在教育机构和儿童游乐场200米范围内销售烟草制品和电子烟；不得将烟草制品和电子烟放置在出入口或人流密集区域附近；使用商业网站或社交媒体销售的，应设置有效年龄验证机制。',
+    regulations: [
+      {
+        category: '销售与陈列',
+        items: [
+          '不得向21岁以下人员及孕妇销售烟草制品和电子烟',
+          '不得使用自动售货机销售烟草制品和电子烟',
+          '不得单支零售传统卷烟，雪茄和电子烟产品除外',
+          '不得在教育机构和儿童游乐场200米范围内销售烟草制品和电子烟',
+          '不得将烟草制品和电子烟放置在出入口或人流密集区域附近',
+          '使用商业网站或社交媒体销售的，应设置有效年龄验证机制'
+        ]
+      },
+      {
+        category: '包装与标签',
+        items: [
+          '烟草制品和电子烟包装需标注图文健康警示',
+          '健康警示应印制于包装正反面宽面上方区域，各占50%',
+          '烟草制品包装应标注尼古丁和焦油声明、禁止向21岁以下人员及孕妇销售、批号、生产日期、生产者名称和地址等信息',
+          '电子烟包装应标注含尼古丁声明、禁止向21岁以下人员及孕妇销售、批号、生产日期、生产者名称和地址等信息',
+          '不得使用误导性或促销性标识',
+          '出口产品如不符合印尼本地包装要求，应先向海关备案并取得批准'
+        ]
+      },
+      {
+        category: '广告与宣传',
+        items: [
+          '禁止在数字社交媒体进行烟草制品和电子烟广告宣传',
+          '网站、商业应用、销售场所、户外媒体、印刷媒体、电视和广播广告均受到限制',
+          '广告不得描述或暗示吸烟、使用电子烟对健康有益',
+          '不得使用误导性或鼓励消费的语言',
+          '不得展示儿童、青少年、孕妇、卡通或动画形象',
+          '电视和广播广告仅允许在当地时间22:00至次日05:00之间播放',
+          '户外广告不得设置在无烟区、主干道、教育机构和儿童游乐场周边500米范围内'
+        ]
+      },
+      {
+        category: '赞助、促销与CSR',
+        items: [
+          '禁止免费赠送、打折促销、附赠烟草或电子烟产品',
+          '禁止将烟草或电子烟品牌用于非烟草/非电子烟产品',
+          '赞助活动不得使用烟草或电子烟商标、品牌标识或品牌形象',
+          'CSR 活动不得以推广烟草或电子烟为目的',
+          '不得免费发放烟草或电子烟产品，也不得作为奖品、折扣或赠品',
+          'CSR 或赞助活动不得由媒体报道或公开宣传'
+        ]
+      }
+    ]
   },
   trendsWarnings: {
     trendAnalysis: '印尼目前没有明显信号显示将对传统烟草、HNB或电子烟实施全国性全面禁令。2026年以来可观察到的监管方向主要包括：对非法卷烟和无税票产品持续高压执法，海关及消费税总局查处数量明显增加；电子烟监管更关注流通端和非法产品，特别是含毒品电子烟液、违禁成分、BPOM流通监管、年龄限制、包装警示和广告限制；消费税政策可能继续围绕非法市场治理调整，但是否新增税收层级、如何调整税率结构，仍存在政策讨论和争议。\n\n整体看，印尼仍是烟草及新型烟草产品可准入且相对友好的市场，政策重点是把产品纳入合法资质、税务、包装和销售监管体系，而不是对相关品类进行全面封禁。传统卷烟和HNB的重点风险在税票、NPPBKC、清关和包装；电子烟的重点风险在BPOM监管、成分和非法烟液；尼古丁袋/口含膜的重点风险在产品定性和主管机关口径不稳定。',
@@ -330,7 +438,7 @@ const fallbackCountries: CountryData[] = [
       },
       {
         title: '2026年5月：BPOM 表示将加强电子烟流通监管，但未明确支持全面禁售',
-        url: 'https://jakartaglobe.id/news/customs-seizes-249-million-illegal-cigarettes-in-january?utm_source=chatgpt.com'
+        url: 'https://jakartaglobe.id/news/indonesia-to-step-up-surveillance-of-vape'
       },
       {
         title: '2026年5月：印尼公共卫生团体反对新增低价卷烟消费税层级方案',
@@ -387,14 +495,17 @@ const fallbackCountries: CountryData[] = [
       }
     },
     compliance: {
-      licenseRequirements: '需向阿联酋FDA申请产品注册和销售许可，提交完整的产品技术文档、检测报告和安全评估资料。迪拜自由区有专门的许可通道。'
+      licenseRequirements: '需向阿联酋FDA申请产品注册和销售许可，提交完整的产品技术文档、检测报告和安全评估资料。迪拜自由区有专门的许可通道。',
+      table: []
     },
     tax: {
-      exciseTax: '征收50%的消费税，增值税5%。进口产品需缴纳关税和相关税费。'
+      exciseTax: '征收50%的消费税，增值税5%。进口产品需缴纳关税和相关税费。',
+      policies: []
     },
     marketOperation: {
       marketingRestrictions: '禁止面向公众的广告宣传，仅可在成人专用场所进行产品展示。禁止任何形式的促销活动。',
-      displaySales: '仅可在获得许可的成人专用店铺销售，需严格执行年龄验证。迪拜自由区可设立专门的销售中心。'
+      displaySales: '仅可在获得许可的成人专用店铺销售，需严格执行年龄验证。迪拜自由区可设立专门的销售中心。',
+      regulations: []
     },
     trendsWarnings: {
       trendAnalysis: '阿联酋正逐步完善监管框架，迪拜自由区政策相对灵活。未来可能扩大许可范围，但监管标准不会降低。',
@@ -458,14 +569,17 @@ const fallbackCountries: CountryData[] = [
       }
     },
     compliance: {
-      licenseRequirements: '需获得烟草制品生产和销售许可证，产品需通过强制性认证。进口产品需符合海关和技术监管要求。'
+      licenseRequirements: '需获得烟草制品生产和销售许可证，产品需通过强制性认证。进口产品需符合海关和技术监管要求。',
+      table: []
     },
     tax: {
-      exciseTax: '适用烟草制品消费税，税率较高。增值税20%。需严格履行纳税申报义务。'
+      exciseTax: '适用烟草制品消费税，税率较高。增值税20%。需严格履行纳税申报义务。',
+      policies: []
     },
     marketOperation: {
       marketingRestrictions: '几乎全面禁止广告宣传，仅可在销售点内部进行有限的产品展示。禁止任何形式的促销活动。',
-      displaySales: '仅可在获得许可的烟草专卖店销售，需严格执行年龄验证制度。产品包装需有大幅健康警示图片和文字。'
+      displaySales: '仅可在获得许可的烟草专卖店销售，需严格执行年龄验证制度。产品包装需有大幅健康警示图片和文字。',
+      regulations: []
     },
     trendsWarnings: {
       trendAnalysis: '监管政策持续严格，未来可能进一步提高税收和加强市场监管。建议密切关注法规变化，确保合规。',
@@ -530,14 +644,17 @@ const fallbackCountries: CountryData[] = [
       }
     },
     compliance: {
-      licenseRequirements: '无任何许可途径，全面禁止。'
+      licenseRequirements: '无任何许可途径，全面禁止。',
+      table: []
     },
     tax: {
-      exciseTax: '不适用，产品全面禁止。'
+      exciseTax: '不适用，产品全面禁止。',
+      policies: []
     },
     marketOperation: {
       marketingRestrictions: '全面禁止任何形式的广告、推广和销售活动。',
-      displaySales: '全面禁止，任何销售行为均属违法。'
+      displaySales: '全面禁止，任何销售行为均属违法。',
+      regulations: []
     },
     trendsWarnings: {
       trendAnalysis: '新加坡坚持全面禁止政策，执法力度持续加强，对违法行为处以重罚。建议不要尝试任何违规行为。',
@@ -601,14 +718,17 @@ const fallbackCountries: CountryData[] = [
       }
     },
     compliance: {
-      licenseRequirements: '无商业许可途径。'
+      licenseRequirements: '无商业许可途径。',
+      table: []
     },
     tax: {
-      exciseTax: '不适用。'
+      exciseTax: '不适用。',
+      policies: []
     },
     marketOperation: {
       marketingRestrictions: '全面禁止商业广告和推广。',
-      displaySales: '禁止商业销售。'
+      displaySales: '禁止商业销售。',
+      regulations: []
     },
     trendsWarnings: {
       trendAnalysis: '马来西亚持续维持禁止政策，加强边境检查和市场监管。',
@@ -672,14 +792,17 @@ const fallbackCountries: CountryData[] = [
       }
     },
     compliance: {
-      licenseRequirements: '正在建立产品注册制度，企业需进行工商登记，产品需符合基本安全要求。'
+      licenseRequirements: '正在建立产品注册制度，企业需进行工商登记，产品需符合基本安全要求。',
+      table: []
     },
     tax: {
-      exciseTax: '目前适用一般消费品税率，增值税10%。未来可能出台专门的税收政策。'
+      exciseTax: '目前适用一般消费品税率，增值税10%。未来可能出台专门的税收政策。',
+      policies: []
     },
     marketOperation: {
       marketingRestrictions: '广告宣传相对自由，但需遵守消费者保护法，不得进行虚假宣传。需标注年龄限制。',
-      displaySales: '可在各类零售渠道销售，建议设置年龄验证。正在制定具体的销售规范。'
+      displaySales: '可在各类零售渠道销售，建议设置年龄验证。正在制定具体的销售规范。',
+      regulations: []
     },
     trendsWarnings: {
       trendAnalysis: '巴拉圭正处于监管体系建立阶段，未来可能逐步加强监管，但总体政策相对开放。建议抓住市场机遇，同时关注政策走向。',
