@@ -441,8 +441,8 @@ const fallbackCountries: CountryData[] = [
         url: 'https://jakartaglobe.id/news/indonesia-to-step-up-surveillance-of-vape'
       },
       {
-        title: '2026年5月：印尼公共卫生团体反对新增低价卷烟消费税层级方案',
-        url: 'https://en.tempo.co/read/2101298/indonesian-civil-groups-rejects-new-tobacco-excise-tier-plan'
+        title: '2026年2月：公共卫生团体反对新增卷烟消费税层级，担心低价卷烟扩张',
+        url: 'https://jakartaglobe.id/lifestyle/health-groups-reject-plan-for-new-cigarette-excise-tier-warn-of-cheaper-prices'
       }
     ],
     pdfs: []
