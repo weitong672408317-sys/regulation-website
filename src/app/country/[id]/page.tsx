@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { baseCountries } from '../../../../data/mockData';
+import { baseCountries, AccessRestrictionsByStatus, EmirateDifferenceRow } from '../../../../data/mockData';
 
 // 文本格式化组件
 const FormattedText = ({ text }: { text: string }) => {
@@ -13,6 +13,54 @@ const FormattedText = ({ text }: { text: string }) => {
   return (
     <div className="space-y-4">
       {paragraphs.map((paragraph, pIndex) => {
+        // 检查是否是 * 标记的列表（监管概述中的标题格式）
+        if (paragraph.trim().startsWith('* ') || paragraph.trim().startsWith('- ')) {
+          const items = paragraph.split('\n').filter(line => line.trim());
+          return (
+            <div key={pIndex} className="space-y-3">
+              {items.map((item, itemIndex) => {
+                const trimmed = item.trim().replace(/^[*-]\s*/, '');
+                const colonPos = trimmed.indexOf('：');
+                if (colonPos !== -1) {
+                  const title = trimmed.substring(0, colonPos + 1);
+                  const content = trimmed.substring(colonPos + 1).trim();
+                  return (
+                    <div key={itemIndex} className="space-y-1">
+                      <div className="flex items-start gap-2">
+                        <span className="text-gray-500 mt-1">•</span>
+                        <span className="font-semibold text-gray-900">{title}</span>
+                      </div>
+                      {content && (
+                        <div className="ml-5 text-gray-700">
+                          {content}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+                return (
+                  <div key={itemIndex} className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">{trimmed}</span>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        }
+        
+        // 检查是否是 "数字. 标题" 格式的品类定义
+        const numberedTitleMatch = paragraph.match(/^\d+[.、]\s*([^\n]+)(?:\n([\s\S]*))?$/);
+        if (numberedTitleMatch) {
+          const [, title, content] = numberedTitleMatch;
+          return (
+            <div key={pIndex} className="space-y-2">
+              <h4 className="font-bold text-gray-900 text-lg">{paragraph.match(/^\d+[.、]\s*[^\n]+/)?.[0]}</h4>
+              {content && <FormattedContent content={content} />}
+            </div>
+          );
+        }
+        
         // 检查是否是 "标题：内容" 格式
         const titleContentMatch = paragraph.match(/^([^：\n]+)：([\s\S]*)$/);
         if (titleContentMatch) {
@@ -91,6 +139,98 @@ const TableCellContent = ({ content }: { content: string | string[] }) => {
   return <span className="text-gray-700">{content}</span>;
 };
 
+// 按状态分组的准入限制展示组件
+const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsByStatus }) => {
+  return (
+    <div className="space-y-6">
+      {/* 完全禁止 */}
+      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
+        <h3 className="font-bold text-red-900 text-lg mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+          完全禁止
+        </h3>
+        <ul className="space-y-3">
+          {data.fullyProhibited.map((item, index) => (
+            <li key={index} className="flex flex-col gap-1">
+              <span className="font-semibold text-red-900">{item.productName}</span>
+              <span className="text-red-800 ml-2">{item.rule}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      {/* 部分禁止 / 条件性限制 */}
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-5">
+        <h3 className="font-bold text-amber-900 text-lg mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-amber-500 rounded-full"></span>
+          部分禁止 / 条件性限制
+        </h3>
+        <ul className="space-y-3">
+          {data.partiallyRestricted.map((item, index) => (
+            <li key={index} className="flex flex-col gap-1">
+              <span className="font-semibold text-amber-900">{item.productName}</span>
+              <span className="text-amber-800 ml-2">{item.rule}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      {/* 开放 / 可准入 */}
+      <div className="bg-green-50 border border-green-200 rounded-lg p-5">
+        <h3 className="font-bold text-green-900 text-lg mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+          开放 / 可准入
+        </h3>
+        <ul className="space-y-3">
+          {data.openAccessible.map((item, index) => (
+            <li key={index} className="flex flex-col gap-1">
+              <span className="font-semibold text-green-900">{item.productName}</span>
+              <span className="text-green-800 ml-2">{item.rule}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+// 酋长国差异表格组件
+const EmirateDifferencesTable = ({ data }: { data: EmirateDifferenceRow[] }) => {
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm border-collapse">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">酋长国</th>
+            <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">咀嚼烟草制品</th>
+            <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">电子烟</th>
+            <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">水烟</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row, index) => (
+            <React.Fragment key={index}>
+              <tr className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <td className="px-4 py-3 border-b border-gray-200 font-medium text-gray-900">{row.emirate}</td>
+                <td className="px-4 py-3 border-b border-gray-200 text-gray-700">{row.chewingTobacco}</td>
+                <td className="px-4 py-3 border-b border-gray-200 text-gray-700">{row.electronicCigarette}</td>
+                <td className="px-4 py-3 border-b border-gray-200 text-gray-700">{row.hookah}</td>
+              </tr>
+              {row.note && index === data.length - 1 && (
+                <tr>
+                  <td colSpan={4} className="px-4 py-3 text-gray-600 text-xs italic">
+                    备注：{row.note}
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
 const productCategories = [
   { key: 'electronicCigarette', name: '电子烟' },
   { key: 'hnb', name: 'HNB' },
@@ -119,23 +259,28 @@ export default function CountryDetail() {
   }
 
   const getCategoriesWithContent = (tab: 'prohibited' | 'partiallyProhibited' | 'open') => {
+    if (!country.accessRestrictions) return [];
     return productCategories.filter((category) => {
-      const restrictions = country.accessRestrictions[category.key as keyof typeof country.accessRestrictions];
+      const restrictions = country.accessRestrictions![category.key as keyof typeof country.accessRestrictions];
       return restrictions[tab].length > 0;
     });
   };
 
-  const categoriesWithContent = getCategoriesWithContent(activeTab);
+  const categoriesWithContent = country.accessRestrictions ? getCategoriesWithContent(activeTab) : [];
   
   // 当 activeTab 变化时，自动选中第一个有内容的产品类别
   React.useEffect(() => {
-    const categories = getCategoriesWithContent(activeTab);
-    if (categories.length > 0) {
-      setActiveCategory(categories[0].key);
+    if (country.accessRestrictions) {
+      const categories = getCategoriesWithContent(activeTab);
+      if (categories.length > 0) {
+        setActiveCategory(categories[0].key);
+      }
     }
   }, [activeTab]);
 
-  const currentCategoryRestrictions = country.accessRestrictions[activeCategory as keyof typeof country.accessRestrictions];
+  const currentCategoryRestrictions = country.accessRestrictions 
+    ? country.accessRestrictions[activeCategory as keyof typeof country.accessRestrictions]
+    : { prohibited: [], partiallyProhibited: [], open: [] };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -175,13 +320,23 @@ export default function CountryDetail() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">监管体系与定义</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-3">监管概述</h3>
-                <FormattedText text={country.regulatorySystem.overview} />
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+                <h3 className="text-lg font-medium text-blue-900 mb-3 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  监管概述
+                </h3>
+                <div className="text-blue-800">
+                  <FormattedText text={country.regulatorySystem.overview} />
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-3">品类定义</h3>
-                <FormattedText text={country.regulatorySystem.definition} />
+              <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-5">
+                <h3 className="text-lg font-medium text-indigo-900 mb-3 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  品类定义
+                </h3>
+                <div className="text-indigo-800">
+                  <FormattedText text={country.regulatorySystem.definition} />
+                </div>
               </div>
             </div>
           </div>
@@ -191,106 +346,114 @@ export default function CountryDetail() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">准入与禁令限制</h2>
             
-            <div className="flex gap-2 mb-6 border-b border-gray-200">
-              <button
-                onClick={() => setActiveTab('prohibited')}
-                className={`px-4 py-2 font-medium rounded-t-lg transition-colors ${
-                  activeTab === 'prohibited'
-                    ? 'bg-red-100 text-red-800 border-b-2 border-red-500'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-              >
-                完全禁止
-              </button>
-              <button
-                onClick={() => setActiveTab('partiallyProhibited')}
-                className={`px-4 py-2 font-medium rounded-t-lg transition-colors ${
-                  activeTab === 'partiallyProhibited'
-                    ? 'bg-yellow-100 text-yellow-800 border-b-2 border-yellow-500'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-              >
-                部分禁止
-              </button>
-              <button
-                onClick={() => setActiveTab('open')}
-                className={`px-4 py-2 font-medium rounded-t-lg transition-colors ${
-                  activeTab === 'open'
-                    ? 'bg-green-100 text-green-800 border-b-2 border-green-500'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-              >
-                开放 / 可准入
-              </button>
-            </div>
-
-            {categoriesWithContent.length > 0 ? (
-              <>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {categoriesWithContent.map((category) => (
-                    <button
-                      key={category.key}
-                      onClick={() => setActiveCategory(category.key)}
-                      className={`px-4 py-2 font-medium rounded-lg transition-colors ${
-                        activeCategory === category.key
-                          ? 'bg-business-orange text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                    >
-                      {category.name}
-                    </button>
-                  ))}
-                </div>
-
-                <div>
-                  {activeTab === 'prohibited' && (
-                    <ul className="space-y-2">
-                      {currentCategoryRestrictions.prohibited.length > 0 ? (
-                        currentCategoryRestrictions.prohibited.map((item, index) => (
-                          <li key={index} className="flex items-start gap-2">
-                            <span className="text-red-500 mt-1">•</span>
-                            <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))
-                      ) : (
-                        <p className="text-gray-500">无完全禁止项目</p>
-                      )}
-                    </ul>
-                  )}
-                  {activeTab === 'partiallyProhibited' && (
-                    <ul className="space-y-2">
-                      {currentCategoryRestrictions.partiallyProhibited.length > 0 ? (
-                        currentCategoryRestrictions.partiallyProhibited.map((item, index) => (
-                          <li key={index} className="flex items-start gap-2">
-                            <span className="text-yellow-500 mt-1">•</span>
-                            <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))
-                      ) : (
-                        <p className="text-gray-500">无部分禁止项目</p>
-                      )}
-                    </ul>
-                  )}
-                  {activeTab === 'open' && (
-                    <ul className="space-y-2">
-                      {currentCategoryRestrictions.open.length > 0 ? (
-                        currentCategoryRestrictions.open.map((item, index) => (
-                          <li key={index} className="flex items-start gap-2">
-                            <span className="text-green-500 mt-1">•</span>
-                            <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))
-                      ) : (
-                        <p className="text-gray-500">无开放项目</p>
-                      )}
-                    </ul>
-                  )}
-                </div>
-              </>
+            {country.accessRestrictionsByStatus ? (
+              // 使用新的按状态分组的展示方式
+              <AccessRestrictionsByStatusView data={country.accessRestrictionsByStatus} />
             ) : (
-              <div className="text-center py-8">
-                <p className="text-gray-500">暂无适用产品</p>
-              </div>
+              // 原有的展示方式，保持向后兼容
+              <>
+                <div className="flex gap-2 mb-6 border-b border-gray-200">
+                  <button
+                    onClick={() => setActiveTab('prohibited')}
+                    className={`px-4 py-2 font-medium rounded-t-lg transition-colors ${
+                      activeTab === 'prohibited'
+                        ? 'bg-red-100 text-red-800 border-b-2 border-red-500'
+                        : 'text-gray-500 hover:text-gray-700'
+                    }`}
+                  >
+                    完全禁止
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('partiallyProhibited')}
+                    className={`px-4 py-2 font-medium rounded-t-lg transition-colors ${
+                      activeTab === 'partiallyProhibited'
+                        ? 'bg-yellow-100 text-yellow-800 border-b-2 border-yellow-500'
+                        : 'text-gray-500 hover:text-gray-700'
+                    }`}
+                  >
+                    部分禁止
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('open')}
+                    className={`px-4 py-2 font-medium rounded-t-lg transition-colors ${
+                      activeTab === 'open'
+                        ? 'bg-green-100 text-green-800 border-b-2 border-green-500'
+                        : 'text-gray-500 hover:text-gray-700'
+                    }`}
+                  >
+                    开放 / 可准入
+                  </button>
+                </div>
+
+                {categoriesWithContent.length > 0 ? (
+                  <>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {categoriesWithContent.map((category) => (
+                        <button
+                          key={category.key}
+                          onClick={() => setActiveCategory(category.key)}
+                          className={`px-4 py-2 font-medium rounded-lg transition-colors ${
+                            activeCategory === category.key
+                              ? 'bg-business-orange text-white'
+                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          }`}
+                        >
+                          {category.name}
+                        </button>
+                      ))}
+                    </div>
+
+                    <div>
+                      {activeTab === 'prohibited' && (
+                        <ul className="space-y-2">
+                          {currentCategoryRestrictions.prohibited.length > 0 ? (
+                            currentCategoryRestrictions.prohibited.map((item, index) => (
+                              <li key={index} className="flex items-start gap-2">
+                                <span className="text-red-500 mt-1">•</span>
+                                <span className="text-gray-700">{item}</span>
+                              </li>
+                            ))
+                          ) : (
+                            <p className="text-gray-500">无完全禁止项目</p>
+                          )}
+                        </ul>
+                      )}
+                      {activeTab === 'partiallyProhibited' && (
+                        <ul className="space-y-2">
+                          {currentCategoryRestrictions.partiallyProhibited.length > 0 ? (
+                            currentCategoryRestrictions.partiallyProhibited.map((item, index) => (
+                              <li key={index} className="flex items-start gap-2">
+                                <span className="text-yellow-500 mt-1">•</span>
+                                <span className="text-gray-700">{item}</span>
+                              </li>
+                            ))
+                          ) : (
+                            <p className="text-gray-500">无部分禁止项目</p>
+                          )}
+                        </ul>
+                      )}
+                      {activeTab === 'open' && (
+                        <ul className="space-y-2">
+                          {currentCategoryRestrictions.open.length > 0 ? (
+                            currentCategoryRestrictions.open.map((item, index) => (
+                              <li key={index} className="flex items-start gap-2">
+                                <span className="text-green-500 mt-1">•</span>
+                                <span className="text-gray-700">{item}</span>
+                              </li>
+                            ))
+                          ) : (
+                            <p className="text-gray-500">无开放项目</p>
+                          )}
+                        </ul>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <div className="text-center py-8">
+                    <p className="text-gray-500">暂无适用产品</p>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </section>
@@ -362,20 +525,50 @@ export default function CountryDetail() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">市场运营规范</h2>
             {country.marketOperation.regulations.length > 0 ? (
-              <div className="grid md:grid-cols-2 gap-6">
-                {country.marketOperation.regulations.map((regulation, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="text-lg font-medium text-gray-900 mb-3">{regulation.category}</h3>
-                    <ul className="space-y-2">
-                      {regulation.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex items-start gap-2">
-                          <span className="text-gray-500 mt-1">•</span>
-                          <span className="text-gray-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <div className="space-y-6">
+                {country.marketOperation.regulations.map((regulation, index) => {
+                  // 检查是否是主要酋长国差异并且有表格数据
+                  if (country.emirateDifferences && regulation.category === '主要酋长国差异') {
+                    return (
+                      <div key={index} className="bg-purple-50 border border-purple-200 rounded-lg p-5">
+                        <h3 className="text-lg font-medium text-purple-900 mb-3">{regulation.category}</h3>
+                        <EmirateDifferencesTable data={country.emirateDifferences} />
+                      </div>
+                    );
+                  }
+                  
+                  // 为不同分类使用不同的配色
+                  let bgClass = 'bg-gray-50 border-gray-200';
+                  let textClass = 'text-gray-900';
+                  
+                  if (regulation.category === '销售与陈列') {
+                    bgClass = 'bg-blue-50 border-blue-200';
+                    textClass = 'text-blue-900';
+                  } else if (regulation.category === '包装与标签') {
+                    bgClass = 'bg-green-50 border-green-200';
+                    textClass = 'text-green-900';
+                  } else if (regulation.category === '广告与宣传') {
+                    bgClass = 'bg-amber-50 border-amber-200';
+                    textClass = 'text-amber-900';
+                  } else if (regulation.category === '主要酋长国差异') {
+                    bgClass = 'bg-purple-50 border-purple-200';
+                    textClass = 'text-purple-900';
+                  }
+                  
+                  return (
+                    <div key={index} className={`${bgClass} border rounded-lg p-5`}>
+                      <h3 className={`text-lg font-medium ${textClass} mb-3`}>{regulation.category}</h3>
+                      <ul className="space-y-2">
+                        {regulation.items.map((item, itemIndex) => (
+                          <li key={itemIndex} className="flex items-start gap-2">
+                            <span className={`mt-1 ${textClass.replace('900', '500')}`}>•</span>
+                            <span className={textClass.replace('900', '700')}>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })}
               </div>
             ) : (
               <>

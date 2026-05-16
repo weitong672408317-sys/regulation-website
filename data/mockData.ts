@@ -6,6 +6,27 @@ export interface ProductCategoryRestrictions {
   open: string[];
 }
 
+// 新的准入限制结构 - 按状态分组，每个状态下列出产品和规则
+export interface AccessRestrictionItem {
+  productName: string;
+  rule: string;
+}
+
+export interface AccessRestrictionsByStatus {
+  fullyProhibited: AccessRestrictionItem[];
+  partiallyRestricted: AccessRestrictionItem[];
+  openAccessible: AccessRestrictionItem[];
+}
+
+// 酋长国差异表格行数据
+export interface EmirateDifferenceRow {
+  emirate: string;
+  chewingTobacco: string;
+  electronicCigarette: string;
+  hookah: string;
+  note?: string;
+}
+
 export interface ComplianceTable {
   product: string;
   nppbkc: string | string[];
@@ -39,13 +60,15 @@ export interface CountryData {
     overview: string;
     definition: string;
   };
-  accessRestrictions: {
+  accessRestrictions?: {
     electronicCigarette: ProductCategoryRestrictions;
     hnb: ProductCategoryRestrictions;
     nicotinePouch: ProductCategoryRestrictions;
     cigarette: ProductCategoryRestrictions;
     otherNovel: ProductCategoryRestrictions;
   };
+  accessRestrictionsByStatus?: AccessRestrictionsByStatus;
+  emirateDifferences?: EmirateDifferenceRow[];
   compliance: {
     licenseRequirements: string;
     table: ComplianceTable[];
@@ -463,33 +486,91 @@ const fallbackCountries: CountryData[] = [
       overview: '阿联酋整体属于烟草及新型烟草产品可准入、但强许可、强认证、强税务监管的市场，原则上不是全国性全面禁止型市场。\n\n阿联酋烟草监管主要有三层：\n\n* 联邦层面：主要规定烟草控制、产品标准、消费税、数字税票、未成年人保护、广告促销限制等基础规则。\n* 酋长国 / 市政层面：主要影响销售点许可、水烟场所、距离限制、陈列、公共场所使用等具体执行要求。\n* 自由区与大陆地区边界：自由区适合进出口、仓储和转口，但不等于可以直接面向阿联酋大陆市场销售。\n\n实务判断时，不应只看产品是否被禁止，还要同时确认产品定性、经营主体、营业执照、产品认证、税务税票及目标酋长国地方要求。',
       definition: '1. 烟草\n\n阿联酋控烟法对“烟草”有明确界定，覆盖烟草植物及其根、茎、叶、果实、干燥或未干燥种子等。\n\n烟叶属于典型烟草原料。\n\n2. 烟草制品\n\n阿联酋控烟法对“烟草制品”有明确界定，指全部或部分以烟叶为原料制成的产品，包括烟叶原形、切碎、切丁、与其他材料混合或以其他形态形成的产品，也包括任何含有烟草成分的复合材料。\n\n传统卷烟、水烟烟草、含烟草成分的 HNB烟支、烟草薄片，以及其他含烟草成分的成品或半成品，原则上可能落入该大类。\n\n3. 电子尼古丁产品\n\n阿联酋强制标准《电子尼古丁产品》（UAE.S 5030:2018）适用于设计成传统烟草产品形式的电子尼古丁产品。公开资料显示，该标准覆盖不含烟草、可能含或不含尼古丁的电子雾化产品及其补充装产品。\n\n电子烟设备、烟油、电子水烟等通常可按该大类理解。\n\n4. 加热卷烟产品\n\n阿联酋联邦税务局数字税票规则将电加热卷烟等列入数字税票覆盖范围。\n\nHNB烟支通常可按加热卷烟产品理解；如产品含烟草成分，也可能同时落入烟草制品监管范围。\n\n5. 无烟草尼古丁袋\n\n阿联酋已发布《无烟草尼古丁袋技术法规》（2025年第2号内阁决议），并将《UAE.S 5061:2025 无烟草尼古丁袋》列为强制性技术法规。\n\n该技术法规名称本身指向“不含烟草的尼古丁袋”这一产品类别。尼古丁袋 / 尼古丁口含膜如不含烟草，可能按“无烟草口含尼古丁产品”路径判断；如含烟草成分，则不宜直接套用该分类。\n\n6. 烟草薄片\n\n公开法规未检索到“烟草薄片”的单独定义。\n\n如烟草薄片全部或部分以烟草叶为原料，原则上可能落入烟草制品或烟草原料相关范围；作为工业原料使用，与作为消费者可直接使用成品销售，应分别判断。\n\n7. 爆珠 / 香精胶囊、滤嘴棒\n\n公开控烟法规及已检索资料未见对爆珠、香精胶囊、滤嘴棒设置专门定义。\n\n页面层面不宜直接将其定义为烟草制品；应根据其成分、用途、是否含烟草或尼古丁、是否作为烟草产品组成部分使用，判断是否触发烟草、尼古丁产品或一般商品监管要求。'
     },
-    accessRestrictions: {
-      electronicCigarette: {
-        prohibited: ['通过自动售货机销售', '向未满18岁人员销售', '通过互联网/电商平台/社交媒体销售', '任何形式的广告、促销和赞助'],
-        partiallyProhibited: ['产品需符合电子尼古丁产品标准、产品认证、成分限制', '需满足消费税、销售渠道要求', '水烟场所受地方许可限制'],
-        open: ['原则上可准入，按电子尼古丁产品路径管理']
-      },
-      hnb: {
-        prohibited: ['通过自动售货机销售', '向未满18岁人员销售', '任何形式的广告、促销和赞助'],
-        partiallyProhibited: ['本地销售需满足经营许可、产品标准、包装标签、消费税、数字税票及地方销售许可要求'],
-        open: ['原则上可准入，按烟草制品、加热卷烟产品路径管理']
-      },
-      nicotinePouch: {
-        prohibited: ['向未满18岁人员销售', '任何形式的广告、促销和赞助'],
-        partiallyProhibited: ['如属于无烟草口含尼古丁产品，应按相应技术法规、认证、标签和销售要求判断', '如含烟草成分，需重新判断监管定性'],
-        open: ['已有专门技术监管方向，符合要求的产品可按条件性准入处理']
-      },
-      cigarette: {
-        prohibited: ['通过自动售货机销售', '向未满18岁人员销售', '公共场所使用', '任何形式的广告、促销和赞助', '在宗教场所、教育机构、医疗和体育设施内销售或使用'],
-        partiallyProhibited: ['本地销售需满足经营许可、产品标准、包装标签、消费税、数字税票及地方销售许可要求', '不得在距清真寺100米、学校150米范围内开设销售点'],
-        open: ['原则上可准入，按烟草制品路径管理']
-      },
-      otherNovel: {
-        prohibited: ['含烟草的咀嚼制品（禁止进口或分销）', '仿制烟草的糖果或玩具（禁止进口或分销）', '向未满18岁人员销售', '任何形式的广告、促销和赞助'],
-        partiallyProhibited: ['烟草薄片/烟叶作为原料与作为消费者成品销售监管路径不同', '爆珠/香精胶囊/滤嘴棒需按成分、用途、是否含烟草或尼古丁判断', '自由区主体不得仅凭自由区执照直接面向大陆市场销售'],
-        open: ['作为原料、辅材、配套材料或转口货物，原则上可设计合规路径']
-      }
+    accessRestrictionsByStatus: {
+      fullyProhibited: [
+        {
+          productName: '含烟草咀嚼制品',
+          rule: '禁止进口、销售、持有或分销，例如 Paan、Gutkha、Mawa 等'
+        },
+        {
+          productName: '仿烟糖果 / 玩具',
+          rule: '禁止进口或分销，例如糖果烟、玩具烟斗等儿童导向产品'
+        }
+      ],
+      partiallyRestricted: [
+        {
+          productName: '电子烟 / 烟油',
+          rule: '电子烟本身可准入，但部分特定有害添加物或口味可能受限，例如肉桂味液体在部分酋长国存在限制'
+        },
+        {
+          productName: '尼古丁袋 / 尼古丁口含膜',
+          rule: '仅在不含烟草、符合无烟草尼古丁袋技术法规及认证要求的情况下，可考虑准入；如产品含烟草成分，可能落入含烟草咀嚼制品或其他烟草制品路径，不应直接按无烟草尼古丁袋处理'
+        }
+      ],
+      openAccessible: [
+        {
+          productName: '传统卷烟、HNB烟支、水烟烟草',
+          rule: '产品本身可准入，分别按烟草制品、加热卷烟产品或水烟烟草路径管理'
+        },
+        {
+          productName: '电子烟 / 烟油',
+          rule: '产品本身可准入，通常按电子尼古丁产品路径管理'
+        },
+        {
+          productName: '烟草薄片、烟叶',
+          rule: '作为烟草原料原则上可准入'
+        },
+        {
+          productName: '爆珠 / 香精胶囊、滤嘴棒',
+          rule: '作为普通辅材或配套材料原则上可准入；如含尼古丁、烟草提取物或被设计为消费者直接使用产品，再按具体成分和用途确认监管路径'
+        }
+      ]
     },
+    emirateDifferences: [
+      {
+        emirate: '阿布扎比',
+        chewingTobacco: '禁止',
+        electronicCigarette: '允许；无全面口味禁令，但特定有害添加物/口味可能受限',
+        hookah: '允许'
+      },
+      {
+        emirate: '迪拜',
+        chewingTobacco: '禁止',
+        electronicCigarette: '允许；无全面口味禁令，但部分添加物/口味可能受限',
+        hookah: '允许；按水烟场所许可和公共场所规则管理'
+      },
+      {
+        emirate: '沙迦',
+        chewingTobacco: '禁止',
+        electronicCigarette: '允许；未见全面口味禁令',
+        hookah: '限制明显更严；公开营业/公共场所水烟经营限制较强'
+      },
+      {
+        emirate: '阿治曼',
+        chewingTobacco: '禁止',
+        electronicCigarette: '允许；未见全面口味禁令',
+        hookah: '允许；但经营区域限制较明显，居民区或市区经营空间受限'
+      },
+      {
+        emirate: '富查伊拉',
+        chewingTobacco: '禁止',
+        electronicCigarette: '允许；未见全面口味禁令',
+        hookah: '允许'
+      },
+      {
+        emirate: '乌姆盖万',
+        chewingTobacco: '禁止',
+        electronicCigarette: '允许；未见全面口味禁令',
+        hookah: '允许；但市区、住宅区经营限制较明显'
+      },
+      {
+        emirate: '哈伊马角',
+        chewingTobacco: '禁止',
+        electronicCigarette: '允许；未见全面口味禁令',
+        hookah: '允许',
+        note: '暂未发现各酋长国对传统卷烟、HNB烟支、烟草薄片、烟叶、爆珠/香精胶囊、滤嘴棒等品类存在明确、稳定的差异化禁令'
+      }
+    ],
     compliance: {
       licenseRequirements: '阿联酋烟草及新型烟草产品的合规重点，不在一般公司设立资质，而在于产品认证、行业许可、税务税票和地方销售许可。\n\n1. 产品符合性证书（Certificate of Conformity, CoC）\n\n电子烟、烟草产品、烟油、无烟草尼古丁袋等受管制产品进入阿联酋市场前，通常需取得产品符合性证书。\n\nCoC 是产品清关、进入本地市场和接受监管检查的重要合规文件。\n\n2. 阿联酋符合性评估计划（Emirates Conformity Assessment Scheme, ECAS）\n\nECAS 是阿联酋强制性产品认证机制，用于确认产品符合阿联酋适用技术标准。\n\n受技术法规管制的产品，通常需通过 ECAS 路径取得 CoC。\n\n3. 无异议函（No Objection Certificate, NOC）\n\nNOC 是政府主管部门出具的无异议函，常用于确认相关主管机关对特定受控业务、产品或操作没有异议。\n\n含尼古丁、烟油、高浓度尼古丁、香精等敏感产品，在产品注册、仓储、转运、再包装、出口或自由区操作等环节，可能需要主管机关出具 NOC；涉及戒烟、治疗或健康功效表达的，还可能触发卫生主管机关审查。\n\n4. 消费税注册及数字税票（Digital Tax Stamps, DTS）\n\n消费税注册是主体层面的税务义务，重点关注进口、生产、仓储或本地流通主体是否需要注册、申报和缴税。烟草产品、电子吸烟设备及其液体通常属于消费税应税商品。\n\n数字税票是产品流通层面的税务合规标识，重点关注特定产品能否进口和在本地市场销售。卷烟、水烟烟草和加热卷烟产品属于数字税票重点品类，适用 DTS 要求的产品未贴附数字税票不得进口进入阿联酋或在本地市场销售。\n\n5. 地方销售许可\n\n烟草销售点、水烟场所、电子烟销售点及相关仓储、陈列场所，可能需要取得所在酋长国或市政部门的专项许可。\n\n迪拜等地对烟草及烟具销售场所设有较具体的地方许可和场所要求。',
       table: []
