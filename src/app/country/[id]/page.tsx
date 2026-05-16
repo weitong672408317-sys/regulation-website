@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { baseCountries, AccessRestrictionsByStatus, EmirateDifferenceRow } from '../../../../data/mockData';
+import { baseCountries, AccessRestrictionsByStatus, EmirateDifferenceRow, ComplianceLicenseCard } from '../../../../data/mockData';
 
 // 文本格式化组件
 const FormattedText = ({ text }: { text: string }) => {
@@ -144,51 +144,51 @@ const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsBySt
   return (
     <div className="space-y-6">
       {/* 完全禁止 */}
-      <div className="bg-red-50 border border-red-200 rounded-lg p-5">
-        <h3 className="font-bold text-red-900 text-lg mb-4 flex items-center gap-2">
-          <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+      <div className="bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-500 rounded-r-lg p-6">
+        <h3 className="font-bold text-red-900 text-xl mb-5 flex items-center gap-3">
+          <span className="w-3 h-3 bg-red-500 rounded-full"></span>
           完全禁止
         </h3>
-        <ul className="space-y-3">
+        <div className="space-y-4">
           {data.fullyProhibited.map((item, index) => (
-            <li key={index} className="flex flex-col gap-1">
-              <span className="font-semibold text-red-900">{item.productName}</span>
-              <span className="text-red-800 ml-2">{item.rule}</span>
-            </li>
+            <div key={index} className="bg-white bg-opacity-70 rounded-lg p-4 border border-red-200">
+              <div className="font-semibold text-red-900 text-base mb-2">{item.productName}</div>
+              <div className="text-red-800 leading-relaxed">{item.rule}</div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       
       {/* 部分禁止 / 条件性限制 */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-5">
-        <h3 className="font-bold text-amber-900 text-lg mb-4 flex items-center gap-2">
-          <span className="w-2 h-2 bg-amber-500 rounded-full"></span>
+      <div className="bg-gradient-to-br from-amber-50 to-amber-100 border-l-4 border-amber-500 rounded-r-lg p-6">
+        <h3 className="font-bold text-amber-900 text-xl mb-5 flex items-center gap-3">
+          <span className="w-3 h-3 bg-amber-500 rounded-full"></span>
           部分禁止 / 条件性限制
         </h3>
-        <ul className="space-y-3">
+        <div className="space-y-4">
           {data.partiallyRestricted.map((item, index) => (
-            <li key={index} className="flex flex-col gap-1">
-              <span className="font-semibold text-amber-900">{item.productName}</span>
-              <span className="text-amber-800 ml-2">{item.rule}</span>
-            </li>
+            <div key={index} className="bg-white bg-opacity-70 rounded-lg p-4 border border-amber-200">
+              <div className="font-semibold text-amber-900 text-base mb-2">{item.productName}</div>
+              <div className="text-amber-800 leading-relaxed">{item.rule}</div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       
       {/* 开放 / 可准入 */}
-      <div className="bg-green-50 border border-green-200 rounded-lg p-5">
-        <h3 className="font-bold text-green-900 text-lg mb-4 flex items-center gap-2">
-          <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+      <div className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500 rounded-r-lg p-6">
+        <h3 className="font-bold text-green-900 text-xl mb-5 flex items-center gap-3">
+          <span className="w-3 h-3 bg-green-500 rounded-full"></span>
           开放 / 可准入
         </h3>
-        <ul className="space-y-3">
+        <div className="space-y-4">
           {data.openAccessible.map((item, index) => (
-            <li key={index} className="flex flex-col gap-1">
-              <span className="font-semibold text-green-900">{item.productName}</span>
-              <span className="text-green-800 ml-2">{item.rule}</span>
-            </li>
+            <div key={index} className="bg-white bg-opacity-70 rounded-lg p-4 border border-green-200">
+              <div className="font-semibold text-green-900 text-base mb-2">{item.productName}</div>
+              <div className="text-green-800 leading-relaxed">{item.rule}</div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
@@ -227,6 +227,20 @@ const EmirateDifferencesTable = ({ data }: { data: EmirateDifferenceRow[] }) => 
           ))}
         </tbody>
       </table>
+    </div>
+  );
+};
+
+// 合规资质卡片展示组件
+const ComplianceLicenseCards = ({ cards }: { cards: ComplianceLicenseCard[] }) => {
+  return (
+    <div className="grid md:grid-cols-2 gap-4">
+      {cards.map((card, index) => (
+        <div key={index} className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+          <h4 className="font-bold text-slate-900 text-lg mb-3">{card.title}</h4>
+          <p className="text-slate-700 leading-relaxed">{card.description}</p>
+        </div>
+      ))}
     </div>
   );
 };
@@ -461,10 +475,14 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">合规资质</h2>
-            {country.compliance.licenseRequirements && (
-              <p className="text-gray-700 mb-6">{country.compliance.licenseRequirements}</p>
-            )}
-            {country.compliance.table.length > 0 ? (
+            {country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
+              <>
+                {country.compliance.licenseRequirements && (
+                  <p className="text-gray-700 mb-6">{country.compliance.licenseRequirements}</p>
+                )}
+                <ComplianceLicenseCards cards={country.compliance.licenseCards} />
+              </>
+            ) : country.compliance.table.length > 0 ? (
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -489,9 +507,9 @@ export default function CountryDetail() {
                   </tbody>
                 </table>
               </div>
-            ) : (
-              <p className="text-gray-500 italic">暂无详细合规资质表格数据</p>
-            )}
+            ) : country.compliance.licenseRequirements ? (
+              <p className="text-gray-700">{country.compliance.licenseRequirements}</p>
+            ) : null}
           </div>
         </section>
 

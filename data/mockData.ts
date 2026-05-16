@@ -27,6 +27,12 @@ export interface EmirateDifferenceRow {
   note?: string;
 }
 
+// 合规资质卡片数据
+export interface ComplianceLicenseCard {
+  title: string;
+  description: string;
+}
+
 export interface ComplianceTable {
   product: string;
   nppbkc: string | string[];
@@ -72,6 +78,7 @@ export interface CountryData {
   compliance: {
     licenseRequirements: string;
     table: ComplianceTable[];
+    licenseCards?: ComplianceLicenseCard[];
   };
   tax: {
     exciseTax: string;
@@ -572,8 +579,30 @@ const fallbackCountries: CountryData[] = [
       }
     ],
     compliance: {
-      licenseRequirements: '阿联酋烟草及新型烟草产品的合规重点，不在一般公司设立资质，而在于产品认证、行业许可、税务税票和地方销售许可。\n\n1. 产品符合性证书（Certificate of Conformity, CoC）\n\n电子烟、烟草产品、烟油、无烟草尼古丁袋等受管制产品进入阿联酋市场前，通常需取得产品符合性证书。\n\nCoC 是产品清关、进入本地市场和接受监管检查的重要合规文件。\n\n2. 阿联酋符合性评估计划（Emirates Conformity Assessment Scheme, ECAS）\n\nECAS 是阿联酋强制性产品认证机制，用于确认产品符合阿联酋适用技术标准。\n\n受技术法规管制的产品，通常需通过 ECAS 路径取得 CoC。\n\n3. 无异议函（No Objection Certificate, NOC）\n\nNOC 是政府主管部门出具的无异议函，常用于确认相关主管机关对特定受控业务、产品或操作没有异议。\n\n含尼古丁、烟油、高浓度尼古丁、香精等敏感产品，在产品注册、仓储、转运、再包装、出口或自由区操作等环节，可能需要主管机关出具 NOC；涉及戒烟、治疗或健康功效表达的，还可能触发卫生主管机关审查。\n\n4. 消费税注册及数字税票（Digital Tax Stamps, DTS）\n\n消费税注册是主体层面的税务义务，重点关注进口、生产、仓储或本地流通主体是否需要注册、申报和缴税。烟草产品、电子吸烟设备及其液体通常属于消费税应税商品。\n\n数字税票是产品流通层面的税务合规标识，重点关注特定产品能否进口和在本地市场销售。卷烟、水烟烟草和加热卷烟产品属于数字税票重点品类，适用 DTS 要求的产品未贴附数字税票不得进口进入阿联酋或在本地市场销售。\n\n5. 地方销售许可\n\n烟草销售点、水烟场所、电子烟销售点及相关仓储、陈列场所，可能需要取得所在酋长国或市政部门的专项许可。\n\n迪拜等地对烟草及烟具销售场所设有较具体的地方许可和场所要求。',
-      table: []
+      licenseRequirements: '阿联酋烟草及新型烟草产品的合规重点，不在于一般公司设立资质，而在于产品认证、行业许可、税务税票和地方销售许可。',
+      table: [],
+      licenseCards: [
+        {
+          title: '产品符合性证书（CoC）',
+          description: '电子烟、烟草产品、烟油、无烟草尼古丁袋等受管制产品进入阿联酋市场前，通常需取得产品符合性证书。CoC 是产品清关、进入本地市场和接受监管检查的重要合规文件。'
+        },
+        {
+          title: '阿联酋符合性评估计划（ECAS）',
+          description: 'ECAS 是阿联酋强制性产品认证机制，用于确认产品符合阿联酋适用技术标准。受技术法规管制的产品，通常需通过 ECAS 路径取得 CoC。'
+        },
+        {
+          title: '无异议函（NOC）',
+          description: 'NOC 是政府主管部门出具的无异议函，常用于确认相关主管机关对特定受控业务、产品或操作没有异议。含尼古丁、烟油、高浓度尼古丁、香精等敏感产品，在产品注册、仓储、转运、再包装、出口或自由区操作等环节，可能需要主管机关出具 NOC；涉及戒烟、治疗或健康功效表达的，还可能触发卫生主管机关审查。'
+        },
+        {
+          title: '消费税注册及数字税票（DTS）',
+          description: '消费税注册是主体层面的税务义务，重点关注进口、生产、仓储或本地流通主体是否需要注册、申报和缴税。数字税票是产品流通层面的税务合规标识，重点关注特定产品能否进口和在本地市场销售。卷烟、水烟烟草和加热卷烟产品属于数字税票重点品类，适用 DTS 要求的产品未贴附数字税票，不得进口进入阿联酋或在本地市场销售。'
+        },
+        {
+          title: '地方销售许可',
+          description: '烟草销售点、水烟场所、电子烟销售点及相关仓储、陈列场所，可能需要取得所在酋长国或市政部门的专项许可。迪拜等地对烟草及烟具销售场所设有较具体的地方许可和场所要求。'
+        }
+      ]
     },
     tax: {
       exciseTax: '阿联酋税务判断的核心是：产品是否属于消费税应税商品，以及是否进入阿联酋本地市场流通。成品烟草、加热卷烟产品、水烟烟草、电子吸烟设备及相关液体通常属于重点税务监管对象；烟草原料、辅材或转口货物则需结合用途和流通路径判断。',
