@@ -516,25 +516,27 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">税收政策</h2>
-            {country.tax.exciseTax && (
-              <p className="text-gray-700 mb-6">{country.tax.exciseTax}</p>
-            )}
             {country.tax.policies.length > 0 ? (
-              <div className="space-y-6">
-                {country.tax.policies.map((policy, index) => (
-                  <div key={index}>
-                    <div className="flex items-start gap-2">
-                      <span className="text-gray-500 mt-1">•</span>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">{policy.title}</h4>
-                        <p className="text-gray-700 mt-1">{policy.description}</p>
+              <>
+                {country.tax.exciseTax && (
+                  <p className="text-gray-700 mb-6">{country.tax.exciseTax}</p>
+                )}
+                <div className="space-y-6">
+                  {country.tax.policies.map((policy, index) => (
+                    <div key={index}>
+                      <div className="flex items-start gap-2">
+                        <span className="text-gray-500 mt-1">•</span>
+                        <div>
+                          <h4 className="font-semibold text-gray-900">{policy.title}</h4>
+                          <p className="text-gray-700 mt-1">{policy.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </>
             ) : country.tax.exciseTax ? (
-              <p className="text-gray-500 italic">暂无详细税收政策数据</p>
+              <FormattedText text={country.tax.exciseTax} />
             ) : null}
           </div>
         </section>
@@ -559,18 +561,30 @@ export default function CountryDetail() {
                   let bgClass = 'bg-gray-50 border-gray-200';
                   let textClass = 'text-gray-900';
                   
-                  if (regulation.category === '销售与陈列') {
+                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道') {
                     bgClass = 'bg-blue-50 border-blue-200';
                     textClass = 'text-blue-900';
                   } else if (regulation.category === '包装与标签') {
                     bgClass = 'bg-green-50 border-green-200';
                     textClass = 'text-green-900';
-                  } else if (regulation.category === '广告与宣传') {
+                  } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传') {
                     bgClass = 'bg-amber-50 border-amber-200';
                     textClass = 'text-amber-900';
-                  } else if (regulation.category === '主要酋长国差异') {
+                  } else if (regulation.category === '主要酋长国差异' || regulation.category === '地方差异' || regulation.category === '主要地区差异') {
                     bgClass = 'bg-purple-50 border-purple-200';
                     textClass = 'text-purple-900';
+                  } else if (regulation.category === '未成年人保护') {
+                    bgClass = 'bg-pink-50 border-pink-200';
+                    textClass = 'text-pink-900';
+                  } else if (regulation.category === '口味与产品形态') {
+                    bgClass = 'bg-emerald-50 border-emerald-200';
+                    textClass = 'text-emerald-900';
+                  } else if (regulation.category === '线上销售' || regulation.category === '平台交易') {
+                    bgClass = 'bg-indigo-50 border-indigo-200';
+                    textClass = 'text-indigo-900';
+                  } else if (regulation.category === '市场流通') {
+                    bgClass = 'bg-cyan-50 border-cyan-200';
+                    textClass = 'text-cyan-900';
                   }
                   
                   return (
