@@ -630,23 +630,69 @@ export default function CountryDetail() {
               <span className="text-red-600 text-2xl">⚠️</span>
               <h2 className="text-2xl font-bold text-red-900">趋势预判与红线警告</h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded p-4 border border-red-200">
-                <h3 className="text-lg font-medium text-red-900 mb-3">政策趋势分析</h3>
-                <FormattedText text={country.trendsWarnings.trendAnalysis} />
+            {country.id === 'china' ? (
+              // 中国页面使用上下结构
+              <div className="space-y-6">
+                {/* 政策趋势分析 - 上方 */}
+                <div className="bg-white rounded p-4 border border-red-200">
+                  <h3 className="text-lg font-medium text-red-900 mb-4">政策趋势分析</h3>
+                  <div className="space-y-6">
+                    {country.trendsWarnings.trendAnalysis.split(/\n\n+/).map((section, index) => {
+                      const numberedTitleMatch = section.match(/^(\d+[.、]\s*[^\n]+)(?:\n([\s\S]*))?$/);
+                      if (numberedTitleMatch) {
+                        const [, title, content] = numberedTitleMatch;
+                        return (
+                          <div key={index} className="space-y-3">
+                            <h4 className="font-bold text-gray-900 text-lg">{title}</h4>
+                            {content && (
+                              <div className="text-gray-700 space-y-2">
+                                {content.split('\n').filter(line => line.trim()).map((paragraph, pIndex) => (
+                                  <p key={pIndex}>{paragraph}</p>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      }
+                      return (
+                        <p key={index} className="text-gray-700">{section}</p>
+                      );
+                    })}
+                  </div>
+                </div>
+                {/* 合规红线清单 - 下方 */}
+                <div className="bg-red-100 rounded p-4 border border-red-300">
+                  <h3 className="text-lg font-medium text-red-900 mb-3">合规红线清单</h3>
+                  <ul className="space-y-2">
+                    {country.trendsWarnings.redLines.map((line, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-red-600 mt-1">✗</span>
+                        <span className="text-red-900 font-medium">{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div className="bg-red-100 rounded p-4 border border-red-300">
-                <h3 className="text-lg font-medium text-red-900 mb-3">合规红线清单</h3>
-                <ul className="space-y-2">
-                  {country.trendsWarnings.redLines.map((line, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-red-600 mt-1">✗</span>
-                      <span className="text-red-900 font-medium">{line}</span>
-                    </li>
-                  ))}
-                </ul>
+            ) : (
+              // 其他国家页面使用左右结构
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white rounded p-4 border border-red-200">
+                  <h3 className="text-lg font-medium text-red-900 mb-3">政策趋势分析</h3>
+                  <FormattedText text={country.trendsWarnings.trendAnalysis} />
+                </div>
+                <div className="bg-red-100 rounded p-4 border border-red-300">
+                  <h3 className="text-lg font-medium text-red-900 mb-3">合规红线清单</h3>
+                  <ul className="space-y-2">
+                    {country.trendsWarnings.redLines.map((line, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-red-600 mt-1">✗</span>
+                        <span className="text-red-900 font-medium">{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </section>
 
