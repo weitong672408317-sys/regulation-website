@@ -561,13 +561,13 @@ export default function CountryDetail() {
                   let bgClass = 'bg-gray-50 border-gray-200';
                   let textClass = 'text-gray-900';
                   
-                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道') {
+                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道') {
                     bgClass = 'bg-blue-50 border-blue-200';
                     textClass = 'text-blue-900';
-                  } else if (regulation.category === '包装与标签') {
+                  } else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签') {
                     bgClass = 'bg-green-50 border-green-200';
                     textClass = 'text-green-900';
-                  } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传') {
+                  } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示') {
                     bgClass = 'bg-amber-50 border-amber-200';
                     textClass = 'text-amber-900';
                   } else if (regulation.category === '主要酋长国差异' || regulation.category === '地方差异' || regulation.category === '主要地区差异') {
@@ -579,6 +579,9 @@ export default function CountryDetail() {
                   } else if (regulation.category === '口味与产品形态') {
                     bgClass = 'bg-emerald-50 border-emerald-200';
                     textClass = 'text-emerald-900';
+                  } else if (regulation.category === '持有、使用与公共场所') {
+                    bgClass = 'bg-indigo-50 border-indigo-200';
+                    textClass = 'text-indigo-900';
                   } else if (regulation.category === '线上销售' || regulation.category === '平台交易') {
                     bgClass = 'bg-indigo-50 border-indigo-200';
                     textClass = 'text-indigo-900';
