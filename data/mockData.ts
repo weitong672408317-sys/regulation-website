@@ -967,6 +967,10 @@ const fallbackCountries: CountryData[] = [
         {
           productName: '爆珠 / 香精胶囊、滤嘴棒',
           rule: '公开资料未见单独禁止口径。应结合成分、形态、进口申报品名及是否构成烟草产品、雾化器组件、仿烟产品或其他受管制物品判断。'
+        },
+        {
+          productName: '研发、检测、实验、递样、销毁或再出口等有限豁免',
+          rule: '新加坡法规存在针对部分禁止类烟草产品和仿烟产品的有限豁免安排。该类豁免只适用于法律或主管部门明确允许的特定产品、行为和目的，通常需要事先通知主管机关，并满足法规列明的条件。'
         }
       ],
       openAccessible: [
@@ -989,7 +993,7 @@ const fallbackCountries: CountryData[] = [
         },
         {
           title: '禁止类产品：无普通商业经营资质',
-          description: '电子烟、HNB烟支、尼古丁袋、口含烟、鼻烟、雾化器、烟油等禁止类产品，原则上不得作为普通商业产品进口、销售、供应、购买、持有或使用。'
+          description: '电子烟、HNB烟支、尼古丁袋、口含烟、鼻烟、雾化器、烟油等禁止类产品，原则上不得作为普通商业产品进口、销售、供应、购买、持有或使用。传统烟草许可、海关申报或缴税，不能替代禁止类产品准入。'
         },
         {
           title: '有限豁免：仅限法规列明的特定目的',
@@ -1090,6 +1094,14 @@ const fallbackCountries: CountryData[] = [
           url: 'https://www.moh.gov.sg/newsroom/tobacco-control-of-advertisements-and-sale-amendment-and-other-matters-bill-to-strengthen-enforcement-against-vaping-and-etomidate-abuse/'
         },
         {
+          title: '新加坡卫生部MOH：Second Reading Speech on Tobacco and Vaporisers Control Amendment Bill',
+          url: 'https://www.moh.gov.sg/newsroom/tobacco-control-of-advertisements-and-sale-amendment-and-other-matters-bill-second-reading-opening-speech-by-dr-koh-poh-koon-senior-minister-of-state-ministry-of-health-and-ministry-of-manpower-6-march-2026/'
+        },
+        {
+          title: '新加坡国家环境局NEA：Smoking Legislation',
+          url: 'https://www.nea.gov.sg/our-services/smoking-prohibition/smoking-legislation'
+        },
+        {
           title: '新加坡卫生部MOH：Standardised packaging and enlarged graphic health warnings',
           url: 'https://www.moh.gov.sg/newsroom/standardised-packaging-enlarged-graphic-health-warnings-mandatory-for-all-tobacco-products-in-singapore-from-1-july-2020/'
         },
@@ -1118,6 +1130,10 @@ const fallbackCountries: CountryData[] = [
         {
           title: '2026年3月：新加坡通过修法，强化电子烟、雾化器和依托咪酯滥用执法',
           url: 'https://www.moh.gov.sg/newsroom/tobacco-control-of-advertisements-and-sale-amendment-and-other-matters-bill-to-strengthen-enforcement-against-vaping-and-etomidate-abuse/'
+        },
+        {
+          title: '2026年3月：新加坡卫生部二读发言说明修法背景、处罚加重及场所管理义务',
+          url: 'https://www.moh.gov.sg/newsroom/tobacco-control-of-advertisements-and-sale-amendment-and-other-matters-bill-second-reading-opening-speech-by-dr-koh-poh-koon-senior-minister-of-state-ministry-of-health-and-ministry-of-manpower-6-march-2026/'
         },
         {
           title: '2026年2月：新加坡所有烟草产品消费税提高20%',
