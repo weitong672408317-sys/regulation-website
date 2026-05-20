@@ -118,7 +118,7 @@ const fallbackCountries: CountryData[] = [
       '2026年4月：《加热卷烟》《尼古丁袋》两项强制性国家标准拟立项并公开征求意见'
     ],
     regulatorySystem: {
-      overview: '* 核心特征：国家烟草专卖、强证照、强计划、强渠道和强执法\n\n国家对烟草专卖品的生产、销售和进出口实行专卖管理，并通过许可证、生产计划、准运、销售渠道、进出口审批和执法检查等方式控制全链条经营活动。\n\n* 传统烟草专卖品\n\n传统卷烟、烟叶、卷烟纸、滤嘴棒、烟用丝束、烟草专用机械等均属于烟草专卖体系内产品，不属于普通商业主体可自由经营的商品。相关产品的生产、批发、零售、运输、进出口均需结合具体品类和经营环节判断适用许可及监管要求。\n\n* 电子烟监管\n\n电子烟虽已建立合法经营路径，但并不是普通消费品监管模式，而是参照卷烟有关规定执行，并通过电子烟相关生产、批发、零售许可，强制性国家标准，产品审评，电子烟交易管理平台，口味限制，渠道限制和未成年人保护规则进行管理。\n\n电子烟零售主体应通过电子烟交易管理平台从当地电子烟批发企业购进电子烟产品，再在持证门店销售。\n\n* 新型烟草制品\n\nHNB烟支/加热卷烟、尼古丁袋/尼古丁口含膜/口含烟等产品目前仍不属于中国开放销售品类。2026年以来，相关标准和监管文件释放出规则建设信号，但在正式准入政策、许可路径、产品标准和销售渠道安排落地前，相关产品不能在中国生产、销售或流通。',
+      overview: '**核心特征**：国家烟草专卖、强证照、强计划、强渠道和强执法\n\n国家对烟草专卖品的生产、销售和进出口实行专卖管理，并通过许可证、生产计划、准运、销售渠道、进出口审批和执法检查等方式控制全链条经营活动。\n\n**传统烟草专卖品**\n\n传统卷烟、烟叶、卷烟纸、滤嘴棒、烟用丝束、烟草专用机械等均属于烟草专卖体系内产品，不属于普通商业主体可自由经营的商品。相关产品的生产、批发、零售、运输、进出口均需结合具体品类和经营环节判断适用许可及监管要求。\n\n**电子烟监管**\n\n电子烟虽已建立合法经营路径，但并不是普通消费品监管模式，而是参照卷烟有关规定执行，并通过电子烟相关生产、批发、零售许可，强制性国家标准，产品审评，电子烟交易管理平台，口味限制，渠道限制和未成年人保护规则进行管理。\n\n电子烟零售主体应通过电子烟交易管理平台从当地电子烟批发企业购进电子烟产品，再在持证门店销售。\n\n**新型烟草制品**\n\nHNB烟支/加热卷烟、尼古丁袋/尼古丁口含膜/口含烟等产品目前仍不属于中国开放销售品类。2026年以来，相关标准和监管文件释放出规则建设信号，但在正式准入政策、许可路径、产品标准和销售渠道安排落地前，相关产品不能在中国生产、销售或流通。',
       definition: '1. 烟草专卖品\n\n烟草专卖品是中国烟草专卖制度下的基础监管对象，包括卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、卷烟纸、滤嘴棒、烟用丝束和烟草专用机械。其中，卷烟、雪茄烟、烟丝、复烤烟叶统称烟草制品。传统卷烟、烟叶、滤嘴棒、烟草专用机械等均属于烟草专卖体系内产品，不能按普通商品理解。\n\n2. 烟草专用机械\n\n烟草专用机械属于烟草专卖品，法规中指烟草专用机械的整机。烟草专用机械通常用于烟草制品生产、加工等环节。与普通机械设备不同，烟草专用机械本身被纳入烟草专卖品范围，其生产、销售、运输、进口和使用通常需要结合烟草专卖许可、生产计划和设备流向进行判断。\n\n3. 电子烟\n\n电子烟包括烟弹、烟具以及烟弹与烟具组合销售的产品等。《电子烟》国家标准将电子烟界定为用于产生气溶胶供人抽吸等的电子传送系统。监管口径上，不含烟碱的电子烟也纳入电子烟定义范围；但国家标准同时要求雾化物应含有烟碱，因此不含烟碱的电子烟产品不得进入市场销售。中国境内销售电子烟，还需满足烟草口味、产品审评、强制性国家标准、警语标识和交易平台等要求。\n\n4. HNB烟支 / 加热卷烟\n\n中国现行公开法规尚未对HNB烟支 / 加热卷烟设置统一、完整的专门定义。HNB烟支 / 加热卷烟通常是指通过专门加热装置加热烟草材料，产生气溶胶供消费者吸用的产品。该类产品不同于传统燃烧卷烟，也不同于《电子烟管理办法》项下的一般电子烟产品。\n\n5. 尼古丁袋 / 尼古丁口含膜 / 口含烟\n\n国家烟草专卖局2026年第1号公告已将尼古丁袋、尼古丁片、尼古丁贴、含烟、嚼烟、膏烟、溶烟、嗅烟等纳入无烟气烟草制品范围。尼古丁袋 / 尼古丁口含膜 / 口含烟通常是含有烟碱成分、通过口用、鼻用或外用等方式使用、且不产生烟气的产品。该类产品目前应按无烟气烟草制品监管路径判断。\n\n6. 爆珠 / 香精胶囊\n\n中国现行公开烟草专卖法规未对爆珠 / 香精胶囊设置专门定义。爆珠 / 香精胶囊通常是含有香精香料或其他内容物、可在使用过程中释放香气或风味的胶囊类辅材。爆珠 / 香精胶囊本身不是烟草专卖品；不含尼古丁、烟草原料或烟草提取物的爆珠 / 香精胶囊，属于香精胶囊或普通辅材。'
     },
     accessRestrictions: {
@@ -894,19 +894,20 @@ const fallbackCountries: CountryData[] = [
     name: '新加坡',
     isoCode: 'SG',
     status: '严格禁止',
-    productQualification: '禁止',
-    restrictions: '全面禁止销售和使用',
+    productQualification: '新型产品禁止',
+    restrictions: '传统烟草有限准入，新型产品原则禁止',
     regulatoryIntensity: '高',
     hasChangesThisSeason: true,
-    seasonSummary: '加大执法力度，严厉打击非法交易',
+    seasonSummary: '2026年以来，新加坡烟草监管继续沿着"传统烟草有限准入、新型产品从严禁止"的方向推进。2026年3月修法，5月1日《Tobacco and Vaporisers Control Act 1993》生效，禁止类产品处罚加重，场所管理义务强化，传统烟草消费税提高20%。',
     regulatoryUpdates: [
-      '2024年1月：HSA发布最新执法通知',
-      '2024年2月：加大边境检查力度',
-      '2024年3月：公布一批违法案例'
+      '2026年5月：《Tobacco and Vaporisers Control Act 1993》生效，监管覆盖雾化器、新型烟草产品、仿烟产品及相关组件',
+      '2026年5月：禁止类产品处罚和场所管理义务加强，购买持有最高罚款10,000新元',
+      '2026年2月：烟草消费税提高20%',
+      '2025年至2026年：电子烟及依托咪酯相关执法持续加强'
     ],
     regulatorySystem: {
-      overview: '新加坡对特殊物质产品实施全面禁止政策，由卫生科学局（HSA）和新加坡海关严格执法。任何相关产品的销售、拥有和使用均属违法。',
-      definition: '所有含尼古丁的电子雾化产品、加热烟草制品等均被全面禁止，无论是否含有烟草成分。'
+      overview: '**核心特征**：传统烟草有限经营，但展示、宣传和使用受到严格限制；电子烟、HNB烟支、尼古丁袋等新型产品原则上禁止；禁烟场所覆盖日常生活场景，个人购买持有使用禁止类产品也可能面临处罚。\n\n**监管部门**：新加坡卫生部（MOH）负责控烟政策和法规框架；卫生科学局（HSA）负责烟草许可管理和禁止类产品执法；新加坡海关负责进口、关税和税务监管；国家环境局（NEA）负责禁烟场所执法。\n\n**传统烟草监管**：卷烟、雪茄等传统烟草产品保留合法经营空间，但零售点不得公开陈列，包装需符合标准化和健康警示要求，广告促销受到严格限制，吸烟场所也受到严格管控。\n\n**新型产品监管**：电子烟、雾化器、HNB烟支、尼古丁袋、烟油、仿烟产品等，原则上不得进口、销售、供应、购买、持有或使用。2026年修法后，购买、使用或持有禁止类产品最高罚款提高至10,000新元；进口、销售或供应还可能面临强制监禁和罚款。\n\n**禁烟场所**：禁烟范围已扩展至全岛超过49,000个地点，覆盖交通、住宅公共区域、公园、游乐场、海滩等多类日常场景。场所所有人、占有人及指定场所经营者需对禁止类产品的储存、持有和使用采取相应处理措施。\n\n**有限豁免**：对部分禁止类烟草产品和仿烟产品，法规允许在主管机关、执法、检测、分析、销毁、再出口等特定目的下进行有限处理，受到严格限制和监管。',
+      definition: '1. 烟草产品\n\n新加坡《Tobacco and Vaporisers Control Act 1993》使用tobacco product作为基础概念，包括卷烟、雪茄、小雪茄、其他制成烟草、未加工烟草、切丝烟草、烟草废料等。\n\n2. 雾化器/电子烟相关产品\n\n使用vaporiser作为核心概念，指可用于模拟吸烟，或将任何物质转化为可被吸入的气雾、蒸气或烟雾的设备或物品。电子烟设备、雾化器、烟弹、烟油、补充液及相关组件通常属于该概念覆盖范围。\n\n3. HNB烟支/加热不燃烧产品\n\n监管资料中直接使用heated tobacco products/heat-not-burn products，并以IQOS作为示例，包括HNB烟支、加热烟草棒、加热设备及相关组件。\n\n4. 尼古丁袋/口含类、无烟类产品\n\n监管资料中直接列举nicotine pouches、snuff、oral snuff、gutkha、khaini、zarda、dissolvable tobacco or nicotine等产品名称。\n\n5. 水烟烟草\n\n使用shisha tobacco、shisha molasses/tobacco等名称，指用于水烟装置吸食的烟草或糖蜜类产品。\n\n6. 爆珠/香精胶囊、滤嘴棒\n\n公开资料未见单独定义，需结合成分、形态和申报品名判断是否属于烟草产品、雾化器组件、仿烟产品或其他受管制物品。'
     },
     accessRestrictions: {
       electronicCigarette: {
@@ -935,32 +936,202 @@ const fallbackCountries: CountryData[] = [
         open: []
       }
     },
+    accessRestrictionsByStatus: {
+      fullyProhibited: [
+        {
+          productName: '电子烟 / 雾化器 / 烟油',
+          rule: '原则上禁止进口、销售、供应、购买、持有和使用。包括雾化器、烟弹、烟油、补充液及相关组件。'
+        },
+        {
+          productName: 'HNB烟支 / 加热不燃烧产品',
+          rule: '原则上禁止进口、销售、供应、购买、持有和使用。包括HNB烟支、加热烟草产品、加热设备及相关组件。'
+        },
+        {
+          productName: '尼古丁袋 / 尼古丁口含膜 / 口含烟 / 鼻烟 / snus',
+          rule: '原则上禁止进口、销售、供应、购买、持有和使用。尼古丁口含膜应与尼古丁袋、口含类或无烟类尼古丁产品一并审慎判断。'
+        },
+        {
+          productName: 'Shisha tobacco / 水烟烟草',
+          rule: '列入禁止类产品范围，原则上禁止进口、销售、供应、购买、持有和使用。'
+        },
+        {
+          productName: '仿烟产品',
+          rule: '原则上禁止进口、销售、供应、购买、持有和使用。包括模仿烟草产品、电子烟或吸烟行为的产品、装置或相关组件。'
+        }
+      ],
+      partiallyRestricted: [
+        {
+          productName: '烟草薄片、烟叶',
+          rule: '公开资料未见单独禁止口径。应结合进口品名、成分、形态、申报路径及监管归类判断。'
+        },
+        {
+          productName: '爆珠 / 香精胶囊、滤嘴棒',
+          rule: '公开资料未见单独禁止口径。应结合成分、形态、进口申报品名及是否构成烟草产品、雾化器组件、仿烟产品或其他受管制物品判断。'
+        }
+      ],
+      openAccessible: [
+        {
+          productName: '传统卷烟、雪茄及其他传统烟草产品',
+          rule: '可在新加坡烟草许可和税务监管框架下经营。主要监管集中在进口、批发、零售、包装标签、广告促销、销售对象和使用场所。'
+        }
+      ]
+    },
     compliance: {
-      licenseRequirements: '无任何许可途径，全面禁止。',
+      licenseRequirements: '新加坡烟草及新型烟草业务的合规资质需按产品类型区分。传统烟草可通过许可经营，禁止类产品无普通商业经营资质。',
+      licenseCards: [
+        {
+          title: '传统烟草经营许可',
+          description: '在新加坡进口、批发、分销或零售传统烟草产品，应取得相应烟草许可，主要包括烟草进口商和批发商许可、烟草零售许可。'
+        },
+        {
+          title: '传统烟草进口与税务手续',
+          description: '传统烟草产品进口需依法向新加坡海关申报，并缴纳适用的关税、烟草消费税和GST。进口产品还需符合新加坡烟草产品包装和健康警示要求。'
+        },
+        {
+          title: '禁止类产品：无普通商业经营资质',
+          description: '电子烟、HNB烟支、尼古丁袋、口含烟、鼻烟、雾化器、烟油等禁止类产品，原则上不得作为普通商业产品进口、销售、供应、购买、持有或使用。'
+        },
+        {
+          title: '有限豁免：仅限法规列明的特定目的',
+          description: '新加坡法规对部分禁止类产品设有有限豁免，涉及无烟烟草产品、雾化器溶液、雾化器、豁免仿烟产品及其组件。豁免目的包括非临床研究、产品开发和供应链相关活动，需事先通知主管机关并满足法规列明的条件。'
+        }
+      ],
       table: []
     },
     tax: {
-      exciseTax: '不适用，产品全面禁止。',
-      policies: []
+      exciseTax: '新加坡烟草相关税负主要包括烟草消费税、关税和GST。传统烟草产品进口和销售需要依法申报并缴纳相应税费。禁止类产品不能因申报、缴税而取得合法进口、销售或持有资格。',
+      policies: [
+        {
+          title: '烟草消费税',
+          description: '自2026年2月12日起，新加坡所有烟草产品消费税提高20%。卷烟、雪茄、小雪茄及其他制成烟草产品每支58.9新分；其他无烟烟草和beedies每公斤454新元；未加工烟草、切丝烟草及烟草废料每公斤535新元。'
+        },
+        {
+          title: '关税与GST',
+          description: '传统烟草产品进口需依法缴纳适用的关税和商品服务税（GST），具体税率需结合产品类型和进口方式判断。'
+        },
+        {
+          title: '禁止类产品税务说明',
+          description: '电子烟、HNB烟支、尼古丁袋、烟油、雾化器及相关组件等禁止类产品，不能因申报、缴税或支付关税而取得合法进口、销售、递样、持有或使用资格。'
+        }
+      ]
     },
     marketOperation: {
-      marketingRestrictions: '全面禁止任何形式的广告、推广和销售活动。',
-      displaySales: '全面禁止，任何销售行为均属违法。',
-      regulations: []
+      marketingRestrictions: '',
+      displaySales: '',
+      regulations: [
+        {
+          category: '销售与渠道',
+          items: [
+            '传统烟草产品需通过持证主体经营',
+            '进口、批发、分销或零售烟草产品前，应取得相应烟草许可',
+            '不得向低于最低法定年龄的人销售、供应或提供传统烟草产品',
+            '电子烟、HNB烟支、尼古丁袋、雾化器、烟油及相关组件不得进入普通销售渠道'
+          ]
+        },
+        {
+          category: '包装、陈列与标签',
+          items: [
+            '传统烟草产品必须符合新加坡标准化包装要求',
+            '传统烟草产品需使用强制健康警示',
+            '持证烟草零售点不得公开陈列烟草产品',
+            '包装、进口资料、销售资料和税务申报信息应保持一致'
+          ]
+        },
+        {
+          category: '广告、促销与展示',
+          items: [
+            '禁止烟草产品广告和促销',
+            '禁止电子烟、HNB、尼古丁袋、雾化器、仿烟产品等禁止类产品的展示、推广或试销',
+            '不得通过样品、赠品、抽奖、折扣、积分、组合销售或会员计划变相推广烟草产品',
+            '不得通过电商平台、社交媒体、跨境邮寄、代购或旅客携带方式向新加坡输入禁止类产品'
+          ]
+        },
+        {
+          category: '持有、使用与公共场所',
+          items: [
+            '新加坡多数室内公共场所和部分室外公共场所禁止吸烟',
+            '传统烟草产品虽可在许可渠道内销售，但使用场所受到严格限制',
+            '电子烟、HNB烟支、尼古丁袋、雾化器及相关组件的购买、持有和使用本身即可能构成违法',
+            '公共娱乐场所经营者如发现顾客持有或使用禁止类产品，需要采取相应处理措施'
+          ]
+        }
+      ]
     },
     trendsWarnings: {
-      trendAnalysis: '新加坡坚持全面禁止政策，执法力度持续加强，对违法行为处以重罚。建议不要尝试任何违规行为。',
+      trendAnalysis: '新加坡烟草监管长期以控烟和公共健康保护为核心。传统烟草仍保留有限经营空间，但监管重点是减少展示、减少宣传、提高税负，并通过禁烟场所规则限制使用场景。电子烟、HNB烟支、尼古丁袋、雾化器等新型产品则继续采取原则禁止和严格执法的路径。\n\n2026年的修法进一步强化了这一方向。监管已经从传统的进口、销售和广告控制，延伸到购买、持有、使用、储存、场所责任、雾化器组件、仿烟产品以及含特定精神活性物质产品。未来新加坡大概率仍将维持"传统烟草有限准入、新型产品原则禁止、个人和场所责任同步强化"的监管格局。',
       redLines: [
-        '严禁进口任何产品',
-        '严禁销售或提供',
-        '严禁拥有或使用',
-        '严禁任何形式广告',
-        '严禁通过网络购买'
+        '严禁违法进口、销售、供应、购买、持有或使用电子烟、雾化器、烟油、HNB烟支、尼古丁袋、口含烟、鼻烟、水烟烟草、仿烟产品及相关设备或组件',
+        '严禁通过跨境邮寄、旅客携带、电商平台、社交媒体、代购等方式向新加坡输入禁止类产品',
+        '严禁以样品、展品、试用品、赠品、研发、检测或内部测试名义，未经确认将禁止类产品带入、寄送、展示或留存在新加坡',
+        '严禁展示、宣传、推广或试销电子烟、HNB烟支、尼古丁袋、雾化器等禁止类产品',
+        '严禁向21岁以下人员销售、供应、购买或提供传统烟草产品；严禁在新加坡禁烟公共场所吸烟'
       ]
     },
     references: {
-      regulations: [],
-      news: [],
+      regulations: [
+        {
+          title: '《Tobacco and Vaporisers Control Act 1993》',
+          url: 'https://sso.agc.gov.sg/Act/TVCA1993'
+        },
+        {
+          title: '新加坡卫生科学局HSA：Overview of tobacco control',
+          url: 'https://www.hsa.gov.sg/tobacco-regulation/overview'
+        },
+        {
+          title: '新加坡卫生科学局HSA：Tobacco licences',
+          url: 'https://www.hsa.gov.sg/tobacco-regulation/tobacco-licences'
+        },
+        {
+          title: '新加坡卫生科学局HSA：Vaping enforcement',
+          url: 'https://www.hsa.gov.sg/tobacco-regulation/vaping-enforcement'
+        },
+        {
+          title: '新加坡卫生部MOH：Tobacco and Vaporisers Control Amendment Bill',
+          url: 'https://www.moh.gov.sg/newsroom/tobacco-control-of-advertisements-and-sale-amendment-and-other-matters-bill-to-strengthen-enforcement-against-vaping-and-etomidate-abuse/'
+        },
+        {
+          title: '新加坡卫生部MOH：Standardised packaging and enlarged graphic health warnings',
+          url: 'https://www.moh.gov.sg/newsroom/standardised-packaging-enlarged-graphic-health-warnings-mandatory-for-all-tobacco-products-in-singapore-from-1-july-2020/'
+        },
+        {
+          title: '新加坡国家环境局NEA：Smoking Prohibition',
+          url: 'https://www.nea.gov.sg/our-services/smoking-prohibition/overview'
+        },
+        {
+          title: '新加坡海关Singapore Customs：Importing cigarettes or tobacco products into Singapore',
+          url: 'https://ask.gov.sg/customs/questions/cm7lx1tgh01kelrwzodkkt22n'
+        },
+        {
+          title: '《Tobacco and Vaporisers Control (Prohibited Tobacco Products and Imitation Tobacco Products) (Exemption) Order 2018》',
+          url: 'https://sso.agc.gov.sg/SL/TVCA1993-S70-2018'
+        },
+        {
+          title: '《Tobacco and Vaporisers Control (Prohibited Tobacco Products and Imitation Tobacco Products) (Exemption) (Amendment) Order 2026》',
+          url: 'https://assets.egazette.gov.sg/2026/Legislative%20Supplements/Subsidiary%20Legislation%20Supplement/254.pdf'
+        }
+      ],
+      news: [
+        {
+          title: '2026年5月：新加坡公布2026年第一季度电子烟执法情况，超过2,500人被查获',
+          url: 'https://www.moh.gov.sg/newsroom/over-2-500-caught-vaping-in-first-3-months-of-2026/'
+        },
+        {
+          title: '2026年3月：新加坡通过修法，强化电子烟、雾化器和依托咪酯滥用执法',
+          url: 'https://www.moh.gov.sg/newsroom/tobacco-control-of-advertisements-and-sale-amendment-and-other-matters-bill-to-strengthen-enforcement-against-vaping-and-etomidate-abuse/'
+        },
+        {
+          title: '2026年2月：新加坡所有烟草产品消费税提高20%',
+          url: 'https://www.channelnewsasia.com/singapore/budget-2026-tobacco-cigarettes-duty-tax-smoking-5925896'
+        },
+        {
+          title: '2025年8月：新加坡跨部门强化电子烟及依托咪酯相关执法',
+          url: 'https://www.moh.gov.sg/newsroom/whole-of-government-efforts-to-tackle-vaping/'
+        },
+        {
+          title: '2025年8月：MOH与HSA继续加强电子雾化器违法行为执法',
+          url: 'https://www.moh.gov.sg/newsroom/moh-and-hsa-continue-to-intensify-enforcement-on-e-vaporiser-offences/'
+        }
+      ],
       pdfs: []
     }
   },
