@@ -11,10 +11,107 @@ const FormattedText = ({ text }: { text: string }) => {
   const paragraphs = text.split(/\n\n+/);
   
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {paragraphs.map((paragraph, pIndex) => {
-        // 检查是否是 * 标记的列表（监管概述中的标题格式）
-        if (paragraph.trim().startsWith('* ') || paragraph.trim().startsWith('- ')) {
+        const trimmedParagraph = paragraph.trim();
+        
+        // 检查是否是 [TITLE] 标签
+        const titleMatch = trimmedParagraph.match(/^\[TITLE\](.*)\[\/TITLE\]$/);
+        if (titleMatch) {
+          return (
+            <h3 key={pIndex} className="text-xl font-bold text-gray-900 mt-6 mb-3">
+              {titleMatch[1]}
+            </h3>
+          );
+        }
+        
+        // 检查是否是 [ITEM] 标签
+        const itemMatch = trimmedParagraph.match(/^\[ITEM\](.*)\[\/ITEM\]$/);
+        if (itemMatch) {
+          return (
+            <div key={pIndex} className="flex items-start gap-2">
+              <span className="text-gray-500 mt-1">•</span>
+              <span className="font-semibold text-gray-900">{itemMatch[1]}</span>
+            </div>
+          );
+        }
+        
+        // 检查是否是 [ITEM] 标签后面跟着内容（在同一段落中）
+        if (trimmedParagraph.includes('[ITEM]') && trimmedParagraph.includes('[/ITEM]')) {
+          const itemEnd = trimmedParagraph.indexOf('[/ITEM]');
+          const itemTitle = trimmedParagraph.substring(6, itemEnd);
+          const content = trimmedParagraph.substring(itemEnd + 8).trim();
+          return (
+            <div key={pIndex} className="space-y-1">
+              <div className="flex items-start gap-2">
+                <span className="text-gray-500 mt-1">•</span>
+                <span className="font-semibold text-gray-900">{itemTitle}</span>
+              </div>
+              {content && (
+                <div className="ml-5 text-gray-700">
+                  {content}
+                </div>
+              )}
+            </div>
+          );
+        }
+        
+        // 检查是否是 # 开头的一级标题
+        if (trimmedParagraph.startsWith('# ')) {
+          const title = trimmedParagraph.substring(2);
+          return (
+            <h3 key={pIndex} className="text-xl font-bold text-gray-900 mt-6 mb-3">
+              {title}
+            </h3>
+          );
+        }
+        
+        // 检查是否是 • 标记的列表（黑点列表）
+        if (trimmedParagraph.startsWith('• ')) {
+          const items = paragraph.split('\n').filter(line => line.trim());
+          return (
+            <div key={pIndex} className="space-y-4">
+              {items.map((item, itemIndex) => {
+                const trimmed = item.trim().replace(/^•\s*/, '');
+                if (!trimmed) return null;
+                
+                // 查找下一个黑点或段落结束
+                const nextItem = items[itemIndex + 1];
+                const hasNextItem = nextItem && nextItem.trim().startsWith('• ');
+                
+                // 如果下一个是黑点，则当前是标题
+                if (!hasNextItem && itemIndex < items.length - 1) {
+                  // 当前是标题，下一行是内容
+                  const content = items[itemIndex + 1]?.trim().replace(/^•\s*/, '') || '';
+                  if (content && !content.startsWith('• ')) {
+                    return (
+                      <div key={itemIndex} className="space-y-1">
+                        <div className="flex items-start gap-2">
+                          <span className="text-gray-500 mt-1">•</span>
+                          <span className="font-semibold text-gray-900">{trimmed}</span>
+                        </div>
+                        <div className="ml-5 text-gray-700">
+                          {content}
+                        </div>
+                      </div>
+                    );
+                  }
+                }
+                
+                // 单独的列表项
+                return (
+                  <div key={itemIndex} className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-1">•</span>
+                    <span className="text-gray-700">{trimmed}</span>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        }
+        
+        // 检查是否是 * 标记的列表（其他类型的列表）
+        if (trimmedParagraph.startsWith('* ') || trimmedParagraph.startsWith('- ')) {
           const items = paragraph.split('\n').filter(line => line.trim());
           return (
             <div key={pIndex} className="space-y-3">
