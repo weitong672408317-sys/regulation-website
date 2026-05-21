@@ -79,43 +79,49 @@ const FormattedText = ({ text }: { text: string }) => {
         // 检查是否是 • 标记的列表（黑点列表）
         if (trimmedParagraph.startsWith('• ')) {
           const items = paragraph.split('\n').filter(line => line.trim());
-          return (
-            <div key={pIndex} className="space-y-4">
-              {items.map((item, itemIndex) => {
-                const trimmed = item.trim().replace(/^•\s*/, '');
-                if (!trimmed) return null;
-                
-                // 查找下一个黑点或段落结束
-                const nextItem = items[itemIndex + 1];
-                const hasNextItem = nextItem && nextItem.trim().startsWith('• ');
-                
-                // 如果下一个是黑点，则当前是标题
-                if (!hasNextItem && itemIndex < items.length - 1) {
-                  // 当前是标题，下一行是内容
-                  const content = items[itemIndex + 1]?.trim().replace(/^•\s*/, '') || '';
-                  if (content && !content.startsWith('• ')) {
-                    return (
-                      <div key={itemIndex} className="space-y-1">
-                        <div className="flex items-start gap-2">
-                          <span className="text-gray-500 mt-1">•</span>
-                          <span className="font-semibold text-gray-900">{trimmed}</span>
-                        </div>
-                        <div className="ml-5 text-gray-700">
-                          {content}
-                        </div>
-                      </div>
-                    );
-                  }
-                }
-                
-                // 单独的列表项
-                return (
-                  <div key={itemIndex} className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1">•</span>
-                    <span className="text-gray-700">{trimmed}</span>
+          const renderedItems = [];
+          
+          for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
+            const item = items[itemIndex];
+            const trimmed = item.trim().replace(/^•\s*/, '');
+            if (!trimmed) continue;
+            
+            // 检查下一个项是否以 • 开头
+            const nextItem = items[itemIndex + 1];
+            const nextIsBullet = nextItem && nextItem.trim().startsWith('• ');
+            
+            // 如果下一个不是 bullet，则当前是标题，下一行是内容
+            if (!nextIsBullet && itemIndex < items.length - 1) {
+              const content = items[itemIndex + 1]?.trim().replace(/^•\s*/, '') || '';
+              if (content && !content.startsWith('• ')) {
+                renderedItems.push(
+                  <div key={itemIndex} className="space-y-1">
+                    <div className="flex items-start gap-2">
+                      <span className="text-gray-500 mt-1">•</span>
+                      <span className="font-semibold text-gray-900">{trimmed}</span>
+                    </div>
+                    <div className="ml-5 text-gray-700">
+                      {content}
+                    </div>
                   </div>
                 );
-              })}
+                itemIndex++; // 跳过内容行，避免重复
+                continue;
+              }
+            }
+            
+            // 单独的列表项
+            renderedItems.push(
+              <div key={itemIndex} className="flex items-start gap-2">
+                <span className="text-gray-500 mt-1">•</span>
+                <span className="text-gray-700">{trimmed}</span>
+              </div>
+            );
+          }
+          
+          return (
+            <div key={pIndex} className="space-y-4">
+              {renderedItems}
             </div>
           );
         }
