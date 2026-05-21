@@ -56,6 +56,16 @@ const FormattedText = ({ text }: { text: string }) => {
           );
         }
         
+        // 检查是否是 **加粗标题** 格式
+        const boldTitleMatch = trimmedParagraph.match(/^\*\*([^*]+)\*\*$/);
+        if (boldTitleMatch) {
+          return (
+            <h3 key={pIndex} className="text-lg font-bold text-gray-900 mt-6 mb-3">
+              {boldTitleMatch[1]}
+            </h3>
+          );
+        }
+        
         // 检查是否是 # 开头的一级标题
         if (trimmedParagraph.startsWith('# ')) {
           const title = trimmedParagraph.substring(2);
@@ -205,16 +215,31 @@ const FormattedText = ({ text }: { text: string }) => {
   );
 };
 
-// 处理单段内容的内部换行
+// 处理单段内容的内部换行和加粗格式
 const FormattedContent = ({ content }: { content: string }) => {
   const lines = content.split('\n');
+  
+  const renderLine = (line: string) => {
+    const trimmed = line.trim();
+    if (!trimmed) return null;
+    
+    // 处理 **加粗** 格式
+    const parts = trimmed.split(/(\*\*[^*]+\*\*)/g);
+    return (
+      <p key={trimmed} className="text-gray-700">
+        {parts.map((part, pIndex) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            return <span key={pIndex} className="font-bold text-gray-900">{part.slice(2, -2)}</span>;
+          }
+          return part;
+        })}
+      </p>
+    );
+  };
+  
   return (
     <div className="space-y-2">
-      {lines.map((line, index) => {
-        const trimmed = line.trim();
-        if (!trimmed) return null;
-        return <p key={index} className="text-gray-700">{trimmed}</p>;
-      })}
+      {lines.map((line, index) => renderLine(line))}
     </div>
   );
 };
