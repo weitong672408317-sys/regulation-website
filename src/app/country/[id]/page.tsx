@@ -17,6 +17,29 @@ const FormattedText = ({ text }: { text: string }) => {
   // 处理分段（\n\n）和换行（\n）
   const paragraphs = text.split(/\n\n+/);
   
+  // 二级小标题关键词列表
+  const secondaryHeadings = [
+    '传统烟草专卖品', '电子烟监管', '新型烟草制品', '传统烟草', 
+    'HNB烟支 / 加热烟草产品', '含尼古丁电子烟', '不含尼古丁电子烟及电子烟设备',
+    '尼古丁袋 / 尼古丁口含膜', '尼古丁袋/尼古丁口含膜',
+    '马来西亚卫生部', '药剂执法司', '毒药委员会', '马来西亚财政部', 
+    '马来西亚海关局', '地方政府 / 地方主管机关',
+    '香港海关', '香港卫生署', '香港警务处', '香港控烟办公室'
+  ];
+  
+  // 判断是否是二级小标题
+  const isSecondaryHeading = (text: string): boolean => {
+    const trimmed = text.trim();
+    // 精确匹配已知的二级标题
+    if (secondaryHeadings.includes(trimmed)) return true;
+    // 其他短标题判断：长度适中，不含句号，不是bullet，不是数字开头
+    if (trimmed.length > 3 && trimmed.length < 50 && !trimmed.includes('。') && 
+        !trimmed.startsWith('•') && !trimmed.startsWith('-') && !/^\d/.test(trimmed)) {
+      return true;
+    }
+    return false;
+  };
+  
   return (
     <div className="space-y-5">
       {paragraphs.map((paragraph, pIndex) => {
@@ -26,10 +49,52 @@ const FormattedText = ({ text }: { text: string }) => {
         // 检查是否是模块内一级小标题（核心特征、监管部门）
         const primaryHeadings = ['核心特征', '监管部门'];
         if (primaryHeadings.includes(trimmedParagraph)) {
+          // 检查下一个段落是否是重点短句
+          const nextParagraph = paragraphs[pIndex + 1];
+          const isNextShort = nextParagraph && 
+            cleanFormattingMarkers(nextParagraph).trim().length < 150 &&
+            !cleanFormattingMarkers(nextParagraph).trim().startsWith('•') &&
+            !cleanFormattingMarkers(nextParagraph).trim().startsWith('-');
+          
+          if (isNextShort) {
+            const nextCleaned = cleanFormattingMarkers(nextParagraph).trim();
+            return (
+              <div key={pIndex} className="space-y-2">
+                <h3 className="font-bold text-base md:text-lg text-gray-900 mt-5 mb-2 first:mt-0">
+                  {trimmedParagraph}
+                </h3>
+                <p className="font-semibold text-base text-gray-900 leading-relaxed">
+                  {nextCleaned}
+                </p>
+              </div>
+            );
+          }
+          
           return (
             <h3 key={pIndex} className="font-bold text-base md:text-lg text-gray-900 mt-5 mb-3 first:mt-0">
               {trimmedParagraph}
             </h3>
+          );
+        }
+        
+        // 如果上一个段落是一级小标题，且当前段落已经被处理作为重点短句，则跳过
+        const prevParagraph = paragraphs[pIndex - 1];
+        if (prevParagraph && primaryHeadings.includes(cleanFormattingMarkers(prevParagraph).trim())) {
+          const prevIsPrimary = primaryHeadings.includes(cleanFormattingMarkers(prevParagraph).trim());
+          const isShort = trimmedParagraph.length < 150 && 
+            !trimmedParagraph.startsWith('•') && !trimmedParagraph.startsWith('-');
+          if (prevIsPrimary && isShort) {
+            // 已经在上一个段落的处理中处理过了，跳过
+            return null;
+          }
+        }
+        
+        // 检查是否是二级小标题
+        if (isSecondaryHeading(trimmedParagraph)) {
+          return (
+            <h4 key={pIndex} className="font-semibold text-base text-gray-900 mt-4 mb-2">
+              {trimmedParagraph}
+            </h4>
           );
         }
         
@@ -128,12 +193,10 @@ const FormattedText = ({ text }: { text: string }) => {
                   const title = trimmed.substring(0, colonPos + 1);
                   const content = trimmed.substring(colonPos + 1).trim();
                   return (
-                    <div key={itemIndex} className="space-y-1">
-                      <div className="flex items-start gap-2">
-                        <span className="text-gray-500 mt-1">•</span>
-                        <span className="font-semibold text-gray-900">{title}</span>
-                        {content && <span className="text-base text-gray-700">{content}</span>}
-                      </div>
+                    <div key={itemIndex} className="flex items-start gap-2">
+                      <span className="text-gray-500 mt-1">•</span>
+                      <span className="font-semibold text-gray-900">{title}</span>
+                      {content && <span className="text-base text-gray-700">{content}</span>}
                     </div>
                   );
                 }
@@ -162,7 +225,7 @@ const FormattedText = ({ text }: { text: string }) => {
         
         // 检查是否是 "标题：内容" 格式（单独一行的短标题）
         const titleContentMatch = cleanedParagraph.match(/^([^：\n]+)：([\s\S]*)$/);
-        if (titleContentMatch && cleanedParagraph.length < 100) {
+        if (titleContentMatch && cleanedParagraph.length < 150) {
           const [, title, content] = titleContentMatch;
           return (
             <div key={pIndex} className="space-y-2">
