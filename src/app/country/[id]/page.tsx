@@ -5,6 +5,13 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { baseCountries, AccessRestrictionsByStatus, EmirateDifferenceRow, ComplianceLicenseCard } from '../../../../data/mockData';
 
+// 清理格式标记
+const cleanFormattingMarkers = (text: string): string => {
+  return text
+    .replace(/\*\*/g, '')
+    .replace(/\[TITLE\]|\[\/TITLE\]|\[ITEM\]|\[\/ITEM\]/g, '');
+};
+
 // 文本格式化组件
 const FormattedText = ({ text }: { text: string }) => {
   // 处理分段（\n\n）和换行（\n）
@@ -13,132 +20,105 @@ const FormattedText = ({ text }: { text: string }) => {
   return (
     <div className="space-y-5">
       {paragraphs.map((paragraph, pIndex) => {
-        const trimmedParagraph = paragraph.trim();
+        const cleanedParagraph = cleanFormattingMarkers(paragraph);
+        const trimmedParagraph = cleanedParagraph.trim();
         
-        // 检查是否是一级小标题（核心特征、监管部门）
+        // 检查是否是模块内一级小标题（核心特征、监管部门）
         const primaryHeadings = ['核心特征', '监管部门'];
         if (primaryHeadings.includes(trimmedParagraph)) {
           return (
-            <h3 key={pIndex} className="font-bold text-lg text-gray-900 mt-5 mb-3 first:mt-0">
+            <h3 key={pIndex} className="font-bold text-base md:text-lg text-gray-900 mt-5 mb-3 first:mt-0">
               {trimmedParagraph}
             </h3>
           );
         }
         
-        // 检查是否是 [TITLE] 标签
-        const titleMatch = trimmedParagraph.match(/^\[TITLE\](.*)\[\/TITLE\]$/);
-        if (titleMatch) {
-          return (
-            <h3 key={pIndex} className="text-xl font-bold text-gray-900 mt-6 mb-3">
-              {titleMatch[1]}
-            </h3>
-          );
-        }
-        
-        // 检查是否是 [ITEM] 标签
-        const itemMatch = trimmedParagraph.match(/^\[ITEM\](.*)\[\/ITEM\]$/);
-        if (itemMatch) {
-          return (
-            <div key={pIndex} className="flex items-start gap-2">
-              <span className="text-gray-500 mt-1">•</span>
-              <span className="font-semibold text-gray-900">{itemMatch[1]}</span>
-            </div>
-          );
-        }
-        
-        // 检查是否是 [ITEM] 标签后面跟着内容（在同一段落中）
-        if (trimmedParagraph.includes('[ITEM]') && trimmedParagraph.includes('[/ITEM]')) {
-          const itemEnd = trimmedParagraph.indexOf('[/ITEM]');
-          const itemTitle = trimmedParagraph.substring(6, itemEnd);
-          const content = trimmedParagraph.substring(itemEnd + 8).trim();
-          return (
-            <div key={pIndex} className="space-y-1">
-              <div className="flex items-start gap-2">
-                <span className="text-gray-500 mt-1">•</span>
-                <span className="font-semibold text-gray-900">{itemTitle}</span>
-              </div>
-              {content && (
-                <div className="ml-5 text-gray-700">
-                  {content}
-                </div>
-              )}
-            </div>
-          );
-        }
-        
-        // 检查是否是 **加粗标题** 格式
-        const boldTitleMatch = trimmedParagraph.match(/^\*\*([^*]+)\*\*$/);
-        if (boldTitleMatch) {
-          return (
-            <h3 key={pIndex} className="text-lg font-bold text-gray-900 mt-6 mb-3">
-              {boldTitleMatch[1]}
-            </h3>
-          );
-        }
-        
-        // 检查是否是 # 开头的一级标题
-        if (trimmedParagraph.startsWith('# ')) {
-          const title = trimmedParagraph.substring(2);
-          return (
-            <h3 key={pIndex} className="text-xl font-bold text-gray-900 mt-6 mb-3">
-              {title}
-            </h3>
-          );
-        }
-        
         // 检查是否是 • 标记的列表（黑点列表）
-        if (trimmedParagraph.startsWith('• ')) {
-          const items = paragraph.split('\n').filter(line => line.trim());
+        if (trimmedParagraph.startsWith('• ') || trimmedParagraph.startsWith('· ')) {
+          const items = cleanedParagraph.split('\n').filter(line => line.trim());
           const renderedItems = [];
           
           for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
             const item = items[itemIndex];
-            const trimmed = item.trim().replace(/^•\s*/, '');
+            const trimmed = item.trim().replace(/^[•·]\s*/, '');
             if (!trimmed) continue;
             
-            // 检查下一个项是否以 • 开头
+            // 检查下一个项是否以 • 或 · 开头
             const nextItem = items[itemIndex + 1];
-            const nextIsBullet = nextItem && nextItem.trim().startsWith('• ');
+            const nextIsBullet = nextItem && (nextItem.trim().startsWith('• ') || nextItem.trim().startsWith('· '));
             
             // 如果下一个不是 bullet，则当前是标题，下一行是内容
             if (!nextIsBullet && itemIndex < items.length - 1) {
-              const content = items[itemIndex + 1]?.trim().replace(/^•\s*/, '') || '';
-              if (content && !content.startsWith('• ')) {
-                renderedItems.push(
-                  <div key={itemIndex} className="space-y-1">
-                    <div className="flex items-start gap-2">
-                      <span className="text-gray-500 mt-1">•</span>
-                      <span className="font-semibold text-gray-900">{trimmed}</span>
+              const content = items[itemIndex + 1]?.trim().replace(/^[•·]\s*/, '') || '';
+              if (content && !content.startsWith('• ') && !content.startsWith('· ')) {
+                // 处理标题中的冒号分隔
+                const colonPos = trimmed.indexOf('：');
+                if (colonPos !== -1) {
+                  const titlePart = trimmed.substring(0, colonPos + 1);
+                  const inlineContent = trimmed.substring(colonPos + 1).trim();
+                  renderedItems.push(
+                    <div key={itemIndex} className="space-y-1">
+                      <div className="flex items-start gap-2">
+                        <span className="text-gray-500 mt-1">•</span>
+                        <span className="font-semibold text-gray-900">{titlePart}</span>
+                        {inlineContent && <span className="text-gray-700">{inlineContent}</span>}
+                      </div>
+                      <div className="ml-5 text-base text-gray-700 leading-relaxed">
+                        {content}
+                      </div>
                     </div>
-                    <div className="ml-5 text-gray-700">
-                      {content}
+                  );
+                } else {
+                  renderedItems.push(
+                    <div key={itemIndex} className="space-y-1">
+                      <div className="flex items-start gap-2">
+                        <span className="text-gray-500 mt-1">•</span>
+                        <span className="font-semibold text-gray-900">{trimmed}</span>
+                      </div>
+                      <div className="ml-5 text-base text-gray-700 leading-relaxed">
+                        {content}
+                      </div>
                     </div>
-                  </div>
-                );
+                  );
+                }
                 itemIndex++; // 跳过内容行，避免重复
                 continue;
               }
             }
             
-            // 单独的列表项
-            renderedItems.push(
-              <div key={itemIndex} className="flex items-start gap-2">
-                <span className="text-gray-500 mt-1">•</span>
-                <span className="text-gray-700">{trimmed}</span>
-              </div>
-            );
+            // 检查当前项是否有冒号分隔
+            const colonPos = trimmed.indexOf('：');
+            if (colonPos !== -1) {
+              const titlePart = trimmed.substring(0, colonPos + 1);
+              const contentPart = trimmed.substring(colonPos + 1).trim();
+              renderedItems.push(
+                <div key={itemIndex} className="flex items-start gap-2">
+                  <span className="text-gray-500 mt-1">•</span>
+                  <span className="font-semibold text-gray-900">{titlePart}</span>
+                  <span className="text-base text-gray-700">{contentPart}</span>
+                </div>
+              );
+            } else {
+              // 单独的列表项
+              renderedItems.push(
+                <div key={itemIndex} className="flex items-start gap-2">
+                  <span className="text-gray-500 mt-1">•</span>
+                  <span className="text-base text-gray-700">{trimmed}</span>
+                </div>
+              );
+            }
           }
           
           return (
-            <div key={pIndex} className="space-y-4">
+            <div key={pIndex} className="space-y-3">
               {renderedItems}
             </div>
           );
         }
         
-        // 检查是否是 * 标记的列表（其他类型的列表）
+        // 检查是否是 * 或 - 标记的列表
         if (trimmedParagraph.startsWith('* ') || trimmedParagraph.startsWith('- ')) {
-          const items = paragraph.split('\n').filter(line => line.trim());
+          const items = cleanedParagraph.split('\n').filter(line => line.trim());
           return (
             <div key={pIndex} className="space-y-3">
               {items.map((item, itemIndex) => {
@@ -152,19 +132,15 @@ const FormattedText = ({ text }: { text: string }) => {
                       <div className="flex items-start gap-2">
                         <span className="text-gray-500 mt-1">•</span>
                         <span className="font-semibold text-gray-900">{title}</span>
+                        {content && <span className="text-base text-gray-700">{content}</span>}
                       </div>
-                      {content && (
-                        <div className="ml-5 text-gray-700">
-                          {content}
-                        </div>
-                      )}
                     </div>
                   );
                 }
                 return (
                   <div key={itemIndex} className="flex items-start gap-2">
                     <span className="text-gray-500 mt-1">•</span>
-                    <span className="text-gray-700">{trimmed}</span>
+                    <span className="text-base text-gray-700">{trimmed}</span>
                   </div>
                 );
               })}
@@ -173,33 +149,34 @@ const FormattedText = ({ text }: { text: string }) => {
         }
         
         // 检查是否是 "数字. 标题" 格式的品类定义
-        const numberedTitleMatch = paragraph.match(/^\d+[.、]\s*([^\n]+)(?:\n([\s\S]*))?$/);
+        const numberedTitleMatch = cleanedParagraph.match(/^\d+[.、]\s*([^\n]+)(?:\n([\s\S]*))?$/);
         if (numberedTitleMatch) {
           const [, title, content] = numberedTitleMatch;
           return (
             <div key={pIndex} className="space-y-2">
-              <h4 className="font-bold text-gray-900 text-lg">{paragraph.match(/^\d+[.、]\s*[^\n]+/)?.[0]}</h4>
+              <h4 className="font-semibold text-base text-gray-900">{cleanedParagraph.match(/^\d+[.、]\s*[^\n]+/)?.[0]}</h4>
               {content && <FormattedContent content={content} />}
             </div>
           );
         }
         
-        // 检查是否是 "标题：内容" 格式
-        const titleContentMatch = paragraph.match(/^([^：\n]+)：([\s\S]*)$/);
-        if (titleContentMatch) {
+        // 检查是否是 "标题：内容" 格式（单独一行的短标题）
+        const titleContentMatch = cleanedParagraph.match(/^([^：\n]+)：([\s\S]*)$/);
+        if (titleContentMatch && cleanedParagraph.length < 100) {
           const [, title, content] = titleContentMatch;
           return (
             <div key={pIndex} className="space-y-2">
-              <h4 className="font-semibold text-gray-900">{title}：</h4>
+              <h4 className="font-semibold text-base text-gray-900">{title}：</h4>
               <FormattedContent content={content} />
             </div>
           );
         }
         
         // 检查是否是 bullet list（以 • 或 - 或数字开头）
-        const bulletLines = paragraph.split('\n');
+        const bulletLines = cleanedParagraph.split('\n');
         const hasBullets = bulletLines.some(line => 
           line.trim().startsWith('•') || 
+          line.trim().startsWith('·') ||
           line.trim().startsWith('-') || 
           /^\d+[.、]/.test(line.trim())
         );
@@ -212,11 +189,11 @@ const FormattedText = ({ text }: { text: string }) => {
                 if (!trimmed) return null;
                 
                 // 移除 bullet 标记
-                const content = trimmed.replace(/^•\s*/, '').replace(/^-\s*/, '').replace(/^\d+[.、]\s*/, '');
+                const content = trimmed.replace(/^[•·]\s*/, '').replace(/^-\s*/, '').replace(/^\d+[.、]\s*/, '');
                 return (
                   <li key={lIndex} className="flex items-start gap-2">
                     <span className="text-gray-500 mt-1">•</span>
-                    <span className="text-gray-700">{content}</span>
+                    <span className="text-base text-gray-700">{content}</span>
                   </li>
                 );
               })}
@@ -224,38 +201,25 @@ const FormattedText = ({ text }: { text: string }) => {
           );
         }
         
-        // 普通段落，处理内部换行
-        return <FormattedContent key={pIndex} content={paragraph} />;
+        // 普通段落
+        return <FormattedContent key={pIndex} content={cleanedParagraph} />;
       })}
     </div>
   );
 };
 
-// 处理单段内容的内部换行和加粗格式
+// 处理单段内容的内部换行
 const FormattedContent = ({ content }: { content: string }) => {
-  const lines = content.split('\n');
-  
-  const renderLine = (line: string) => {
-    const trimmed = line.trim();
-    if (!trimmed) return null;
-    
-    // 处理 **加粗** 格式
-    const parts = trimmed.split(/(\*\*[^*]+\*\*)/g);
-    return (
-      <p key={trimmed} className="text-gray-700">
-        {parts.map((part, pIndex) => {
-          if (part.startsWith('**') && part.endsWith('**')) {
-            return <span key={pIndex} className="font-bold text-gray-900">{part.slice(2, -2)}</span>;
-          }
-          return part;
-        })}
-      </p>
-    );
-  };
+  const cleanedContent = cleanFormattingMarkers(content);
+  const lines = cleanedContent.split('\n').filter(line => line.trim());
   
   return (
     <div className="space-y-2">
-      {lines.map((line, index) => renderLine(line))}
+      {lines.map((line, index) => (
+        <p key={index} className="text-base text-gray-700 leading-relaxed">
+          {line.trim()}
+        </p>
+      ))}
     </div>
   );
 };
