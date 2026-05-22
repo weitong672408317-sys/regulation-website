@@ -19,7 +19,7 @@ const FormattedText = ({ text }: { text: string }) => {
         const primaryHeadings = ['核心特征', '监管部门'];
         if (primaryHeadings.includes(trimmedParagraph)) {
           return (
-            <h3 key={pIndex} className="font-bold text-xl md:text-2xl text-gray-900 mt-6 mb-4 first:mt-0">
+            <h3 key={pIndex} className="font-bold text-lg text-gray-900 mt-5 mb-3 first:mt-0">
               {trimmedParagraph}
             </h3>
           );
@@ -281,7 +281,7 @@ const TableCellContent = ({ content }: { content: string | string[] }) => {
 const GenericComplianceTable = ({ data }: { data: { headers: string[]; rows: (string | string[])[][] } }) => {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm min-w-[600px]">
+      <table className="w-full text-base min-w-[600px]">
         <thead>
           <tr className="bg-gray-100">
             {data.headers.map((header, index) => (
