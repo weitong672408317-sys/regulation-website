@@ -125,8 +125,10 @@ const FormattedText = ({ text }: { text: string }) => {
                     <div key={itemIndex} className="space-y-1">
                       <div className="flex items-start gap-2">
                         <span className="text-gray-500 mt-1">•</span>
-                        <span className="font-semibold text-gray-900">{titlePart}</span>
-                        {inlineContent && <span className="text-gray-700">{inlineContent}</span>}
+                        <div>
+                          <span className="font-semibold text-gray-900">{titlePart}</span>
+                          {inlineContent && <span className="text-base text-gray-700">{inlineContent}</span>}
+                        </div>
                       </div>
                       <div className="ml-5 text-base text-gray-700 leading-relaxed">
                         {content}
@@ -159,8 +161,10 @@ const FormattedText = ({ text }: { text: string }) => {
               renderedItems.push(
                 <div key={itemIndex} className="flex items-start gap-2">
                   <span className="text-gray-500 mt-1">•</span>
-                  <span className="font-semibold text-gray-900">{titlePart}</span>
-                  <span className="text-base text-gray-700">{contentPart}</span>
+                  <div>
+                    <span className="font-semibold text-gray-900">{titlePart}</span>
+                    {contentPart && <span className="text-base text-gray-700 leading-relaxed">{contentPart}</span>}
+                  </div>
                 </div>
               );
             } else {
@@ -168,7 +172,7 @@ const FormattedText = ({ text }: { text: string }) => {
               renderedItems.push(
                 <div key={itemIndex} className="flex items-start gap-2">
                   <span className="text-gray-500 mt-1">•</span>
-                  <span className="text-base text-gray-700">{trimmed}</span>
+                  <span className="text-base text-gray-700 leading-relaxed">{trimmed}</span>
                 </div>
               );
             }
@@ -195,15 +199,17 @@ const FormattedText = ({ text }: { text: string }) => {
                   return (
                     <div key={itemIndex} className="flex items-start gap-2">
                       <span className="text-gray-500 mt-1">•</span>
-                      <span className="font-semibold text-gray-900">{title}</span>
-                      {content && <span className="text-base text-gray-700">{content}</span>}
+                      <div>
+                        <span className="font-semibold text-gray-900">{title}</span>
+                        {content && <span className="text-base text-gray-700 leading-relaxed">{content}</span>}
+                      </div>
                     </div>
                   );
                 }
                 return (
                   <div key={itemIndex} className="flex items-start gap-2">
                     <span className="text-gray-500 mt-1">•</span>
-                    <span className="text-base text-gray-700">{trimmed}</span>
+                    <span className="text-base text-gray-700 leading-relaxed">{trimmed}</span>
                   </div>
                 );
               })}
@@ -253,10 +259,27 @@ const FormattedText = ({ text }: { text: string }) => {
                 
                 // 移除 bullet 标记
                 const content = trimmed.replace(/^[•·]\s*/, '').replace(/^-\s*/, '').replace(/^\d+[.、]\s*/, '');
+                
+                // 检查是否有冒号分隔
+                const colonPos = content.indexOf('：');
+                if (colonPos !== -1) {
+                  const titlePart = content.substring(0, colonPos + 1);
+                  const contentPart = content.substring(colonPos + 1).trim();
+                  return (
+                    <li key={lIndex} className="flex items-start gap-2">
+                      <span className="text-gray-500 mt-1">•</span>
+                      <div>
+                        <span className="font-semibold text-gray-900">{titlePart}</span>
+                        {contentPart && <span className="text-base text-gray-700 leading-relaxed">{contentPart}</span>}
+                      </div>
+                    </li>
+                  );
+                }
+                
                 return (
                   <li key={lIndex} className="flex items-start gap-2">
                     <span className="text-gray-500 mt-1">•</span>
-                    <span className="text-base text-gray-700">{content}</span>
+                    <span className="text-base text-gray-700 leading-relaxed">{content}</span>
                   </li>
                 );
               })}
