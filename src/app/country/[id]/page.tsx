@@ -267,6 +267,46 @@ const TableCellContent = ({ content }: { content: string | string[] }) => {
   return <span className="text-gray-700">{content}</span>;
 };
 
+// 通用合规表格组件
+const GenericComplianceTable = ({ data }: { data: { headers: string[]; rows: (string | string[])[][] } }) => {
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm min-w-[600px]">
+        <thead>
+          <tr className="bg-gray-100">
+            {data.headers.map((header, index) => (
+              <th 
+                key={index} 
+                className={`px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200 ${
+                  index === 0 ? 'w-40 min-w-[120px]' : ''
+                }`}
+              >
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {(data.rows as (string | string[])[]).map((row, rowIndex) => (
+            <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+              {(row as (string | string[])[]).map((cell, cellIndex) => (
+                <td 
+                  key={cellIndex} 
+                  className={`px-4 py-4 border-b border-gray-200 ${
+                    cellIndex === 0 ? 'font-medium text-gray-900' : ''
+                  }`}
+                >
+                  <TableCellContent content={cell} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
 // 按状态分组的准入限制展示组件
 const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsByStatus }) => {
   return (
@@ -603,7 +643,14 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">合规资质</h2>
-            {country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
+            {country.compliance.genericTable ? (
+              <>
+                {country.compliance.licenseRequirements && (
+                  <p className="text-gray-700 mb-6">{country.compliance.licenseRequirements}</p>
+                )}
+                <GenericComplianceTable data={country.compliance.genericTable} />
+              </>
+            ) : country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
               <>
                 {country.compliance.licenseRequirements && (
                   <p className="text-gray-700 mb-6">{country.compliance.licenseRequirements}</p>
