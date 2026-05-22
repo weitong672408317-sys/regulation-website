@@ -15,6 +15,16 @@ const FormattedText = ({ text }: { text: string }) => {
       {paragraphs.map((paragraph, pIndex) => {
         const trimmedParagraph = paragraph.trim();
         
+        // 检查是否是一级小标题（核心特征、监管部门）
+        const primaryHeadings = ['核心特征', '监管部门'];
+        if (primaryHeadings.includes(trimmedParagraph)) {
+          return (
+            <h3 key={pIndex} className="font-bold text-xl md:text-2xl text-gray-900 mt-6 mb-4 first:mt-0">
+              {trimmedParagraph}
+            </h3>
+          );
+        }
+        
         // 检查是否是 [TITLE] 标签
         const titleMatch = trimmedParagraph.match(/^\[TITLE\](.*)\[\/TITLE\]$/);
         if (titleMatch) {
