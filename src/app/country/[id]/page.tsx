@@ -1004,6 +1004,15 @@ export default function CountryDetail() {
             </div>
           </div>
         </section>
+
+        <section className="mb-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p className="text-sm text-gray-500 leading-relaxed">
+              免责声明：本网站所载内容仅供一般信息参考，不构成法律意见、合规意见、税务意见或其他专业意见，也不应作为任何商业决策、市场准入、产品注册、进口、销售或宣传行为的依据。相关法律法规、监管口径和执法实践可能随时调整；如涉及具体产品、交易安排或合规判断，请结合最新法规、主管机关口径及当地专业顾问意见进行确认。
+            </p>
+          </div>
+        </section>
+
       </main>
 
       <footer className="bg-white border-t border-gray-200">
