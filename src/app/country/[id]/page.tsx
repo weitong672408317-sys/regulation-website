@@ -24,7 +24,8 @@ const FormattedText = ({ text }: { text: string }) => {
     '尼古丁袋 / 尼古丁口含膜', '尼古丁袋/尼古丁口含膜',
     '马来西亚卫生部', '药剂执法司', '毒药委员会', '马来西亚财政部', 
     '马来西亚海关局', '地方政府 / 地方主管机关',
-    '香港海关', '香港卫生署', '香港警务处', '香港控烟办公室'
+    '香港海关', '香港卫生署', '香港警务处', '香港控烟办公室',
+    '新加坡卫生部', '新加坡卫生科学局', '新加坡海关', '新加坡国家环境局'
   ];
   
   // 判断是否是二级小标题
@@ -46,8 +47,8 @@ const FormattedText = ({ text }: { text: string }) => {
         const cleanedParagraph = cleanFormattingMarkers(paragraph);
         const trimmedParagraph = cleanedParagraph.trim();
         
-        // 检查是否是模块内一级小标题（核心特征、监管部门）
-        const primaryHeadings = ['核心特征', '监管部门'];
+        // 检查是否是模块内一级小标题
+        const primaryHeadings = ['核心特征', '监管部门', '烟草行业主要法律', '新加坡的严格监管主要体现在以下方面'];
         if (primaryHeadings.includes(trimmedParagraph)) {
           // 检查下一个段落是否是重点短句
           const nextParagraph = paragraphs[pIndex + 1];
