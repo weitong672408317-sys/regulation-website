@@ -9,9 +9,11 @@ export default function ComparisonTable() {
 
   const getIntensityColor = (intensity: string) => {
     switch (intensity) {
+      case '极高':
       case '高':
         return 'bg-red-100 text-red-800';
       case '中':
+      case '低至中':
         return 'bg-yellow-100 text-yellow-800';
       case '低':
         return 'bg-green-100 text-green-800';
