@@ -103,16 +103,6 @@ const FormattedText = ({ text }: { text: string }) => {
           }
         }
         
-        // 如果上一个段落是单独一行的"标题："格式，且已经处理了下一段内容，则跳过
-        if (prevParagraph) {
-          const prevCleaned = cleanFormattingMarkers(prevParagraph).trim();
-          const prevTitleOnlyMatch = prevCleaned.match(/^([^：\n]+)：\s*$/);
-          if (prevTitleOnlyMatch) {
-            // 已经在上一个段落的处理中处理过了，跳过
-            return null;
-          }
-        }
-        
         // 检查是否是二级小标题
         if (isSecondaryHeading(trimmedParagraph)) {
           return (
@@ -253,30 +243,9 @@ const FormattedText = ({ text }: { text: string }) => {
           );
         }
         
-        // 检查是否是 "标题：" 格式（单独一行的短标题）
-        const titleOnlyMatch = cleanedParagraph.match(/^([^：\n]+)：\s*$/);
-        if (titleOnlyMatch) {
-          const [, title] = titleOnlyMatch;
-          const nextParagraph = paragraphs[pIndex + 1];
-          const nextCleaned = nextParagraph ? cleanFormattingMarkers(nextParagraph).trim() : '';
-          
-          if (nextCleaned) {
-            return (
-              <div key={pIndex} className="space-y-2">
-                <h4 className="font-semibold text-base text-gray-900">{title}：</h4>
-                <FormattedContent content={nextCleaned} />
-              </div>
-            );
-          }
-          
-          return (
-            <h4 key={pIndex} className="font-semibold text-base text-gray-900">{title}：</h4>
-          );
-        }
-        
-        // 检查是否是 "标题：内容" 格式（单独一行的短标题）
+        // 检查是否是 "标题：内容" 格式
         const titleContentMatch = cleanedParagraph.match(/^([^：\n]+)：([\s\S]*)$/);
-        if (titleContentMatch && cleanedParagraph.length < 150) {
+        if (titleContentMatch) {
           const [, title, content] = titleContentMatch;
           return (
             <div key={pIndex} className="space-y-2">
