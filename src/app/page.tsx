@@ -6,14 +6,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">全球法规动态追踪门户</h1>
             <p className="text-gray-600">专业监管法规智能追踪与合规分析平台</p>
           </div>
-          <Link href="/admin" className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors">
-            ⚙️ 管理后台
-          </Link>
         </div>
       </header>
 
@@ -27,6 +24,14 @@ export default function Home() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">各国监管速览对比</h2>
           <ComparisonTable />
+        </section>
+
+        <section className="mb-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <p className="text-sm text-gray-500 leading-relaxed">
+              免责声明：本网站所载内容仅供一般信息参考，不构成法律意见、合规意见、税务意见或其他专业意见，也不应作为任何商业决策、市场准入、产品注册、进口、销售或宣传行为的依据。相关法律法规、监管口径和执法实践可能随时调整；如涉及具体产品、交易安排或合规判断，请结合最新法规、主管机关口径及当地专业顾问意见进行确认。
+            </p>
+          </div>
         </section>
       </main>
 
