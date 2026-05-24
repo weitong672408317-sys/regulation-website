@@ -10,13 +10,15 @@ export default function ComparisonTable() {
   const getIntensityColor = (intensity: string) => {
     switch (intensity) {
       case '极高':
+        return 'bg-red-600 text-white';
       case '高':
-        return 'bg-red-100 text-red-800';
+        return 'bg-orange-500 text-white';
       case '中':
+        return 'bg-yellow-400 text-yellow-900';
       case '低至中':
-        return 'bg-yellow-100 text-yellow-800';
+        return 'bg-lime-400 text-lime-900';
       case '低':
-        return 'bg-green-100 text-green-800';
+        return 'bg-green-400 text-green-900';
       default:
         return 'bg-gray-100 text-gray-800';
     }
@@ -24,7 +26,6 @@ export default function ComparisonTable() {
 
   const formatBulletPoints = (text: string) => {
     if (!text) return text;
-    // 按分号分割成多条
     const parts = text.split('；').map(s => s.trim()).filter(s => s);
     if (parts.length > 1) {
       return (
@@ -32,89 +33,65 @@ export default function ComparisonTable() {
           {parts.map((part, index) => (
             <div key={index} className="flex items-start">
               <span className="mr-2 text-gray-400 shrink-0">·</span>
-              <span className="text-sm text-gray-700 leading-relaxed">{part}</span>
+              <span className="text-sm text-gray-700 leading-6">{part}</span>
             </div>
           ))}
         </div>
       );
     }
-    return <span className="text-sm text-gray-700 leading-relaxed">{text}</span>;
+    return <span className="text-sm text-gray-700 leading-6">{text}</span>;
   };
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-      <div className="overflow-x-auto">
-        <table className="w-full table-fixed">
-          <colgroup>
-            <col className="w-[8%]" />
-            <col className="w-[14%]" />
-            <col className="w-[29%]" />
-            <col className="w-[38%]" />
-            <col className="w-[6%]" />
-            <col className="w-[5%]" />
-          </colgroup>
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                国家
-              </th>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                总体状态
-              </th>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                产品定性
-              </th>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                主要限制
-              </th>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                监管强度
-              </th>
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                本季变化
-              </th>
+      <table className="w-full">
+        <thead className="bg-gray-50">
+          <tr>
+            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[10%]">
+              国家/地区
+            </th>
+            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[22%]">
+              总体状态
+            </th>
+            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[28%]">
+              产品定性
+            </th>
+            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[30%]">
+              主要限制
+            </th>
+            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[10%]">
+              监管强度
+            </th>
+          </tr>
+        </thead>
+        <tbody className="bg-white divide-y divide-gray-200">
+          {countries.map((country) => (
+            <tr
+              key={country.id}
+              onClick={() => router.push(`/country/${country.id}`)}
+              className="hover:bg-gray-50 cursor-pointer transition-colors"
+            >
+              <td className="px-3 py-3 align-top">
+                <div className="text-sm font-bold text-gray-900">{country.name}</div>
+              </td>
+              <td className="px-3 py-3 align-top">
+                <div className="text-sm text-gray-700 leading-6">{country.status}</div>
+              </td>
+              <td className="px-3 py-3 align-top">
+                {formatBulletPoints(country.productQualification)}
+              </td>
+              <td className="px-3 py-3 align-top">
+                {formatBulletPoints(country.restrictions)}
+              </td>
+              <td className="px-3 py-3 align-top">
+                <span className={`inline-flex px-2 py-1 text-xs font-medium rounded ${getIntensityColor(country.regulatoryIntensity)}`}>
+                  {country.regulatoryIntensity}
+                </span>
+              </td>
             </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {countries.map((country) => (
-              <tr
-                key={country.id}
-                onClick={() => router.push(`/country/${country.id}`)}
-                className="hover:bg-gray-50 cursor-pointer transition-colors"
-              >
-                <td className="px-4 py-5 align-top">
-                  <div className="text-sm font-medium text-gray-900 whitespace-nowrap">{country.name}</div>
-                </td>
-                <td className="px-4 py-5 align-top">
-                  <div className="text-sm text-gray-700 leading-relaxed">{country.status}</div>
-                </td>
-                <td className="px-4 py-5 align-top">
-                  {formatBulletPoints(country.productQualification)}
-                </td>
-                <td className="px-4 py-5 align-top">
-                  {formatBulletPoints(country.restrictions)}
-                </td>
-                <td className="px-4 py-5 align-top whitespace-nowrap">
-                  <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getIntensityColor(country.regulatoryIntensity)}`}>
-                    {country.regulatoryIntensity}
-                  </span>
-                </td>
-                <td className="px-4 py-5 align-top whitespace-nowrap">
-                  {country.hasChangesThisSeason ? (
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                      有变化
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                      无变化
-                    </span>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
