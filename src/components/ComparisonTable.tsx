@@ -22,10 +22,37 @@ export default function ComparisonTable() {
     }
   };
 
+  const formatBulletPoints = (text: string) => {
+    if (!text) return text;
+    // 按分号分割成多条
+    const parts = text.split('；').map(s => s.trim()).filter(s => s);
+    if (parts.length > 1) {
+      return (
+        <div className="space-y-1">
+          {parts.map((part, index) => (
+            <div key={index} className="flex items-start">
+              <span className="mr-2 text-gray-400 shrink-0">·</span>
+              <span className="text-sm text-gray-700 leading-relaxed">{part}</span>
+            </div>
+          ))}
+        </div>
+      );
+    }
+    return <span className="text-sm text-gray-700 leading-relaxed">{text}</span>;
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
       <div className="overflow-x-auto">
-        <table className="w-full table-auto min-w-[1200px]">
+        <table className="w-full table-fixed">
+          <colgroup>
+            <col className="w-[8%]" />
+            <col className="w-[14%]" />
+            <col className="w-[29%]" />
+            <col className="w-[38%]" />
+            <col className="w-[6%]" />
+            <col className="w-[5%]" />
+          </colgroup>
           <thead className="bg-gray-50">
             <tr>
               <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -55,24 +82,24 @@ export default function ComparisonTable() {
                 onClick={() => router.push(`/country/${country.id}`)}
                 className="hover:bg-gray-50 cursor-pointer transition-colors"
               >
-                <td className="px-4 py-4 whitespace-nowrap">
-                  <div className="text-sm font-medium text-gray-900">{country.name}</div>
+                <td className="px-4 py-5 align-top">
+                  <div className="text-sm font-medium text-gray-900 whitespace-nowrap">{country.name}</div>
                 </td>
-                <td className="px-4 py-4">
+                <td className="px-4 py-5 align-top">
                   <div className="text-sm text-gray-700 leading-relaxed">{country.status}</div>
                 </td>
-                <td className="px-4 py-4">
-                  <div className="text-sm text-gray-700 leading-relaxed">{country.productQualification}</div>
+                <td className="px-4 py-5 align-top">
+                  {formatBulletPoints(country.productQualification)}
                 </td>
-                <td className="px-4 py-4">
-                  <div className="text-sm text-gray-700 leading-relaxed">{country.restrictions}</div>
+                <td className="px-4 py-5 align-top">
+                  {formatBulletPoints(country.restrictions)}
                 </td>
-                <td className="px-4 py-4 whitespace-nowrap">
+                <td className="px-4 py-5 align-top whitespace-nowrap">
                   <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getIntensityColor(country.regulatoryIntensity)}`}>
                     {country.regulatoryIntensity}
                   </span>
                 </td>
-                <td className="px-4 py-4 whitespace-nowrap">
+                <td className="px-4 py-5 align-top whitespace-nowrap">
                   {country.hasChangesThisSeason ? (
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                       有变化
