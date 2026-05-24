@@ -411,7 +411,14 @@ const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsBySt
           {data.partiallyRestricted.map((item, index) => (
             <div key={index} className="bg-white bg-opacity-70 rounded-lg p-4 border border-amber-200">
               <div className="font-semibold text-amber-900 text-base mb-2">{item.productName}</div>
-              <div className="text-amber-800 leading-relaxed">{item.rule}</div>
+              <div className="text-amber-800 leading-relaxed">
+                {item.rule.split('\n\n').map((paragraph, pIndex) => (
+                  <span key={pIndex}>
+                    {paragraph}
+                    {pIndex < item.rule.split('\n\n').length - 1 && <br />}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
