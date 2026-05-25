@@ -8,8 +8,8 @@ export default function Home() {
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">全球法规动态追踪门户</h1>
-            <p className="text-gray-600">专业监管法规智能追踪与合规分析平台</p>
+            <h1 className="text-3xl font-bold text-gray-900">全球烟草监管动态</h1>
+            <p className="text-gray-600">烟草、尼古丁及相关产品监管信息参考</p>
           </div>
         </div>
       </header>
@@ -37,7 +37,7 @@ export default function Home() {
 
       <footer className="bg-white border-t border-gray-200 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <p className="text-center text-gray-500 text-sm">© 2024 全球法规动态追踪门户. All rights reserved.</p>
+          <p className="text-center text-gray-500 text-sm">© 2026 全球烟草监管动态. All rights reserved.</p>
         </div>
       </footer>
     </div>

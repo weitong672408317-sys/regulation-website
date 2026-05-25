@@ -57,7 +57,7 @@ export default function ComparisonTable() {
               产品定性
             </th>
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[30%]">
-              主要限制
+              主要监管要求
             </th>
             <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[10%]">
               监管强度
