@@ -686,7 +686,12 @@ export default function CountryDetail() {
                     <FormattedText text={country.regulatorySystem.definition.split('6. 电子烟相关产品的分类监管逻辑')[0]} />
                     
                     {/* 显示第6节标题 */}
-                    <h4 className="mt-4 font-semibold text-lg text-indigo-900">6. 电子烟相关产品的分类监管逻辑</h4>
+                    <h4 className="mt-4 font-semibold text-lg text-gray-900">6. 电子烟相关产品的分类监管逻辑</h4>
+                    
+                    {/* 表格前说明文字 */}
+                    <p className="mt-3 text-gray-700 leading-relaxed">
+                      俄罗斯法规没有使用一个单一概念统一覆盖所有电子烟相关产品，而是按产品构成分别使用"尼古丁产品""尼古丁液体"和"尼古丁产品使用系统"三个概念进行监管。
+                    </p>
                     
                     {/* 俄罗斯电子烟分类监管逻辑表格 */}
                     <div className="mt-4">
@@ -723,7 +728,7 @@ export default function CountryDetail() {
                           </tbody>
                         </table>
                       </div>
-                      <p className="mt-4 text-indigo-800 leading-relaxed">
+                      <p className="mt-4 text-gray-700 leading-relaxed">
                         电子烟设备、尼古丁液体、无尼古丁液体、含液体烟弹、设备与液体组合产品等电子烟相关产品，进入零售市场时通常还需遵守第15-FZ号法项下的销售端限制，包括禁止向未成年人销售、禁止远程销售、禁止自动售货机销售、禁止公开陈列、限制销售地点，以及广告、促销和赞助禁令。
                       </p>
                     </div>
