@@ -1181,18 +1181,8 @@ export default function CountryDetail() {
                   let textClass = 'text-gray-900';
                   
                   if (country.id === 'russia') {
-                    // 俄罗斯页面使用轮起色卡，避免连续同色
-                    const colorPalette = [
-                      { bg: 'bg-blue-50 border-blue-200', text: 'text-blue-900' },
-                      { bg: 'bg-red-50 border-red-200', text: 'text-red-900' },
-                      { bg: 'bg-purple-50 border-purple-200', text: 'text-purple-900' },
-                      { bg: 'bg-orange-50 border-orange-200', text: 'text-orange-900' },
-                      { bg: 'bg-green-50 border-green-200', text: 'text-green-900' },
-                      { bg: 'bg-yellow-50 border-yellow-200', text: 'text-yellow-900' }
-                    ];
-                    const color = colorPalette[index % colorPalette.length];
-                    bgClass = color.bg;
-                    textClass = color.text;
+                    bgClass = 'bg-white border-gray-200 shadow-sm';
+                    textClass = 'text-gray-900';
                   } else {
                     // 其他国家页面按分类固定颜色
                     if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道' || regulation.category === '销售场所与销售方式') {
