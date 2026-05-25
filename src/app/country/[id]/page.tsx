@@ -197,12 +197,12 @@ const FormattedText = ({ text }: { text: string }) => {
                   const inlineContent = trimmed.substring(colonPos + 1).trim();
                   renderedItems.push(
                     <div key={itemIndex} className="space-y-1">
-                      <div className="flex items-start gap-2">
-                        <span className="text-gray-500 mt-1">•</span>
-                        <div>
+                      <div className="text-base text-gray-700 leading-relaxed">
+                        <span className="text-gray-500">• </span>
+                        <span>
                           <span className="font-semibold text-gray-900">{titlePart}</span>
                           {inlineContent && <span className="text-base text-gray-700">{inlineContent}</span>}
-                        </div>
+                        </span>
                       </div>
                       <div className="ml-5 text-base text-gray-700 leading-relaxed">
                         {content}
@@ -212,8 +212,8 @@ const FormattedText = ({ text }: { text: string }) => {
                 } else {
                   renderedItems.push(
                     <div key={itemIndex} className="space-y-1">
-                      <div className="flex items-start gap-2">
-                        <span className="text-gray-500 mt-1">•</span>
+                      <div className="text-base text-gray-700 leading-relaxed">
+                        <span className="text-gray-500">• </span>
                         <span className="font-semibold text-gray-900">{trimmed}</span>
                       </div>
                       <div className="ml-5 text-base text-gray-700 leading-relaxed">
@@ -233,19 +233,19 @@ const FormattedText = ({ text }: { text: string }) => {
               const titlePart = trimmed.substring(0, colonPos + 1);
               const contentPart = trimmed.substring(colonPos + 1).trim();
               renderedItems.push(
-                <div key={itemIndex} className="flex items-start gap-2">
-                  <span className="text-gray-500 mt-1">•</span>
-                  <div>
+                <div key={itemIndex} className="text-base text-gray-700 leading-relaxed">
+                  <span className="text-gray-500">• </span>
+                  <span>
                     <span className="font-semibold text-gray-900">{titlePart}</span>
                     {contentPart && <span className="text-base text-gray-700 leading-relaxed">{contentPart}</span>}
-                  </div>
+                  </span>
                 </div>
               );
             } else {
               // 单独的列表项
               renderedItems.push(
-                <div key={itemIndex} className="flex items-start gap-2">
-                  <span className="text-gray-500 mt-1">•</span>
+                <div key={itemIndex} className="text-base text-gray-700 leading-relaxed">
+                  <span className="text-gray-500">• </span>
                   <span className="text-base text-gray-700 leading-relaxed">{trimmed}</span>
                 </div>
               );
@@ -266,23 +266,24 @@ const FormattedText = ({ text }: { text: string }) => {
             <div key={pIndex} className="space-y-3">
               {items.map((item, itemIndex) => {
                 const trimmed = item.trim().replace(/^[*-]\s*/, '');
+                if (!trimmed) return null;
                 const colonPos = trimmed.indexOf('：');
                 if (colonPos !== -1) {
                   const title = trimmed.substring(0, colonPos + 1);
                   const content = trimmed.substring(colonPos + 1).trim();
                   return (
-                    <div key={itemIndex} className="flex items-start gap-2">
-                      <span className="text-gray-500 mt-1">•</span>
-                      <div>
+                    <div key={itemIndex} className="text-base text-gray-700 leading-relaxed">
+                      <span className="text-gray-500">• </span>
+                      <span>
                         <span className="font-semibold text-gray-900">{title}</span>
                         {content && <span className="text-base text-gray-700 leading-relaxed">{content}</span>}
-                      </div>
+                      </span>
                     </div>
                   );
                 }
                 return (
-                  <div key={itemIndex} className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1">•</span>
+                  <div key={itemIndex} className="text-base text-gray-700 leading-relaxed">
+                    <span className="text-gray-500">• </span>
                     <span className="text-base text-gray-700 leading-relaxed">{trimmed}</span>
                   </div>
                 );
@@ -333,6 +334,7 @@ const FormattedText = ({ text }: { text: string }) => {
                 
                 // 移除 bullet 标记
                 const content = trimmed.replace(/^[•·]\s*/, '').replace(/^-\s*/, '').replace(/^\d+[.、]\s*/, '');
+                if (!content) return null;
                 
                 // 检查是否有冒号分隔
                 const colonPos = content.indexOf('：');
@@ -340,19 +342,19 @@ const FormattedText = ({ text }: { text: string }) => {
                   const titlePart = content.substring(0, colonPos + 1);
                   const contentPart = content.substring(colonPos + 1).trim();
                   return (
-                    <li key={lIndex} className="flex items-start gap-2">
-                      <span className="text-gray-500 mt-1">•</span>
-                      <div>
+                    <li key={lIndex} className="text-base text-gray-700 leading-relaxed">
+                      <span className="text-gray-500">• </span>
+                      <span>
                         <span className="font-semibold text-gray-900">{titlePart}</span>
                         {contentPart && <span className="text-base text-gray-700 leading-relaxed">{contentPart}</span>}
-                      </div>
+                      </span>
                     </li>
                   );
                 }
                 
                 return (
-                  <li key={lIndex} className="flex items-start gap-2">
-                    <span className="text-gray-500 mt-1">•</span>
+                  <li key={lIndex} className="text-base text-gray-700 leading-relaxed">
+                    <span className="text-gray-500">• </span>
                     <span className="text-base text-gray-700 leading-relaxed">{content}</span>
                   </li>
                 );
@@ -1167,8 +1169,8 @@ export default function CountryDetail() {
                       <h3 className={`text-lg font-medium ${textClass} mb-3`}>{regulation.category}</h3>
                       <ul className="space-y-2">
                         {regulation.items.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start gap-2">
-                            <span className={`mt-1 ${textClass.replace('900', '500')}`}>•</span>
+                          <li key={itemIndex} className={textClass.replace('900', '700')}>
+                            <span className={textClass.replace('900', '500')}>• </span>
                             <span className={textClass.replace('900', '700')}>{item}</span>
                           </li>
                         ))}
