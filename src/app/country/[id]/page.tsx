@@ -1008,9 +1008,13 @@ export default function CountryDetail() {
                 {country.tax.policies.find(p => p.title === '消费税说明') && (
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
                     <h4 className={cardSubheadingClass}>消费税说明</h4>
-                    <p className="text-gray-700 text-sm leading-relaxed">
-                      {country.tax.policies.find(p => p.title === '消费税说明')?.description}
-                    </p>
+                    <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                      {country.tax.policies.find(p => p.title === '消费税说明')?.description
+                        .split(/\n\n+/)
+                        .map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))}
+                    </div>
                   </div>
                 )}
                 
