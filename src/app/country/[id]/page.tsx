@@ -683,6 +683,46 @@ export default function CountryDetail() {
                   </h3>
                   <div className="text-indigo-800">
                     <FormattedText text={country.regulatorySystem.definition} />
+                    
+                    {/* 俄罗斯电子烟分类监管逻辑表格 */}
+                    <div className="mt-6">
+                      <div className="overflow-x-auto">
+                        <table className="w-full border-collapse border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900 w-[22%]">产品形态</th>
+                              <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900 w-[38%]">监管路径与法规依据</th>
+                              <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900 w-[40%]">主要合规规则</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="bg-white">
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">电子烟设备 / 电子雾化设备</td>
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">属于"尼古丁产品使用系统 / 装置"。第15-FZ号法第2条将其定义为用于产生可吸入尼古丁气溶胶或蒸气的电子或其他装置，包括电子尼古丁输送系统和加热烟草系统。</td>
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">单纯设备与烟油、含液体烟弹、设备与液体组合产品区分判断；可重复使用电子烟及类似个人电加热雾化设备仍处于标识试验 / 过渡阶段。</td>
+                            </tr>
+                            <tr className="bg-gray-50">
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">烟油 / 电子烟补充液</td>
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">属于"尼古丁液体"或"无尼古丁液体"。第15-FZ号法第2条规定，尼古丁含量不低于0.1 mg/ml的液体，以及不含尼古丁或尼古丁低于0.1 mg/ml但用于电子尼古丁输送系统的液体，均纳入该定义。</td>
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">零售环节不得销售尼古丁浓度超过20 mg/ml的尼古丁液体或尼古丁溶液。含尼古丁液体涉及消费税、最低价格、数字标识及生产 / 进口投入流通许可。</td>
+                            </tr>
+                            <tr className="bg-white">
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">含液体烟弹、设备与液体组合产品</td>
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">俄罗斯公开法规未见对"含液体烟弹"或"设备与液体组合产品"设置单独定义。监管时应拆分看：其中的液体按尼古丁液体或无尼古丁液体判断；其中的设备按尼古丁产品使用系统 / 装置判断。</td>
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">核心看内置或预灌装液体属性。液体含尼古丁且达到0.1 mg/ml的，按尼古丁液体及尼古丁产品相关规则处理；液体不含尼古丁或低于0.1 mg/ml但用于电子尼古丁输送系统的，仍纳入尼古丁液体 / 无尼古丁液体监管口径。</td>
+                            </tr>
+                            <tr className="bg-gray-50">
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">空烟弹 / 空容器 / 不含液体组件</td>
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">俄罗斯公开法规未见对空烟弹、空容器或普通不含液体组件设置单独定义。</td>
+                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">不直接按尼古丁液体处理；如作为电子烟设备组成部分销售，重点按设备或尼古丁产品使用系统 / 装置相关规则判断。</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p className="mt-4 text-indigo-800 leading-relaxed">
+                        电子烟设备、尼古丁液体、无尼古丁液体、含液体烟弹、设备与液体组合产品等电子烟相关产品，进入零售市场时通常还需遵守第15-FZ号法项下的销售端限制，包括禁止向未成年人销售、禁止远程销售、禁止自动售货机销售、禁止公开陈列、限制销售地点，以及广告、促销和赞助禁令。
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
