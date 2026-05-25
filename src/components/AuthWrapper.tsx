@@ -40,7 +40,7 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
           <div className="text-center mb-6">
             <div className="text-4xl mb-2">🔒</div>
             <h1 className="text-2xl font-bold text-gray-900">访问密码</h1>
-            <p className="text-gray-600 mt-1">请输入密码以访问全球法规动态追踪</p>
+            <p className="text-gray-600 mt-1">请输入密码以访问全球烟草监管信息参考</p>
           </div>
           
           <form onSubmit={handleLogin} className="space-y-4">
