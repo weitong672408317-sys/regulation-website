@@ -786,63 +786,155 @@ export default function CountryDetail() {
               </div>
             )}
             
-            {country.tax.policies.length > 0 && (
-              <div className="grid gap-4 mb-8">
-                {country.tax.policies.map((policy, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-4 border border-gray-100">
-                    <h4 className="font-semibold text-gray-900 mb-2">{policy.title}</h4>
-                    <p className="text-gray-700 text-sm leading-relaxed">{policy.description}</p>
+            {country.id === 'russia' ? (
+              <div className="space-y-6">
+                {country.tax.policies.find(p => p.title === '消费税说明') && (
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                    <h4 className="font-semibold text-gray-900 mb-2">消费税说明</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {country.tax.policies.find(p => p.title === '消费税说明')?.description}
+                    </p>
                   </div>
-                ))}
-              </div>
-            )}
-            
-            {country.tax.exciseTaxTable && (
-              <div className="bg-gray-50 rounded-lg p-4 mb-8 border border-gray-100">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">消费税税率表</h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-gray-200">
-                        {country.tax.exciseTaxTable.headers.map((header, idx) => (
-                          <th 
-                            key={idx} 
-                            className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-300"
-                            style={idx === 0 ? { width: '28%' } : { width: '24%' }}
-                          >
-                            {header}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
-                        <tr key={rowIdx} className="hover:bg-gray-100">
-                          {row.map((cell, cellIdx) => (
-                            <td key={cellIdx} className="px-4 py-3 border-b border-gray-200 text-gray-700">
-                              {cell}
-                            </td>
+                )}
+                
+                {country.tax.exciseTaxTable && (
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-2">
+                    <h3 className="text-lg font-medium text-gray-900 mb-4">消费税税率表</h3>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="bg-gray-200">
+                            {country.tax.exciseTaxTable.headers.map((header, idx) => (
+                              <th 
+                                key={idx} 
+                                className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-300"
+                                style={idx === 0 ? { width: '28%' } : { width: '24%' }}
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
+                            <tr key={rowIdx} className="hover:bg-gray-100">
+                              {row.map((cell, cellIdx) => (
+                                <td key={cellIdx} className="px-4 py-3 border-b border-gray-200 text-gray-700">
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
                           ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-            
-            {country.tax.minimumPriceTable && (
-              <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">最低价格表</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {country.tax.minimumPriceTable.rows.map((row, idx) => (
-                    <div key={idx} className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                      <div className="font-medium text-gray-900 mb-1">{row[0]}</div>
-                      <div className="text-sm text-gray-700 leading-relaxed">{row[1]}</div>
+                        </tbody>
+                      </table>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
+                
+                {country.tax.policies.find(p => p.title === '最低价格说明') && (
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-6">
+                    <h4 className="font-semibold text-gray-900 mb-2">最低价格说明</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {country.tax.policies.find(p => p.title === '最低价格说明')?.description}
+                    </p>
+                  </div>
+                )}
+                
+                {country.tax.minimumPriceTable && (
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-2">
+                    <h3 className="text-lg font-medium text-gray-900 mb-4">最低价格表</h3>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="bg-gray-200">
+                            {country.tax.minimumPriceTable.headers.map((header, idx) => (
+                              <th 
+                                key={idx} 
+                                className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-300"
+                                style={idx === 0 ? { width: '30%' } : { width: '70%' }}
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {country.tax.minimumPriceTable.rows.map((row, rowIdx) => (
+                            <tr key={rowIdx} className="hover:bg-gray-100">
+                              {row.map((cell, cellIdx) => (
+                                <td key={cellIdx} className="px-4 py-3 border-b border-gray-200 text-gray-700">
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
               </div>
+            ) : (
+              <>
+                {country.tax.policies.length > 0 && (
+                  <div className="grid gap-4 mb-8">
+                    {country.tax.policies.map((policy, index) => (
+                      <div key={index} className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                        <h4 className="font-semibold text-gray-900 mb-2">{policy.title}</h4>
+                        <p className="text-gray-700 text-sm leading-relaxed">{policy.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                
+                {country.tax.exciseTaxTable && (
+                  <div className="bg-gray-50 rounded-lg p-4 mb-8 border border-gray-100">
+                    <h3 className="text-lg font-medium text-gray-900 mb-4">消费税税率表</h3>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="bg-gray-200">
+                            {country.tax.exciseTaxTable.headers.map((header, idx) => (
+                              <th 
+                                key={idx} 
+                                className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-300"
+                                style={idx === 0 ? { width: '28%' } : { width: '24%' }}
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
+                            <tr key={rowIdx} className="hover:bg-gray-100">
+                              {row.map((cell, cellIdx) => (
+                                <td key={cellIdx} className="px-4 py-3 border-b border-gray-200 text-gray-700">
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+                
+                {country.tax.minimumPriceTable && (
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                    <h3 className="text-lg font-medium text-gray-900 mb-4">最低价格表</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {country.tax.minimumPriceTable.rows.map((row, idx) => (
+                        <div key={idx} className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                          <div className="font-medium text-gray-900 mb-1">{row[0]}</div>
+                          <div className="text-sm text-gray-700 leading-relaxed">{row[1]}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </section>
