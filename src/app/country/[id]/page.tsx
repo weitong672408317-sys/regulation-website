@@ -569,12 +569,26 @@ export default function CountryDetail() {
               <span>📢</span> 法规动态
             </h2>
             <ul className="space-y-3">
-              {country.regulatoryUpdates.map((update, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-2 h-2 mt-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-gray-700">{update}</span>
-                </li>
-              ))}
+              {country.regulatoryUpdates.map((update, index) => {
+                const parts = update.split('\n\n');
+                const title = parts[0] || '';
+                const content = parts.slice(1).join('\n\n');
+                
+                return (
+                  <li key={index} className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-2 h-2 mt-2 bg-blue-500 rounded-full"></div>
+                    <div className="text-gray-700">
+                      <span className="font-semibold">{title}</span>
+                      {content && (
+                        <>
+                          <br />
+                          <span className="mt-1 block">{content}</span>
+                        </>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </section>
@@ -959,13 +973,13 @@ export default function CountryDetail() {
                   let bgClass = 'bg-gray-50 border-gray-200';
                   let textClass = 'text-gray-900';
                   
-                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道') {
+                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道' || regulation.category === '销售场所与销售方式') {
                     bgClass = 'bg-blue-50 border-blue-200';
                     textClass = 'text-blue-900';
-                  } else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签') {
+                  } else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签' || regulation.category === '陈列、展示与销售清单' || regulation.category === '包装和单支销售限制') {
                     bgClass = 'bg-green-50 border-green-200';
                     textClass = 'text-green-900';
-                  } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示') {
+                  } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示' || regulation.category === '广告、促销与赞助') {
                     bgClass = 'bg-amber-50 border-amber-200';
                     textClass = 'text-amber-900';
                   } else if (regulation.category === '主要酋长国差异' || regulation.category === '地方差异' || regulation.category === '主要地区差异') {
@@ -983,9 +997,9 @@ export default function CountryDetail() {
                   } else if (regulation.category === '线上销售' || regulation.category === '平台交易') {
                     bgClass = 'bg-indigo-50 border-indigo-200';
                     textClass = 'text-indigo-900';
-                  } else if (regulation.category === '市场流通') {
-                    bgClass = 'bg-cyan-50 border-cyan-200';
-                    textClass = 'text-cyan-900';
+                  } else if (regulation.category === '市场流通' || regulation.category === '禁售地点' || regulation.category === '特定产品和浓度要求') {
+                    bgClass = 'bg-red-50 border-red-200';
+                    textClass = 'text-red-900';
                   }
                   
                   return (
@@ -1166,7 +1180,7 @@ export default function CountryDetail() {
 
       <footer className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <p className="text-center text-gray-500 text-sm">© 2024 全球法规动态追踪门户. All rights reserved.</p>
+          <p className="text-center text-gray-500 text-sm">© 2024 全球法规动态追踪. All rights reserved.</p>
         </div>
       </footer>
     </div>
