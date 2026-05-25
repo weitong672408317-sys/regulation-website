@@ -403,6 +403,8 @@ const TableCellContent = ({ content }: { content: string | string[] }) => {
   return <span className="text-gray-700">{content}</span>;
 };
 
+const cardSubheadingClass = "text-base font-semibold leading-6 text-gray-900 mb-3";
+
 // 通用合规表格组件
 const GenericComplianceTable = ({ data }: { data: { headers: string[]; rows: (string | string[])[][] } }) => {
   return (
@@ -950,7 +952,7 @@ export default function CountryDetail() {
               <div className="space-y-6">
                 {country.tax.policies.find(p => p.title === '消费税说明') && (
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
-                    <h4 className="font-semibold text-gray-900 mb-2">消费税说明</h4>
+                    <h4 className={cardSubheadingClass}>消费税说明</h4>
                     <p className="text-gray-700 text-sm leading-relaxed">
                       {country.tax.policies.find(p => p.title === '消费税说明')?.description}
                     </p>
@@ -959,7 +961,7 @@ export default function CountryDetail() {
                 
                 {country.tax.exciseTaxTable && (
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-2">
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">消费税税率表</h3>
+                    <h3 className={cardSubheadingClass}>消费税税率表</h3>
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm">
                         <thead>
@@ -993,7 +995,7 @@ export default function CountryDetail() {
                 
                 {country.tax.policies.find(p => p.title === '最低价格说明') && (
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-6">
-                    <h4 className="font-semibold text-gray-900 mb-2">最低价格说明</h4>
+                    <h4 className={cardSubheadingClass}>最低价格说明</h4>
                     <p className="text-gray-700 text-sm leading-relaxed">
                       {country.tax.policies.find(p => p.title === '最低价格说明')?.description}
                     </p>
@@ -1002,7 +1004,7 @@ export default function CountryDetail() {
                 
                 {country.tax.minimumPriceTable && (
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-2">
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">最低价格表</h3>
+                    <h3 className={cardSubheadingClass}>最低价格表</h3>
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm">
                         <thead>
