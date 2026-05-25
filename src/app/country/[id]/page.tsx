@@ -1164,8 +1164,30 @@ export default function CountryDetail() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">市场运营规范</h2>
             {country.marketOperation.regulations.length > 0 ? (
-              <div className="space-y-6">
-                {country.marketOperation.regulations.map((regulation, index) => {
+              country.id === 'russia' ? (
+                <div className="grid gap-4 lg:grid-cols-2">
+                  {country.marketOperation.regulations.map((regulation, index) => (
+                    <div key={index} className="rounded-lg border border-slate-200 bg-slate-50/70 p-5 shadow-sm">
+                      <div className="mb-4 flex items-center gap-3">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
+                          {index + 1}
+                        </span>
+                        <h3 className="text-lg font-semibold leading-7 text-slate-950">{regulation.category}</h3>
+                      </div>
+                      <ul className="space-y-2.5 text-base leading-7 text-slate-700">
+                        {regulation.items.map((item, itemIndex) => (
+                          <li key={itemIndex}>
+                            <span className="text-slate-400">• </span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  {country.marketOperation.regulations.map((regulation, index) => {
                   // 检查是否是主要酋长国差异并且有表格数据
                   if (country.emirateDifferences && regulation.category === '主要酋长国差异') {
                     return (
@@ -1228,8 +1250,9 @@ export default function CountryDetail() {
                       </ul>
                     </div>
                   );
-                })}
-              </div>
+                  })}
+                </div>
+              )
             ) : (
               <>
                 {country.marketOperation.marketingRestrictions && (
