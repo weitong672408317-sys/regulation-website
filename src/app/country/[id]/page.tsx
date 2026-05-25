@@ -405,6 +405,65 @@ const TableCellContent = ({ content }: { content: string | string[] }) => {
 
 const cardSubheadingClass = "text-base font-semibold leading-6 text-gray-900 mb-3";
 
+const SeasonSummaryText = ({ text }: { text: string }) => {
+  const blocks = text.split(/\n\n+/).map((block) => block.trim()).filter(Boolean);
+
+  return (
+    <div className="space-y-4 text-blue-900">
+      {blocks.map((block, blockIndex) => {
+        const lines = block.split('\n').map((line) => line.trim()).filter(Boolean);
+
+        if (lines.length === 0) return null;
+
+        const isBulletLine = (line: string) => /^[•·*-]\s+/.test(line);
+
+        if (lines.some(isBulletLine)) {
+          const items: { marker: string; title: string; details: string[] }[] = [];
+
+          lines.forEach((line) => {
+            const bulletMatch = line.match(/^([•·*-])\s+(.*)$/);
+            if (bulletMatch) {
+              items.push({ marker: bulletMatch[1], title: bulletMatch[2], details: [] });
+              return;
+            }
+
+            const lastItem = items[items.length - 1];
+            if (lastItem) {
+              lastItem.details.push(line);
+            } else {
+              items.push({ marker: '', title: line, details: [] });
+            }
+          });
+
+          return (
+            <div key={blockIndex} className="space-y-2">
+              {items.map((item, itemIndex) => (
+                <div key={itemIndex} className="space-y-1">
+                  <p className="leading-relaxed">
+                    {item.marker && <span>{item.marker} </span>}
+                    <span>{item.title}</span>
+                  </p>
+                  {item.details.map((detail, detailIndex) => (
+                    <p key={detailIndex} className="ml-5 leading-relaxed">
+                      {detail}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          );
+        }
+
+        return lines.map((line, lineIndex) => (
+          <p key={`${blockIndex}-${lineIndex}`} className="leading-relaxed">
+            {line}
+          </p>
+        ));
+      })}
+    </div>
+  );
+};
+
 // 通用合规表格组件
 const GenericComplianceTable = ({ data }: { data: { headers: string[]; rows: (string | string[])[][] } }) => {
   return (
@@ -623,16 +682,8 @@ export default function CountryDetail() {
         <section className="mb-8">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">{country.name}</h1>
           <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-            <strong className="text-blue-900">本季动态摘要：</strong>
-            {country.id === 'russia' ? (
-              <div className="text-blue-900 mt-2 space-y-4">
-                {country.seasonSummary.split('\n\n').map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
-            ) : (
-              <p className="text-blue-900">{country.seasonSummary}</p>
-            )}
+            <h2 className="text-xl font-bold leading-7 text-blue-900 mb-3">本季动态摘要：</h2>
+            <SeasonSummaryText text={country.seasonSummary} />
           </div>
         </section>
 
