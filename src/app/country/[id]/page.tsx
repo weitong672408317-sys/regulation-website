@@ -17,6 +17,61 @@ const FormattedText = ({ text }: { text: string }) => {
   // 处理分段（\n\n）和换行（\n）
   const paragraphs = text.split(/\n\n+/);
   
+  // 检查是否是Markdown表格
+  const isTable = (p: string): boolean => {
+    const lines = p.trim().split('\n').filter(line => line.trim());
+    if (lines.length < 2) return false;
+    const hasSeparatorLine = lines.some(line => /^\s*\|?\s*[-=]+\s*\|?\s*([-=|]+\s*)?$/.test(line));
+    const hasMultiplePipes = lines.some(line => line.includes('|') && line.split('|').length > 2);
+    return hasSeparatorLine && hasMultiplePipes;
+  };
+  
+  // 渲染Markdown表格
+  const renderTable = (tableText: string) => {
+    const lines = tableText.trim().split('\n').filter(line => line.trim());
+    // 移除分隔线
+    const dataLines = lines.filter(line => !/^\s*\|?\s*[-=]+\s*\|?\s*([-=|]+\s*)?$/.test(line));
+    
+    if (dataLines.length < 1) return null;
+    
+    const rows = dataLines.map(line => {
+      const cells = line.split('|').map(cell => cell.trim()).filter(cell => cell !== '');
+      return cells;
+    });
+    
+    if (rows.length < 1) return null;
+    
+    const headers = rows[0];
+    const bodyRows = rows.slice(1);
+    
+    return (
+      <div className="overflow-x-auto my-4">
+        <table className="w-full border-collapse border border-gray-300">
+          <thead>
+            <tr className="bg-gray-100">
+              {headers.map((header, hIndex) => (
+                <th key={hIndex} className="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900">
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {bodyRows.map((row, rIndex) => (
+              <tr key={rIndex} className={rIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                {row.map((cell, cIndex) => (
+                  <td key={cIndex} className="border border-gray-300 px-4 py-3 text-gray-700 align-top">
+                    <FormattedContent content={cell} />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+  
   // 二级小标题关键词列表
   const secondaryHeadings = [
     '传统烟草专卖品', '电子烟监管', '新型烟草制品', '传统烟草', 
@@ -57,6 +112,11 @@ const FormattedText = ({ text }: { text: string }) => {
       {paragraphs.map((paragraph, pIndex) => {
         const cleanedParagraph = cleanFormattingMarkers(paragraph);
         const trimmedParagraph = cleanedParagraph.trim();
+        
+        // 优先检查是否是表格
+        if (isTable(cleanedParagraph)) {
+          return <div key={pIndex}>{renderTable(cleanedParagraph)}</div>;
+        }
         
         // 检查是否是模块内一级小标题
         const primaryHeadings = ['核心特征', '监管部门', '烟草行业主要法律', 
@@ -1005,33 +1065,49 @@ export default function CountryDetail() {
                   let bgClass = 'bg-gray-50 border-gray-200';
                   let textClass = 'text-gray-900';
                   
-                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道' || regulation.category === '销售场所与销售方式') {
-                    bgClass = 'bg-blue-50 border-blue-200';
-                    textClass = 'text-blue-900';
-                  } else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签' || regulation.category === '陈列、展示与销售清单' || regulation.category === '包装和单支销售限制') {
-                    bgClass = 'bg-green-50 border-green-200';
-                    textClass = 'text-green-900';
-                  } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示' || regulation.category === '广告、促销与赞助') {
-                    bgClass = 'bg-amber-50 border-amber-200';
-                    textClass = 'text-amber-900';
-                  } else if (regulation.category === '主要酋长国差异' || regulation.category === '地方差异' || regulation.category === '主要地区差异') {
-                    bgClass = 'bg-purple-50 border-purple-200';
-                    textClass = 'text-purple-900';
-                  } else if (regulation.category === '未成年人保护') {
-                    bgClass = 'bg-pink-50 border-pink-200';
-                    textClass = 'text-pink-900';
-                  } else if (regulation.category === '口味与产品形态') {
-                    bgClass = 'bg-emerald-50 border-emerald-200';
-                    textClass = 'text-emerald-900';
-                  } else if (regulation.category === '持有、使用与公共场所') {
-                    bgClass = 'bg-indigo-50 border-indigo-200';
-                    textClass = 'text-indigo-900';
-                  } else if (regulation.category === '线上销售' || regulation.category === '平台交易') {
-                    bgClass = 'bg-indigo-50 border-indigo-200';
-                    textClass = 'text-indigo-900';
-                  } else if (regulation.category === '市场流通' || regulation.category === '禁售地点' || regulation.category === '特定产品和浓度要求') {
-                    bgClass = 'bg-red-50 border-red-200';
-                    textClass = 'text-red-900';
+                  if (country.id === 'russia') {
+                    // 俄罗斯页面使用轮起色卡，避免连续同色
+                    const colorPalette = [
+                      { bg: 'bg-blue-50 border-blue-200', text: 'text-blue-900' },
+                      { bg: 'bg-red-50 border-red-200', text: 'text-red-900' },
+                      { bg: 'bg-purple-50 border-purple-200', text: 'text-purple-900' },
+                      { bg: 'bg-orange-50 border-orange-200', text: 'text-orange-900' },
+                      { bg: 'bg-green-50 border-green-200', text: 'text-green-900' },
+                      { bg: 'bg-yellow-50 border-yellow-200', text: 'text-yellow-900' }
+                    ];
+                    const color = colorPalette[index % colorPalette.length];
+                    bgClass = color.bg;
+                    textClass = color.text;
+                  } else {
+                    // 其他国家页面按分类固定颜色
+                    if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道' || regulation.category === '销售场所与销售方式') {
+                      bgClass = 'bg-blue-50 border-blue-200';
+                      textClass = 'text-blue-900';
+                    } else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签' || regulation.category === '陈列、展示与销售清单' || regulation.category === '包装和单支销售限制') {
+                      bgClass = 'bg-green-50 border-green-200';
+                      textClass = 'text-green-900';
+                    } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示' || regulation.category === '广告、促销与赞助') {
+                      bgClass = 'bg-amber-50 border-amber-200';
+                      textClass = 'text-amber-900';
+                    } else if (regulation.category === '主要酋长国差异' || regulation.category === '地方差异' || regulation.category === '主要地区差异') {
+                      bgClass = 'bg-purple-50 border-purple-200';
+                      textClass = 'text-purple-900';
+                    } else if (regulation.category === '未成年人保护') {
+                      bgClass = 'bg-pink-50 border-pink-200';
+                      textClass = 'text-pink-900';
+                    } else if (regulation.category === '口味与产品形态') {
+                      bgClass = 'bg-emerald-50 border-emerald-200';
+                      textClass = 'text-emerald-900';
+                    } else if (regulation.category === '持有、使用与公共场所') {
+                      bgClass = 'bg-indigo-50 border-indigo-200';
+                      textClass = 'text-indigo-900';
+                    } else if (regulation.category === '线上销售' || regulation.category === '平台交易') {
+                      bgClass = 'bg-indigo-50 border-indigo-200';
+                      textClass = 'text-indigo-900';
+                    } else if (regulation.category === '市场流通' || regulation.category === '禁售地点' || regulation.category === '特定产品和浓度要求') {
+                      bgClass = 'bg-red-50 border-red-200';
+                      textClass = 'text-red-900';
+                    }
                   }
                   
                   return (
