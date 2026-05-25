@@ -524,28 +524,32 @@ const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsBySt
         </div>
       </div>
       
-      {/* 部分禁止 / 条件性限制 */}
-      <div className="bg-gradient-to-br from-amber-50 to-amber-100 border-l-4 border-amber-500 rounded-r-lg p-6">
-        <h3 className="font-bold text-amber-900 text-xl mb-5 flex items-center gap-3">
-          <span className="w-3 h-3 bg-amber-500 rounded-full"></span>
-          部分禁止 / 条件性限制
-        </h3>
-        <div className="space-y-4">
-          {data.partiallyRestricted.map((item, index) => (
-            <div key={index} className="bg-white bg-opacity-70 rounded-lg p-4 border border-amber-200">
-              <div className="font-semibold text-amber-900 text-base mb-2">{item.productName}</div>
-              <div className="text-amber-800 leading-relaxed">
-                {item.rule.split('\n\n').map((paragraph, pIndex) => (
-                  <span key={pIndex}>
-                    {paragraph}
-                    {pIndex < item.rule.split('\n\n').length - 1 && <br />}
-                  </span>
-                ))}
-              </div>
+      {data.partiallyRestricted.length > 0 && (
+        <>
+          {/* 部分禁止 / 条件性限制 */}
+          <div className="bg-gradient-to-br from-amber-50 to-amber-100 border-l-4 border-amber-500 rounded-r-lg p-6">
+            <h3 className="font-bold text-amber-900 text-xl mb-5 flex items-center gap-3">
+              <span className="w-3 h-3 bg-amber-500 rounded-full"></span>
+              部分禁止 / 条件性限制
+            </h3>
+            <div className="space-y-4">
+              {data.partiallyRestricted.map((item, index) => (
+                <div key={index} className="bg-white bg-opacity-70 rounded-lg p-4 border border-amber-200">
+                  <div className="font-semibold text-amber-900 text-base mb-2">{item.productName}</div>
+                  <div className="text-amber-800 leading-relaxed">
+                    {item.rule.split('\n\n').map((paragraph, pIndex) => (
+                      <span key={pIndex}>
+                        {paragraph}
+                        {pIndex < item.rule.split('\n\n').length - 1 && <br />}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </>
+      )}
       
       {/* 开放 / 可准入 */}
       <div className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500 rounded-r-lg p-6">
@@ -741,7 +745,7 @@ export default function CountryDetail() {
                     <FormattedText text={country.regulatorySystem.definition.split('6. 电子烟相关产品的分类监管逻辑')[0]} />
                     
                     {/* 显示第6节标题 */}
-                    <h4 className="mt-4 font-semibold text-lg text-gray-900">6. 电子烟相关产品的分类监管逻辑</h4>
+                    <h4 className="mt-4 font-semibold text-base text-gray-900">6. 电子烟相关产品的分类监管逻辑</h4>
                     
                     {/* 表格前说明文字 */}
                     <p className="mt-3 text-gray-700 leading-relaxed">
