@@ -724,19 +724,26 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">合规资质</h2>
-            {country.compliance.genericTable ? (
+            {country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
+              <>
+                {country.compliance.licenseRequirements && (
+                  <p className="text-gray-700 mb-6">{country.compliance.licenseRequirements}</p>
+                )}
+                <ComplianceLicenseCards cards={country.compliance.licenseCards} />
+              </>
+            ) : country.compliance.genericTable ? (
               <>
                 {country.compliance.licenseRequirements && (
                   <p className="text-gray-700 mb-6">{country.compliance.licenseRequirements}</p>
                 )}
                 <GenericComplianceTable data={country.compliance.genericTable} />
               </>
-            ) : country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
+            ) : country.compliance.secondGenericTable ? (
               <>
                 {country.compliance.licenseRequirements && (
                   <p className="text-gray-700 mb-6">{country.compliance.licenseRequirements}</p>
                 )}
-                <ComplianceLicenseCards cards={country.compliance.licenseCards} />
+                <GenericComplianceTable data={country.compliance.secondGenericTable} />
               </>
             ) : country.compliance.table.length > 0 ? (
               <div className="overflow-x-auto">
@@ -772,28 +779,36 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">税收政策</h2>
-            {country.tax.policies.length > 0 ? (
-              <>
-                {country.tax.exciseTax && (
-                  <p className="text-gray-700 mb-6">{country.tax.exciseTax}</p>
-                )}
-                <div className="space-y-6">
-                  {country.tax.policies.map((policy, index) => (
-                    <div key={index}>
-                      <div className="flex items-start gap-2">
-                        <span className="text-gray-500 mt-1">•</span>
-                        <div>
-                          <h4 className="font-semibold text-gray-900">{policy.title}</h4>
-                          <p className="text-gray-700 mt-1">{policy.description}</p>
-                        </div>
+            {country.tax.exciseTax && (
+              <p className="text-gray-700 mb-6">{country.tax.exciseTax}</p>
+            )}
+            {country.tax.policies.length > 0 && (
+              <div className="space-y-6 mb-8">
+                {country.tax.policies.map((policy, index) => (
+                  <div key={index}>
+                    <div className="flex items-start gap-2">
+                      <span className="text-gray-500 mt-1">•</span>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{policy.title}</h4>
+                        <p className="text-gray-700 mt-1">{policy.description}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </>
-            ) : country.tax.exciseTax ? (
-              <FormattedText text={country.tax.exciseTax} />
-            ) : null}
+                  </div>
+                ))}
+              </div>
+            )}
+            {country.tax.exciseTaxTable && (
+              <div className="mb-8">
+                <h3 className="text-lg font-medium text-gray-900 mb-4">消费税税率表</h3>
+                <GenericComplianceTable data={country.tax.exciseTaxTable} />
+              </div>
+            )}
+            {country.tax.minimumPriceTable && (
+              <div>
+                <h3 className="text-lg font-medium text-gray-900 mb-4">最低价格表</h3>
+                <GenericComplianceTable data={country.tax.minimumPriceTable} />
+              </div>
+            )}
           </div>
         </section>
 
