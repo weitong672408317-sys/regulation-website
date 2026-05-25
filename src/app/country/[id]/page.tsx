@@ -559,7 +559,16 @@ export default function CountryDetail() {
         <section className="mb-8">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">{country.name}</h1>
           <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-            <p className="text-blue-900"><strong>本季动态摘要：</strong>{country.seasonSummary}</p>
+            <strong className="text-blue-900">本季动态摘要：</strong>
+            {country.id === 'russia' ? (
+              <div className="text-blue-900 mt-2 space-y-4">
+                {country.seasonSummary.split('\n\n').map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+            ) : (
+              <p className="text-blue-900">{country.seasonSummary}</p>
+            )}
           </div>
         </section>
 
