@@ -682,10 +682,14 @@ export default function CountryDetail() {
                     品类定义
                   </h3>
                   <div className="text-indigo-800">
-                    <FormattedText text={country.regulatorySystem.definition} />
+                    {/* 渲染6之前的内容 */}
+                    <FormattedText text={country.regulatorySystem.definition.split('6. 电子烟相关产品的分类监管逻辑')[0]} />
+                    
+                    {/* 显示第6节标题 */}
+                    <h4 className="mt-4 font-semibold text-lg text-indigo-900">6. 电子烟相关产品的分类监管逻辑</h4>
                     
                     {/* 俄罗斯电子烟分类监管逻辑表格 */}
-                    <div className="mt-6">
+                    <div className="mt-4">
                       <div className="overflow-x-auto">
                         <table className="w-full border-collapse border border-gray-300">
                           <thead>
@@ -723,6 +727,9 @@ export default function CountryDetail() {
                         电子烟设备、尼古丁液体、无尼古丁液体、含液体烟弹、设备与液体组合产品等电子烟相关产品，进入零售市场时通常还需遵守第15-FZ号法项下的销售端限制，包括禁止向未成年人销售、禁止远程销售、禁止自动售货机销售、禁止公开陈列、限制销售地点，以及广告、促销和赞助禁令。
                       </p>
                     </div>
+                    
+                    {/* 渲染7和8部分的内容 */}
+                    <FormattedText text={country.regulatorySystem.definition.split('6. 电子烟相关产品的分类监管逻辑')[1]} />
                   </div>
                 </div>
               </div>
