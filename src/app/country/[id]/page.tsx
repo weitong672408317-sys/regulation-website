@@ -605,26 +605,49 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">监管体系与定义</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
-                <h3 className="text-lg font-medium text-blue-900 mb-3 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  监管概述
-                </h3>
-                <div className="text-blue-800">
-                  <FormattedText text={country.regulatorySystem.overview} />
+            {country.id === 'russia' ? (
+              <div className="space-y-6">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+                  <h3 className="text-lg font-medium text-blue-900 mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    监管概述
+                  </h3>
+                  <div className="text-blue-800">
+                    <FormattedText text={country.regulatorySystem.overview} />
+                  </div>
+                </div>
+                <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-5">
+                  <h3 className="text-lg font-medium text-indigo-900 mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                    品类定义
+                  </h3>
+                  <div className="text-indigo-800">
+                    <FormattedText text={country.regulatorySystem.definition} />
+                  </div>
                 </div>
               </div>
-              <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-5">
-                <h3 className="text-lg font-medium text-indigo-900 mb-3 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                  品类定义
-                </h3>
-                <div className="text-indigo-800">
-                  <FormattedText text={country.regulatorySystem.definition} />
+            ) : (
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+                  <h3 className="text-lg font-medium text-blue-900 mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    监管概述
+                  </h3>
+                  <div className="text-blue-800">
+                    <FormattedText text={country.regulatorySystem.overview} />
+                  </div>
+                </div>
+                <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-5">
+                  <h3 className="text-lg font-medium text-indigo-900 mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                    品类定义
+                  </h3>
+                  <div className="text-indigo-800">
+                    <FormattedText text={country.regulatorySystem.definition} />
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </section>
 
