@@ -1258,8 +1258,8 @@ export default function CountryDetail() {
               <span className="text-red-600 text-2xl">⚠️</span>
               <h2 className="text-2xl font-bold text-red-900">趋势预判与红线警告</h2>
             </div>
-            {country.id === 'china' ? (
-              // 中国页面使用上下结构
+            {country.id === 'china' || country.id === 'russia' ? (
+              // 长文本趋势分析使用上下结构，避免左右栏压缩正文
               <div className="space-y-6">
                 {/* 政策趋势分析 - 上方 */}
                 <div className="bg-white rounded p-4 border border-red-200">
@@ -1357,27 +1357,29 @@ export default function CountryDetail() {
                 )}
               </div>
             </div>
-            <div className="mt-6">
-              <h3 className="text-lg font-medium text-gray-900 mb-3">PDF 下载</h3>
-              {country.references.pdfs.length > 0 ? (
-                <div className="flex flex-wrap gap-3">
-                  {country.references.pdfs.map((pdf, index) => (
-                    <a
-                      key={index}
-                      href={pdf.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg transition-colors"
-                    >
-                      <span>📄</span>
-                      {pdf.title}
-                    </a>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-gray-500 italic">资料收录中...</p>
-              )}
-            </div>
+            {(country.id !== 'russia' || country.references.pdfs.length > 0) && (
+              <div className="mt-6">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">PDF 下载</h3>
+                {country.references.pdfs.length > 0 ? (
+                  <div className="flex flex-wrap gap-3">
+                    {country.references.pdfs.map((pdf, index) => (
+                      <a
+                        key={index}
+                        href={pdf.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg transition-colors"
+                      >
+                        <span>📄</span>
+                        {pdf.title}
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-gray-500 italic">资料收录中...</p>
+                )}
+              </div>
+            )}
           </div>
         </section>
 

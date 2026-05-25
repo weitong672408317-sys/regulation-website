@@ -1156,24 +1156,36 @@ const fallbackCountries: CountryData[] = [
       ]
     },
     trendsWarnings: {
-      trendAnalysis: '2026年俄罗斯烟草监管继续围绕许可改革、标识要求和价格调控展开。批发/零售许可制度改革正在推进，可重复使用电子烟设备标识仍处于试验阶段，消费税和最低价格规则继续收紧。',
+      trendAnalysis: '1. 整体方向：保留合法市场，提高监管控制力\n\n俄罗斯烟草监管的长期方向，是在保留合法烟草市场的同时，提高国家对生产、流通和零售端的控制力。后续监管重点预计会继续围绕市场秩序、税收征管、产品追溯和未成年人保护展开。\n\n2. 传统烟草和加热烟草：合法市场内强监管\n\n传统烟草和加热烟草产品仍会沿着“合法市场内强监管”的方向发展。监管工具会更多集中在生产流通许可、数字标识、最低价格、消费税和零售许可改革，以减少未许可经营、低价销售、假冒产品和灰色流通。\n\n3. 电子烟：销售端和青少年接触场景继续受控\n\n电子烟监管的后续走向更偏向继续压缩销售端和青少年接触场景。俄罗斯近年已经有围绕电子烟销售许可、电子烟零售限制甚至更严格禁售方案的政策讨论，说明该品类未来仍会面临较高政策不确定性。\n\n4. 口含、鼻吸、咀嚼类尼古丁产品：维持禁售路径\n\n口含、鼻吸、咀嚼类尼古丁产品已经进入明确禁售路径。后续政策重点预计不会是建立普通商业准入，而是继续防止相关产品通过包装、品名、跨境销售或线上渠道绕开现有禁令。',
       redLines: [
-        '禁止向未成年人销售烟草和尼古丁产品',
-        '禁止远程销售烟草和尼古丁产品',
-        '禁止自动售货机销售',
-        '电子尼古丁输送系统液体零售浓度不得超过20 mg/ml',
-        '尼古丁袋、snus、nasvay及口含、鼻吸、咀嚼类尼古丁产品禁售'
+        '严禁批发或零售尼古丁袋、尼古丁口含膜、snus、nasvay、食品型尼古丁产品，以及用于咀嚼、吮吸、鼻吸的尼古丁产品。',
+        '严禁无相应许可在俄罗斯本地生产、进口投入流通、储存或供应烟草产品、尼古丁产品、烟草原料或尼古丁原料。',
+        '严禁销售未完成强制数字标识或追溯信息报送的受管制产品。',
+        '严禁零售尼古丁浓度超过20 mg/ml的电子尼古丁输送系统液体、尼古丁液体或尼古丁溶液。',
+        '严禁通过互联网、邮寄、自动售货机、集市、展会等方式销售烟草产品、尼古丁产品、水烟和尼古丁产品使用装置。',
+        '严禁在教育机构周边100米范围内，以及教育、医疗、文化、体育、公共交通、政府机关等限制场所销售相关产品。',
+        '严禁公开陈列或展示烟草产品、尼古丁产品、水烟和尼古丁产品使用装置。',
+        '严禁向18岁以下人员销售相关产品。',
+        '严禁以广告、折扣、赠品、抽奖、竞赛、品牌延伸、赞助等方式推广烟草、尼古丁产品、尼古丁产品使用装置和水烟。',
+        '严禁低于适用最低价格销售卷烟、papirosy、加热烟草、电子尼古丁输送系统液体及其他适用最低价格的产品。'
       ]
     },
     references: {
       regulations: [
-        { title: '《俄罗斯联邦第203-FZ号法》', url: 'https://www.consultant.ru/document/cons_doc_LAW_36298/' },
-        { title: '《俄罗斯联邦第15-FZ号法》', url: 'https://www.consultant.ru/document/cons_doc_LAW_11110/' },
-        { title: '《欧亚经济联盟烟草制品技术法规》', url: 'https://www.eaeunion.org/documents/technical-regulations/tr-cu-035-2014/' },
-        { title: '《俄罗斯联邦第268-FZ号法》', url: 'https://www.consultant.ru/document/cons_doc_LAW_56258/' },
-        { title: '《俄罗斯联邦政府第224号令》', url: 'https://www.consultant.ru/document/cons_doc_ORDER_421907/' }
+        { title: '《俄罗斯联邦第203-FZ号法〈关于烟草制品、烟草产品、尼古丁产品及其生产原料的生产和流通国家监管〉》', url: 'https://www.tobaccocontrollaws.org/laws/fed-law-no-203-fz-russia' },
+        { title: '《俄罗斯联邦第15-FZ号法〈关于保护公民健康免受环境烟草烟雾影响、烟草消费后果或尼古丁产品消费后果影响〉》', url: 'https://cis-legislation.com/document.fwx?rgn=58631' },
+        { title: '《俄罗斯联邦第303-FZ号法〈关于修改若干立法以保护公民健康免受尼古丁产品消费后果影响〉》', url: 'https://assets.tobaccocontrollaws.org/uploads/legislation/Russia/Russia-No.-303-FZ-on-Nicotine-Products.pdf' },
+        { title: '《欧亚经济联盟烟草制品技术法规》（TR CU 035/2014）', url: 'https://eec.eaeunion.org/comission/department/deptexreg/tr/tabac.php' },
+        { title: '《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》', url: 'https://assets.tobaccocontrollaws.org/uploads/legislation/Russia/Russia-Fed.-Law-No.-268.pdf' },
+        { title: '《俄罗斯联邦政府第224号令〈关于批准烟草和尼古丁产品识别标识及追溯规则〉》', url: 'https://cis-legislation.com/document.fwx?rgn=157314' },
+        { title: '《俄罗斯联邦税法典》', url: 'https://www.nalog.gov.ru/rn77/about_fts/docs/15403282/' },
+        { title: '《俄罗斯联邦政府第1282号令〈关于确定烟草产品最低价格的程序〉》', url: 'https://publication.pravo.gov.ru/document/0001202508290063' }
       ],
-      news: [],
+      news: [
+        { title: '俄罗斯推进烟草和尼古丁产品批发 / 零售许可改革', url: 'https://www.2firsts.com/news/russia-approves-law-requiring-sales-permits-for-cigarettes-and-e-cigarettes-starting-march-1-2026' },
+        { title: '俄罗斯批发 / 零售许可改革时间调整相关报道', url: 'https://interfax.com/newsroom/top-stories/116871/' },
+        { title: '俄罗斯2026年烟草产品消费税调整报道', url: 'https://en.iz.ru/en/2019182/2026-01-01/excise-taxes-tobacco-products-have-been-indexed-russia-january-1' }
+      ],
       pdfs: []
     }
   },
