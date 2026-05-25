@@ -751,46 +751,38 @@ const fallbackCountries: CountryData[] = [
   references: {
     regulations: [
       {
-        title: '《健康法》（2023年第17号法，UU 17/2023 tentang Kesehatan）——将烟草制品纳入成瘾性物质管理，授权政府管控生产、流通、销售、广告及使用',
+        title: '《健康法》（2023年第17号法，UU 17/2023 tentang Kesehatan）',
         url: 'https://peraturan.bpk.go.id/Download/314883/UU%20Nomor%2017%20Tahun%202023.pdf'
       },
       {
-        title: '《2024年第28号政府条例》（PP 28/2024）——规定烟草制品和电子烟的定义、许可、检测、包装、销售、广告、无烟区和行政处罚',
+        title: '《2024年第28号政府条例》（PP 28/2024）',
         url: 'https://peraturan.bpk.go.id/details/294077/pp-no-28-tahun-2024'
       },
       {
-        title: '《消费税法》（1995年第11号法，UU 11/1995 tentang Cukai）——规定应税消费品、消费税征收和税票管理基本规则',
+        title: '《消费税法》（1995年第11号法，经2007年第39号法修订）',
         url: 'https://peraturan.bpk.go.id/Details/46203/uu-no-11-tahun-1995'
       },
       {
-        title: '《2007年第39号法》（UU 39/2007）——修订《1995年第11号消费税法》',
-        url: 'https://peraturan.bpk.go.id/Download/29560/UU%20Nomor%2039%20Tahun%202007.pdf'
-      },
-      {
-        title: '《财政部第96/2024号部长规章》（PMK 96/2024）——调整电子烟及其他烟草加工产品消费税税率规则',
+        title: '财政部烟草制品消费税相关部长规章',
         url: 'https://peraturan.bpk.go.id/Details/311451/pmk-no-96-tahun-2024'
       },
       {
-        title: '印尼海关烟草制品消费税税率说明——汇总 PMK 96/2024、PMK 97/2024 等烟草消费税政策',
-        url: 'https://www.beacukai.go.id/tarif-cukai-ht'
-      },
-      {
-        title: '印尼卫生部无烟区法规数据库（Kawasan Tanpa Rokok / KTR）——汇总地方性无烟区及控烟相关规定',
+        title: '地方性无烟区 / 控烟条例',
         url: 'https://ktr.kemkes.go.id/regulasi'
       }
     ],
     news: [
       {
         title: '2026年1月：印尼政府讨论新增卷烟消费税层级，以治理非法卷烟市场',
-        url: 'https://en.antaranews.com/news/399833/indonesia-plans-new-cigarette-excise-layer-to-tackle-illegal-tobacco'
+        url: 'https://en.antaranews.com/news/399833/indonesia-plans-new-cigarette-excise-layer-to-tackle-illegal-tobacco?utm_source=chatgpt.com'
       },
       {
         title: '2026年2月：印尼海关2026年1月查获约2.49亿支非法卷烟',
-        url: 'https://jakartaglobe.id/news/customs-seizes-249-million-illegal-cigarettes-in-january'
+        url: 'https://jakartaglobe.id/news/customs-seizes-249-million-illegal-cigarettes-in-january?utm_source=chatgpt.com'
       },
       {
         title: '2026年5月：BPOM 表示将加强电子烟流通监管，但未明确支持全面禁售',
-        url: 'https://jakartaglobe.id/news/indonesia-to-step-up-surveillance-of-vape'
+        url: 'https://jakartaglobe.id/news/customs-seizes-249-million-illegal-cigarettes-in-january?utm_source=chatgpt.com'
       },
       {
         title: '2026年2月：公共卫生团体反对新增卷烟消费税层级，担心低价卷烟扩张',
