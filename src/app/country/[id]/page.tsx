@@ -21,7 +21,7 @@ const parseOverview = (overview: string) => {
   
   for (let i = 1; i < parts.length; i += 2) {
     let title = parts[i].trim();
-    const content = (parts[i + 1] || '').trim();
+    let content = (parts[i + 1] || '').trim();
     
     // 去掉标题后面的冒号
     if (title.endsWith('：')) {
@@ -30,6 +30,16 @@ const parseOverview = (overview: string) => {
     if (title.endsWith(':')) {
       title = title.slice(0, -1);
     }
+    
+    // 清理内容开头可能的冒号和换行
+    content = content.replace(/^[：:]\s*/, '');
+    
+    // 清理内容中单独出现的冒号行
+    content = content.replace(/\n\s*[：:]\s*$/gm, '');
+    content = content.replace(/\n\s*[：:]\s*\n/g, '\n');
+    
+    // 清理开头和结尾的空行
+    content = content.trim();
     
     if (title && content) {
       sections.push({ title, content });
@@ -42,11 +52,11 @@ const parseOverview = (overview: string) => {
 // 监管概述卡片组件
 const OverviewSectionCard = ({ title, content }: { title: string; content: string }) => {
   return (
-    <div className="bg-slate-50 border border-slate-200 rounded-lg p-5">
-      <h3 className="text-lg font-medium text-slate-900 mb-3">
+    <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+      <h3 className="text-lg font-medium text-blue-900 mb-3">
         {title}
       </h3>
-      <div className="text-slate-800">
+      <div className="text-gray-800">
         <FormattedText text={content} />
       </div>
     </div>
