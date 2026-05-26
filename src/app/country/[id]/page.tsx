@@ -12,6 +12,48 @@ const cleanFormattingMarkers = (text: string): string => {
     .replace(/\[TITLE\]|\[\/TITLE\]|\[ITEM\]|\[\/ITEM\]/g, '');
 };
 
+// 解析监管概述内容，提取核心特征、主要法规/政策、主要产品口径
+const parseOverview = (overview: string) => {
+  const sections: { title: string; content: string }[] = [];
+  
+  // 按标题分割
+  const parts = overview.split(/(核心特征|主要法规\s*\/?\s*政策|主要产品口径|监管部门)/g);
+  
+  for (let i = 1; i < parts.length; i += 2) {
+    const title = parts[i].trim();
+    const content = (parts[i + 1] || '').trim();
+    if (title && content) {
+      sections.push({ title, content });
+    }
+  }
+  
+  return sections;
+};
+
+// 监管概述卡片组件
+const OverviewSectionCard = ({ title, content, index }: { title: string; content: string; index: number }) => {
+  const colors = [
+    { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-900', dot: 'bg-blue-500' },
+    { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-900', dot: 'bg-green-500' },
+    { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-900', dot: 'bg-purple-500' },
+    { bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-900', dot: 'bg-amber-500' },
+  ];
+  
+  const color = colors[index % colors.length];
+  
+  return (
+    <div className={`${color.bg} border ${color.border} rounded-lg p-5`}>
+      <h3 className={`text-lg font-medium ${color.text} mb-3 flex items-center gap-2`}>
+        <span className={`w-2 h-2 ${color.dot} rounded-full`}></span>
+        {title}
+      </h3>
+      <div className={color.text.replace('900', '800')}>
+        <FormattedText text={content} />
+      </div>
+    </div>
+  );
+};
+
 // 文本格式化组件
 const FormattedText = ({ text }: { text: string }) => {
   // 处理分段（\n\n）和换行（\n）
@@ -436,21 +478,23 @@ const SeasonSummaryText = ({ text }: { text: string }) => {
           });
 
           return (
-            <div key={blockIndex} className="space-y-2">
+            <ul key={blockIndex} className="space-y-3 pl-0">
               {items.map((item, itemIndex) => (
-                <div key={itemIndex} className="space-y-1">
-                  <p className="leading-relaxed">
-                    {item.marker && <span>{item.marker} </span>}
-                    <span>{item.title}</span>
-                  </p>
-                  {item.details.map((detail, detailIndex) => (
-                    <p key={detailIndex} className="ml-5 leading-relaxed">
-                      {detail}
-                    </p>
-                  ))}
-                </div>
+                <li key={itemIndex} className="list-none">
+                  <div className="flex items-start gap-2">
+                    <span className="flex-shrink-0 mt-0.5">{item.marker || '•'}</span>
+                    <div className="flex-1">
+                      <span className="leading-relaxed">{item.title}</span>
+                      {item.details.map((detail, detailIndex) => (
+                        <p key={detailIndex} className="leading-relaxed mt-1">
+                          {detail}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
           );
         }
 
@@ -724,17 +768,27 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">监管体系与定义</h2>
-            {country.id === 'russia' ? (
-              <div className="space-y-6">
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
-                  <h3 className="text-lg font-medium text-blue-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    监管概述
-                  </h3>
-                  <div className="text-blue-800">
-                    <FormattedText text={country.regulatorySystem.overview} />
-                  </div>
+            <div className="space-y-6">
+              {/* 监管概述 - 拆分为独立卡片 */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+                <h3 className="text-lg font-medium text-blue-900 mb-3 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  监管概述
+                </h3>
+                <div className="space-y-4">
+                  {parseOverview(country.regulatorySystem.overview).map((section, index) => (
+                    <OverviewSectionCard
+                      key={index}
+                      title={section.title}
+                      content={section.content}
+                      index={index}
+                    />
+                  ))}
                 </div>
+              </div>
+              
+              {/* 品类定义 */}
+              {country.id === 'russia' ? (
                 <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-5">
                   <h3 className="text-lg font-medium text-indigo-900 mb-3 flex items-center gap-2">
                     <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
@@ -796,18 +850,7 @@ export default function CountryDetail() {
                     <FormattedText text={country.regulatorySystem.definition.split('6. 电子烟相关产品的分类监管逻辑')[1]} />
                   </div>
                 </div>
-              </div>
-            ) : (
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
-                  <h3 className="text-lg font-medium text-blue-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    监管概述
-                  </h3>
-                  <div className="text-blue-800">
-                    <FormattedText text={country.regulatorySystem.overview} />
-                  </div>
-                </div>
+              ) : (
                 <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-5">
                   <h3 className="text-lg font-medium text-indigo-900 mb-3 flex items-center gap-2">
                     <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
@@ -817,8 +860,8 @@ export default function CountryDetail() {
                     <FormattedText text={country.regulatorySystem.definition} />
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </section>
 
@@ -1008,7 +1051,7 @@ export default function CountryDetail() {
                 {country.tax.policies.find(p => p.title === '消费税说明') && (
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
                     <h4 className={cardSubheadingClass}>消费税说明</h4>
-                    <div className="space-y-3 text-gray-700 text-sm leading-relaxed">
+                    <div className="space-y-3 text-gray-700 text-base leading-relaxed">
                       {country.tax.policies.find(p => p.title === '消费税说明')?.description
                         .split(/\n\n+/)
                         .map((paragraph, index) => (
@@ -1055,7 +1098,7 @@ export default function CountryDetail() {
                 {country.tax.policies.find(p => p.title === '最低价格说明') && (
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-6">
                     <h4 className={cardSubheadingClass}>最低价格说明</h4>
-                    <p className="text-gray-700 text-sm leading-relaxed">
+                    <p className="text-gray-700 text-base leading-relaxed">
                       {country.tax.policies.find(p => p.title === '最低价格说明')?.description}
                     </p>
                   </div>
@@ -1102,7 +1145,7 @@ export default function CountryDetail() {
                     {country.tax.policies.map((policy, index) => (
                       <div key={index} className="bg-gray-50 rounded-lg p-4 border border-gray-100">
                         <h4 className="font-semibold text-gray-900 mb-2">{policy.title}</h4>
-                        <p className="text-gray-700 text-sm leading-relaxed">{policy.description}</p>
+                        <p className="text-gray-700 text-base leading-relaxed">{policy.description}</p>
                       </div>
                     ))}
                   </div>
@@ -1164,29 +1207,7 @@ export default function CountryDetail() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">市场运营规范</h2>
             {country.marketOperation.regulations.length > 0 ? (
-              country.id === 'russia' ? (
-                <div className="grid gap-4 lg:grid-cols-2">
-                  {country.marketOperation.regulations.map((regulation, index) => (
-                    <div key={index} className="rounded-lg border border-slate-200 bg-slate-50/70 p-5 shadow-sm">
-                      <div className="mb-4 flex items-center gap-3">
-                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
-                          {index + 1}
-                        </span>
-                        <h3 className="text-lg font-semibold leading-7 text-slate-950">{regulation.category}</h3>
-                      </div>
-                      <ul className="space-y-2.5 text-base leading-7 text-slate-700">
-                        {regulation.items.map((item, itemIndex) => (
-                          <li key={itemIndex}>
-                            <span className="text-slate-400">• </span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="space-y-6">
+              <div className="space-y-6">
                   {country.marketOperation.regulations.map((regulation, index) => {
                   // 检查是否是主要酋长国差异并且有表格数据
                   if (country.emirateDifferences && regulation.category === '主要酋长国差异') {
@@ -1202,39 +1223,39 @@ export default function CountryDetail() {
                   let bgClass = 'bg-gray-50 border-gray-200';
                   let textClass = 'text-gray-900';
                   
-                  if (country.id === 'russia') {
-                    bgClass = 'bg-white border-gray-200 shadow-sm';
-                    textClass = 'text-gray-900';
-                  } else {
-                    // 其他国家页面按分类固定颜色
-                    if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道' || regulation.category === '销售场所与销售方式') {
-                      bgClass = 'bg-blue-50 border-blue-200';
-                      textClass = 'text-blue-900';
-                    } else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签' || regulation.category === '陈列、展示与销售清单' || regulation.category === '包装和单支销售限制') {
-                      bgClass = 'bg-green-50 border-green-200';
-                      textClass = 'text-green-900';
-                    } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示' || regulation.category === '广告、促销与赞助') {
-                      bgClass = 'bg-amber-50 border-amber-200';
-                      textClass = 'text-amber-900';
-                    } else if (regulation.category === '主要酋长国差异' || regulation.category === '地方差异' || regulation.category === '主要地区差异') {
-                      bgClass = 'bg-purple-50 border-purple-200';
-                      textClass = 'text-purple-900';
-                    } else if (regulation.category === '未成年人保护') {
-                      bgClass = 'bg-pink-50 border-pink-200';
-                      textClass = 'text-pink-900';
-                    } else if (regulation.category === '口味与产品形态') {
-                      bgClass = 'bg-emerald-50 border-emerald-200';
-                      textClass = 'text-emerald-900';
-                    } else if (regulation.category === '持有、使用与公共场所') {
-                      bgClass = 'bg-indigo-50 border-indigo-200';
-                      textClass = 'text-indigo-900';
-                    } else if (regulation.category === '线上销售' || regulation.category === '平台交易') {
-                      bgClass = 'bg-indigo-50 border-indigo-200';
-                      textClass = 'text-indigo-900';
-                    } else if (regulation.category === '市场流通' || regulation.category === '禁售地点' || regulation.category === '特定产品和浓度要求') {
-                      bgClass = 'bg-red-50 border-red-200';
-                      textClass = 'text-red-900';
-                    }
+                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道' || regulation.category === '销售场所与销售方式') {
+                    bgClass = 'bg-blue-50 border-blue-200';
+                    textClass = 'text-blue-900';
+                  } else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签' || regulation.category === '陈列、展示与销售清单' || regulation.category === '包装和单支销售限制') {
+                    bgClass = 'bg-green-50 border-green-200';
+                    textClass = 'text-green-900';
+                  } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示' || regulation.category === '广告、促销与赞助') {
+                    bgClass = 'bg-amber-50 border-amber-200';
+                    textClass = 'text-amber-900';
+                  } else if (regulation.category === '主要酋长国差异' || regulation.category === '地方差异' || regulation.category === '主要地区差异') {
+                    bgClass = 'bg-purple-50 border-purple-200';
+                    textClass = 'text-purple-900';
+                  } else if (regulation.category === '未成年人保护') {
+                    bgClass = 'bg-pink-50 border-pink-200';
+                    textClass = 'text-pink-900';
+                  } else if (regulation.category === '口味与产品形态') {
+                    bgClass = 'bg-emerald-50 border-emerald-200';
+                    textClass = 'text-emerald-900';
+                  } else if (regulation.category === '持有、使用与公共场所') {
+                    bgClass = 'bg-indigo-50 border-indigo-200';
+                    textClass = 'text-indigo-900';
+                  } else if (regulation.category === '线上销售' || regulation.category === '平台交易') {
+                    bgClass = 'bg-indigo-50 border-indigo-200';
+                    textClass = 'text-indigo-900';
+                  } else if (regulation.category === '市场流通' || regulation.category === '禁售地点' || regulation.category === '特定产品和浓度要求') {
+                    bgClass = 'bg-red-50 border-red-200';
+                    textClass = 'text-red-900';
+                  } else if (regulation.category === '赞助、促销与CSR') {
+                    bgClass = 'bg-orange-50 border-orange-200';
+                    textClass = 'text-orange-900';
+                  } else if (regulation.category === '出口与回流') {
+                    bgClass = 'bg-cyan-50 border-cyan-200';
+                    textClass = 'text-cyan-900';
                   }
                   
                   return (
@@ -1251,8 +1272,7 @@ export default function CountryDetail() {
                     </div>
                   );
                   })}
-                </div>
-              )
+              </div>
             ) : (
               <>
                 {country.marketOperation.marketingRestrictions && (
