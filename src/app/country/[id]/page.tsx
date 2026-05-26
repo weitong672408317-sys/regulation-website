@@ -482,7 +482,7 @@ const SeasonSummaryText = ({ text }: { text: string }) => {
               {items.map((item, itemIndex) => (
                 <li key={itemIndex} className="list-none">
                   <div className="flex items-start gap-2">
-                    <span className="flex-shrink-0 mt-0.5">{item.marker || '•'}</span>
+                    <span className="flex-shrink-0 mt-0.5">•</span>
                     <div className="flex-1">
                       <span className="leading-relaxed">{item.title}</span>
                       {item.details.map((detail, detailIndex) => (
