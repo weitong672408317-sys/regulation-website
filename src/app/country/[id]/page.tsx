@@ -1219,7 +1219,24 @@ export default function CountryDetail() {
                     );
                   }
                   
-                  // 为不同分类使用不同的配色
+                  // 俄罗斯页面使用统一的浅蓝灰配色，避免过多颜色
+                  if (country.id === 'russia') {
+                    return (
+                      <div key={index} className="bg-slate-50 border border-slate-200 rounded-lg p-5">
+                        <h3 className="text-lg font-medium text-slate-900 mb-3">{regulation.category}</h3>
+                        <ul className="space-y-2">
+                          {regulation.items.map((item, itemIndex) => (
+                            <li key={itemIndex} className="text-slate-800">
+                              <span className="text-slate-600">• </span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  }
+                  
+                  // 其他国家页面使用分类配色
                   let bgClass = 'bg-gray-50 border-gray-200';
                   let textClass = 'text-gray-900';
                   
