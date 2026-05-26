@@ -20,8 +20,17 @@ const parseOverview = (overview: string) => {
   const parts = overview.split(/(核心特征|主要法规\s*\/?\s*政策|主要产品口径|监管部门)/g);
   
   for (let i = 1; i < parts.length; i += 2) {
-    const title = parts[i].trim();
+    let title = parts[i].trim();
     const content = (parts[i + 1] || '').trim();
+    
+    // 去掉标题后面的冒号
+    if (title.endsWith('：')) {
+      title = title.slice(0, -1);
+    }
+    if (title.endsWith(':')) {
+      title = title.slice(0, -1);
+    }
+    
     if (title && content) {
       sections.push({ title, content });
     }
@@ -31,23 +40,13 @@ const parseOverview = (overview: string) => {
 };
 
 // 监管概述卡片组件
-const OverviewSectionCard = ({ title, content, index }: { title: string; content: string; index: number }) => {
-  const colors = [
-    { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-900', dot: 'bg-blue-500' },
-    { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-900', dot: 'bg-green-500' },
-    { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-900', dot: 'bg-purple-500' },
-    { bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-900', dot: 'bg-amber-500' },
-  ];
-  
-  const color = colors[index % colors.length];
-  
+const OverviewSectionCard = ({ title, content }: { title: string; content: string }) => {
   return (
-    <div className={`${color.bg} border ${color.border} rounded-lg p-5`}>
-      <h3 className={`text-lg font-medium ${color.text} mb-3 flex items-center gap-2`}>
-        <span className={`w-2 h-2 ${color.dot} rounded-full`}></span>
+    <div className="bg-slate-50 border border-slate-200 rounded-lg p-5">
+      <h3 className="text-lg font-medium text-slate-900 mb-3">
         {title}
       </h3>
-      <div className={color.text.replace('900', '800')}>
+      <div className="text-slate-800">
         <FormattedText text={content} />
       </div>
     </div>
@@ -781,7 +780,6 @@ export default function CountryDetail() {
                       key={index}
                       title={section.title}
                       content={section.content}
-                      index={index}
                     />
                   ))}
                 </div>
