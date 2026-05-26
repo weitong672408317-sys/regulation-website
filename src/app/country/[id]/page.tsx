@@ -1215,82 +1215,56 @@ export default function CountryDetail() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">市场运营规范</h2>
             {country.marketOperation.regulations.length > 0 ? (
-              <div className="space-y-6">
+              <div className="space-y-5">
                   {country.marketOperation.regulations.map((regulation, index) => {
                   // 检查是否是主要酋长国差异并且有表格数据
                   if (country.emirateDifferences && regulation.category === '主要酋长国差异') {
                     return (
-                      <div key={index} className="bg-purple-50 border border-purple-200 rounded-lg p-5">
-                        <h3 className="text-lg font-medium text-purple-900 mb-3">{regulation.category}</h3>
+                      <div key={index} className="bg-white border border-blue-200 border-l-4 border-l-indigo-500 rounded-xl p-[18px_20px] shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
+                        <h3 className="text-lg font-semibold text-blue-900 mb-3">{regulation.category}</h3>
                         <EmirateDifferencesTable data={country.emirateDifferences} />
                       </div>
                     );
                   }
                   
-                  // 俄罗斯页面使用统一的浅蓝灰配色，避免过多颜色
-                  if (country.id === 'russia') {
-                    return (
-                      <div key={index} className="bg-slate-50 border border-slate-200 rounded-lg p-5">
-                        <h3 className="text-lg font-medium text-slate-900 mb-3">{regulation.category}</h3>
-                        <ul className="space-y-2">
-                          {regulation.items.map((item, itemIndex) => (
-                            <li key={itemIndex} className="text-slate-800">
-                              <span className="text-slate-600">• </span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    );
+                  // 根据分类确定左侧色条和背景色（低饱和度，统一色系）
+                  let leftBorderColor = 'border-l-blue-500';
+                  let bgColor = 'bg-blue-50/30';
+                  
+                  // 第1类：销售渠道、销售方式 - 蓝色
+                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道' || regulation.category === '销售场所与销售方式' || regulation.category === '市场流通') {
+                    leftBorderColor = 'border-l-blue-500';
+                    bgColor = 'bg-blue-50/40';
                   }
-                  
-                  // 其他国家页面使用分类配色
-                  let bgClass = 'bg-gray-50 border-gray-200';
-                  let textClass = 'text-gray-900';
-                  
-                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道' || regulation.category === '销售场所与销售方式') {
-                    bgClass = 'bg-blue-50 border-blue-200';
-                    textClass = 'text-blue-900';
-                  } else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签' || regulation.category === '陈列、展示与销售清单' || regulation.category === '包装和单支销售限制') {
-                    bgClass = 'bg-green-50 border-green-200';
-                    textClass = 'text-green-900';
-                  } else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示' || regulation.category === '广告、促销与赞助') {
-                    bgClass = 'bg-amber-50 border-amber-200';
-                    textClass = 'text-amber-900';
-                  } else if (regulation.category === '主要酋长国差异' || regulation.category === '地方差异' || regulation.category === '主要地区差异') {
-                    bgClass = 'bg-purple-50 border-purple-200';
-                    textClass = 'text-purple-900';
-                  } else if (regulation.category === '未成年人保护') {
-                    bgClass = 'bg-pink-50 border-pink-200';
-                    textClass = 'text-pink-900';
-                  } else if (regulation.category === '口味与产品形态') {
-                    bgClass = 'bg-emerald-50 border-emerald-200';
-                    textClass = 'text-emerald-900';
-                  } else if (regulation.category === '持有、使用与公共场所') {
-                    bgClass = 'bg-indigo-50 border-indigo-200';
-                    textClass = 'text-indigo-900';
-                  } else if (regulation.category === '线上销售' || regulation.category === '平台交易') {
-                    bgClass = 'bg-indigo-50 border-indigo-200';
-                    textClass = 'text-indigo-900';
-                  } else if (regulation.category === '市场流通' || regulation.category === '禁售地点' || regulation.category === '特定产品和浓度要求') {
-                    bgClass = 'bg-red-50 border-red-200';
-                    textClass = 'text-red-900';
-                  } else if (regulation.category === '赞助、促销与CSR') {
-                    bgClass = 'bg-orange-50 border-orange-200';
-                    textClass = 'text-orange-900';
-                  } else if (regulation.category === '出口与回流') {
-                    bgClass = 'bg-cyan-50 border-cyan-200';
-                    textClass = 'text-cyan-900';
+                  // 第2类：未成年人保护、禁售地点 - 靛蓝
+                  else if (regulation.category === '未成年人保护' || regulation.category === '禁售地点' || regulation.category === '特定产品和浓度要求') {
+                    leftBorderColor = 'border-l-indigo-500';
+                    bgColor = 'bg-indigo-50/30';
+                  }
+                  // 第3类：陈列展示、包装、标签 - 青蓝
+                  else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签' || regulation.category === '陈列、展示与销售清单' || regulation.category === '包装和单支销售限制' || regulation.category === '口味与产品形态') {
+                    leftBorderColor = 'border-l-sky-500';
+                    bgColor = 'bg-sky-50/30';
+                  }
+                  // 第4类：广告、促销、赞助 - 琥珀色（非常浅）
+                  else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示' || regulation.category === '广告、促销与赞助' || regulation.category === '赞助、促销与CSR') {
+                    leftBorderColor = 'border-l-amber-500';
+                    bgColor = 'bg-amber-50/40';
+                  }
+                  // 其他 - 蓝色
+                  else {
+                    leftBorderColor = 'border-l-blue-500';
+                    bgColor = 'bg-blue-50/30';
                   }
                   
                   return (
-                    <div key={index} className={`${bgClass} border rounded-lg p-5`}>
-                      <h3 className={`text-lg font-medium ${textClass} mb-3`}>{regulation.category}</h3>
+                    <div key={index} className={`${bgColor} border border-blue-100 border-l-4 ${leftBorderColor} rounded-xl p-[18px_20px] shadow-[0_1px_2px_rgba(15,23,42,0.04)]`}>
+                      <h3 className="text-lg font-semibold text-blue-900 mb-3">{regulation.category}</h3>
                       <ul className="space-y-2">
                         {regulation.items.map((item, itemIndex) => (
-                          <li key={itemIndex} className={textClass.replace('900', '700')}>
-                            <span className={textClass.replace('900', '500')}>• </span>
-                            <span className={textClass.replace('900', '700')}>{item}</span>
+                          <li key={itemIndex} className="text-gray-800 leading-relaxed">
+                            <span className="text-gray-600 mr-2">•</span>
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>
