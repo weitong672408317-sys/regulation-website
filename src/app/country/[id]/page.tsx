@@ -809,7 +809,7 @@ export default function CountryDetail() {
 
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">监管体系与定义</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">监管体系与产品口径</h2>
             <div className="space-y-5">
               {/* 监管概述 - 拆分为独立卡片 */}
               <InfoBlock title="监管概述">
