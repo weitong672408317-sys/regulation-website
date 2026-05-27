@@ -52,11 +52,11 @@ const parseOverview = (overview: string) => {
 // 监管概述卡片组件
 const OverviewSectionCard = ({ title, content }: { title: string; content: string }) => {
   return (
-    <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
-      <h3 className="text-lg font-medium text-blue-900 mb-3">
+    <div className="bg-white border border-[#D8E3F0] border-l-2 border-l-[#5E82A8] rounded-lg p-4">
+      <h3 className="text-base font-semibold text-[#1F2A44] mb-2">
         {title}
       </h3>
-      <div className="text-gray-800">
+      <div className="text-[#334155] text-sm leading-relaxed">
         <FormattedText text={content} />
       </div>
     </div>
@@ -738,10 +738,18 @@ export default function CountryDetail() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <section className="mb-8">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">{country.name}</h1>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-            <h2 className="text-xl font-bold leading-7 text-blue-900 mb-3">本季动态摘要：</h2>
-            <SeasonSummaryText text={country.seasonSummary} />
-          </div>
+          {/* 俄罗斯页面本季动态摘要 - 极浅蓝风格 */}
+          {country.id === 'russia' ? (
+            <div className="bg-[#F2F7FD] border border-[#C9D8E8] border-l-4 border-l-[#5E82A8] rounded-xl p-6">
+              <h2 className="text-xl font-bold leading-7 text-[#1F2A44] mb-3">本季动态摘要：</h2>
+              <SeasonSummaryText text={country.seasonSummary} />
+            </div>
+          ) : (
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+              <h2 className="text-xl font-bold leading-7 text-blue-900 mb-3">本季动态摘要：</h2>
+              <SeasonSummaryText text={country.seasonSummary} />
+            </div>
+          )}
         </section>
 
         <section className="mb-8">
