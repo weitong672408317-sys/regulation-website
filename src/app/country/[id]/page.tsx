@@ -237,13 +237,23 @@ const FormattedText = ({ text }: { text: string }) => {
         
         // 检查是否是 • 标记的列表（黑点列表）
         if (trimmedParagraph.startsWith('• ') || trimmedParagraph.startsWith('· ')) {
-          const items = cleanedParagraph.split('\n').filter(line => line.trim());
+          const items = cleanedParagraph.split('\n').filter(line => {
+            const trimmedLine = line.trim();
+            // 过滤空行和无意义符号行
+            if (!trimmedLine) return false;
+            // 检查是否仅包含无意义符号
+            const isOnlySymbols = /^[•·。\-·\s]*$/.test(trimmedLine);
+            if (isOnlySymbols) return false;
+            return true;
+          });
           const renderedItems = [];
           
           for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
             const item = items[itemIndex];
             const trimmed = item.trim().replace(/^[•·]\s*/, '');
             if (!trimmed) continue;
+            // 再次检查是否仅包含无意义符号
+            if (/^[•·。\-·\s]*$/.test(trimmed)) continue;
             
             // 检查下一个项是否以 • 或 · 开头
             const nextItem = items[itemIndex + 1];
