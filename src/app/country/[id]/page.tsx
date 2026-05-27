@@ -867,159 +867,219 @@ export default function CountryDetail() {
                 </div>
               </div>
               
-              {/* 品类定义/产品定义 */}
+              {/* 产品定义与监管口径 */}
               {country.id === 'russia' ? (
                 <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5 shadow-none">
                   <h3 className="text-base font-bold text-[#1F4E79] mb-4">产品定义与监管口径</h3>
-                  <div className="space-y-5">
-                    {/* 产品1 */}
-                    <div className="border-t border-[#D8E3F0] pt-5 first:border-t-0 first:pt-0 first:mt-0">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full"></span>
-                        <h4 className="text-base font-bold text-[#1F2A44]">1. 传统卷烟、雪茄、烟丝、papirosy（俄式纸嘴卷烟）</h4>
+                  <div className="space-y-6">
+                    {/* 产品组1 */}
+                    <div className="border-t border-[#D8E3F0] pt-6 first:border-t-0 first:pt-0 first:mt-0">
+                      <div className="flex items-start gap-3 mb-3">
+                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full mt-2 flex-shrink-0"></span>
+                        <h4 className="text-base font-bold text-[#1F2A44]">传统卷烟、雪茄、烟丝、papirosy（俄式纸嘴卷烟）</h4>
                       </div>
-                      <div className="space-y-3">
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">产品定性</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          属于"烟草制品"。俄罗斯联邦健康保护法第2条规定，烟草制品是指完全或部分由烟叶作为原材料生产的，用于吸烟、咀嚼或经鼻吸食的产品。传统卷烟、雪茄、烟丝等均属此类。
-                        </p>
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">监管与合规重点</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          涉及生产/进口投入流通许可、消费税、数字标识、最低价格、健康警示、销售限制、广告禁令等完整监管体系。
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* 产品2 */}
-                    <div className="border-t border-[#D8E3F0] pt-5">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full"></span>
-                        <h4 className="text-base font-bold text-[#1F2A44]">2. HNB烟支 / 加热烟草产品</h4>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">产品定性</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          属于"烟草制品"，不区分"加热不燃烧"或"燃烧型"。无论以何种方式使用，只要主要由烟叶构成，均纳入烟草制品监管。
-                        </p>
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">监管与合规重点</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          适用与传统卷烟类似的完整监管要求。同时，加热设备本身按"尼古丁产品使用系统"单独监管。
-                        </p>
+                      <div className="ml-5 space-y-4">
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">产品定性：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            根据 TR CU 035/2014，烟草制品是全部或部分以烟草叶为原料制成，并以消费者包装投放市场的产品。传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草，以及 papirosy（俄式纸嘴卷烟，即一端为烟草段、另一端为较长中空纸嘴的传统燃烧型烟草制品）通常属于烟草制品。
+                          </p>
+                        </div>
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">合规重点：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            产品本身可准入，主要关注 TR CU 035/2014 符合性声明、生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签、健康警示和销售限制。
+                          </p>
+                        </div>
                       </div>
                     </div>
 
-                    {/* 产品3 */}
-                    <div className="border-t border-[#D8E3F0] pt-5">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full"></span>
-                        <h4 className="text-base font-bold text-[#1F2A44]">3. 无烟烟草产品</h4>
+                    {/* 产品组2 */}
+                    <div className="border-t border-[#D8E3F0] pt-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full mt-2 flex-shrink-0"></span>
+                        <h4 className="text-base font-bold text-[#1F2A44]">HNB烟支 / 加热烟草产品</h4>
                       </div>
-                      <div className="space-y-3">
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">产品定性</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          snus、nasvay、咀嚼烟草、鼻烟等属于"无烟烟草制品"，受烟草制品相关法规约束。
-                        </p>
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">监管与合规重点</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          第15-FZ号法明确禁止生产和流通snus和nasvay；其他无烟烟草制品若投入市场，亦需遵守烟草制品相关规则。
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* 产品4 */}
-                    <div className="border-t border-[#D8E3F0] pt-5">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full"></span>
-                        <h4 className="text-base font-bold text-[#1F2A44]">4. 口含 / 鼻吸类尼古丁产品</h4>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">产品定性</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          属于"尼古丁产品"，无论是否含烟草成分。含尼古丁但不以烟草为主要原材料的产品（如尼古丁袋），也纳入该范畴。
-                        </p>
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">监管与合规重点</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          第15-FZ号法第14条禁止生产和流通用于口含、鼻吸、咀嚼的尼古丁产品。此类产品在俄罗斯不可合法经营。
-                        </p>
+                      <div className="ml-5 space-y-4">
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">产品定性：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            第15-FZ号法将加热烟草产品列入尼古丁产品范围。HNB烟支通常指含烟草材料、通过加热装置加热后供消费者吸入的产品，监管上按加热烟草产品、烟草产品或尼古丁产品判断，不按 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品处理。
+                          </p>
+                        </div>
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">合规重点：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            产品本身可准入，重点关注生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签和销售限制。
+                          </p>
+                        </div>
                       </div>
                     </div>
 
-                    {/* 产品5 - 电子烟相关产品，内部拆分 */}
-                    <div className="border-t border-[#D8E3F0] pt-5">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full"></span>
-                        <h4 className="text-base font-bold text-[#1F2A44]">5. 电子烟相关产品</h4>
+                    {/* 产品组3 */}
+                    <div className="border-t border-[#D8E3F0] pt-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full mt-2 flex-shrink-0"></span>
+                        <h4 className="text-base font-bold text-[#1F2A44]">无烟烟草产品</h4>
                       </div>
-                      <div className="space-y-3">
-                        <p className="text-[#334155] leading-relaxed">
-                          俄罗斯法规没有使用单一概念覆盖所有电子烟相关产品，而是按产品构成分别使用"尼古丁产品使用系统""尼古丁液体""无尼古丁液体"等概念进行监管。
-                        </p>
+                      <div className="ml-5 space-y-4">
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">产品定性：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            根据第268-FZ号法，无烟烟草产品是通过吮吸、咀嚼或鼻吸等方式使用的烟草产品，典型产品包括 snus（湿润口含烟草制品）、nasvay（中亚地区常见的口含 / 咀嚼型无烟烟草制品）、咀嚼烟草和鼻烟。该类产品与 HNB烟支不同，不通过加热装置产生可吸入气溶胶。
+                          </p>
+                        </div>
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">合规重点：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            snus、nasvay 及相关口含、鼻吸、咀嚼类无烟烟草产品禁止批发和零售；第268-FZ号法下的技术识别规则不改变第15-FZ号法项下的禁售结论。
+                          </p>
+                        </div>
+                      </div>
+                    </div>
 
-                        {/* 子产品分组 */}
-                        <div className="bg-[#EEF5FC] border border-[#D8E3F0] rounded-lg p-4 mt-3">
-                          {/* 子产品5.1 */}
-                          <div className="mb-4 last:mb-0">
-                            <div className="font-semibold text-[#1F2A44] mb-2">设备类</div>
-                            <p className="text-[#334155] leading-relaxed">
-                              属于"尼古丁产品使用系统 / 装置"。包括电子尼古丁输送系统、加热烟草系统等。可重复使用电子烟仍处于标识试验 / 过渡阶段。
-                            </p>
-                          </div>
-                          {/* 子产品5.2 */}
-                          <div className="mb-4 last:mb-0">
-                            <div className="font-semibold text-[#1F2A44] mb-2">液体类</div>
-                            <p className="text-[#334155] leading-relaxed">
-                              分为"尼古丁液体"和"无尼古丁液体"。尼古丁浓度≥0.1 mg/ml，或不含尼古丁但用于电子尼古丁输送系统的，均纳入监管。零售环节尼古丁浓度不得超过20 mg/ml。
-                            </p>
-                          </div>
-                          {/* 子产品5.3 */}
-                          <div>
-                            <div className="font-semibold text-[#1F2A44] mb-2">预灌装 / 组合 / 空组件</div>
-                            <p className="text-[#334155] leading-relaxed">
-                              含液体烟弹/组合产品应拆分判断：液体按尼古丁液体，设备按使用系统。空组件不直接按液体处理，按设备或普通组件判断。
-                            </p>
-                          </div>
+                    {/* 产品组4 */}
+                    <div className="border-t border-[#D8E3F0] pt-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full mt-2 flex-shrink-0"></span>
+                        <h4 className="text-base font-bold text-[#1F2A44]">口含 / 鼻吸类尼古丁产品</h4>
+                      </div>
+                      <div className="ml-5 space-y-4">
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">产品定性：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            该类产品含尼古丁或尼古丁衍生物，并通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁。典型产品包括尼古丁袋、尼古丁口含膜、食品型尼古丁产品，以及含尼古丁粉末、混合物等。
+                          </p>
+                        </div>
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">合规重点：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            尼古丁袋、尼古丁口含膜、食品型尼古丁产品，以及其他通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁的产品，适用第15-FZ号法下尼古丁产品禁售规则，禁止批发和零售。
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 产品组5 - 电子烟相关产品 */}
+                    <div className="border-t border-[#D8E3F0] pt-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full mt-2 flex-shrink-0"></span>
+                        <h4 className="text-base font-bold text-[#1F2A44]">电子烟相关产品</h4>
+                      </div>
+                      <div className="ml-5 space-y-4">
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">总体口径：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            俄罗斯法规通常按产品构成拆分判断电子烟相关产品，不使用一个单一概念统一覆盖全部产品。页面展示上可分为设备类、液体类、预灌装 / 组合 / 空组件三类。
+                          </p>
                         </div>
 
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">监管与合规重点</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          含尼古丁液体涉及消费税、最低价格、数字标识及生产/进口许可。所有电子烟相关产品进入零售市场还需遵守销售端限制、广告禁令等。
-                        </p>
+                        {/* 三个编号子项 */}
+                        <div className="bg-[#EEF5FC] border border-[#D8E3F0] rounded-lg p-4 space-y-5">
+                          {/* 子项1 */}
+                          <div className="border-b border-[#D8E3F0] pb-5 last:border-b-0 last:pb-0">
+                            <div className="font-semibold text-[#1F2A44] mb-3">1. 设备类：电子烟设备 / 电子雾化设备 / HNB加热设备</div>
+                            <div className="space-y-3">
+                              <div>
+                                <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-xs font-semibold mb-2">法规定义：</div>
+                                <p className="text-[#334155] leading-relaxed text-sm">
+                                  根据第15-FZ号法，尼古丁产品使用装置是指用于产生含尼古丁气溶胶、蒸气或气体，并供使用者吸入的电子或其他装置，包括电子尼古丁输送系统和加热烟草系统，但不包括依法注册为医疗器械或药品的产品。
+                                </p>
+                                <p className="text-[#334155] leading-relaxed text-sm mt-2">
+                                  电子烟设备、可重复使用电子雾化设备、HNB加热设备通常按尼古丁产品使用系统 / 装置理解。
+                                </p>
+                              </div>
+                              <div>
+                                <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-xs font-semibold mb-2">监管与合规重点：</div>
+                                <p className="text-[#334155] leading-relaxed text-sm">
+                                  单纯电子烟设备本身的消费税已经取消；可重复使用电子烟及类似个人电加热雾化设备的数字标识仍处于试验 / 过渡阶段。进入零售市场仍需遵守销售地点、展示、远程销售、自动售卖和未成年人保护等限制。
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* 子项2 */}
+                          <div className="border-b border-[#D8E3F0] pb-5 last:border-b-0 last:pb-0">
+                            <div className="font-semibold text-[#1F2A44] mb-3">2. 液体类：烟油 / 电子烟补充液</div>
+                            <div className="space-y-3">
+                              <div>
+                                <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-xs font-semibold mb-2">法规定义：</div>
+                                <p className="text-[#334155] leading-relaxed text-sm">
+                                  根据第15-FZ号法，尼古丁液体包括尼古丁含量不低于 0.1 mg/ml 的液体；无尼古丁液体包括不含尼古丁或尼古丁含量低于 0.1 mg/ml、并用于电子尼古丁输送系统的液体。
+                                </p>
+                              </div>
+                              <div>
+                                <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-xs font-semibold mb-2">监管与合规重点：</div>
+                                <p className="text-[#334155] leading-relaxed text-sm">
+                                  烟油、电子烟补充液通常按尼古丁液体或无尼古丁液体管理，判断重点是尼古丁含量和用途。零售环节不得销售尼古丁浓度超过 20 mg/ml 的尼古丁液体或尼古丁溶液；含尼古丁液体涉及消费税、最低价格、数字标识及生产 / 进口投入流通许可。
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* 子项3 */}
+                          <div>
+                            <div className="font-semibold text-[#1F2A44] mb-3">3. 预灌装 / 组合 / 空组件：含液体烟弹、设备与液体组合产品、空烟弹、空容器</div>
+                            <div className="space-y-3">
+                              <div>
+                                <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-xs font-semibold mb-2">法规定义：</div>
+                                <p className="text-[#334155] leading-relaxed text-sm">
+                                  俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品通常需拆分适用第15-FZ号法下的尼古丁产品使用装置、尼古丁液体或无尼古丁液体规则。
+                                </p>
+                              </div>
+                              <div>
+                                <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-xs font-semibold mb-2">监管与合规重点：</div>
+                                <p className="text-[#334155] leading-relaxed text-sm">
+                                  含液体烟弹和设备与液体组合产品的核心风险在液体部分；设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理，重点结合设备组件、海关归类和下游用途判断。
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
-                    {/* 产品6 */}
-                    <div className="border-t border-[#D8E3F0] pt-5">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full"></span>
-                        <h4 className="text-base font-bold text-[#1F2A44]">6. 烟叶、烟草薄片、烟草原料、尼古丁原料</h4>
+                    {/* 产品组6 */}
+                    <div className="border-t border-[#D8E3F0] pt-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full mt-2 flex-shrink-0"></span>
+                        <h4 className="text-base font-bold text-[#1F2A44]">烟叶、烟草薄片、烟草原料、尼古丁原料</h4>
                       </div>
-                      <div className="space-y-3">
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">产品定性</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          属于"烟草原料"或"尼古丁原料"。烟叶、烟草薄片等是烟草制品的上游材料；尼古丁原料可用于生产尼古丁产品。
-                        </p>
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">监管与合规重点</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          烟草原料涉及种植管制、流通许可；尼古丁原料生产/进口亦需符合许可要求，不得直接作为终端消费品销售。
-                        </p>
+                      <div className="ml-5 space-y-4">
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">产品定性：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            第203-FZ号法将烟草制品、烟草产品、尼古丁产品及其生产原料纳入生产流通监管。烟叶、烟草薄片、烟草原料、尼古丁原料通常属于生产链条中的原料或半成品，与消费者可直接使用的烟草制品、HNB烟支、电子烟液、尼古丁袋等成品不同。
+                          </p>
+                        </div>
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">合规重点：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            俄罗斯本地生产或加工主体需取得覆盖烟草原料或尼古丁原料的生产许可；俄罗斯进口商需取得烟草原料或尼古丁原料进口投入流通许可；原料不得作为普通消费者成品零售。
+                          </p>
+                        </div>
                       </div>
                     </div>
 
-                    {/* 产品7 */}
-                    <div className="border-t border-[#D8E3F0] pt-5">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full"></span>
-                        <h4 className="text-base font-bold text-[#1F2A44]">7. 滤嘴棒、爆珠、香精香料、普通烟用辅材</h4>
+                    {/* 产品组7 */}
+                    <div className="border-t border-[#D8E3F0] pt-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        <span className="w-2 h-2 bg-[#5E82A8] rounded-full mt-2 flex-shrink-0"></span>
+                        <h4 className="text-base font-bold text-[#1F2A44]">滤嘴棒、爆珠、香精香料、普通烟用辅材</h4>
                       </div>
-                      <div className="space-y-3">
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">产品定性</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          通常不单独认定为"烟草制品"或"尼古丁产品"，但属于"烟草制品的组成部分"或"原材料"。
-                        </p>
-                        <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold">监管与合规重点</div>
-                        <p className="text-[#334155] leading-relaxed">
-                          单独销售时，不直接适用烟草制品/尼古丁产品的完整监管要求，但作为组成部分生产时需符合相关技术法规；如添加尼古丁，可能触发尼古丁产品相关规则。
-                        </p>
+                      <div className="ml-5 space-y-4">
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">产品定性：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            俄罗斯公开法规资料未见将滤嘴棒、爆珠、香精香料等普通烟用辅材统一定义为烟草制品或尼古丁产品。该类产品通常按成分、用途、海关归类和下游产品用途判断。
+                          </p>
+                        </div>
+                        <div>
+                          <div className="inline-flex px-2.5 py-1 rounded-md bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">合规重点：</div>
+                          <p className="text-[#334155] leading-relaxed">
+                            不含尼古丁、不含烟草提取物、仅作为普通辅材的，通常可按普通辅材理解；含尼古丁、烟草提取物，或作为烟油、含液体烟弹、HNB烟支、尼古丁产品组件使用的，应转入对应成品或原料监管路径。
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
