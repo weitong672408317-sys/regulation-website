@@ -49,11 +49,11 @@ const parseOverview = (overview: string) => {
   return sections;
 };
 
-// 统一的二级内容块组件（InfoBlock）
+// 统一的二级内容块组件（InfoBlock）- 提高对比度
 const InfoBlock = ({ title, children }: { title: string; children: React.ReactNode }) => {
   return (
-    <div className="bg-white border border-blue-100 border-l-3 border-l-blue-500 rounded-lg p-4">
-      {title && <h3 className="text-base font-semibold text-blue-900 mb-3">{title}</h3>}
+    <div className="bg-white border border-blue-200 border-l-4 border-l-blue-600 rounded-xl p-5 shadow-sm">
+      {title && <h3 className="text-lg font-bold text-blue-900 mb-4">{title}</h3>}
       <div className="text-gray-700 leading-relaxed">
         {children}
       </div>
@@ -61,14 +61,14 @@ const InfoBlock = ({ title, children }: { title: string; children: React.ReactNo
   );
 };
 
-// 监管概述卡片组件
+// 监管概述卡片组件 - 提高对比度
 const OverviewSectionCard = ({ title, content }: { title: string; content: string }) => {
   return (
-    <div className="bg-white border border-blue-100 border-l-3 border-l-blue-500 rounded-lg p-4">
-      <h3 className="text-base font-semibold text-blue-900 mb-2">
+    <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
+      <h3 className="text-base font-bold text-blue-900 mb-3">
         {title}
       </h3>
-      <div className="text-gray-700 text-sm leading-relaxed">
+      <div className="text-gray-800 text-base leading-relaxed">
         <FormattedText text={content} />
       </div>
     </div>
@@ -529,18 +529,18 @@ const SeasonSummaryText = ({ text }: { text: string }) => {
   );
 };
 
-// 通用合规表格组件
+// 通用合规表格组件 - 提高对比度
 const GenericComplianceTable = ({ data }: { data: { headers: string[]; rows: (string | string[])[][] } }) => {
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-base min-w-[600px]">
+    <div className="overflow-x-auto rounded-xl border border-blue-200 shadow-sm">
+      <table className="w-full text-base min-w-[600px] bg-white">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-blue-50">
             {data.headers.map((header, index) => (
               <th 
                 key={index} 
-                className={`px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200 ${
-                  index === 0 ? 'w-40 min-w-[120px]' : ''
+                className={`px-5 py-4 text-left font-bold text-blue-900 border-b-2 border-blue-200 ${
+                  index === 0 ? 'w-48 min-w-[140px]' : ''
                 }`}
               >
                 {header}
@@ -550,12 +550,12 @@ const GenericComplianceTable = ({ data }: { data: { headers: string[]; rows: (st
         </thead>
         <tbody>
           {(data.rows as (string | string[])[]).map((row, rowIndex) => (
-            <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+            <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-blue-50/50'}>
               {(row as (string | string[])[]).map((cell, cellIndex) => (
                 <td 
                   key={cellIndex} 
-                  className={`px-4 py-4 border-b border-gray-200 ${
-                    cellIndex === 0 ? 'font-medium text-gray-900' : ''
+                  className={`px-5 py-4 border-b border-blue-100 ${
+                    cellIndex === 0 ? 'font-semibold text-gray-900' : ''
                   }`}
                 >
                   <TableCellContent content={cell} />
@@ -569,12 +569,12 @@ const GenericComplianceTable = ({ data }: { data: { headers: string[]; rows: (st
   );
 };
 
-// 状态标签组件
+// 状态标签组件 - 提高对比度
 const StatusBadge = ({ status }: { status: 'prohibited' | 'partial' | 'open' }) => {
   const styles = {
-    prohibited: 'bg-red-100 text-red-800 border border-red-200',
-    partial: 'bg-amber-100 text-amber-800 border border-amber-200',
-    open: 'bg-green-100 text-green-800 border border-green-200',
+    prohibited: 'bg-red-50 text-red-700 border-2 border-red-300',
+    partial: 'bg-amber-50 text-amber-700 border-2 border-amber-300',
+    open: 'bg-green-50 text-green-700 border-2 border-green-300',
   };
 
   const labels = {
@@ -584,25 +584,26 @@ const StatusBadge = ({ status }: { status: 'prohibited' | 'partial' | 'open' }) 
   };
 
   return (
-    <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${styles[status]}`}>
+    <span className={`inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold ${styles[status]}`}>
       {labels[status]}
     </span>
   );
 };
 
-// 按状态分组的准入限制展示组件
+// 按状态分组的准入限制展示组件 - 提高对比度，使用有色标题条
 const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsByStatus }) => {
   return (
     <div className="space-y-6">
       {/* 完全禁止 */}
-      <div className="bg-white border border-gray-200 rounded-lg p-6">
-        <div className="flex items-center gap-3 mb-5">
+      <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+        <div className="bg-red-50 border-b-2 border-red-300 px-5 py-3 flex items-center gap-3">
+          <div className="w-1 h-6 bg-red-600 rounded-full"></div>
           <StatusBadge status="prohibited" />
         </div>
-        <div className="space-y-3">
+        <div className="p-5 space-y-4">
           {data.fullyProhibited.map((item, index) => (
-            <div key={index} className="bg-red-50/30 border border-red-100 rounded-lg p-4">
-              <div className="font-semibold text-gray-900 text-base mb-2">{item.productName}</div>
+            <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+              <div className="font-bold text-gray-900 text-base mb-2">{item.productName}</div>
               <div className="text-gray-700 leading-relaxed">{item.rule}</div>
             </div>
           ))}
@@ -612,14 +613,15 @@ const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsBySt
       {data.partiallyRestricted.length > 0 && (
         <>
           {/* 部分禁止 / 条件性限制 */}
-          <div className="bg-white border border-gray-200 rounded-lg p-6">
-            <div className="flex items-center gap-3 mb-5">
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+            <div className="bg-amber-50 border-b-2 border-amber-300 px-5 py-3 flex items-center gap-3">
+              <div className="w-1 h-6 bg-amber-600 rounded-full"></div>
               <StatusBadge status="partial" />
             </div>
-            <div className="space-y-3">
+            <div className="p-5 space-y-4">
               {data.partiallyRestricted.map((item, index) => (
-                <div key={index} className="bg-amber-50/30 border border-amber-100 rounded-lg p-4">
-                  <div className="font-semibold text-gray-900 text-base mb-2">{item.productName}</div>
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                  <div className="font-bold text-gray-900 text-base mb-2">{item.productName}</div>
                   <div className="text-gray-700 leading-relaxed">
                     {item.rule.split('\n\n').map((paragraph, pIndex) => (
                       <span key={pIndex}>
@@ -636,14 +638,15 @@ const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsBySt
       )}
       
       {/* 开放 / 可准入 */}
-      <div className="bg-white border border-gray-200 rounded-lg p-6">
-        <div className="flex items-center gap-3 mb-5">
+      <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+        <div className="bg-green-50 border-b-2 border-green-300 px-5 py-3 flex items-center gap-3">
+          <div className="w-1 h-6 bg-green-600 rounded-full"></div>
           <StatusBadge status="open" />
         </div>
-        <div className="space-y-3">
+        <div className="p-5 space-y-4">
           {data.openAccessible.map((item, index) => (
-            <div key={index} className="bg-green-50/30 border border-green-100 rounded-lg p-4">
-              <div className="font-semibold text-gray-900 text-base mb-2">{item.productName}</div>
+            <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+              <div className="font-bold text-gray-900 text-base mb-2">{item.productName}</div>
               <div className="text-gray-700 leading-relaxed">{item.rule}</div>
             </div>
           ))}
@@ -751,35 +754,38 @@ export default function CountryDetail() {
     }
   }, [activeTab]);
 
-  const currentCategoryRestrictions = country.accessRestrictions 
-    ? country.accessRestrictions[activeCategory as keyof typeof country.accessRestrictions]
-    : { prohibited: [], partiallyProhibited: [], open: [] };
+  const currentCategoryRestrictions = country.accessRestrictions ? country.accessRestrictions[activeCategory as keyof typeof country.accessRestrictions] : { prohibited: [], partiallyProhibited: [], open: [] };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200">
+    <div className="min-h-screen bg-[#F6F8FC]">
+      <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Link href="/" className="text-gray-600 hover:text-gray-900 flex items-center gap-2">
-            <span>←</span> 返回首页
+          <Link href="/" className="text-gray-600 hover:text-blue-600 flex items-center gap-2 transition-colors">
+            <span className="text-lg">←</span> 返回首页
           </Link>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <section className="mb-8">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">{country.name}</h1>
-          {/* 本季动态摘要 - 统一浅蓝风格 */}
-          <div className="bg-blue-50 border border-blue-100 border-l-4 border-l-blue-500 rounded-lg p-6">
-            <h2 className="text-xl font-bold leading-7 text-blue-900 mb-3">本季动态摘要</h2>
-            <SeasonSummaryText text={country.seasonSummary} />
+          <h1 className="text-5xl font-bold text-gray-900 mb-6">{country.name}</h1>
+          {/* 本季动态摘要 - 提高对比度 */}
+          <div className="bg-[#EAF2FF] border border-blue-200 border-l-4 border-l-blue-600 rounded-xl p-6 shadow-sm">
+            <h2 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
+              <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+              本季动态摘要
+            </h2>
+            <div className="text-gray-800">
+              <SeasonSummaryText text={country.seasonSummary} />
+            </div>
           </div>
         </section>
 
         <section className="mb-8">
-          {/* 法规动态 - 统一白底卡片 */}
-          <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+          {/* 法规动态 - 提高对比度 */}
+          <div className="bg-white border border-gray-200 rounded-xl shadow-md p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <div className="w-1 h-7 bg-blue-600 rounded-full"></div>
               法规动态
             </h2>
             <ul className="space-y-4">
@@ -789,14 +795,14 @@ export default function CountryDetail() {
                 const content = parts.slice(1).join('\n\n');
                 
                 return (
-                  <li key={index} className="flex items-start gap-3 p-4 bg-blue-50/30 rounded-lg border border-blue-100">
-                    <div className="flex-shrink-0 w-2 h-2 mt-2 bg-blue-500 rounded-full"></div>
-                    <div className="text-gray-700">
-                      <span className="font-semibold text-blue-900">{title}</span>
+                  <li key={index} className="flex items-start gap-4 p-5 bg-white border border-blue-200 rounded-xl shadow-sm">
+                    <div className="flex-shrink-0 w-2 h-2 mt-2.5 bg-blue-600 rounded-full"></div>
+                    <div>
+                      <span className="font-bold text-blue-900 text-base">{title}</span>
                       {content && (
                         <>
                           <br />
-                          <span className="mt-1 block">{content}</span>
+                          <span className="mt-2 block text-gray-700 leading-relaxed">{content}</span>
                         </>
                       )}
                     </div>
@@ -808,12 +814,16 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">监管体系与产品口径</h2>
-            <div className="space-y-5">
+          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <div className="w-1 h-7 bg-blue-600 rounded-full"></div>
+              监管体系与产品口径
+            </h2>
+            <div className="space-y-6">
               {/* 监管概述 - 拆分为独立卡片 */}
-              <InfoBlock title="监管概述">
-                <div className="space-y-3">
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-blue-900 mb-4">监管概述</h3>
+                <div className="space-y-4">
                   {parseOverview(country.regulatorySystem.overview).map((section, index) => (
                     <OverviewSectionCard
                       key={index}
@@ -822,11 +832,12 @@ export default function CountryDetail() {
                     />
                   ))}
                 </div>
-              </InfoBlock>
+              </div>
               
               {/* 品类定义 */}
               {country.id === 'russia' ? (
-                <InfoBlock title="品类定义">
+                <div className="bg-white border border-blue-200 rounded-xl p-6 shadow-sm">
+                  <h3 className="text-lg font-bold text-blue-900 mb-4">品类定义</h3>
                   <div className="space-y-4">
                     {/* 渲染6之前的内容 */}
                     <FormattedText text={country.regulatorySystem.definition.split('6. 电子烟相关产品的分类监管逻辑')[0]} />
@@ -882,7 +893,7 @@ export default function CountryDetail() {
                     {/* 渲染7和8部分的内容 */}
                     <FormattedText text={country.regulatorySystem.definition.split('6. 电子烟相关产品的分类监管逻辑')[1]} />
                   </div>
-                </InfoBlock>
+                </div>
               ) : (
                 <InfoBlock title="品类定义">
                   <FormattedText text={country.regulatorySystem.definition} />
@@ -893,8 +904,11 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">准入与禁令限制</h2>
+          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <div className="w-1 h-7 bg-blue-600 rounded-full"></div>
+              准入与禁令限制
+            </h2>
             
             {country.accessRestrictionsByStatus ? (
               // 使用新的按状态分组的展示方式
@@ -1009,8 +1023,11 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">合规资质</h2>
+          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <div className="w-1 h-7 bg-blue-600 rounded-full"></div>
+              合规资质
+            </h2>
             {country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
               <>
                 {country.compliance.licenseRequirements && (
@@ -1224,10 +1241,13 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">市场运营规范</h2>
+          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <div className="w-1 h-7 bg-blue-600 rounded-full"></div>
+              市场运营规范
+            </h2>
             {country.marketOperation.regulations.length > 0 ? (
-              <div className="space-y-5">
+              <div className="space-y-4">
                   {country.marketOperation.regulations.map((regulation, index) => {
                   // 检查是否是主要酋长国差异并且有表格数据
                   if (country.emirateDifferences && regulation.category === '主要酋长国差异') {
@@ -1238,18 +1258,19 @@ export default function CountryDetail() {
                     );
                   }
                   
-                  // 统一使用白底+左侧蓝色竖线样式
+                  // 统一使用白底+左侧蓝色粗竖线样式，提高视觉层级
                   return (
-                    <InfoBlock key={index} title={regulation.category}>
-                      <ul className="space-y-2">
+                    <div key={index} className="bg-white border border-blue-200 border-l-4 border-l-blue-600 rounded-xl p-5 shadow-sm">
+                      <h3 className="text-base font-bold text-blue-900 mb-3">{regulation.category}</h3>
+                      <ul className="space-y-3">
                         {regulation.items.map((item, itemIndex) => (
-                          <li key={itemIndex} className="text-gray-700 leading-relaxed">
-                            <span className="text-gray-500 mr-2">•</span>
+                          <li key={itemIndex} className="text-gray-700 leading-relaxed flex items-start gap-3">
+                            <span className="text-blue-600 mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"></span>
                             <span>{item}</span>
                           </li>
                         ))}
                       </ul>
-                    </InfoBlock>
+                    </div>
                   );
                   })}
               </div>
@@ -1276,16 +1297,17 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <div className="flex items-center gap-2 mb-6">
+          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-6">
               <span className="text-red-600 text-2xl">⚠️</span>
-              <h2 className="text-2xl font-semibold text-gray-900">趋势预判与红线警告</h2>
+              <h2 className="text-2xl font-bold text-gray-900">趋势预判与红线警告</h2>
             </div>
             {country.id === 'china' || country.id === 'russia' ? (
               // 长文本趋势分析使用上下结构，避免左右栏压缩正文
               <div className="space-y-6">
                 {/* 政策趋势分析 - 上方 */}
-                <InfoBlock title="政策趋势分析">
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
+                  <h3 className="text-lg font-bold text-blue-900 mb-4">趋势预判</h3>
                   <div className="space-y-6">
                     {country.trendsWarnings.trendAnalysis.split(/\n\n+/).map((section, index) => {
                       const numberedTitleMatch = section.match(/^(\d+[.、]\s*[^\n]+)(?:\n([\s\S]*))?$/);
@@ -1295,7 +1317,7 @@ export default function CountryDetail() {
                           <div key={index} className="space-y-3">
                             <h4 className="font-bold text-gray-900 text-lg">{title}</h4>
                             {content && (
-                              <div className="text-gray-700 space-y-2">
+                              <div className="text-gray-800 space-y-3">
                                 {content.split('\n').filter(line => line.trim()).map((paragraph, pIndex) => (
                                   <p key={pIndex}>{paragraph}</p>
                                 ))}
@@ -1305,19 +1327,22 @@ export default function CountryDetail() {
                         );
                       }
                       return (
-                        <p key={index} className="text-gray-700">{section}</p>
+                        <p key={index} className="text-gray-800 leading-relaxed">{section}</p>
                       );
                     })}
                   </div>
-                </InfoBlock>
+                </div>
                 {/* 合规红线清单 - 下方 */}
-                <div className="bg-red-50 border border-red-100 border-l-4 border-l-red-500 rounded-lg p-4">
-                  <h3 className="text-lg font-semibold text-red-900 mb-4">合规红线清单</h3>
-                  <ul className="space-y-2">
+                <div className="bg-red-50 border-2 border-red-200 rounded-xl p-5">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-1 h-6 bg-red-600 rounded-full"></div>
+                    <h3 className="text-lg font-bold text-red-800">合规红线清单</h3>
+                  </div>
+                  <ul className="space-y-3">
                     {country.trendsWarnings.redLines.map((line, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-red-600 mt-1">✗</span>
-                        <span className="text-gray-700">{line}</span>
+                      <li key={index} className="flex items-start gap-3">
+                        <span className="text-red-600 mt-1.5">✗</span>
+                        <span className="text-gray-800 leading-relaxed">{line}</span>
                       </li>
                     ))}
                   </ul>
@@ -1326,16 +1351,20 @@ export default function CountryDetail() {
             ) : (
               // 其他国家页面使用左右结构
               <div className="grid md:grid-cols-2 gap-6">
-                <InfoBlock title="政策趋势分析">
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
+                  <h3 className="text-lg font-bold text-blue-900 mb-4">趋势预判</h3>
                   <FormattedText text={country.trendsWarnings.trendAnalysis} />
-                </InfoBlock>
-                <div className="bg-red-50 border border-red-100 border-l-4 border-l-red-500 rounded-lg p-4">
-                  <h3 className="text-lg font-semibold text-red-900 mb-4">合规红线清单</h3>
-                  <ul className="space-y-2">
+                </div>
+                <div className="bg-red-50 border-2 border-red-200 rounded-xl p-5">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-1 h-6 bg-red-600 rounded-full"></div>
+                    <h3 className="text-lg font-bold text-red-800">红线警告</h3>
+                  </div>
+                  <ul className="space-y-3">
                     {country.trendsWarnings.redLines.map((line, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-red-600 mt-1">✗</span>
-                        <span className="text-gray-700">{line}</span>
+                      <li key={index} className="flex items-start gap-3">
+                        <span className="text-red-600 mt-1.5">✗</span>
+                        <span className="text-gray-800 leading-relaxed">{line}</span>
                       </li>
                     ))}
                   </ul>
@@ -1346,8 +1375,11 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">参考资料库</h2>
+          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <div className="w-1 h-7 bg-blue-600 rounded-full"></div>
+              参考资料库
+            </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h3 className="text-lg font-medium text-gray-900 mb-3">法规汇编</h3>
