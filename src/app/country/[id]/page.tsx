@@ -49,14 +49,26 @@ const parseOverview = (overview: string) => {
   return sections;
 };
 
+// 统一的二级内容块组件（InfoBlock）
+const InfoBlock = ({ title, children }: { title: string; children: React.ReactNode }) => {
+  return (
+    <div className="bg-white border border-blue-100 border-l-3 border-l-blue-500 rounded-lg p-4">
+      {title && <h3 className="text-base font-semibold text-blue-900 mb-3">{title}</h3>}
+      <div className="text-gray-700 leading-relaxed">
+        {children}
+      </div>
+    </div>
+  );
+};
+
 // 监管概述卡片组件
 const OverviewSectionCard = ({ title, content }: { title: string; content: string }) => {
   return (
-    <div className="bg-white border border-[#D8E3F0] border-l-2 border-l-[#5E82A8] rounded-lg p-4">
-      <h3 className="text-base font-semibold text-[#1F2A44] mb-2">
+    <div className="bg-white border border-blue-100 border-l-3 border-l-blue-500 rounded-lg p-4">
+      <h3 className="text-base font-semibold text-blue-900 mb-2">
         {title}
       </h3>
-      <div className="text-[#334155] text-sm leading-relaxed">
+      <div className="text-gray-700 text-sm leading-relaxed">
         <FormattedText text={content} />
       </div>
     </div>
@@ -557,21 +569,41 @@ const GenericComplianceTable = ({ data }: { data: { headers: string[]; rows: (st
   );
 };
 
+// 状态标签组件
+const StatusBadge = ({ status }: { status: 'prohibited' | 'partial' | 'open' }) => {
+  const styles = {
+    prohibited: 'bg-red-100 text-red-800 border border-red-200',
+    partial: 'bg-amber-100 text-amber-800 border border-amber-200',
+    open: 'bg-green-100 text-green-800 border border-green-200',
+  };
+
+  const labels = {
+    prohibited: '完全禁止',
+    partial: '部分限制',
+    open: '可准入',
+  };
+
+  return (
+    <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${styles[status]}`}>
+      {labels[status]}
+    </span>
+  );
+};
+
 // 按状态分组的准入限制展示组件
 const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsByStatus }) => {
   return (
     <div className="space-y-6">
       {/* 完全禁止 */}
-      <div className="bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-500 rounded-r-lg p-6">
-        <h3 className="font-bold text-red-900 text-xl mb-5 flex items-center gap-3">
-          <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-          完全禁止
-        </h3>
-        <div className="space-y-4">
+      <div className="bg-white border border-gray-200 rounded-lg p-6">
+        <div className="flex items-center gap-3 mb-5">
+          <StatusBadge status="prohibited" />
+        </div>
+        <div className="space-y-3">
           {data.fullyProhibited.map((item, index) => (
-            <div key={index} className="bg-white bg-opacity-70 rounded-lg p-4 border border-red-200">
-              <div className="font-semibold text-red-900 text-base mb-2">{item.productName}</div>
-              <div className="text-red-800 leading-relaxed">{item.rule}</div>
+            <div key={index} className="bg-red-50/30 border border-red-100 rounded-lg p-4">
+              <div className="font-semibold text-gray-900 text-base mb-2">{item.productName}</div>
+              <div className="text-gray-700 leading-relaxed">{item.rule}</div>
             </div>
           ))}
         </div>
@@ -580,16 +612,15 @@ const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsBySt
       {data.partiallyRestricted.length > 0 && (
         <>
           {/* 部分禁止 / 条件性限制 */}
-          <div className="bg-gradient-to-br from-amber-50 to-amber-100 border-l-4 border-amber-500 rounded-r-lg p-6">
-            <h3 className="font-bold text-amber-900 text-xl mb-5 flex items-center gap-3">
-              <span className="w-3 h-3 bg-amber-500 rounded-full"></span>
-              部分禁止 / 条件性限制
-            </h3>
-            <div className="space-y-4">
+          <div className="bg-white border border-gray-200 rounded-lg p-6">
+            <div className="flex items-center gap-3 mb-5">
+              <StatusBadge status="partial" />
+            </div>
+            <div className="space-y-3">
               {data.partiallyRestricted.map((item, index) => (
-                <div key={index} className="bg-white bg-opacity-70 rounded-lg p-4 border border-amber-200">
-                  <div className="font-semibold text-amber-900 text-base mb-2">{item.productName}</div>
-                  <div className="text-amber-800 leading-relaxed">
+                <div key={index} className="bg-amber-50/30 border border-amber-100 rounded-lg p-4">
+                  <div className="font-semibold text-gray-900 text-base mb-2">{item.productName}</div>
+                  <div className="text-gray-700 leading-relaxed">
                     {item.rule.split('\n\n').map((paragraph, pIndex) => (
                       <span key={pIndex}>
                         {paragraph}
@@ -605,16 +636,15 @@ const AccessRestrictionsByStatusView = ({ data }: { data: AccessRestrictionsBySt
       )}
       
       {/* 开放 / 可准入 */}
-      <div className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500 rounded-r-lg p-6">
-        <h3 className="font-bold text-green-900 text-xl mb-5 flex items-center gap-3">
-          <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-          开放 / 可准入
-        </h3>
-        <div className="space-y-4">
+      <div className="bg-white border border-gray-200 rounded-lg p-6">
+        <div className="flex items-center gap-3 mb-5">
+          <StatusBadge status="open" />
+        </div>
+        <div className="space-y-3">
           {data.openAccessible.map((item, index) => (
-            <div key={index} className="bg-white bg-opacity-70 rounded-lg p-4 border border-green-200">
-              <div className="font-semibold text-green-900 text-base mb-2">{item.productName}</div>
-              <div className="text-green-800 leading-relaxed">{item.rule}</div>
+            <div key={index} className="bg-green-50/30 border border-green-100 rounded-lg p-4">
+              <div className="font-semibold text-gray-900 text-base mb-2">{item.productName}</div>
+              <div className="text-gray-700 leading-relaxed">{item.rule}</div>
             </div>
           ))}
         </div>
@@ -738,36 +768,31 @@ export default function CountryDetail() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <section className="mb-8">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">{country.name}</h1>
-          {/* 俄罗斯页面本季动态摘要 - 极浅蓝风格 */}
-          {country.id === 'russia' ? (
-            <div className="bg-[#F2F7FD] border border-[#C9D8E8] border-l-4 border-l-[#5E82A8] rounded-xl p-6">
-              <h2 className="text-xl font-bold leading-7 text-[#1F2A44] mb-3">本季动态摘要：</h2>
-              <SeasonSummaryText text={country.seasonSummary} />
-            </div>
-          ) : (
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-              <h2 className="text-xl font-bold leading-7 text-blue-900 mb-3">本季动态摘要：</h2>
-              <SeasonSummaryText text={country.seasonSummary} />
-            </div>
-          )}
+          {/* 本季动态摘要 - 统一浅蓝风格 */}
+          <div className="bg-blue-50 border border-blue-100 border-l-4 border-l-blue-500 rounded-lg p-6">
+            <h2 className="text-xl font-bold leading-7 text-blue-900 mb-3">本季动态摘要</h2>
+            <SeasonSummaryText text={country.seasonSummary} />
+          </div>
         </section>
 
         <section className="mb-8">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-sm border border-blue-200 p-6">
+          {/* 法规动态 - 统一白底卡片 */}
+          <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
-              <span>📢</span> 法规动态
+              <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+              法规动态
             </h2>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {country.regulatoryUpdates.map((update, index) => {
                 const parts = update.split('\n\n');
                 const title = parts[0] || '';
                 const content = parts.slice(1).join('\n\n');
                 
                 return (
-                  <li key={index} className="flex items-start gap-3">
+                  <li key={index} className="flex items-start gap-3 p-4 bg-blue-50/30 rounded-lg border border-blue-100">
                     <div className="flex-shrink-0 w-2 h-2 mt-2 bg-blue-500 rounded-full"></div>
                     <div className="text-gray-700">
-                      <span className="font-semibold">{title}</span>
+                      <span className="font-semibold text-blue-900">{title}</span>
                       {content && (
                         <>
                           <br />
@@ -785,14 +810,10 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">监管体系与定义</h2>
-            <div className="space-y-6">
+            <div className="space-y-5">
               {/* 监管概述 - 拆分为独立卡片 */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
-                <h3 className="text-lg font-medium text-blue-900 mb-3 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  监管概述
-                </h3>
-                <div className="space-y-4">
+              <InfoBlock title="监管概述">
+                <div className="space-y-3">
                   {parseOverview(country.regulatorySystem.overview).map((section, index) => (
                     <OverviewSectionCard
                       key={index}
@@ -801,63 +822,59 @@ export default function CountryDetail() {
                     />
                   ))}
                 </div>
-              </div>
+              </InfoBlock>
               
               {/* 品类定义 */}
               {country.id === 'russia' ? (
-                <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-5">
-                  <h3 className="text-lg font-medium text-indigo-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                    品类定义
-                  </h3>
-                  <div className="text-indigo-800">
+                <InfoBlock title="品类定义">
+                  <div className="space-y-4">
                     {/* 渲染6之前的内容 */}
                     <FormattedText text={country.regulatorySystem.definition.split('6. 电子烟相关产品的分类监管逻辑')[0]} />
                     
                     {/* 显示第6节标题 */}
-                    <h4 className="mt-4 font-semibold text-base text-gray-900">6. 电子烟相关产品的分类监管逻辑</h4>
+                    <h4 className="font-semibold text-base text-gray-900">6. 电子烟相关产品的分类监管逻辑</h4>
                     
                     {/* 表格前说明文字 */}
-                    <p className="mt-3 text-gray-700 leading-relaxed">
+                    <p className="text-gray-700 leading-relaxed">
                       俄罗斯法规没有使用一个单一概念统一覆盖所有电子烟相关产品，而是按产品构成分别使用"尼古丁产品""尼古丁液体"和"尼古丁产品使用系统"三个概念进行监管。
                     </p>
                     
                     {/* 俄罗斯电子烟分类监管逻辑表格 */}
-                    <div className="mt-4">
+                    <div className="mt-3">
                       <div className="overflow-x-auto">
-                        <table className="w-full border-collapse border border-gray-300">
+                        <table className="w-full border-collapse border border-gray-200">
                           <thead>
-                            <tr className="bg-gray-100">
-                              <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900 w-[22%]">产品形态</th>
-                              <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900 w-[38%]">监管路径与法规依据</th>
-                              <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900 w-[40%]">主要合规规则</th>
+                            <tr className="bg-blue-50">
+                              <th className="border border-gray-200 px-4 py-3 text-left font-semibold text-gray-900 w-[22%]">产品形态</th>
+                              <th className="border border-gray-200 px-4 py-3 text-left font-semibold text-gray-900 w-[38%]">监管路径与法规依据</th>
+                              <th className="border border-gray-200 px-4 py-3 text-left font-semibold text-gray-900 w-[40%]">主要合规规则</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr className="bg-white">
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">电子烟设备 / 电子雾化设备</td>
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">属于"尼古丁产品使用系统 / 装置"。第15-FZ号法第2条将其定义为用于产生可吸入尼古丁气溶胶或蒸气的电子或其他装置，包括电子尼古丁输送系统和加热烟草系统。</td>
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">单纯设备与烟油、含液体烟弹、设备与液体组合产品区分判断；可重复使用电子烟及类似个人电加热雾化设备仍处于标识试验 / 过渡阶段。</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">电子烟设备 / 电子雾化设备</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">属于"尼古丁产品使用系统 / 装置"。第15-FZ号法第2条将其定义为用于产生可吸入尼古丁气溶胶或蒸气的电子或其他装置，包括电子尼古丁输送系统和加热烟草系统。</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">单纯设备与烟油、含液体烟弹、设备与液体组合产品区分判断；可重复使用电子烟及类似个人电加热雾化设备仍处于标识试验 / 过渡阶段。</td>
                             </tr>
                             <tr className="bg-gray-50">
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">烟油 / 电子烟补充液</td>
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">属于"尼古丁液体"或"无尼古丁液体"。第15-FZ号法第2条规定，尼古丁含量不低于0.1 mg/ml的液体，以及不含尼古丁或尼古丁低于0.1 mg/ml但用于电子尼古丁输送系统的液体，均纳入该定义。</td>
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">零售环节不得销售尼古丁浓度超过20 mg/ml的尼古丁液体或尼古丁溶液。含尼古丁液体涉及消费税、最低价格、数字标识及生产 / 进口投入流通许可。</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">烟油 / 电子烟补充液</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">属于"尼古丁液体"或"无尼古丁液体"。第15-FZ号法第2条规定，尼古丁含量不低于0.1 mg/ml的液体，以及不含尼古丁或尼古丁低于0.1 mg/ml但用于电子尼古丁输送系统的液体，均纳入该定义。</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">零售环节不得销售尼古丁浓度超过20 mg/ml的尼古丁液体或尼古丁溶液。含尼古丁液体涉及消费税、最低价格、数字标识及生产 / 进口投入流通许可。</td>
                             </tr>
                             <tr className="bg-white">
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">含液体烟弹、设备与液体组合产品</td>
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">俄罗斯公开法规未见对"含液体烟弹"或"设备与液体组合产品"设置单独定义。监管时应拆分看：其中的液体按尼古丁液体或无尼古丁液体判断；其中的设备按尼古丁产品使用系统 / 装置判断。</td>
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">核心看内置或预灌装液体属性。液体含尼古丁且达到0.1 mg/ml的，按尼古丁液体及尼古丁产品相关规则处理；液体不含尼古丁或低于0.1 mg/ml但用于电子尼古丁输送系统的，仍纳入尼古丁液体 / 无尼古丁液体监管口径。</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">含液体烟弹、设备与液体组合产品</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">俄罗斯公开法规未见对"含液体烟弹"或"设备与液体组合产品"设置单独定义。监管时应拆分看：其中的液体按尼古丁液体或无尼古丁液体判断；其中的设备按尼古丁产品使用系统 / 装置判断。</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">核心看内置或预灌装液体属性。液体含尼古丁且达到0.1 mg/ml的，按尼古丁液体及尼古丁产品相关规则处理；液体不含尼古丁或低于0.1 mg/ml但用于电子尼古丁输送系统的，仍纳入尼古丁液体 / 无尼古丁液体监管口径。</td>
                             </tr>
                             <tr className="bg-gray-50">
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">空烟弹 / 空容器 / 不含液体组件</td>
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">俄罗斯公开法规未见对空烟弹、空容器或普通不含液体组件设置单独定义。</td>
-                              <td className="border border-gray-300 px-4 py-3 text-gray-700 align-top">不直接按尼古丁液体处理；如作为电子烟设备组成部分销售，重点按设备或尼古丁产品使用系统 / 装置相关规则判断。</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">空烟弹 / 空容器 / 不含液体组件</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">俄罗斯公开法规未见对空烟弹、空容器或普通不含液体组件设置单独定义。</td>
+                              <td className="border border-gray-200 px-4 py-3 text-gray-700 align-top">不直接按尼古丁液体处理；如作为电子烟设备组成部分销售，重点按设备或尼古丁产品使用系统 / 装置相关规则判断。</td>
                             </tr>
                           </tbody>
                         </table>
                       </div>
-                      <p className="mt-4 text-gray-700 leading-relaxed">
+                      <p className="mt-3 text-gray-700 leading-relaxed">
                         电子烟设备、尼古丁液体、无尼古丁液体、含液体烟弹、设备与液体组合产品等电子烟相关产品，进入零售市场时通常还需遵守第15-FZ号法项下的销售端限制，包括禁止向未成年人销售、禁止远程销售、禁止自动售货机销售、禁止公开陈列、限制销售地点，以及广告、促销和赞助禁令。
                       </p>
                     </div>
@@ -865,17 +882,11 @@ export default function CountryDetail() {
                     {/* 渲染7和8部分的内容 */}
                     <FormattedText text={country.regulatorySystem.definition.split('6. 电子烟相关产品的分类监管逻辑')[1]} />
                   </div>
-                </div>
+                </InfoBlock>
               ) : (
-                <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-5">
-                  <h3 className="text-lg font-medium text-indigo-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                    品类定义
-                  </h3>
-                  <div className="text-indigo-800">
-                    <FormattedText text={country.regulatorySystem.definition} />
-                  </div>
-                </div>
+                <InfoBlock title="品类定义">
+                  <FormattedText text={country.regulatorySystem.definition} />
+                </InfoBlock>
               )}
             </div>
           </div>
@@ -1065,8 +1076,7 @@ export default function CountryDetail() {
             {country.id === 'russia' ? (
               <div className="space-y-6">
                 {country.tax.policies.find(p => p.title === '消费税说明') && (
-                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
-                    <h4 className={cardSubheadingClass}>消费税说明</h4>
+                  <InfoBlock title="消费税说明">
                     <div className="space-y-3 text-gray-700 text-base leading-relaxed">
                       {country.tax.policies.find(p => p.title === '消费税说明')?.description
                         .split(/\n\n+/)
@@ -1074,20 +1084,19 @@ export default function CountryDetail() {
                           <p key={index}>{paragraph}</p>
                         ))}
                     </div>
-                  </div>
+                  </InfoBlock>
                 )}
                 
                 {country.tax.exciseTaxTable && (
-                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-2">
-                    <h3 className={cardSubheadingClass}>消费税税率表</h3>
+                  <InfoBlock title="消费税税率表">
                     <div className="overflow-x-auto">
-                      <table className="w-full text-sm">
+                      <table className="w-full text-sm border-collapse border border-gray-200">
                         <thead>
-                          <tr className="bg-gray-200">
+                          <tr className="bg-blue-50">
                             {country.tax.exciseTaxTable.headers.map((header, idx) => (
                               <th 
                                 key={idx} 
-                                className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-300"
+                                className="px-4 py-3 text-left font-semibold text-gray-900 border border-gray-200"
                                 style={idx === 0 ? { width: '28%' } : { width: '24%' }}
                               >
                                 {header}
@@ -1097,9 +1106,9 @@ export default function CountryDetail() {
                         </thead>
                         <tbody>
                           {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
-                            <tr key={rowIdx} className="hover:bg-gray-100">
+                            <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                               {row.map((cell, cellIdx) => (
-                                <td key={cellIdx} className="px-4 py-3 border-b border-gray-200 text-gray-700">
+                                <td key={cellIdx} className="px-4 py-3 border border-gray-200 text-gray-700">
                                   {cell}
                                 </td>
                               ))}
@@ -1108,29 +1117,27 @@ export default function CountryDetail() {
                         </tbody>
                       </table>
                     </div>
-                  </div>
+                  </InfoBlock>
                 )}
                 
                 {country.tax.policies.find(p => p.title === '最低价格说明') && (
-                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-6">
-                    <h4 className={cardSubheadingClass}>最低价格说明</h4>
+                  <InfoBlock title="最低价格说明">
                     <p className="text-gray-700 text-base leading-relaxed">
                       {country.tax.policies.find(p => p.title === '最低价格说明')?.description}
                     </p>
-                  </div>
+                  </InfoBlock>
                 )}
                 
                 {country.tax.minimumPriceTable && (
-                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-2">
-                    <h3 className={cardSubheadingClass}>最低价格表</h3>
+                  <InfoBlock title="最低价格表">
                     <div className="overflow-x-auto">
-                      <table className="w-full text-sm">
+                      <table className="w-full text-sm border-collapse border border-gray-200">
                         <thead>
-                          <tr className="bg-gray-200">
+                          <tr className="bg-blue-50">
                             {country.tax.minimumPriceTable.headers.map((header, idx) => (
                               <th 
                                 key={idx} 
-                                className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-300"
+                                className="px-4 py-3 text-left font-semibold text-gray-900 border border-gray-200"
                                 style={idx === 0 ? { width: '30%' } : { width: '70%' }}
                               >
                                 {header}
@@ -1140,9 +1147,9 @@ export default function CountryDetail() {
                         </thead>
                         <tbody>
                           {country.tax.minimumPriceTable.rows.map((row, rowIdx) => (
-                            <tr key={rowIdx} className="hover:bg-gray-100">
+                            <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                               {row.map((cell, cellIdx) => (
-                                <td key={cellIdx} className="px-4 py-3 border-b border-gray-200 text-gray-700">
+                                <td key={cellIdx} className="px-4 py-3 border border-gray-200 text-gray-700">
                                   {cell}
                                 </td>
                               ))}
@@ -1151,33 +1158,31 @@ export default function CountryDetail() {
                         </tbody>
                       </table>
                     </div>
-                  </div>
+                  </InfoBlock>
                 )}
               </div>
             ) : (
               <>
                 {country.tax.policies.length > 0 && (
-                  <div className="grid gap-4 mb-8">
+                  <div className="space-y-4 mb-8">
                     {country.tax.policies.map((policy, index) => (
-                      <div key={index} className="bg-gray-50 rounded-lg p-4 border border-gray-100">
-                        <h4 className="font-semibold text-gray-900 mb-2">{policy.title}</h4>
+                      <InfoBlock key={index} title={policy.title}>
                         <p className="text-gray-700 text-base leading-relaxed">{policy.description}</p>
-                      </div>
+                      </InfoBlock>
                     ))}
                   </div>
                 )}
                 
                 {country.tax.exciseTaxTable && (
-                  <div className="bg-gray-50 rounded-lg p-4 mb-8 border border-gray-100">
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">消费税税率表</h3>
+                  <InfoBlock title="消费税税率表">
                     <div className="overflow-x-auto">
-                      <table className="w-full text-sm">
+                      <table className="w-full text-sm border-collapse border border-gray-200">
                         <thead>
-                          <tr className="bg-gray-200">
+                          <tr className="bg-blue-50">
                             {country.tax.exciseTaxTable.headers.map((header, idx) => (
                               <th 
                                 key={idx} 
-                                className="px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-300"
+                                className="px-4 py-3 text-left font-semibold text-gray-900 border border-gray-200"
                                 style={idx === 0 ? { width: '28%' } : { width: '24%' }}
                               >
                                 {header}
@@ -1187,9 +1192,9 @@ export default function CountryDetail() {
                         </thead>
                         <tbody>
                           {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
-                            <tr key={rowIdx} className="hover:bg-gray-100">
+                            <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                               {row.map((cell, cellIdx) => (
-                                <td key={cellIdx} className="px-4 py-3 border-b border-gray-200 text-gray-700">
+                                <td key={cellIdx} className="px-4 py-3 border border-gray-200 text-gray-700">
                                   {cell}
                                 </td>
                               ))}
@@ -1198,21 +1203,20 @@ export default function CountryDetail() {
                         </tbody>
                       </table>
                     </div>
-                  </div>
+                  </InfoBlock>
                 )}
                 
                 {country.tax.minimumPriceTable && (
-                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">最低价格表</h3>
+                  <InfoBlock title="最低价格表">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {country.tax.minimumPriceTable.rows.map((row, idx) => (
-                        <div key={idx} className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                        <div key={idx} className="bg-white rounded-lg p-4 border border-blue-100">
                           <div className="font-medium text-gray-900 mb-1">{row[0]}</div>
                           <div className="text-sm text-gray-700 leading-relaxed">{row[1]}</div>
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </InfoBlock>
                 )}
               </>
             )}
@@ -1228,55 +1232,24 @@ export default function CountryDetail() {
                   // 检查是否是主要酋长国差异并且有表格数据
                   if (country.emirateDifferences && regulation.category === '主要酋长国差异') {
                     return (
-                      <div key={index} className="bg-white border border-blue-200 border-l-4 border-l-indigo-500 rounded-xl p-[18px_20px] shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
-                        <h3 className="text-lg font-semibold text-blue-900 mb-3">{regulation.category}</h3>
+                      <InfoBlock key={index} title={regulation.category}>
                         <EmirateDifferencesTable data={country.emirateDifferences} />
-                      </div>
+                      </InfoBlock>
                     );
                   }
                   
-                  // 根据分类确定左侧色条和背景色（低饱和度，统一色系）
-                  let leftBorderColor = 'border-l-blue-500';
-                  let bgColor = 'bg-blue-50/30';
-                  
-                  // 第1类：销售渠道、销售方式 - 蓝色
-                  if (regulation.category === '销售与陈列' || regulation.category === '销售渠道' || regulation.category === '销售与渠道' || regulation.category === '销售场所与销售方式' || regulation.category === '市场流通') {
-                    leftBorderColor = 'border-l-blue-500';
-                    bgColor = 'bg-blue-50/40';
-                  }
-                  // 第2类：未成年人保护、禁售地点 - 靛蓝
-                  else if (regulation.category === '未成年人保护' || regulation.category === '禁售地点' || regulation.category === '特定产品和浓度要求') {
-                    leftBorderColor = 'border-l-indigo-500';
-                    bgColor = 'bg-indigo-50/30';
-                  }
-                  // 第3类：陈列展示、包装、标签 - 青蓝
-                  else if (regulation.category === '包装与标签' || regulation.category === '包装、陈列与标签' || regulation.category === '陈列、展示与销售清单' || regulation.category === '包装和单支销售限制' || regulation.category === '口味与产品形态') {
-                    leftBorderColor = 'border-l-sky-500';
-                    bgColor = 'bg-sky-50/30';
-                  }
-                  // 第4类：广告、促销、赞助 - 琥珀色（非常浅）
-                  else if (regulation.category === '广告与宣传' || regulation.category === '广告、影视和变相宣传' || regulation.category === '广告、促销与展示' || regulation.category === '广告、促销与赞助' || regulation.category === '赞助、促销与CSR') {
-                    leftBorderColor = 'border-l-amber-500';
-                    bgColor = 'bg-amber-50/40';
-                  }
-                  // 其他 - 蓝色
-                  else {
-                    leftBorderColor = 'border-l-blue-500';
-                    bgColor = 'bg-blue-50/30';
-                  }
-                  
+                  // 统一使用白底+左侧蓝色竖线样式
                   return (
-                    <div key={index} className={`${bgColor} border border-blue-100 border-l-4 ${leftBorderColor} rounded-xl p-[18px_20px] shadow-[0_1px_2px_rgba(15,23,42,0.04)]`}>
-                      <h3 className="text-lg font-semibold text-blue-900 mb-3">{regulation.category}</h3>
+                    <InfoBlock key={index} title={regulation.category}>
                       <ul className="space-y-2">
                         {regulation.items.map((item, itemIndex) => (
-                          <li key={itemIndex} className="text-gray-800 leading-relaxed">
-                            <span className="text-gray-600 mr-2">•</span>
+                          <li key={itemIndex} className="text-gray-700 leading-relaxed">
+                            <span className="text-gray-500 mr-2">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
                       </ul>
-                    </div>
+                    </InfoBlock>
                   );
                   })}
               </div>
@@ -1303,17 +1276,16 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <div className="flex items-center gap-2 mb-6">
               <span className="text-red-600 text-2xl">⚠️</span>
-              <h2 className="text-2xl font-bold text-red-900">趋势预判与红线警告</h2>
+              <h2 className="text-2xl font-semibold text-gray-900">趋势预判与红线警告</h2>
             </div>
             {country.id === 'china' || country.id === 'russia' ? (
               // 长文本趋势分析使用上下结构，避免左右栏压缩正文
               <div className="space-y-6">
                 {/* 政策趋势分析 - 上方 */}
-                <div className="bg-white rounded p-4 border border-red-200">
-                  <h3 className="text-lg font-medium text-red-900 mb-4">政策趋势分析</h3>
+                <InfoBlock title="政策趋势分析">
                   <div className="space-y-6">
                     {country.trendsWarnings.trendAnalysis.split(/\n\n+/).map((section, index) => {
                       const numberedTitleMatch = section.match(/^(\d+[.、]\s*[^\n]+)(?:\n([\s\S]*))?$/);
@@ -1337,15 +1309,15 @@ export default function CountryDetail() {
                       );
                     })}
                   </div>
-                </div>
+                </InfoBlock>
                 {/* 合规红线清单 - 下方 */}
-                <div className="bg-red-100 rounded p-4 border border-red-300">
-                  <h3 className="text-lg font-medium text-red-900 mb-3">合规红线清单</h3>
+                <div className="bg-red-50 border border-red-100 border-l-4 border-l-red-500 rounded-lg p-4">
+                  <h3 className="text-lg font-semibold text-red-900 mb-4">合规红线清单</h3>
                   <ul className="space-y-2">
                     {country.trendsWarnings.redLines.map((line, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-red-600 mt-1">✗</span>
-                        <span className="text-red-900 font-medium">{line}</span>
+                        <span className="text-gray-700">{line}</span>
                       </li>
                     ))}
                   </ul>
@@ -1354,17 +1326,16 @@ export default function CountryDetail() {
             ) : (
               // 其他国家页面使用左右结构
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white rounded p-4 border border-red-200">
-                  <h3 className="text-lg font-medium text-red-900 mb-3">政策趋势分析</h3>
+                <InfoBlock title="政策趋势分析">
                   <FormattedText text={country.trendsWarnings.trendAnalysis} />
-                </div>
-                <div className="bg-red-100 rounded p-4 border border-red-300">
-                  <h3 className="text-lg font-medium text-red-900 mb-3">合规红线清单</h3>
+                </InfoBlock>
+                <div className="bg-red-50 border border-red-100 border-l-4 border-l-red-500 rounded-lg p-4">
+                  <h3 className="text-lg font-semibold text-red-900 mb-4">合规红线清单</h3>
                   <ul className="space-y-2">
                     {country.trendsWarnings.redLines.map((line, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-red-600 mt-1">✗</span>
-                        <span className="text-red-900 font-medium">{line}</span>
+                        <span className="text-gray-700">{line}</span>
                       </li>
                     ))}
                   </ul>
