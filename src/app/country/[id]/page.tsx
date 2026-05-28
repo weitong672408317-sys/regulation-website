@@ -38,9 +38,10 @@ const colors = {
   greenSoft: '#EEF7F0',
   greenBorder: '#BFDCC7',
   
-  red: '#B84A4A',
-  redSoft: '#FFF1F1',
-  redBorder: '#E8B8B8',
+  red: '#DC2626',
+  redDark: '#991B1B',
+  redSoft: '#FEF2F2',
+  redBorder: '#FCA5A5',
   
   warm: '#8A5A2B',
   warmSoft: '#F8F1E7',
@@ -61,16 +62,14 @@ const SeasonSummaryCard = ({ title, text }: { title: string; text: string }) => 
       <div className="text-[#334155] leading-relaxed">
         <p className="mb-4">{mainText}</p>
         {bulletItems.length > 0 && (
-          <div className="space-y-3 mt-6">
+          <ul className="space-y-3 mt-6 pl-0">
             {bulletItems.map((item, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#2F5F93] text-white text-xs font-bold flex-shrink-0">
-                  {index + 1}
-                </span>
+              <li key={index} className="flex items-start gap-3 list-none">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
                 <span className="text-[#334155]">{item.replace(/^[一二三四五六七八九十]+\.?\s*/, '').replace(/^\d+\.?\s*/, '')}</span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </div>
     </div>
@@ -79,7 +78,7 @@ const SeasonSummaryCard = ({ title, text }: { title: string; text: string }) => 
 
 const RegulatoryUpdateCard = ({ title, content }: { title: string; content: string }) => {
   return (
-    <div className="bg-white border border-[#CBD2EE] rounded-xl p-5 hover:shadow-md transition-shadow">
+    <div className="bg-[#F1F3FB] border border-[#CBD2EE] rounded-xl p-5 hover:shadow-md transition-shadow">
       <div className="flex items-start gap-3">
         <div className="w-2 h-2 rounded-full bg-[#4D5F9A] mt-2 flex-shrink-0"></div>
         <div className="flex-1">
@@ -92,21 +91,12 @@ const RegulatoryUpdateCard = ({ title, content }: { title: string; content: stri
 };
 
 const RuleCard = ({ number, title, items }: { number: number; title: string; items: string[] }) => {
-  const numberColors = [
-    'bg-[#2F5F93]',
-    'bg-[#2B7A8B]',
-    'bg-[#4D5F9A]',
-    'bg-[#475569]',
-    'bg-[#2B7A8B]',
-    'bg-[#4D5F9A]',
-  ];
-  
   const filteredItems = items.map(i => i.trim()).filter(Boolean);
   
   return (
-    <div className="bg-white border border-[#D8E0EA] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-[#F5F8FC] border border-[#D6E3F1] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-start gap-3 mb-3">
-        <span className={`inline-flex h-7 w-7 items-center justify-center rounded-full ${numberColors[number - 1]} text-white text-sm font-bold flex-shrink-0`}>
+        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#2F5F93] text-white text-sm font-bold flex-shrink-0">
           {number}
         </span>
         <h4 className="font-bold text-[#0F172A] text-base">{title}</h4>
@@ -115,7 +105,7 @@ const RuleCard = ({ number, title, items }: { number: number; title: string; ite
         <ul className="space-y-2 ml-10">
           {filteredItems.map((item, index) => (
             <li key={index} className="flex items-start gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8AA0B8] mt-1.5 flex-shrink-0"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#6B86A6] mt-1.5 flex-shrink-0"></span>
               <span className="text-[#334155] text-sm leading-relaxed">{item}</span>
             </li>
           ))}
@@ -125,29 +115,17 @@ const RuleCard = ({ number, title, items }: { number: number; title: string; ite
   );
 };
 
-const ProductDefinitionCard = ({ title, tag, sections }: { title: string; tag: string; sections: { label: string; content: string }[] }) => {
-  const tagColors = {
-    '烟草制品': 'bg-[#EEF5FC] text-[#1E3A5F]',
-    '尼古丁产品': 'bg-[#EEF8FA] text-[#155E75]',
-    '电子烟相关': 'bg-[#F1F3FB] text-[#373F7A]',
-    '原料': 'bg-[#F8FAFC] text-[#334155]',
-    '辅材': 'bg-[#F8FAFC] text-[#334155]',
-    default: 'bg-[#EEF5FC] text-[#334155]',
-  };
-  
-  const tagClass = tagColors[tag as keyof typeof tagColors] || tagColors.default;
-  
+const ProductDefinitionCard = ({ title, sections }: { title: string; sections: { label: string; content: string }[] }) => {
   return (
-    <div className="bg-white border border-[#D8E0EA] rounded-xl p-5 shadow-sm">
+    <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5 shadow-none">
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-2 h-2 rounded-full bg-[#2B7A8B] flex-shrink-0"></span>
-        <h4 className="font-bold text-[#0F172A] text-base">{title}</h4>
-        <span className={`inline-flex px-2 py-0.5 rounded-md text-xs font-semibold ${tagClass}`}>{tag}</span>
+        <span className="w-2 h-2 rounded-full bg-[#5E82A8] flex-shrink-0"></span>
+        <h4 className="font-bold text-[#1F4E79] text-base">{title}</h4>
       </div>
       <div className="space-y-4">
         {sections.map((section, index) => (
           <div key={index}>
-            <div className="inline-flex px-2 py-0.5 rounded bg-[#EEF8FA] text-[#155E75] text-xs font-semibold mb-2">{section.label}</div>
+            <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-xs font-semibold mb-2">{section.label}</div>
             <p className="text-[#334155] text-sm leading-relaxed">{section.content}</p>
           </div>
         ))}
@@ -333,7 +311,7 @@ const GenericComplianceTable = ({ data, isRussia = false }: { data: { headers: s
 
 const StatusBadge = ({ status, isRussia = false }: { status: 'prohibited' | 'partial' | 'open'; isRussia?: boolean }) => {
   const styles = isRussia ? {
-    prohibited: 'bg-[#F7E4E4] text-[#8F4F4F] border border-[#E8CFCF]',
+    prohibited: 'bg-[#FEE2E2] text-[#DC2626] border border-[#FCA5A5]',
     partial: 'bg-[#FBF4E6] text-[#9E793E] border border-[#E5D8B8]',
     open: 'bg-[#E6F0EA] text-[#51705D] border border-[#D4E4D9]',
   } : {
@@ -358,7 +336,7 @@ const StatusBadge = ({ status, isRussia = false }: { status: 'prohibited' | 'par
 const AccessRestrictionsByStatusView = ({ data, isRussia = false }: { data: AccessRestrictionsByStatus; isRussia?: boolean }) => {
   return (
     <div className="space-y-6">
-      <div className={isRussia ? "bg-[#FCF2F2] border border-[#E8CFCF] border-l-4 border-l-[#B56B6B] rounded-xl p-5 shadow-none" : "bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden"}>
+      <div className={isRussia ? "bg-[#FEF2F2] border border-[#FCA5A5] border-l-4 border-l-[#DC2626] rounded-xl p-5 shadow-none" : "bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden"}>
         {!isRussia ? (
           <div className="bg-red-50 border-b-2 border-red-300 px-5 py-3 flex items-center gap-3">
             <div className="w-1 h-6 bg-red-600 rounded-full"></div>
@@ -464,13 +442,13 @@ const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Compliance
   return (
     <div className="grid md:grid-cols-2 gap-4">
       {cards.map((card, index) => (
-        <div key={index} className={isRussia ? "bg-white border border-[#D8E0EA] rounded-xl p-5 hover:shadow-md transition-shadow" : "bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow"}>
+        <div key={index} className={isRussia ? "bg-[#F2F7FD] border border-[#CFE0F2] rounded-xl p-5 hover:shadow-md transition-shadow" : "bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow"}>
           <div className="flex items-start gap-3">
             <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#2F5F93] text-white text-xs font-bold flex-shrink-0">
               {index + 1}
             </span>
             <div className="flex-1">
-              <h4 className={isRussia ? "font-bold text-[#2F5F93] text-base mb-2" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
+              <h4 className={isRussia ? "font-bold text-[#1F4E79] text-base mb-2" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
               <p className={isRussia ? "text-[#334155] leading-relaxed" : "text-slate-700 leading-relaxed"}>{card.description}</p>
             </div>
           </div>
@@ -664,9 +642,9 @@ export default function CountryDetail() {
                 {country.id !== 'russia' && <h3 className="text-lg font-bold text-blue-900 mb-4">监管概述</h3>}
                 <div className="space-y-4">
                   {parseOverview(country.regulatorySystem.overview).map((section, index) => (
-                    <div key={index} className={country.id === 'russia' ? "bg-white border border-[#BFDDE3] rounded-xl p-5" : "bg-white rounded-lg p-4"}>
-                      <h3 className={country.id === 'russia' ? "text-base font-bold text-[#155E75] mb-3 flex items-center gap-2" : "text-base font-bold text-blue-900 mb-3"}>
-                        {country.id === 'russia' && <span className="w-2 h-2 rounded-full bg-[#2B7A8B]"></span>}
+                    <div key={index} className={country.id === 'russia' ? "bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5" : "bg-white rounded-lg p-4"}>
+                      <h3 className={country.id === 'russia' ? "text-base font-bold text-[#1F4E79] mb-3 flex items-center gap-2" : "text-base font-bold text-blue-900 mb-3"}>
+                        {country.id === 'russia' && <span className="w-2 h-2 rounded-full bg-[#5E82A8]"></span>}
                         {section.title}
                       </h3>
                       <div className={country.id === 'russia' ? "text-[#334155] text-base leading-relaxed whitespace-pre-wrap" : "text-gray-700 text-base leading-relaxed whitespace-pre-wrap"}>
@@ -679,14 +657,13 @@ export default function CountryDetail() {
               
               {country.id === 'russia' ? (
                 <div className="space-y-5">
-                  <h3 className="text-base font-bold text-[#155E75] mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#2B7A8B]"></span>
+                  <h3 className="text-base font-bold text-[#1F4E79] mb-4 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#5E82A8]"></span>
                     产品定义与监管口径
                   </h3>
                   
                   <ProductDefinitionCard
                     title="传统卷烟、雪茄、烟丝、papirosy（俄式纸嘴卷烟）"
-                    tag="烟草制品"
                     sections={[
                       { label: '产品定性', content: '根据 TR CU 035/2014，烟草制品是全部或部分以烟草叶为原料制成，并以消费者包装投放市场的产品。传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草，以及 papirosy（俄式纸嘴卷烟，即一端为烟草段、另一端为较长中空纸嘴的传统燃烧型烟草制品）通常属于烟草制品。' },
                       { label: '合规重点', content: '产品本身可准入，主要关注 TR CU 035/2014 符合性声明、生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签、健康警示和销售限制。' },
@@ -695,7 +672,6 @@ export default function CountryDetail() {
                   
                   <ProductDefinitionCard
                     title="HNB烟支 / 加热烟草产品"
-                    tag="尼古丁产品"
                     sections={[
                       { label: '产品定性', content: '第15-FZ号法将加热烟草产品列入尼古丁产品范围。HNB烟支通常指含烟草材料、通过加热装置加热后供消费者吸入的产品，监管上按加热烟草产品、烟草产品或尼古丁产品判断，不按 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品处理。' },
                       { label: '合规重点', content: '产品本身可准入，重点关注生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签和销售限制。' },
@@ -704,7 +680,6 @@ export default function CountryDetail() {
                   
                   <ProductDefinitionCard
                     title="无烟烟草产品"
-                    tag="尼古丁产品"
                     sections={[
                       { label: '产品定性', content: '根据第268-FZ号法，无烟烟草产品是通过吮吸、咀嚼或鼻吸等方式使用的烟草产品，典型产品包括 snus（湿润口含烟草制品）、nasvay（中亚地区常见的口含 / 咀嚼型无烟烟草制品）、咀嚼烟草和鼻烟。该类产品与 HNB烟支不同，不通过加热装置产生可吸入气溶胶。' },
                       { label: '合规重点', content: 'snus、nasvay 及相关口含、鼻吸、咀嚼类无烟烟草产品禁止批发和零售；第268-FZ号法下的技术识别规则不改变第15-FZ号法项下的禁售结论。' },
@@ -713,18 +688,16 @@ export default function CountryDetail() {
                   
                   <ProductDefinitionCard
                     title="口含 / 鼻吸类尼古丁产品"
-                    tag="尼古丁产品"
                     sections={[
                       { label: '产品定性', content: '该类产品含尼古丁或尼古丁衍生物，并通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁。典型产品包括尼古丁袋、尼古丁口含膜、食品型尼古丁产品，以及含尼古丁粉末、混合物等。' },
                       { label: '合规重点', content: '尼古丁袋、尼古丁口含膜、食品型尼古丁产品，以及其他通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁的产品，适用第15-FZ号法下尼古丁产品禁售规则，禁止批发和零售。' },
                     ]}
                   />
                   
-                  <div className="bg-white border border-[#D8E0EA] rounded-xl p-5 shadow-sm">
+                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5 shadow-none">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="w-2 h-2 rounded-full bg-[#2B7A8B] flex-shrink-0"></span>
-                      <h4 className="font-bold text-[#0F172A] text-base">电子烟相关产品</h4>
-                      <span className="inline-flex px-2 py-0.5 rounded-md text-xs font-semibold bg-[#F1F3FB] text-[#373F7A]">电子烟相关</span>
+                      <span className="w-2 h-2 rounded-full bg-[#5E82A8] flex-shrink-0"></span>
+                      <h4 className="font-bold text-[#1F4E79] text-base">电子烟相关产品</h4>
                     </div>
                     <div className="space-y-4">
                       <div>
@@ -780,7 +753,6 @@ export default function CountryDetail() {
                   
                   <ProductDefinitionCard
                     title="烟叶、烟草薄片、烟草原料、尼古丁原料"
-                    tag="原料"
                     sections={[
                       { label: '产品定性', content: '第203-FZ号法将烟草制品、烟草产品、尼古丁产品及其生产原料纳入生产流通监管。烟叶、烟草薄片、烟草原料、尼古丁原料通常属于生产链条中的原料或半成品，与消费者可直接使用的烟草制品、HNB烟支、电子烟液、尼古丁袋等成品不同。' },
                       { label: '合规重点', content: '俄罗斯本地生产或加工主体需取得覆盖烟草原料或尼古丁原料的生产许可；俄罗斯进口商需取得烟草原料或尼古丁原料进口投入流通许可；原料不得作为普通消费者成品零售。' },
@@ -789,7 +761,6 @@ export default function CountryDetail() {
                   
                   <ProductDefinitionCard
                     title="滤嘴棒、爆珠、香精香料、普通烟用辅材"
-                    tag="辅材"
                     sections={[
                       { label: '产品定性', content: '俄罗斯公开法规资料未见将滤嘴棒、爆珠、香精香料等普通烟用辅材统一定义为烟草制品或尼古丁产品。该类产品通常按成分、用途、海关归类和下游产品用途判断。' },
                       { label: '合规重点', content: '不含尼古丁、不含烟草提取物、仅作为普通辅材的，通常可按普通辅材理解；含尼古丁、烟草提取物，或作为烟油、含液体烟弹、HNB烟支、尼古丁产品组件使用的，应转入对应成品或原料监管路径。' },
@@ -1263,15 +1234,15 @@ export default function CountryDetail() {
                   </div>
                 </div>
                 
-                <div className={country.id === 'russia' ? "bg-[#FCF5F5] border border-[#E8D3D3] border-l-4 border-l-[#B56B6B] rounded-xl p-5" : "bg-red-50 border-2 border-red-200 rounded-xl p-5"}>
+                <div className={country.id === 'russia' ? "bg-[#FEF2F2] border border-[#FCA5A5] border-l-4 border-l-[#DC2626] rounded-xl p-5" : "bg-red-50 border-2 border-red-200 rounded-xl p-5"}>
                   <div className="flex items-center gap-2 mb-4">
                     {country.id !== 'russia' && <div className="w-1 h-6 bg-red-600 rounded-full"></div>}
-                    <h3 className={country.id === 'russia' ? "text-base font-bold text-[#B56B6B]" : "text-lg font-bold text-red-800"}>合规红线清单</h3>
+                    <h3 className={country.id === 'russia' ? "text-base font-bold text-[#DC2626]" : "text-lg font-bold text-red-800"}>合规红线清单</h3>
                   </div>
                   <ul className="space-y-3">
                     {country.trendsWarnings.redLines.map((line, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <span className={country.id === 'russia' ? "text-[#B56B6B] mt-1.5" : "text-red-600 mt-1.5"}>✗</span>
+                        <span className={country.id === 'russia' ? "text-[#DC2626] mt-1.5" : "text-red-600 mt-1.5"}>✗</span>
                         <span className={country.id === 'russia' ? "text-[#334155] leading-relaxed" : "text-gray-800 leading-relaxed"}>{line}</span>
                       </li>
                     ))}
