@@ -49,9 +49,7 @@ const colors = {
 };
 
 const SeasonSummaryCard = ({ title, text }: { title: string; text: string }) => {
-  const parts = text.split(/\n\n/);
-  const mainText = parts[0] || '';
-  const bulletItems = parts.slice(1).filter(p => p.trim());
+  const paragraphs = text.split(/\n\n/).filter(p => p.trim());
   
   return (
     <div className="bg-[#EEF5FC] border border-[#BFD3E8] border-l-4 border-l-[#2F5F93] rounded-xl p-6">
@@ -59,18 +57,31 @@ const SeasonSummaryCard = ({ title, text }: { title: string; text: string }) => 
         <div className="w-8 h-1 bg-[#2F5F93]"></div>
         {title}
       </h2>
-      <div className="text-[#334155] leading-relaxed">
-        <p className="mb-4">{mainText}</p>
-        {bulletItems.length > 0 && (
-          <ul className="space-y-3 mt-6 pl-0">
-            {bulletItems.map((item, index) => (
-              <li key={index} className="flex items-start gap-3 list-none">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
-                <span className="text-[#334155]">{item.replace(/^[一二三四五六七八九十]+\.?\s*/, '').replace(/^\d+\.?\s*/, '')}</span>
-              </li>
-            ))}
-          </ul>
-        )}
+      <div className="text-[#334155] leading-relaxed space-y-4">
+        {paragraphs.map((paragraph, pIndex) => {
+          const lines = paragraph.split('\n').filter(line => line.trim());
+          const hasBullets = lines.some(line => line.trim().startsWith('•'));
+          
+          if (hasBullets) {
+            return (
+              <ul key={pIndex} className="space-y-2 pl-0">
+                {lines.map((line, lIndex) => {
+                  const trimmed = line.trim();
+                  if (!trimmed) return null;
+                  const content = trimmed.replace(/^•\s*/, '');
+                  return (
+                    <li key={lIndex} className="flex items-start gap-3 list-none">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                      <span className="text-[#334155]">{content}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            );
+          }
+          
+          return <p key={pIndex}>{paragraph}</p>;
+        })}
       </div>
     </div>
   );
@@ -694,19 +705,19 @@ export default function CountryDetail() {
                     ]}
                   />
                   
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5 shadow-none">
+                  <div className="bg-[#F1F3FB] border border-[#CBD2EE] border-l-4 border-l-[#4D5F9A] rounded-xl p-5 shadow-none">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="w-2 h-2 rounded-full bg-[#5E82A8] flex-shrink-0"></span>
-                      <h4 className="font-bold text-[#1F4E79] text-base">电子烟相关产品</h4>
+                      <span className="w-2 h-2 rounded-full bg-[#4D5F9A] flex-shrink-0"></span>
+                      <h4 className="font-bold text-[#373F7A] text-base">电子烟相关产品</h4>
                     </div>
                     <div className="space-y-4">
                       <div>
-                        <div className="inline-flex px-2 py-0.5 rounded bg-[#EEF8FA] text-[#155E75] text-xs font-semibold mb-2">总体口径</div>
+                        <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-xs font-semibold mb-2">总体口径</div>
                         <p className="text-[#334155] text-sm leading-relaxed">俄罗斯法规通常按产品构成拆分判断电子烟相关产品，不使用一个单一概念统一覆盖全部产品。页面展示上可分为设备类、液体类、预灌装 / 组合 / 空组件三类。</p>
                       </div>
                       
-                      <div className="bg-[#EEF5FC] border border-[#D8E3F0] rounded-lg p-4 space-y-5">
-                        <div className="border-b border-[#D8E3F0] pb-5">
+                      <div className="bg-white/60 border border-[#CBD2EE] rounded-lg p-4 space-y-5">
+                        <div className="border-b border-[#CBD2EE] pb-5">
                           <div className="font-semibold text-[#1F2A44] mb-3">1. 设备类：电子烟设备 / 电子雾化设备 / HNB加热设备</div>
                           <div className="space-y-3">
                             <div>
@@ -720,7 +731,7 @@ export default function CountryDetail() {
                           </div>
                         </div>
                         
-                        <div className="border-b border-[#D8E3F0] pb-5">
+                        <div className="border-b border-[#CBD2EE] pb-5">
                           <div className="font-semibold text-[#1F2A44] mb-3">2. 液体类：烟油 / 电子烟补充液</div>
                           <div className="space-y-3">
                             <div>
@@ -968,10 +979,7 @@ export default function CountryDetail() {
               <div className="space-y-6">
                 {country.tax.policies.find(p => p.title === '消费税说明') && (
                   <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="inline-flex px-2.5 py-1 rounded-md bg-[#F8F1E7] text-[#8A5A2B] text-sm font-semibold">消费税</span>
-                      <h3 className="text-base font-bold text-[#1F4E79]">消费税说明</h3>
-                    </div>
+                    <h3 className="text-base font-bold text-[#1F4E79] mb-3">消费税说明</h3>
                     <div className="space-y-3 text-[#334155] text-base leading-relaxed">
                       {country.tax.policies.find(p => p.title === '消费税说明')?.description
                         .split(/\n\n+/)
@@ -1014,10 +1022,7 @@ export default function CountryDetail() {
                 
                 {country.tax.policies.find(p => p.title === '最低价格说明') && (
                   <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="inline-flex px-2.5 py-1 rounded-md bg-[#F8F1E7] text-[#8A5A2B] text-sm font-semibold">最低价格</span>
-                      <h3 className="text-base font-bold text-[#1F4E79]">最低价格说明</h3>
-                    </div>
+                    <h3 className="text-base font-bold text-[#1F4E79] mb-3">最低价格说明</h3>
                     <p className="text-[#334155] text-base leading-relaxed">
                       {country.tax.policies.find(p => p.title === '最低价格说明')?.description}
                     </p>
