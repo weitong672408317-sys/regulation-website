@@ -1548,43 +1548,61 @@ export default function CountryDetail() {
             </h2>
             
             {country.id === 'russia' && (
-              <div className="mb-6">
+              <div className="pb-6 border-b border-[#D8DDED]">
                 <h3 className="text-lg font-bold text-[#2E3F73] mb-4">法规 / 政策文件</h3>
-                <div className="space-y-3">
-                  <div className="pb-3 border-b border-[#D8DDED]">
-                    <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦第203-FZ号法〈关于烟草制品、烟草产品、尼古丁产品及其生产原料的生产和流通国家监管〉》</a>
-                    <p className="text-sm text-[#334155] mt-1">俄罗斯烟草、尼古丁产品及相关原料生产流通的基础法律，主要影响生产、进口、出口、储存、供应及相应许可。</p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <div>
+                      <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦第203-FZ号法〈关于烟草制品、烟草产品、尼古丁产品及其生产原料的生产和流通国家监管〉》</a>
+                      <p className="text-sm text-[#334155] mt-1">俄罗斯烟草、尼古丁产品及相关原料生产流通的基础法律，主要影响生产、进口、出口、储存、供应及相应许可。</p>
+                    </div>
                   </div>
                   
-                  <div className="pb-3 border-b border-[#D8DDED]">
-                    <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦第15-FZ号法〈关于保护公民健康免受环境烟草烟雾影响、烟草消费后果或尼古丁产品消费后果影响〉》</a>
-                    <p className="text-sm text-[#334155] mt-1">俄罗斯控烟和市场销售限制的核心法律，主要影响销售地点、销售方式、展示、广告促销、未成年人保护、公共场所使用和特定产品禁售。</p>
+                  <div className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <div>
+                      <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦第15-FZ号法〈关于保护公民健康免受环境烟草烟雾影响、烟草消费后果或尼古丁产品消费后果影响〉》</a>
+                      <p className="text-sm text-[#334155] mt-1">俄罗斯控烟和市场销售限制的核心法律，主要影响销售地点、销售方式、展示、广告促销、未成年人保护、公共场所使用和特定产品禁售。</p>
+                    </div>
                   </div>
                   
-                  <div className="pb-3 border-b border-[#D8DDED]">
-                    <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《欧亚经济联盟烟草制品技术法规》（TR CU 035/2014）</a>
-                    <p className="text-sm text-[#334155] mt-1">传统烟草制品技术合规的基础规则，主要影响技术要求、包装标签、健康警示、消费者信息和符合性声明。</p>
+                  <div className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <div>
+                      <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《欧亚经济联盟烟草制品技术法规》（TR CU 035/2014）</a>
+                      <p className="text-sm text-[#334155] mt-1">传统烟草制品技术合规的基础规则，主要影响技术要求、包装标签、健康警示、消费者信息和符合性声明。</p>
+                    </div>
                   </div>
                   
-                  <div className="pb-3 border-b border-[#D8DDED]">
-                    <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》</a>
-                    <p className="text-sm text-[#334155] mt-1">无烟烟草产品的技术识别和技术合规规则。该技术法规主要涉及 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品，不改变第15-FZ号法项下相关产品禁售结论。</p>
+                  <div className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <div>
+                      <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》</a>
+                      <p className="text-sm text-[#334155] mt-1">无烟烟草产品的技术识别和技术合规规则。该技术法规主要涉及 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品，不改变第15-FZ号法项下相关产品禁售结论。</p>
+                    </div>
                   </div>
                   
-                  <div className="pb-3 border-b border-[#D8DDED]">
-                    <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦政府第224号令〈关于批准烟草和尼古丁产品识别标识及追溯规则〉》</a>
-                    <p className="text-sm text-[#334155] mt-1">烟草和尼古丁产品数字标识及追溯规则，主要影响赋码、贴码、流转信息报送和原料追溯信息报送。</p>
+                  <div className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <div>
+                      <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦政府第224号令〈关于批准烟草和尼古丁产品识别标识及追溯规则〉》</a>
+                      <p className="text-sm text-[#334155] mt-1">烟草和尼古丁产品数字标识及追溯规则，主要影响赋码、贴码、流转信息报送和原料追溯信息报送。</p>
+                    </div>
                   </div>
                   
-                  <div>
-                    <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦税法典》及最低价格规则</a>
-                    <p className="text-sm text-[#334155] mt-1">俄罗斯烟草、加热烟草、电子烟液、尼古丁原料等产品消费税和最低价格规则的主要依据。</p>
+                  <div className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <div>
+                      <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦税法典》及最低价格规则</a>
+                      <p className="text-sm text-[#334155] mt-1">俄罗斯烟草、加热烟草、电子烟液、尼古丁原料等产品消费税和最低价格规则的主要依据。</p>
+                    </div>
                   </div>
                 </div>
               </div>
             )}
             
-            <div className={country.id === 'russia' ? "mt-4" : ""}>
+            <div className={country.id === 'russia' ? "mt-6" : ""}>
               <h3 className={country.id === 'russia' ? "text-lg font-bold text-[#2E3F73] mb-3" : "text-lg font-medium text-gray-900 mb-3"}>新闻 / 执法动态</h3>
               {country.references.news.length > 0 ? (
                 <ul className="space-y-2">
