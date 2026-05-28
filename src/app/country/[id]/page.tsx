@@ -185,7 +185,7 @@ const FormattedOverviewText = ({ text }: { text: string }) => {
 
 const parseOverview = (overview: string) => {
   const sections: { title: string; content: string }[] = [];
-  const parts = overview.split(/(核心特征|主要法规\s*\/?\s*政策|主要产品口径|监管部门)/g);
+  const parts = overview.split(/(核心特征|主要法规\s*\/?\s*政策|监管部门)/g);
   
   for (let i = 1; i < parts.length; i += 2) {
     let title = parts[i].trim();
@@ -482,6 +482,21 @@ const EmirateDifferencesTable = ({ data }: { data: EmirateDifferenceRow[] }) => 
 };
 
 const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: ComplianceLicenseCard[], isRussia?: boolean }) => {
+  const renderDescription = (description: string) => {
+    const hasSemicolon = description.includes('；');
+    if (hasSemicolon) {
+      const items = description.split('；').map(item => item.trim()).filter(item => item);
+      return (
+        <ul className="list-disc pl-5 space-y-2 text-base leading-7 text-[#334155]">
+          {items.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ul>
+      );
+    }
+    return <p className="text-base leading-7 text-[#334155]">{description}</p>;
+  };
+
   return (
     <div className="grid md:grid-cols-2 gap-4">
       {cards.map((card, index) => (
@@ -491,8 +506,8 @@ const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Compliance
               {index + 1}
             </span>
             <div className="flex-1">
-              <h4 className={isRussia ? "font-bold text-[#1F4E79] text-base mb-2" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
-              <p className={isRussia ? "text-[#334155] leading-relaxed" : "text-slate-700 leading-relaxed"}>{card.description}</p>
+              <h4 className={isRussia ? "font-bold text-[#1F4E79] text-base mb-3" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
+              {isRussia ? renderDescription(card.description) : <p className="text-slate-700 leading-relaxed">{card.description}</p>}
             </div>
           </div>
         </div>
@@ -677,129 +692,107 @@ export default function CountryDetail() {
         <section className="mb-8">
           <div className={country.id === 'russia' ? "bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
             <h2 className="text-2xl font-bold text-[#1F2A44] mb-6 flex items-center gap-3">
-              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#2B7A8B] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
+              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#2F5F93] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
               监管体系与产品口径
             </h2>
-            <div className="space-y-6">
-              <div className={country.id === 'russia' ? "space-y-4" : "bg-blue-50 border border-blue-200 rounded-xl p-6"}>
-                {country.id !== 'russia' && <h3 className="text-lg font-bold text-blue-900 mb-4">监管概述</h3>}
-                <div className="space-y-4">
-                  {parseOverview(country.regulatorySystem.overview).map((section, index) => {
-                    const isListSection = ['主要法规/政策', '主要法规 / 政策', '监管部门'].includes(section.title);
-                    return (
-                      <div key={index} className={country.id === 'russia' ? "bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5" : "bg-white rounded-lg p-4"}>
-                        <h3 className={country.id === 'russia' ? "text-lg font-bold text-[#1F4E79] mb-3 flex items-center gap-2" : "text-base font-bold text-blue-900 mb-3"}>
-                          {country.id === 'russia' && <span className="w-2 h-2 rounded-full bg-[#5E82A8]"></span>}
-                          {section.title}
-                        </h3>
-                        {country.id === 'russia' && isListSection ? (
-                          <FormattedOverviewText text={section.content} />
-                        ) : (
-                          <div className={country.id === 'russia' ? "text-[#334155] text-base leading-7" : "text-gray-700 text-base leading-relaxed whitespace-pre-wrap"}>
-                            {section.content}
-                          </div>
-                        )}
+            {country.id === 'russia' ? (
+              <div className="space-y-4">
+                {parseOverview(country.regulatorySystem.overview).map((section, index) => {
+                  const isListSection = ['主要法规/政策', '主要法规 / 政策', '监管部门'].includes(section.title);
+                  const isCoreFeature = section.title === '核心特征';
+                  const paragraphs = section.content.split(/\n\n+/).filter(p => p.trim());
+                  return (
+                    <div key={index} className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="w-2 h-2 rounded-full bg-[#2F5F93]"></span>
+                        <h3 className="text-lg font-bold text-[#1E3A5F]">{section.title}</h3>
                       </div>
-                    );
-                  })}
+                      {isListSection ? (
+                        <FormattedOverviewText text={section.content} />
+                      ) : isCoreFeature ? (
+                        <div className="space-y-3">
+                          {paragraphs.map((paragraph, pIndex) => (
+                            <p key={pIndex} className="text-base leading-7 text-[#334155]">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="text-base leading-7 text-[#334155]">
+                          {section.content}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-blue-900 mb-4">监管概述</h3>
+                <div className="space-y-4">
+                  {parseOverview(country.regulatorySystem.overview).map((section, index) => (
+                    <div key={index} className="bg-white rounded-lg p-4">
+                      <h3 className="text-base font-bold text-blue-900 mb-3">{section.title}</h3>
+                      <div className="text-gray-700 text-base leading-relaxed whitespace-pre-wrap">
+                        {section.content}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              
-              {country.id === 'russia' ? (
-                <div className="space-y-5">
-                  <h3 className="text-base font-bold text-[#1F4E79] mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#5E82A8]"></span>
-                    产品定义与监管口径
-                  </h3>
-                  
-                  <ProductDefinitionCard
-                    title="传统卷烟、雪茄、烟丝、papirosy（俄式纸嘴卷烟）"
+            )}
+          </div>
+        </section>
+
+        {country.id === 'russia' && (
+          <section className="mb-8">
+            <div className="bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6">
+              <h2 className="text-2xl font-bold text-[#1F2A44] mb-6 flex items-center gap-3">
+                <div className="w-1 h-7 bg-[#5E82A8] rounded-full"></div>
+                产品定义与监管口径
+              </h2>
+              <div className="space-y-5">
+                <ProductDefinitionCard
+                  title="传统卷烟、雪茄、烟丝、papirosy（俄式纸嘴卷烟）"
+                  sections={[
+                    { label: '产品定性', content: '根据 TR CU 035/2014，烟草制品是全部或部分以烟草叶为原料制成，并以消费者包装投放市场的产品。传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草，以及 papirosy（俄式纸嘴卷烟，即一端为烟草段、另一端为较长中空纸嘴的传统燃烧型烟草制品）通常属于烟草制品。' },
+                    { label: '合规重点', content: '产品本身可准入，主要关注 TR CU 035/2014 符合性声明、生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签、健康警示和销售限制。' },
+                  ]}
+                />
+                
+                <ProductDefinitionCard
+                  title="HNB烟支 / 加热烟草产品"
+                  sections={[
+                    { label: '产品定性', content: '第15-FZ号法将加热烟草产品列入尼古丁产品范围。HNB烟支通常指含烟草材料、通过加热装置加热后供消费者吸入的产品，监管上按加热烟草产品、烟草产品或尼古丁产品判断，不按 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品处理。' },
+                    { label: '合规重点', content: '产品本身可准入，重点关注生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签和销售限制。' },
+                  ]}
+                />
+                
+                <ProductDefinitionCard
+                  title="无烟烟草产品"
+                  sections={[
+                    { label: '产品定性', content: '根据第268-FZ号法，无烟烟草产品是通过吮吸、咀嚼或鼻吸等方式使用的烟草产品，典型产品包括 snus（湿润口含烟草制品）、nasvay（中亚地区常见的口含 / 咀嚼型无烟烟草制品）、咀嚼烟草和鼻烟。该类产品与 HNB烟支不同，不通过加热装置产生可吸入气溶胶。' },
+                    { label: '合规重点', content: 'snus、nasvay 及相关口含、鼻吸、咀嚼类无烟烟草产品禁止批发和零售；第268-FZ号法下的技术识别规则不改变第15-FZ号法项下的禁售结论。' },
+                  ]}
+                />
+                
+                <ProductDefinitionCard
+                  title="口含 / 鼻吸类尼古丁产品"
+                  sections={[
+                    { label: '产品定性', content: '该类产品含尼古丁或尼古丁衍生物，并通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁。典型产品包括尼古丁袋、尼古丁口含膜、食品型尼古丁产品，以及含尼古丁粉末、混合物等。' },
+                    { label: '合规重点', content: '尼古丁袋、尼古丁口含膜、食品型尼古丁产品，以及其他通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁的产品，适用第15-FZ号法下尼古丁产品禁售规则，禁止批发和零售。' },
+                  ]}
+                />
+                
+                <ProductDefinitionCard
+                    title="电子烟相关产品"
                     sections={[
-                      { label: '产品定性', content: '根据 TR CU 035/2014，烟草制品是全部或部分以烟草叶为原料制成，并以消费者包装投放市场的产品。传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草，以及 papirosy（俄式纸嘴卷烟，即一端为烟草段、另一端为较长中空纸嘴的传统燃烧型烟草制品）通常属于烟草制品。' },
-                      { label: '合规重点', content: '产品本身可准入，主要关注 TR CU 035/2014 符合性声明、生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签、健康警示和销售限制。' },
+                      { label: '总体口径', content: '俄罗斯法规通常按产品构成拆分判断电子烟相关产品，不使用一个单一概念统一覆盖全部产品。页面展示上可分为设备类、液体类、预灌装 / 组合 / 空组件三类。' },
+                      { label: '设备类', content: '**法规定义**：根据第15-FZ号法，尼古丁产品使用装置是指用于产生含尼古丁气溶胶、蒸气或气体，并供使用者吸入的电子或其他装置，包括电子尼古丁输送系统和加热烟草系统，但不包括依法注册为医疗器械或药品的产品。电子烟设备、可重复使用电子雾化设备、HNB加热设备通常按尼古丁产品使用系统 / 装置理解。**监管与合规重点**：单纯电子烟设备本身的消费税已经取消；可重复使用电子烟及类似个人电加热雾化设备的数字标识仍处于试验 / 过渡阶段。进入零售市场仍需遵守销售地点、展示、远程销售、自动售卖和未成年人保护等限制。' },
+                      { label: '液体类', content: '**法规定义**：根据第15-FZ号法，尼古丁液体包括尼古丁含量不低于 0.1 mg/ml 的液体；无尼古丁液体包括不含尼古丁或尼古丁含量低于 0.1 mg/ml、并用于电子尼古丁输送系统的液体。**监管与合规重点**：烟油、电子烟补充液通常按尼古丁液体或无尼古丁液体管理，判断重点是尼古丁含量和用途。零售环节不得销售尼古丁浓度超过 20 mg/ml 的尼古丁液体或尼古丁溶液；含尼古丁液体涉及消费税、最低价格、数字标识及生产 / 进口投入流通许可。' },
+                      { label: '预灌装/组合/空组件', content: '**法规定义**：俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品通常需拆分适用第15-FZ号法下的尼古丁产品使用装置、尼古丁液体或无尼古丁液体规则。**监管与合规重点**：含液体烟弹和设备与液体组合产品的核心风险在液体部分；设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理，重点结合设备组件、海关归类和下游用途判断。' },
                     ]}
                   />
-                  
-                  <ProductDefinitionCard
-                    title="HNB烟支 / 加热烟草产品"
-                    sections={[
-                      { label: '产品定性', content: '第15-FZ号法将加热烟草产品列入尼古丁产品范围。HNB烟支通常指含烟草材料、通过加热装置加热后供消费者吸入的产品，监管上按加热烟草产品、烟草产品或尼古丁产品判断，不按 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品处理。' },
-                      { label: '合规重点', content: '产品本身可准入，重点关注生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签和销售限制。' },
-                    ]}
-                  />
-                  
-                  <ProductDefinitionCard
-                    title="无烟烟草产品"
-                    sections={[
-                      { label: '产品定性', content: '根据第268-FZ号法，无烟烟草产品是通过吮吸、咀嚼或鼻吸等方式使用的烟草产品，典型产品包括 snus（湿润口含烟草制品）、nasvay（中亚地区常见的口含 / 咀嚼型无烟烟草制品）、咀嚼烟草和鼻烟。该类产品与 HNB烟支不同，不通过加热装置产生可吸入气溶胶。' },
-                      { label: '合规重点', content: 'snus、nasvay 及相关口含、鼻吸、咀嚼类无烟烟草产品禁止批发和零售；第268-FZ号法下的技术识别规则不改变第15-FZ号法项下的禁售结论。' },
-                    ]}
-                  />
-                  
-                  <ProductDefinitionCard
-                    title="口含 / 鼻吸类尼古丁产品"
-                    sections={[
-                      { label: '产品定性', content: '该类产品含尼古丁或尼古丁衍生物，并通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁。典型产品包括尼古丁袋、尼古丁口含膜、食品型尼古丁产品，以及含尼古丁粉末、混合物等。' },
-                      { label: '合规重点', content: '尼古丁袋、尼古丁口含膜、食品型尼古丁产品，以及其他通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁的产品，适用第15-FZ号法下尼古丁产品禁售规则，禁止批发和零售。' },
-                    ]}
-                  />
-                  
-                  <div className="bg-[#EEF5FC] border border-[#BFD3E8] border-l-4 border-l-[#2F5F93] rounded-xl p-5 shadow-none">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="w-2 h-2 rounded-full bg-[#2F5F93] flex-shrink-0"></span>
-                      <h4 className="font-bold text-[#1E3A5F] text-lg">电子烟相关产品</h4>
-                    </div>
-                    <div className="space-y-4">
-                      <div>
-                        <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">总体口径</div>
-                        <p className="text-[#334155] text-base leading-7">俄罗斯法规通常按产品构成拆分判断电子烟相关产品，不使用一个单一概念统一覆盖全部产品。页面展示上可分为设备类、液体类、预灌装 / 组合 / 空组件三类。</p>
-                      </div>
-                      
-                      <div className="bg-[#F7FAFE] border border-[#D8E3F0] rounded-lg p-4 space-y-5">
-                        <div className="border-b border-[#D8E3F0] pb-5">
-                          <div className="font-bold text-[#1F2A44] text-base mb-3">1. 设备类：电子烟设备 / 电子雾化设备 / HNB加热设备</div>
-                          <div className="space-y-3">
-                            <div>
-                              <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">法规定义</div>
-                              <p className="text-[#334155] leading-7 text-base">根据第15-FZ号法，尼古丁产品使用装置是指用于产生含尼古丁气溶胶、蒸气或气体，并供使用者吸入的电子或其他装置，包括电子尼古丁输送系统和加热烟草系统，但不包括依法注册为医疗器械或药品的产品。电子烟设备、可重复使用电子雾化设备、HNB加热设备通常按尼古丁产品使用系统 / 装置理解。</p>
-                            </div>
-                            <div>
-                              <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">监管与合规重点</div>
-                              <p className="text-[#334155] leading-7 text-base">单纯电子烟设备本身的消费税已经取消；可重复使用电子烟及类似个人电加热雾化设备的数字标识仍处于试验 / 过渡阶段。进入零售市场仍需遵守销售地点、展示、远程销售、自动售卖和未成年人保护等限制。</p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="border-b border-[#D8E3F0] pb-5">
-                          <div className="font-bold text-[#1F2A44] text-base mb-3">2. 液体类：烟油 / 电子烟补充液</div>
-                          <div className="space-y-3">
-                            <div>
-                              <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">法规定义</div>
-                              <p className="text-[#334155] leading-7 text-base">根据第15-FZ号法，尼古丁液体包括尼古丁含量不低于 0.1 mg/ml 的液体；无尼古丁液体包括不含尼古丁或尼古丁含量低于 0.1 mg/ml、并用于电子尼古丁输送系统的液体。</p>
-                            </div>
-                            <div>
-                              <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">监管与合规重点</div>
-                              <p className="text-[#334155] leading-7 text-base">烟油、电子烟补充液通常按尼古丁液体或无尼古丁液体管理，判断重点是尼古丁含量和用途。零售环节不得销售尼古丁浓度超过 20 mg/ml 的尼古丁液体或尼古丁溶液；含尼古丁液体涉及消费税、最低价格、数字标识及生产 / 进口投入流通许可。</p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <div className="font-bold text-[#1F2A44] text-base mb-3">3. 预灌装 / 组合 / 空组件：含液体烟弹、设备与液体组合产品、空烟弹、空容器</div>
-                          <div className="space-y-3">
-                            <div>
-                              <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">法规定义</div>
-                              <p className="text-[#334155] leading-7 text-base">俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品通常需拆分适用第15-FZ号法下的尼古丁产品使用装置、尼古丁液体或无尼古丁液体规则。</p>
-                            </div>
-                            <div>
-                              <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-2">监管与合规重点</div>
-                              <p className="text-[#334155] leading-7 text-base">含液体烟弹和设备与液体组合产品的核心风险在液体部分；设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理，重点结合设备组件、海关归类和下游用途判断。</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   
                   <ProductDefinitionCard
                     title="烟叶、烟草薄片、烟草原料、尼古丁原料"
@@ -816,15 +809,10 @@ export default function CountryDetail() {
                       { label: '合规重点', content: '不含尼古丁、不含烟草提取物、仅作为普通辅材的，通常可按普通辅材理解；含尼古丁、烟草提取物，或作为烟油、含液体烟弹、HNB烟支、尼古丁产品组件使用的，应转入对应成品或原料监管路径。' },
                     ]}
                   />
-                </div>
-              ) : (
-                <InfoBlock title="品类定义">
-                  <FormattedText text={country.regulatorySystem.definition} />
-                </InfoBlock>
-              )}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         <section className="mb-8">
           <div className={country.id === 'russia' ? "bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
@@ -1033,11 +1021,11 @@ export default function CountryDetail() {
                   <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
                     <h3 className="text-lg font-bold text-[#1F4E79] mb-4">消费税税率表</h3>
                     <div className="overflow-x-auto">
-                      <table className="w-full text-sm border-collapse border-[#D8E3F0]">
+                      <table className="w-full text-base border-collapse border-[#D8E3F0]">
                         <thead>
                           <tr className="bg-[#E6EEF8]">
                             {country.tax.exciseTaxTable.headers.map((header, idx) => (
-                              <th key={idx} className="px-4 py-3 text-left font-semibold text-[#1F4E79] border border-[#D8E3F0]" style={idx === 0 ? { width: '28%' } : { width: '24%' }}>
+                              <th key={idx} className="px-4 py-4 text-left font-bold text-[#1F4E79] border border-[#D8E3F0]" style={idx === 0 ? { width: '28%' } : { width: '24%' }}>
                                 {header}
                               </th>
                             ))}
@@ -1047,7 +1035,7 @@ export default function CountryDetail() {
                           {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
                             <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F8FBFF]'}>
                               {row.map((cell, cellIdx) => (
-                                <td key={cellIdx} className="px-4 py-3 border border-[#D8E3F0] text-[#334155]">
+                                <td key={cellIdx} className="px-4 py-4 border border-[#D8E3F0] text-[#334155] leading-7">
                                   {cell}
                                 </td>
                               ))}
@@ -1072,11 +1060,11 @@ export default function CountryDetail() {
                   <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
                     <h3 className="text-lg font-bold text-[#1F4E79] mb-4">最低价格表</h3>
                     <div className="overflow-x-auto">
-                      <table className="w-full text-sm border-collapse border-[#D8E3F0]">
+                      <table className="w-full text-base border-collapse border-[#D8E3F0]">
                         <thead>
                           <tr className="bg-[#E6EEF8]">
                             {country.tax.minimumPriceTable.headers.map((header, idx) => (
-                              <th key={idx} className="px-4 py-3 text-left font-semibold text-[#1F4E79] border border-[#D8E3F0]" style={idx === 0 ? { width: '30%' } : { width: '70%' }}>
+                              <th key={idx} className="px-4 py-4 text-left font-bold text-[#1F4E79] border border-[#D8E3F0]" style={idx === 0 ? { width: '42%' } : { width: '58%' }}>
                                 {header}
                               </th>
                             ))}
@@ -1086,7 +1074,7 @@ export default function CountryDetail() {
                           {country.tax.minimumPriceTable.rows.map((row, rowIdx) => (
                             <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F8FBFF]'}>
                               {row.map((cell, cellIdx) => (
-                                <td key={cellIdx} className="px-4 py-3 border border-[#D8E3F0] text-[#334155]">
+                                <td key={cellIdx} className="px-4 py-4 border border-[#D8E3F0] text-[#334155] leading-7">
                                   {cell}
                                 </td>
                               ))}
