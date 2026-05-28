@@ -141,19 +141,19 @@ const RuleCard = ({ number, title, items }: { number: number; title: string; ite
   const filteredItems = items.map(i => i.trim()).filter(Boolean);
   
   return (
-    <div className="bg-[#F5F8FC] border border-[#D6E3F1] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5 shadow-none hover:shadow-md transition-shadow">
       <div className="flex items-start gap-3 mb-3">
-        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#2F5F93] text-white text-sm font-bold flex-shrink-0">
+        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">
           {number}
         </span>
-        <h4 className="font-bold text-[#0F172A] text-base">{title}</h4>
+        <h4 className="font-bold text-[#2E3F73] text-base">{title}</h4>
       </div>
       {filteredItems.length > 0 && (
         <ul className="space-y-2 ml-10">
           {filteredItems.map((item, index) => (
             <li key={index} className="flex items-start gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#6B86A6] mt-1.5 flex-shrink-0"></span>
-              <span className="text-[#334155] text-sm leading-relaxed">{item}</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
+              <span className="text-[#334155] text-base leading-7">{item}</span>
             </li>
           ))}
         </ul>
@@ -164,16 +164,16 @@ const RuleCard = ({ number, title, items }: { number: number; title: string; ite
 
 const ProductDefinitionCard = ({ title, sections }: { title: string; sections: { label: string; content: string }[] }) => {
   return (
-    <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5 shadow-none">
+    <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5 shadow-none">
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-2 h-2 rounded-full bg-[#5E82A8] flex-shrink-0"></span>
-        <h4 className="font-bold text-[#1F4E79] text-base">{title}</h4>
+        <span className="w-2 h-2 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+        <h4 className="font-bold text-[#2E3F73] text-base">{title}</h4>
       </div>
       <div className="space-y-4">
         {sections.map((section, index) => (
           <div key={index}>
-            <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-xs font-semibold mb-2">{section.label}</div>
-            <p className="text-[#334155] text-sm leading-relaxed">{section.content}</p>
+            <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-xs font-semibold mb-2">{section.label}</div>
+            <p className="text-[#334155] text-base leading-7">{section.content}</p>
           </div>
         ))}
       </div>
@@ -536,13 +536,13 @@ const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Compliance
   return (
     <div className="grid md:grid-cols-2 gap-4">
       {cards.map((card, index) => (
-        <div key={index} className={isRussia ? "bg-[#F2F7FD] border border-[#CFE0F2] rounded-xl p-5 hover:shadow-md transition-shadow" : "bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow"}>
+        <div key={index} className={isRussia ? "bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 hover:shadow-md transition-shadow" : "bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow"}>
           <div className="flex items-start gap-3">
-            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#2F5F93] text-white text-xs font-bold flex-shrink-0">
+            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">
               {index + 1}
             </span>
             <div className="flex-1">
-              <h4 className={isRussia ? "font-bold text-[#1F4E79] text-base mb-3" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
+              <h4 className={isRussia ? "font-bold text-[#2E3F73] text-base mb-3" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
               {isRussia ? renderDescription(card.description) : <p className="text-slate-700 leading-relaxed">{card.description}</p>}
             </div>
           </div>
@@ -794,7 +794,7 @@ export default function CountryDetail() {
                   </div>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2 text-base leading-7 text-[#334155]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                       <span>俄罗斯属于烟草及尼古丁产品强监管市场。</span>
                     </li>
                     <li className="flex items-start gap-2 text-base leading-7 text-[#334155]">
@@ -1009,16 +1009,20 @@ export default function CountryDetail() {
                           <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
                           <p className="mb-3">含液体烟弹、设备与液体组合产品、空烟弹、空容器、普通电子烟组件。</p>
                           <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
-                          <p className="mb-3">俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品需要结合设备部分、液体部分、是否含尼古丁、是否含液体、下游用途和海关归类判断。</p>
+                          <p className="mb-3">俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品需要结合设备部分、液体部分和下游用途拆分判断。</p>
                           <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                           <ul className="space-y-1 text-[#334155]">
                             <li className="flex items-start gap-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                              <span>含液体烟弹和设备与液体组合产品的核心风险在液体部分；设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。</span>
+                              <span>含液体烟弹和设备与液体组合产品的核心风险在液体部分，液体部分按尼古丁液体或无尼古丁液体判断。</span>
                             </li>
                             <li className="flex items-start gap-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                              <span>空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理，但如与含尼古丁液体、含液体烟弹或组合产品配套销售，应转入对应产品路径判断。</span>
+                              <span>设备部分按尼古丁产品使用系统 / 装置判断。</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                              <span>空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理；如与含尼古丁液体、含液体烟弹或组合产品配套销售，应转入对应产品路径判断。</span>
                             </li>
                           </ul>
                         </>}
@@ -1294,22 +1298,22 @@ export default function CountryDetail() {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className={country.id === 'russia' ? "bg-[#E6EEF8]" : "bg-gray-50"}>
-                      <th className={country.id === 'russia' ? "px-4 py-3 text-left font-semibold text-[#1F4E79] border-b border-[#D8E3F0]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>产品</th>
-                      <th className={country.id === 'russia' ? "px-4 py-3 text-left font-semibold text-[#1F4E79] border-b border-[#D8E3F0]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>NPPBKC</th>
-                      <th className={country.id === 'russia' ? "px-4 py-3 text-left font-semibold text-[#1F4E79] border-b border-[#D8E3F0]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>PI 进口批准</th>
-                      <th className={country.id === 'russia' ? "px-4 py-3 text-left font-semibold text-[#1F4E79] border-b border-[#D8E3F0]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>BPOM 注册</th>
-                      <th className={country.id === 'russia' ? "px-4 py-3 text-left font-semibold text-[#1F4E79] border-b border-[#D8E3F0]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>Halal 认证</th>
+                    <tr className={country.id === 'russia' ? "bg-[#E8EDF5]" : "bg-gray-50"}>
+                      <th className={country.id === 'russia' ? "px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>产品</th>
+                      <th className={country.id === 'russia' ? "px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>NPPBKC</th>
+                      <th className={country.id === 'russia' ? "px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>PI 进口批准</th>
+                      <th className={country.id === 'russia' ? "px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>BPOM 注册</th>
+                      <th className={country.id === 'russia' ? "px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]" : "px-4 py-3 text-left font-semibold text-gray-700 border-b border-gray-200"}>Halal 认证</th>
                     </tr>
                   </thead>
                   <tbody>
                     {country.compliance.table.map((row, index) => (
                       <tr key={index} className={country.id === 'russia' ? "hover:bg-[#F8FBFF]" : "hover:bg-gray-50"}>
-                        <td className={country.id === 'russia' ? "px-4 py-3 border-b border-[#D8E3F0] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}>{row.product}</td>
-                        <td className={country.id === 'russia' ? "px-4 py-3 border-b border-[#D8E3F0] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}><TableCellContent content={row.nppbkc} /></td>
-                        <td className={country.id === 'russia' ? "px-4 py-3 border-b border-[#D8E3F0] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}><TableCellContent content={row.piImportApproval} /></td>
-                        <td className={country.id === 'russia' ? "px-4 py-3 border-b border-[#D8E3F0] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}><TableCellContent content={row.bpomRegistration} /></td>
-                        <td className={country.id === 'russia' ? "px-4 py-3 border-b border-[#D8E3F0] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}><TableCellContent content={row.halalCertification} /></td>
+                        <td className={country.id === 'russia' ? "px-4 py-4 border-b border-[#D8DDED] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}>{row.product}</td>
+                        <td className={country.id === 'russia' ? "px-4 py-4 border-b border-[#D8DDED] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}><TableCellContent content={row.nppbkc} /></td>
+                        <td className={country.id === 'russia' ? "px-4 py-4 border-b border-[#D8DDED] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}><TableCellContent content={row.piImportApproval} /></td>
+                        <td className={country.id === 'russia' ? "px-4 py-4 border-b border-[#D8DDED] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}><TableCellContent content={row.bpomRegistration} /></td>
+                        <td className={country.id === 'russia' ? "px-4 py-4 border-b border-[#D8DDED] text-[#334155]" : "px-4 py-3 border-b border-gray-200"}><TableCellContent content={row.halalCertification} /></td>
                       </tr>
                     ))}
                   </tbody>
@@ -1339,13 +1343,20 @@ export default function CountryDetail() {
                 {country.tax.policies.find(p => p.title === '消费税说明') && (
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
                     <h3 className="text-lg font-bold text-[#2E3F73] mb-3">消费税说明</h3>
-                    <div className="space-y-3 text-[#334155] text-base leading-7">
-                      {country.tax.policies.find(p => p.title === '消费税说明')?.description
-                        .split(/\n\n+/)
-                        .map((paragraph, index) => (
-                          <p key={index}>{paragraph}</p>
-                        ))}
-                    </div>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-2 text-base leading-7 text-[#334155]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
+                        <span>俄罗斯对烟草及尼古丁相关产品按产品类型适用消费税，税率按年度逐步调整。</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-base leading-7 text-[#334155]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
+                        <span>卷烟、papirosy（俄式纸嘴卷烟）适用复合税率；加热消费用烟草、电子尼古丁输送系统液体、尼古丁原料、无烟草尼古丁加热混合物等按固定税额计征。</span>
+                      </li>
+                      <li className="flex items-start gap-2 text-base leading-7 text-[#334155]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
+                        <span>单纯电子烟设备和 HNB 加热设备本身不按消费税税目征税，但进口时仍需结合 HS 归类确认关税、进口增值税和清关监管要求。</span>
+                      </li>
+                    </ul>
                   </div>
                 )}
                 
@@ -1560,7 +1571,7 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className={country.id === 'russia' ? "bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
+          <div className={country.id === 'russia' ? "bg-white border border-[#D8DDED] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
             <div className="flex items-center gap-3 mb-6">
               {country.id === 'russia' ? (
                 <div className="w-1 h-7 bg-[#4D5F9A] rounded-full"></div>
