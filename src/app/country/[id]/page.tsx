@@ -953,7 +953,20 @@ export default function CountryDetail() {
                         <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
                         <p className="mb-3">根据第15-FZ号法，尼古丁产品使用装置是指用于产生含尼古丁气溶胶、蒸气或气体，并供使用者吸入的电子或其他装置，包括电子尼古丁输送系统和加热烟草系统，但不包括依法注册为医疗器械或药品的产品。</p>
                         <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                        <p>单纯电子烟设备本身的消费税已经取消；可重复使用电子烟及类似个人电加热雾化设备的数字标识仍处于试验 / 过渡阶段。进入零售市场仍需遵守销售地点、展示、远程销售、自动售卖和未成年人保护等限制。</p>
+                        <ul className="space-y-1 text-[#334155]">
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>单纯电子烟设备本身的消费税已经取消。</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>可重复使用电子烟及类似个人电加热雾化设备的数字标识仍处于试验 / 过渡阶段。</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>进入零售市场仍需遵守销售地点、展示、远程销售、自动售卖和未成年人保护等限制。</span>
+                          </li>
+                        </ul>
                       </>}
                     />
                     
@@ -964,9 +977,27 @@ export default function CountryDetail() {
                         <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
                         <p className="mb-3">烟油、电子烟补充液、尼古丁液体、无尼古丁液体。</p>
                         <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
-                        <p className="mb-3">根据第15-FZ号法，尼古丁液体包括尼古丁含量不低于 0.1 mg/ml 的液体；无尼古丁液体包括不含尼古丁或尼古丁含量低于 0.1 mg/ml、并用于电子尼古丁输送系统的液体。</p>
+                        <ul className="space-y-1 text-[#334155] mb-3">
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>根据第15-FZ号法，尼古丁液体包括尼古丁含量不低于 0.1 mg/ml 的液体。</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>无尼古丁液体包括不含尼古丁或尼古丁含量低于 0.1 mg/ml、并用于电子尼古丁输送系统的液体。</span>
+                          </li>
+                        </ul>
                         <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                        <p>零售环节不得销售尼古丁浓度超过 20 mg/ml 的尼古丁液体或尼古丁溶液；含尼古丁液体涉及消费税、最低价格、数字标识及生产 / 进口投入流通许可。</p>
+                        <ul className="space-y-1 text-[#334155]">
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>零售环节不得销售尼古丁浓度超过 20 mg/ml 的尼古丁液体或尼古丁溶液。</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>含尼古丁液体涉及消费税、最低价格、数字标识及生产 / 进口投入流通许可。</span>
+                          </li>
+                        </ul>
                       </>}
                     />
                     
@@ -980,7 +1011,16 @@ export default function CountryDetail() {
                           <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
                           <p className="mb-3">俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品需要结合设备部分、液体部分、是否含尼古丁、是否含液体、下游用途和海关归类判断。</p>
                           <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                          <p>含液体烟弹和设备与液体组合产品的核心风险在液体部分；设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理，但如与含尼古丁液体、含液体烟弹或组合产品配套销售，应转入对应产品路径判断。</p>
+                          <ul className="space-y-1 text-[#334155]">
+                            <li className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                              <span>含液体烟弹和设备与液体组合产品的核心风险在液体部分；设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                              <span>空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理，但如与含尼古丁液体、含液体烟弹或组合产品配套销售，应转入对应产品路径判断。</span>
+                            </li>
+                          </ul>
                         </>}
                       />
                     </div>
@@ -1041,18 +1081,35 @@ export default function CountryDetail() {
                   <div className="grid md:grid-cols-3 gap-4">
                     <StatusCard
                       status="green"
-                      title="供应链可准入"
+                      title="烟草及尼古丁原料"
                       content={<>
                         <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
                         <p className="mb-3">烟叶、reconstituted tobacco、烟草原料、尼古丁原料。</p>
                         <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                        <p>可作为原料进入供应链，不宜作为普通消费者成品零售。俄罗斯本地生产或加工主体需取得覆盖烟草原料或尼古丁原料的生产许可；俄罗斯进口商需取得烟草原料或尼古丁原料进口投入流通许可；原料还需关注追溯信息报送。</p>
+                        <ul className="space-y-1 text-[#334155]">
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>可作为原料进入供应链，不宜作为普通消费者成品零售。</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>俄罗斯本地生产或加工主体需取得覆盖烟草原料或尼古丁原料的生产许可。</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>俄罗斯进口商需取得烟草原料或尼古丁原料进口投入流通许可。</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>原料还需关注追溯信息报送。</span>
+                          </li>
+                        </ul>
                       </>}
                     />
                     
                     <StatusCard
                       status="green"
-                      title="普通辅材路径"
+                      title="普通烟用辅材"
                       content={<>
                         <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
                         <p className="mb-3">滤嘴棒、爆珠、香精香料、普通烟用辅材。</p>
@@ -1063,7 +1120,7 @@ export default function CountryDetail() {
                     
                     <StatusCard
                       status="amber"
-                      title="需转入对应产品路径"
+                      title="含特殊成分或特定用途辅材"
                       content={<>
                         <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
                         <p className="mb-3">含尼古丁、烟草提取物，或作为烟油、含液体烟弹、HNB烟支、尼古丁产品组件使用的辅材。</p>
@@ -1198,9 +1255,9 @@ export default function CountryDetail() {
         )}
 
         <section className="mb-8">
-          <div className={country.id === 'russia' ? "bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
-            <h2 className="text-2xl font-bold text-[#1F2A44] mb-6 flex items-center gap-3">
-              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#5E82A8] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
+          <div className={country.id === 'russia' ? "bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
+            <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
+              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#4A6290] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
               合规资质
             </h2>
             {country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
@@ -1256,23 +1313,23 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className={country.id === 'russia' ? "bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6" : "bg-white rounded-lg shadow-sm border border-gray-200 p-6"}>
-            <h2 className={country.id === 'russia' ? "text-2xl font-bold text-[#1F2A44] mb-6 flex items-center gap-3" : "text-2xl font-semibold text-gray-900 mb-6"}>
-              {country.id === 'russia' && <div className="w-1 h-7 bg-[#8A5A2B] rounded-full"></div>}
+          <div className={country.id === 'russia' ? "bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6" : "bg-white rounded-lg shadow-sm border border-gray-200 p-6"}>
+            <h2 className={country.id === 'russia' ? "text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3" : "text-2xl font-semibold text-gray-900 mb-6"}>
+              {country.id === 'russia' && <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>}
               税收政策
             </h2>
             
             {country.tax.exciseTax && (
               <div className="mb-6">
-                <p className={country.id === 'russia' ? "text-[#334155] leading-relaxed" : "text-gray-700 leading-relaxed"}>{country.tax.exciseTax}</p>
+                <p className={country.id === 'russia' ? "text-[#334155] text-base leading-7" : "text-gray-700 leading-relaxed"}>{country.tax.exciseTax}</p>
               </div>
             )}
             
             {country.id === 'russia' ? (
               <div className="space-y-6">
                 {country.tax.policies.find(p => p.title === '消费税说明') && (
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
-                    <h3 className="text-lg font-bold text-[#1F4E79] mb-3">消费税说明</h3>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
+                    <h3 className="text-lg font-bold text-[#2E3F73] mb-3">消费税说明</h3>
                     <div className="space-y-3 text-[#334155] text-base leading-7">
                       {country.tax.policies.find(p => p.title === '消费税说明')?.description
                         .split(/\n\n+/)
@@ -1284,14 +1341,14 @@ export default function CountryDetail() {
                 )}
                 
                 {country.tax.exciseTaxTable && (
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
-                    <h3 className="text-lg font-bold text-[#1F4E79] mb-4">消费税税率表</h3>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
+                    <h3 className="text-lg font-bold text-[#2E3F73] mb-4">消费税税率表</h3>
                     <div className="overflow-x-auto">
-                      <table className="w-full text-base border-collapse border-[#D8E3F0]">
+                      <table className="w-full text-base border-collapse border-[#D8DDED]">
                         <thead>
-                          <tr className="bg-[#E6EEF8]">
+                          <tr className="bg-[#E8EDF5]">
                             {country.tax.exciseTaxTable.headers.map((header, idx) => (
-                              <th key={idx} className="px-4 py-4 text-left font-bold text-[#1F4E79] border border-[#D8E3F0]" style={idx === 0 ? { width: '28%' } : { width: '24%' }}>
+                              <th key={idx} className="px-4 py-4 text-left font-bold text-[#2E3F73] border border-[#D8DDED]" style={idx === 0 ? { width: '28%' } : { width: '24%' }}>
                                 {header}
                               </th>
                             ))}
@@ -1301,7 +1358,7 @@ export default function CountryDetail() {
                           {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
                             <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F8FBFF]'}>
                               {row.map((cell, cellIdx) => (
-                                <td key={cellIdx} className="px-4 py-4 border border-[#D8E3F0] text-[#334155] leading-7">
+                                <td key={cellIdx} className="px-4 py-4 border border-[#D8DDED] text-[#334155] leading-7">
                                   {cell}
                                 </td>
                               ))}
@@ -1314,8 +1371,8 @@ export default function CountryDetail() {
                 )}
                 
                 {country.tax.policies.find(p => p.title === '最低价格说明') && (
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
-                    <h3 className="text-lg font-bold text-[#1F4E79] mb-3">最低价格说明</h3>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
+                    <h3 className="text-lg font-bold text-[#2E3F73] mb-3">最低价格说明</h3>
                     <p className="text-[#334155] text-base leading-7">
                       {country.tax.policies.find(p => p.title === '最低价格说明')?.description}
                     </p>
@@ -1323,14 +1380,14 @@ export default function CountryDetail() {
                 )}
                 
                 {country.tax.minimumPriceTable && (
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
-                    <h3 className="text-lg font-bold text-[#1F4E79] mb-4">最低价格表</h3>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
+                    <h3 className="text-lg font-bold text-[#2E3F73] mb-4">最低价格表</h3>
                     <div className="overflow-x-auto">
-                      <table className="w-full text-base border-collapse border-[#D8E3F0]">
+                      <table className="w-full text-base border-collapse border-[#D8DDED]">
                         <thead>
-                          <tr className="bg-[#E6EEF8]">
+                          <tr className="bg-[#E8EDF5]">
                             {country.tax.minimumPriceTable.headers.map((header, idx) => (
-                              <th key={idx} className="px-4 py-4 text-left font-bold text-[#1F4E79] border border-[#D8E3F0]" style={idx === 0 ? { width: '42%' } : { width: '58%' }}>
+                              <th key={idx} className="px-4 py-4 text-left font-bold text-[#2E3F73] border border-[#D8DDED]" style={idx === 0 ? { width: '42%' } : { width: '58%' }}>
                                 {header}
                               </th>
                             ))}
@@ -1340,7 +1397,7 @@ export default function CountryDetail() {
                           {country.tax.minimumPriceTable.rows.map((row, rowIdx) => (
                             <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F8FBFF]'}>
                               {row.map((cell, cellIdx) => (
-                                <td key={cellIdx} className="px-4 py-4 border border-[#D8E3F0] text-[#334155] leading-7">
+                                <td key={cellIdx} className="px-4 py-4 border border-[#D8DDED] text-[#334155] leading-7">
                                   {cell}
                                 </td>
                               ))}
@@ -1411,9 +1468,9 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className={country.id === 'russia' ? "bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
-            <h2 className="text-2xl font-bold text-[#1F2A44] mb-6 flex items-center gap-3">
-              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#5E82A8] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
+          <div className={country.id === 'russia' ? "bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
+            <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
+              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#4A6290] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
               市场运营规范
             </h2>
             {country.marketOperation.regulations.length > 0 ? (
@@ -1441,12 +1498,12 @@ export default function CountryDetail() {
                     
                     if (country.id === 'russia') {
                       return (
-                        <div key={index} className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5 shadow-none">
-                          <h3 className="text-base font-bold text-[#1F4E79] mb-3">{regulation.category}</h3>
+                        <div key={index} className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5 shadow-none">
+                          <h3 className="text-base font-bold text-[#2E3F73] mb-3">{regulation.category}</h3>
                           <ul className="space-y-3">
                             {regulation.items.map((item, itemIndex) => (
-                              <li key={itemIndex} className="text-[#334155] leading-relaxed flex items-start gap-3">
-                                <span className="text-[#5E82A8] mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"></span>
+                              <li key={itemIndex} className="text-[#334155] text-base leading-7 flex items-start gap-3">
+                                <span className="text-[#4A6290] mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"></span>
                                 <span>{item}</span>
                               </li>
                             ))}
