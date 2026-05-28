@@ -71,7 +71,7 @@ const SeasonSummaryCard = ({ title, text }: { title: string; text: string }) => 
                   const content = trimmed.replace(/^•\s*/, '');
                   return (
                     <li key={lIndex} className="flex items-start gap-3 list-none">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                       <span className="text-[#334155]">{content}</span>
                     </li>
                   );
@@ -808,47 +808,47 @@ export default function CountryDetail() {
                   </ul>
                 </div>
                 
-                <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-[#2F5F93]"></span>
-                    <h3 className="text-lg font-bold text-[#1E3A5F]">规则体系</h3>
+                    <span className="w-2 h-2 rounded-full bg-[#4A6290]"></span>
+                    <h3 className="text-lg font-bold text-[#2E3F73]">规则体系</h3>
                   </div>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2 text-base leading-7 text-[#334155]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                       <span>欧亚经济联盟技术规则主要影响烟草制品的技术要求、包装标签、健康警示、消费者信息和符合性声明。</span>
                     </li>
                     <li className="flex items-start gap-2 text-base leading-7 text-[#334155]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                       <span>俄罗斯国内监管规则主要影响生产流通许可、销售限制、广告展示、数字标识、消费税、最低价格和法律责任。</span>
                     </li>
                     <li className="flex items-start gap-2 text-base leading-7 text-[#334155]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                       <span>对同一产品，通常需要同时判断欧亚经济联盟技术合规要求和俄罗斯国内市场准入、流通及销售规则。</span>
                     </li>
                   </ul>
                 </div>
                 
-                <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-[#2F5F93]"></span>
-                    <h3 className="text-lg font-bold text-[#1E3A5F]">监管部门</h3>
+                    <span className="w-2 h-2 rounded-full bg-[#4A6290]"></span>
+                    <h3 className="text-lg font-bold text-[#2E3F73]">监管部门</h3>
                   </div>
                   <ul className="space-y-2">
                     <li className="text-base leading-7 text-[#334155]">
-                      <span className="font-semibold text-[#1F2A44]">俄罗斯联邦酒精和烟草市场监管局：</span>负责烟草、尼古丁产品及相关原料的生产流通许可和监管。
+                      <span className="font-semibold text-[#263247]">俄罗斯联邦酒精和烟草市场监管局：</span>负责烟草、尼古丁产品及相关原料的生产流通许可和监管。
                     </li>
                     <li className="text-base leading-7 text-[#334155]">
-                      <span className="font-semibold text-[#1F2A44]">俄罗斯联邦消费者权益保护和公益监督局：</span>负责消费者保护、公共卫生、销售端检查、标签、未成年人保护和控烟执法。
+                      <span className="font-semibold text-[#263247]">俄罗斯联邦消费者权益保护和公益监督局：</span>负责消费者保护、公共卫生、销售端检查、标签、未成年人保护和控烟执法。
                     </li>
                     <li className="text-base leading-7 text-[#334155]">
-                      <span className="font-semibold text-[#1F2A44]">俄罗斯联邦税务局：</span>负责消费税、税务申报和涉税监管。
+                      <span className="font-semibold text-[#263247]">俄罗斯联邦税务局：</span>负责消费税、税务申报和涉税监管。
                     </li>
                     <li className="text-base leading-7 text-[#334155]">
-                      <span className="font-semibold text-[#1F2A44]">俄罗斯海关机关：</span>负责进口申报、商品归类、边境查验、进口税费和走私查处。
+                      <span className="font-semibold text-[#263247]">俄罗斯海关机关：</span>负责进口申报、商品归类、边境查验、进口税费和走私查处。
                     </li>
                     <li className="text-base leading-7 text-[#334155]">
-                      <span className="font-semibold text-[#1F2A44]">俄罗斯联邦反垄断局：</span>负责广告、促销、赞助和不正当竞争监管。
+                      <span className="font-semibold text-[#263247]">俄罗斯联邦反垄断局：</span>负责广告、促销、赞助和不正当竞争监管。
                     </li>
                   </ul>
                 </div>
@@ -1114,7 +1114,16 @@ export default function CountryDetail() {
                         <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
                         <p className="mb-3">滤嘴棒、爆珠、香精香料、普通烟用辅材。</p>
                         <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                        <p>不含尼古丁、不含烟草提取物、仅作为普通辅材的，通常可按普通辅材理解。</p>
+                        <ul className="space-y-1 text-[#334155]">
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>不含尼古丁、不含烟草提取物、仅作为普通辅材的，通常可按普通辅材理解。</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                            <span>后续重点结合成分、用途、海关归类、进口监管和下游客户产品用途判断具体合规要求。</span>
+                          </li>
+                        </ul>
                       </>}
                     />
                     
@@ -1633,99 +1642,60 @@ export default function CountryDetail() {
           <div className={country.id === 'russia' ? "bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
             <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
               <div className={country.id === 'russia' ? "w-1 h-7 bg-[#4A6290] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
-              参考资料库
+              重要资讯
             </h2>
             
             {country.id === 'russia' && (
               <div className="mb-8">
-                <h3 className="text-lg font-bold text-[#2E3F73] mb-4">法规 / 政策文件</h3>
+                <h3 className="text-base font-bold text-[#2E3F73] mb-4">法规 / 政策文件</h3>
                 <div className="space-y-4">
-                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                  <div className="pb-4 border-b border-[#D8DDED]">
                     <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦第203-FZ号法〈关于烟草制品、烟草产品、尼古丁产品及其生产原料的生产和流通国家监管〉》</a>
-                    <p className="text-[#334155] text-base leading-7 mt-2">俄罗斯烟草、尼古丁产品及相关原料生产流通的基础法律，主要影响生产、进口、出口、储存、供应及相应许可。</p>
+                    <p className="text-[#334155] text-base leading-7 mt-1">俄罗斯烟草、尼古丁产品及相关原料生产流通的基础法律，主要影响生产、进口、出口、储存、供应及相应许可。</p>
                   </div>
                   
-                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                  <div className="pb-4 border-b border-[#D8DDED]">
                     <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦第15-FZ号法〈关于保护公民健康免受环境烟草烟雾影响、烟草消费后果或尼古丁产品消费后果影响〉》</a>
-                    <p className="text-[#334155] text-base leading-7 mt-2">俄罗斯控烟和市场销售限制的核心法律，主要影响销售地点、销售方式、展示、广告促销、未成年人保护、公共场所使用和特定产品禁售。</p>
+                    <p className="text-[#334155] text-base leading-7 mt-1">俄罗斯控烟和市场销售限制的核心法律，主要影响销售地点、销售方式、展示、广告促销、未成年人保护、公共场所使用和特定产品禁售。</p>
                   </div>
                   
-                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                  <div className="pb-4 border-b border-[#D8DDED]">
                     <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《欧亚经济联盟烟草制品技术法规》（TR CU 035/2014）</a>
-                    <p className="text-[#334155] text-base leading-7 mt-2">传统烟草制品技术合规的基础规则，主要影响技术要求、包装标签、健康警示、消费者信息和符合性声明。</p>
+                    <p className="text-[#334155] text-base leading-7 mt-1">传统烟草制品技术合规的基础规则，主要影响技术要求、包装标签、健康警示、消费者信息和符合性声明。</p>
                   </div>
                   
-                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                  <div className="pb-4 border-b border-[#D8DDED]">
                     <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》</a>
-                    <p className="text-[#334155] text-base leading-7 mt-2">无烟烟草产品的技术识别和技术合规规则。该技术法规主要涉及 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品，不改变第15-FZ号法项下相关产品禁售结论。</p>
+                    <p className="text-[#334155] text-base leading-7 mt-1">无烟烟草产品的技术识别和技术合规规则。该技术法规主要涉及 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品，不改变第15-FZ号法项下相关产品禁售结论。</p>
                   </div>
                   
-                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                  <div className="pb-4 border-b border-[#D8DDED]">
                     <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦政府第224号令〈关于批准烟草和尼古丁产品识别标识及追溯规则〉》</a>
-                    <p className="text-[#334155] text-base leading-7 mt-2">烟草和尼古丁产品数字标识及追溯规则，主要影响赋码、贴码、流转信息报送和原料追溯信息报送。</p>
+                    <p className="text-[#334155] text-base leading-7 mt-1">烟草和尼古丁产品数字标识及追溯规则，主要影响赋码、贴码、流转信息报送和原料追溯信息报送。</p>
                   </div>
                   
-                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                  <div>
                     <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦税法典》及最低价格规则</a>
-                    <p className="text-[#334155] text-base leading-7 mt-2">俄罗斯烟草、加热烟草、电子烟液、尼古丁原料等产品消费税和最低价格规则的主要依据。</p>
+                    <p className="text-[#334155] text-base leading-7 mt-1">俄罗斯烟草、加热烟草、电子烟液、尼古丁原料等产品消费税和最低价格规则的主要依据。</p>
                   </div>
                 </div>
               </div>
             )}
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className={country.id === 'russia' ? "text-base font-bold text-[#2E3F73] mb-3" : "text-lg font-medium text-gray-900 mb-3"}>法规汇编</h3>
-                {country.references.regulations.length > 0 ? (
-                  <ul className="space-y-2">
-                    {country.references.regulations.map((reg, index) => (
-                      <li key={index}>
-                        <a href={reg.url} className={country.id === 'russia' ? "text-[#2E3F73] hover:underline" : "text-blue-600 hover:underline"}>{reg.title}</a>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-gray-500 italic">资料收录中...</p>
-                )}
-              </div>
-              <div>
-                <h3 className={country.id === 'russia' ? "text-base font-bold text-[#2E3F73] mb-3" : "text-lg font-medium text-gray-900 mb-3"}>重要资讯</h3>
-                {country.references.news.length > 0 ? (
-                  <ul className="space-y-2">
-                    {country.references.news.map((news, index) => (
-                      <li key={index}>
-                        <a href={news.url} className={country.id === 'russia' ? "text-[#2E3F73] hover:underline" : "text-blue-600 hover:underline"}>{news.title}</a>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-gray-500 italic">资料收录中...</p>
-                )}
-              </div>
+            <div className={country.id === 'russia' ? "mt-6" : ""}>
+              <h3 className={country.id === 'russia' ? "text-base font-bold text-[#2E3F73] mb-3" : "text-lg font-medium text-gray-900 mb-3"}>新闻 / 执法动态</h3>
+              {country.references.news.length > 0 ? (
+                <ul className="space-y-2">
+                  {country.references.news.map((news, index) => (
+                    <li key={index}>
+                      <a href={news.url} className={country.id === 'russia' ? "text-[#2E3F73] hover:underline" : "text-blue-600 hover:underline"}>{news.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-gray-500 italic">资料收录中...</p>
+              )}
             </div>
-            {(country.id !== 'russia' || country.references.pdfs.length > 0) && (
-              <div className="mt-6">
-                <h3 className={country.id === 'russia' ? "text-base font-bold text-[#1F4E79] mb-3" : "text-lg font-medium text-gray-900 mb-3"}>PDF 下载</h3>
-                {country.references.pdfs.length > 0 ? (
-                  <div className="flex flex-wrap gap-3">
-                    {country.references.pdfs.map((pdf, index) => (
-                      <a
-                        key={index}
-                        href={pdf.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={country.id === 'russia' ? "inline-flex items-center gap-2 px-4 py-2 bg-[#E6EEF8] hover:bg-[#D8E3F0] text-[#1F4E79] rounded-lg transition-colors" : "inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-lg transition-colors"}
-                      >
-                        <span>📄</span>
-                        {pdf.title}
-                      </a>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-gray-500 italic">资料收录中...</p>
-                )}
-              </div>
-            )}
           </div>
         </section>
 
