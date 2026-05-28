@@ -14,10 +14,10 @@ const colors = {
   border: '#D8E0EA',
   borderStrong: '#C7D3E2',
   
-  blueDark: '#1E3A5F',
-  blue: '#2F5F93',
-  blueSoft: '#EEF5FC',
-  blueBorder: '#BFD3E8',
+  blueDark: '#243B63',
+  blue: '#2E3F73',
+  blueSoft: '#F1F3FA',
+  blueBorder: '#D4DAEA',
   
   tealDark: '#155E75',
   teal: '#2B7A8B',
@@ -25,9 +25,9 @@ const colors = {
   tealBorder: '#BFDDE3',
   
   indigoDark: '#373F7A',
-  indigo: '#4D5F9A',
-  indigoSoft: '#F1F3FB',
-  indigoBorder: '#CBD2EE',
+  indigo: '#4A6290',
+  indigoSoft: '#F3F5FB',
+  indigoBorder: '#D8DDED',
   
   slateDark: '#334155',
   slate: '#64748B',
@@ -90,21 +90,21 @@ const SeasonSummaryCard = ({ title, text }: { title: string; text: string }) => 
 const StatusCard = ({ status, title, subtitle, content }: { status: 'green' | 'amber' | 'red'; title: string; subtitle?: string; content: React.ReactNode }) => {
   const styles = {
     green: {
-      bg: 'bg-[#F0FDF4]',
-      border: 'border-[#BBF7D0]',
-      badge: 'bg-[#D1FAE5] text-[#166534]',
+      borderLeft: 'border-l-[#6AAF7C]',
+      badge: 'bg-[#E8F5ED] text-[#3D7050]',
+      dot: 'bg-[#6AAF7C]',
       label: '可合规准入',
     },
     amber: {
-      bg: 'bg-[#FFFBEB]',
-      border: 'border-[#FEF3C7]',
-      badge: 'bg-[#FEF3C7] text-[#92400E]',
+      borderLeft: 'border-l-[#C9A24C]',
+      badge: 'bg-[#F8F3E8] text-[#8B6F2E]',
+      dot: 'bg-[#C9A24C]',
       label: '需拆分判断',
     },
     red: {
-      bg: 'bg-[#FEF2F2]',
-      border: 'border-[#FECACA]',
-      badge: 'bg-[#FECACA] text-[#991B1B]',
+      borderLeft: 'border-l-[#DC6B6B]',
+      badge: 'bg-[#FCEAEA] text-[#B33B3B]',
+      dot: 'bg-[#DC6B6B]',
       label: '完全禁止',
     },
   };
@@ -112,12 +112,12 @@ const StatusCard = ({ status, title, subtitle, content }: { status: 'green' | 'a
   const s = styles[status];
   
   return (
-    <div className={`${s.bg} border ${s.border} rounded-xl p-4`}>
+    <div className={`bg-white border border-[#E2E6EF] ${s.borderLeft} border-l-2 rounded-xl p-4 shadow-sm`}>
       <div className="flex items-center gap-2 mb-3">
         <span className={`px-3 py-1 rounded-full text-sm font-semibold ${s.badge}`}>{s.label}</span>
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}
       </div>
-      {title && <div className="font-bold text-[#0F172A] text-base mb-2">{title}</div>}
+      {title && <div className="font-bold text-[#263247] text-base mb-2">{title}</div>}
       <div className="text-[#334155] text-base leading-7">{content}</div>
     </div>
   );
@@ -671,18 +671,18 @@ export default function CountryDetail() {
 
         {country.id === 'russia' && (
           <section className="mb-8">
-            <div className="bg-white border border-[#D8E0EA] rounded-2xl shadow-sm p-6">
-              <h2 className="text-2xl font-bold text-[#0F172A] mb-6 flex items-center gap-3">
-                <div className="w-1 h-7 bg-[#4D5F9A] rounded-full"></div>
+            <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
+              <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
+                <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
                 本季监管动态
               </h2>
               <p className="text-[#334155] text-base leading-7 mb-6">
                 2026年以来，俄罗斯监管重点继续集中在产品许可、数字标识、税费和价格监管。烟草和尼古丁产品仍有合法准入空间，但经营端控制持续加强。
               </p>
               <div className="space-y-4">
-                <div className="bg-[#F1F3FB] border border-[#CBD2EE] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#4D5F9A] mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></div>
                     <div className="flex-1">
                       <h4 className="font-bold text-[#373F7A] text-base mb-2">批发 / 零售许可</h4>
                       <p className="text-[#334155] text-base leading-7">烟草和尼古丁产品批发、零售许可改革继续推进。此前方案曾提出2026年分阶段实施，但实际上改革时间和落地节奏仍在调整，暂无确定时间表。</p>
@@ -690,9 +690,9 @@ export default function CountryDetail() {
                   </div>
                 </div>
                 
-                <div className="bg-[#F1F3FB] border border-[#CBD2EE] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#4D5F9A] mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></div>
                     <div className="flex-1">
                       <h4 className="font-bold text-[#373F7A] text-base mb-2">数字标识</h4>
                       <ul className="space-y-2 text-[#334155] text-base leading-7">
@@ -702,16 +702,16 @@ export default function CountryDetail() {
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-[#64748B]">•</span>
-                          <span>烟油、含液体烟弹、设备与液体组合产品中的液体部分，应继续按尼古丁液体或无尼古丁液体规则判断，含液体产品仍需重点关注液体部分的标识和追溯要求。</span>
+                          <span>烟油、含液体烟弹、设备与液体组合产品中的液体部分，应继续按尼古丁液体或无尼古丁液体规则判断，仍需重点关注相关标识和追溯要求。</span>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-[#F1F3FB] border border-[#CBD2EE] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#4D5F9A] mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></div>
                     <div className="flex-1">
                       <h4 className="font-bold text-[#373F7A] text-base mb-2">税费和最低价格</h4>
                       <ul className="space-y-2 text-[#334155] text-base leading-7">
@@ -779,18 +779,18 @@ export default function CountryDetail() {
         )}
 
         <section className="mb-8">
-          <div className={country.id === 'russia' ? "bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
-            <h2 className="text-2xl font-bold text-[#1F2A44] mb-6 flex items-center gap-3">
-              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#2F5F93] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
+          <div className={country.id === 'russia' ? "bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
+            <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
+              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#4A6290] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
               {country.id === 'russia' ? '监管体系' : '监管体系与产品口径'}
             </h2>
             
             {country.id === 'russia' ? (
               <div className="space-y-6">
-                <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-[#2F5F93]"></span>
-                    <h3 className="text-lg font-bold text-[#1E3A5F]">核心特征</h3>
+                    <span className="w-2 h-2 rounded-full bg-[#4A6290]"></span>
+                    <h3 className="text-lg font-bold text-[#2E3F73]">核心特征</h3>
                   </div>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2 text-base leading-7 text-[#334155]">
@@ -873,27 +873,27 @@ export default function CountryDetail() {
 
         {country.id === 'russia' && (
           <section className="mb-8">
-            <div className="bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6">
-              <h2 className="text-2xl font-bold text-[#1F2A44] mb-6 flex items-center gap-3">
-                <div className="w-1 h-7 bg-[#5E82A8] rounded-full"></div>
+            <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
+              <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
+                <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
                 产品准入与监管口径
               </h2>
               
               <div className="space-y-6">
-                <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-[#5E82A8]"></span>
-                    <h3 className="text-lg font-bold text-[#1F4E79]">1. 传统烟草制品</h3>
+                    <span className="w-2 h-2 rounded-full bg-[#4A6290]"></span>
+                    <h3 className="text-lg font-bold text-[#2E3F73]">1. 传统烟草制品</h3>
                   </div>
                   <div className="mb-4">
-                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-3">产品定性</div>
+                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-sm font-semibold mb-3">产品定性</div>
                     <ul className="space-y-2 text-base leading-7 text-[#334155]">
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>根据 TR CU 035/2014，烟草制品是全部或部分以烟草叶为原料制成，并以消费者包装投放市场的产品。</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>烟草制品主要包括：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草，以及 papirosy（俄式纸嘴卷烟，即一端为烟草段、另一端为较长中空纸嘴的传统燃烧型烟草制品）。</span>
                       </li>
                     </ul>
@@ -905,24 +905,24 @@ export default function CountryDetail() {
                   />
                 </div>
                 
-                <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-[#5E82A8]"></span>
-                    <h3 className="text-lg font-bold text-[#1F4E79]">2. 加热烟草产品</h3>
+                    <span className="w-2 h-2 rounded-full bg-[#4A6290]"></span>
+                    <h3 className="text-lg font-bold text-[#2E3F73]">2. 加热烟草产品</h3>
                   </div>
                   <div className="mb-4">
-                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-3">产品定性</div>
+                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-sm font-semibold mb-3">产品定性</div>
                     <ul className="space-y-2 text-base leading-7 text-[#334155]">
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>第15-FZ号法将加热烟草产品列入尼古丁产品范围。</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>HNB烟支通常指含烟草材料、通过加热装置加热后供消费者吸入的产品。</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>监管上按加热烟草产品、烟草产品或尼古丁产品判断，不按 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品处理。</span>
                       </li>
                     </ul>
@@ -934,72 +934,77 @@ export default function CountryDetail() {
                   />
                 </div>
                 
-                <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-[#5E82A8]"></span>
-                    <h3 className="text-lg font-bold text-[#1F4E79]">3. 电子烟及液体产品</h3>
+                    <span className="w-2 h-2 rounded-full bg-[#4A6290]"></span>
+                    <h3 className="text-lg font-bold text-[#2E3F73]">3. 电子烟及液体产品</h3>
                   </div>
                   <div className="mb-4">
-                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-3">分类监管</div>
+                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-sm font-semibold mb-3">分类监管</div>
                     <p className="text-base leading-7 text-[#334155]">俄罗斯法规通常按产品构成拆分判断电子烟相关产品，不使用一个单一概念统一覆盖全部产品。电子烟相关产品可分为设备类、液体类、预灌装 / 组合产品和空组件。</p>
                   </div>
-                  <div className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <StatusCard
                       status="green"
-                      subtitle="3.1"
-                      title="适用产品：电子烟设备、可重复使用电子雾化设备、HNB加热设备。"
+                      title="设备类"
                       content={<>
-                        <div className="font-semibold text-[#1F2A44] mb-2">产品定性：</div>
-                        <p className="mb-3">根据第15-FZ号法，尼古丁产品使用装置是指用于产生含尼古丁气溶胶、蒸气或气体，并供使用者吸入的电子或其他装置，包括电子尼古丁输送系统和加热烟草系统，但不包括依法注册为医疗器械或药品的产品。电子烟设备、可重复使用电子雾化设备、HNB加热设备通常按尼古丁产品使用系统 / 装置理解。</p>
-                        <div className="font-semibold text-[#1F2A44] mb-2">主要合规要点：</div>
+                        <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                        <p className="mb-3">电子烟设备、可重复使用电子雾化设备、HNB加热设备。</p>
+                        <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
+                        <p className="mb-3">根据第15-FZ号法，尼古丁产品使用装置是指用于产生含尼古丁气溶胶、蒸气或气体，并供使用者吸入的电子或其他装置，包括电子尼古丁输送系统和加热烟草系统，但不包括依法注册为医疗器械或药品的产品。</p>
+                        <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                         <p>单纯电子烟设备本身的消费税已经取消；可重复使用电子烟及类似个人电加热雾化设备的数字标识仍处于试验 / 过渡阶段。进入零售市场仍需遵守销售地点、展示、远程销售、自动售卖和未成年人保护等限制。</p>
                       </>}
                     />
                     
                     <StatusCard
                       status="green"
-                      subtitle="3.2"
-                      title="适用产品：烟油、电子烟补充液、尼古丁液体、无尼古丁液体。"
+                      title="液体类"
                       content={<>
-                        <div className="font-semibold text-[#1F2A44] mb-2">产品定性：</div>
-                        <p className="mb-3">根据第15-FZ号法，尼古丁液体包括尼古丁含量不低于 0.1 mg/ml 的液体；无尼古丁液体包括不含尼古丁或尼古丁含量低于 0.1 mg/ml、并用于电子尼古丁输送系统的液体。烟油、电子烟补充液通常按尼古丁液体或无尼古丁液体管理，判断重点是尼古丁含量和用途。</p>
-                        <div className="font-semibold text-[#1F2A44] mb-2">主要合规要点：</div>
+                        <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                        <p className="mb-3">烟油、电子烟补充液、尼古丁液体、无尼古丁液体。</p>
+                        <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
+                        <p className="mb-3">根据第15-FZ号法，尼古丁液体包括尼古丁含量不低于 0.1 mg/ml 的液体；无尼古丁液体包括不含尼古丁或尼古丁含量低于 0.1 mg/ml、并用于电子尼古丁输送系统的液体。</p>
+                        <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                         <p>零售环节不得销售尼古丁浓度超过 20 mg/ml 的尼古丁液体或尼古丁溶液；含尼古丁液体涉及消费税、最低价格、数字标识及生产 / 进口投入流通许可。</p>
                       </>}
                     />
                     
-                    <StatusCard
-                      status="amber"
-                      subtitle="3.3"
-                      title="适用产品：含液体烟弹、设备与液体组合产品、空烟弹、空容器、普通电子烟组件。"
-                      content={<>
-                        <div className="font-semibold text-[#1F2A44] mb-2">产品定性：</div>
-                        <p className="mb-3">俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品需要结合设备部分、液体部分、是否含尼古丁、是否含液体、下游用途和海关归类判断。</p>
-                        <div className="font-semibold text-[#1F2A44] mb-2">主要合规要点：</div>
-                        <p>含液体烟弹和设备与液体组合产品的核心风险在液体部分；设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理，但如与含尼古丁液体、含液体烟弹或组合产品配套销售，应转入对应产品路径判断。</p>
-                      </>}
-                    />
+                    <div className="md:col-span-2">
+                      <StatusCard
+                        status="amber"
+                        title="预灌装 / 组合产品和空组件"
+                        content={<>
+                          <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                          <p className="mb-3">含液体烟弹、设备与液体组合产品、空烟弹、空容器、普通电子烟组件。</p>
+                          <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
+                          <p className="mb-3">俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品需要结合设备部分、液体部分、是否含尼古丁、是否含液体、下游用途和海关归类判断。</p>
+                          <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                          <p>含液体烟弹和设备与液体组合产品的核心风险在液体部分；设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理，但如与含尼古丁液体、含液体烟弹或组合产品配套销售，应转入对应产品路径判断。</p>
+                        </>}
+                      />
+                    </div>
                   </div>
                 </div>
                 
-                <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-[#5E82A8]"></span>
-                    <h3 className="text-lg font-bold text-[#1F4E79]">4. 无烟烟草及口含 / 鼻吸 / 咀嚼类尼古丁产品</h3>
+                    <span className="w-2 h-2 rounded-full bg-[#4A6290]"></span>
+                    <h3 className="text-lg font-bold text-[#2E3F73]">4. 无烟烟草及口含 / 鼻吸 / 咀嚼类尼古丁产品</h3>
                   </div>
                   <div className="mb-4">
-                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-3">产品定性</div>
+                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-sm font-semibold mb-3">产品定性</div>
                     <ul className="space-y-2 text-base leading-7 text-[#334155]">
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>根据第268-FZ号法，无烟烟草产品是通过吮吸、咀嚼或鼻吸等方式使用的烟草产品，典型产品包括 snus（湿润口含烟草制品）、nasvay（中亚地区常见的口含 / 咀嚼型无烟烟草制品）、咀嚼烟草和鼻烟。</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>尼古丁袋、尼古丁口含膜、食品型尼古丁产品以及含尼古丁粉末、混合物等产品，通常属于通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁的产品。</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>该类产品与 HNB烟支不同，不通过加热装置产生可吸入气溶胶。</span>
                       </li>
                     </ul>
@@ -1011,48 +1016,60 @@ export default function CountryDetail() {
                   />
                 </div>
                 
-                <div className="bg-[#F2F7FD] border border-[#D8E3F0] border-l-4 border-l-[#5E82A8] rounded-xl p-5">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="w-2 h-2 rounded-full bg-[#5E82A8]"></span>
-                    <h3 className="text-lg font-bold text-[#1F4E79]">5. 原料及辅材</h3>
+                    <span className="w-2 h-2 rounded-full bg-[#4A6290]"></span>
+                    <h3 className="text-lg font-bold text-[#2E3F73]">5. 原料及辅材</h3>
                   </div>
-                  <div className="mb-4">
-                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E6EEF8] text-[#1F4E79] text-sm font-semibold mb-3">产品定性</div>
+                  <div className="mb-5">
+                    <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-sm font-semibold mb-3">产品定性</div>
                     <ul className="space-y-2 text-base leading-7 text-[#334155]">
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>第203-FZ号法将烟草制品、烟草产品、尼古丁产品及其生产原料纳入生产流通监管。</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>烟叶、reconstituted tobacco、烟草原料、尼古丁原料通常属于生产链条中的原料或半成品，与消费者可直接使用的烟草制品、HNB烟支、电子烟液、尼古丁袋等成品不同。</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5E82A8] mt-1.5 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                         <span>俄罗斯公开法规资料未见将滤嘴棒、爆珠、香精香料等普通烟用辅材统一定义为烟草制品或尼古丁产品。该类产品通常按成分、用途、海关归类和下游产品用途判断。</span>
                       </li>
                     </ul>
                   </div>
-                  <div className="space-y-4">
+                  <div className="grid md:grid-cols-3 gap-4">
                     <StatusCard
                       status="green"
-                      subtitle="5.1"
-                      title="适用产品：烟叶、reconstituted tobacco、烟草原料、尼古丁原料。"
-                      content="主要合规要点：可作为原料进入供应链，不宜作为普通消费者成品零售。俄罗斯本地生产或加工主体需取得覆盖烟草原料或尼古丁原料的生产许可；俄罗斯进口商需取得烟草原料或尼古丁原料进口投入流通许可；原料还需关注追溯信息报送。"
+                      title="供应链可准入"
+                      content={<>
+                        <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                        <p className="mb-3">烟叶、reconstituted tobacco、烟草原料、尼古丁原料。</p>
+                        <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                        <p>可作为原料进入供应链，不宜作为普通消费者成品零售。俄罗斯本地生产或加工主体需取得覆盖烟草原料或尼古丁原料的生产许可；俄罗斯进口商需取得烟草原料或尼古丁原料进口投入流通许可；原料还需关注追溯信息报送。</p>
+                      </>}
                     />
                     
                     <StatusCard
                       status="green"
-                      subtitle="5.2"
-                      title="适用产品：滤嘴棒、爆珠、香精香料、普通烟用辅材。"
-                      content="主要合规要点：不含尼古丁、不含烟草提取物、仅作为普通辅材的，通常可按普通辅材理解。"
+                      title="普通辅材路径"
+                      content={<>
+                        <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                        <p className="mb-3">滤嘴棒、爆珠、香精香料、普通烟用辅材。</p>
+                        <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                        <p>不含尼古丁、不含烟草提取物、仅作为普通辅材的，通常可按普通辅材理解。</p>
+                      </>}
                     />
                     
                     <StatusCard
                       status="amber"
-                      subtitle="5.3"
-                      title="适用产品：含尼古丁、烟草提取物，或作为烟油、含液体烟弹、HNB烟支、尼古丁产品组件使用的辅材。"
-                      content="主要合规要点：应转入对应成品或原料监管路径。"
+                      title="需转入对应产品路径"
+                      content={<>
+                        <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                        <p className="mb-3">含尼古丁、烟草提取物，或作为烟油、含液体烟弹、HNB烟支、尼古丁产品组件使用的辅材。</p>
+                        <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                        <p>应转入对应成品或原料监管路径。</p>
+                      </>}
                     />
                   </div>
                 </div>
@@ -1556,43 +1573,43 @@ export default function CountryDetail() {
         </section>
 
         <section className="mb-8">
-          <div className={country.id === 'russia' ? "bg-white border border-[#D8E3F0] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
-            <h2 className="text-2xl font-bold text-[#1F2A44] mb-6 flex items-center gap-3">
-              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#5E82A8] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
+          <div className={country.id === 'russia' ? "bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
+            <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
+              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#4A6290] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
               参考资料库
             </h2>
             
             {country.id === 'russia' && (
               <div className="mb-8">
-                <h3 className="text-lg font-bold text-[#1F4E79] mb-4">法规 / 政策文件</h3>
-                <div className="space-y-6">
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] rounded-xl p-5">
-                    <a href="#" className="font-semibold text-[#1F4E79] hover:underline text-base">《俄罗斯联邦第203-FZ号法〈关于烟草制品、烟草产品、尼古丁产品及其生产原料的生产和流通国家监管〉》</a>
+                <h3 className="text-lg font-bold text-[#2E3F73] mb-4">法规 / 政策文件</h3>
+                <div className="space-y-4">
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                    <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦第203-FZ号法〈关于烟草制品、烟草产品、尼古丁产品及其生产原料的生产和流通国家监管〉》</a>
                     <p className="text-[#334155] text-base leading-7 mt-2">俄罗斯烟草、尼古丁产品及相关原料生产流通的基础法律，主要影响生产、进口、出口、储存、供应及相应许可。</p>
                   </div>
                   
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] rounded-xl p-5">
-                    <a href="#" className="font-semibold text-[#1F4E79] hover:underline text-base">《俄罗斯联邦第15-FZ号法〈关于保护公民健康免受环境烟草烟雾影响、烟草消费后果或尼古丁产品消费后果影响〉》</a>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                    <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦第15-FZ号法〈关于保护公民健康免受环境烟草烟雾影响、烟草消费后果或尼古丁产品消费后果影响〉》</a>
                     <p className="text-[#334155] text-base leading-7 mt-2">俄罗斯控烟和市场销售限制的核心法律，主要影响销售地点、销售方式、展示、广告促销、未成年人保护、公共场所使用和特定产品禁售。</p>
                   </div>
                   
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] rounded-xl p-5">
-                    <a href="#" className="font-semibold text-[#1F4E79] hover:underline text-base">《欧亚经济联盟烟草制品技术法规》（TR CU 035/2014）</a>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                    <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《欧亚经济联盟烟草制品技术法规》（TR CU 035/2014）</a>
                     <p className="text-[#334155] text-base leading-7 mt-2">传统烟草制品技术合规的基础规则，主要影响技术要求、包装标签、健康警示、消费者信息和符合性声明。</p>
                   </div>
                   
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] rounded-xl p-5">
-                    <a href="#" className="font-semibold text-[#1F4E79] hover:underline text-base">《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》</a>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                    <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》</a>
                     <p className="text-[#334155] text-base leading-7 mt-2">无烟烟草产品的技术识别和技术合规规则。该技术法规主要涉及 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品，不改变第15-FZ号法项下相关产品禁售结论。</p>
                   </div>
                   
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] rounded-xl p-5">
-                    <a href="#" className="font-semibold text-[#1F4E79] hover:underline text-base">《俄罗斯联邦政府第224号令〈关于批准烟草和尼古丁产品识别标识及追溯规则〉》</a>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                    <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦政府第224号令〈关于批准烟草和尼古丁产品识别标识及追溯规则〉》</a>
                     <p className="text-[#334155] text-base leading-7 mt-2">烟草和尼古丁产品数字标识及追溯规则，主要影响赋码、贴码、流转信息报送和原料追溯信息报送。</p>
                   </div>
                   
-                  <div className="bg-[#F2F7FD] border border-[#D8E3F0] rounded-xl p-5">
-                    <a href="#" className="font-semibold text-[#1F4E79] hover:underline text-base">《俄罗斯联邦税法典》及最低价格规则</a>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                    <a href="#" className="font-semibold text-[#2E3F73] hover:underline text-base">《俄罗斯联邦税法典》及最低价格规则</a>
                     <p className="text-[#334155] text-base leading-7 mt-2">俄罗斯烟草、加热烟草、电子烟液、尼古丁原料等产品消费税和最低价格规则的主要依据。</p>
                   </div>
                 </div>
@@ -1601,12 +1618,12 @@ export default function CountryDetail() {
             
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className={country.id === 'russia' ? "text-base font-bold text-[#1F4E79] mb-3" : "text-lg font-medium text-gray-900 mb-3"}>法规汇编</h3>
+                <h3 className={country.id === 'russia' ? "text-base font-bold text-[#2E3F73] mb-3" : "text-lg font-medium text-gray-900 mb-3"}>法规汇编</h3>
                 {country.references.regulations.length > 0 ? (
                   <ul className="space-y-2">
                     {country.references.regulations.map((reg, index) => (
                       <li key={index}>
-                        <a href={reg.url} className={country.id === 'russia' ? "text-[#1F4E79] hover:underline" : "text-blue-600 hover:underline"}>{reg.title}</a>
+                        <a href={reg.url} className={country.id === 'russia' ? "text-[#2E3F73] hover:underline" : "text-blue-600 hover:underline"}>{reg.title}</a>
                       </li>
                     ))}
                   </ul>
@@ -1615,12 +1632,12 @@ export default function CountryDetail() {
                 )}
               </div>
               <div>
-                <h3 className={country.id === 'russia' ? "text-base font-bold text-[#1F4E79] mb-3" : "text-lg font-medium text-gray-900 mb-3"}>重要资讯</h3>
+                <h3 className={country.id === 'russia' ? "text-base font-bold text-[#2E3F73] mb-3" : "text-lg font-medium text-gray-900 mb-3"}>重要资讯</h3>
                 {country.references.news.length > 0 ? (
                   <ul className="space-y-2">
                     {country.references.news.map((news, index) => (
                       <li key={index}>
-                        <a href={news.url} className={country.id === 'russia' ? "text-[#1F4E79] hover:underline" : "text-blue-600 hover:underline"}>{news.title}</a>
+                        <a href={news.url} className={country.id === 'russia' ? "text-[#2E3F73] hover:underline" : "text-blue-600 hover:underline"}>{news.title}</a>
                       </li>
                     ))}
                   </ul>
