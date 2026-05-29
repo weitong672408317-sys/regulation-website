@@ -794,13 +794,13 @@ export default function CountryDetail() {
                 
                 <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
                   <h3 className="text-lg font-bold text-[#2E3F73] mb-4">监管部门</h3>
-                  <div className="space-y-2 text-base leading-7 text-[#334155]">
-                    <p><span className="font-semibold text-[#263247]">俄罗斯联邦酒精和烟草市场监管局：</span>负责烟草、尼古丁产品及相关原料的生产流通许可和监管。</p>
-                    <p><span className="font-semibold text-[#263247]">俄罗斯联邦消费者权益保护和公益监督局：</span>负责消费者保护、公共卫生、销售端检查、标签、未成年人保护和控烟执法。</p>
-                    <p><span className="font-semibold text-[#263247]">俄罗斯联邦税务局：</span>负责消费税、税务申报和涉税监管。</p>
-                    <p><span className="font-semibold text-[#263247]">俄罗斯海关机关：</span>负责进口申报、商品归类、边境查验、进口税费和走私查处。</p>
-                    <p><span className="font-semibold text-[#263247]">俄罗斯联邦反垄断局：</span>负责广告、促销、赞助和不正当竞争监管。</p>
-                  </div>
+                  <ul className="list-disc pl-5 space-y-3 text-base leading-7 text-[#334155]">
+                    <li><span className="font-semibold text-[#263247]">俄罗斯联邦酒精和烟草市场监管局：</span>负责烟草、尼古丁产品及相关原料的生产流通许可和监管。</li>
+                    <li><span className="font-semibold text-[#263247]">俄罗斯联邦消费者权益保护和公益监督局：</span>负责消费者保护、公共卫生、销售端检查、标签、未成年人保护和控烟执法。</li>
+                    <li><span className="font-semibold text-[#263247]">俄罗斯联邦税务局：</span>负责消费税、税务申报和涉税监管。</li>
+                    <li><span className="font-semibold text-[#263247]">俄罗斯海关机关：</span>负责进口申报、商品归类、边境查验、进口税费和走私查处。</li>
+                    <li><span className="font-semibold text-[#263247]">俄罗斯联邦反垄断局：</span>负责广告、促销、赞助和不正当竞争监管。</li>
+                  </ul>
                 </div>
               </div>
             ) : (
