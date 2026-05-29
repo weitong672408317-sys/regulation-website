@@ -58,6 +58,74 @@ export interface MarketOperationItem {
   items: string[];
 }
 
+// 新版页面数据结构
+export interface NewPageStatusCard {
+  status: 'allowed' | 'restricted' | 'prohibited';
+  label: string;
+  title?: string;
+  applicableProducts?: string;
+  definition?: string | string[];
+  points?: string[];
+}
+
+export interface NewPageProductAccess {
+  title: string;
+  descriptionLabel?: string;
+  description: string[];
+  statusCards?: NewPageStatusCard[];
+}
+
+export interface NewPageSeasonUpdateCard {
+  title: string;
+  items: string[];
+}
+
+export interface NewPageAuthority {
+  name: string;
+  responsibility: string;
+}
+
+export interface NewPageRegulatorySystem {
+  coreFeatures: string[];
+  ruleSystem: string[];
+  authorities: NewPageAuthority[];
+}
+
+export interface NewPageRegulation {
+  title: string;
+  summary: string;
+  url?: string;
+}
+
+export interface NewPageNews {
+  title: string;
+  summary?: string;
+  source?: string;
+  date?: string;
+  url?: string;
+}
+
+export interface NewPageImportantInfo {
+  regulations?: NewPageRegulation[];
+  news?: NewPageNews[];
+}
+
+export interface NewPageMarketOperationCard {
+  title: string;
+  items: string[];
+}
+
+export interface NewPage {
+  seasonUpdates?: {
+    summary: string;
+    cards: NewPageSeasonUpdateCard[];
+  };
+  regulatorySystem?: NewPageRegulatorySystem;
+  productAccess?: NewPageProductAccess[];
+  marketOperationCards?: NewPageMarketOperationCard[];
+  importantInfo?: NewPageImportantInfo;
+}
+
 export interface CountryData {
   id: string;
   name: string;
@@ -109,6 +177,7 @@ export interface CountryData {
     news: { title: string; url: string }[];
     pdfs: { title: string; url: string }[];
   };
+  newPage?: NewPage;
 }
 
 // 基础国家数据 - 作为备份，当无法读取 data.json 时使用
@@ -1175,6 +1244,208 @@ const fallbackCountries: CountryData[] = [
         { title: '俄罗斯2026年烟草产品消费税调整报道', url: 'https://en.iz.ru/en/2019182/2026-01-01/excise-taxes-tobacco-products-have-been-indexed-russia-january-1' }
       ],
       pdfs: []
+    },
+    newPage: {
+      seasonUpdates: {
+        summary: '2026年以来，俄罗斯监管方向继续围绕可准入产品的许可、标识、税务和价格监管展开。\n\n2026年需要重点关注三类变化：\n\n• 烟草和尼古丁产品批发、零售许可改革的落地状态；\n• 可重复使用电子烟设备及类似个人电加热雾化设备标识试验的推进；\n• 消费税和最低价格规则对卷烟、加热烟草、电子烟液等产品成本和定价的影响。\n\n公开报道显示，俄罗斯持续推进烟草和尼古丁产品批发、零售许可制度改革；但截至2026年5月，普通零售端专项零售许可证要求尚未正式生效。',
+        cards: [
+          {
+            title: '批发 / 零售许可改革继续推进',
+            items: [
+              '俄罗斯正在推进烟草和尼古丁产品批发、零售许可制度。',
+              '公开报道显示，相关改革围绕卷烟和电子烟等产品的批发、零售和配送许可展开。',
+              '此前方案曾提出2026年分阶段实施，但公开信息也显示改革时间和落地节奏仍在调整。'
+            ]
+          },
+          {
+            title: '可重复使用的电子烟设备标识仍处于过渡阶段',
+            items: [
+              '可重复使用的电子烟及类似个人电加热雾化设备仍处于标识试验 / 过渡阶段。',
+              '单纯电子烟设备与烟油、含液体烟弹、设备与液体组合产品的监管口径需要区分处理。',
+              '烟油、含液体烟弹、设备与液体组合产品中的液体部分，应继续按尼古丁液体或无尼古丁液体规则判断。'
+            ]
+          },
+          {
+            title: '消费税继续按年度税率表执行',
+            items: [
+              '俄罗斯对卷烟、雪茄、小雪茄、加热消费用烟草、电子尼古丁输送系统液体、尼古丁原料、无烟草尼古丁加热混合物等列明2026—2028年消费税税率。',
+              '2026年起，卷烟、雪茄、小雪茄、加热烟草和电子烟液等税率继续提高。'
+            ]
+          }
+        ]
+      },
+      regulatorySystem: {
+        coreFeatures: [
+          '俄罗斯属于烟草及尼古丁产品强监管市场。传统卷烟、雪茄、烟丝、papirosy（俄式纸嘴卷烟）、HNB烟支、加热烟草产品、电子烟设备、烟油、含液体烟弹、设备与液体组合产品等产品有合规准入空间。',
+          '俄罗斯对无烟烟草产品实行分类监管。nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品禁止批发和零售；咀嚼烟草、鼻烟等传统非吸烟烟草产品仍有合规准入路径，但适用强监管要求。',
+          '俄罗斯监管体系由两类规则共同构成：一类是欧亚经济联盟技术规则，重点影响烟草制品的技术要求、包装标签、健康警示和合格评定；另一类是俄罗斯国内监管规则，重点影响生产流通许可、销售限制、广告展示、数字标识、消费税、最低价格和法律责任。'
+        ],
+        ruleSystem: [
+          '欧亚经济联盟技术规则主要影响烟草制品的技术要求、包装标签、健康警示、消费者信息和符合性声明。',
+          '俄罗斯国内监管规则主要影响生产流通许可、销售限制、广告展示、数字标识、消费税、最低价格和法律责任。',
+          '对同一产品，通常需要同时判断欧亚经济联盟技术合规要求和俄罗斯国内市场准入、流通及销售规则。'
+        ],
+        authorities: [
+          {
+            name: '俄罗斯联邦酒精和烟草市场监管局',
+            responsibility: '负责烟草、尼古丁产品及相关原料的生产流通许可和监管。'
+          },
+          {
+            name: '俄罗斯联邦消费者权益保护和公益监督局',
+            responsibility: '负责消费者保护、公共卫生、销售端检查、标签、未成年人保护和控烟执法。'
+          },
+          {
+            name: '俄罗斯联邦税务局',
+            responsibility: '负责消费税、税务申报和涉税监管。'
+          },
+          {
+            name: '俄罗斯海关机关',
+            responsibility: '负责进口申报、商品归类、边境查验、进口税费和走私查处。'
+          },
+          {
+            name: '俄罗斯联邦反垄断局',
+            responsibility: '负责广告、促销、赞助和不正当竞争监管。'
+          }
+        ]
+      },
+      productAccess: [
+        {
+          title: '4. 无烟烟草及口含 / 鼻吸 / 咀嚼类尼古丁产品',
+          description: [
+            '无烟烟草产品是一个大类。俄罗斯法规主要根据产品成分、使用方式和具体产品类别区分监管，没有对所有无烟烟草产品适用统一准入规则。•nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品，属于明确禁售产品。•咀嚼烟草、鼻烟等传统非吸烟烟草产品，在俄罗斯法规体系中仍有合规准入路径，但适用强监管要求。•HNB烟支 / 加热烟草产品不放在本栏目判断，相关信息请参见"加热烟草产品"栏目。'
+          ],
+          statusCards: [
+            {
+              status: 'prohibited',
+              label: '完全禁止',
+              title: '法规点名禁售产品',
+              applicableProducts: 'nasvay、snus（吸吮烟草）、食品型尼古丁产品、尼古丁袋、尼古丁口含膜，以及用于咀嚼、吸吮、鼻吸的尼古丁产品。',
+              points: [
+                'nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品，禁止批发和零售。',
+                '尼古丁袋、尼古丁口含膜、尼古丁粉末、尼古丁混合物等产品，如设计用途为口含、吸吮、咀嚼或鼻吸，通常按禁售产品处理。'
+              ]
+            },
+            {
+              status: 'allowed',
+              label: '可合规准入',
+              title: '传统非吸烟烟草产品',
+              applicableProducts: '咀嚼烟草、鼻烟，以及不构成 nasvay 或 snus 的其他传统非吸烟烟草产品。',
+              points: [
+                '产品本身有合规准入空间，但需按非吸烟烟草产品的具体类别判断监管要求。',
+                '进入俄罗斯市场前，通常需要关注技术合规、包装标签、数字标识、最低价格、消费税、生产 / 进口投入流通许可和销售限制。'
+              ]
+            },
+            {
+              status: 'restricted',
+              label: '需拆分判断',
+              title: '含烟草且另含尼古丁的边界产品',
+              applicableProducts: '含烟草材料，同时外加尼古丁，或以口含、吸吮、咀嚼、鼻吸方式递送尼古丁的袋状、片状、粉末状、混合物类产品。',
+              points: [
+                '产品含有烟草材料时，仍需结合外加尼古丁、使用方式和产品宣传口径判断具体监管路径。',
+                '产品构成 nasvay、snus，或实质上属于用于咀嚼、吸吮、鼻吸的尼古丁产品的，应按禁售产品处理。',
+                '如主张按传统非吸烟烟草产品进入市场，应重点确认产品定义、成分、使用方式、标签标识、生产 / 进口流通许可、最低价格和主管机关口径。'
+              ]
+            }
+          ]
+        }
+      ],
+      marketOperationCards: [
+        {
+          title: '陈列、展示与销售清单',
+          items: [
+            '零售场所不得公开陈列或展示烟草产品、尼古丁产品、尼古丁产品使用装置。',
+            '销售时应通过文字版产品清单 / 价格清单列明产品名称和价格；清单不得使用图片、图形或促销性展示。消费者查看清单后，可以要求销售人员展示具体产品。',
+            '禁止向18岁以下人员销售；难以判断年龄时，应要求购买者出示身份证明文件。'
+          ]
+        },
+        {
+          title: '包装、最低价格与零售限制',
+          items: [
+            '卷烟只能以20支装整包零售；不得销售单支卷烟、单支 papirosy（俄式纸嘴卷烟），或非20支装卷烟。',
+            '烟草制品和尼古丁产品应以合规零售包装销售，不得拆包、散装或以无零售包装形式销售。',
+            '不得将烟草制品或尼古丁产品与非烟草、非尼古丁商品混装在同一零售包装中销售。'
+          ]
+        },
+        {
+          title: '广告、促销与变相推广限制',
+          items: [
+            '禁止烟草、烟草制品、尼古丁产品、尼古丁产品使用装置广告。',
+            '针对烟草、烟草制品、尼古丁产品、尼古丁产品使用装置，不得通过免费发放、赠品、价格折扣、优惠券、抽奖、竞赛、游戏、品牌延伸、仿制商品、赞助、大型活动等方式进行促销或变相推广。',
+            '不得通过其他商品、服务、活动、品牌元素或包装设计，变相推广烟草、尼古丁产品、尼古丁产品使用装置。'
+          ]
+        },
+        {
+          title: '销售渠道与禁售场景',
+          items: [
+            '烟草产品、尼古丁产品、尼古丁产品使用装置，原则上只能在商店或设有销售大厅的商业亭销售；当地没有商店或商业亭的居民点，才可以通过其他商业设施或流动销售销售。',
+            '禁止通过互联网、邮寄、电话订购等远程方式销售。',
+            '禁止通过自动售货机销售。',
+            '禁止在集市、展会销售。',
+            '禁止在教育机构或在距离教育机构用地边界100米范围内销售。',
+            '禁止在文化机构、体育场所、医疗、康复和疗养服务场所内销售。',
+            '禁止在国家机关和地方自治机关办公场所内销售。',
+            '禁止在公共交通工具、铁路车站、汽车站、机场、海港、地铁站等旅客运输服务场所内销售。免税店等特殊场景按具体规则另行判断。',
+            '禁止在提供住房、酒店、临时住宿等服务的场所内销售。'
+          ]
+        }
+      ],
+      importantInfo: {
+        regulations: [
+          {
+            title: '《俄罗斯联邦第203-FZ号法〈关于烟草制品、烟草产品、尼古丁产品及其生产原料的生产和流通国家监管〉》',
+            summary: '俄罗斯烟草、尼古丁产品及相关原料生产流通的基础法律，主要影响生产、进口、出口、储存、供应、生产流通许可及相关监管要求。页面链接为官方公布文本；后续适用需结合后续修正及现行有效文本确认。',
+            url: 'https://publication.pravo.gov.ru/document/0001202306130005'
+          },
+          {
+            title: '《俄罗斯联邦第15-FZ号法〈关于保护公民健康免受环境烟草烟雾影响、烟草消费后果或尼古丁产品消费后果影响〉》',
+            summary: '俄罗斯控烟和市场销售限制的核心法律，主要影响销售地点、销售方式、产品展示、广告促销、未成年人保护、公共场所使用限制和特定产品禁售。该法后续曾多次修订，页面链接为2013年官方公布文本；涉及尼古丁产品、禁售范围等问题时，应结合后续修正后的现行文本确认。',
+            url: 'https://publication.pravo.gov.ru/Document/View/0001201302250007'
+          },
+          {
+            title: '《欧亚经济联盟烟草制品技术法规》（TR CU 035/2014）',
+            summary: '欧亚经济联盟层面的烟草制品技术合规规则，主要影响烟草制品的技术要求、包装标签、健康警示、消费者信息和符合性声明。适用俄罗斯市场时，通常需要与俄罗斯国内生产流通、销售限制、标识追溯、消费税和最低价格规则一并判断。',
+            url: 'https://eec.eaeunion.org/comission/department/deptexreg/tr/tabac.php'
+          },
+          {
+            title: '《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》',
+            summary: '无烟烟草产品的技术识别和技术合规规则，主要涉及非吸烟烟草产品的技术要求、识别、标签和合格评定。该技术法规本身不等于市场准入许可；具体产品能否进入俄罗斯市场，还需结合第15-FZ号法的禁售规则、第203-FZ号法的生产流通监管、数字标识、最低价格和销售限制判断。',
+            url: 'https://www.kremlin.ru/acts/bank/28603'
+          },
+          {
+            title: '《俄罗斯联邦政府第224号令〈关于批准烟草产品识别标识规则等〉》',
+            summary: '烟草产品数字标识和追溯规则的基础政府令，主要影响赋码、贴码、流转信息报送及市场追溯。后续俄罗斯对烟草、尼古丁产品及相关原料的标识和追溯规则已有扩展，具体适用品类和操作要求需结合最新修订、Chestny ZNAK系统规则及主管机关口径确认。',
+            url: 'https://publication.pravo.gov.ru/Document/View/0001201903060010'
+          },
+          {
+            title: '《俄罗斯联邦税法典》消费税规则',
+            summary: '俄罗斯烟草、加热烟草、电子烟液、尼古丁原料、无烟草尼古丁加热混合物等产品的消费税主要依据《俄罗斯联邦税法典》确定。消费税税目和税率按产品类型和年度列明，页面中的2026—2028年税率应以税法典现行有效文本为准。'
+          },
+          {
+            title: '规则依据：第203-FZ号法第7条',
+            summary: '第203-FZ号法第7条是烟草产品、尼古丁产品最低价格或最低零售价格规则的法律依据。具体计算方式和年度数值还需要结合俄罗斯政府最低价格确定规则和农业部年度信息公告确认。',
+            url: 'https://publication.pravo.gov.ru/document/0001202306130005'
+          },
+          {
+            title: '俄罗斯农业部2026年最低价格信息公告',
+            summary: '该页面为俄罗斯农业部"葡萄种植、葡萄酒和烟草产品"信息页，集中发布烟草及尼古丁产品最低价格相关信息公告。',
+            url: 'https://mcx.gov.ru/ministry/departments/departament-pishchevoy-i-pererabatyvayushchey-promyshlennosti/industry-information/info-vinogradarstvo-vinodelie-i-tabachnaya-produktsiya/'
+          }
+        ],
+        news: [
+          {
+            title: '俄罗斯推进烟草和尼古丁产品批发 / 零售许可改革',
+            url: 'https://www.2firsts.com/news/russia-approves-law-requiring-sales-permits-for-cigarettes-and-e-cigarettes-starting-march-1-2026'
+          },
+          {
+            title: '俄罗斯批发 / 零售许可改革时间调整相关报道',
+            url: 'https://interfax.com/newsroom/top-stories/116871/'
+          },
+          {
+            title: '俄罗斯2026年烟草产品消费税调整报道',
+            url: 'https://en.iz.ru/en/2019182/2026-01-01/excise-taxes-tobacco-products-have-been-indexed-russia-january-1'
+          }
+        ]
+      }
     }
   },
   {
