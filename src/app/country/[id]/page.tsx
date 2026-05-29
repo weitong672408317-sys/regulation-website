@@ -1315,16 +1315,18 @@ export default function CountryDetail() {
                   </div>
                 )}
                 
-                {country.tax.policies.find(p => p.title === '最低价格说明') && (
+                {country.id === 'russia' && country.tax.policies.find(p => p.title === '最低价格说明') && (
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
                     <h3 className="text-lg font-bold text-[#2E3F73] mb-3">最低价格说明</h3>
-                    <p className="text-[#334155] text-base leading-7">
-                      {country.tax.policies.find(p => p.title === '最低价格说明')?.description}
-                    </p>
+                    <ul className="list-disc pl-5 space-y-2 text-[#334155] text-base leading-7">
+                      <li>俄罗斯对卷烟、papirosy、加热烟草产品、电子尼古丁输送系统用液体、雪茄、水烟烟草等主要烟草和尼古丁产品设置最低价格或最低零售价格。</li>
+                      <li>最低价格依据主要包括第203-FZ号联邦法第7条、俄罗斯政府批准的最低价格确定规则，以及俄罗斯农业部发布的2026年最低价格信息公告。</li>
+                      <li>最低价格公告中的产品分类不等于市场准入许可；具体产品仍需结合禁售规则、技术合规、标识、许可和销售限制要求判断。</li>
+                    </ul>
                   </div>
                 )}
                 
-                {country.tax.minimumPriceTable && (
+                {country.id === 'russia' && country.tax.minimumPriceTable && (
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
                     <h3 className="text-lg font-bold text-[#2E3F73] mb-4">最低价格表</h3>
                     <div className="overflow-x-auto">
@@ -1341,11 +1343,20 @@ export default function CountryDetail() {
                         <tbody>
                           {country.tax.minimumPriceTable.rows.map((row, rowIdx) => (
                             <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F3F5FB]'}>
-                              {row.map((cell, cellIdx) => (
-                                <td key={cellIdx} className="px-4 py-4 border border-[#D8DDED] text-[#334155] leading-7">
-                                  {cell}
-                                </td>
-                              ))}
+                              <td className="px-4 py-4 border border-[#D8DDED] text-[#334155] leading-7 font-medium">
+                                {row[0]}
+                              </td>
+                              <td className="px-4 py-4 border border-[#D8DDED] text-[#334155] leading-7">
+                                {row[0] === '水烟烟草' ? (
+                                  <ul className="list-disc pl-5 space-y-1">
+                                    {String(row[1]).split('；').map((item: string, i: number) => (
+                                      <li key={i}>{item}</li>
+                                    ))}
+                                  </ul>
+                                ) : (
+                                  String(row[1])
+                                )}
+                              </td>
                             </tr>
                           ))}
                         </tbody>
@@ -1736,9 +1747,15 @@ export default function CountryDetail() {
               {country.id === 'russia' ? (
                 <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-lg p-4">
                   <ul className="list-disc pl-5 space-y-2">
-                    <li className="text-[#334155] text-base">俄罗斯推进烟草和尼古丁产品批发 / 零售许可改革</li>
-                    <li className="text-[#334155] text-base">俄罗斯批发 / 零售许可改革时间调整相关报道</li>
-                    <li className="text-[#334155] text-base">俄罗斯2026年烟草产品消费税调整报道</li>
+                    <li className="text-[#334155] text-base">
+                      <a href="https://www.2firsts.com/news/russia-approves-law-requiring-sales-permits-for-cigarettes-and-e-cigarettes-starting-march-1-2026" target="_blank" rel="noopener noreferrer" className="hover:underline">俄罗斯推进烟草和尼古丁产品批发 / 零售许可改革</a>
+                    </li>
+                    <li className="text-[#334155] text-base">
+                      <a href="https://interfax.com/newsroom/top-stories/116871/" target="_blank" rel="noopener noreferrer" className="hover:underline">俄罗斯批发 / 零售许可改革时间调整相关报道</a>
+                    </li>
+                    <li className="text-[#334155] text-base">
+                      <a href="https://en.iz.ru/en/2019182/2026-01-01/excise-taxes-tobacco-products-have-been-indexed-russia-january-1" target="_blank" rel="noopener noreferrer" className="hover:underline">俄罗斯2026年烟草产品消费税调整报道</a>
+                    </li>
                   </ul>
                 </div>
               ) : country.references.news.length > 0 ? (
