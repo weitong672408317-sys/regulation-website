@@ -779,7 +779,7 @@ export default function CountryDetail() {
                   <ul className="space-y-3 pl-5 list-disc">
                     <li className="text-base leading-7 text-[#334155]">俄罗斯属于烟草及尼古丁产品强监管市场。</li>
                     <li className="text-base leading-7 text-[#334155]">传统烟草、加热烟草、电子烟制品等产品有合规准入空间，但生产、进口、流通、标识、税费、价格和销售环节均受到较强监管。</li>
-                    <li className="text-base leading-7 text-[#334155]">无烟烟草产品，以及口含、吮吸、鼻吸、咀嚼类尼古丁产品，禁止批发和零售。</li>
+                    <li className="text-base leading-7 text-[#334155]">俄罗斯对无烟烟草产品实行分类监管。nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品禁止批发和零售；咀嚼烟草、鼻烟等传统非吸烟烟草产品仍有合规准入路径，但适用强监管要求。</li>
                   </ul>
                 </div>
                 
@@ -954,22 +954,58 @@ export default function CountryDetail() {
                   <div className="mb-4">
                     <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-sm font-semibold mb-3">产品定性</div>
                     <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
-                      <li>根据第268-FZ号法，无烟烟草产品是通过吮吸、咀嚼或鼻吸等方式使用的烟草产品，典型产品包括 snus（湿润口含烟草制品）、nasvay（中亚地区常见的口含 / 咀嚼型无烟烟草制品）、咀嚼烟草和鼻烟。</li>
-                      <li>尼古丁袋、尼古丁口含膜、食品型尼古丁产品以及含尼古丁粉末、混合物等产品，通常属于通过口含、吮吸、咀嚼或鼻吸方式摄入尼古丁的产品。</li>
-                      <li>该类产品与 HNB烟支不同，不通过加热装置产生可吸入气溶胶。</li>
+                      <li>无烟烟草产品是一个大类。俄罗斯法规主要根据产品成分、使用方式和具体产品类别区分监管，没有对所有无烟烟草产品适用统一准入规则。</li>
+                      <li>nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品，属于明确禁售产品。</li>
+                      <li>咀嚼烟草、鼻烟等传统非吸烟烟草产品，在俄罗斯法规体系中仍有合规准入路径，但适用强监管要求。</li>
+                      <li>HNB烟支 / 加热烟草产品不放在本栏目判断，相关信息请参见“加热烟草产品”栏目。</li>
                     </ul>
                   </div>
-                  <StatusCard
-                    status="red"
-                    title="适用产品：口含、吮吸、鼻吸、咀嚼类烟草 / 尼古丁产品。"
-                    content={<>
-                      <div className="font-semibold text-[#263247] mb-1">主要限制：</div>
-                      <ul className="space-y-2 pl-5 list-disc text-[#334155]">
-                        <li>禁止批发和零售。</li>
-                        <li>第268-FZ号法下的技术识别规则不改变第15-FZ号法项下的禁售结论。</li>
-                      </ul>
-                    </>}
-                  />
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <StatusCard
+                      status="red"
+                      title="法规点名禁售产品"
+                      content={<>
+                        <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                        <p className="mb-3">nasvay、snus（吸吮烟草）、食品型尼古丁产品、尼古丁袋、尼古丁口含膜，以及用于咀嚼、吸吮、鼻吸的尼古丁产品。</p>
+                        <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                        <ul className="space-y-2 pl-5 list-disc text-[#334155]">
+                          <li>nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品，禁止批发和零售。</li>
+                          <li>nasvay 和 snus 涉及生产端禁止，不能在俄罗斯本地生产。</li>
+                          <li>尼古丁袋、尼古丁口含膜、尼古丁粉末、尼古丁混合物等产品，如设计用途为口含、吸吮、咀嚼或鼻吸，通常按禁售产品处理。</li>
+                        </ul>
+                      </>}
+                    />
+                    
+                    <StatusCard
+                      status="green"
+                      title="传统非吸烟烟草产品"
+                      content={<>
+                        <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                        <p className="mb-3">咀嚼烟草、鼻烟，以及不构成 nasvay 或 snus 的其他传统非吸烟烟草产品。</p>
+                        <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                        <ul className="space-y-2 pl-5 list-disc text-[#334155]">
+                          <li>产品本身有合规准入空间，但需按非吸烟烟草产品的具体类别判断监管要求。</li>
+                          <li>进入俄罗斯市场前，通常需要关注技术合规、包装标签、数字标识、最低价格、消费税、生产 / 进口投入流通许可和销售限制。</li>
+                          <li>最低价格表中列明咀嚼烟草、鼻烟等价格，仅说明该类产品纳入价格监管，不应理解为豁免其他准入、流通和销售要求。</li>
+                        </ul>
+                      </>}
+                    />
+                    
+                    <StatusCard
+                      status="amber"
+                      title="含烟草且另含尼古丁的边界产品"
+                      content={<>
+                        <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                        <p className="mb-3">含烟草材料，同时外加尼古丁，或以口含、吸吮、咀嚼、鼻吸方式递送尼古丁的袋状、片状、粉末状、混合物类产品。</p>
+                        <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                        <ul className="space-y-2 pl-5 list-disc text-[#334155]">
+                          <li>产品含有烟草材料时，仍需结合外加尼古丁、使用方式和产品宣传口径判断具体监管路径。</li>
+                          <li>产品构成 nasvay、snus，或实质上属于用于咀嚼、吸吮、鼻吸的尼古丁产品的，应按禁售产品处理。</li>
+                          <li>如主张按传统非吸烟烟草产品进入市场，应重点确认产品定义、成分、使用方式、标签标识、生产 / 进口流通许可、最低价格和主管机关口径。</li>
+                        </ul>
+                      </>}
+                    />
+                  </div>
                 </div>
                 
                 <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
@@ -1579,7 +1615,7 @@ export default function CountryDetail() {
                     <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
                     <div>
                       <a href="#" className="text-base font-semibold text-[#243B63] hover:underline">《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》</a>
-                      <p className="text-sm text-[#334155] mt-1">无烟烟草产品的技术识别和技术合规规则。该技术法规主要涉及 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品，不改变第15-FZ号法项下相关产品禁售结论。</p>
+                      <p className="text-sm text-[#334155] mt-1">无烟烟草产品的技术识别和技术合规规则。该技术法规主要涉及 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品。具体产品能否进入市场，还需结合第15-FZ号法的禁售规则、第203-FZ号法的生产流通监管、数字标识、最低价格和销售限制判断。</p>
                     </div>
                   </div>
                   
