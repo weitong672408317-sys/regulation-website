@@ -1604,7 +1604,7 @@ export default function CountryDetail() {
                 
                 <div className="space-y-4">
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                    <h4 className="font-bold text-[#2E3F73] text-base mb-4">市场准入与生产流通监管</h4>
+                    <h4 className="font-bold text-[#2E3F73] text-lg mb-4">市场准入与生产流通监管</h4>
                     
                     <div className="space-y-4">
                       <div>
@@ -1628,7 +1628,7 @@ export default function CountryDetail() {
                   </div>
                   
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                    <h4 className="font-bold text-[#2E3F73] text-base mb-4">产品技术合规与分类规则</h4>
+                    <h4 className="font-bold text-[#2E3F73] text-lg mb-4">产品技术合规与分类规则</h4>
                     
                     <div className="space-y-4">
                       <div>
@@ -1652,7 +1652,7 @@ export default function CountryDetail() {
                   </div>
                   
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                    <h4 className="font-bold text-[#2E3F73] text-base mb-4">数字标识与追溯规则</h4>
+                    <h4 className="font-bold text-[#2E3F73] text-lg mb-4">数字标识与追溯规则</h4>
                     
                     <div>
                       <a href="https://publication.pravo.gov.ru/Document/View/0001201903060010" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#243B63] text-base mb-2 hover:underline block">
@@ -1665,7 +1665,7 @@ export default function CountryDetail() {
                   </div>
                   
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                    <h4 className="font-bold text-[#2E3F73] text-base mb-4">消费税规则</h4>
+                    <h4 className="font-bold text-[#2E3F73] text-lg mb-4">消费税规则</h4>
                     
                     <div>
                       <div className="font-semibold text-[#243B63] text-base mb-2">
@@ -1678,7 +1678,7 @@ export default function CountryDetail() {
                   </div>
                   
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                    <h4 className="font-bold text-[#2E3F73] text-base mb-4">最低价格规则</h4>
+                    <h4 className="font-bold text-[#2E3F73] text-lg mb-4">最低价格规则</h4>
                     
                     <div className="space-y-4">
                       <div>
