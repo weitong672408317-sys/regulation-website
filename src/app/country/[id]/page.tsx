@@ -4,12 +4,6 @@ import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { baseCountries, AccessRestrictionsByStatus, EmirateDifferenceRow, ComplianceLicenseCard } from '../../../../data/mockData';
-import { SectionCard } from '../../../components/country/SectionCard';
-import { SeasonUpdates } from '../../../components/country/SeasonUpdates';
-import { RegulatorySystem } from '../../../components/country/RegulatorySystem';
-import { ProductAccess } from '../../../components/country/ProductAccess';
-import { MarketOperationCards } from '../../../components/country/MarketOperationCards';
-import { ImportantInfo } from '../../../components/country/ImportantInfo';
 
 const colors = {
   pageBg: '#F7F9FC',
@@ -674,88 +668,58 @@ export default function CountryDetail() {
           <h1 className="text-5xl font-bold text-[#0F172A] mb-6">{country.name}</h1>
         </section>
 
-        {/* 新版模板渲染 - 当存在 newPage 时使用新版组件 */}
-        {country.newPage && (
-          <>
-            {/* 本季监管动态 */}
-            {country.newPage.seasonUpdates && (
-              <section className="mb-8">
-                <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
-                  <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
-                    <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
-                    本季监管动态
-                  </h2>
-                  <SeasonUpdates 
-                    summary={country.newPage.seasonUpdates.summary} 
-                    cards={country.newPage.seasonUpdates.cards} 
-                  />
+        {country.id === 'russia' && (
+          <section className="mb-8">
+            <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
+              <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
+                <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
+                本季监管动态
+              </h2>
+              <p className="text-[#334155] text-base leading-7 mb-5">
+                2026年以来，俄罗斯监管重点继续集中在产品许可、数字标识、税费和价格监管。烟草和尼古丁产品仍有合法准入空间，但经营端控制持续加强。
+              </p>
+              <div className="space-y-3">
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-[#373F7A] text-base mb-1">批发 / 零售许可</h4>
+                      <p className="text-[#334155] text-base leading-7">烟草和尼古丁产品批发、零售许可改革继续推进。此前方案曾提出2026年分阶段实施，但实际上改革时间和落地节奏仍在调整，暂无确定时间表。</p>
+                    </div>
+                  </div>
                 </div>
-              </section>
-            )}
-
-            {/* 监管体系 */}
-            {country.newPage.regulatorySystem && (
-              <section className="mb-8">
-                <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
-                  <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
-                    <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
-                    监管体系
-                  </h2>
-                  <RegulatorySystem 
-                    coreFeatures={country.newPage.regulatorySystem.coreFeatures}
-                    ruleSystem={country.newPage.regulatorySystem.ruleSystem}
-                    authorities={country.newPage.regulatorySystem.authorities}
-                  />
+                
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-[#373F7A] text-base mb-1">数字标识</h4>
+                      <ul className="space-y-2 text-[#334155] text-base leading-7 pl-5 list-disc">
+                        <li>可重复使用电子烟设备及类似个人电加热雾化设备仍处于标识试验 / 过渡阶段。</li>
+                        <li>烟油、含液体烟弹、设备与液体组合产品中的液体部分，应继续按尼古丁液体或无尼古丁液体规则判断，仍需重点关注相关标识和追溯要求。</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </section>
-            )}
-
-            {/* 产品准入与监管口径 */}
-            {country.newPage.productAccess && (
-              <section className="mb-8">
-                <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
-                  <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
-                    <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
-                    产品准入与监管口径
-                  </h2>
-                  <ProductAccess sections={country.newPage.productAccess} />
+                
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-[#373F7A] text-base mb-1">税费和最低价格</h4>
+                      <ul className="space-y-2 text-[#334155] text-base leading-7 pl-5 list-disc">
+                        <li>俄罗斯对烟草、尼古丁及相关制品等列明2026—2028年消费税税率。</li>
+                        <li>2026年起至2028年，前述产品的税率继续提高。</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </section>
-            )}
-
-            {/* 市场运营规范 */}
-            {country.newPage.marketOperationCards && (
-              <section className="mb-8">
-                <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
-                  <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
-                    <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
-                    市场运营规范
-                  </h2>
-                  <MarketOperationCards cards={country.newPage.marketOperationCards} />
-                </div>
-              </section>
-            )}
-
-            {/* 重要资讯 */}
-            {country.newPage.importantInfo && (
-              <section className="mb-8">
-                <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
-                  <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
-                    <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
-                    重要资讯
-                  </h2>
-                  <ImportantInfo 
-                    regulations={country.newPage.importantInfo.regulations}
-                    news={country.newPage.importantInfo.news}
-                  />
-                </div>
-              </section>
-            )}
-          </>
+              </div>
+            </div>
+          </section>
         )}
 
-        {/* 旧版渲染逻辑 - 当没有 newPage 时使用 */}
-        {!country.newPage && (
+        {country.id !== 'russia' && (
           <>
             <section className="mb-8">
               <div className="bg-[#EAF2FF] border border-blue-200 border-l-4 border-l-blue-600 rounded-xl p-6 shadow-sm">
@@ -802,25 +766,58 @@ export default function CountryDetail() {
         )}
 
         <section className="mb-8">
-          <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+          <div className={country.id === 'russia' ? "bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6" : "bg-white rounded-xl shadow-md border border-gray-200 p-6"}>
             <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
-              <div className="w-1 h-7 bg-blue-600 rounded-full"></div>
-              监管体系与产品口径
+              <div className={country.id === 'russia' ? "w-1 h-7 bg-[#4A6290] rounded-full" : "w-1 h-7 bg-blue-600 rounded-full"}></div>
+              {country.id === 'russia' ? '监管体系' : '监管体系与产品口径'}
             </h2>
             
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-blue-900 mb-4">监管概述</h3>
+            {country.id === 'russia' ? (
               <div className="space-y-4">
-                {parseOverview(country.regulatorySystem.overview).map((section, index) => (
-                  <div key={index} className="bg-white rounded-lg p-4">
-                    <h3 className="text-base font-bold text-blue-900 mb-3">{section.title}</h3>
-                    <div className="text-gray-700 text-base leading-relaxed whitespace-pre-wrap">
-                      {section.content}
-                    </div>
-                  </div>
-                ))}
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                  <h3 className="text-lg font-bold text-[#2E3F73] mb-4">核心特征</h3>
+                  <ul className="space-y-3 pl-5 list-disc">
+                    <li className="text-base leading-7 text-[#334155]">俄罗斯属于烟草及尼古丁产品强监管市场。</li>
+                    <li className="text-base leading-7 text-[#334155]">传统烟草、加热烟草、电子烟制品等产品有合规准入空间，但生产、进口、流通、标识、税费、价格和销售环节均受到较强监管。</li>
+                    <li className="text-base leading-7 text-[#334155]">俄罗斯对无烟烟草产品实行分类监管。nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品禁止批发和零售；咀嚼烟草、鼻烟等传统非吸烟烟草产品仍有合规准入路径，但适用强监管要求。</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                  <h3 className="text-lg font-bold text-[#2E3F73] mb-4">规则体系</h3>
+                  <ul className="space-y-3 pl-5 list-disc">
+                    <li className="text-base leading-7 text-[#334155]">欧亚经济联盟技术规则主要影响烟草制品的技术要求、包装标签、健康警示、消费者信息和符合性声明。</li>
+                    <li className="text-base leading-7 text-[#334155]">俄罗斯国内监管规则主要影响生产流通许可、销售限制、广告展示、数字标识、消费税、最低价格和法律责任。</li>
+                    <li className="text-base leading-7 text-[#334155]">对同一产品，通常需要同时判断欧亚经济联盟技术合规要求和俄罗斯国内市场准入、流通及销售规则。</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                  <h3 className="text-lg font-bold text-[#2E3F73] mb-4">监管部门</h3>
+                  <ul className="list-disc pl-5 space-y-3 text-base leading-7 text-[#334155]">
+                    <li><span className="font-semibold text-[#263247]">俄罗斯联邦酒精和烟草市场监管局：</span>负责烟草、尼古丁产品及相关原料的生产流通许可和监管。</li>
+                    <li><span className="font-semibold text-[#263247]">俄罗斯联邦消费者权益保护和公益监督局：</span>负责消费者保护、公共卫生、销售端检查、标签、未成年人保护和控烟执法。</li>
+                    <li><span className="font-semibold text-[#263247]">俄罗斯联邦税务局：</span>负责消费税、税务申报和涉税监管。</li>
+                    <li><span className="font-semibold text-[#263247]">俄罗斯海关机关：</span>负责进口申报、商品归类、边境查验、进口税费和走私查处。</li>
+                    <li><span className="font-semibold text-[#263247]">俄罗斯联邦反垄断局：</span>负责广告、促销、赞助和不正当竞争监管。</li>
+                  </ul>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-blue-900 mb-4">监管概述</h3>
+                <div className="space-y-4">
+                  {parseOverview(country.regulatorySystem.overview).map((section, index) => (
+                    <div key={index} className="bg-white rounded-lg p-4">
+                      <h3 className="text-base font-bold text-blue-900 mb-3">{section.title}</h3>
+                      <div className="text-gray-700 text-base leading-relaxed whitespace-pre-wrap">
+                        {section.content}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
