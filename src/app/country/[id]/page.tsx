@@ -970,7 +970,6 @@ export default function CountryDetail() {
                         <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                         <ul className="space-y-2 pl-5 list-disc text-[#334155]">
                           <li>nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品，禁止批发和零售。</li>
-                          <li>nasvay 和 snus 涉及生产端禁止，不能在俄罗斯本地生产。</li>
                           <li>尼古丁袋、尼古丁口含膜、尼古丁粉末、尼古丁混合物等产品，如设计用途为口含、吸吮、咀嚼或鼻吸，通常按禁售产品处理。</li>
                         </ul>
                       </>}
