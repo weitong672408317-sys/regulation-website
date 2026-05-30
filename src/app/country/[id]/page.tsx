@@ -1496,7 +1496,6 @@ export default function CountryDetail() {
                         </ul>
                       </>}
                     />
-                    <div className="grid md:grid-cols-2 gap-4">
                     <StatusCard
                       status="red"
                       title="含烟草咀嚼制品"
@@ -1541,7 +1540,6 @@ export default function CountryDetail() {
                         </ul>
                       </>}
                     />
-                  </div>
                   </div>
                 </div>
 
@@ -1794,7 +1792,10 @@ export default function CountryDetail() {
                     </ul>
                     <div className="ml-9 space-y-4">
                       <div>
-                        <p className="font-semibold text-[#263247] mb-2">为什么要有 CoC？</p>
+                        <div className="flex items-center gap-2 mb-2">
+                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#E8EDF5] text-[#2E3F73] text-xs font-bold">Q</span>
+                        <p className="font-semibold text-[#263247]">为什么要有 CoC？</p>
+                      </div>
                         <ul className="space-y-2">
                           <li className="flex items-start gap-3">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -1811,7 +1812,10 @@ export default function CountryDetail() {
                         </ul>
                       </div>
                       <div>
-                        <p className="font-semibold text-[#263247] mb-2">CoC 谁来发？怎么拿？</p>
+                        <div className="flex items-center gap-2 mb-2">
+                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#E8EDF5] text-[#2E3F73] text-xs font-bold">Q</span>
+                        <p className="font-semibold text-[#263247]">CoC 谁来发？怎么拿？</p>
+                      </div>
                         <ul className="space-y-2">
                           <li className="flex items-start gap-3">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -1824,7 +1828,10 @@ export default function CountryDetail() {
                         </ul>
                       </div>
                       <div>
-                        <p className="font-semibold text-[#263247] mb-2">CoC 有效期多久？每次进口都需要吗？</p>
+                        <div className="flex items-center gap-2 mb-2">
+                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#E8EDF5] text-[#2E3F73] text-xs font-bold">Q</span>
+                        <p className="font-semibold text-[#263247]">CoC 有效期多久？每次进口都需要吗？</p>
+                      </div>
                         <ul className="space-y-2">
                           <li className="flex items-start gap-3">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -1851,7 +1858,10 @@ export default function CountryDetail() {
                       </li>
                     </ul>
                     <div className="ml-9">
-                      <p className="font-semibold text-[#263247] mb-2">ECAS与CoC的关系：</p>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#E8EDF5] text-[#2E3F73] text-xs font-bold">Q</span>
+                        <p className="font-semibold text-[#263247]">ECAS与CoC的关系：</p>
+                      </div>
                       <ul className="space-y-2">
                         <li className="flex items-start gap-3">
                           <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
