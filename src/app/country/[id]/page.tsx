@@ -1047,7 +1047,7 @@ export default function CountryDetail() {
                     />
                   </div>
                 </div>
-                
+
                 <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
                   <h3 className="text-lg font-bold text-[#2E3F73] mb-4">5. 原料及辅材</h3>
                   <div className="mb-4">
@@ -1197,7 +1197,7 @@ export default function CountryDetail() {
                       <li>该标准明确载明：其所指电子尼古丁产品并不包括通过点燃并燃烧吸食的产品，也不包括尼古丁贴片等其他含尼古丁产品，以及通过口腔消费的烟草产品。</li>
                     </ul>
                   </div>
-                  <div className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <StatusCard
                       status="green"
                       title="电子雾化产品、烟油及补充装"
@@ -1259,8 +1259,7 @@ export default function CountryDetail() {
                         <br />（3）其他口腔 / 鼻用烟草或尼古丁产品。</li>
                     </ul>
                   </div>
-                  <div className="space-y-4">
-                    <StatusCard
+                  <StatusCard
                       status="green"
                       title="无烟草尼古丁袋"
                       content={<>
@@ -1284,6 +1283,7 @@ export default function CountryDetail() {
                         </ul>
                       </>}
                     />
+                    <div className="grid md:grid-cols-2 gap-4">
                     <StatusCard
                       status="red"
                       title="含烟草咀嚼制品"
@@ -1339,7 +1339,7 @@ export default function CountryDetail() {
                       <li>阿联酋公开资料未见对滤嘴棒、爆珠、香精胶囊、香精香料设置单独产品定义。该类产品应重点核对成分、用途、HS 编码、进口申报和下游客户产品用途。</li>
                     </ul>
                   </div>
-                  <div className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <StatusCard
                       status="green"
                       title="普通辅材"
@@ -1408,19 +1408,19 @@ export default function CountryDetail() {
                       <table className="w-full text-base min-w-[600px] bg-white">
                         <thead>
                           <tr className="bg-[#E8EDF5]">
-                            <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] w-32">酋长国</th>
-                            <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED]">咀嚼烟草制品</th>
-                            <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED]">电子烟</th>
-                            <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED]">水烟</th>
+                            <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] border-r border-[#D8DDED] w-[16%]">酋长国</th>
+                            <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] border-r border-[#D8DDED] w-[24%]">咀嚼烟草制品</th>
+                            <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] border-r border-[#D8DDED] w-[30%]">电子烟</th>
+                            <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] w-[30%]">水烟</th>
                           </tr>
                         </thead>
                         <tbody>
                           {country.emirateDifferences.map((row, index) => (
                             <React.Fragment key={index}>
                               <tr className={index % 2 === 0 ? 'bg-white/50' : 'bg-[#F3F5FB]'}>
-                                <td className="px-5 py-4 border-b border-[#D8DDED] font-semibold text-[#1F2A44]">{row.emirate}</td>
-                                <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">{row.chewingTobacco}</td>
-                                <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">{row.electronicCigarette}</td>
+                                <td className="px-5 py-4 border-b border-[#D8DDED] border-r border-[#D8DDED] font-semibold text-[#1F2A44]">{row.emirate}</td>
+                                <td className="px-5 py-4 border-b border-[#D8DDED] border-r border-[#D8DDED] text-[#334155]">{row.chewingTobacco}</td>
+                                <td className="px-5 py-4 border-b border-[#D8DDED] border-r border-[#D8DDED] text-[#334155]">{row.electronicCigarette}</td>
                                 <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">{row.hookah}</td>
                               </tr>
                               {row.note && index === country.emirateDifferences!.length - 1 && (
@@ -1575,10 +1575,15 @@ export default function CountryDetail() {
                     <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
                     <h4 className="font-bold text-[#2E3F73] text-base">产品符合性证书（CoC）</h4>
                   </div>
-                  <p className="text-[#334155] text-base leading-7 mb-4 ml-9">烟草产品（包括电子烟）、无烟草尼古丁袋等受管制产品进入阿联酋市场前，必须依法取得由政府认可的产品符合性证书（Certificate of Conformity, CoC）。</p>
+                  <ul className="space-y-2 ml-9 mb-4">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="text-[#334155] text-base leading-7">烟草产品（包括电子烟）、无烟草尼古丁袋等受管制产品进入阿联酋市场前，必须依法取得由政府认可的产品符合性证书（Certificate of Conformity, CoC）。</span>
+                    </li>
+                  </ul>
                   <div className="ml-9 space-y-4">
                     <div>
-                      <p className="font-semibold text-[#263247] mb-2">✅ 为什么要有 CoC？</p>
+                      <p className="font-semibold text-[#263247] mb-2">为什么要有 CoC？</p>
                       <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
                         <li>是电子烟或烟草产品 合法进入阿联酋市场 的基本条件</li>
                         <li>是产品 清关、贴数字税票（DTS）、销售和接受检查 的唯一有效证书</li>
@@ -1586,14 +1591,14 @@ export default function CountryDetail() {
                       </ul>
                     </div>
                     <div>
-                      <p className="font-semibold text-[#263247] mb-2">✅ CoC 谁来发？怎么拿？</p>
+                      <p className="font-semibold text-[#263247] mb-2">CoC 谁来发？怎么拿？</p>
                       <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
                         <li>签发单位：阿联酋工业与先进技术部（MoIAT）</li>
                         <li>获取方式：产品需先通过阿联酋的国家认证流程 —— ECAS</li>
                       </ul>
                     </div>
                     <div>
-                      <p className="font-semibold text-[#263247] mb-2">✅ CoC 有效期多久？每次进口都需要吗？</p>
+                      <p className="font-semibold text-[#263247] mb-2">CoC 有效期多久？每次进口都需要吗？</p>
                       <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
                         <li>CoC 通常有效期为 一年（或以注册时间为准）</li>
                         <li>每款产品，每次进口或流通前都要重新办理新的 CoC</li>
@@ -1602,38 +1607,64 @@ export default function CountryDetail() {
                   </div>
                 </div>
 
-                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                  <div className="flex items-start gap-3 mb-4">
-                    <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
-                    <h4 className="font-bold text-[#2E3F73] text-base">阿联酋符合性评估计划（ECAS）</h4>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                    <div className="flex items-start gap-3 mb-4">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
+                      <h4 className="font-bold text-[#2E3F73] text-base">阿联酋符合性评估计划（ECAS）</h4>
+                    </div>
+                    <ul className="space-y-2 ml-9 mb-4">
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">ECAS（Emirates Conformity Assessment Scheme）是一套强制性产品认证机制，用于检验产品是否符合阿联酋法律和技术标准。</span>
+                      </li>
+                    </ul>
+                    <div className="ml-9">
+                      <p className="font-semibold text-[#263247] mb-2">ECAS与CoC的关系：</p>
+                      <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
+                        <li>ECAS 是认证流程机制，CoC 则是认证完成后出具的正式合格证书。</li>
+                        <li>要取得CoC的产品，需先通过阿联酋的ECAS认证。</li>
+                      </ul>
+                    </div>
                   </div>
-                  <p className="text-[#334155] text-base leading-7 mb-4 ml-9">ECAS（Emirates Conformity Assessment Scheme）是一套强制性产品认证机制，用于检验产品是否符合阿联酋法律和技术标准。</p>
-                  <div className="ml-9">
-                    <p className="font-semibold text-[#263247] mb-2">ECAS与CoC的关系：</p>
-                    <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
-                      <li>ECAS 是认证流程机制，CoC 则是认证完成后出具的正式合格证书。</li>
-                      <li>要取得CoC的产品，需先通过阿联酋的ECAS认证。</li>
+
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                    <div className="flex items-start gap-3 mb-4">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
+                      <h4 className="font-bold text-[#2E3F73] text-base">无异议函（NOC）</h4>
+                    </div>
+                    <ul className="space-y-2 ml-9">
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">NOC 是政府主管部门出具的无异议函，常用于确认相关主管机关对特定受控业务、产品或操作没有异议。</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">含尼古丁、烟油、高浓度尼古丁、香精等敏感产品，在产品注册、仓储、转运、再包装、出口或自由区操作等环节，可能需要主管机关出具 NOC；涉及戒烟、治疗或健康功效表达的，还可能触发卫生主管机关审查。</span>
+                      </li>
                     </ul>
                   </div>
-                </div>
 
-                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                  <div className="flex items-start gap-3 mb-4">
-                    <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
-                    <h4 className="font-bold text-[#2E3F73] text-base">无异议函（NOC）</h4>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                    <div className="flex items-start gap-3 mb-4">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">4</span>
+                      <h4 className="font-bold text-[#2E3F73] text-base">地方销售许可</h4>
+                    </div>
+                    <ul className="space-y-2 ml-9">
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">阿联酋各酋长国及自由区（如RAKEZ、DMCC、JAFZA等）的市政或经济监管机构，会分别制定其烟草经营许可或活动白名单的申请规则，涵盖场地安全、环境卫生、消防标准等。</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">企业应在目标经营地区的官方平台上查询并依法申办许可。</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">例如，在迪拜，烟草及烟草制品的零售、批发、分销、进口、仓储等活动，需依据《迪拜市政厅烟草及烟具销售许可技术指南》申请专项许可，并满足选址、距离、店面布局、产品合规、广告限制、未成年人保护等一系列要求 。</span>
+                      </li>
+                    </ul>
                   </div>
-                  <p className="text-[#334155] text-base leading-7 mb-4 ml-9">NOC 是政府主管部门出具的无异议函，常用于确认相关主管机关对特定受控业务、产品或操作没有异议。</p>
-                  <p className="text-[#334155] text-base leading-7 ml-9">含尼古丁、烟油、高浓度尼古丁、香精等敏感产品，在产品注册、仓储、转运、再包装、出口或自由区操作等环节，可能需要主管机关出具 NOC；涉及戒烟、治疗或健康功效表达的，还可能触发卫生主管机关审查。</p>
-                </div>
-
-                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                  <div className="flex items-start gap-3 mb-4">
-                    <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">4</span>
-                    <h4 className="font-bold text-[#2E3F73] text-base">地方销售许可</h4>
-                  </div>
-                  <p className="text-[#334155] text-base leading-7 mb-4 ml-9">阿联酋各酋长国及自由区（如RAKEZ、DMCC、JAFZA等）的市政或经济监管机构，会分别制定其烟草经营许可或活动白名单的申请规则，涵盖场地安全、环境卫生、消防标准等。</p>
-                  <p className="text-[#334155] text-base leading-7 mb-4 ml-9">企业应在目标经营地区的官方平台上查询并依法申办许可。</p>
-                  <p className="text-[#334155] text-base leading-7 ml-9">例如，在迪拜，烟草及烟草制品的零售、批发、分销、进口、仓储等活动，需依据《迪拜市政厅烟草及烟具销售许可技术指南》申请专项许可，并满足选址、距离、店面布局、产品合规、广告限制、未成年人保护等一系列要求 。</p>
                 </div>
               </div>
             ) : country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
@@ -1804,29 +1835,29 @@ export default function CountryDetail() {
                     <table className="w-full text-base min-w-[800px] bg-white">
                       <thead>
                         <tr className="bg-[#E8EDF5]">
-                          <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] w-[15%]">税种</th>
-                          <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] w-[30%]">适用对象 / 范围</th>
-                          <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] w-[20%]">税率</th>
+                          <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED] w-[15%]">税种</th>
+                          <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED] w-[30%]">适用对象 / 范围</th>
+                          <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED] w-[20%]">税率</th>
                           <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] w-[35%]">注册要求及门槛</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr className="bg-white/50">
-                          <td className="px-4 py-4 border-b border-[#D8DDED] font-semibold text-[#1F2A44]">消费税 (Excise Tax)</td>
-                          <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
-                          <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">100%（针对烟草制品、电子烟装置及烟油）；50%（含糖饮料等）等。</td>
+                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">消费税 (Excise Tax)</td>
+                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
+                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">100%（针对烟草制品、电子烟装置及烟油）；50%（含糖饮料等）等。</td>
                           <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">无营业额门槛。凡从事应税特定有害商品进口、本地生产或经营指定仓库者，均须向FTA注册为应税人，并履行申报缴税义务。</td>
                         </tr>
                         <tr className="bg-[#F3F5FB]">
-                          <td className="px-4 py-4 border-b border-[#D8DDED] font-semibold text-[#1F2A44]">增值税 (VAT)</td>
-                          <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</td>
-                          <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">5%（标准税率）</td>
+                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">增值税 (VAT)</td>
+                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</td>
+                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">5%（标准税率）</td>
                           <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">年应税营业额 ≥ 375,000 AED须注册为增值税纳税人；年营业额在187,500–375,000 AED之间可选择自愿注册；低于187,500 AED则不可注册为VAT纳税人。</td>
                         </tr>
                         <tr className="bg-white/50">
-                          <td className="px-4 py-4 border-b border-[#D8DDED] font-semibold text-[#1F2A44]">企业所得税 (Corporate Tax)</td>
-                          <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">对阿联酋境内开展营业的公司的净利润征收的税（石油和天然气行业及特定自由区合格企业有特殊豁免）。适用于在阿联酋注册的本土公司、符合条件的自由区公司，以及在阿境内有持续经营场所的外国企业。</td>
-                          <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">0%（对年净利润不超过375,000 AED的部分）；9%（对年净利润超出375,000 AED的部分）。</td>
+                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">企业所得税 (Corporate Tax)</td>
+                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">对阿联酋境内开展营业的公司的净利润征收的税（石油和天然气行业及特定自由区合格企业有特殊豁免）。适用于在阿联酋注册的本土公司、符合条件的自由区公司，以及在阿境内有持续经营场所的外国企业。</td>
+                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">0%（对年净利润不超过375,000 AED的部分）；9%（对年净利润超出375,000 AED的部分）。</td>
                           <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">无收入门槛（除特定豁免情形外）。几乎所有在阿联酋境内开展业务的法人实体都须按照规定注册企业税，并在规定时限内申报纳税；逾期注册或申报将面临罚款。</td>
                         </tr>
                       </tbody>
@@ -1922,7 +1953,10 @@ export default function CountryDetail() {
               ) : country.id === 'uae' ? (
                 <div className="space-y-4">
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                    <h3 className="text-lg font-bold text-[#2E3F73] mb-4">1. 全面广告禁令</h3>
+                    <div className="flex items-start gap-3 mb-4">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
+                      <h3 className="text-lg font-bold text-[#2E3F73]">全面广告禁令</h3>
+                    </div>
                     <p className="text-[#334155] text-base leading-7 mb-4">阿联酋对烟草制品实施极为严格的广告、促销和赞助禁令，主要内容如下：</p>
                     <div className="space-y-4">
                       <div className="bg-white/55 border border-white/70 rounded-lg p-4">
@@ -1979,8 +2013,12 @@ export default function CountryDetail() {
                     </div>
                   </div>
 
-                  <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
-                    <h3 className="text-base font-bold text-[#2E3F73] mb-3">2. 销售与陈列</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                      <div className="flex items-start gap-3 mb-4">
+                        <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
+                        <h3 className="text-lg font-bold text-[#2E3F73]">销售与陈列</h3>
+                      </div>
                     <ul className="space-y-3">
                       <li className="text-[#334155] text-base leading-7 flex items-start gap-3">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -2005,8 +2043,11 @@ export default function CountryDetail() {
                     </ul>
                   </div>
 
-                  <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5">
-                    <h3 className="text-base font-bold text-[#2E3F73] mb-3">3. 包装与标签</h3>
+                    <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                      <div className="flex items-start gap-3 mb-4">
+                        <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
+                        <h3 className="text-lg font-bold text-[#2E3F73]">包装与标签</h3>
+                      </div>
                     <ul className="space-y-3">
                       <li className="text-[#334155] text-base leading-7 flex items-start gap-3">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -2025,6 +2066,7 @@ export default function CountryDetail() {
                         <span>涉及戒烟、治疗、减害或健康功效的表达，应谨慎处理并确认是否需主管机关审批</span>
                       </li>
                     </ul>
+                    </div>
                   </div>
                 </div>
               ) : (
@@ -2112,7 +2154,7 @@ export default function CountryDetail() {
                 
                 <div className="bg-[#FEF2F2] border border-[#FCA5A5] rounded-xl p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <h3 className="text-lg font-bold text-[#DC2626]">红线警告</h3>
+                    <h3 className="text-lg font-bold text-[#DC2626]">合规红线清单</h3>
                   </div>
                   <div className="space-y-4">
                     <div>
@@ -2499,7 +2541,7 @@ export default function CountryDetail() {
                           UAE.S 5061:2025《无烟草尼古丁袋》
                         </a>
                         <p className="text-sm text-[#334155] leading-6">
-                          规范无烟草尼古丁袋的产品定义、技术指标、成分、包装标签、健康警示、儿童防护和上市前文件要求，是无烟草尼古丁袋进入阿联酋市场的重要合规依据。
+                          规范无烟草尼古丁袋的产品定义、技术指标、成分、包装标签、健康警示、儿童防护和上市前文件要求，是无烟草尼古丁袋进入阿联酋市场的重要合规依据。该链接为非官方转载 PDF，用于内部核验；正式适用以 MoIAT/阿联酋官方标准文本为准。
                         </p>
                       </div>
                     </div>
@@ -2528,7 +2570,7 @@ export default function CountryDetail() {
                       </div>
 
                       <div className="pt-4 border-t border-[#D8DDED]">
-                        <a href="https://uaelegislation.gov.ae/en/legislations/2506/download" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#243B63] text-base mb-2 hover:underline block">
+                        <a href="https://uaelegislation.gov.ae/en/legislations/3983" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#243B63] text-base mb-2 hover:underline block">
                           《内阁决议第 52 号（2019 年）—消费税货物、税率与消费税价格》
                         </a>
                         <p className="text-sm text-[#334155] leading-6">
