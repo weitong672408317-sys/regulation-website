@@ -112,7 +112,7 @@ const StatusCard = ({ status, title, subtitle, content, customLabel }: { status:
   const s = styles[status];
   
   return (
-    <div className={`bg-white border border-[#E2E6EF] ${s.borderLeft} border-l-2 rounded-xl p-4 shadow-sm`}>
+    <div className={`bg-white border border-[#E2E6EF] ${s.borderLeft} border-l-2 rounded-xl p-4 shadow-sm w-full`}>
       <div className="flex items-center gap-2 mb-3">
         <span className={`px-3 py-1 rounded-full text-sm font-semibold ${s.badge}`}>{customLabel || s.label}</span>
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}
@@ -1471,12 +1471,13 @@ export default function CountryDetail() {
                         <br />（3）其他口腔 / 鼻用烟草或尼古丁产品。</li>
                     </ul>
                   </div>
-                  <div className="space-y-4">
-                    <StatusCard
-                      status="green"
-                      title="无烟草尼古丁袋"
-                      content={<>
-                        <div className="font-semibold text-[#263247] mb-1">产品定义：</div>
+                  <div className="flex flex-col gap-4">
+                    <div className="bg-white border border-[#E2E6EF] border-l-2 border-l-[#6AAF7C] rounded-xl p-4 shadow-sm">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1 rounded-full text-sm font-semibold bg-[#E8F5ED] text-[#3D7050]">可合规准入</span>
+                      </div>
+                      <div className="font-bold text-[#263247] text-base mb-2">无烟草尼古丁袋</div>
+                      <div className="text-[#334155] text-base leading-7">
                         <p className="mb-3">根据《内阁决议第 2 号（2025 年）》及 UAE.S 5061:2025《无烟草尼古丁袋》，无烟草尼古丁袋是指含有尼古丁和/或尼古丁化合物、调味剂及其他允许成分，且不含烟草的产品；</p>
                         <p className="mb-3">该产品仅限通过口腔使用，即将小袋/囊袋放置于牙龈与口腔黏膜之间一段时间，以便尼古丁通过口腔黏膜吸收，使用后再将小袋丢弃。</p>
                         <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -1494,13 +1495,15 @@ export default function CountryDetail() {
                             <span>包装和标签也应符合 UAE.S 5061:2025 要求，例如每个零售包装应含 15–20 个小袋。</span>
                           </li>
                         </ul>
-                      </>}
-                    />
-                    <StatusCard
-                      status="red"
-                      title="含烟草咀嚼制品"
-                      content={<>
-                        <div className="font-semibold text-[#263247] mb-1">产品定义：</div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white border border-[#E2E6EF] border-l-2 border-l-[#DC6B6B] rounded-xl p-4 shadow-sm">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1 rounded-full text-sm font-semibold bg-[#FCEAEA] text-[#B33B3B]">完全禁止</span>
+                      </div>
+                      <div className="font-bold text-[#263247] text-base mb-2">含烟草咀嚼制品</div>
+                      <div className="text-[#334155] text-base leading-7">
                         <p className="mb-3">公开资料未见阿联酋对“含烟草咀嚼制品”设置单独完整定义。</p>
                         <p className="mb-3">结合现有禁止性口径，该类产品可理解为含有烟草材料、通过咀嚼或口含方式使用的烟草产品，典型产品包括 Paan、Gutkha、Mawa 等。</p>
                         <div className="font-semibold text-[#263247] mb-1">主要限制：</div>
@@ -1514,14 +1517,15 @@ export default function CountryDetail() {
                             <span>含烟草材料的咀嚼类产品不得套用无烟草尼古丁袋路径。</span>
                           </li>
                         </ul>
-                      </>}
-                    />
-                    <StatusCard
-                      status="amber"
-                      title="其他口腔/鼻用烟草或尼古丁产品"
-                      customLabel="需确认"
-                      content={<>
-                        <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white border border-[#E2E6EF] border-l-2 border-l-[#C9A24C] rounded-xl p-4 shadow-sm">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-3 py-1 rounded-full text-sm font-semibold bg-[#F8F3E8] text-[#8B6F2E]">需确认</span>
+                      </div>
+                      <div className="font-bold text-[#263247] text-base mb-2">其他口腔/鼻用烟草或尼古丁产品</div>
+                      <div className="text-[#334155] text-base leading-7">
                         <p className="mb-3">尼古丁口含膜、尼古丁片、尼古丁粉末、鼻吸尼古丁产品、含烟草鼻吸产品、其他非袋状口腔或鼻用烟草/尼古丁产品。</p>
                         <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                         <ul className="space-y-1 text-[#334155]">
@@ -1538,8 +1542,8 @@ export default function CountryDetail() {
                             <span>进入市场前，应结合产品形态、成分、使用方式、是否含烟草材料及主管机关口径确认产品归类和认证要求。</span>
                           </li>
                         </ul>
-                      </>}
-                    />
+                      </div>
+                    </div>
                   </div>
                 </div>
 
