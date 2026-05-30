@@ -1797,61 +1797,34 @@ export default function CountryDetail() {
                     <div className="ml-9 space-y-4">
                       <div>
                         <div className="flex items-center gap-2 mb-2">
-                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-[#B8C4D8] text-[#4A6290] text-xs font-bold mr-2 flex-shrink-0">?</span>
-                        <p className="font-semibold text-[#263247]">为什么要有 CoC？</p>
+                        <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
+                        <p className="font-bold text-[#263247] text-base">为什么要有 CoC？</p>
                       </div>
-                        <div className="pl-7">
-                          <ul className="space-y-2">
-                          <li className="flex items-start gap-3">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                            <span className="text-[#334155] text-base leading-7">是电子烟或烟草产品 合法进入阿联酋市场 的基本条件</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                            <span className="text-[#334155] text-base leading-7">是产品 清关、贴数字税票（DTS）、销售和接受检查 的唯一有效证书</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                            <span className="text-[#334155] text-base leading-7">没有 CoC，产品无法清关，不能在阿联酋销售或流通</span>
-                          </li>
+                        <ul className="list-disc pl-8 space-y-2 text-base leading-7 text-[#334155]">
+                          <li>是电子烟或烟草产品 合法进入阿联酋市场 的基本条件</li>
+                          <li>是产品 清关、贴数字税票（DTS）、销售和接受检查 的唯一有效证书</li>
+                          <li>没有 CoC，产品无法清关，不能在阿联酋销售或流通</li>
                         </ul>
-                        </div>
                       </div>
                       <div>
                         <div className="flex items-center gap-2 mb-2">
-                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-[#B8C4D8] text-[#4A6290] text-xs font-bold mr-2 flex-shrink-0">?</span>
-                        <p className="font-semibold text-[#263247]">CoC 谁来发？怎么拿？</p>
+                        <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
+                        <p className="font-bold text-[#263247] text-base">CoC 谁来发？怎么拿？</p>
                       </div>
-                        <div className="pl-7">
-                          <ul className="space-y-2">
-                          <li className="flex items-start gap-3">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                            <span className="text-[#334155] text-base leading-7">签发单位：阿联酋工业与先进技术部（MoIAT）</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                            <span className="text-[#334155] text-base leading-7">获取方式：产品需先通过阿联酋的国家认证流程 —— ECAS</span>
-                          </li>
+                        <ul className="list-disc pl-8 space-y-2 text-base leading-7 text-[#334155]">
+                          <li>签发单位：阿联酋工业与先进技术部（MoIAT）</li>
+                          <li>获取方式：产品需先通过阿联酋的国家认证流程 —— ECAS</li>
                         </ul>
-                        </div>
                       </div>
                       <div>
                         <div className="flex items-center gap-2 mb-2">
-                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-[#B8C4D8] text-[#4A6290] text-xs font-bold mr-2 flex-shrink-0">?</span>
-                        <p className="font-semibold text-[#263247]">CoC 有效期多久？每次进口都需要吗？</p>
+                        <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
+                        <p className="font-bold text-[#263247] text-base">CoC 有效期多久？每次进口都需要吗？</p>
                       </div>
-                        <div className="pl-7">
-                          <ul className="space-y-2">
-                          <li className="flex items-start gap-3">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                            <span className="text-[#334155] text-base leading-7">CoC 通常有效期为 一年（或以注册时间为准）</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                            <span className="text-[#334155] text-base leading-7">每款产品，每次进口或流通前都要重新办理新的 CoC</span>
-                          </li>
+                        <ul className="list-disc pl-8 space-y-2 text-base leading-7 text-[#334155]">
+                          <li>CoC 通常有效期为 一年（或以注册时间为准）</li>
+                          <li>每款产品，每次进口或流通前都要重新办理新的 CoC</li>
                         </ul>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -1869,21 +1842,13 @@ export default function CountryDetail() {
                     </ul>
                     <div className="ml-9">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-[#B8C4D8] text-[#4A6290] text-xs font-bold mr-2 flex-shrink-0">?</span>
-                        <p className="font-semibold text-[#263247]">ECAS与CoC的关系：</p>
+                        <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
+                        <p className="font-bold text-[#263247] text-base">ECAS与CoC的关系：</p>
                       </div>
-                        <div className="pl-7">
-                          <ul className="space-y-2">
-                        <li className="flex items-start gap-3">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                          <span className="text-[#334155] text-base leading-7">ECAS 是认证流程机制，CoC 则是认证完成后出具的正式合格证书。</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                          <span className="text-[#334155] text-base leading-7">要取得CoC的产品，需先通过阿联酋的ECAS认证。</span>
-                        </li>
+                        <ul className="list-disc pl-8 space-y-2 text-base leading-7 text-[#334155]">
+                        <li>ECAS 是认证流程机制，CoC 则是认证完成后出具的正式合格证书。</li>
+                        <li>要取得CoC的产品，需先通过阿联酋的ECAS认证。</li>
                       </ul>
-                        </div>
                     </div>
                   </div>
                 </div>
@@ -2150,7 +2115,7 @@ export default function CountryDetail() {
                       </thead>
                       <tbody>
                         <tr className="bg-white/50">
-                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">消费税 (Excise Tax)</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>消费税</div><div className="whitespace-nowrap">(Excise Tax)</div></div></td>
                           <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
                           <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
                             <ul className="space-y-1">
@@ -2167,7 +2132,7 @@ export default function CountryDetail() {
                           <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">无营业额门槛。凡从事应税特定有害商品进口、本地生产或经营指定仓库者，均须向FTA注册为应税人，并履行申报缴税义务。</td>
                         </tr>
                         <tr className="bg-[#F3F5FB]">
-                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">增值税 (VAT)</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>增值税</div><div className="whitespace-nowrap">(VAT)</div></div></td>
                           <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</td>
                           <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">5%（标准税率）</td>
                           <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">
@@ -2188,7 +2153,7 @@ export default function CountryDetail() {
                           </td>
                         </tr>
                         <tr className="bg-white/50">
-                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">企业所得税 (Corporate Tax)</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>企业所得税</div><div className="whitespace-nowrap">(Corporate Tax)</div></div></td>
                           <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
                             <ul className="space-y-1">
                               <li className="flex items-start gap-2">
