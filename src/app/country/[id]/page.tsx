@@ -1780,65 +1780,65 @@ export default function CountryDetail() {
               <div className="space-y-4">
                 <p className="text-[#334155] text-base leading-7 mb-4">阿联酋烟草及新型烟草产品的合规重点，不在于一般公司设立资质，而在于产品认证、行业许可、税务税票和地方销售许可。</p>
                 
-                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                  <div className="flex items-start gap-3 mb-4">
-                    <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
-                    <h4 className="font-bold text-[#2E3F73] text-base">产品符合性证书（CoC）</h4>
-                  </div>
-                  <ul className="space-y-2 ml-9 mb-4">
-                    <li className="flex items-start gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                      <span className="text-[#334155] text-base leading-7">烟草产品（包括电子烟）、无烟草尼古丁袋等受管制产品进入阿联酋市场前，必须依法取得由政府认可的产品符合性证书（Certificate of Conformity, CoC）。</span>
-                    </li>
-                  </ul>
-                  <div className="ml-9 space-y-4">
-                    <div>
-                      <p className="font-semibold text-[#263247] mb-2">为什么要有 CoC？</p>
-                      <ul className="space-y-2">
-                        <li className="flex items-start gap-3">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                          <span className="text-[#334155] text-base leading-7">是电子烟或烟草产品 合法进入阿联酋市场 的基本条件</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                          <span className="text-[#334155] text-base leading-7">是产品 清关、贴数字税票（DTS）、销售和接受检查 的唯一有效证书</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                          <span className="text-[#334155] text-base leading-7">没有 CoC，产品无法清关，不能在阿联酋销售或流通</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-[#263247] mb-2">CoC 谁来发？怎么拿？</p>
-                      <ul className="space-y-2">
-                        <li className="flex items-start gap-3">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                          <span className="text-[#334155] text-base leading-7">签发单位：阿联酋工业与先进技术部（MoIAT）</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                          <span className="text-[#334155] text-base leading-7">获取方式：产品需先通过阿联酋的国家认证流程 —— ECAS</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-[#263247] mb-2">CoC 有效期多久？每次进口都需要吗？</p>
-                      <ul className="space-y-2">
-                        <li className="flex items-start gap-3">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                          <span className="text-[#334155] text-base leading-7">CoC 通常有效期为 一年（或以注册时间为准）</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                          <span className="text-[#334155] text-base leading-7">每款产品，每次进口或流通前都要重新办理新的 CoC</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                    <div className="flex items-start gap-3 mb-4">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
+                      <h4 className="font-bold text-[#2E3F73] text-base">产品符合性证书（CoC）</h4>
+                    </div>
+                    <ul className="space-y-2 ml-9 mb-4">
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">烟草产品（包括电子烟）、无烟草尼古丁袋等受管制产品进入阿联酋市场前，必须依法取得由政府认可的产品符合性证书（Certificate of Conformity, CoC）。</span>
+                      </li>
+                    </ul>
+                    <div className="ml-9 space-y-4">
+                      <div>
+                        <p className="font-semibold text-[#263247] mb-2">为什么要有 CoC？</p>
+                        <ul className="space-y-2">
+                          <li className="flex items-start gap-3">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                            <span className="text-[#334155] text-base leading-7">是电子烟或烟草产品 合法进入阿联酋市场 的基本条件</span>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                            <span className="text-[#334155] text-base leading-7">是产品 清关、贴数字税票（DTS）、销售和接受检查 的唯一有效证书</span>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                            <span className="text-[#334155] text-base leading-7">没有 CoC，产品无法清关，不能在阿联酋销售或流通</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-[#263247] mb-2">CoC 谁来发？怎么拿？</p>
+                        <ul className="space-y-2">
+                          <li className="flex items-start gap-3">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                            <span className="text-[#334155] text-base leading-7">签发单位：阿联酋工业与先进技术部（MoIAT）</span>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                            <span className="text-[#334155] text-base leading-7">获取方式：产品需先通过阿联酋的国家认证流程 —— ECAS</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-[#263247] mb-2">CoC 有效期多久？每次进口都需要吗？</p>
+                        <ul className="space-y-2">
+                          <li className="flex items-start gap-3">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                            <span className="text-[#334155] text-base leading-7">CoC 通常有效期为 一年（或以注册时间为准）</span>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                            <span className="text-[#334155] text-base leading-7">每款产品，每次进口或流通前都要重新办理新的 CoC</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
                     <div className="flex items-start gap-3 mb-4">
                       <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
@@ -1864,7 +1864,9 @@ export default function CountryDetail() {
                       </ul>
                     </div>
                   </div>
+                </div>
 
+                <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
                     <div className="flex items-start gap-3 mb-4">
                       <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
@@ -1881,27 +1883,27 @@ export default function CountryDetail() {
                       </li>
                     </ul>
                   </div>
-                </div>
 
-                <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-                  <div className="flex items-start gap-3 mb-4">
-                    <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">4</span>
-                    <h4 className="font-bold text-[#2E3F73] text-base">地方销售许可</h4>
+                  <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+                    <div className="flex items-start gap-3 mb-4">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">4</span>
+                      <h4 className="font-bold text-[#2E3F73] text-base">地方销售许可</h4>
+                    </div>
+                    <ul className="space-y-2 ml-9">
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">阿联酋各酋长国及自由区（如RAKEZ、DMCC、JAFZA等）的市政或经济监管机构，会分别制定其烟草经营许可或活动白名单的申请规则，涵盖场地安全、环境卫生、消防标准等。</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">企业应在目标经营地区的官方平台上查询并依法申办许可。</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                        <span className="text-[#334155] text-base leading-7">例如，在迪拜，烟草及烟草制品的零售、批发、分销、进口、仓储等活动，需依据《迪拜市政厅烟草及烟具销售许可技术指南》申请专项许可，并满足选址、距离、店面布局、产品合规、广告限制、未成年人保护等一系列要求 。</span>
+                      </li>
+                    </ul>
                   </div>
-                  <ul className="space-y-2 ml-9">
-                    <li className="flex items-start gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                      <span className="text-[#334155] text-base leading-7">阿联酋各酋长国及自由区（如RAKEZ、DMCC、JAFZA等）的市政或经济监管机构，会分别制定其烟草经营许可或活动白名单的申请规则，涵盖场地安全、环境卫生、消防标准等。</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                      <span className="text-[#334155] text-base leading-7">企业应在目标经营地区的官方平台上查询并依法申办许可。</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                      <span className="text-[#334155] text-base leading-7">例如，在迪拜，烟草及烟草制品的零售、批发、分销、进口、仓储等活动，需依据《迪拜市政厅烟草及烟具销售许可技术指南》申请专项许可，并满足选址、距离、店面布局、产品合规、广告限制、未成年人保护等一系列要求 。</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             ) : country.id === 'paraguay' ? (
@@ -2126,22 +2128,74 @@ export default function CountryDetail() {
                       </thead>
                       <tbody>
                         <tr className="bg-white/50">
-                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">消费税 (Excise Tax)</td>
-                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
-                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">100%（针对烟草制品、电子烟装置及烟油）；50%（含糖饮料等）等。</td>
-                          <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">无营业额门槛。凡从事应税特定有害商品进口、本地生产或经营指定仓库者，均须向FTA注册为应税人，并履行申报缴税义务。</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">消费税 (Excise Tax)</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
+                            <ul className="space-y-1">
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>100%：针对烟草制品、电子烟装置及烟油；</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>50%：针对含糖饮料等。</span>
+                              </li>
+                            </ul>
+                          </td>
+                          <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">无营业额门槛。凡从事应税特定有害商品进口、本地生产或经营指定仓库者，均须向FTA注册为应税人，并履行申报缴税义务。</td>
                         </tr>
                         <tr className="bg-[#F3F5FB]">
-                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">增值税 (VAT)</td>
-                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</td>
-                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">5%（标准税率）</td>
-                          <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">年应税营业额 ≥ 375,000 AED须注册为增值税纳税人；年营业额在187,500–375,000 AED之间可选择自愿注册；低于187,500 AED则不可注册为VAT纳税人。</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">增值税 (VAT)</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">5%（标准税率）</td>
+                          <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">
+                            <ul className="space-y-1">
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>年应税营业额 ≥ 375,000 AED 须注册为增值税纳税人；</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>年营业额在 187,500–375,000 AED 之间可选择自愿注册；</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>低于 187,500 AED 则不可注册为 VAT 纳税人。</span>
+                              </li>
+                            </ul>
+                          </td>
                         </tr>
                         <tr className="bg-white/50">
-                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">企业所得税 (Corporate Tax)</td>
-                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">对阿联酋境内开展营业的公司的净利润征收的税（石油和天然气行业及特定自由区合格企业有特殊豁免）。适用于在阿联酋注册的本土公司、符合条件的自由区公司，以及在阿境内有持续经营场所的外国企业。</td>
-                          <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">0%（对年净利润不超过375,000 AED的部分）；9%（对年净利润超出375,000 AED的部分）。</td>
-                          <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">无收入门槛（除特定豁免情形外）。几乎所有在阿联酋境内开展业务的法人实体都须按照规定注册企业税，并在规定时限内申报纳税；逾期注册或申报将面临罚款。</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">企业所得税 (Corporate Tax)</td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
+                            <ul className="space-y-1">
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>对阿联酋境内开展营业的公司的净利润征收的税；</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>石油和天然气行业及特定自由区合格企业有特殊豁免；</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>适用于在阿联酋注册的本土公司、符合条件的自由区公司，以及在阿境内有持续经营场所的外国企业。</span>
+                              </li>
+                            </ul>
+                          </td>
+                          <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
+                            <ul className="space-y-1">
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>0%：对年净利润不超过 375,000 AED 的部分；</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                                <span>9%：对年净利润超出 375,000 AED 的部分。</span>
+                              </li>
+                            </ul>
+                          </td>
+                          <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">无收入门槛（除特定豁免情形外）。几乎所有在阿联酋境内开展业务的法人实体都须按照规定注册企业税，并在规定时限内申报纳税；逾期注册或申报将面临罚款。</td>
                         </tr>
                       </tbody>
                     </table>
