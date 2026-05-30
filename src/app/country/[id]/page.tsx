@@ -1793,10 +1793,11 @@ export default function CountryDetail() {
                     <div className="ml-9 space-y-4">
                       <div>
                         <div className="flex items-center gap-2 mb-2">
-                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#E8EDF5] text-[#2E3F73] text-xs font-bold">Q</span>
+                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-[#B8C4D8] text-[#4A6290] text-xs font-bold mr-2 flex-shrink-0">?</span>
                         <p className="font-semibold text-[#263247]">为什么要有 CoC？</p>
                       </div>
-                        <ul className="space-y-2">
+                        <div className="pl-7">
+                          <ul className="space-y-2">
                           <li className="flex items-start gap-3">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
                             <span className="text-[#334155] text-base leading-7">是电子烟或烟草产品 合法进入阿联酋市场 的基本条件</span>
@@ -1810,13 +1811,15 @@ export default function CountryDetail() {
                             <span className="text-[#334155] text-base leading-7">没有 CoC，产品无法清关，不能在阿联酋销售或流通</span>
                           </li>
                         </ul>
+                        </div>
                       </div>
                       <div>
                         <div className="flex items-center gap-2 mb-2">
-                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#E8EDF5] text-[#2E3F73] text-xs font-bold">Q</span>
+                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-[#B8C4D8] text-[#4A6290] text-xs font-bold mr-2 flex-shrink-0">?</span>
                         <p className="font-semibold text-[#263247]">CoC 谁来发？怎么拿？</p>
                       </div>
-                        <ul className="space-y-2">
+                        <div className="pl-7">
+                          <ul className="space-y-2">
                           <li className="flex items-start gap-3">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
                             <span className="text-[#334155] text-base leading-7">签发单位：阿联酋工业与先进技术部（MoIAT）</span>
@@ -1826,13 +1829,15 @@ export default function CountryDetail() {
                             <span className="text-[#334155] text-base leading-7">获取方式：产品需先通过阿联酋的国家认证流程 —— ECAS</span>
                           </li>
                         </ul>
+                        </div>
                       </div>
                       <div>
                         <div className="flex items-center gap-2 mb-2">
-                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#E8EDF5] text-[#2E3F73] text-xs font-bold">Q</span>
+                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-[#B8C4D8] text-[#4A6290] text-xs font-bold mr-2 flex-shrink-0">?</span>
                         <p className="font-semibold text-[#263247]">CoC 有效期多久？每次进口都需要吗？</p>
                       </div>
-                        <ul className="space-y-2">
+                        <div className="pl-7">
+                          <ul className="space-y-2">
                           <li className="flex items-start gap-3">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
                             <span className="text-[#334155] text-base leading-7">CoC 通常有效期为 一年（或以注册时间为准）</span>
@@ -1842,6 +1847,7 @@ export default function CountryDetail() {
                             <span className="text-[#334155] text-base leading-7">每款产品，每次进口或流通前都要重新办理新的 CoC</span>
                           </li>
                         </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1859,10 +1865,11 @@ export default function CountryDetail() {
                     </ul>
                     <div className="ml-9">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#E8EDF5] text-[#2E3F73] text-xs font-bold">Q</span>
+                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full border border-[#B8C4D8] text-[#4A6290] text-xs font-bold mr-2 flex-shrink-0">?</span>
                         <p className="font-semibold text-[#263247]">ECAS与CoC的关系：</p>
                       </div>
-                      <ul className="space-y-2">
+                        <div className="pl-7">
+                          <ul className="space-y-2">
                         <li className="flex items-start gap-3">
                           <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
                           <span className="text-[#334155] text-base leading-7">ECAS 是认证流程机制，CoC 则是认证完成后出具的正式合格证书。</span>
@@ -1872,6 +1879,7 @@ export default function CountryDetail() {
                           <span className="text-[#334155] text-base leading-7">要取得CoC的产品，需先通过阿联酋的ECAS认证。</span>
                         </li>
                       </ul>
+                        </div>
                     </div>
                   </div>
                 </div>
