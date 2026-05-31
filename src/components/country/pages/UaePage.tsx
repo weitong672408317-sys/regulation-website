@@ -402,7 +402,7 @@ export default function UaePage({ country }: UaePageProps) {
                   <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
                   <h4 className="font-bold text-[#2E3F73] text-base">产品符合性证书（CoC）</h4>
                 </div>
-                <p className="ml-0 text-[#334155] text-base leading-7 mb-4">烟草产品（包括电子烟）、无烟草尼古丁袋等受管制产品进入阿联酋市场前，必须依法取得由政府认可的产品符合性证书（Certificate of Conformity, CoC）。</p>
+                <p className="ml-6 text-[#334155] text-base leading-7 mb-4">烟草产品（包括电子烟）、无烟草尼古丁袋等受管制产品进入阿联酋市场前，必须依法取得由政府认可的产品符合性证书（Certificate of Conformity, CoC）。</p>
                 <div className="ml-6 space-y-4">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
@@ -443,7 +443,7 @@ export default function UaePage({ country }: UaePageProps) {
                   <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
                   <h4 className="font-bold text-[#2E3F73] text-base">阿联酋符合性评估计划（ECAS）</h4>
                 </div>
-                <p className="ml-0 text-[#334155] text-base leading-7 mb-4">ECAS（Emirates Conformity Assessment Scheme）是一套强制性产品认证机制，用于检验产品是否符合阿联酋法律和技术标准。</p>
+                <p className="ml-6 text-[#334155] text-base leading-7 mb-4">ECAS（Emirates Conformity Assessment Scheme）是一套强制性产品认证机制，用于检验产品是否符合阿联酋法律和技术标准。</p>
                 <div className="ml-6">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
@@ -525,15 +525,15 @@ export default function UaePage({ country }: UaePageProps) {
                     <tr className="bg-white/50">
                       <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>消费税</div><div className="whitespace-nowrap">(Excise Tax)</div></div></td>
                       <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
-                      <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7 text-justify">
-                        <ul className="space-y-1">
+                      <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
+                        <ul className="space-y-2">
                           <li className="flex items-start gap-2">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                            <span className="whitespace-nowrap">100%：针对烟草制品、电子烟装置及烟油；</span>
+                            <span>100%：针对烟草制品、电子烟装置及烟油；</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                            <span className="whitespace-nowrap">50%：针对含糖饮料等。</span>
+                            <span>50%：针对含糖饮料等。</span>
                           </li>
                         </ul>
                       </td>
