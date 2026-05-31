@@ -23,7 +23,6 @@ export function SeasonSummarySection({ introText, items, children }: SeasonSumma
           {items.map((item, index) => (
             <SubCard key={index} className="!p-4">
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></div>
                 <div className="flex-1">
                   <h4 className="font-bold text-[#373F7A] text-base mb-1">{item.title}</h4>
                   <div className="text-[#334155] text-base leading-7">{item.content}</div>
