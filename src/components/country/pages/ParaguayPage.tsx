@@ -6,7 +6,7 @@ interface ParaguayPageProps {
   country: CountryData;
 }
 
-export default function ParaguayPage({ country }: ParaguayPageProps) {
+export default function ParaguayPage(_country: ParaguayPageProps) {
   return (
     <>
       <section className="mb-8">
@@ -558,7 +558,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
                 <div>
                   <p className="font-semibold text-[#1F2A44] text-base mb-1">《第7605/2017号法令：关于实施第5538/2015号法若干条款的法令》</p>
                   <p className="text-[#334155] text-base leading-7 mb-1">第5538/2015号法的主要实施法令，细化烟草包装健康警示、无烟环境、广告促销、销售限制和监管执行等要求。</p>
-                  <a href="https://dinavisa.gov.py/wp-content/uploads/2025/08/DECRETO-N%C2%B0-7605-2017-Regula-las-actividades-relacionadas-al-tabaco.pdf" target="_blank" rel="noopener noreferrer" className="text-[#4A6290] hover:underline text-base break-all">https://dinavisa.gov.py/wp-content/uploads/2025/08/DECRETO-N°-7605-2017-Regula-las-actividades-relacionadas-al-tabaco.pdf</a>
+                  <a href="https://dinavisa.gov.py/wp-content/uploads/2025/08/DECRETO-N%C2%B0-7605-2017-Regula-las-actividades-relacionadas-al-tabaco.pdf" target="_blank" rel="noopener noreferrer" className="text-[#4A6290] hover:underline text-base break-all">https://dinavisa.gov.py/wp-content/uploads/2025/08/DECRETO-N%C2%B0-7605-2017-Regula-las-actividades-relacionadas-al-tabaco.pdf</a>
                 </div>
                 <div>
                   <p className="font-semibold text-[#1F2A44] text-base mb-1">《第4624/2020号法令：关于修改第7605/2017号法令第3条的法令》</p>
