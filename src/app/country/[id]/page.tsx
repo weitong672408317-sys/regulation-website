@@ -12,6 +12,7 @@ import {
 import RussiaPage from '../../../components/country/pages/RussiaPage';
 import UaePage from '../../../components/country/pages/UaePage';
 import ParaguayPage from '../../../components/country/pages/ParaguayPage';
+import IndonesiaPage from '../../../components/country/pages/IndonesiaPage';
 
 export default function CountryDetail() {
   const params = useParams();
@@ -34,7 +35,7 @@ export default function CountryDetail() {
     );
   }
 
-  if (country.id === 'russia' || country.id === 'uae' || country.id === 'paraguay') {
+  if (country.id === 'russia' || country.id === 'uae' || country.id === 'paraguay' || country.id === 'indonesia') {
     return (
       <div className="min-h-screen bg-[#F7F9FC]">
         <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
@@ -53,6 +54,7 @@ export default function CountryDetail() {
           {country.id === 'russia' && <RussiaPage country={country} />}
           {country.id === 'uae' && <UaePage country={country} />}
           {country.id === 'paraguay' && <ParaguayPage country={country} />}
+          {country.id === 'indonesia' && <IndonesiaPage country={country} />}
 
           <section className="mb-8">
             <div className="bg-[#F2F4F7] border border-[#E1E5EA] rounded-xl p-5">
