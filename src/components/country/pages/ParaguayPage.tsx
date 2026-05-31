@@ -297,19 +297,19 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
                   </thead>
                   <tbody>
                     <tr className="bg-white/50">
-                      <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155]">卷烟、雪茄、小雪茄、手卷烟草</td>
+                      <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">卷烟、雪茄、小雪茄、手卷烟草</td>
                       <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">20%</td>
                     </tr>
                     <tr className="bg-[#F3F5FB]">
-                      <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155]">加热烟草产品 / HNB烟支</td>
+                      <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">加热烟草产品 / HNB烟支</td>
                       <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">20%</td>
                     </tr>
                     <tr className="bg-white/50">
-                      <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155]">用于电子烟、雾化器或类似装置的烟草香精或类似产品</td>
+                      <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">用于电子烟、雾化器或类似装置的烟草香精或类似产品</td>
                       <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">18%</td>
                     </tr>
                     <tr className="bg-[#F3F5FB]">
-                      <td className="px-5 py-4 border-r border-[#D8DDED] text-[#334155]">雾化器及其可雾化液体，无论是否含尼古丁</td>
+                      <td className="px-5 py-4 border-r border-[#D8DDED] text-[#334155] leading-7">雾化器及其可雾化液体，无论是否含尼古丁</td>
                       <td className="px-5 py-4 text-[#334155]">22%</td>
                     </tr>
                   </tbody>
@@ -365,36 +365,36 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <table className="w-full text-base min-w-[900px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
-                  <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED] w-[15%]">对比事项</th>
-                  <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED] w-[28%]">传统烟草产品</th>
-                  <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED] w-[28%]">电子烟、雾化产品及相关产品</th>
-                  <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] w-[29%]">实操差异</th>
+                  <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED] w-[12%]">对比事项</th>
+                  <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED] w-[26%]">传统烟草产品</th>
+                  <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED] w-[30%]">电子烟、雾化产品及相关产品</th>
+                  <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] w-[32%]">实操差异</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="bg-white/50">
-                  <td className="px-4 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">远程销售</td>
-                  <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">禁止通过电话、数字、电子、邮寄或类似远程方式向消费者销售</td>
-                  <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">禁止通过无法清楚、及时识别购买者身份的远程销售、互联网、社交媒体、电商平台或类似渠道销售</td>
-                  <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">传统烟草基本不能做远程销售；电子烟/雾化产品的核心是远程销售场景能否做到清楚、及时识别购买者身份。</td>
+                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">远程销售</td>
+                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">禁止通过电话、数字、电子、邮寄或类似远程方式向消费者销售</td>
+                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">禁止通过无法清楚、及时识别购买者身份的远程销售、互联网、社交媒体、电商平台或类似渠道销售</td>
+                  <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">传统烟草基本不能做远程销售；电子烟/雾化产品的核心是远程销售场景能否做到清楚、及时识别购买者身份。</td>
                 </tr>
                 <tr className="bg-[#F3F5FB]">
-                  <td className="px-4 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">自动售货机 / 分配机</td>
-                  <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">禁止通过自动售货机或分配机销售</td>
-                  <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">禁止通过不能识别购买者不是未成年人的自动售货机、分配机或无人值守设备销售</td>
-                  <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">传统烟草不能通过自动售货机销售；电子烟/雾化产品理论上存在年龄识别例外，但普通无人值守设备不能直接销售。</td>
+                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">自动售货机 / 分配机</td>
+                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">禁止通过自动售货机或分配机销售</td>
+                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">禁止通过不能识别购买者不是未成年人的自动售货机、分配机或无人值守设备销售</td>
+                  <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">传统烟草不能通过自动售货机销售；电子烟/雾化产品理论上存在年龄识别例外，但普通无人值守设备不能直接销售。</td>
                 </tr>
                 <tr className="bg-white/50">
-                  <td className="px-4 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">销售点陈列</td>
-                  <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">应在收银台或销售点销售，不得让消费者直接接触或自行拿取</td>
-                  <td className="px-4 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">可以在销售点展示，但不得让消费者直接接触或自行拿取；不得放置在未上锁的开放式货架、展示架、展示柜或桌台</td>
-                  <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155] leading-7">两类产品都不能让消费者自行拿取；电子烟/雾化产品对陈列方式写得更细，必须采用上锁、封闭或由销售人员控制取用的展示方式。</td>
+                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]">销售点陈列</td>
+                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">应在收银台或销售点销售，不得让消费者直接接触或自行拿取</td>
+                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">可以在销售点展示，但不得让消费者直接接触或自行拿取；不得放置在未上锁的开放式货架、展示架、展示柜或桌台</td>
+                  <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">两类产品都不能让消费者自行拿取；电子烟/雾化产品对陈列方式写得更细，必须采用上锁、封闭或由销售人员控制取用的展示方式。</td>
                 </tr>
                 <tr className="bg-[#F3F5FB]">
-                  <td className="px-4 py-4 border-r border-[#D8DDED] font-semibold text-[#1F2A44]">未成年人销售</td>
-                  <td className="px-4 py-4 border-r border-[#D8DDED] text-[#334155] leading-7">不得向未满18岁人员销售、供应或交付</td>
-                  <td className="px-4 py-4 border-r border-[#D8DDED] text-[#334155] leading-7">不得向未满18岁人员销售、供应、交付或免费分发；销售时应核验购买者年龄</td>
-                  <td className="px-4 py-4 border-[#D8DDED] text-[#334155] leading-7">实质要求一致：不能面向未成年人销售或提供；电子烟/雾化产品规则更明确强调销售时年龄核验。</td>
+                  <td className="px-4 py-5 border-r border-[#D8DDED] font-semibold text-[#1F2A44]">未成年人销售</td>
+                  <td className="px-4 py-5 border-r border-[#D8DDED] text-[#334155] leading-7">不得向未满18岁人员销售、供应或交付</td>
+                  <td className="px-4 py-5 border-r border-[#D8DDED] text-[#334155] leading-7">不得向未满18岁人员销售、供应、交付或免费分发；销售时应核验购买者年龄</td>
+                  <td className="px-4 py-5 border-[#D8DDED] text-[#334155] leading-7">实质要求一致：不能面向未成年人销售或提供；电子烟/雾化产品规则更明确强调销售时年龄核验。</td>
                 </tr>
               </tbody>
             </table>

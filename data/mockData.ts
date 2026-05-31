@@ -58,6 +58,22 @@ export interface MarketOperationItem {
   items: string[];
 }
 
+export interface RedLineGroup {
+  groupName: string;
+  items: string[];
+}
+
+export interface ReferenceItemWithDescription {
+  title: string;
+  description: string;
+  url: string;
+}
+
+export interface ReferenceGroup {
+  groupName: string;
+  items: ReferenceItemWithDescription[];
+}
+
 export interface CountryData {
   id: string;
   name: string;
@@ -94,6 +110,8 @@ export interface CountryData {
     policies: TaxPolicy[];
     exciseTaxTable?: GenericComplianceTable;
     minimumPriceTable?: GenericComplianceTable;
+    vatTaxTable?: GenericComplianceTable;
+    salesComparisonTable?: GenericComplianceTable;
   };
   marketOperation: {
     marketingRestrictions: string;
@@ -103,11 +121,13 @@ export interface CountryData {
   trendsWarnings: {
     trendAnalysis: string;
     redLines: string[];
+    redLineGroups?: RedLineGroup[];
   };
   references: {
     regulations: { title: string; url: string }[];
     news: { title: string; url: string }[];
     pdfs: { title: string; url: string }[];
+    referenceGroups?: ReferenceGroup[];
   };
 }
 
@@ -1709,11 +1729,40 @@ const fallbackCountries: CountryData[] = [
           ['雾化器及其可雾化液体，无论是否含尼古丁', '22%']
         ]
       },
-      minimumPriceTable: {
+      vatTaxTable: {
         headers: ['税种 / 产品类别', '税率'],
         rows: [
           ['IVA 一般税率', '10%'],
           ['未经加工的叶烟等部分初级农产品', '5%']
+        ]
+      },
+      salesComparisonTable: {
+        headers: ['对比事项', '传统烟草产品', '电子烟、雾化产品及相关产品', '实操差异'],
+        rows: [
+          [
+            '远程销售',
+            '禁止通过电话、数字、电子、邮寄或类似远程方式向消费者销售',
+            '禁止通过无法清楚、及时识别购买者身份的远程销售、互联网、社交媒体、电商平台或类似渠道销售',
+            '传统烟草基本不能做远程销售；电子烟/雾化产品的核心是远程销售场景能否做到清楚、及时识别购买者身份。'
+          ],
+          [
+            '自动售货机 / 分配机',
+            '禁止通过自动售货机或分配机销售',
+            '禁止通过不能识别购买者不是未成年人的自动售货机、分配机或无人值守设备销售',
+            '传统烟草不能通过自动售货机销售；电子烟/雾化产品理论上存在年龄识别例外，但普通无人值守设备不能直接销售。'
+          ],
+          [
+            '销售点陈列',
+            '应在收银台或销售点销售，不得让消费者直接接触或自行拿取',
+            '可以在销售点展示，但不得让消费者直接接触或自行拿取；不得放置在未上锁的开放式货架、展示架、展示柜或桌台',
+            '两类产品都不能让消费者自行拿取；电子烟/雾化产品对陈列方式写得更细，必须采用上锁、封闭或由销售人员控制取用的展示方式。'
+          ],
+          [
+            '未成年人销售',
+            '不得向未满18岁人员销售、供应或交付',
+            '不得向未满18岁人员销售、供应、交付或免费分发；销售时应核验购买者年龄',
+            '实质要求一致：不能面向未成年人销售或提供；电子烟/雾化产品规则更明确强调销售时年龄核验。'
+          ]
         ]
       }
     },
@@ -1763,6 +1812,40 @@ const fallbackCountries: CountryData[] = [
         '严禁在包装、标签、说明、销售展示或宣传材料中使用"低风险""减害""健康""有益""戒烟""治疗""不成瘾""更安全"等功效性、治疗性或降低风险暗示。',
         '严禁违法开展烟草产品、电子烟、雾化产品及相关产品的广告、促销、赞助、免费样品、赠品、试用、递样、折扣、抽奖、会员积分或组合销售。',
         '严禁在室内公共场所、工作场所和公共交通工具中使用烟草产品、加热烟草产品、电子烟、雾化产品及相关产品。'
+      ],
+      redLineGroups: [
+        {
+          groupName: '产品上市与经营资质',
+          items: [
+            '严禁将未完成 DINAVISA 登记/注册的烟草产品、电子烟、雾化产品、烟油/补充液、相关配件或耗材投入巴拉圭市场。',
+            '严禁在未完成烟草主体登记或未取得 DINAVISA 经营场所授权的情况下，开展对应产品的制造、进口、出口、分销、仓储或销售。'
+          ]
+        },
+        {
+          groupName: '销售渠道与陈列',
+          items: [
+            '严禁向未满18岁人员销售、供应、交付或免费分发烟草产品、电子烟、雾化产品及相关产品。',
+            '严禁通过电话、数字、电子、邮寄或类似远程方式向消费者销售传统烟草产品。',
+            '严禁通过自动售货机或分配机销售传统烟草产品。',
+            '严禁通过无法清楚、及时识别购买者身份的远程渠道销售电子烟、雾化产品及相关产品。',
+            '严禁将烟草产品、电子烟、雾化产品及相关产品放置在消费者可直接接触或自行拿取的位置。',
+            '严禁通过未上锁的开放式货架、展示架、展示柜、超市柜台或桌台陈列电子烟、雾化产品及相关产品。'
+          ]
+        },
+        {
+          groupName: '包装、成分与宣传',
+          items: [
+            '严禁销售尼古丁浓度超过 20mg/ml 或 2% 的电子烟液或雾化液。',
+            '严禁在包装、标签、说明、销售展示或宣传材料中使用"低风险""减害""健康""有益""戒烟""治疗""不成瘾""更安全"等功效性、治疗性或降低风险暗示。',
+            '严禁违法开展烟草产品、电子烟、雾化产品及相关产品的广告、促销、赞助、免费样品、赠品、试用、递样、折扣、抽奖、会员积分或组合销售。'
+          ]
+        },
+        {
+          groupName: '公共场所使用',
+          items: [
+            '严禁在室内公共场所、工作场所和公共交通工具中使用烟草产品、加热烟草产品、电子烟、雾化产品及相关产品。'
+          ]
+        }
       ]
     },
     references: {
@@ -1814,7 +1897,89 @@ const fallbackCountries: CountryData[] = [
           url: 'https://www.vouga.com.py/novedades-impositivas-agosto-2025/'
         }
       ],
-      pdfs: []
+      pdfs: [],
+      referenceGroups: [
+        {
+          groupName: '烟草控制与无烟环境规则',
+          items: [
+            {
+              title: '《第5538/2015号法：关于修改第4045/2010号法并规制烟草相关活动及公共健康保护措施的法律》',
+              description: '巴拉圭传统烟草控制基础法，主要覆盖无烟环境、烟草广告促销和赞助、包装标签、销售限制、烟草产品内容物和释放物监管。',
+              url: 'https://www.bacn.gov.py/leyes-paraguayas/4519/ley-n-5538-modifica-la-ley-n-404510-que-modifica-la-ley-n-12591-modificada-por-la-ley-n-242104-sobre-su-regimen-tributario-que-regula-las-actividades-relacionadas-al-tabaco-y-establece-medidas-sanitarias-de-proteccion-a-la-poblacion'
+            },
+            {
+              title: '《第7605/2017号法令：关于实施第5538/2015号法若干条款的法令》',
+              description: '第5538/2015号法的主要实施法令，细化烟草包装健康警示、无烟环境、广告促销、销售限制和监管执行等要求。',
+              url: 'https://dinavisa.gov.py/wp-content/uploads/2025/08/DECRETO-N%C2%B0-7605-2017-Regula-las-actividades-relacionadas-al-tabaco.pdf'
+            },
+            {
+              title: '《第4624/2020号法令：关于修改第7605/2017号法令第3条的法令》',
+              description: '无烟环境规则的重要修订文件，将公共空间使用限制扩展至烟草产品、加热烟草产品以及含或不含尼古丁的电子烟。',
+              url: 'https://assets.tobaccocontrollaws.org/uploads/legislation/Paraguay/Paraguay-Decree-No.-46242020-native.pdf'
+            }
+          ]
+        },
+        {
+          groupName: '电子烟、雾化产品与新兴装置规则',
+          items: [
+            {
+              title: '《第7508/2025号法：关于电子尼古丁输送系统、无尼古丁类似系统、新兴装置、配件、耗材和用于雾化物质的健康保护措施》',
+              description: '当前电子烟、雾化器、新兴装置、配件、耗材和用于雾化物质的核心专项法，覆盖进口、生产、消费、广告和商业化，并对销售、陈列、未成年人保护、尼古丁浓度和广告促销设置专项规则。',
+              url: 'https://www.bacn.gov.py/leyes-paraguayas/12907/ley-n-7508-2025-que-establece-medidas-sanitarias-de-protecci-n-a-la-salud-de-las-personas-en-relaci-n-a-los-dispositivos-accesorios-e-insumos-de-los-sistemas-electr-nicos-de-administraci-n-de-nicotina-sean-y-sistemas-similares-sin-nicotina-sssn-u-otros-dispositivos-nuevos-y-emergentes-con-o-sin-nicotina-y-sustancias-utilizadas-para-el-vapeo'
+            },
+            {
+              title: '《国家卫生监督局第153/2021号决议：关于电子烟、雾化器、电子尼古丁输送系统、无尼古丁类似系统及相关使用物质的产品登记和经营场所授权要求的决议》',
+              description: '电子烟及相关产品的注册和经营场所授权规则，涉及产品登记、进口、出口、生产、分销和商业化场所授权。第7508/2025号法出台后，该决议未见被明文废止，仍可作为登记/授权程序依据；具体适用应与第7508/2025号法项下的新监管要求一并判断。',
+              url: 'https://www.mspbs.gov.py/dependencias/dnvs/adjunto/843cb0-ResolucionDNVSN1531.pdf'
+            }
+          ]
+        },
+        {
+          groupName: 'DINAVISA 注册与产品资料',
+          items: [
+            {
+              title: 'DINAVISA：烟草基产品（Productos a Base de Tabaco – TB）',
+              description: 'DINAVISA 烟草基产品登记页面，列明烟草基产品相关登记资料和 CPT（Certificado de Producto de Tabaco，烟草产品证书）等要求。',
+              url: 'https://dinavisa.gov.py/productos-a-base-de-tabaco-tb/'
+            },
+            {
+              title: 'DINAVISA：尼古丁袋专项注册规则草案',
+              description: 'DINAVISA 曾发布 Bolsas de Nicotina（尼古丁袋）专项注册草案。该草案尚未正式落地，但对尼古丁袋的产品定义、注册思路和非治疗用途边界具有参考价值。',
+              url: 'https://dinavisa.gov.py/wp-content/uploads/2024/04/Proyecto-de-Resolucion-Bolsas-de-Nicotina.docx'
+            }
+          ]
+        },
+        {
+          groupName: '税务与商品归类资料',
+          items: [
+            {
+              title: 'DNIT：商品归类数据库',
+              description: '用于查询巴拉圭商品归类 / 裁定资料，可辅助确认尼古丁袋、电子烟、雾化产品、烟草原料及相关配件的 HS 编码和进口税务申报口径。',
+              url: 'https://www.dnit.gov.py/web/portal-institucional/dictamenes-de-clasificacion'
+            }
+          ]
+        },
+        {
+          groupName: '新闻 / 执法动态',
+          items: [
+            {
+              title: 'DINAVISA：未注册电子烟产品卫生警示',
+              description: 'DINAVISA 针对未注册或来源不明电子烟产品发布卫生警示，体现主管机关对电子烟产品注册、来源可追溯和授权销售场所的监管关注。',
+              url: 'https://dinavisa.gov.py/alerta-sanitaria-n-12-2023/'
+            },
+            {
+              title: 'MSPBS：电子烟和雾化器进口登记要求说明',
+              description: '公共卫生和社会福利部说明电子烟、vapeadores、vaporeadores、SEAN、SSSN 及相关使用物质需要办理 DINAVISA 登记，体现电子烟进口前注册要求。',
+              url: 'https://www.mspbs.gov.py/portal/25515/exigiran-inscripcion-de-cigarrillos-electronicos-y-vapeadores-para-su-importacion.html'
+            },
+            {
+              title: 'Vouga Abogados：2025年税务动态',
+              description: '说明《第7508/2025号法》对电子烟、雾化器及其可雾化液体选择性消费税（ISC）口径的影响。',
+              url: 'https://www.vouga.com.py/novedades-impositivas-agosto-2025/'
+            }
+          ]
+        }
+      ]
     }
   }
 ];
