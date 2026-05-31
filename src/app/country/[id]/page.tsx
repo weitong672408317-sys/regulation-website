@@ -1472,7 +1472,7 @@ export default function CountryDetail() {
                     </ul>
                   </div>
                   <div className="flex flex-col gap-4">
-                    <div className="bg-white border border-[#E2E6EF] border-l-2 border-l-[#6AAF7C] rounded-xl p-4 shadow-sm">
+                    <div className="w-full bg-white border border-[#E2E6EF] border-l-2 border-l-[#6AAF7C] rounded-xl p-4 shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
                         <span className="px-3 py-1 rounded-full text-sm font-semibold bg-[#E8F5ED] text-[#3D7050]">可合规准入</span>
                       </div>
@@ -1498,7 +1498,7 @@ export default function CountryDetail() {
                       </div>
                     </div>
 
-                    <div className="bg-white border border-[#E2E6EF] border-l-2 border-l-[#DC6B6B] rounded-xl p-4 shadow-sm">
+                    <div className="w-full bg-white border border-[#E2E6EF] border-l-2 border-l-[#DC6B6B] rounded-xl p-4 shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
                         <span className="px-3 py-1 rounded-full text-sm font-semibold bg-[#FCEAEA] text-[#B33B3B]">完全禁止</span>
                       </div>
@@ -1520,7 +1520,7 @@ export default function CountryDetail() {
                       </div>
                     </div>
 
-                    <div className="bg-white border border-[#E2E6EF] border-l-2 border-l-[#C9A24C] rounded-xl p-4 shadow-sm">
+                    <div className="w-full bg-white border border-[#E2E6EF] border-l-2 border-l-[#C9A24C] rounded-xl p-4 shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
                         <span className="px-3 py-1 rounded-full text-sm font-semibold bg-[#F8F3E8] text-[#8B6F2E]">需确认</span>
                       </div>
