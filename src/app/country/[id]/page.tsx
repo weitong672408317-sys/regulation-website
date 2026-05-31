@@ -1,23 +1,25 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import { baseCountries } from '../../../../data/mockData';
 import {
   InfoBlock, FormattedText, parseOverview,
   ComplianceLicenseCards, GenericComplianceTable,
   TableCellContent, EmirateDifferencesTable
 } from '../../../components/country/CountryComponents';
-
-const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'));
-const UaePage = dynamic(() => import('../../../components/country/pages/UaePage'));
-const ParaguayPage = dynamic(() => import('../../../components/country/pages/ParaguayPage'));
+import RussiaPage from '../../../components/country/pages/RussiaPage';
+import UaePage from '../../../components/country/pages/UaePage';
+import ParaguayPage from '../../../components/country/pages/ParaguayPage';
 
 export default function CountryDetail() {
   const params = useParams();
   const countryId = params.id as string;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [countryId]);
 
   const country = baseCountries.find(c => c.id === countryId) || null;
 

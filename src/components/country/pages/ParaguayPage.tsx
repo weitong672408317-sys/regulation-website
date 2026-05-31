@@ -555,93 +555,91 @@ export default function ParaguayPage(_props: ParaguayPageProps) {
 
       <section className="mb-8">
         <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
-          <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
-            <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
-            政策趋势分析
-          </h2>
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-            <p className="text-[#334155] text-base leading-7 mb-4">巴拉圭未来一段时间仍会维持相对开放的烟草及新型尼古丁产品市场。传统烟草、电子烟、HNB烟支及部分新型尼古丁产品均具备继续保留合法市场空间的政策基础，整体监管思路更倾向于在开放市场中建立秩序，而非压缩为禁止型市场。</p>
-            <p className="text-[#334155] text-base leading-7 mb-4">政策重心预计会从"是否允许某类产品存在"，逐步转向"如何将不同产品纳入可识别、可追踪、可征税、可执法的监管体系"。这一方向既保留巴拉圭作为区域市场和贸易市场的开放特征，也回应公共健康、未成年人保护、非法流通和税收治理压力。</p>
-            <p className="text-[#334155] text-base leading-7">尼古丁袋/尼古丁口含膜等新型口含尼古丁产品，是观察巴拉圭后续监管态度的重要品类。该类产品目前尚未形成稳定规则，但已有监管讨论和税务归类实践。后续更可能通过专门规则逐步明确准入边界，而非简单并入传统烟草或电子烟规则中处理。</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mb-8">
-        <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
-            <h2 className="text-2xl font-bold text-[#243B63]">合规红线清单</h2>
+            <h2 className="text-2xl font-bold text-[#243B63]">趋势预判与红线警告</h2>
           </div>
-          <div className="bg-[#FEF2F2] border border-[#FCA5A5] rounded-xl p-5">
-            <div className="space-y-5">
-              <div>
-                <h4 className="font-bold text-[#7F1D1D] text-base mb-2">产品上市与经营资质</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁将未完成 DINAVISA 登记/注册的烟草产品、电子烟、雾化产品、烟油/补充液、相关配件或耗材投入巴拉圭市场。</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁在未完成烟草主体登记或未取得 DINAVISA 经营场所授权的情况下，开展对应产品的制造、进口、出口、分销、仓储或销售。</span>
-                  </li>
-                </ul>
+          <div className="space-y-4">
+            <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+              <h3 className="text-lg font-bold text-[#2E3F73] mb-4">趋势预判</h3>
+              <p className="text-[#334155] text-base leading-7 mb-4">巴拉圭未来一段时间仍会维持相对开放的烟草及新型尼古丁产品市场。传统烟草、电子烟、HNB烟支及部分新型尼古丁产品均具备继续保留合法市场空间的政策基础，整体监管思路更倾向于在开放市场中建立秩序，而非压缩为禁止型市场。</p>
+              <p className="text-[#334155] text-base leading-7 mb-4">政策重心预计会从"是否允许某类产品存在"，逐步转向"如何将不同产品纳入可识别、可追踪、可征税、可执法的监管体系"。这一方向既保留巴拉圭作为区域市场和贸易市场的开放特征，也回应公共健康、未成年人保护、非法流通和税收治理压力。</p>
+              <p className="text-[#334155] text-base leading-7">尼古丁袋/尼古丁口含膜等新型口含尼古丁产品，是观察巴拉圭后续监管态度的重要品类。该类产品目前尚未形成稳定规则，但已有监管讨论和税务归类实践。后续更可能通过专门规则逐步明确准入边界，而非简单并入传统烟草或电子烟规则中处理。</p>
+            </div>
+
+            <div className="bg-[#FEF2F2] border border-[#FCA5A5] rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-4">
+                <h3 className="text-lg font-bold text-[#DC2626]">合规红线清单</h3>
               </div>
-              <div>
-                <h4 className="font-bold text-[#7F1D1D] text-base mb-2">销售渠道与陈列</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁向未满18岁人员销售、供应、交付或免费分发烟草产品、电子烟、雾化产品及相关产品。</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁通过电话、数字、电子、邮寄或类似远程方式向消费者销售传统烟草产品。</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁通过自动售货机或分配机销售传统烟草产品。</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁通过无法清楚、及时识别购买者身份的远程渠道销售电子烟、雾化产品及相关产品。</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁将烟草产品、电子烟、雾化产品及相关产品放置在消费者可直接接触或自行拿取的位置。</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁通过未上锁的开放式货架、展示架、展示柜、超市柜台或桌台陈列电子烟、雾化产品及相关产品。</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold text-[#7F1D1D] text-base mb-2">包装、成分与宣传</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁销售尼古丁浓度超过 20mg/ml 或 2% 的电子烟液或雾化液。</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁在包装、标签、说明、销售展示或宣传材料中使用"低风险""减害""健康""有益""戒烟""治疗""不成瘾""更安全"等功效性、治疗性或降低风险暗示。</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁违法开展烟草产品、电子烟、雾化产品及相关产品的广告、促销、赞助、免费样品、赠品、试用、递样、折扣、抽奖、会员积分或组合销售。</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold text-[#7F1D1D] text-base mb-2">公共场所使用</h4>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
-                    <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
-                    <span>严禁在室内公共场所、工作场所和公共交通工具中使用烟草产品、加热烟草产品、电子烟、雾化产品及相关产品。</span>
-                  </li>
-                </ul>
+              <div className="space-y-5">
+                <div>
+                  <h4 className="font-bold text-[#7F1D1D] text-base mb-2">产品上市与经营资质</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁将未完成 DINAVISA 登记/注册的烟草产品、电子烟、雾化产品、烟油/补充液、相关配件或耗材投入巴拉圭市场。</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁在未完成烟草主体登记或未取得 DINAVISA 经营场所授权的情况下，开展对应产品的制造、进口、出口、分销、仓储或销售。</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#7F1D1D] text-base mb-2">销售渠道与陈列</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁向未满18岁人员销售、供应、交付或免费分发烟草产品、电子烟、雾化产品及相关产品。</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁通过电话、数字、电子、邮寄或类似远程方式向消费者销售传统烟草产品。</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁通过自动售货机或分配机销售传统烟草产品。</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁通过无法清楚、及时识别购买者身份的远程渠道销售电子烟、雾化产品及相关产品。</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁将烟草产品、电子烟、雾化产品及相关产品放置在消费者可直接接触或自行拿取的位置。</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁通过未上锁的开放式货架、展示架、展示柜、超市柜台或桌台陈列电子烟、雾化产品及相关产品。</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#7F1D1D] text-base mb-2">包装、成分与宣传</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁销售尼古丁浓度超过 20mg/ml 或 2% 的电子烟液或雾化液。</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁在包装、标签、说明、销售展示或宣传材料中使用"低风险""减害""健康""有益""戒烟""治疗""不成瘾""更安全"等功效性、治疗性或降低风险暗示。</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁违法开展烟草产品、电子烟、雾化产品及相关产品的广告、促销、赞助、免费样品、赠品、试用、递样、折扣、抽奖、会员积分或组合销售。</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#7F1D1D] text-base mb-2">公共场所使用</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3 text-[#334155] text-base leading-7">
+                      <span className="text-[#DC2626] mt-0.5 flex-shrink-0">✕</span>
+                      <span>严禁在室内公共场所、工作场所和公共交通工具中使用烟草产品、加热烟草产品、电子烟、雾化产品及相关产品。</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
