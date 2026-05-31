@@ -1471,7 +1471,7 @@ export default function CountryDetail() {
                         <br />（3）其他口腔 / 鼻用烟草或尼古丁产品。</li>
                     </ul>
                   </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="w-full bg-white border border-[#E2E6EF] border-l-2 border-l-[#6AAF7C] rounded-xl p-4 shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
                         <span className="px-3 py-1 rounded-full text-sm font-semibold bg-[#E8F5ED] text-[#3D7050]">可合规准入</span>
