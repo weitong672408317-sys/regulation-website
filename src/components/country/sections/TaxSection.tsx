@@ -14,6 +14,20 @@ export function TaxTableCard({ title, children }: TaxTableCardProps) {
   );
 }
 
+interface PolicyCardProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+export function PolicyCard({ title, children }: PolicyCardProps) {
+  return (
+    <div className="bg-white border border-[#D8DDED] rounded-xl p-5">
+      <h4 className="font-bold text-[#2E3F73] text-base mb-3">{title}</h4>
+      {children}
+    </div>
+  );
+}
+
 interface TaxSectionProps {
   introText?: React.ReactNode;
   children?: React.ReactNode;

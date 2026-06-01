@@ -14,6 +14,9 @@ import UaePage from '../../../components/country/pages/UaePage';
 import ParaguayPage from '../../../components/country/pages/ParaguayPage';
 import IndonesiaPage from '../../../components/country/pages/IndonesiaPage';
 import MalaysiaPage from '../../../components/country/pages/MalaysiaPage';
+import SingaporePage from '../../../components/country/pages/SingaporePage';
+import ChinaPage from '../../../components/country/pages/ChinaPage';
+import HongkongPage from '../../../components/country/pages/HongkongPage';
 
 export default function CountryDetail() {
   const params = useParams();
@@ -36,7 +39,7 @@ export default function CountryDetail() {
     );
   }
 
-  if (country.id === 'russia' || country.id === 'uae' || country.id === 'paraguay' || country.id === 'indonesia' || country.id === 'malaysia') {
+  if (country.id === 'russia' || country.id === 'uae' || country.id === 'paraguay' || country.id === 'indonesia' || country.id === 'malaysia' || country.id === 'singapore' || country.id === 'china' || country.id === 'hongkong') {
     return (
       <div className="min-h-screen bg-[#F7F9FC]">
         <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
@@ -57,6 +60,9 @@ export default function CountryDetail() {
           {country.id === 'paraguay' && <ParaguayPage country={country} />}
           {country.id === 'indonesia' && <IndonesiaPage country={country} />}
           {country.id === 'malaysia' && <MalaysiaPage country={country} />}
+          {country.id === 'singapore' && <SingaporePage country={country} />}
+          {country.id === 'china' && <ChinaPage country={country} />}
+          {country.id === 'hongkong' && <HongkongPage country={country} />}
 
           <section className="mb-8">
             <div className="bg-[#F2F4F7] border border-[#E1E5EA] rounded-xl p-5">

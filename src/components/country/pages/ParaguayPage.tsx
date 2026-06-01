@@ -30,19 +30,12 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
   return (
     <CountryPageTemplate>
       <SeasonSummarySection>
-        <div className="space-y-4 text-[#334155] text-base leading-7 mb-4">
-          <p>巴拉圭本季监管重点继续集中在《第7508/2025号法》实施后的电子烟、雾化器、烟油、配件和耗材注册、授权和税务合规。</p>
-          <p>《第7508/2025号法》专门规制电子尼古丁输送系统、无尼古丁类似系统、其他含或不含尼古丁的新兴装置、配件、耗材以及用于雾化的物质，覆盖进口、生产、消费、广告和商业化。</p>
-          <p>该法令正式建立了电子烟及雾化产品专项监管框架，标志着巴拉圭电子烟及相关产品从行政决议监管升级为法律层面的专项监管。</p>
-          <p>雾化器及其可雾化液体，无论是否含尼古丁，也被该法令纳入香烟或烟草衍生产品的选择性消费税范围。</p>
-        </div>
         <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-          <div className="flex items-start gap-3">
-            <span className="w-2 h-2 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-            <div>
-              <h4 className="font-bold text-[#2E3F73] text-base mb-2">合规提示</h4>
-              <p className="text-[#334155] text-sm leading-6">企业在进入巴拉圭市场前，建议优先确认产品注册、主体登记、经营场所授权、税务归类和销售端限制要求，确保合规准入。</p>
-            </div>
+          <div className="space-y-4 text-[#334155] text-base leading-7">
+            <p>巴拉圭本季监管重点继续集中在《第7508/2025号法》实施后的电子烟、雾化器、烟油、配件和耗材注册、授权和税务合规。</p>
+            <p>《第7508/2025号法》专门规制电子尼古丁输送系统、无尼古丁类似系统、其他含或不含尼古丁的新兴装置、配件、耗材以及用于雾化的物质，覆盖进口、生产、消费、广告和商业化。</p>
+            <p>该法令正式建立了电子烟及雾化产品专项监管框架，标志着巴拉圭电子烟及相关产品从行政决议监管升级为法律层面的专项监管。</p>
+            <p>雾化器及其可雾化液体，无论是否含尼古丁，也被该法令纳入香烟或烟草衍生产品的选择性消费税范围。</p>
           </div>
         </div>
       </SeasonSummarySection>
@@ -70,7 +63,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
                 <li><span className="font-bold text-[#1F2A44]">MSPBS（公共卫生和社会福利部）</span>：巴拉圭公共卫生和控烟政策的上位主管部门，主要负责公共健康政策、控烟规则、无烟环境、健康警示、广告促销限制和电子烟公共健康监管。</li>
                 <li><span className="font-bold text-[#1F2A44]">DINAVISA（国家卫生监督局）</span>：MSPBS 卫生体系下具有行政和财务自主管理权的专业卫生监管机构，负责产品注册、经营场所授权、检查和市场监督。传统烟草涉及烟草基产品登记和烟草主体登记；电子烟及雾化产品（包括器具、烟油），以 DINAVISA 产品注册和经营场所授权为核心。</li>
                 <li><span className="font-bold text-[#1F2A44]">DNIT（国家税收收入局）</span>：负责税务、海关归类、进口申报和选择性消费税。对烟草、电子烟、HNB、烟油、尼古丁袋等产品，主要影响海关归类、进口税费和 ISC 申报。</li>
-                <li><span className="font-bold text-[#1F2A44]">MIC、SEDECO、MADES 等其他机关</span>：MIC 可能涉及商业活动和产品流通；SEDECO 可能涉及消费者保护、广告和销售行为；MADES 可能涉及电子烟废弃物、电池、耗材回收和环境影响。</li>
+                <li><span className="font-bold text-[#1F2A44]">MIC（工业和商业部）、SEDECO（消费者保护主管机关）、MADES（环境和可持续发展部）等其他机关</span>：MIC 负责工业、商业活动和产品流通相关事项；SEDECO 负责消费者保护、广告和销售行为相关事项；MADES 负责环境保护、废弃物、电池、耗材回收和环境影响相关事项。</li>
               </ul>
             ),
           },
