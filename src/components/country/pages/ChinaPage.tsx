@@ -116,14 +116,14 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
             <li>本类产品包括电子烟产品、雾化物和电子烟用烟碱。其中，电子烟产品包括电子烟、烟弹、烟具以及组合销售产品；雾化物和电子烟用烟碱属于电子烟监管体系内的上游原料或组成部分。</li>
           </ul>
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
               status="green"
               customLabel="可准入，但严格限制"
               title="电子烟产品"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：电子烟、烟弹、烟具、电子烟与烟弹 / 烟具组合销售的产品</div>
-                <div className="text-sm text-[#64748B] mb-3">产品定性：《电子烟管理办法》规定，电子烟包括烟弹、烟具以及烟弹与烟具组合销售的产品等。GB 41700-2022《电子烟》规定，烟弹是含有雾化物的电子烟组件，烟具是不含雾化物的电子烟组件。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：电子烟、烟弹、烟具、电子烟与烟弹 / 烟具组合销售的产品</div>
+                <div className="text-base text-[#334155] mb-3">产品定性：《电子烟管理办法》规定，电子烟包括烟弹、烟具以及烟弹与烟具组合销售的产品等。GB 41700-2022《电子烟》规定，烟弹是含有雾化物的电子烟组件，烟具是不含雾化物的电子烟组件。</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -162,8 +162,8 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               customLabel="可准入，但严格限制"
               title="雾化物 / 电子烟用烟碱"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：用于电子烟产品的雾化物、电子烟用烟碱</div>
-                <div className="text-sm text-[#64748B] mb-3">产品定性：《电子烟管理办法》将雾化物定义为可被电子装置等全部或部分雾化为气溶胶的混合物及辅助物质。电子烟用烟碱即用于电子烟产品的尼古丁；医疗、药用或其他非电子烟用途的尼古丁产品，另按药品、化学品等相应监管要求判断。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：用于电子烟产品的雾化物、电子烟用烟碱</div>
+                <div className="text-base text-[#334155] mb-3">产品定性：《电子烟管理办法》将雾化物定义为可被电子装置等全部或部分雾化为气溶胶的混合物及辅助物质。电子烟用烟碱即用于电子烟产品的尼古丁；医疗、药用或其他非电子烟用途的尼古丁产品，另按药品、化学品等相应监管要求判断。</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -189,7 +189,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               status="red"
               title="不含烟碱的电子烟产品"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：不含烟碱的电子烟产品</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：不含烟碱的电子烟产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -208,7 +208,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               customLabel="可准入，但严格限制"
               title="出口电子烟产品及相关产品"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：出口电子烟产品、雾化物、电子烟用烟碱及相关产品</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：出口电子烟产品、雾化物、电子烟用烟碱及相关产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -230,13 +230,13 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <li>新型烟草 / 尼古丁制品主要包括 HNB烟支 / 加热卷烟、尼古丁袋、尼古丁口含膜、口含烟等产品。</li>
             <li>相关产品目前尚未形成中国境内公开销售路径。2026年以来，相关标准和监管文件释放出规则建设信号，但正式准入政策、许可路径、产品标准和销售渠道安排尚未落地。</li>
           </ul>
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
               status="red"
               title="HNB烟支 / 加热卷烟"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：HNB烟支、加热卷烟及面向中国境内销售的相关产品</div>
-                <div className="text-sm text-[#64748B] mb-3">产品定性：该类产品通常指通过专门加热装置加热烟草材料，产生气溶胶供消费者吸用的产品，监管上不能直接按已开放销售的传统卷烟或一般电子烟处理。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：HNB烟支、加热卷烟及面向中国境内销售的相关产品</div>
+                <div className="text-base text-[#334155] mb-3">产品定性：该类产品通常指通过专门加热装置加热烟草材料，产生气溶胶供消费者吸用的产品，监管上不能直接按已开放销售的传统卷烟或一般电子烟处理。</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -254,8 +254,8 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               status="red"
               title="无烟气烟草制品 / 其他口含尼古丁制品"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：尼古丁袋、尼古丁口含膜、口含烟、尼古丁片、尼古丁贴、含烟、嚼烟、膏烟、溶烟、嗅烟等无烟气烟草制品</div>
-                <div className="text-sm text-[#64748B] mb-3">产品定性：国家烟草专卖局2026年第1号公告将无烟气烟草制品定义为含有烟碱成分，通过口用、鼻用或外用等方式使用，且不产生烟气的烟草制品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、口含烟、尼古丁片、尼古丁贴、含烟、嚼烟、膏烟、溶烟、嗅烟等无烟气烟草制品</div>
+                <div className="text-base text-[#334155] mb-3">产品定性：国家烟草专卖局2026年第1号公告将无烟气烟草制品定义为含有烟碱成分，通过口用、鼻用或外用等方式使用，且不产生烟气的烟草制品。</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -320,7 +320,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               customLabel="可准入"
               title="普通爆珠 / 香精胶囊"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：不含尼古丁、烟草原料或烟草提取物的爆珠 / 香精胶囊</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：不含尼古丁、烟草原料或烟草提取物的爆珠 / 香精胶囊</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -339,7 +339,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               customLabel="可准入，但严格限制"
               title="含尼古丁 / 烟草成分或用于涉烟产品的爆珠、胶囊及类似辅材"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：含尼古丁、烟草原料、烟草提取物，或用于烟草制品、电子烟、新型烟草制品的爆珠、香精胶囊及类似辅材</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：含尼古丁、烟草原料、烟草提取物，或用于烟草制品、电子烟、新型烟草制品的爆珠、香精胶囊及类似辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -370,23 +370,23 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6"><span className="font-semibold text-[#263247]">烟草专卖生产企业许可证：</span>适用于烟草制品、卷烟纸、滤嘴棒、烟用丝束、烟草专用机械等生产环节。</span>
+                <span className="text-[#334155] text-base leading-6"><span className="font-semibold text-[#263247]">烟草专卖生产企业许可证：</span>适用于烟草制品、卷烟纸、滤嘴棒、烟用丝束、烟草专用机械等生产环节。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6"><span className="font-semibold text-[#263247]">烟草专卖批发企业许可证：</span>适用于烟草制品批发环节。</span>
+                <span className="text-[#334155] text-base leading-6"><span className="font-semibold text-[#263247]">烟草专卖批发企业许可证：</span>适用于烟草制品批发环节。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6"><span className="font-semibold text-[#263247]">烟草专卖零售许可证：</span>适用于卷烟等烟草制品零售环节。</span>
+                <span className="text-[#334155] text-base leading-6"><span className="font-semibold text-[#263247]">烟草专卖零售许可证：</span>适用于卷烟等烟草制品零售环节。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6"><span className="font-semibold text-[#263247]">烟草专卖品准运相关要求：</span>适用于烟草专卖品运输、跨区域流转等环节。</span>
+                <span className="text-[#334155] text-base leading-6"><span className="font-semibold text-[#263247]">烟草专卖品准运相关要求：</span>适用于烟草专卖品运输、跨区域流转等环节。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6"><span className="font-semibold text-[#263247]">进出口相关审批和监管：</span>适用于烟草专卖品进口、出口及海关监管。</span>
+                <span className="text-[#334155] text-base leading-6"><span className="font-semibold text-[#263247]">进出口相关审批和监管：</span>适用于烟草专卖品进口、出口及海关监管。</span>
               </div>
             </div>
           </div>
@@ -394,16 +394,33 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
             <div className="flex items-start gap-3 mb-4">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">烟草专用机械</h4>
+              <h4 className="font-bold text-[#2E3F73] text-base">电子烟</h4>
             </div>
+            <p className="ml-9 text-[#334155] text-base leading-7 mb-3">电子烟与传统卷烟虽然同属烟草监管体系，但证照和监管路径是分开的。电子烟相关主体应根据实际角色取得对应烟草专卖许可证，不能用传统卷烟相关许可当然覆盖电子烟业务。</p>
             <div className="ml-9 space-y-2">
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">烟草专用机械属于烟草专卖品。涉及烟草专用机械整机生产、销售、运输、进出口的，应按烟草专卖品路径判断。</span>
+                <span className="text-[#334155] text-base leading-6">电子烟产品生产企业许可</span>
               </div>
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">相关主体通常需结合生产、经营、运输、进出口等具体活动，确认是否需要取得烟草专卖生产企业许可证、烟草专卖品准运手续或进出口相关审批。</span>
+                <span className="text-[#334155] text-base leading-6">电子烟品牌持有企业许可</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-6">雾化物生产企业许可</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-6">电子烟用烟碱生产企业许可</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-6">电子烟批发企业许可</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-6">电子烟零售许可</span>
               </div>
             </div>
           </div>
@@ -413,33 +430,16 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
             <div className="flex items-start gap-3 mb-4">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">电子烟</h4>
+              <h4 className="font-bold text-[#2E3F73] text-base">烟草专用机械</h4>
             </div>
-            <p className="ml-9 text-[#334155] text-base leading-7 mb-3">电子烟与传统卷烟虽然同属烟草监管体系，但证照和监管路径是分开的。电子烟相关主体应根据实际角色取得对应烟草专卖许可证，不能用传统卷烟相关许可当然覆盖电子烟业务。</p>
             <div className="ml-9 space-y-2">
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">电子烟产品生产企业许可</span>
+                <span className="text-[#334155] text-base leading-6">烟草专用机械属于烟草专卖品。涉及烟草专用机械整机生产、销售、运输、进出口的，应按烟草专卖品路径判断。</span>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">电子烟品牌持有企业许可</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">雾化物生产企业许可</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">电子烟用烟碱生产企业许可</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">电子烟批发企业许可</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">电子烟零售许可</span>
+                <span className="text-[#334155] text-base leading-6">相关主体通常需结合生产、经营、运输、进出口等具体活动，确认是否需要取得烟草专卖生产企业许可证、烟草专卖品准运手续或进出口相关审批。</span>
               </div>
             </div>
           </div>
@@ -452,11 +452,11 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">电子烟交易管理平台是电子烟供应链交易和监管平台。生产企业、品牌持有企业、批发企业、零售主体均应按规定通过平台完成相应交易或购进安排。</span>
+                <span className="text-[#334155] text-base leading-6">电子烟交易管理平台是电子烟供应链交易和监管平台。生产企业、品牌持有企业、批发企业、零售主体均应按规定通过平台完成相应交易或购进安排。</span>
               </div>
               <div className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">零售主体的核心要求是通过平台向当地电子烟批发企业购进产品，并在持证门店销售。</span>
+                <span className="text-[#334155] text-base leading-6">零售主体的核心要求是通过平台向当地电子烟批发企业购进产品，并在持证门店销售。</span>
               </div>
             </div>
           </div>
@@ -504,7 +504,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </tbody>
             </table>
           </div>
-          <p className="text-[#334155] text-sm leading-6 mt-3">电子烟代加工、品牌持有、进口和批发安排，会影响纳税主体和计税价格；代加工方式生产电子烟的，由持有商标的企业缴纳消费税。</p>
+          <p className="text-[#334155] text-base leading-6 mt-3">电子烟代加工、品牌持有、进口和批发安排，会影响纳税主体和计税价格；代加工方式生产电子烟的，由持有商标的企业缴纳消费税。</p>
         </TaxTableCard>
 
         <TaxTableCard title="增值税">
@@ -520,10 +520,10 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         <div className="grid md:grid-cols-2 gap-4">
           <RuleModuleCard number={1} title="销售渠道与平台交易">
             <DotList items={[
-              '烟草制品、烟草专卖品和电子烟产品，应在烟草专卖许可范围和规定渠道内经营',
-              '电子烟产品经营主体之间的购销交易，应按规定通过电子烟交易管理平台进行',
-              '零售主体应通过平台向电子烟批发 / 进口经营企业购进产品，并在持证门店销售',
-              '进出口电子烟产品、雾化物和电子烟用烟碱，应按规定通过电子烟交易管理平台备案',
+              '烟草专卖品、电子烟应在烟草专卖许可范围和规定渠道内经营',
+              '电子烟经营主体之间的购销交易，应依法通过电子烟交易管理平台进行',
+              '零售主体应通过电子烟交易管理平台向电子烟批发 / 进口经营企业购进产品，并在持证门店销售',
+              '进出口电子烟应按规定通过电子烟交易管理平台备案',
               '不得通过电子烟交易管理平台以外的信息网络销售电子烟和电子烟用烟碱',
             ]} />
           </RuleModuleCard>
@@ -540,14 +540,14 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <DotList items={[
               '烟草广告受到严格限制，广播、电影、电视、报纸、期刊及法定公共场所不得发布或设置烟草广告',
               '不得通过广播、电视、电影节目以及报纸、期刊文章变相发布烟草广告',
-              '电子烟广告适用烟草广告监管规则，不得通过大众传播媒介、公共场所、网络平台、展会、论坛、博览会等方式违规宣传或推介电子烟产品',
+              '不得通过大众传播媒介、公共场所、网络平台、展会、论坛、博览会等方式违规宣传或推介电子烟产品',
             ]} />
           </RuleModuleCard>
 
           <RuleModuleCard number={4} title="出口合规与回流管控">
             <DotList items={[
               '电子烟出口产品应符合目的地国家或地区的法律法规和标准要求，并按中国监管要求完成出口备案和相关证明',
-              '不得通过虚假报关、错报品名、错报用途、拆分流转等方式规避中国监管要求',
+              '不得通过虚假报关、错报品名、错报用途、拆分流转、虚报价格等方式规避中国监管要求',
               '严禁出口回流，严禁以出口名义将不符合中国境内销售要求的电子烟产品变相投入中国市场',
             ]} />
           </RuleModuleCard>

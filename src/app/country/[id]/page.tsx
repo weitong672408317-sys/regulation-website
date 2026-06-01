@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { useParams } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { baseCountries } from '../../../../data/mockData';
 import {
@@ -9,14 +10,34 @@ import {
   ComplianceLicenseCards, GenericComplianceTable,
   TableCellContent, EmirateDifferencesTable
 } from '../../../components/country/CountryComponents';
-import RussiaPage from '../../../components/country/pages/RussiaPage';
-import UaePage from '../../../components/country/pages/UaePage';
-import ParaguayPage from '../../../components/country/pages/ParaguayPage';
-import IndonesiaPage from '../../../components/country/pages/IndonesiaPage';
-import MalaysiaPage from '../../../components/country/pages/MalaysiaPage';
-import SingaporePage from '../../../components/country/pages/SingaporePage';
-import ChinaPage from '../../../components/country/pages/ChinaPage';
-import HongkongPage from '../../../components/country/pages/HongkongPage';
+
+const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'));
+const UaePage = dynamic(() => import('../../../components/country/pages/UaePage'));
+const ParaguayPage = dynamic(() => import('../../../components/country/pages/ParaguayPage'));
+const IndonesiaPage = dynamic(() => import('../../../components/country/pages/IndonesiaPage'));
+const MalaysiaPage = dynamic(() => import('../../../components/country/pages/MalaysiaPage'));
+const SingaporePage = dynamic(() => import('../../../components/country/pages/SingaporePage'));
+const ChinaPage = dynamic(() => import('../../../components/country/pages/ChinaPage'));
+const HongkongPage = dynamic(() => import('../../../components/country/pages/HongkongPage'));
+
+const countryPageMap: Record<string, React.ComponentType<{ country: any }>> = {
+  russia: RussiaPage,
+  uae: UaePage,
+  paraguay: ParaguayPage,
+  indonesia: IndonesiaPage,
+  malaysia: MalaysiaPage,
+  singapore: SingaporePage,
+  china: ChinaPage,
+  hongkong: HongkongPage,
+};
+
+function PageLoading() {
+  return (
+    <div className="flex items-center justify-center py-20">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#4A6290]"></div>
+    </div>
+  );
+}
 
 export default function CountryDetail() {
   const params = useParams();
@@ -39,7 +60,9 @@ export default function CountryDetail() {
     );
   }
 
-  if (country.id === 'russia' || country.id === 'uae' || country.id === 'paraguay' || country.id === 'indonesia' || country.id === 'malaysia' || country.id === 'singapore' || country.id === 'china' || country.id === 'hongkong') {
+  const CountryPageComponent = countryPageMap[country.id];
+
+  if (CountryPageComponent) {
     return (
       <div className="min-h-screen bg-[#F7F9FC]">
         <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
@@ -55,14 +78,9 @@ export default function CountryDetail() {
             <h1 className="text-5xl font-bold text-[#0F172A] mb-6">{country.name}</h1>
           </section>
 
-          {country.id === 'russia' && <RussiaPage country={country} />}
-          {country.id === 'uae' && <UaePage country={country} />}
-          {country.id === 'paraguay' && <ParaguayPage country={country} />}
-          {country.id === 'indonesia' && <IndonesiaPage country={country} />}
-          {country.id === 'malaysia' && <MalaysiaPage country={country} />}
-          {country.id === 'singapore' && <SingaporePage country={country} />}
-          {country.id === 'china' && <ChinaPage country={country} />}
-          {country.id === 'hongkong' && <HongkongPage country={country} />}
+          <Suspense fallback={<PageLoading />}>
+            <CountryPageComponent country={country} />
+          </Suspense>
 
           <section className="mb-8">
             <div className="bg-[#F2F4F7] border border-[#E1E5EA] rounded-xl p-5">
