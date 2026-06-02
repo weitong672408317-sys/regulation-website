@@ -148,7 +148,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
 
         <ProductModuleCard title="3. 无烟烟草产品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
-            <li>香港《无烟烟草产品（禁止）规例》（第132BW章）禁止无烟烟草产品进入市场流通。无烟烟草产品是指含有烟草或以烟草为主要成分并拟供人口服的产品，包括嚼烟，不论是散烟叶、硬烟饼、湿烟饼、口嚼搓烟或口嚼卷烟，以及湿鼻烟；但不包括用鼻吸入的干鼻烟。</li>
+            <li>香港《无烟烟草产品（禁止）规例》（第132BW章）禁止无烟烟草产品进入市场流通。香港食环署公开执法资料称，无烟烟草产品是指含有烟草或以烟草为主要成分并拟供人口服的产品，包括嚼烟，不论是散烟叶、硬烟饼、湿烟饼、口嚼搓烟或口嚼卷烟，以及湿鼻烟；但不包括用鼻吸入的干鼻烟。</li>
           </ul>
           <StatusCard
             status="red"
