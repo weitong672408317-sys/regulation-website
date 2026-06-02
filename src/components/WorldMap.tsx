@@ -45,6 +45,16 @@ export default function WorldMap() {
     }
   };
 
+  const handleCountryHover = (name: string) => {
+    const data = countryDataMap[name];
+    if (data?.id) {
+      router.prefetch(`/country/${data.id}`);
+    }
+    if (data) {
+      setHoveredCountry(data.name);
+    }
+  };
+
   const isCountryHighlighted = (geo: any) => {
     const name = geo.properties?.name;
     if (selectedCountry === 'china') {
@@ -72,10 +82,7 @@ export default function WorldMap() {
                       key={geo.rsmKey}
                       geography={geo}
                       onClick={() => handleCountryClick(geo)}
-                      onMouseEnter={() => {
-                        const data = countryDataMap[name];
-                        if (data) setHoveredCountry(data.name);
-                      }}
+                      onMouseEnter={() => handleCountryHover(name)}
                       onMouseLeave={() => setHoveredCountry(null)}
                       style={{
                         default: {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, Suspense } from 'react';
+import React, { useEffect, useState, Suspense, useLayoutEffect } from 'react';
 import { useParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -27,8 +27,8 @@ const countryPageMap: Record<string, React.ComponentType<{ country: any }>> = {
   indonesia: IndonesiaPage,
   malaysia: MalaysiaPage,
   singapore: SingaporePage,
-  china: ChinaPage,
   hongkong: HongkongPage,
+  china: ChinaPage,
 };
 
 function PageLoading() {
@@ -42,10 +42,15 @@ function PageLoading() {
 export default function CountryDetail() {
   const params = useParams();
   const countryId = params.id as string;
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [countryId]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const country = baseCountries.find(c => c.id === countryId) || null;
 
