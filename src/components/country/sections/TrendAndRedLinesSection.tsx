@@ -51,17 +51,19 @@ export function RedLineBox({ groups, items, children }: RedLineBoxProps) {
 }
 
 interface TrendAndRedLinesSectionProps {
+  title?: string;
+  trendTitle?: string;
   trendContent?: React.ReactNode;
   redLineGroups?: RedLineGroup[];
   redLineItems?: string[];
   children?: React.ReactNode;
 }
 
-export function TrendAndRedLinesSection({ trendContent, redLineGroups, redLineItems, children }: TrendAndRedLinesSectionProps) {
+export function TrendAndRedLinesSection({ title = '趋势预判与红线警告', trendTitle = '趋势预判', trendContent, redLineGroups, redLineItems, children }: TrendAndRedLinesSectionProps) {
   return (
-    <SectionCard title="趋势预判与红线警告">
+    <SectionCard title={title}>
       <div className="space-y-4">
-        <SubCard title="趋势预判">
+        <SubCard title={trendTitle}>
           {trendContent}
         </SubCard>
         <RedLineBox groups={redLineGroups} items={redLineItems} />
