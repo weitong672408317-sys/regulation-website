@@ -476,27 +476,27 @@ export default function UaePage({ country }: UaePageProps) {
               </thead>
               <tbody>
                 <tr className="bg-white/50">
-                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>消费税</div><div className="whitespace-nowrap">(Excise Tax)</div></div></td>
-                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
-                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
+                  <td className="px-4 py-6 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>消费税</div><div className="whitespace-nowrap">(Excise Tax)</div></div></td>
+                  <td className="px-4 py-6 border-b border-r border-[#D8DDED] text-[#334155] leading-7">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
+                  <td className="px-4 py-6 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
                     <ul className="space-y-2">
                       <li className="flex items-start gap-2">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="whitespace-nowrap">100%：针对烟草制品、电子烟装置及烟油；</span>
+                        <span>100%：针对烟草制品、电子烟装置及烟油；</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="whitespace-nowrap">50%：针对含糖饮料等。</span>
+                        <span>50%：针对含糖饮料等。</span>
                       </li>
                     </ul>
                   </td>
-                  <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">无营业额门槛。凡从事应税特定有害商品进口、本地生产或经营指定仓库者，均须向FTA注册为应税人，并履行申报缴税义务。</td>
+                  <td className="px-4 py-6 border-b border-[#D8DDED] text-[#334155] leading-7">无营业额门槛。凡从事应税特定有害商品进口、本地生产或经营指定仓库者，均须向FTA注册为应税人，并履行申报缴税义务。</td>
                 </tr>
                 <tr className="bg-[#F3F5FB]">
-                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>增值税</div><div className="whitespace-nowrap">(VAT)</div></div></td>
-                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</td>
-                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">5%（标准税率）</td>
-                  <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">
+                  <td className="px-4 py-6 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>增值税</div><div className="whitespace-nowrap">(VAT)</div></div></td>
+                  <td className="px-4 py-6 border-b border-r border-[#D8DDED] text-[#334155] leading-7">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</td>
+                  <td className="px-4 py-6 border-b border-r border-[#D8DDED] text-[#334155] leading-7">5%（标准税率）</td>
+                  <td className="px-4 py-6 border-b border-[#D8DDED] text-[#334155] leading-7">
                     <ul className="space-y-1">
                       <li className="flex items-start gap-2">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -514,8 +514,8 @@ export default function UaePage({ country }: UaePageProps) {
                   </td>
                 </tr>
                 <tr className="bg-white/50">
-                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>企业所得税</div><div className="whitespace-nowrap">(Corporate Tax)</div></div></td>
-                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
+                  <td className="px-4 py-6 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-7"><div>企业所得税</div><div className="whitespace-nowrap">(Corporate Tax)</div></div></td>
+                  <td className="px-4 py-6 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
                     <ul className="space-y-1">
                       <li className="flex items-start gap-2">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -531,19 +531,19 @@ export default function UaePage({ country }: UaePageProps) {
                       </li>
                     </ul>
                   </td>
-                  <td className="px-4 py-5 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
+                  <td className="px-4 py-6 border-b border-r border-[#D8DDED] text-[#334155] leading-7">
                     <ul className="space-y-1">
                       <li className="flex items-start gap-2">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="whitespace-nowrap">0%：对年净利润不超过 375,000 AED 的部分；</span>
+                        <span>0%：对年净利润不超过 375,000 AED 的部分；</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="whitespace-nowrap">9%：对年净利润超出 375,000 AED 的部分。</span>
+                        <span>9%：对年净利润超出 375,000 AED 的部分。</span>
                       </li>
                     </ul>
                   </td>
-                  <td className="px-4 py-5 border-b border-[#D8DDED] text-[#334155] leading-7">无收入门槛（除特定豁免情形外）。几乎所有在阿联酋境内开展业务的法人实体都须按照规定注册企业税，并在规定时限内申报纳税；逾期注册或申报将面临罚款。</td>
+                  <td className="px-4 py-6 border-b border-[#D8DDED] text-[#334155] leading-7">无收入门槛（除特定豁免情形外）。几乎所有在阿联酋境内开展业务的法人实体都须按照规定注册企业税，并在规定时限内申报纳税；逾期注册或申报将面临罚款。</td>
                 </tr>
               </tbody>
             </table>
