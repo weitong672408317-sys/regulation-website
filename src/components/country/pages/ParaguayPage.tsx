@@ -78,7 +78,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <p>HNB烟支/加热烟草棒如含有烟草材料，也应纳入烟草基产品口径判断。该类产品在下文"HNB烟支及加热装置"栏目中单独说明。</p>
           </div>
           <StatusCard
-            status="green"
+            status="amber"
             title="传统卷烟、雪茄、烟丝、加工烟草及其他烟草基产品"
             content={
               <>
@@ -114,7 +114,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <p>《第7508/2025号法》同时覆盖其他含或不含尼古丁的新兴装置、相关设备、配件、耗材以及用于雾化的物质。雾化类电子烟、雾化器、烟油/补充液、相关配件和耗材，应纳入该专项监管框架判断。</p>
           </div>
           <StatusCard
-            status="green"
+            status="amber"
             title="电子烟、雾化器、烟油/补充液、相关配件和耗材"
             content={
               <>
@@ -154,7 +154,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <StatusCard
-              status="green"
+              status="amber"
               title="HNB烟支/加热烟草棒"
               content={
                 <ul className="space-y-1 text-[#334155]">
@@ -174,7 +174,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               }
             />
             <StatusCard
-              status="green"
+              status="amber"
               title="HNB设备/加热装置及相关配件"
               content={
                 <ul className="space-y-1 text-[#334155]">
@@ -298,7 +298,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <p>烟草薄片、烟叶属于烟草原料或半成品；爆珠、香精胶囊、滤嘴棒属于烟草或新型烟草产品中常见的辅材、组件或功能性配件。具体监管要求主要取决于产品成分、用途、进口申报口径和下游产品形态。</p>
           </div>
           <StatusCard
-            status="green"
+            status="amber"
             title="烟草薄片、烟叶、爆珠/香精胶囊、滤嘴棒"
             content={
               <>

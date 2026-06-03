@@ -81,7 +81,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       <ProductAccessSection>
         <ProductModuleCard title="1. 传统卷烟" label="产品定性">
           <StatusCard
-            status="green"
+            status="amber"
             title="传统卷烟"
             content={
               <>
@@ -103,7 +103,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
         <ProductModuleCard title="2. HNB烟支" label="产品定性">
           <StatusCard
-            status="green"
+            status="amber"
             title="HNB烟支"
             content={
               <>
@@ -125,7 +125,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
         <ProductModuleCard title="3. 电子烟" label="产品定性">
           <StatusCard
-            status="green"
+            status="amber"
             title="电子烟"
             content={
               <>
@@ -179,7 +179,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
         <ProductModuleCard title="5. 烟草原料及普通辅材" label="产品定性">
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
-              status="green"
+              status="amber"
               title="烟草薄片、烟叶"
               content={
                 <>

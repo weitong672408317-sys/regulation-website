@@ -85,7 +85,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <li>《中华人民共和国烟草专卖法》将烟草专卖品定义为卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、卷烟纸、滤嘴棒、烟用丝束和烟草专用机械；其中，卷烟、雪茄烟、烟丝、复烤烟叶统称烟草制品。</li>
           </ul>
           <StatusCard
-            status="green"
+            status="amber"
             customLabel="可准入，但严格限制"
             title="卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、烟草薄片、卷烟纸、滤嘴棒、烟用丝束"
             content={<>
@@ -118,7 +118,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           </ul>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
-              status="green"
+              status="amber"
               customLabel="可准入，但严格限制"
               title="电子烟产品"
               content={<>
@@ -158,7 +158,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
-              status="green"
+              status="amber"
               customLabel="可准入，但严格限制"
               title="雾化物 / 电子烟用烟碱"
               content={<>
@@ -204,7 +204,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
-              status="green"
+              status="amber"
               customLabel="可准入，但严格限制"
               title="出口电子烟产品及相关产品"
               content={<>
@@ -286,7 +286,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <li>《中华人民共和国烟草专卖法实施条例》规定，烟草专用机械是指烟草专用机械的整机，具体范围以国务院烟草专卖行政主管部门公布的烟草专用机械名录为准。</li>
           </ul>
           <StatusCard
-            status="green"
+            status="amber"
             customLabel="可准入，但严格限制"
             title="烟草专用机械"
             content={<>
@@ -335,7 +335,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
-              status="green"
+              status="amber"
               customLabel="可准入，但严格限制"
               title="含尼古丁 / 烟草成分或用于涉烟产品的爆珠、胶囊及类似辅材"
               content={<>

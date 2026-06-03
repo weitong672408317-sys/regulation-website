@@ -111,7 +111,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             <li>烟草制品主要包括：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草，以及 papirosy（俄式纸嘴卷烟，即一端为烟草段、另一端为较长中空纸嘴的传统燃烧型烟草制品）。</li>
           </ul>
           <StatusCard
-            status="green"
+            status="amber"
             title="适用产品：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草、papirosy。"
             content="主要合规要点：产品本身可准入，主要关注 TR CU 035/2014 符合性声明、生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签、健康警示和销售限制。"
           />
@@ -124,7 +124,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             <li>监管上按加热烟草产品、烟草产品或尼古丁产品判断，不按 snus、nasvay、咀嚼烟草、鼻烟等无烟烟草产品处理。</li>
           </ul>
           <StatusCard
-            status="green"
+            status="amber"
             title="适用产品：HNB烟支、加热消费用烟草、含加热烟草产品。"
             content="主要合规要点：产品本身可准入，重点关注生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签和销售限制。"
           />
@@ -251,7 +251,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             />
 
             <StatusCard
-              status="green"
+              status="amber"
               title="传统非吸烟烟草产品"
               content={<>
                 <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
@@ -289,7 +289,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
           </ul>
           <div className="grid md:grid-cols-3 gap-4">
             <StatusCard
-              status="green"
+              status="amber"
               title="烟草及尼古丁原料"
               content={<>
                 <div className="font-semibold text-[#263247] mb-1">适用产品：</div>

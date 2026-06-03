@@ -78,7 +78,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       <ProductAccessSection>
         <ProductModuleCard title="传统烟草产品" label="产品定性">
           <StatusCard
-            status="green"
+            status="amber"
             title="传统卷烟、雪茄、小雪茄及其他制成烟草产品"
             content="可在新加坡烟草许可和税务监管框架下经营。主要监管集中在进口、批发、零售、包装标签、广告促销、销售对象和使用场所。"
           />

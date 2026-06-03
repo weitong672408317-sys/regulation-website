@@ -78,7 +78,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
       <ProductAccessSection>
         <ProductModuleCard title="1. 传统烟草产品" label="产品定性">
           <StatusCard
-            status="green"
+            status="amber"
             title="传统卷烟、雪茄、烟丝及其他制成烟草"
             content="可准入，属于强监管烟草产品。主要受产品注册、税务、包装警示、销售限制、广告禁令和禁烟场所规则约束。"
           />
@@ -86,7 +86,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
 
         <ProductModuleCard title="2. HNB烟支 / 加热烟草产品" label="产品定性">
           <StatusCard
-            status="green"
+            status="amber"
             title="HNB烟支/加热烟草产品"
             content="可准入，按含烟草加热产品处理。马来西亚已将加热产品纳入包装标签规则，并将加热烟草产品纳入税务安排。"
           />

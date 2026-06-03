@@ -81,7 +81,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <li>香港传统吸烟产品主要包括传统卷烟、雪茄、中国熟烟及其他制成烟草。</li>
           </ul>
           <StatusCard
-            status="green"
+            status="amber"
             customLabel="可准入，但严格限制"
             title="传统卷烟、雪茄、中国熟烟及其他制成烟草"
             content={<>
@@ -239,7 +239,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <li>香港公开资料未见对爆珠、香精胶囊设置独立、统一的烟草监管定义。该类产品通常作为烟草相关配件或普通辅材判断。</li>
           </ul>
           <StatusCard
-            status="green"
+            status="amber"
             customLabel="可准入，但需按成分和用途确认"
             title="爆珠、香精胶囊"
             content={<>
