@@ -311,7 +311,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       <ComplianceSection country={country}>
         <p className="text-[#334155] text-base leading-7 text-justify mb-6">新加坡烟草产品合规资质主要集中在 HSA 烟草许可证和特定禁止类产品的有限豁免安排。传统烟草产品存在许可经营路径，但许可证按经营环节和具体门店管理；禁止类产品只有在法规明确列明的特定产品、行为和目的下，才可能适用有限豁免。</p>
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 gap-4 mb-4">
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
             <div className="flex items-start gap-3 mb-4">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
@@ -353,33 +353,33 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-            <div className="flex items-start gap-3 mb-4">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">有限豁免</h4>
+        <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+          <div className="flex items-start gap-3 mb-4">
+            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
+            <h4 className="font-bold text-[#2E3F73] text-base">有限豁免</h4>
+          </div>
+          <div className="ml-9 space-y-2">
+            <div className="flex items-start gap-2">
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+              <span className="text-[#334155] text-base leading-6">新加坡法规对部分禁止类产品设有有限豁免，涉及无烟烟草产品、雾化器溶液、雾化器、豁免仿烟产品及其组件。</span>
             </div>
-            <div className="ml-9 space-y-2">
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6">新加坡法规对部分禁止类产品设有有限豁免，涉及无烟烟草产品、雾化器溶液、雾化器、豁免仿烟产品及其组件。</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6">法规列明的豁免目的包括非临床研究、产品开发和供应链相关活动。</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6">供应链相关活动指产品及组件的移动和储存，包括采购、供应商管理、生产排期、库存管理、进出口合规、分销及支持活动。</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6">上述供应链活动仅用于判断豁免目的范围，产品进口、持有、移动或储存还需满足豁免令对产品类型、行为、主体、通知、记录、储存和期限等条件。</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6">该等豁免不等同于本地消费市场准入，不能作为本地销售、递样、展示、推广或消费者使用的依据。</span>
-              </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+              <span className="text-[#334155] text-base leading-6">法规列明的豁免目的包括非临床研究、产品开发和供应链相关活动。</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+              <span className="text-[#334155] text-base leading-6">供应链相关活动指产品及组件的移动和储存，包括采购、供应商管理、生产排期、库存管理、进出口合规、分销及支持活动。</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+              <span className="text-[#334155] text-base leading-6">上述供应链活动仅用于判断豁免目的范围，产品进口、持有、移动或储存还需满足豁免令对产品类型、行为、主体、通知、记录、储存和期限等条件。</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+              <span className="text-[#334155] text-base leading-6">该等豁免不等同于本地消费市场准入，不能作为本地销售、递样、展示、推广或消费者使用的依据。</span>
             </div>
           </div>
         </div>
