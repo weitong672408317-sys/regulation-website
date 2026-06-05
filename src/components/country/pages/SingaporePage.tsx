@@ -90,7 +90,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-justify text-[#334155] mb-4">
             <li>新加坡《Tobacco and Vaporisers Control Act 1993》使用 tobacco product（烟草产品）作为基础概念。结合新加坡卫生科学局（HSA）公开说明，烟草产品包括卷烟、雪茄、小雪茄、其他制成烟草、未加工烟草、切丝烟草、烟草废料等。</li>
           </ul>
-          <div className="grid md:grid-cols-2 gap-4 mb-4">
+          <div className="grid md:grid-cols-3 gap-4">
             <StatusCard
               status="amber"
               customLabel="可准入，但严格限制"
@@ -149,25 +149,25 @@ export default function SingaporePage({ country }: SingaporePageProps) {
                 </ul>
               </>}
             />
+            <StatusCard
+              status="red"
+              title="1.3 水烟烟草"
+              content={<>
+                <div className="text-base text-justify text-[#334155] mb-2">适用产品：shisha tobacco、shisha molasses / tobacco（水烟烟草、水烟糖蜜 / 烟草）。</div>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <ul className="space-y-1 text-[#334155] text-justify leading-7">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-2 flex-shrink-0"></span>
+                    <span>不得进口、销售、供应、购买、使用或持有。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-2 flex-shrink-0"></span>
+                    <span>不得通过样品、个人携带、跨境邮寄、线上销售、展示推广等方式进入新加坡市场。</span>
+                  </li>
+                </ul>
+              </>}
+            />
           </div>
-          <StatusCard
-            status="red"
-            title="1.3 水烟烟草"
-            content={<>
-              <div className="text-base text-justify text-[#334155] mb-2">适用产品：shisha tobacco、shisha molasses / tobacco（水烟烟草、水烟糖蜜 / 烟草）。</div>
-              <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-              <ul className="space-y-1 text-[#334155] text-justify leading-7">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-2 flex-shrink-0"></span>
-                  <span>不得进口、销售、供应、购买、使用或持有。</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-2 flex-shrink-0"></span>
-                  <span>不得通过样品、个人携带、跨境邮寄、线上销售、展示推广等方式进入新加坡市场。</span>
-                </li>
-              </ul>
-            </>}
-          />
         </ProductModuleCard>
 
         {/* 2. 新型烟草、尼古丁及其他禁止类产品 */}
