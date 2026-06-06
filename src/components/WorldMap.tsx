@@ -6,18 +6,18 @@ import { useState } from 'react';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
-// 监管强度颜色映射（与表格监管强度颜色一致）
+// 监管强度颜色映射（柔和协调的低饱和版本，与网站蓝灰色系搭配）
 const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string }> = {
-  '极高': { fill: '#DC2626', hover: '#B91C1C', pressed: '#991B1B' },   // 红色系 - 禁止/高度限制
-  '高':   { fill: '#EA580C', hover: '#C2410C', pressed: '#9A3412' },   // 橙色系 - 强监管市场
-  '中':   { fill: '#CA8A04', hover: '#A16207', pressed: '#854D0E' },   // 黄色系 - 中等监管
-  '低至中': { fill: '#65A30D', hover: '#4D7C0F', pressed: '#3F6212' }, // 绿色系 - 开放/相对友好
+  '极高': { fill: '#D4A5A5', hover: '#C48888', pressed: '#B47070' },   // 红色系 - 禁止/高度限制
+  '高':   { fill: '#D4B595', hover: '#C4A080', pressed: '#B48868' },   // 橙色系 - 强监管市场
+  '中':   { fill: '#D4C895', hover: '#C4B480', pressed: '#B4A068' },   // 黄色系 - 中等监管
+  '低至中': { fill: '#A5C4A0', hover: '#90B488', pressed: '#78A070' }, // 绿色系 - 开放/相对友好
 };
 
 const countryDataMap: Record<string, any> = {
   'China': { labelPos: [105, 38], countryCenter: [105, 35], name: '中国内地', id: 'china', isoCode: 'CN', intensity: '极高' },
   'Indonesia': { labelPos: [115, -3], countryCenter: [115, -5], name: '印尼', id: 'indonesia', isoCode: 'ID', intensity: '低至中' },
-  'United Arab Emirates': { labelPos: [54, 26], countryCenter: [54, 24], name: '阿联酋', id: 'uae', isoCode: 'AE', intensity: '中' },
+  'United Arab Emirates': { labelPos: [56, 22], countryCenter: [54, 24], name: '阿联酋', id: 'uae', isoCode: 'AE', intensity: '中' },
   'Russia': { labelPos: [100, 62], countryCenter: [100, 60], name: '俄罗斯', id: 'russia', isoCode: 'RU', intensity: '高' },
   'Singapore': { labelPos: [108, 8], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG', intensity: '极高' },
   'Malaysia': { labelPos: [95, 0], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY', intensity: '高' },

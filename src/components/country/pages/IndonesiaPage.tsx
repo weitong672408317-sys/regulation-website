@@ -354,12 +354,12 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </p>
         </div>
 
-        <div className="bg-[#FFF8E1] rounded-lg p-6 mb-6">
-          <h3 className="text-[#D97706] font-bold text-xl mb-4">烟草企业主要资质与认证要求概览</h3>
+        <div className="bg-[#F1F5F9] rounded-lg p-6 mb-6">
+          <h3 className="text-[#334155] font-bold text-xl mb-4">烟草企业主要资质与认证要求概览</h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-lg p-4 shadow-sm border border-[#FFE0B2]">
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-[#E2E8F0]">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-10 h-10 bg-[#1976D2] rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-[#4A6290] rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
@@ -368,43 +368,43 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               </div>
               <ul className="space-y-2 text-sm text-[#334155]">
                 <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#1976D2] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                   <span><span className="font-medium">注册系统：</span>企业通常先有 NIB，并在注册系统中标注进口人类型（相当于 API 身份）。</span>
                 </li>
                 <li className="flex items-start gap-2 pl-3">
-                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-[#94A3B8] mt-2 flex-shrink-0"></span>
                   <span><span className="font-medium">① API-P：</span>进口用于自家生产/经营自用。</span>
                 </li>
                 <li className="flex items-start gap-2 pl-3">
-                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-[#94A3B8] mt-2 flex-shrink-0"></span>
                   <span><span className="font-medium">② API-U：</span>进口用于贸易流通。</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#1976D2] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                   <span><span className="font-medium">风险等级与许可生效：</span></span>
                 </li>
                 <li className="flex items-start gap-2 pl-3">
-                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-[#94A3B8] mt-2 flex-shrink-0"></span>
                   <span>烟草/尼古丁相关业务多属于中高/高风险，需"激活NIB"，许可证方可生效。</span>
                 </li>
                 <li className="flex items-start gap-2 pl-3">
-                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-[#94A3B8] mt-2 flex-shrink-0"></span>
                   <span>中高风险对应证书为 Sertifikat Standar</span>
                 </li>
                 <li className="flex items-start gap-2 pl-3">
-                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-[#94A3B8] mt-2 flex-shrink-0"></span>
                   <span>高风险对应证书为 Izin Usaha。</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#1976D2] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
                   <span><span className="font-medium">激活前置条件：</span>需先完成环评、厂房装修、设备装配及政府验厂。</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg p-4 shadow-sm border border-[#FFE0B2]">
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-[#E2E8F0]">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-10 h-10 bg-[#D97706] rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-[#64748B] rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
@@ -413,31 +413,31 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               </div>
               <ul className="space-y-2 text-sm text-[#334155]">
                 <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D97706] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#64748B] mt-1.5 flex-shrink-0"></span>
                   <span><span className="font-medium">NPPBKC：</span>应税消费品经营者许可</span>
                 </li>
                 <li className="flex items-start gap-2 pl-3">
-                  <span className="w-1 h-1 rounded-full bg-[#FFB74D] mt-2 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-[#94A3B8] mt-2 flex-shrink-0"></span>
                   <span>不是所有烟草制品都属于"应税消费品"（BKC）。</span>
                 </li>
                 <li className="flex items-start gap-2 pl-3">
-                  <span className="w-1 h-1 rounded-full bg-[#FFB74D] mt-2 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-[#94A3B8] mt-2 flex-shrink-0"></span>
                   <span>比如作为原材料的烟草薄片，就不是BKC。</span>
                 </li>
                 <li className="flex items-start gap-2 pl-3">
-                  <span className="w-1 h-1 rounded-full bg-[#FFB74D] mt-2 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-[#94A3B8] mt-2 flex-shrink-0"></span>
                   <span>若企业拟烟草类的应税消费品，应先取得 NPPBKC。取得后方可依法生产与流通。</span>
                 </li>
                 <li className="flex items-start gap-2 pl-3">
-                  <span className="w-1 h-1 rounded-full bg-[#FFB74D] mt-2 flex-shrink-0"></span>
+                  <span className="w-1 h-1 rounded-full bg-[#94A3B8] mt-2 flex-shrink-0"></span>
                   <span>由印尼海关与消费税总局核发，用于确认企业获准在消费税领域开展活动。</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D97706] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#64748B] mt-1.5 flex-shrink-0"></span>
                   <span><span className="font-medium">PI（进口批准书）：</span>针对限制类进口商品设立的配额型批准机制。</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D97706] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#64748B] mt-1.5 flex-shrink-0"></span>
                   <span><span className="font-medium">巴淡岛（自由贸易区）货物进出要求：</span>通常需办理相关区域许可（如 IUK），并满足场地合规前置要求（例如空间利用/用地合规 PKKPR 等）。</span>
                 </li>
               </ul>
