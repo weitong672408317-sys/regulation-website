@@ -82,7 +82,6 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             title="传统卷烟、雪茄、烟丝、加工烟草及其他烟草基产品"
             content={
               <>
-                <p className="mb-2">适用产品：传统卷烟、雪茄、烟丝、加工烟草及其他烟草基产品</p>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -118,7 +117,6 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             title="电子烟、雾化器、烟油/补充液、相关配件和耗材"
             content={
               <>
-                <p className="mb-2">适用产品：电子烟、雾化器、烟油/补充液、相关配件和耗材</p>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
