@@ -20,6 +20,7 @@ import {
   BulletList,
   DotList
 } from '../sections';
+import { TableCellContent } from '../CountryComponents';
 
 interface IndonesiaPageProps {
   country: CountryData;
@@ -190,9 +191,9 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </ul>
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <StatusCard
-              status="amber"
-              title="含烟草材料的口含、鼻吸、咀嚼类产品"
-              customLabel="可合规准入，但需按烟草属性管理"
+              status="green"
+              title="无烟烟草产品"
+              customLabel="可合规准入"
               content={<>
                 <div className="text-sm text-[#64748B] mb-2">适用产品：口含烟、鼻烟、嚼烟、含烟草粉末产品，以及其他含烟草材料、通过口腔或鼻腔使用的非燃烧型产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -207,14 +208,14 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                    <span>如产品同时添加尼古丁、采用袋状 / 片状 / 膜状等新型形态，或以尼古丁摄入为主要卖点，应转入"新型口含尼古丁制品"口径判断。</span>
+                    <span>如产品同时添加尼古丁、采用袋状 / 片状 / 膜状等新型形态，或以尼古丁摄入为主要卖点，应转入"新型尼古丁产品"口径判断。</span>
                   </li>
                 </ul>
               </>}
             />
             <StatusCard
               status="amber"
-              title="新型口含尼古丁制品"
+              title="新型尼古丁产品"
               customLabel="部分限制 / 需确认"
               content={<>
                 <div className="text-sm text-[#64748B] mb-2">适用产品：尼古丁袋、尼古丁口含膜、含尼古丁片状 / 袋状 / 膜状 / 粉末状产品</div>
@@ -345,10 +346,130 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       </ProductAccessSection>
 
       {/* 四、合规资质 */}
-      <ComplianceSection
-        country={country}
-        overview="印尼烟草及尼古丁相关业务的资质判断，应先看经营主体是否已取得基础经营身份，再看产品是否属于应税消费品、限制类进口商品、电子烟或特殊区域经营项目。不同产品在 NPPBKC、PI 进口批准、BPOM 路径和 Halal 认证上的要求并不相同。"
-      />
+      <ComplianceSection country={country}>
+        <div className="bg-[#E3F2FD] border-l-4 border-[#1976D2] p-4 mb-6">
+          <p className="text-[#1565C0] font-medium text-lg mb-2">合规资质</p>
+          <p className="text-[#1976D2] leading-relaxed">
+            印尼烟草及尼古丁相关业务的资质判断，应先看经营主体是否已取得基础经营身份，再看产品是否属于应税消费品、限制类进口商品、电子烟或特殊区域经营项目。不同产品在 NPPBKC、PI 进口批准、BPOM 路径和 Halal 认证上的要求并不相同。
+          </p>
+        </div>
+
+        <div className="bg-[#FFF8E1] rounded-lg p-6 mb-6">
+          <h3 className="text-[#D97706] font-bold text-xl mb-4">烟草企业主要资质与认证要求概览</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-[#FFE0B2]">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-10 h-10 bg-[#1976D2] rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <span className="font-semibold text-[#263247]">一、经营者识别号（NIB）</span>
+              </div>
+              <ul className="space-y-2 text-sm text-[#334155]">
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1976D2] mt-1.5 flex-shrink-0"></span>
+                  <span><span className="font-medium">注册系统：</span>企业通常先有 NIB，并在注册系统中标注进口人类型（相当于 API 身份）。</span>
+                </li>
+                <li className="flex items-start gap-2 pl-3">
+                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span><span className="font-medium">① API-P：</span>进口用于自家生产/经营自用。</span>
+                </li>
+                <li className="flex items-start gap-2 pl-3">
+                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span><span className="font-medium">② API-U：</span>进口用于贸易流通。</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1976D2] mt-1.5 flex-shrink-0"></span>
+                  <span><span className="font-medium">风险等级与许可生效：</span></span>
+                </li>
+                <li className="flex items-start gap-2 pl-3">
+                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span>烟草/尼古丁相关业务多属于中高/高风险，需"激活NIB"，许可证方可生效。</span>
+                </li>
+                <li className="flex items-start gap-2 pl-3">
+                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span>中高风险对应证书为 Sertifikat Standar</span>
+                </li>
+                <li className="flex items-start gap-2 pl-3">
+                  <span className="w-1 h-1 rounded-full bg-[#64B5F6] mt-2 flex-shrink-0"></span>
+                  <span>高风险对应证书为 Izin Usaha。</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1976D2] mt-1.5 flex-shrink-0"></span>
+                  <span><span className="font-medium">激活前置条件：</span>需先完成环评、厂房装修、设备装配及政府验厂。</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-[#FFE0B2]">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-10 h-10 bg-[#D97706] rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
+                </div>
+                <span className="font-semibold text-[#263247]">二、其他关键资质</span>
+              </div>
+              <ul className="space-y-2 text-sm text-[#334155]">
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D97706] mt-1.5 flex-shrink-0"></span>
+                  <span><span className="font-medium">NPPBKC：</span>应税消费品经营者许可</span>
+                </li>
+                <li className="flex items-start gap-2 pl-3">
+                  <span className="w-1 h-1 rounded-full bg-[#FFB74D] mt-2 flex-shrink-0"></span>
+                  <span>不是所有烟草制品都属于"应税消费品"（BKC）。</span>
+                </li>
+                <li className="flex items-start gap-2 pl-3">
+                  <span className="w-1 h-1 rounded-full bg-[#FFB74D] mt-2 flex-shrink-0"></span>
+                  <span>比如作为原材料的烟草薄片，就不是BKC。</span>
+                </li>
+                <li className="flex items-start gap-2 pl-3">
+                  <span className="w-1 h-1 rounded-full bg-[#FFB74D] mt-2 flex-shrink-0"></span>
+                  <span>若企业拟烟草类的应税消费品，应先取得 NPPBKC。取得后方可依法生产与流通。</span>
+                </li>
+                <li className="flex items-start gap-2 pl-3">
+                  <span className="w-1 h-1 rounded-full bg-[#FFB74D] mt-2 flex-shrink-0"></span>
+                  <span>由印尼海关与消费税总局核发，用于确认企业获准在消费税领域开展活动。</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D97706] mt-1.5 flex-shrink-0"></span>
+                  <span><span className="font-medium">PI（进口批准书）：</span>针对限制类进口商品设立的配额型批准机制。</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D97706] mt-1.5 flex-shrink-0"></span>
+                  <span><span className="font-medium">巴淡岛（自由贸易区）货物进出要求：</span>通常需办理相关区域许可（如 IUK），并满足场地合规前置要求（例如空间利用/用地合规 PKKPR 等）。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-[#E8EDF5]">
+                <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">产品</th>
+                <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">NPPBKC</th>
+                <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">PI 进口批准</th>
+                <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">BPOM 注册</th>
+                <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">Halal 认证</th>
+              </tr>
+            </thead>
+            <tbody>
+              {country.compliance.table.map((row, index) => (
+                <tr key={index} className="hover:bg-[#F8FBFF]">
+                  <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155]">{row.product}</td>
+                  <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155]"><TableCellContent content={row.nppbkc} /></td>
+                  <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155]"><TableCellContent content={row.piImportApproval} /></td>
+                  <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155]"><TableCellContent content={row.bpomRegistration} /></td>
+                  <td className="px-4 py-4 border-b border-[#D8DDED] text-[#334155]"><TableCellContent content={row.halalCertification} /></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </ComplianceSection>
 
       {/* 五、税收政策 */}
       <TaxSection introText="印尼烟草及尼古丁相关产品的税务判断，核心看两点：产品是否属于 BKC（应税消费品），以及产品是否进入印尼本土市场流通。">
