@@ -254,10 +254,10 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               status="red"
               title="无烟气烟草制品 / 其他口含尼古丁制品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、口含烟、尼古丁片、尼古丁贴、含烟、嚼烟、膏烟、溶烟、嗅烟等无烟气烟草制品</div>
-                <div className="text-base text-[#334155] mb-3">产品定性：国家烟草专卖局2026年第1号公告将无烟气烟草制品定义为含有烟碱成分，通过口用、鼻用或外用等方式使用，且不产生烟气的烟草制品。</div>
+                <div className="text-base text-[#334155] mb-2 text-justify">适用产品：尼古丁袋、尼古丁口含膜、口含烟、尼古丁片、尼古丁贴、含烟、嚼烟、膏烟、溶烟、嗅烟等无烟气烟草制品</div>
+                <div className="text-base text-[#334155] mb-3 text-justify">产品定性：国家烟草专卖局2026年第1号公告将无烟气烟草制品定义为含有烟碱成分，通过口用、鼻用或外用等方式使用，且不产生烟气的烟草制品。</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                <ul className="space-y-1 text-[#334155]">
+                <ul className="space-y-1 text-[#334155] text-justify">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
                     <span>中国目前尚未开放无烟气烟草制品 / 尼古丁制品在境内生产、销售或流通。</span>

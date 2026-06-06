@@ -133,7 +133,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         <ProductModuleCard title="3. 电子烟及液体产品" label="分类监管">
           <p className="text-base leading-7 text-[#334155] mb-3">俄罗斯法规通常按产品构成拆分判断电子烟相关产品，不使用一个单一概念统一覆盖全部产品。电子烟相关产品可分为设备类、液体类、预灌装 / 组合产品和空组件。</p>
           <p className="text-base leading-7 text-[#334155]">俄罗斯目前尚未实施全国性电子烟全面禁售，电子烟及相关液体产品仍有合法市场空间。近期围绕"允许地区政府自行禁止电子烟及相关液体销售"的立法讨论，可能改变部分地区的销售可行性，使该品类面临明显高于传统烟草和加热烟草产品的政策变动风险。</p>
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
             <StatusCard
               status="amber"
               customLabel="可准入，但面临重大变动"
@@ -197,34 +197,32 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               </>}
             />
 
-            <div className="md:col-span-2">
-              <StatusCard
-                status="amber"
-                customLabel="可准入，但面临重大变动"
-                title="预灌装 / 组合产品和空组件"
-                content={<>
-                  <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-                  <p className="mb-3">含液体烟弹、设备与液体组合产品、空烟弹、空容器、普通电子烟组件。</p>
-                  <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
-                  <p className="mb-3">俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品需要结合设备部分、液体部分和下游用途拆分判断。</p>
-                  <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                  <ul className="space-y-1 text-[#334155]">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                      <span>含液体烟弹和设备与液体组合产品应同时判断设备部分和液体部分：设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                      <span>空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理；如与含尼古丁液体、含液体烟弹或组合产品配套销售，应转入对应产品路径判断。</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                      <span>如地区禁售授权规则落地，含液体烟弹、设备与液体组合产品需要同步确认设备部分、液体部分和组合销售形态是否被纳入地区禁售范围。</span>
-                    </li>
-                  </ul>
-                </>}
-              />
-            </div>
+            <StatusCard
+              status="amber"
+              customLabel="可准入，但面临重大变动"
+              title="预灌装 / 组合产品和空组件"
+              content={<>
+                <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                <p className="mb-3">含液体烟弹、设备与液体组合产品、空烟弹、空容器、普通电子烟组件。</p>
+                <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
+                <p className="mb-3">俄罗斯公开法规未见对含液体烟弹、设备与液体组合产品、空烟弹或空容器设置统一单独定义。该类产品需要结合设备部分、液体部分和下游用途拆分判断。</p>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <ul className="space-y-1 text-[#334155]">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                    <span>含液体烟弹和设备与液体组合产品应同时判断设备部分和液体部分：设备部分按尼古丁产品使用系统 / 装置判断，液体部分按尼古丁液体或无尼古丁液体判断。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                    <span>空烟弹、空容器或普通不含液体组件，通常不直接按尼古丁液体处理；如与含尼古丁液体、含液体烟弹或组合产品配套销售，应转入对应产品路径判断。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                    <span>如地区禁售授权规则落地，含液体烟弹、设备与液体组合产品需要同步确认设备部分、液体部分和组合销售形态是否被纳入地区禁售范围。</span>
+                  </li>
+                </ul>
+              </>}
+            />
           </div>
         </ProductModuleCard>
 
