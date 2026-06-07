@@ -347,9 +347,9 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
       {/* 四、合规资质 */}
       <ComplianceSection country={country}>
-        <div className="bg-[#E3F2FD] border-l-4 border-[#1976D2] p-4 mb-6">
-          <p className="text-[#1565C0] font-medium text-lg mb-2">合规资质</p>
-          <p className="text-[#1976D2] leading-relaxed">
+        <div className="bg-[#F3F5FB] border-l-4 border-[#4A6290] p-4 mb-6">
+          <p className="text-[#2E3F73] font-medium text-lg mb-2">合规资质</p>
+          <p className="text-[#334155] leading-relaxed">
             印尼烟草及尼古丁相关业务的资质判断，应先看经营主体是否已取得基础经营身份，再看产品是否属于应税消费品、限制类进口商品、电子烟或特殊区域经营项目。不同产品在 NPPBKC、PI 进口批准、BPOM 路径和 Halal 认证上的要求并不相同。
           </p>
         </div>
