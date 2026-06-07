@@ -6,12 +6,12 @@ import { useState } from 'react';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
-// 监管强度颜色映射（柔和协调的低饱和版本，与网站蓝灰色系搭配）
+// 监管强度颜色映射（清晰但不荧光，与网站蓝灰色系协调）
 const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string }> = {
-  '极高': { fill: '#D4A5A5', hover: '#C48888', pressed: '#B47070' },   // 红色系 - 禁止/高度限制
-  '高':   { fill: '#D4B595', hover: '#C4A080', pressed: '#B48868' },   // 橙色系 - 强监管市场
-  '中':   { fill: '#D4C895', hover: '#C4B480', pressed: '#B4A068' },   // 黄色系 - 中等监管
-  '低至中': { fill: '#A5C4A0', hover: '#90B488', pressed: '#78A070' }, // 绿色系 - 开放/相对友好
+  '极高': { fill: '#DC6B6B', hover: '#C85A5A', pressed: '#B44A4A' },     // 红色系 - 禁止/高度限制
+  '高':   { fill: '#E88A3A', hover: '#D47A2E', pressed: '#C06A22' },     // 橙色系 - 强监管市场
+  '中':   { fill: '#D6B84A', hover: '#C4A83E', pressed: '#B29832' },     // 黄色系 - 中等监管
+  '低至中': { fill: '#6AAF7C', hover: '#5A9F6C', pressed: '#4A8F5C' },   // 绿色系 - 开放/相对友好
 };
 
 const countryDataMap: Record<string, any> = {
@@ -30,10 +30,10 @@ const highlightCountryNames = new Set(Object.keys(countryDataMap));
 
 // 图例数据
 const legendItems = [
-  { color: intensityColorMap['极高'].fill, label: '禁止 / 高度限制' },
-  { color: intensityColorMap['高'].fill, label: '强监管市场' },
-  { color: intensityColorMap['中'].fill, label: '中等监管' },
-  { color: intensityColorMap['低至中'].fill, label: '开放 / 相对友好' },
+  { color: '#DC6B6B', label: '禁止 / 高度限制' },
+  { color: '#E88A3A', label: '强监管市场' },
+  { color: '#D6B84A', label: '中等监管' },
+  { color: '#6AAF7C', label: '开放 / 相对友好' },
 ];
 
 export default function WorldMap() {
@@ -87,7 +87,7 @@ export default function WorldMap() {
   };
 
   return (
-    <div className="w-full bg-gray-100 rounded-lg p-4">
+    <div className="w-full bg-[#F8FAFC] rounded-lg p-4">
       <div className="overflow-x-auto">
         <div className="min-w-[800px] h-[550px]">
           <ComposableMap 
@@ -110,23 +110,24 @@ export default function WorldMap() {
                       onMouseLeave={() => setHoveredCountry(null)}
                       style={{
                         default: {
-                          fill: isHighlighted ? colors.fill : '#e5e7eb',
-                          stroke: '#9ca3af',
+                          fill: isHighlighted ? colors.fill : '#E5E7EB',
+                          stroke: '#CBD5E1',
                           strokeWidth: 0.5,
                           outline: 'none',
                           cursor: isHighlighted ? 'pointer' : 'default',
                           transition: 'all 0.2s ease',
                         },
                         hover: {
-                          fill: isHighlighted ? colors.hover : '#d1d5db',
-                          stroke: '#6b7280',
-                          strokeWidth: 1,
+                          fill: isHighlighted ? colors.hover : '#D1D5DB',
+                          stroke: '#94A3B8',
+                          strokeWidth: 1.5,
                           outline: 'none',
+                          cursor: isHighlighted ? 'pointer' : 'default',
                           transition: 'all 0.2s ease',
                         },
                         pressed: {
-                          fill: isHighlighted ? colors.pressed : '#9ca3af',
-                          stroke: '#4b5563',
+                          fill: isHighlighted ? colors.pressed : '#9CA3AF',
+                          stroke: '#64748B',
                           strokeWidth: 0.5,
                           outline: 'none',
                         },
@@ -162,7 +163,7 @@ export default function WorldMap() {
                           style={{
                             fontSize: '12px',
                             fontWeight: 'bold',
-                            fill: '#1f2937',
+                            fill: '#1F2937',
                             textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
                             cursor: data.id ? 'pointer' : 'default',
                           }}
@@ -190,10 +191,10 @@ export default function WorldMap() {
         {legendItems.map((item) => (
           <div key={item.label} className="flex items-center gap-2">
             <span
-              className="inline-block w-4 h-4 rounded-sm border border-gray-300"
+              className="inline-block w-3.5 h-3.5 rounded-sm border border-gray-300"
               style={{ backgroundColor: item.color }}
             />
-            <span className="text-sm text-gray-600">{item.label}</span>
+            <span className="text-sm text-[#334155]">{item.label}</span>
           </div>
         ))}
       </div>
