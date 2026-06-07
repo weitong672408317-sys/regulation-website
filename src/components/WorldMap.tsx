@@ -54,7 +54,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: false,
   },
   'Singapore': {
-    labelPos: [106, -1],
+    labelPos: [112, -3],
     countryCenter: [103.8, 1.35],
     name: '新加坡',
     id: 'singapore',
@@ -63,7 +63,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: true,
   },
   'Malaysia': {
-    labelPos: [102, 7],
+    labelPos: [95, 2],
     countryCenter: [101.9758, 4.2105],
     name: '马来西亚',
     id: 'malaysia',
