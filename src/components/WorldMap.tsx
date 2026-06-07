@@ -6,16 +6,16 @@ import { useState, useMemo } from 'react';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
-// 地图填充色：表格标签色的 70-80% 可见强度版本
+// 地图填充色：表格标签色的 90% 强度版本
 // 表格标签色：极高=#DC2626 | 高=#F97316 | 中=#FACC15 | 低至中=#A3E635
 const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string }> = {
-  '极高': { fill: '#D47070', hover: '#C05858', pressed: '#A84040' },
-  '高':   { fill: '#E08840', hover: '#D07030', pressed: '#B85820' },
-  '中':   { fill: '#D4B840', hover: '#C4A830', pressed: '#A89020' },
-  '低至中': { fill: '#7AB860', hover: '#68A850', pressed: '#589840' },
+  '极高': { fill: '#E05A5A', hover: '#D44848', pressed: '#C03838' },
+  '高':   { fill: '#F38A38', hover: '#E87828', pressed: '#D06018' },
+  '中':   { fill: '#F0D040', hover: '#E0C030', pressed: '#C0A020' },
+  '低至中': { fill: '#8FC850', hover: '#7FB840', pressed: '#6FA830' },
 };
 
-// 国家数据：marker 锚定真实位置，label 通过 labelPos 偏移
+// 国家数据：marker 锚定真实位置，label 只做轻微偏移避免重叠
 const countryDataMap: Record<string, any> = {
   'China': {
     labelPos: [105, 38],
@@ -27,7 +27,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: false,
   },
   'Indonesia': {
-    labelPos: [122, -8],
+    labelPos: [118, -6],
     countryCenter: [115, -5],
     name: '印尼',
     id: 'indonesia',
@@ -36,7 +36,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: false,
   },
   'United Arab Emirates': {
-    labelPos: [59, 25],
+    labelPos: [56, 26],
     countryCenter: [54, 24],
     name: '阿联酋',
     id: 'uae',
@@ -54,7 +54,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: false,
   },
   'Singapore': {
-    labelPos: [110, -4],
+    labelPos: [106, -1],
     countryCenter: [103.8, 1.35],
     name: '新加坡',
     id: 'singapore',
@@ -63,7 +63,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: true,
   },
   'Malaysia': {
-    labelPos: [93, 3],
+    labelPos: [102, 7],
     countryCenter: [101.9758, 4.2105],
     name: '马来西亚',
     id: 'malaysia',
@@ -90,7 +90,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: false,
   },
   'Hong Kong': {
-    labelPos: [120, 25],
+    labelPos: [116, 23],
     countryCenter: [114.17, 22.32],
     name: '中国香港',
     id: 'hongkong',
@@ -241,21 +241,7 @@ export default function WorldMap() {
                     />
                   </Marker>
 
-                  {/* 引导线 - 小国家标签偏移时显示 */}
-                  {data.labelPos && data.isSmall && (
-                    <line
-                      x1={data.countryCenter[0]}
-                      y1={data.countryCenter[1]}
-                      x2={data.labelPos[0]}
-                      y2={data.labelPos[1]}
-                      stroke="#94A3B8"
-                      strokeWidth={1}
-                      strokeDasharray="3,2"
-                      opacity={0.5}
-                    />
-                  )}
-
-                  {/* 标签 */}
+                  {/* 标签 - 小国家轻微偏移 */}
                   {data.labelPos && (
                     <Marker coordinates={data.labelPos}>
                       <text
