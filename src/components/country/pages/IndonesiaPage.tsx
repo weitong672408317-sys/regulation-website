@@ -247,10 +247,10 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </div>
         </ProductModuleCard>
 
-        {/* 4. 烟草原料及普通辅材 */}
-        <ProductModuleCard title="4. 烟草原料及普通辅材" label="产品定性">
+        {/* 4. 烟草薄片、烟叶等烟草原料 */}
+        <ProductModuleCard title="4. 烟草薄片、烟叶等烟草原料" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
-            <li>烟草薄片、烟叶、爆珠、香精胶囊、滤嘴棒通常属于原料、半成品、组件或普通辅材。该类产品的准入判断重点在于产品形态、成分、申报品名、进口用途、下游用途，以及是否含烟草提取物或尼古丁。</li>
+            <li>烟草薄片、烟叶主要作为烟草原料或半成品管理；具体监管要求取决于产品形态、是否进入应税消费品生产链条，以及是否涉及进口批准要求。</li>
           </ul>
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <StatusCard
@@ -297,6 +297,15 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                 </ul>
               </>}
             />
+          </div>
+        </ProductModuleCard>
+
+        {/* 5. 普通辅材及香精香料 */}
+        <ProductModuleCard title="5. 普通辅材及香精香料" label="产品定性">
+          <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
+            <li>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；是否进入烟草制品、电子烟、雾化液、应税消费品或其他专项监管路径，应按成分和产品形态判断。</li>
+          </ul>
+          <div className="grid md:grid-cols-2 gap-4 mt-4">
             <StatusCard
               status="green"
               title="爆珠 / 香精胶囊"

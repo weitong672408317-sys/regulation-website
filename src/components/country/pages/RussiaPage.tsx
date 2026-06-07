@@ -279,56 +279,59 @@ export default function RussiaPage({ country }: RussiaPageProps) {
           </div>
         </ProductModuleCard>
 
-        <ProductModuleCard title="5. 原料及辅材" label="产品定性">
+        <ProductModuleCard title="5. 烟草及尼古丁原料" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
-            <li>第203-FZ号法将烟草制品、烟草产品、尼古丁产品及其生产原料纳入生产流通监管。</li>
-            <li>烟叶、reconstituted tobacco、烟草原料、尼古丁原料通常属于生产链条中的原料或半成品，与消费者可直接使用的烟草制品、HNB烟支、电子烟液、尼古丁袋等成品不同。</li>
-            <li>俄罗斯公开法规资料未见将滤嘴棒、爆珠、香精胶囊、香精香料等普通烟用辅材统一定义为烟草制品或尼古丁产品。该类产品应根据是否含尼古丁、烟草提取物、电子烟液或其他受监管成分判断监管路径。</li>
+            <li>烟叶、烟草薄片、烟草原料和尼古丁原料主要作为生产原料管理。第203-FZ号法已将烟草制品、烟草产品、尼古丁产品及其生产原料纳入生产流通监管。</li>
           </ul>
-          <div className="grid md:grid-cols-3 gap-4">
-            <StatusCard
-              status="green"
-              title="烟草及尼古丁原料"
-              content={<>
-                <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-                <p className="mb-3">烟叶、reconstituted tobacco、烟草原料、尼古丁原料。</p>
-                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                <ul className="space-y-1 text-[#334155]">
-                  <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>可作为原料进入供应链，不宜作为普通消费者成品零售。</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>俄罗斯本地生产或加工主体需取得覆盖烟草原料或尼古丁原料的生产许可。</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>俄罗斯进口商需取得烟草原料或尼古丁原料进口投入流通许可。</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>原料还需关注追溯信息报送。</span>
-                  </li>
-                </ul>
-              </>}
-            />
+          <StatusCard
+            status="green"
+            title="烟草及尼古丁原料"
+            content={<>
+              <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+              <p className="mb-3">烟叶、烟草薄片、烟草原料、尼古丁原料。</p>
+              <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+              <ul className="space-y-1 text-[#334155]">
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                  <span>俄罗斯本地生产或加工主体需取得覆盖烟草原料或尼古丁原料的生产许可。</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                  <span>俄罗斯进口商需取得烟草原料或尼古丁原料进口投入流通许可。</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                  <span>原料进入生产流通链条后，还需关注追溯信息报送。</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                  <span>已经制成消费者可直接使用的烟草制品、HNB烟支、电子烟液、尼古丁袋等成品的，应转入对应成品路径判断。</span>
+                </li>
+              </ul>
+            </>}
+          />
+        </ProductModuleCard>
 
+        <ProductModuleCard title="6. 普通辅材及相关配套材料" label="产品定性">
+          <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
+            <li>滤嘴棒、爆珠、香精胶囊和香精香料主要作为普通辅材或配套材料管理；是否进入烟草制品、尼古丁产品、电子烟液或相关生产原料路径，应按成分和产品形态判断。</li>
+          </ul>
+          <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
               status="green"
               title="普通辅材及相关配套材料"
               content={<>
                 <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-                <p className="mb-3">不含尼古丁、不含烟草提取物，且不构成烟草制品、尼古丁产品、电子烟液或相关生产原料的滤嘴棒、爆珠、香精胶囊、香精香料及其他普通辅材。</p>
+                <p className="mb-3">滤嘴棒、爆珠、香精胶囊、香精香料及其他普通辅材。</p>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>公开规则未见特殊烟草 / 尼古丁产品专项许可或产品注册要求。</span>
+                    <span>作为普通烟用辅材单独生产、销售的，公开规则未见特殊烟草 / 尼古丁产品专项许可或产品注册要求。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>如产品含尼古丁、烟草提取物、电子烟液或其他受监管成分，应转入下列"含特殊成分或特定功能辅材"判断。</span>
+                    <span>如产品加入尼古丁、烟草提取物、电子烟液或其他受监管成分，或产品本身构成烟草制品、尼古丁产品、电子烟液或相关生产原料，应转入下列"含特殊成分或特定功能辅材"判断。</span>
                   </li>
                 </ul>
               </>}
@@ -340,7 +343,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               title="含特殊成分或特定功能辅材"
               content={<>
                 <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-                <p className="mb-3">含尼古丁、烟草提取物、电子烟液、尼古丁原料，或作为烟油、含液体烟弹、HNB烟支、尼古丁产品组件使用的辅材。</p>
+                <p className="mb-3">加入尼古丁、烟草提取物、电子烟液、尼古丁原料，或具有特殊释放功能的滤嘴棒、爆珠、香精胶囊、香精香料及其他辅材。</p>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -349,7 +352,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>含烟草提取物或作为烟草基成品组成部分进入市场的，应转入烟草制品、烟草产品或烟草原料路径判断。</span>
+                    <span>含烟草提取物或构成烟草基成品组成部分的，应转入烟草制品、烟草产品或烟草原料路径判断。</span>
                   </li>
                 </ul>
               </>}

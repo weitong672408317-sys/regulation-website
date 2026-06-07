@@ -204,7 +204,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
 
         <ProductModuleCard title="5. 烟草薄片、烟叶等烟草材料" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
-            <li>香港公开资料未见对烟草薄片、烟叶设置独立、统一的产品定义。该类产品应结合加工程度、申报品名、成分和最终产品形态判断。</li>
+            <li>烟草薄片、烟叶等烟草材料主要作为烟草原料或半成品管理；是否进入传统吸烟产品、另类吸烟产品、无烟烟草产品或应课税品监管路径，应按加工形态、成分和最终产品形态判断。</li>
           </ul>
           <StatusCard
             status="amber"
@@ -236,40 +236,54 @@ export default function HongkongPage({ country }: HongkongPageProps) {
 
         <ProductModuleCard title="6. 普通辅材及香精香料" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
-            <li>香港公开资料未见对爆珠、香精胶囊、滤嘴棒、香精香料设置独立、统一的烟草监管定义。该类产品应根据是否含尼古丁、烟草、烟草提取物，以及是否构成另类吸烟产品、无烟烟草产品或药剂类产品判断监管路径。</li>
+            <li>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；涉及尼古丁、烟草材料、无烟烟草产品，或属于另类吸烟产品组件 / 配件的，应按对应监管路径另行判断。</li>
           </ul>
-          <StatusCard
-            status="green"
-            customLabel="可合规准入，但需按成分确认"
-            title="普通辅材及香精香料"
-            content={<>
-              <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-              <p className="mb-3">不含尼古丁、不含烟草、不含烟草提取物，且不构成另类吸烟产品、无烟烟草产品或相关组件 / 配件的爆珠、香精胶囊、滤嘴棒、香精香料及其他普通辅材。</p>
-              <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-              <ul className="space-y-1 text-[#334155]">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                  <span>公开规则未见特殊烟草 / 电子烟专项许可要求。</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                  <span>如产品含尼古丁，应确认是否进入毒药或药剂制品监管路径。</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                  <span>如产品含烟草或烟草提取物，应确认是否涉及烟草税、无烟烟草产品禁令或其他烟草监管要求。</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                  <span>如产品本身构成电子烟、HNB、草本烟、另类吸烟产品组件 / 配件，或无烟烟草产品，应转入对应禁止类产品路径判断。</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                  <span>如产品作为加味传统吸烟产品的一部分进入香港市场，应关注香港加味传统吸烟产品禁令的实施安排。</span>
-                </li>
-              </ul>
-            </>}
-          />
+          <div className="grid md:grid-cols-2 gap-4">
+            <StatusCard
+              status="green"
+              title="普通辅材及香精香料"
+              content={<>
+                <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                <p className="mb-3">爆珠、香精胶囊、滤嘴棒、香精香料及其他普通辅材。</p>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <ul className="space-y-1 text-[#334155]">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>作为普通辅材单独生产、销售的，公开规则未见特殊烟草 / 电子烟专项许可要求。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>如产品加入尼古丁、烟草材料或烟草提取物，或属于另类吸烟产品组件 / 配件，应转入下列"含特殊成分或特定功能辅材"判断。</span>
+                  </li>
+                </ul>
+              </>}
+            />
+
+            <StatusCard
+              status="amber"
+              customLabel="需拆分判断"
+              title="含特殊成分或特定功能辅材"
+              content={<>
+                <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                <p className="mb-3">加入尼古丁、烟草材料、烟草提取物，或属于另类吸烟产品组件 / 配件的爆珠、香精胶囊、滤嘴棒、香精香料及其他辅材。</p>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <ul className="space-y-1 text-[#334155]">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>尼古丁路径：加入尼古丁的，应按毒药或药剂制品路径判断；如产品具有治疗、戒烟、尼古丁替代或其他药用宣称，还需进一步确认药剂制品注册要求。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>烟草路径：加入烟草材料或烟草提取物的，应按实际产品形态判断是否进入传统吸烟产品或无烟烟草产品路径；属于无烟烟草产品的，不得进入香港市场流通。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>另类吸烟产品路径：属于电子烟、HNB、草本烟等另类吸烟产品的组件 / 配件的，应按另类吸烟产品禁止规则处理。</span>
+                  </li>
+                </ul>
+              </>}
+            />
+          </div>
         </ProductModuleCard>
       </ProductAccessSection>
 
