@@ -283,11 +283,11 @@ export default function RussiaPage({ country }: RussiaPageProps) {
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
             <li>第203-FZ号法将烟草制品、烟草产品、尼古丁产品及其生产原料纳入生产流通监管。</li>
             <li>烟叶、reconstituted tobacco、烟草原料、尼古丁原料通常属于生产链条中的原料或半成品，与消费者可直接使用的烟草制品、HNB烟支、电子烟液、尼古丁袋等成品不同。</li>
-            <li>俄罗斯公开法规资料未见将滤嘴棒、爆珠、香精香料等普通烟用辅材统一定义为烟草制品或尼古丁产品。该类产品通常按成分、用途、海关归类和下游产品用途判断。</li>
+            <li>俄罗斯公开法规资料未见将滤嘴棒、爆珠、香精胶囊、香精香料等普通烟用辅材统一定义为烟草制品或尼古丁产品。该类产品应根据是否含尼古丁、烟草提取物、电子烟液或其他受监管成分判断监管路径。</li>
           </ul>
           <div className="grid md:grid-cols-3 gap-4">
             <StatusCard
-              status="amber"
+              status="green"
               title="烟草及尼古丁原料"
               content={<>
                 <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
@@ -316,19 +316,19 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
             <StatusCard
               status="green"
-              title="普通烟用辅材"
+              title="普通辅材及相关配套材料"
               content={<>
                 <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-                <p className="mb-3">滤嘴棒、爆珠、香精香料、普通烟用辅材。</p>
+                <p className="mb-3">不含尼古丁、不含烟草提取物，且不构成烟草制品、尼古丁产品、电子烟液或相关生产原料的滤嘴棒、爆珠、香精胶囊、香精香料及其他普通辅材。</p>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>不含尼古丁、不含烟草提取物、仅作为普通辅材的，通常可按普通辅材理解。</span>
+                    <span>公开规则未见特殊烟草 / 尼古丁产品专项许可或产品注册要求。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>后续重点结合成分、用途、海关归类、进口监管和下游客户产品用途判断具体合规要求。</span>
+                    <span>如产品含尼古丁、烟草提取物、电子烟液或其他受监管成分，应转入下列"含特殊成分或特定功能辅材"判断。</span>
                   </li>
                 </ul>
               </>}
@@ -336,12 +336,22 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
             <StatusCard
               status="amber"
-              title="含特殊成分或特定用途辅材"
+              customLabel="需拆分判断"
+              title="含特殊成分或特定功能辅材"
               content={<>
                 <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-                <p className="mb-3">含尼古丁、烟草提取物，或作为烟油、含液体烟弹、HNB烟支、尼古丁产品组件使用的辅材。</p>
+                <p className="mb-3">含尼古丁、烟草提取物、电子烟液、尼古丁原料，或作为烟油、含液体烟弹、HNB烟支、尼古丁产品组件使用的辅材。</p>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                <p>应转入对应成品或原料监管路径。</p>
+                <ul className="space-y-1 text-[#334155]">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>含尼古丁、尼古丁原料或电子烟液的，应转入尼古丁产品、电子烟液或相关生产原料路径判断。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>含烟草提取物或作为烟草基成品组成部分进入市场的，应转入烟草制品、烟草产品或烟草原料路径判断。</span>
+                  </li>
+                </ul>
               </>}
             />
           </div>

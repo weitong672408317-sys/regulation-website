@@ -292,36 +292,83 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
 
         <ProductModuleCard title="5. 烟草原料及普通辅材" label="产品定性">
           <div className="space-y-4 text-[#334155] text-base leading-7 mb-4">
-            <p>巴拉圭公开资料未见对烟草薄片、烟叶、爆珠/香精胶囊、滤嘴棒设置单独完整定义。</p>
-            <p>烟草薄片、烟叶属于烟草原料或半成品；爆珠、香精胶囊、滤嘴棒属于烟草或新型烟草产品中常见的辅材、组件或功能性配件。具体监管要求主要取决于产品成分、用途、进口申报口径和下游产品形态。</p>
+            <p>巴拉圭公开资料未见对烟草薄片、烟叶、爆珠、香精胶囊、滤嘴棒、香精香料设置单独完整定义。烟草薄片、烟叶属于烟草原料或半成品；爆珠、香精胶囊、滤嘴棒、香精香料属于烟草或新型烟草产品中常见的辅材、组件或功能性配套材料。具体监管要求主要取决于产品本身是否含烟草、尼古丁、烟草提取物、烟油、雾化液或其他受监管成分。</p>
           </div>
-          <StatusCard
-            status="amber"
-            title="烟草薄片、烟叶、爆珠/香精胶囊、滤嘴棒"
-            content={
-              <>
+          <div className="grid md:grid-cols-3 gap-4">
+            <StatusCard
+              status="amber"
+              customLabel="可准入，但需按烟草原料 / 半成品管理"
+              title="烟草薄片、烟叶"
+              content={<>
+                <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                <p className="mb-3">烟草薄片、烟叶、reconstituted tobacco。</p>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>烟草薄片、烟叶作为烟草原料或半成品可准入，重点适用进口申报、税务和下游用途规则。</span>
+                    <span>经营烟草、烟草产品或烟草产品原料的主体，应办理 DINAVISA 烟草主体登记；该登记是主体层面的基础要求。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>涉及烟草产品原料制造、进口、出口的主体，应办理 DINAVISA 烟草主体登记。</span>
+                    <span>烟叶、烟草薄片保持原料 / 半成品形态的，公开规则未见其本身需要单独取得烟草产品证书。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>爆珠、香精胶囊、滤嘴棒作为普通烟草辅材可准入；不含尼古丁、不含烟草提取物、也不作为雾化耗材销售的，通常不按电子烟及雾化产品注册。</span>
+                    <span>烟草薄片如已经制成供消费者吸食、加热、咀嚼、含用或其他方式使用的烟草基产品，应办理 DINAVISA 烟草产品登记，登记结果体现为烟草产品证书或相应产品登记证明。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>如相关辅材含尼古丁、烟草提取物，或作为雾化液、烟弹、胶囊、HNB设备配件等产品的一部分进入市场，应转入对应烟草基产品、电子烟及雾化产品或 HNB设备路径判断。</span>
+                    <span>烟草薄片如被制成雾化液、烟油、含尼古丁液体或其他新兴装置使用的雾化物质，应转入《第7508/2025号法》项下 DINAVISA 产品注册和经营场所授权要求。</span>
                   </li>
                 </ul>
-              </>
-            }
-          />
+              </>}
+            />
+
+            <StatusCard
+              status="green"
+              title="普通辅材及相关配套材料"
+              content={<>
+                <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                <p className="mb-3">不含尼古丁、不含烟草提取物、不含烟油或雾化液，且不构成烟草产品、SEAN / SSSN 产品、附件、耗材或雾化物质的爆珠、香精胶囊、滤嘴棒、香精香料及其他普通辅材。</p>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <ul className="space-y-1 text-[#334155]">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>公开规则未见特殊烟草 / 电子烟专项许可或产品登记要求。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>如产品含烟草、尼古丁、烟草提取物、烟油、雾化液或其他受监管成分，应转入下列"含特殊成分或特定功能辅材"判断。</span>
+                  </li>
+                </ul>
+              </>}
+            />
+
+            <StatusCard
+              status="amber"
+              customLabel="需拆分判断"
+              title="含特殊成分或特定功能辅材"
+              content={<>
+                <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
+                <p className="mb-3">含烟草、尼古丁、烟草提取物、烟油、雾化液、可释放受监管成分，或具有特殊释放功能的爆珠、香精胶囊、滤嘴棒、香精香料及其他辅材。</p>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <ul className="space-y-1 text-[#334155]">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>含烟草或烟草提取物的，应确认是否进入烟草产品登记范围。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>含尼古丁、烟油、雾化液或其他受监管成分的，应确认是否进入 SEAN / SSSN 产品、雾化物质或尼古丁产品监管范围。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>进入《第7508/2025号法》监管范围的，应关注 DINAVISA 产品注册、经营场所授权、尼古丁浓度上限、禁用添加成分、标签、包装和健康警示要求。</span>
+                  </li>
+                </ul>
+              </>}
+            />
+          </div>
         </ProductModuleCard>
       </ProductAccessSection>
 
