@@ -6,12 +6,12 @@ import { useState } from 'react';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
-// 监管强度颜色映射（清晰但不荧光，与网站蓝灰色系协调）
+// 监管强度颜色映射（低饱和、清爽、现代，与网站蓝灰色系协调）
 const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string }> = {
-  '极高': { fill: '#DC6B6B', hover: '#C85A5A', pressed: '#B44A4A' },     // 红色系 - 禁止/高度限制
-  '高':   { fill: '#E88A3A', hover: '#D47A2E', pressed: '#C06A22' },     // 橙色系 - 强监管市场
-  '中':   { fill: '#D6B84A', hover: '#C4A83E', pressed: '#B29832' },     // 黄色系 - 中等监管
-  '低至中': { fill: '#6AAF7C', hover: '#5A9F6C', pressed: '#4A8F5C' },   // 绿色系 - 开放/相对友好
+  '极高': { fill: '#E76F73', hover: '#D56064', pressed: '#C35155' },     // 红色系 - 禁止/高度限制
+  '高':   { fill: '#F59E42', hover: '#E38E35', pressed: '#D17E28' },     // 橙色系 - 强监管市场
+  '中':   { fill: '#E3C84F', hover: '#D4B843', pressed: '#C5A837' },     // 黄色系 - 中等监管
+  '低至中': { fill: '#62B67F', hover: '#55A572', pressed: '#489465' },   // 绿色系 - 开放/相对友好
 };
 
 const countryDataMap: Record<string, any> = {
@@ -30,10 +30,10 @@ const highlightCountryNames = new Set(Object.keys(countryDataMap));
 
 // 图例数据
 const legendItems = [
-  { color: '#DC6B6B', label: '禁止 / 高度限制' },
-  { color: '#E88A3A', label: '强监管市场' },
-  { color: '#D6B84A', label: '中等监管' },
-  { color: '#6AAF7C', label: '开放 / 相对友好' },
+  { color: '#E76F73', label: '禁止 / 高度限制' },
+  { color: '#F59E42', label: '强监管市场' },
+  { color: '#E3C84F', label: '中等监管' },
+  { color: '#62B67F', label: '开放 / 相对友好' },
 ];
 
 export default function WorldMap() {
