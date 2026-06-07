@@ -6,33 +6,125 @@ import { useState, useMemo } from 'react';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
-// 监管强度颜色映射 - 与 ComparisonTable 的 getIntensityColor 保持一致
+// 地图填充色使用低饱和版本，避免大面积色块刺眼
+// 表格标签色：极高=#DC2626 | 高=#F97316 | 中=#FACC15 | 低至中=#A3E635
+// 地图填充色使用同色系低饱和版本
 const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string }> = {
-  '极高': { fill: '#DC2626', hover: '#B91C1C', pressed: '#991B1B' },
-  '高':   { fill: '#F97316', hover: '#EA580C', pressed: '#C2410C' },
-  '中':   { fill: '#FACC15', hover: '#EAB308', pressed: '#CA8A04' },
-  '低至中': { fill: '#A3E635', hover: '#84CC16', pressed: '#65A30D' },
+  '极高': { fill: '#E8A0A0', hover: '#D98080', pressed: '#C96060' },
+  '高':   { fill: '#E8C098', hover: '#D9A078', pressed: '#C98058' },
+  '中':   { fill: '#E8DCA0', hover: '#D9C080', pressed: '#C9A060' },
+  '低至中': { fill: '#B8D8B0', hover: '#A8C8A0', pressed: '#98B890' },
 };
 
+// 图例使用表格原始颜色，保持与表格一致
+const legendColorMap: Record<string, string> = {
+  '极高': '#DC2626',
+  '高': '#F97316',
+  '中': '#FACC15',
+  '低至中': '#A3E635',
+};
+
+// 国家数据：marker 锚定真实位置，label 通过 labelOffset 偏移
 const countryDataMap: Record<string, any> = {
-  'China': { labelPos: [105, 38], countryCenter: [105, 35], name: '中国内地', id: 'china', isoCode: 'CN', intensity: '极高', isSmall: false },
-  'Indonesia': { labelPos: [122, -8], countryCenter: [115, -5], name: '印尼', id: 'indonesia', isoCode: 'ID', intensity: '低至中', isSmall: false },
-  'United Arab Emirates': { labelPos: [52, 28], countryCenter: [54, 24], name: '阿联酋', id: 'uae', isoCode: 'AE', intensity: '中', isSmall: true },
-  'Russia': { labelPos: [100, 62], countryCenter: [100, 60], name: '俄罗斯', id: 'russia', isoCode: 'RU', intensity: '高', isSmall: false },
-  'Singapore': { labelPos: [102, -2], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG', intensity: '极高', isSmall: true },
-  'Malaysia': { labelPos: [104, 8], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY', intensity: '高', isSmall: true },
-  'Paraguay': { labelPos: [-58, -26], countryCenter: [-58, -23], name: '巴拉圭', id: 'paraguay', isoCode: 'PY', intensity: '低至中', isSmall: false },
-  'Taiwan': { labelPos: null, countryCenter: [121, 23.5], name: '台湾', id: null, isoCode: 'TW', intensity: '极高', isSmall: false },
-  'Hong Kong': { labelPos: [118, 22], countryCenter: [114.17, 22.32], name: '中国香港', id: 'hongkong', isoCode: 'HK', intensity: '极高', isSmall: true },
+  'China': { 
+    labelPos: [105, 38], 
+    countryCenter: [105, 35], 
+    name: '中国内地', 
+    id: 'china', 
+    isoCode: 'CN', 
+    intensity: '极高', 
+    isSmall: false,
+    labelOffset: null, // 大国不需要偏移
+  },
+  'Indonesia': { 
+    labelPos: [122, -8], 
+    countryCenter: [115, -5], 
+    name: '印尼', 
+    id: 'indonesia', 
+    isoCode: 'ID', 
+    intensity: '低至中', 
+    isSmall: false,
+    labelOffset: null,
+  },
+  'United Arab Emirates': { 
+    labelPos: [56, 25], // 向右上方偏移
+    countryCenter: [54, 24], 
+    name: '阿联酋', 
+    id: 'uae', 
+    isoCode: 'AE', 
+    intensity: '中', 
+    isSmall: true,
+    labelOffset: { dx: 2, dy: 1 }, // 轻微偏移
+  },
+  'Russia': { 
+    labelPos: [100, 62], 
+    countryCenter: [100, 60], 
+    name: '俄罗斯', 
+    id: 'russia', 
+    isoCode: 'RU', 
+    intensity: '高', 
+    isSmall: false,
+    labelOffset: null,
+  },
+  'Singapore': { 
+    labelPos: [106, -1], // 向右下方偏移
+    countryCenter: [103.8, 1.35], 
+    name: '新加坡', 
+    id: 'singapore', 
+    isoCode: 'SG', 
+    intensity: '极高', 
+    isSmall: true,
+    labelOffset: { dx: 2.2, dy: -2.35 }, // 明显偏移，避开马来西亚
+  },
+  'Malaysia': { 
+    labelPos: [98, 6], // 向左上方偏移
+    countryCenter: [101.9758, 4.2105], 
+    name: '马来西亚', 
+    id: 'malaysia', 
+    isoCode: 'MY', 
+    intensity: '高', 
+    isSmall: true,
+    labelOffset: { dx: -4, dy: 1.8 }, // 向左偏移，避开新加坡
+  },
+  'Paraguay': { 
+    labelPos: [-58, -26], 
+    countryCenter: [-58, -23], 
+    name: '巴拉圭', 
+    id: 'paraguay', 
+    isoCode: 'PY', 
+    intensity: '低至中', 
+    isSmall: false,
+    labelOffset: null,
+  },
+  'Taiwan': { 
+    labelPos: null, 
+    countryCenter: [121, 23.5], 
+    name: '台湾', 
+    id: null, 
+    isoCode: 'TW', 
+    intensity: '极高', 
+    isSmall: false,
+    labelOffset: null,
+  },
+  'Hong Kong': { 
+    labelPos: [117, 24], // 向右上方偏移，靠近中国内地南部
+    countryCenter: [114.17, 22.32], 
+    name: '中国香港', 
+    id: 'hongkong', 
+    isoCode: 'HK', 
+    intensity: '极高', 
+    isSmall: true,
+    labelOffset: { dx: 2.8, dy: 1.7 }, // 明显偏移，远离东南亚区域
+  },
 };
 
 const highlightCountryNames = new Set(Object.keys(countryDataMap));
 
 const legendItems = [
-  { color: '#DC2626', label: '禁止 / 高度限制' },
-  { color: '#F97316', label: '强监管市场' },
-  { color: '#FACC15', label: '中等监管' },
-  { color: '#A3E635', label: '开放 / 相对友好' },
+  { color: legendColorMap['极高'], label: '禁止 / 高度限制' },
+  { color: legendColorMap['高'], label: '强监管市场' },
+  { color: legendColorMap['中'], label: '中等监管' },
+  { color: legendColorMap['低至中'], label: '开放 / 相对友好' },
 ];
 
 export default function WorldMap() {
@@ -147,6 +239,7 @@ export default function WorldMap() {
 
               return (
                 <g key={data.id || data.isoCode}>
+                  {/* Marker - 锚定真实地理位置 */}
                   <Marker coordinates={data.countryCenter}>
                     <circle
                       r={isHovered ? markerRadius * 1.2 : markerRadius}
@@ -156,7 +249,7 @@ export default function WorldMap() {
                       style={{
                         cursor: data.id ? 'pointer' : 'default',
                         transition: 'r 0.15s ease',
-                        filter: 'drop-shadow(0 2px 4px rgba(15, 23, 42, 0.3))',
+                        filter: 'drop-shadow(0 2px 4px rgba(15, 23, 42, 0.25))',
                       }}
                       onClick={() => handleLabelClick(data.id)}
                       onMouseEnter={() => handleHover(data.name)}
@@ -164,6 +257,21 @@ export default function WorldMap() {
                     />
                   </Marker>
 
+                  {/* 引导线 - 仅对小国家且有偏移的显示 */}
+                  {data.labelPos && data.labelOffset && (
+                    <line
+                      x1={data.countryCenter[0]}
+                      y1={data.countryCenter[1]}
+                      x2={data.labelPos[0]}
+                      y2={data.labelPos[1]}
+                      stroke="#CBD5E1"
+                      strokeWidth={1}
+                      strokeDasharray="2,2"
+                      opacity={0.6}
+                    />
+                  )}
+
+                  {/* 标签 - 可以偏移 */}
                   {data.labelPos && (
                     <Marker coordinates={data.labelPos}>
                       <text
@@ -173,7 +281,7 @@ export default function WorldMap() {
                           fontSize: '11px',
                           fontWeight: '600',
                           fill: '#1E293B',
-                          textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 0 0 4px rgba(255,255,255,0.8)',
+                          textShadow: '0 1px 3px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.5)',
                           cursor: data.id ? 'pointer' : 'default',
                         }}
                         onClick={() => handleLabelClick(data.id)}
