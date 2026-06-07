@@ -19,8 +19,8 @@ const countryDataMap: Record<string, any> = {
   'Indonesia': { labelPos: [122, -8], countryCenter: [115, -5], name: '印尼', id: 'indonesia', isoCode: 'ID', intensity: '低至中', isSmall: false },
   'United Arab Emirates': { labelPos: [52, 28], countryCenter: [54, 24], name: '阿联酋', id: 'uae', isoCode: 'AE', intensity: '中', isSmall: true },
   'Russia': { labelPos: [100, 62], countryCenter: [100, 60], name: '俄罗斯', id: 'russia', isoCode: 'RU', intensity: '高', isSmall: false },
-  'Singapore': { labelPos: [105, 3], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG', intensity: '极高', isSmall: true },
-  'Malaysia': { labelPos: [100, 7], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY', intensity: '高', isSmall: true },
+  'Singapore': { labelPos: [102, -2], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG', intensity: '极高', isSmall: true },
+  'Malaysia': { labelPos: [104, 8], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY', intensity: '高', isSmall: true },
   'Paraguay': { labelPos: [-58, -26], countryCenter: [-58, -23], name: '巴拉圭', id: 'paraguay', isoCode: 'PY', intensity: '低至中', isSmall: false },
   'Taiwan': { labelPos: null, countryCenter: [121, 23.5], name: '台湾', id: null, isoCode: 'TW', intensity: '极高', isSmall: false },
   'Hong Kong': { labelPos: [118, 22], countryCenter: [114.17, 22.32], name: '中国香港', id: 'hongkong', isoCode: 'HK', intensity: '极高', isSmall: true },
@@ -143,8 +143,7 @@ export default function WorldMap() {
             {markerEntries.map(([key, data]) => {
               const colors = getCountryColors(key);
               const isHovered = hoveredCountry === data.name;
-              const isSmall = data.isSmall;
-              const markerRadius = isSmall ? 8 : 4;
+              const markerRadius = 6;
 
               return (
                 <g key={data.id || data.isoCode}>
@@ -153,11 +152,11 @@ export default function WorldMap() {
                       r={isHovered ? markerRadius * 1.2 : markerRadius}
                       fill={colors.fill}
                       stroke="#FFFFFF"
-                      strokeWidth={isSmall ? 3 : 2}
+                      strokeWidth={2.5}
                       style={{
                         cursor: data.id ? 'pointer' : 'default',
                         transition: 'r 0.15s ease',
-                        filter: isSmall ? 'drop-shadow(0 2px 4px rgba(15, 23, 42, 0.35))' : 'none',
+                        filter: 'drop-shadow(0 2px 4px rgba(15, 23, 42, 0.3))',
                       }}
                       onClick={() => handleLabelClick(data.id)}
                       onMouseEnter={() => handleHover(data.name)}
@@ -171,7 +170,7 @@ export default function WorldMap() {
                         textAnchor="middle"
                         dominantBaseline="middle"
                         style={{
-                          fontSize: isSmall ? '11px' : '12px',
+                          fontSize: '11px',
                           fontWeight: '600',
                           fill: '#1E293B',
                           textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 0 0 4px rgba(255,255,255,0.8)',
