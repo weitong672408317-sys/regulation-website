@@ -68,11 +68,11 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             title: '监管部门',
             content: (
               <ul className="list-disc pl-5 space-y-3 text-base leading-7 text-[#334155]">
-                <li><span className="font-semibold text-[#263247]">印尼卫生部：</span>烟草制品及相关成瘾性物质公共健康监管的上位主管机关，负责统筹公共健康监管方向和基本规则。</li>
-                <li><span className="font-semibold text-[#263247]">印尼财政部：</span>消费税政策制定机关，负责烟草及相关应税消费品的税率、最低零售价格和税票制度安排。</li>
-                <li><span className="font-semibold text-[#263247]">印尼海关及消费税总局：</span>财政部下属执行机关，负责 NPPBKC 发放、消费税征收、税票管理、进口监管和非法卷烟查处。NPPBKC 是应税消费品经营者的准入编号 / 许可，决定主体能否经营烟草制品及其他应税消费品。</li>
-                <li><span className="font-semibold text-[#263247]">印尼食品药品监督管理局（BPOM）：</span>主要参与电子烟上市后的流通安全监管，重点关注电子烟液成分、违法添加和来源不明产品。</li>
-                <li><span className="font-semibold text-[#263247]">印尼贸易部：</span>负责烟草、烟叶、烟草制品及相关产品的进口管理和贸易流通规则。</li>
+                <li><span className="font-semibold text-[#263247]">卫生部（MoH）：</span>烟草制品及相关成瘾性物质公共健康监管的上位主管机关，负责统筹公共健康监管方向和基本规则。</li>
+                <li><span className="font-semibold text-[#263247]">财政部（MoF）：</span>消费税政策制定机关，负责烟草及相关应税消费品的税率、最低零售价格和税票制度安排。</li>
+                <li><span className="font-semibold text-[#263247]">海关及消费税总局（DGCE）：</span>财政部下属执行机关，负责 NPPBKC 发放、消费税征收、税票管理、进口监管和非法卷烟查处。NPPBKC 是应税消费品经营者的准入编号 / 许可，决定主体能否经营烟草制品及其他应税消费品。</li>
+                <li><span className="font-semibold text-[#263247]">食品药品监督管理局（BPOM）：</span>主要参与电子烟上市后的流通安全监管，重点关注电子烟液成分、违法添加和来源不明产品。</li>
+                <li><span className="font-semibold text-[#263247]">贸易部（MoT）：</span>负责烟草、烟叶、烟草制品及相关产品的进口管理和贸易流通规则。</li>
               </ul>
             ),
           },

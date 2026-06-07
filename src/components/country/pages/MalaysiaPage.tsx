@@ -63,12 +63,12 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           {
             title: '监管部门',
             content: (
-              <ul className="list-disc pl-5 space-y-2 text-base leading-7 text-[#334155]">
-                <li><span className="font-semibold text-[#263247]">马来西亚卫生部：</span>负责烟草、HNB烟支、电子烟、吸烟物质和替代烟草产品监管，是 Act 852 项下产品注册、包装标签、销售限制、广告促销限制、禁烟场所、未成年人保护和执法的核心主管机关。</li>
-                <li><span className="font-semibold text-[#263247]">药剂执法司：</span>负责药品、毒物、液体 / 凝胶尼古丁相关执法。含尼古丁电子烟液、含尼古丁烟弹和一次性含尼古丁电子烟涉及《毒药法》管制时，由其负责相关执法。</li>
-                <li><span className="font-semibold text-[#263247]">毒药委员会：</span>负责就毒物分类、毒物清单调整、毒物移出清单等事项提供专业意见。液体 / 凝胶尼古丁是否列入毒物清单，属于其职能相关事项。</li>
-                <li><span className="font-semibold text-[#263247]">马来西亚财政部：</span>负责烟草、加热烟草产品、电子烟相关产品的税收政策，包括进口税、消费税和销售税政策。</li>
-                <li><span className="font-semibold text-[#263247]">马来西亚海关局：</span>负责进口申报、海关编码、进口税、消费税、销售税征管、完税管理、仓储和边境执法。</li>
+              <ul className="list-disc pl-5 space-y-3 text-base leading-7 text-[#334155]">
+                <li><span className="font-semibold text-[#263247]">马来西亚卫生部（MOH）：</span>烟草及新型吸烟产品监管的核心主管机关，负责 Act 852 项下吸烟产品监管。</li>
+                <li><span className="font-semibold text-[#263247]">药剂执法司（PED）：</span>负责《毒药法》及药剂监管相关事项，含尼古丁产品涉及毒物或药剂监管时，可能进入其监管范围。</li>
+                <li><span className="font-semibold text-[#263247]">毒药委员会：</span>负责毒物分类、毒物清单调整及受管制成分管理，是《毒药法》体系下的重要专业咨询机构。</li>
+                <li><span className="font-semibold text-[#263247]">马来西亚财政部（MOF）：</span>负责烟草及相关产品的税收政策。</li>
+                <li><span className="font-semibold text-[#263247]">马来西亚投资发展局（MIDA）：</span>负责制造业投资及制造业牌照相关事项，涉及在马来西亚设厂生产烟草、HNB烟支、电子烟或相关产品时需关注其制造业许可要求。</li>
               </ul>
             ),
           },

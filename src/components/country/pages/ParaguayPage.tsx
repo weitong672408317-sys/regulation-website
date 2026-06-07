@@ -60,10 +60,10 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             title: '监管部门',
             content: (
               <ul className="space-y-3 pl-5 list-disc text-[#334155] text-base leading-7">
-                <li><span className="font-bold text-[#1F2A44]">MSPBS（公共卫生和社会福利部）</span>：巴拉圭公共卫生和控烟政策的上位主管部门，主要负责公共健康政策、控烟规则、无烟环境、健康警示、广告促销限制和电子烟公共健康监管。</li>
-                <li><span className="font-bold text-[#1F2A44]">DINAVISA（国家卫生监督局）</span>：MSPBS 卫生体系下具有行政和财务自主管理权的专业卫生监管机构，负责产品注册、经营场所授权、检查和市场监督。传统烟草涉及烟草基产品登记和烟草主体登记；电子烟及雾化产品（包括器具、烟油），以 DINAVISA 产品注册和经营场所授权为核心。</li>
-                <li><span className="font-bold text-[#1F2A44]">DNIT（国家税收收入局）</span>：负责税务、海关归类、进口申报和选择性消费税。对烟草、电子烟、HNB、烟油、尼古丁袋等产品，主要影响海关归类、进口税费和 ISC 申报。</li>
-                <li><span className="font-bold text-[#1F2A44]">MIC（工业和商业部）、SEDECO（消费者保护主管机关）、MADES（环境和可持续发展部）等其他机关</span>：MIC 负责工业、商业活动和产品流通相关事项；SEDECO 负责消费者保护、广告和销售行为相关事项；MADES 负责环境保护、废弃物、电池、耗材回收和环境影响相关事项。</li>
+                <li><span className="font-semibold text-[#263247]">公共卫生和社会福利部（MSPBS）</span>：巴拉圭公共卫生和控烟政策的上位主管部门，主要负责公共健康政策、控烟规则、无烟环境、健康警示、广告促销限制和电子烟公共健康监管。</li>
+                <li><span className="font-semibold text-[#263247]">国家卫生监督局（DINAVISA）</span>：MSPBS 卫生体系下具有行政和财务自主管理权的专业卫生监管机构，负责产品注册、经营场所授权、检查和市场监督。传统烟草涉及烟草基产品登记和烟草主体登记；电子烟及雾化产品（包括器具、烟油），以 DINAVISA 产品注册和经营场所授权为核心。</li>
+                <li><span className="font-semibold text-[#263247]">国家税收收入局（DNIT）</span>：负责税务、海关归类、进口申报和选择性消费税。对烟草、电子烟、HNB、烟油、尼古丁袋等产品，主要影响海关归类、进口税费和 ISC 申报。</li>
+                <li><span className="font-semibold text-[#263247]">工业和商业部（MIC）、消费者保护主管机关（SEDECO）、环境和可持续发展部（MADES）等其他机关</span>：MIC 负责工业、商业活动和产品流通相关事项；SEDECO 负责消费者保护、广告和销售行为相关事项；MADES 负责环境保护、废弃物、电池、耗材回收和环境影响相关事项。</li>
               </ul>
             ),
           },

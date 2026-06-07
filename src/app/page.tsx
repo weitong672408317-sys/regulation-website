@@ -1,6 +1,14 @@
-import Link from 'next/link';
-import WorldMap from '@/components/WorldMap';
+import dynamic from 'next/dynamic';
 import ComparisonTable from '@/components/ComparisonTable';
+
+const WorldMap = dynamic(() => import('@/components/WorldMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[550px] bg-[#F8FAFC] rounded-lg flex items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#4A6290]"></div>
+    </div>
+  ),
+});
 
 export default function Home() {
   return (

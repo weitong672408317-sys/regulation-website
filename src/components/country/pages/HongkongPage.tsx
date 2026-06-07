@@ -65,10 +65,10 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             title: '监管部门',
             content: (
               <ul className="list-disc pl-5 space-y-3 text-base leading-7 text-[#334155] text-justify">
-                <li><span className="font-semibold text-[#263247]">卫生署控烟酒办公室：</span>负责控烟政策、禁烟场所、排队吸烟禁令、另类吸烟产品禁令、烟草广告限制、传统吸烟产品销售限制和相关执法。</li>
-                <li><span className="font-semibold text-[#263247]">食物环境卫生署：</span>负责无烟烟草产品禁令相关执法。</li>
-                <li><span className="font-semibold text-[#263247]">卫生署药物办公室、药剂业及毒药管理局：</span>负责毒药及药剂制品监管，重点影响含尼古丁但不含烟草的口含类产品、含尼古丁物质和可能具有药剂属性的产品。</li>
-                <li><span className="font-semibold text-[#263247]">香港海关：</span>负责应课税品、烟草税、完税管理、私烟执法、边境执法，以及另类吸烟产品走私和非法进口查缉。</li>
+                <li><span className="font-semibold text-[#263247]">控烟酒办公室：</span>负责控烟政策、禁烟场所、排队吸烟禁令、另类吸烟产品禁令、烟草广告限制、传统吸烟产品销售限制和相关执法。</li>
+                <li><span className="font-semibold text-[#263247]">食物环境卫生署（FEHD）：</span>负责无烟烟草产品禁令相关执法。</li>
+                <li><span className="font-semibold text-[#263247]">药物办公室、药剂业及毒药管理局：</span>负责毒药及药剂制品监管，重点影响含尼古丁但不含烟草的口含类产品、含尼古丁物质和可能具有药剂属性的产品。</li>
+                <li><span className="font-semibold text-[#263247]">海关：</span>负责应课税品、烟草税、完税管理、私烟执法、边境执法，以及另类吸烟产品走私和非法进口查缉。</li>
               </ul>
             ),
           },

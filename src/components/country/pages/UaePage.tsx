@@ -59,10 +59,10 @@ export default function UaePage({ country }: UaePageProps) {
           title: '监管部门',
           content: <>
             <ul className="list-disc pl-5 space-y-3 text-base leading-7 text-[#334155]">
-              <li><span className="font-semibold text-[#263247]">阿联酋卫生与预防部：</span>负责公共健康、控烟政策和卫生监管，是烟草控制和公共健康政策的重要主管部门。</li>
-              <li><span className="font-semibold text-[#263247]">阿联酋工业与先进技术部：</span>负责技术法规、产品符合性评估、ECAS认证和CoC符合性证书。电子尼古丁产品、无烟草尼古丁袋等受技术法规管制的产品，通常需要通过其产品认证体系进入市场。</li>
-              <li><span className="font-semibold text-[#263247]">阿联酋联邦税务局：</span>负责消费税、数字税票、税务注册和申报。卷烟、水烟烟草、加热卷烟产品、电子吸烟设备及相关液体等产品进入本地市场时，需要重点确认消费税和数字税票要求。</li>
-              <li><span className="font-semibold text-[#263247]">阿联酋海关机关：</span>负责进口、清关、边境监管、商品查验和申报资料核查。进口烟草、电子烟、烟油、HNB烟支、尼古丁袋及相关配件时，需确保申报品名、HS编码、认证资料和税务资料一致。</li>
+              <li><span className="font-semibold text-[#263247]">卫生与预防部（MOHAP）：</span>负责公共健康、控烟政策和卫生监管，是烟草控制和公共健康政策的重要主管部门。</li>
+              <li><span className="font-semibold text-[#263247]">工业与先进技术部（MoIAT）：</span>负责技术法规、产品符合性评估、ECAS 认证和 CoC 符合性证书。电子尼古丁产品、无烟草尼古丁袋等受技术法规管制的产品，通常需要通过其产品认证体系进入市场。</li>
+              <li><span className="font-semibold text-[#263247]">联邦税务局（FTA）：</span>负责消费税、数字税票、税务注册和申报。卷烟、水烟烟草、加热卷烟产品、电子吸烟设备及相关液体等产品进入本地市场时，需要重点确认消费税和数字税票要求。</li>
+              <li><span className="font-semibold text-[#263247]">海关：</span>负责进口、清关、边境监管、商品查验和申报资料核查。进口烟草、电子烟、烟油、HNB烟支、尼古丁袋及相关配件时，需确保申报品名、HS编码、认证资料和税务资料一致。</li>
               <li><span className="font-semibold text-[#263247]">各酋长国 / 市政部门：</span>负责销售点、水烟场所、陈列、距离限制、公共场所使用和地方许可。迪拜、阿布扎比、沙迦等酋长国在水烟场所、销售点位置和地方许可方面可能存在执行差异。</li>
             </ul>
           </>

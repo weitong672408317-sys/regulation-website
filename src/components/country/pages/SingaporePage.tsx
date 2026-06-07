@@ -73,10 +73,10 @@ export default function SingaporePage({ country }: SingaporePageProps) {
             title: '监管部门',
             content: (
               <ul className="list-disc pl-5 space-y-3 text-base leading-7 text-[#334155]">
-                <li><span className="font-semibold text-[#263247]">新加坡卫生部（Ministry of Health, MOH）：</span>负责控烟政策、法律修订、公共卫生目标和整体监管框架。</li>
-                <li><span className="font-semibold text-[#263247]">新加坡卫生科学局（Health Sciences Authority, HSA）：</span>负责烟草产品许可管理、烟草广告和销售监管，以及新型烟草及尼古丁产品等禁止类产品执法。</li>
-                <li><span className="font-semibold text-[#263247]">新加坡海关：</span>负责烟草产品进口申报、关税、消费税、完税监管和边境查验。</li>
-                <li><span className="font-semibold text-[#263247]">新加坡国家环境局（National Environment Agency, NEA）：</span>负责禁烟场所、公共场所吸烟行为和相关环境执法。</li>
+                <li><span className="font-semibold text-[#263247]">卫生部（MOH）：</span>负责控烟政策、法律修订、公共卫生目标和整体监管框架。</li>
+                <li><span className="font-semibold text-[#263247]">卫生科学局（HSA）：</span>负责烟草产品许可管理、烟草广告和销售监管，以及新型烟草及尼古丁产品等禁止类产品执法。</li>
+                <li><span className="font-semibold text-[#263247]">海关：</span>负责烟草产品进口申报、关税、消费税、完税监管和边境查验。</li>
+                <li><span className="font-semibold text-[#263247]">国家环境局（NEA）：</span>负责禁烟场所、公共场所吸烟行为和相关环境执法。</li>
               </ul>
             ),
           },
