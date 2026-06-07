@@ -6,13 +6,21 @@ import { useState, useMemo } from 'react';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
-// 地图填充色：表格标签色的 90% 强度版本
+// 地图填充色：基于表格标签色（bg-red-600/bg-orange-500/bg-yellow-400/bg-lime-400）轻微浅化
 // 表格标签色：极高=#DC2626 | 高=#F97316 | 中=#FACC15 | 低至中=#A3E635
-const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string }> = {
-  '极高': { fill: '#E05A5A', hover: '#D44848', pressed: '#C03838' },
-  '高':   { fill: '#F38A38', hover: '#E87828', pressed: '#D06018' },
-  '中':   { fill: '#F0D040', hover: '#E0C030', pressed: '#C0A020' },
-  '低至中': { fill: '#8FC850', hover: '#7FB840', pressed: '#6FA830' },
+// 地图用浅化版避免大面积刺眼，图例用表格原色
+const TABLE_COLORS = {
+  '极高': '#DC2626',
+  '高': '#F97316',
+  '中': '#FACC15',
+  '低至中': '#A3E635',
+};
+
+const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string; legend: string }> = {
+  '极高': { fill: '#E87070', hover: '#DC2626', pressed: '#B91C1C', legend: TABLE_COLORS['极高'] },
+  '高':   { fill: '#F5A05A', hover: '#F97316', pressed: '#C2410C', legend: TABLE_COLORS['高'] },
+  '中':   { fill: '#F5D94E', hover: '#FACC15', pressed: '#CA8A04', legend: TABLE_COLORS['中'] },
+  '低至中': { fill: '#B5E06A', hover: '#A3E635', pressed: '#65A30D', legend: TABLE_COLORS['低至中'] },
 };
 
 // 国家数据：marker 锚定真实位置，label 只做轻微偏移避免重叠
@@ -36,7 +44,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: false,
   },
   'United Arab Emirates': {
-    labelPos: [56, 26],
+    labelPos: [56, 25.5],
     countryCenter: [54, 24],
     name: '阿联酋',
     id: 'uae',
@@ -54,7 +62,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: false,
   },
   'Singapore': {
-    labelPos: [112, -3],
+    labelPos: [105.5, -0.5],
     countryCenter: [103.8, 1.35],
     name: '新加坡',
     id: 'singapore',
@@ -63,7 +71,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: true,
   },
   'Malaysia': {
-    labelPos: [95, 2],
+    labelPos: [100, 6],
     countryCenter: [101.9758, 4.2105],
     name: '马来西亚',
     id: 'malaysia',
@@ -90,7 +98,7 @@ const countryDataMap: Record<string, any> = {
     isSmall: false,
   },
   'Hong Kong': {
-    labelPos: [116, 23],
+    labelPos: [115.5, 23.5],
     countryCenter: [114.17, 22.32],
     name: '中国香港',
     id: 'hongkong',
@@ -102,12 +110,12 @@ const countryDataMap: Record<string, any> = {
 
 const highlightCountryNames = new Set(Object.keys(countryDataMap));
 
-// 图例色块与地图填充色一致
+// 图例色块使用表格原色
 const legendItems = [
-  { color: intensityColorMap['极高'].fill, label: '禁止 / 高度限制' },
-  { color: intensityColorMap['高'].fill, label: '强监管市场' },
-  { color: intensityColorMap['中'].fill, label: '中等监管' },
-  { color: intensityColorMap['低至中'].fill, label: '开放 / 相对友好' },
+  { color: TABLE_COLORS['极高'], label: '禁止 / 高度限制' },
+  { color: TABLE_COLORS['高'], label: '强监管市场' },
+  { color: TABLE_COLORS['中'], label: '中等监管' },
+  { color: TABLE_COLORS['低至中'], label: '开放 / 相对友好' },
 ];
 
 export default function WorldMap() {
@@ -179,7 +187,6 @@ export default function WorldMap() {
                   const isHighlighted = isCountryHighlighted(geo);
                   const name = geo.properties?.name;
                   const colors = getCountryColors(name);
-                  const isHovered = hoveredCountry === countryDataMap[name]?.name;
                   return (
                     <Geography
                       key={geo.rsmKey}
@@ -221,8 +228,27 @@ export default function WorldMap() {
               const isHovered = hoveredCountry === data.name;
               const markerRadius = data.isSmall ? 7 : 5;
 
+              // 判断是否需要引导线：小国家且labelPos与countryCenter不一致
+              const needsGuideLine = data.isSmall && data.labelPos && (
+                Math.abs(data.labelPos[0] - data.countryCenter[0]) > 0.5 ||
+                Math.abs(data.labelPos[1] - data.countryCenter[1]) > 0.5
+              );
+
               return (
                 <g key={data.id || data.isoCode}>
+                  {/* 引导线 - 小国家标签偏移时显示 */}
+                  {needsGuideLine && (
+                    <line
+                      x1={data.countryCenter[0]}
+                      y1={-data.countryCenter[1]}
+                      x2={data.labelPos[0]}
+                      y2={-data.labelPos[1]}
+                      stroke="#CBD5E1"
+                      strokeWidth={0.8}
+                      opacity={0.8}
+                    />
+                  )}
+
                   {/* Marker - 锚定真实地理位置 */}
                   <Marker coordinates={data.countryCenter}>
                     <circle
@@ -241,7 +267,7 @@ export default function WorldMap() {
                     />
                   </Marker>
 
-                  {/* 标签 - 小国家轻微偏移 */}
+                  {/* 标签 */}
                   {data.labelPos && (
                     <Marker coordinates={data.labelPos}>
                       <text
