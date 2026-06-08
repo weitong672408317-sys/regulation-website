@@ -93,8 +93,8 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           </ul>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
-              status="amber"
-              customLabel="可准入，但强监管"
+              status="green"
+              customLabel="可准入"
               title="传统卷烟、雪茄、烟丝/切丝烟草及其他制成烟草"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：传统卷烟、雪茄、烟丝/切丝烟草及其他制成烟草。</div>
@@ -120,8 +120,8 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </>}
             />
             <StatusCard
-              status="amber"
-              customLabel="可准入，但强监管"
+              status="green"
+              customLabel="可准入"
               title="HNB烟支/加热烟草产品"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：HNB烟支、加热烟草棒及其他含烟草材料的加热产品。</div>
@@ -428,6 +428,31 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
             <div className="flex items-start gap-3 mb-4">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
+              <h4 className="font-bold text-[#2E3F73] text-base">地方营业/零售场所许可</h4>
+            </div>
+            <div className="ml-9 space-y-2">
+              <div className="flex items-start gap-2">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-7">地方营业/零售场所许可，是地方政府或地方主管机关针对门店、摊位、展示销售场所和具体经营活动设置的经营场所许可。</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-7">适用于烟草产品、HNB烟支、电子烟及相关产品的零售门店、展示销售场所、摊位和其他地方经营场所。</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-7">经营主体应根据所在地地方政府或地方主管机关要求，办理营业执照、零售场所许可、摊位许可或具体经营活动许可。</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-7">销售含尼古丁并进入药剂监管路径的产品时，还需按照药剂监管要求确认供应主体和适用场景。</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+            <div className="flex items-start gap-3 mb-4">
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">4</span>
               <h4 className="font-bold text-[#2E3F73] text-base">MIDA / MITI 制造业牌照</h4>
             </div>
             <div className="ml-9 space-y-2">
@@ -450,31 +475,6 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
                 <span className="text-[#334155] text-base leading-7">制造活动、工厂用途、产品类别和生产范围，应与制造业牌照及相关批准内容保持一致。</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-            <div className="flex items-start gap-3 mb-4">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">4</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">地方营业/零售场所许可</h4>
-            </div>
-            <div className="ml-9 space-y-2">
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-7">地方营业/零售场所许可，是地方政府或地方主管机关针对门店、摊位、展示销售场所和具体经营活动设置的经营场所许可。</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-7">适用于烟草产品、HNB烟支、电子烟及相关产品的零售门店、展示销售场所、摊位和其他地方经营场所。</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-7">经营主体应根据所在地地方政府或地方主管机关要求，办理营业执照、零售场所许可、摊位许可或具体经营活动许可。</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-7">销售含尼古丁并进入药剂监管路径的产品时，还需按照药剂监管要求确认供应主体和适用场景。</span>
               </div>
             </div>
           </div>
