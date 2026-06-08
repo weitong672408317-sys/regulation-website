@@ -2,120 +2,39 @@
 
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 import { useRouter } from 'next/navigation';
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
-// 地图填充色：基于表格标签色（bg-red-600/bg-orange-500/bg-yellow-400/bg-lime-400）轻微浅化
-// 表格标签色：极高=#DC2626 | 高=#F97316 | 中=#FACC15 | 低至中=#A3E635
-// 地图用浅化版避免大面积刺眼，图例用表格原色
-const TABLE_COLORS = {
-  '极高': '#DC2626',
-  '高': '#F97316',
-  '中': '#FACC15',
-  '低至中': '#A3E635',
+// 监管强度颜色映射 - 与 ComparisonTable 的 Tailwind badge 颜色完全一致
+// 极高=bg-red-600(#DC2626) 高=bg-orange-500(#F97316) 中=bg-yellow-400(#FACC15) 低至中=bg-lime-400(#A3E635)
+const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string; solid: string }> = {
+  '极高': { fill: '#DC2626', hover: '#DC2626', pressed: '#DC2626', solid: '#DC2626' },   // 红色系
+  '高':   { fill: '#F97316', hover: '#F97316', pressed: '#F97316', solid: '#F97316' },   // 橙色系
+  '中':   { fill: '#FACC15', hover: '#FACC15', pressed: '#FACC15', solid: '#FACC15' },   // 黄色系
+  '低至中': { fill: '#A3E635', hover: '#A3E635', pressed: '#A3E635', solid: '#A3E635' }, // 绿色系
 };
 
-const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string; legend: string }> = {
-  '极高': { fill: '#E87070', hover: '#DC2626', pressed: '#B91C1C', legend: TABLE_COLORS['极高'] },
-  '高':   { fill: '#F5A05A', hover: '#F97316', pressed: '#C2410C', legend: TABLE_COLORS['高'] },
-  '中':   { fill: '#F5D94E', hover: '#FACC15', pressed: '#CA8A04', legend: TABLE_COLORS['中'] },
-  '低至中': { fill: '#B5E06A', hover: '#A3E635', pressed: '#65A30D', legend: TABLE_COLORS['低至中'] },
-};
-
-// 国家数据：marker 锚定真实位置，label 只做轻微偏移避免重叠
+// 恢复自 82bd244 版本的国家位置配置，删除台湾
 const countryDataMap: Record<string, any> = {
-  'China': {
-    labelPos: [105, 38],
-    countryCenter: [105, 35],
-    name: '中国内地',
-    id: 'china',
-    isoCode: 'CN',
-    intensity: '极高',
-    isSmall: false,
-  },
-  'Indonesia': {
-    labelPos: [118, -6],
-    countryCenter: [115, -5],
-    name: '印尼',
-    id: 'indonesia',
-    isoCode: 'ID',
-    intensity: '低至中',
-    isSmall: false,
-  },
-  'United Arab Emirates': {
-    labelPos: [56, 25.5],
-    countryCenter: [54, 24],
-    name: '阿联酋',
-    id: 'uae',
-    isoCode: 'AE',
-    intensity: '中',
-    isSmall: true,
-  },
-  'Russia': {
-    labelPos: [100, 62],
-    countryCenter: [100, 60],
-    name: '俄罗斯',
-    id: 'russia',
-    isoCode: 'RU',
-    intensity: '高',
-    isSmall: false,
-  },
-  'Singapore': {
-    labelPos: [105.5, -0.5],
-    countryCenter: [103.8, 1.35],
-    name: '新加坡',
-    id: 'singapore',
-    isoCode: 'SG',
-    intensity: '极高',
-    isSmall: true,
-  },
-  'Malaysia': {
-    labelPos: [100, 6],
-    countryCenter: [101.9758, 4.2105],
-    name: '马来西亚',
-    id: 'malaysia',
-    isoCode: 'MY',
-    intensity: '高',
-    isSmall: true,
-  },
-  'Paraguay': {
-    labelPos: [-58, -26],
-    countryCenter: [-58, -23],
-    name: '巴拉圭',
-    id: 'paraguay',
-    isoCode: 'PY',
-    intensity: '低至中',
-    isSmall: false,
-  },
-  'Taiwan': {
-    labelPos: null,
-    countryCenter: [121, 23.5],
-    name: '台湾',
-    id: null,
-    isoCode: 'TW',
-    intensity: '极高',
-    isSmall: false,
-  },
-  'Hong Kong': {
-    labelPos: [115.5, 23.5],
-    countryCenter: [114.17, 22.32],
-    name: '中国香港',
-    id: 'hongkong',
-    isoCode: 'HK',
-    intensity: '极高',
-    isSmall: true,
-  },
+  'China': { labelPos: [105, 38], countryCenter: [105, 35], name: '中国内地', id: 'china', isoCode: 'CN', intensity: '极高' },
+  'Indonesia': { labelPos: [115, -3], countryCenter: [115, -5], name: '印尼', id: 'indonesia', isoCode: 'ID', intensity: '低至中' },
+  'United Arab Emirates': { labelPos: [54, 26], countryCenter: [54, 24], name: '阿联酋', id: 'uae', isoCode: 'AE', intensity: '中' },
+  'Russia': { labelPos: [100, 62], countryCenter: [100, 60], name: '俄罗斯', id: 'russia', isoCode: 'RU', intensity: '高' },
+  'Singapore': { labelPos: [108, 8], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG', intensity: '极高' },
+  'Malaysia': { labelPos: [95, 0], countryCenter: [101.9758, 4.2105], name: '马来西亚', id: 'malaysia', isoCode: 'MY', intensity: '高' },
+  'Paraguay': { labelPos: [-58, -26], countryCenter: [-58, -23], name: '巴拉圭', id: 'paraguay', isoCode: 'PY', intensity: '低至中' },
+  'Hong Kong': { labelPos: [110, 22], countryCenter: [114.17, 22.32], name: '中国香港', id: 'hongkong', isoCode: 'HK', intensity: '极高' },
 };
 
 const highlightCountryNames = new Set(Object.keys(countryDataMap));
 
-// 图例色块使用表格原色
+// 图例数据
 const legendItems = [
-  { color: TABLE_COLORS['极高'], label: '禁止 / 高度限制' },
-  { color: TABLE_COLORS['高'], label: '强监管市场' },
-  { color: TABLE_COLORS['中'], label: '中等监管' },
-  { color: TABLE_COLORS['低至中'], label: '开放 / 相对友好' },
+  { color: intensityColorMap['极高'].solid, label: '禁止 / 高度限制' },
+  { color: intensityColorMap['高'].solid, label: '强监管市场' },
+  { color: intensityColorMap['中'].solid, label: '中等监管' },
+  { color: intensityColorMap['低至中'].solid, label: '开放 / 相对友好' },
 ];
 
 export default function WorldMap() {
@@ -142,20 +61,20 @@ export default function WorldMap() {
     }
   };
 
-  const handleHover = (name: string | null) => {
-    setHoveredCountry(name);
-    if (name) {
-      const data = countryDataMap[name];
-      if (data?.id) {
-        router.prefetch(`/country/${data.id}`);
-      }
+  const handleCountryHover = (name: string) => {
+    const data = countryDataMap[name];
+    if (data?.id) {
+      router.prefetch(`/country/${data.id}`);
+    }
+    if (data) {
+      setHoveredCountry(data.name);
     }
   };
 
   const isCountryHighlighted = (geo: any) => {
     const name = geo.properties?.name;
     if (selectedCountry === 'china') {
-      return name === 'China' || name === 'Taiwan';
+      return name === 'China';
     }
     return highlightCountryNames.has(name);
   };
@@ -168,17 +87,13 @@ export default function WorldMap() {
     return intensityColorMap['中'];
   };
 
-  const markerEntries = useMemo(() => {
-    return Object.entries(countryDataMap).filter(([, data]) => data.isoCode !== 'TW');
-  }, []);
-
   return (
-    <div className="w-full bg-[#F8FAFC] rounded-lg p-4">
+    <div className="w-full bg-gray-100 rounded-lg p-4">
       <div className="overflow-x-auto">
-        <div className="min-w-[800px] h-[520px]">
-          <ComposableMap
-            projection="geoMercator"
-            projectionConfig={{ scale: 170, center: [30, 25] }}
+        <div className="min-w-[800px] h-[550px]">
+          <ComposableMap 
+            projection="geoMercator" 
+            projectionConfig={{ scale: 160, center: [0, 20] }}
             style={{ width: '100%', height: '100%' }}
           >
             <Geographies geography={geoUrl}>
@@ -191,27 +106,29 @@ export default function WorldMap() {
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
-                      onClick={() => isHighlighted && handleCountryClick(geo)}
-                      onMouseEnter={() => isHighlighted && handleHover(countryDataMap[name]?.name || null)}
-                      onMouseLeave={() => handleHover(null)}
+                      onClick={() => handleCountryClick(geo)}
+                      onMouseEnter={() => handleCountryHover(name)}
+                      onMouseLeave={() => setHoveredCountry(null)}
                       style={{
                         default: {
-                          fill: isHighlighted ? colors.fill : '#E5E7EB',
-                          stroke: '#CBD5E1',
+                          fill: isHighlighted ? colors.fill : '#e5e7eb',
+                          stroke: '#9ca3af',
                           strokeWidth: 0.5,
                           outline: 'none',
                           cursor: isHighlighted ? 'pointer' : 'default',
+                          transition: 'all 0.2s ease',
                         },
                         hover: {
-                          fill: isHighlighted ? colors.hover : '#E5E7EB',
-                          stroke: isHighlighted ? '#475569' : '#CBD5E1',
-                          strokeWidth: isHighlighted ? 1.5 : 0.5,
+                          fill: isHighlighted ? colors.hover : '#d1d5db',
+                          stroke: '#9ca3af',
+                          strokeWidth: 0.5,
                           outline: 'none',
                           cursor: isHighlighted ? 'pointer' : 'default',
+                          transition: 'all 0.2s ease',
                         },
                         pressed: {
-                          fill: isHighlighted ? colors.pressed : '#E5E7EB',
-                          stroke: isHighlighted ? '#64748B' : '#CBD5E1',
+                          fill: isHighlighted ? colors.pressed : '#9ca3af',
+                          stroke: '#9ca3af',
                           strokeWidth: 0.5,
                           outline: 'none',
                           cursor: isHighlighted ? 'pointer' : 'default',
@@ -223,66 +140,37 @@ export default function WorldMap() {
               }
             </Geographies>
 
-            {markerEntries.map(([key, data]) => {
-              const colors = getCountryColors(key);
-              const isHovered = hoveredCountry === data.name;
-              const markerRadius = data.isSmall ? 7 : 5;
-
-              // 判断是否需要引导线：小国家且labelPos与countryCenter不一致
-              const needsGuideLine = data.isSmall && data.labelPos && (
-                Math.abs(data.labelPos[0] - data.countryCenter[0]) > 0.5 ||
-                Math.abs(data.labelPos[1] - data.countryCenter[1]) > 0.5
-              );
-
+            {Object.values(countryDataMap).map((data) => {
+              const colors = getCountryColors(Object.keys(countryDataMap).find(k => countryDataMap[k] === data) || '');
               return (
                 <g key={data.id || data.isoCode}>
-                  {/* 引导线 - 小国家标签偏移时显示 */}
-                  {needsGuideLine && (
-                    <line
-                      x1={data.countryCenter[0]}
-                      y1={-data.countryCenter[1]}
-                      x2={data.labelPos[0]}
-                      y2={-data.labelPos[1]}
-                      stroke="#CBD5E1"
-                      strokeWidth={0.8}
-                      opacity={0.8}
-                    />
-                  )}
-
-                  {/* Marker - 锚定真实地理位置 */}
                   <Marker coordinates={data.countryCenter}>
                     <circle
-                      r={isHovered ? markerRadius * 1.2 : markerRadius}
+                      r={4}
                       fill={colors.fill}
-                      stroke="#FFFFFF"
-                      strokeWidth={2.5}
-                      style={{
-                        cursor: data.id ? 'pointer' : 'default',
-                        transition: 'r 0.15s ease',
-                        filter: 'drop-shadow(0 1px 3px rgba(15, 23, 42, 0.25))',
-                      }}
+                      stroke="white"
+                      strokeWidth="2"
+                      style={{ cursor: data.id ? 'pointer' : 'default' }}
                       onClick={() => handleLabelClick(data.id)}
-                      onMouseEnter={() => handleHover(data.name)}
-                      onMouseLeave={() => handleHover(null)}
                     />
                   </Marker>
-
-                  {/* 标签 */}
+                  
                   {data.labelPos && (
                     <Marker coordinates={data.labelPos}>
                       <text
                         textAnchor="middle"
                         dominantBaseline="middle"
+                        fill="#1f2937"
+                        fontSize={12}
+                        fontWeight="bold"
+                        paintOrder="stroke"
+                        stroke="#FFFFFF"
+                        strokeWidth={2}
+                        strokeLinejoin="round"
                         style={{
-                          fontSize: data.isSmall ? '11px' : '12px',
-                          fontWeight: '600',
-                          fill: '#1E293B',
-                          textShadow: '0 1px 3px rgba(255,255,255,0.95), 0 0 6px rgba(255,255,255,0.6)',
                           cursor: data.id ? 'pointer' : 'default',
                         }}
                         onClick={() => handleLabelClick(data.id)}
-                        onMouseEnter={() => handleHover(data.name)}
-                        onMouseLeave={() => handleHover(null)}
                       >
                         {data.name}
                       </text>
@@ -299,14 +187,15 @@ export default function WorldMap() {
           {hoveredCountry} - 点击查看详情
         </div>
       )}
-      <div className="flex items-center justify-center gap-8 mt-6 flex-wrap">
+      {/* 图例 */}
+      <div className="flex items-center justify-center gap-6 mt-4 flex-wrap">
         {legendItems.map((item) => (
-          <div key={item.label} className="flex items-center gap-2.5">
+          <div key={item.label} className="flex items-center gap-2">
             <span
-              className="inline-block w-4 h-4 rounded border border-gray-300 shadow-sm"
+              className="inline-block w-4 h-4 rounded-sm border border-gray-300"
               style={{ backgroundColor: item.color }}
             />
-            <span className="text-sm text-[#334155] font-medium">{item.label}</span>
+            <span className="text-sm text-gray-600">{item.label}</span>
           </div>
         ))}
       </div>
