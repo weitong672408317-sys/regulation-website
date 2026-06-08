@@ -117,7 +117,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <li>《电子烟管理办法》规定，电子烟包括烟弹、烟具以及烟弹与烟具组合销售的产品等。《电子烟》强制性国家标准将电子烟界定为用于产生气溶胶供人抽吸等的电子传送系统。</li>
             <li>雾化物是可被电子装置等全部或部分雾化为气溶胶的混合物及辅助物质；电子烟用烟碱是从烟草中提取、用于电子烟产品的烟碱。</li>
           </ul>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-3 gap-4">
             <StatusCard
               status="amber"
               customLabel="可准入，但严格限制"
@@ -189,19 +189,19 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
-              status="red"
-              customLabel="完全禁止"
+              status="amber"
+              customLabel="可准入，但严格限制"
               title="不含烟碱电子烟产品"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：不含烟碱的电子烟产品。</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
                     <span>不含烟碱的电子烟也属于电子烟监管范围。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
                     <span>《电子烟》强制性国家标准要求雾化物应含有烟碱，因此不含烟碱的电子烟产品不得进入中国市场销售。</span>
                   </li>
                 </ul>
