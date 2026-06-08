@@ -369,9 +369,9 @@ export default function UaePage({ country }: UaePageProps) {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
-                  <p className="font-bold text-[#263247] text-sm">为什么要有 CoC？</p>
+                  <p className="font-bold text-[#263247] text-base">为什么要有 CoC？</p>
                 </div>
-                <ul className="list-disc pl-8 space-y-1.5 text-sm leading-6 text-[#334155]">
+                <ul className="list-disc pl-8 space-y-1.5 text-base leading-7 text-[#334155]">
                   <li>是电子烟或烟草产品合法进入阿联酋市场的基本条件</li>
                   <li>是产品清关、贴数字税票（DTS）、销售和接受检查的唯一有效证书</li>
                   <li>没有 CoC，产品无法清关，不能在阿联酋销售或流通</li>
@@ -380,9 +380,9 @@ export default function UaePage({ country }: UaePageProps) {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
-                  <p className="font-bold text-[#263247] text-sm">CoC 谁来发？怎么拿？</p>
+                  <p className="font-bold text-[#263247] text-base">CoC 谁来发？怎么拿？</p>
                 </div>
-                <ul className="list-disc pl-8 space-y-1.5 text-sm leading-6 text-[#334155]">
+                <ul className="list-disc pl-8 space-y-1.5 text-base leading-7 text-[#334155]">
                   <li>签发单位：阿联酋工业与先进技术部（MoIAT）</li>
                   <li>获取方式：产品需先通过阿联酋的国家认证流程 —— ECAS</li>
                 </ul>
@@ -390,9 +390,9 @@ export default function UaePage({ country }: UaePageProps) {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
-                  <p className="font-bold text-[#263247] text-sm">CoC 有效期多久？每次进口都需要吗？</p>
+                  <p className="font-bold text-[#263247] text-base">CoC 有效期多久？每次进口都需要吗？</p>
                 </div>
-                <ul className="list-disc pl-8 space-y-1.5 text-sm leading-6 text-[#334155]">
+                <ul className="list-disc pl-8 space-y-1.5 text-base leading-7 text-[#334155]">
                   <li>CoC 通常有效期为一年（或以注册时间为准）</li>
                   <li>每款产品，每次进口或流通前都要重新办理新的 CoC</li>
                 </ul>
@@ -409,9 +409,9 @@ export default function UaePage({ country }: UaePageProps) {
             <div className="ml-6">
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
-                <p className="font-bold text-[#263247] text-sm">ECAS与CoC的关系：</p>
+                <p className="font-bold text-[#263247] text-base">ECAS与CoC的关系：</p>
               </div>
-              <ul className="list-disc pl-8 space-y-1.5 text-sm leading-6 text-[#334155]">
+              <ul className="list-disc pl-8 space-y-1.5 text-base leading-7 text-[#334155]">
                 <li>ECAS 是认证流程机制，CoC 则是认证完成后出具的正式合格证书。</li>
                 <li>要取得CoC的产品，需先通过阿联酋的ECAS认证。</li>
               </ul>
@@ -428,11 +428,11 @@ export default function UaePage({ country }: UaePageProps) {
             <ul className="space-y-2 ml-9">
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">NOC 是政府主管部门出具的无异议函，常用于确认相关主管机关对特定受控业务、产品或操作没有异议。</span>
+                <span className="text-[#334155] text-base leading-7">NOC 是政府主管部门出具的无异议函，常用于确认相关主管机关对特定受控业务、产品或操作没有异议。</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">含尼古丁、烟油、高浓度尼古丁、香精等敏感产品，在产品注册、仓储、转运、再包装、出口或自由区操作等环节，可能需要主管机关出具 NOC；涉及戒烟、治疗或健康功效表达的，还可能触发卫生主管机关审查。</span>
+                <span className="text-[#334155] text-base leading-7">含尼古丁、烟油、高浓度尼古丁、香精等敏感产品，在产品注册、仓储、转运、再包装、出口或自由区操作等环节，可能需要主管机关出具 NOC；涉及戒烟、治疗或健康功效表达的，还可能触发卫生主管机关审查。</span>
               </li>
             </ul>
           </div>
@@ -445,15 +445,15 @@ export default function UaePage({ country }: UaePageProps) {
             <ul className="space-y-2 ml-9">
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">阿联酋各酋长国及自由区（如RAKEZ、DMCC、JAFZA等）的市政或经济监管机构，会分别制定其烟草经营许可或活动白名单的申请规则，涵盖场地安全、环境卫生、消防标准等。</span>
+                <span className="text-[#334155] text-base leading-7">阿联酋各酋长国及自由区（如RAKEZ、DMCC、JAFZA等）的市政或经济监管机构，会分别制定其烟草经营许可或活动白名单的申请规则，涵盖场地安全、环境卫生、消防标准等。</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">企业应在目标经营地区的官方平台上查询并依法申办许可。</span>
+                <span className="text-[#334155] text-base leading-7">企业应在目标经营地区的官方平台上查询并依法申办许可。</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-6">例如，在迪拜，烟草及烟草制品的零售、批发、分销、进口、仓储等活动，需依据《迪拜市政厅烟草及烟具销售许可技术指南》申请专项许可，并满足选址、距离、店面布局、产品合规、广告限制、未成年人保护等一系列要求。</span>
+                <span className="text-[#334155] text-base leading-7">例如，在迪拜，烟草及烟草制品的零售、批发、分销、进口、仓储等活动，需依据《迪拜市政厅烟草及烟具销售许可技术指南》申请专项许可，并满足选址、距离、店面布局、产品合规、广告限制、未成年人保护等一系列要求。</span>
               </li>
             </ul>
           </div>
