@@ -45,7 +45,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           },
           {
             title: '4. 加热卷烟和尼古丁袋强制性国家标准拟立项',
-            content: '2026年4月，《加热卷烟》《尼古丁袋》两项拟立项强制性国家标准项目公开征求意见，公示期至2026年5月7日。该动态体现出监管规则正在向HNB烟支 / 加热卷烟、尼古丁袋等新型产品延伸，但在正式准入规则、产品标准和销售渠道安排落地前，相关产品不能据此直接进入中国市场。',
+            content: '2026年4月，《加热卷烟》《尼古丁袋》两项拟立项强制性国家标准项目公开征求意见，公示期至2026年5月7日。该动态体现出监管规则正在向HNB 烟支 / 加热卷烟、尼古丁袋等新型产品延伸，但在正式准入规则、产品标准和销售渠道安排落地前，相关产品不能据此直接进入中国市场。',
           },
         ]}
       />
@@ -60,7 +60,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                 <BulletList items={[
                   '中国内地对烟草专卖品的生产、销售、运输、进出口实行专卖管理，并通过许可证、生产计划、准运证、专门销售渠道、进出口审批和执法检查等方式控制全链条经营活动。',
                   '电子烟已经纳入烟草监管体系，但电子烟与传统卷烟在许可证类型、产品技术审评、交易平台、批发零售渠道和产品标准方面适用不同规则。',
-                  'HNB烟支 / 加热卷烟、尼古丁袋 / 尼古丁口含膜 / 口含烟等新型烟草制品，目前尚未形成面向中国境内消费者市场的开放销售路径。',
+                  'HNB 烟支 / 加热卷烟、尼古丁袋 / 尼古丁口含膜 / 口含烟等新型烟草制品，目前尚未形成面向中国境内消费者市场的开放销售路径。',
                 ]} />
               </>
             ),
@@ -82,34 +82,56 @@ export default function ChinaPage({ country }: ChinaPageProps) {
       <ProductAccessSection>
         <ProductModuleCard title="1. 烟草专卖品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
-            <li>《中华人民共和国烟草专卖法》将烟草专卖品定义为卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、卷烟纸、滤嘴棒、烟用丝束和烟草专用机械；其中，卷烟、雪茄烟、烟丝、复烤烟叶统称烟草制品。</li>
+            <li>《中华人民共和国烟草专卖法》将烟草专卖品定义为卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、卷烟纸、滤嘴棒、烟用丝束和烟草专用机械；其中，卷烟、雪茄烟、烟丝、复烤烟叶统称烟草制品。烟草薄片作为烟草原料加工形成的再造烟草材料，应结合烟丝、烟草原料或具体产品形态适用烟草专卖监管要求。</li>
           </ul>
-          <StatusCard
-            status="amber"
-            customLabel="可准入，但严格限制"
-            title="卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、烟草薄片、卷烟纸、滤嘴棒、烟用丝束"
-            content={<>
-              <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-              <ul className="space-y-1 text-[#334155]">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                  <span>烟草专卖品的生产、批发、零售、运输和进出口均实行专卖管理，核心监管工具包括烟草专卖许可证、计划管理、准运证、购销渠道和产品流向控制。</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                  <span>卷烟、雪茄烟、烟丝、复烤烟叶等烟草制品的生产和批发主要由取得相应烟草专卖许可证的烟草制品生产企业、烟草专卖批发企业承担；社会主体取得烟草专卖零售许可证后，可以在许可地点和许可范围内从事零售。</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                  <span>烟叶、烟草薄片、卷烟纸、滤嘴棒、烟用丝束等原料和配套材料，通常围绕持证烟草制品生产企业、持证批发企业、依法获准进出口主体及其合规供应链流转。</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                  <span>烟草专卖品不得脱离许可范围、计划安排、准运要求和合法购销渠道流通；向无资质主体销售、无证运输、跨许可范围经营或流向不明，均属于重点监管风险。</span>
-                </li>
-              </ul>
-            </>}
-          />
+          <div className="grid md:grid-cols-2 gap-4">
+            <StatusCard
+              status="amber"
+              customLabel="可准入，但严格限制"
+              title="烟草原料及制品"
+              content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、烟草薄片</div>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <ul className="space-y-1 text-[#334155]">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>烟草专卖品的生产、批发、零售、运输和进出口均实行专卖管理，核心监管工具包括烟草专卖许可证、计划管理、准运证、购销渠道和产品流向控制。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>卷烟、雪茄烟、烟丝、复烤烟叶等烟草制品的生产和批发主要由取得相应烟草专卖许可证的烟草制品生产企业、烟草专卖批发企业承担；社会主体取得烟草专卖零售许可证后，可以在许可地点和许可范围内从事零售。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>烟叶、烟草薄片等烟草原料，通常围绕持证烟草制品生产企业、持证批发企业、依法获准进出口主体及其合规供应链流转。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>烟草专卖品不得脱离许可范围、计划安排、准运要求和合法购销渠道流通；向无资质主体销售、无证运输、跨许可范围经营或流向不明，均属于重点监管风险。</span>
+                  </li>
+                </ul>
+              </>}
+            />
+            <StatusCard
+              status="amber"
+              customLabel="可准入，但严格限制"
+              title="特殊配套材料"
+              content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：卷烟纸、滤嘴棒、烟用丝束</div>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <ul className="space-y-1 text-[#334155]">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>卷烟纸、滤嘴棒、烟用丝束等特殊配套材料，通常围绕持证烟草制品生产企业、持证批发企业、依法获准进出口主体及其合规供应链流转。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>烟草专卖品不得脱离许可范围、计划安排、准运要求和合法购销渠道流通；向无资质主体销售、无证运输、跨许可范围经营或流向不明，均属于重点监管风险。</span>
+                  </li>
+                </ul>
+              </>}
+            />
+          </div>
         </ProductModuleCard>
 
         <ProductModuleCard title="2. 电子烟、雾化物及电子烟用烟碱" label="产品定性">
@@ -123,7 +145,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               customLabel="可准入，但严格限制"
               title="电子烟产品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：电子烟、烟弹、烟具、烟弹与烟具组合销售的产品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：烟具、烟弹、烟弹与烟具组合销售产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -160,9 +182,9 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               status="amber"
               customLabel="可准入，但严格限制"
-              title="雾化物、电子烟用烟碱及相关原料"
+              title="雾化物及电子烟用烟碱"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：用于电子烟产品的雾化物、电子烟用烟碱及相关原料。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：雾化物、电子烟用烟碱及相关原料</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -189,19 +211,19 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
-              status="amber"
-              customLabel="可准入，但严格限制"
-              title="不含烟碱电子烟产品"
+              status="red"
+              customLabel="不得上市销售"
+              title="无烟碱电子烟 / 变相电子烟产品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：不含烟碱的电子烟产品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：草本雾化器、草本烟弹、无烟碱烟弹、维生素雾化棒、医用加热雾化器、其他宣称不含烟碱但用于雾化吸入的电子传送产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
                     <span>不含烟碱的电子烟也属于电子烟监管范围。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
                     <span>《电子烟》强制性国家标准要求雾化物应含有烟碱，因此不含烟碱的电子烟产品不得进入中国市场销售。</span>
                   </li>
                 </ul>
@@ -212,22 +234,22 @@ export default function ChinaPage({ country }: ChinaPageProps) {
 
         <ProductModuleCard title="3. 新型烟草 / 尼古丁制品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
-            <li>新型烟草 / 尼古丁制品主要包括 HNB烟支 / 加热卷烟、尼古丁袋、尼古丁口含膜、口含烟等产品。</li>
+            <li>新型烟草 / 尼古丁制品主要包括加热烟草产品、无烟气烟草制品等产品。</li>
             <li>相关产品目前尚未形成中国境内公开销售路径。2026年以来，相关标准和监管文件释放出规则建设信号，但正式准入政策、许可路径、产品标准和销售渠道安排尚未落地。</li>
           </ul>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
               status="red"
               customLabel="完全禁止"
-              title="HNB烟支、加热卷烟及面向中国境内销售的相关产品"
+              title="加热烟草产品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：HNB烟支、加热卷烟及面向中国境内销售的相关产品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：HNB 烟支、加热卷烟、加热烟草棒</div>
                 <div className="text-base text-[#334155] mb-3">产品定性：该类产品通常指通过专门加热装置加热烟草材料，产生气溶胶供消费者吸用的产品，监管上不能直接按已开放销售的传统卷烟或一般电子烟处理。</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
-                    <span>中国目前尚未开放 HNB烟支 / 加热卷烟在境内生产、销售或流通。</span>
+                    <span>中国目前尚未开放 HNB 烟支 / 加热卷烟在境内生产、销售或流通。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
@@ -239,9 +261,9 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               status="red"
               customLabel="完全禁止"
-              title="无烟气烟草制品 / 其他口含尼古丁制品"
+              title="无烟气烟草制品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、口含烟、尼古丁片、尼古丁贴、含烟、嚼烟、膏烟、溶烟、嗅烟等无烟气烟草制品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁片、尼古丁贴、含烟、嚼烟、膏烟、溶烟、嗅烟</div>
                 <div className="text-base text-[#334155] mb-3">产品定性：国家烟草专卖局2026年第1号公告将无烟气烟草制品定义为含有烟碱成分，通过口用、鼻用或外用等方式使用，且不产生烟气的烟草制品。</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
@@ -327,7 +349,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>如实际作为电子烟、HNB烟支、无烟气烟草制品或其他受限产品的组成部分使用，应同步适用最终产品的准入状态、客户资质、生产许可和流向限制。</span>
+                    <span>如实际作为电子烟、HNB 烟支、无烟气烟草制品或其他受限产品的组成部分使用，应同步适用最终产品的准入状态、客户资质、生产许可和流向限制。</span>
                   </li>
                 </ul>
               </>}
@@ -511,7 +533,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <DotList items={[
               '中国内地只能销售烟草口味电子烟，不得销售其他任何口味的调味电子烟',
               '不得销售可自行添加雾化物的电子烟；不含烟碱的电子烟产品不得进入市场销售',
-              'HNB烟支、加热卷烟、尼古丁袋、尼古丁口含膜、口含烟等未开放品类，不得在中国境内生产、销售或流通',
+              'HNB 烟支、加热卷烟、尼古丁袋、尼古丁口含膜、口含烟等未开放品类，不得在中国境内生产、销售或流通',
             ]} />
           </RuleModuleCard>
 
@@ -538,14 +560,14 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           <div className="space-y-4">
             <div className="space-y-2">
               <h4 className="font-bold text-[#243B63] text-base">1. 整体趋势：从规则补齐转向产业秩序治理</h4>
-              <p className="text-[#334155] text-base leading-7">中国烟草及新型烟草监管正在从"产品纳管"转向"全链条治理"。卷烟等传统烟草制品长期纳入烟草专卖体系，电子烟已形成许可证、国家标准、交易平台和税收管理框架；HNB烟支 / 加热卷烟、尼古丁袋 / 口含烟等新型产品，也正在通过监管公告和强制性国家标准进入更清晰的规则体系。</p>
+              <p className="text-[#334155] text-base leading-7">中国烟草及新型烟草监管正在从"产品纳管"转向"全链条治理"。卷烟等传统烟草制品长期纳入烟草专卖体系，电子烟已形成许可证、国家标准、交易平台和税收管理框架；HNB 烟支 / 加热卷烟、尼古丁袋 / 口含烟等新型产品，也正在通过监管公告和强制性国家标准进入更清晰的规则体系。</p>
               <p className="text-[#334155] text-base leading-7">后续监管重点预计集中在三方面：维护烟草专卖秩序，防止新型产品绕开既有监管体系；治理产业端无序扩张、低效产能和低价竞争；强化税收、出口、线上销售、未成年人保护等高风险环节。</p>
             </div>
 
             <div className="space-y-2">
               <h4 className="font-bold text-[#243B63] text-base">2. 新型烟草制品：标准先行，开放节奏谨慎</h4>
               <p className="text-[#334155] text-base leading-7">《加热卷烟》《尼古丁袋》强制性国家标准拟立项，说明监管部门正在为相关产品建立定义、技术要求和质量安全边界。</p>
-              <p className="text-[#334155] text-base leading-7">但标准建设不等于短期商业化开放。HNB烟支 / 加热卷烟涉及与现有卷烟专卖体系的衔接；尼古丁袋 / 口含烟涉及尼古丁成瘾性、使用隐蔽性、线上传播和未成年人保护。后续更可能采取"先标准、后许可、再有限准入或试点"的谨慎路径。</p>
+              <p className="text-[#334155] text-base leading-7">但标准建设不等于短期商业化开放。HNB 烟支 / 加热卷烟涉及与现有卷烟专卖体系的衔接；尼古丁袋 / 口含烟涉及尼古丁成瘾性、使用隐蔽性、线上传播和未成年人保护。后续更可能采取"先标准、后许可、再有限准入或试点"的谨慎路径。</p>
             </div>
 
             <div className="space-y-2">
@@ -567,7 +589,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             items: [
               '严禁未取得相应烟草专卖许可证，生产、批发、零售、进出口烟草专卖品、电子烟产品、雾化物或电子烟用烟碱。',
               '严禁销售未通过技术审评、不符合强制性国家标准、未按要求使用注册商标、来源不明或伪劣电子烟产品。',
-              '严禁将 HNB烟支、加热卷烟、尼古丁袋、尼古丁口含膜、口含烟等未开放销售路径的新型产品投入中国内地市场。',
+              '严禁将 HNB 烟支、加热卷烟、尼古丁袋、尼古丁口含膜、口含烟等未开放销售路径的新型产品投入中国内地市场。',
             ]
           },
           {

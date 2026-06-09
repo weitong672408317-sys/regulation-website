@@ -70,17 +70,16 @@ export default function UaePage({ country }: UaePageProps) {
       ]} />
 
       <ProductAccessSection>
-        <ProductModuleCard title="1. 烟草" label="产品定性">
+        <ProductModuleCard title="1. 烟草材料" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
             <li>阿联酋控烟法将烟草界定为各类烟草植物及其根、茎、叶、果实、绿色或干燥种子等部分。烟叶属于典型烟草原料。</li>
           </ul>
           <StatusCard
-            status="amber"
-            title="烟草原料 / 烟草材料"
-            customLabel="可准入，但严格限制"
+            status="green"
+            title="烟草材料"
+            customLabel="可准入，需合规"
             content={<>
-              <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-              <p className="mb-3">烟叶、reconstituted tobacco、烟草薄片、烟草原料。</p>
+              <div className="text-base text-[#334155] mb-2">适用产品：烟叶、烟草薄片、烟草废料及其他烟草原料</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <ul className="space-y-1 text-[#334155]">
                 <li className="flex items-start gap-2">
@@ -102,9 +101,11 @@ export default function UaePage({ country }: UaePageProps) {
             <li>传统卷烟、水烟烟草、雪茄、烟斗烟草、小雪茄等通过点燃并燃烧方式使用的产品，属于燃烧类烟草制品。</li>
           </ul>
           <StatusCard
-            status="amber"
-            title="传统卷烟、水烟烟草、雪茄等燃烧类烟草制品"
+            status="green"
+            title="燃烧类烟草制品"
+            customLabel="可准入，需合规"
             content={<>
+              <div className="text-base text-[#334155] mb-2">适用产品：传统卷烟、水烟烟草、雪茄、烟丝及其他燃烧类烟草制品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <ul className="space-y-1 text-[#334155]">
                 <li className="flex items-start gap-2">
@@ -134,9 +135,11 @@ export default function UaePage({ country }: UaePageProps) {
           </ul>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
-              status="amber"
-              title="电子雾化产品、烟油及补充装"
+              status="green"
+              title="电子尼古丁产品"
+              customLabel="可准入，需认证"
               content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、设备与液体组合产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -163,14 +166,16 @@ export default function UaePage({ country }: UaePageProps) {
               </>}
             />
             <StatusCard
-              status="amber"
-              title="加热烟草产品 / HNB烟支"
+              status="green"
+              title="加热烟草产品"
+              customLabel="可准入，需认证"
               content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒、加热烟草产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>HNB等加热烟草产品进入本土市场前，应同时关注 UAE.S 5030:2018、烟草制品规则、消费税、数字税票、包装标签和地方销售许可要求。</span>
+                    <span>HNB 等加热烟草产品进入本土市场前，应同时关注 UAE.S 5030:2018、烟草制品规则、消费税、数字税票、包装标签和地方销售许可要求。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
@@ -182,22 +187,23 @@ export default function UaePage({ country }: UaePageProps) {
           </div>
         </ProductModuleCard>
 
-        <ProductModuleCard title="4. 无烟烟草 / 尼古丁产品" label="产品定性">
+        <ProductModuleCard title="4. 无烟烟草 / 新型尼古丁产品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
-            <li>在阿联酋，无烟烟草 / 尼古丁产品不宜按单一产品路径处理。</li>
+            <li>在阿联酋，无烟烟草 / 新型尼古丁产品不按单一产品路径处理。</li>
             <li>结合现有公开规则，可以分为三类：
               <br />（1）无烟草尼古丁袋；
-              <br />（2）含烟草咀嚼制品；以及
-              <br />（3）其他口腔 / 鼻用烟草或尼古丁产品。</li>
+              <br />（2）无烟烟草产品；以及
+              <br />（3）其他新型尼古丁产品。</li>
+            <li>根据《内阁决议第 2 号（2025 年）》及 UAE.S 5061:2025《无烟草尼古丁袋》，无烟草尼古丁袋是指含有尼古丁和 / 或尼古丁化合物、调味剂及其他允许成分，且不含烟草的产品。</li>
+            <li>该产品仅限通过口腔使用，即将小袋 / 囊袋放置于牙龈与口腔黏膜之间一段时间，以便尼古丁通过口腔黏膜吸收，使用后再将小袋丢弃。</li>
           </ul>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <StatusCard
-              status="amber"
+              status="green"
               title="无烟草尼古丁袋"
-              customLabel="可准入，但严格限制"
+              customLabel="可准入，需认证"
               content={<>
-                <p className="mb-3">根据《内阁决议第 2 号（2025 年）》及 UAE.S 5061:2025《无烟草尼古丁袋》，无烟草尼古丁袋是指含有尼古丁和/或尼古丁化合物、调味剂及其他允许成分，且不含烟草的产品；</p>
-                <p className="mb-3">该产品仅限通过口腔使用，即将小袋/囊袋放置于牙龈与口腔黏膜之间一段时间，以便尼古丁通过口腔黏膜吸收，使用后再将小袋丢弃。</p>
+                <div className="text-base text-[#334155] mb-2">适用产品：无烟草尼古丁袋、袋状口含尼古丁产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -218,11 +224,13 @@ export default function UaePage({ country }: UaePageProps) {
 
             <StatusCard
               status="red"
-              title="含烟草咀嚼制品"
+              title="无烟烟草产品"
+              customLabel="完全禁止"
               content={<>
-                <p className="mb-3">公开资料未见阿联酋对"含烟草咀嚼制品"设置单独完整定义。</p>
-                <p className="mb-3">结合现有禁止性口径，该类产品可理解为含有烟草材料、通过咀嚼或口含方式使用的烟草产品，典型产品包括 Paan、Gutkha、Mawa 等。</p>
-                <div className="font-semibold text-[#263247] mb-1">主要限制：</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：含烟草咀嚼制品及其他含烟草但不经燃烧吸用的产品</div>
+                <p className="mb-2 text-[#334155]">公开资料未见阿联酋对"含烟草咀嚼制品"设置单独完整定义。</p>
+                <p className="mb-2 text-[#334155]">结合现有禁止性口径，该类产品可理解为含有烟草材料、通过咀嚼或口含方式使用的烟草产品，典型产品包括 Paan、Gutkha、Mawa 等。</p>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
@@ -238,10 +246,10 @@ export default function UaePage({ country }: UaePageProps) {
 
             <StatusCard
               status="amber"
-              title="其他口腔/鼻用烟草或尼古丁产品"
+              title="其他新型尼古丁产品"
               customLabel="需确认"
               content={<>
-                <p className="mb-3">尼古丁口含膜、尼古丁片、尼古丁粉末、鼻吸尼古丁产品、含烟草鼻吸产品、其他非袋状口腔或鼻用烟草/尼古丁产品。</p>
+                <div className="text-base text-[#334155] mb-2">适用产品：尼古丁口含膜、尼古丁片、尼古丁粉末、鼻吸尼古丁产品及其他不含烟草但含尼古丁、且不属于无烟草尼古丁袋的口腔或鼻用产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -270,7 +278,9 @@ export default function UaePage({ country }: UaePageProps) {
             <StatusCard
               status="green"
               title="普通辅材"
+              customLabel="可准入"
               content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：不含尼古丁、烟草成分或烟草提取物的普通辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -282,9 +292,10 @@ export default function UaePage({ country }: UaePageProps) {
             />
             <StatusCard
               status="amber"
-              title="含尼古丁、烟草提取物或直接面向消费者使用"
-              customLabel="需确认"
+              title="含尼古丁 / 烟草成分辅材"
+              customLabel="需按成分判断"
               content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：含尼古丁、烟草成分或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -301,15 +312,17 @@ export default function UaePage({ country }: UaePageProps) {
           </div>
         </ProductModuleCard>
 
-        <ProductModuleCard title="6. 仿烟糖果/玩具" label="产品定性">
+        <ProductModuleCard title="6. 仿烟糖果 / 玩具" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
             <li>仿烟糖果/玩具是指外观、表达或使用方式类似烟草或烟草制品的糖果、游戏或玩具类产品。</li>
           </ul>
           <StatusCard
             status="red"
-            title="仿烟糖果/玩具"
+            title="仿烟糖果 / 玩具"
+            customLabel="完全禁止"
             content={<>
-              <div className="font-semibold text-[#263247] mb-1">主要限制：</div>
+              <div className="text-base text-[#334155] mb-2">适用产品：仿烟糖果 / 玩具</div>
+              <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <ul className="space-y-1 text-[#334155]">
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>

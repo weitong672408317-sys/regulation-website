@@ -90,10 +90,10 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <StatusCard
               status="green"
-              title="传统燃烧烟草制品"
-              customLabel="可合规准入，但成品进口严格受限"
+              title="燃烧类烟草制品"
+              customLabel="可准入，但成品进口严格受限"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：香烟、雪茄、烟叶卷烟、切丝烟草及其他燃烧型烟草制品</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：传统卷烟、雪茄、烟丝、其他燃烧类烟草制品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -105,7 +105,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                     <span>生产及本土流通属于消费税应税消费品管理范围，需要取得 NPPBKC、缴纳消费税和烟草税，并贴附消费税税票。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
                     <span>成品卷烟进口并非绝对禁止，但 PI（进口批准书）实务中较难取得，通常仅特定主体获批，数量受到严格限制。</span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -117,15 +117,15 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             />
             <StatusCard
               status="green"
-              title="加热烟草制品"
-              customLabel="可合规准入"
+              title="加热烟草产品"
+              customLabel="可准入"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：HNB烟支、加热烟草棒等含烟草材料的加热烟草耗材</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒、其他加热烟草制品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>HNB烟支 / 加热烟草棒属于含烟草材料的烟草产品，进入印尼本土市场时应按烟草制品、其他烟草加工产品或消费税应税消费品管理。</span>
+                    <span>HNB 烟支 / 加热烟草棒属于含烟草材料的烟草产品，进入印尼本土市场时应按烟草制品、其他烟草加工产品或消费税应税消费品管理。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
@@ -137,11 +137,11 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>HNB加热设备本身不属于 HNB烟支；单独进口或销售时，不因设备本身取得 NPPBKC，也不贴附 HNB烟支对应的消费税税票。</span>
+                    <span>HNB 加热设备本身不属于 HNB 烟支；单独进口或销售时，不因设备本身取得 NPPBKC，也不贴附 HNB 烟支对应的消费税税票。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                    <span>HNB加热设备与 HNB烟支、烟弹、烟油或其他含烟草 / 尼古丁耗材组合进口或组合销售的，应将设备部分和耗材部分分别申报，并分别判断消费税、税票、标签和流通要求。</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>HNB 加热设备与 HNB 烟支、烟弹、烟油或其他含烟草 / 尼古丁耗材组合进口或组合销售的，应将设备部分和耗材部分分别申报，并分别判断消费税、税票、标签和流通要求。</span>
                   </li>
                 </ul>
               </>}
@@ -157,10 +157,10 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </ul>
           <StatusCard
             status="green"
-            title="电子烟"
-            customLabel="可合规准入，但产品内容和流通监管趋严"
+            title="电子烟产品"
+            customLabel="可准入，监管趋严"
             content={<>
-              <div className="text-sm text-[#64748B] mb-2">适用产品：电子烟设备、一次性电子烟、烟油、电子烟补充液、含液体烟弹、开放式电子烟、封闭式电子烟、固体电子烟、设备与液体组合产品</div>
+              <div className="text-base text-[#334155] mb-2">适用产品：电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、设备与液体组合产品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <ul className="space-y-1 text-[#334155]">
                 <li className="flex items-start gap-2">
@@ -176,7 +176,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                   <span>生产商和进口商必须向 BPOM 提交检测结果、登记详细的成分和添加剂清单。</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
                   <span>来源不明、成分不明、违法添加、含毒品或含违禁成分的烟液，是 BPOM 和执法机关重点关注的风险。</span>
                 </li>
               </ul>
@@ -184,8 +184,8 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           />
         </ProductModuleCard>
 
-        {/* 3. 口含、鼻吸及其他非燃烧/非加热型尼古丁产品 */}
-        <ProductModuleCard title="3. 口含、鼻吸及其他非燃烧 / 非加热型尼古丁产品" label="产品定性">
+        {/* 3. 无烟烟草及新型尼古丁产品 */}
+        <ProductModuleCard title="3. 无烟烟草及新型尼古丁产品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
             <li>该类产品不通过燃烧使用，也不通过电子加热装置吸入使用。印尼现行《健康法》及《健康法》实施条例主要针对"烟草制品"和"电子烟"设置监管规则，尚未对尼古丁袋、尼古丁口含膜等新型口腔尼古丁产品建立清晰、专门的定义和准入路径。</li>
           </ul>
@@ -193,9 +193,9 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             <StatusCard
               status="green"
               title="无烟烟草产品"
-              customLabel="可合规准入"
+              customLabel="可准入"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：口含烟、鼻烟、嚼烟、含烟草粉末产品，以及其他含烟草材料、通过口腔或鼻腔使用的非燃烧型产品</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：口含烟、鼻烟、嚼烟及其他含烟草但不经燃烧吸用的产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -207,7 +207,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                     <span>进入印尼本土市场生产、流通或销售时，应关注 NPPBKC、消费税、税票、包装标签和销售限制要求。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
                     <span>如产品同时添加尼古丁、采用袋状 / 片状 / 膜状等新型形态，或以尼古丁摄入为主要卖点，应转入"新型尼古丁产品"口径判断。</span>
                   </li>
                 </ul>
@@ -218,7 +218,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               title="新型尼古丁产品"
               customLabel="部分限制 / 需确认"
               content={<>
-                <div className="text-sm text-[#64748B] mb-2">适用产品：尼古丁袋、尼古丁口含膜、含尼古丁片状 / 袋状 / 膜状 / 粉末状产品</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -247,8 +247,8 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </div>
         </ProductModuleCard>
 
-        {/* 4. 烟草薄片、烟叶等烟草原料 */}
-        <ProductModuleCard title="4. 烟草薄片、烟叶等烟草原料" label="产品定性">
+        {/* 4. 烟草原料 */}
+        <ProductModuleCard title="4. 烟草原料" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155]">
             <li>烟草薄片、烟叶主要作为烟草原料或半成品管理；具体监管要求取决于产品形态、是否进入应税消费品生产链条，以及是否涉及进口批准要求。</li>
           </ul>
@@ -256,8 +256,9 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             <StatusCard
               status="green"
               title="烟草薄片"
-              customLabel="可合规准入，通常限于工厂自用"
+              customLabel="可准入，通常限于工厂自用"
               content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：烟草薄片</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -269,7 +270,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                     <span>作为工业原材料使用时，通常不需要 NPPBKC；进口通常需要 PI（进口批准书），且一般限于工厂自用。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
                     <span>如烟草薄片被加工或包装成消费者可直接使用的产品，应重新判断是否转入烟草制品或其他应税消费品路径。</span>
                   </li>
                 </ul>
@@ -278,8 +279,9 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             <StatusCard
               status="green"
               title="烟叶"
-              customLabel="可合规准入，但进口受政府管理"
+              customLabel="可准入，但进口受政府管理"
               content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：烟叶</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -291,7 +293,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                     <span>烟叶作为原材料使用时，不因其本身当然触发 NPPBKC；作为消费者可直接使用或销售的产品时，可能转入烟草制品或其他应税消费品路径。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
                     <span>烟叶进口需要 PI（进口批准书），并受国内烟叶供需、特定品种需求和政府进口管理影响。</span>
                   </li>
                 </ul>
@@ -309,8 +311,9 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             <StatusCard
               status="green"
               title="爆珠 / 香精胶囊"
-              customLabel="可合规准入，但需按成分确认"
+              customLabel="可准入，需按成分确认"
               content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：不含尼古丁、烟草成分或烟草提取物的爆珠、香精胶囊</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -318,12 +321,12 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                     <span>不含烟草提取物或尼古丁、仅作为普通辅材使用的，通常不需要 NPPBKC。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
                     <span>含烟草提取物或尼古丁的，应判断是否转入烟草制品、其他烟草加工产品或应税消费品路径。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                    <span>如作为电子烟液、烟弹、HNB烟支、尼古丁产品或消费者直接使用产品的一部分销售，应同步适用对应产品路径。</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
+                    <span>如作为电子烟液、烟弹、HNB 烟支、尼古丁产品或消费者直接使用产品的一部分销售，应同步适用对应产品路径。</span>
                   </li>
                 </ul>
               </>}
@@ -331,8 +334,9 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             <StatusCard
               status="green"
               title="滤嘴棒"
-              customLabel="可合规准入"
+              customLabel="可准入"
               content={<>
+                <div className="text-base text-[#334155] mb-2">适用产品：滤嘴棒</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -344,7 +348,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                     <span>公开资料未见滤嘴棒本身需要 NPPBKC、PI（进口批准书）、BPOM 产品注册或 Halal 认证。</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
                     <span>如滤嘴棒含烟草提取物、尼古丁、药物成分、香味释放功能或其他特殊功能，应结合具体成分和用途重新确认监管要求。</span>
                   </li>
                 </ul>
@@ -486,7 +490,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           <ul className="space-y-2 text-[#334155] text-base leading-7">
             <li className="flex items-start gap-2">
               <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span><span className="font-semibold text-[#263247]">适用对象：</span>仅适用于被认定为 BKC 的货物，例如传统卷烟、HNB烟支、电子烟液、部分含烟草或尼古丁属性的成品。</span>
+              <span><span className="font-semibold text-[#263247]">适用对象：</span>仅适用于被认定为 BKC 的货物，例如传统卷烟、HNB 烟支、电子烟液、部分含烟草或尼古丁属性的成品。</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -626,7 +630,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           {
             title: '主体资质与经营范围',
             items: [
-              '严禁无证或超出许可范围，在印尼生产、进口、仓储、分销或销售烟草制品、电子烟、HNB烟支及相关尼古丁产品。',
+              '严禁无证或超出许可范围，在印尼生产、进口、仓储、分销或销售烟草制品、电子烟、HNB 烟支及相关尼古丁产品。',
               '严禁未取得或未正确使用 NPPBKC、PI（进口批准书）等必要资质，即开展应税消费品或限制类进口商品经营活动。',
             ]
           },

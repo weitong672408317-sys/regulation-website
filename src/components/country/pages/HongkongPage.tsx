@@ -76,15 +76,16 @@ export default function HongkongPage({ country }: HongkongPageProps) {
       />
 
       <ProductAccessSection>
-        <ProductModuleCard title="1. 传统卷烟、雪茄等传统吸烟产品" label="产品定性">
+        <ProductModuleCard title="1. 传统吸烟产品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
             <li>香港传统吸烟产品主要包括传统卷烟、雪茄、中国熟烟及其他制成烟草。</li>
           </ul>
           <StatusCard
             status="amber"
             customLabel="可准入，但严格限制"
-            title="传统卷烟、雪茄、中国熟烟及其他制成烟草"
+            title="传统吸烟产品"
             content={<>
+              <div className="text-base text-[#334155] mb-2">适用产品：传统卷烟、雪茄、中国熟烟、烟斗烟、其他制成烟草</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <ul className="space-y-1 text-[#334155]">
                 <li className="flex items-start gap-2">
@@ -120,9 +121,10 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           </ul>
           <StatusCard
             status="red"
+            customLabel="完全禁止"
             title="另类吸烟产品"
             content={<>
-              <div className="text-base text-[#334155] mb-2">适用产品：电子烟、加热烟草产品、电子烟油、加热烟支、HNB烟支、草本烟及相关零件、配件；烟弹、烟液胶囊等相关产品，应结合其内容物、结构和用途判断。</div>
+              <div className="text-base text-[#334155] mb-2">适用产品：电子烟、HNB 烟支 / 加热烟草产品、电子雾化设备、烟弹 / 预灌装产品、烟油 / 电子烟液 / 补充液、加热装置、相关装置及组件</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <ul className="space-y-1 text-[#334155]">
                 <li className="flex items-start gap-2">
@@ -152,9 +154,10 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           </ul>
           <StatusCard
             status="red"
+            customLabel="完全禁止"
             title="无烟烟草产品"
             content={<>
-              <div className="text-base text-[#334155] mb-2">适用产品：嚼烟、口嚼卷烟、口嚼搓烟、湿鼻烟等无烟烟草产品。</div>
+              <div className="text-base text-[#334155] mb-2">适用产品：嚼烟、口嚼卷烟、口嚼搓烟、湿鼻烟等含烟草但不经燃烧吸用的产品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <ul className="space-y-1 text-[#334155]">
                 <li className="flex items-start gap-2">
@@ -170,15 +173,16 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="4. 尼古丁袋、尼古丁口含膜等口含类产品" label="产品定性">
+        <ProductModuleCard title="4. 新型尼古丁产品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
-            <li>尼古丁袋、尼古丁口含膜应按是否含烟草、是否含尼古丁、是否拟供人口服分别判断。该类产品不能直接按普通消费品处理。</li>
+            <li>新型尼古丁产品应按是否含烟草、是否含尼古丁、是否拟供人口服分别判断。该类产品不能直接按普通消费品处理。</li>
           </ul>
           <StatusCard
             status="amber"
-            customLabel="高度受限 / 需个案确认许可要求"
-            title="尼古丁袋、尼古丁口含膜及其他口含类尼古丁产品"
+            customLabel="高度受限 / 涉及毒药及药剂制品判断"
+            title="新型尼古丁产品"
             content={<>
+              <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <ul className="space-y-1 text-[#334155]">
                 <li className="flex items-start gap-2">
@@ -202,15 +206,16 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="5. 烟草薄片、烟叶等烟草材料" label="产品定性">
+        <ProductModuleCard title="5. 烟草材料" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
             <li>烟草薄片、烟叶等烟草材料主要作为烟草原料或半成品管理；是否进入传统吸烟产品、另类吸烟产品、无烟烟草产品或应课税品监管路径，应按加工形态、成分和最终产品形态判断。</li>
           </ul>
           <StatusCard
             status="amber"
-            customLabel="个案判断 / 需按最终产品路径确认"
-            title="烟草薄片、烟叶及其他烟草材料"
+            customLabel="需按烟草材料、制成烟草或应课税品分类判断"
+            title="烟草材料"
             content={<>
+              <div className="text-base text-[#334155] mb-2">适用产品：烟草薄片、烟叶及其他烟草材料</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <ul className="space-y-1 text-[#334155]">
                 <li className="flex items-start gap-2">
@@ -223,7 +228,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843] mt-1.5 flex-shrink-0"></span>
-                  <span>已经制成或包装为加热烟支、HNB烟支等用于另类吸烟产品器具产生气雾的物质的，应按另类吸烟产品禁令处理。</span>
+                  <span>已经制成或包装为加热烟支、HNB 烟支等用于另类吸烟产品器具产生气雾的物质的，应按另类吸烟产品禁令处理。</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843] mt-1.5 flex-shrink-0"></span>
@@ -241,10 +246,10 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
               status="green"
+              customLabel="可准入"
               title="普通辅材及香精香料"
               content={<>
-                <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-                <p className="mb-3">爆珠、香精胶囊、滤嘴棒、香精香料及其他普通辅材。</p>
+                <div className="text-base text-[#334155] mb-2">适用产品：普通香精香料、爆珠、香精胶囊、滤嘴棒及其他不含烟草、尼古丁或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -261,11 +266,10 @@ export default function HongkongPage({ country }: HongkongPageProps) {
 
             <StatusCard
               status="amber"
-              customLabel="需拆分判断"
+              customLabel="需按成分和功能拆分判断"
               title="含特殊成分或特定功能辅材"
               content={<>
-                <div className="font-semibold text-[#263247] mb-1">适用产品：</div>
-                <p className="mb-3">加入尼古丁、烟草材料、烟草提取物，或属于另类吸烟产品组件 / 配件的爆珠、香精胶囊、滤嘴棒、香精香料及其他辅材。</p>
+                <div className="text-base text-[#334155] mb-2">适用产品：加入尼古丁、烟草材料、烟草提取物，或属于另类吸烟产品组件 / 配件的爆珠、香精胶囊、滤嘴棒、香精香料及其他辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -516,7 +520,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           </div>
         }
         redLineItems={[
-          '严禁将电子烟、加热烟草产品、电子烟油、烟弹、加热烟支、HNB烟支、草本烟等另类吸烟产品进口、寄送、携带、销售或推广至香港本地市场。',
+          '严禁将电子烟、加热烟草产品、电子烟油、烟弹、加热烟支、HNB 烟支、草本烟等另类吸烟产品进口、寄送、携带、销售或推广至香港本地市场。',
           '严禁在公众地方持有（携带、随身带有或实际控制）电子烟等另类吸烟产品。',
           '严禁进口、制造、销售、陈列、托运或交付无烟烟草产品。',
           '严禁在未取得毒药相关牌照、药剂制品注册或其他明确合法依据的情况下，将尼古丁产品进口、销售、供应、递样或携带进入香港。',

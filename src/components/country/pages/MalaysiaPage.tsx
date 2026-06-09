@@ -78,7 +78,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                 <li><span className="font-semibold text-[#263247]">药剂执法司（PED）：</span>负责《毒药法》及药剂监管相关事项，含尼古丁产品涉及毒物或药剂监管时，可能进入其监管范围。</li>
                 <li><span className="font-semibold text-[#263247]">毒药委员会（Poisons Board）：</span>负责毒物分类、毒物清单调整及受管制成分管理，是《毒药法》体系下的重要专业咨询机构。</li>
                 <li><span className="font-semibold text-[#263247]">马来西亚财政部（MOF）：</span>负责烟草及相关产品的税收政策。</li>
-                <li><span className="font-semibold text-[#263247]">马来西亚投资发展局（MIDA）：</span>负责制造业投资及制造业牌照相关事项，涉及在马来西亚设厂生产烟草、HNB烟支、电子烟或相关产品时，需关注其制造业许可要求。</li>
+                <li><span className="font-semibold text-[#263247]">马来西亚投资发展局（MIDA）：</span>负责制造业投资及制造业牌照相关事项，涉及在马来西亚设厂生产烟草、HNB 烟支、电子烟或相关产品时，需关注其制造业许可要求。</li>
               </ul>
             ),
           },
@@ -89,15 +89,15 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         <ProductModuleCard title="1. 传统烟草及加热烟草产品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
             <li>马来西亚 Act 852 使用"吸烟产品"作为上位概念，覆盖烟草产品、吸烟物质和替代烟草产品。传统卷烟、雪茄、烟丝/切丝烟草及其他制成烟草，属于典型烟草产品。</li>
-            <li>HNB烟支/加热烟草产品含有烟草材料，主要按烟草产品及加热烟草产品相关规则管理。</li>
+            <li>HNB 烟支 / 加热烟草产品含有烟草材料，主要按烟草产品及加热烟草产品相关规则管理。</li>
           </ul>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
               status="green"
               customLabel="可准入"
-              title="传统卷烟、雪茄、烟丝/切丝烟草及其他制成烟草"
+              title="传统烟草产品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：传统卷烟、雪茄、烟丝/切丝烟草及其他制成烟草。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：传统卷烟、雪茄、烟丝 / 切丝烟草、其他制成烟草</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -122,9 +122,9 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <StatusCard
               status="green"
               customLabel="可准入"
-              title="HNB烟支/加热烟草产品"
+              title="加热烟草产品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：HNB烟支、加热烟草棒及其他含烟草材料的加热产品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒、其他含烟草材料的加热产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -145,7 +145,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>HNB加热设备如单独销售，应结合产品设计和销售形态确认是否属于替代烟草产品或吸烟产品相关组件。</span>
+                    <span>HNB 加热设备如单独销售，应结合产品设计和销售形态确认是否属于替代烟草产品或吸烟产品相关组件。</span>
                   </li>
                 </ul>
               </>}
@@ -161,10 +161,10 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
               status="amber"
-              customLabel="高度受限/涉及药剂监管"
+              customLabel="高度受限 / 涉及药剂监管"
               title="含尼古丁电子烟"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：含尼古丁电子烟液、含尼古丁烟弹、含尼古丁电子烟及其他含液体/凝胶尼古丁的电子烟相关产品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：含尼古丁烟油 / 电子烟液 / 补充液、含尼古丁烟弹 / 预灌装产品、含尼古丁电子雾化产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -173,7 +173,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                    <span>液体/凝胶尼古丁继续涉及《毒药法》管制，含尼古丁制剂通常需要药品/制剂注册或主管机关批准。</span>
+                    <span>液体 / 凝胶尼古丁继续涉及《毒药法》管制，含尼古丁制剂通常需要药品 / 制剂注册或主管机关批准。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
@@ -188,10 +188,10 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             />
             <StatusCard
               status="amber"
-              customLabel="部分限制/准入受控"
-              title="不含尼古丁电子烟及电子烟设备"
+              customLabel="部分限制 / 准入受控"
+              title="不含尼古丁电子烟、设备及替代烟草产品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：不含尼古丁电子烟液、电子烟设备、电子雾化设备、电子烟组件及其他不含尼古丁电子烟相关产品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：不含尼古丁电子烟产品、电子烟设备、雾化器、相关配件</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -220,18 +220,18 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           </div>
         </ProductModuleCard>
 
-        <ProductModuleCard title="3. 无烟烟草及口含尼古丁产品" label="产品定性">
+        <ProductModuleCard title="3. 无烟烟草及新型尼古丁产品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] mb-4">
-            <li>马来西亚公开法规未见对尼古丁袋、尼古丁口含膜等口含尼古丁产品设置清晰、专门的统一准入分类。</li>
-            <li>含烟草的无烟产品与不含烟草但含尼古丁的口含产品，监管判断起点不同：前者主要进入 Act 852 项下烟草产品及无烟烟草包装标签规则，后者重点进入《毒药法》及药剂监管框架。</li>
+            <li>马来西亚公开法规未见对尼古丁袋、尼古丁口含膜等新型尼古丁产品设置清晰、专门的统一准入分类。</li>
+            <li>含烟草的无烟产品与不含烟草但含尼古丁的新型尼古丁产品，监管判断起点不同：前者主要进入 Act 852 项下烟草产品及无烟烟草包装标签规则，后者重点进入《毒药法》及药剂监管框架。</li>
           </ul>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
               status="amber"
               customLabel="高度受限"
-              title="含烟草的无烟产品"
+              title="无烟烟草产品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：口含烟、嚼烟、鼻吸烟，以及含烟草材料的袋状/片状/膜状/粉末状/膏状无烟产品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：口含烟、鼻烟、嚼烟及其他含烟草但不经燃烧吸用的产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -256,17 +256,17 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                    <span>使用"安全""无害""非致癌""降低健康风险""戒烟""治疗""尼古丁替代"等减害/医药用宣称的，应具备充分科学证据，并确认药品/制剂方面的监管要求。</span>
+                    <span>使用"安全""无害""非致癌""降低健康风险""戒烟""治疗""尼古丁替代"等减害 / 医药用宣称的，应具备充分科学证据，并确认药品 / 制剂方面的监管要求。</span>
                   </li>
                 </ul>
               </>}
             />
             <StatusCard
               status="amber"
-              customLabel="高度受限，涉及药剂监管"
-              title="不含烟草但含尼古丁的口含产品"
+              customLabel="高度受限 / 涉及药剂监管"
+              title="新型尼古丁产品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁片，以及不含烟草但含尼古丁的袋状/片状/膜状/粉末状口含产品。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -279,11 +279,11 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                    <span>含尼古丁成分的，应确认《毒药法》及药剂监管要求，包括药品/制剂注册、主管机关批准、供应主体和适用场景要求。</span>
+                    <span>含尼古丁成分的，应确认《毒药法》及药剂监管要求，包括药品 / 制剂注册、主管机关批准、供应主体和适用场景要求。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                    <span>使用"安全""无害""非致癌""降低健康风险""戒烟""治疗""尼古丁替代"等减害/医药用宣称的，应具备充分科学证据，并确认药品/制剂方面的监管要求。</span>
+                    <span>使用"安全""无害""非致癌""降低健康风险""戒烟""治疗""尼古丁替代"等减害 / 医药用宣称的，应具备充分科学证据，并确认药品 / 制剂方面的监管要求。</span>
                   </li>
                 </ul>
               </>}
@@ -299,9 +299,9 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <StatusCard
               status="green"
               customLabel="可准入"
-              title="烟叶、烟草薄片"
+              title="烟草原料 / 半成品"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：烟叶、烟草薄片。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：烟叶、烟草薄片</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -325,29 +325,29 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             />
             <StatusCard
               status="green"
-              customLabel="可合规准入"
-              title="普通辅材及相关配套材料"
+              customLabel="可准入"
+              title="普通辅材及香精香料"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：不含尼古丁、不含烟草提取物，且不构成烟草产品、吸烟物质或替代烟草产品的爆珠、香精胶囊、滤嘴棒、香精香料及其他普通辅材。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：普通香精香料、爆珠、香精胶囊、滤嘴棒及其他不含烟草、尼古丁或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>公开规则未见特殊烟草/电子烟专项许可或产品注册要求。</span>
+                    <span>公开规则未见特殊烟草 / 电子烟专项许可或产品注册要求。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-1.5 flex-shrink-0"></span>
-                    <span>如产品含烟草、尼古丁、烟草提取物、可吸入成分或可雾化成分，应转入下列"含特殊成分或特定功能辅材"判断。</span>
+                    <span>如产品含烟草、尼古丁、烟草提取物、可吸入成分或可雾化成分，应转入下列"含尼古丁 / 烟草成分辅材"判断。</span>
                   </li>
                 </ul>
               </>}
             />
             <StatusCard
               status="amber"
-              customLabel="需拆分判断"
-              title="含特殊成分或特定功能辅材"
+              customLabel="需按成分判断"
+              title="含尼古丁 / 烟草成分辅材"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：含烟草、尼古丁、烟草提取物、可吸入成分、可雾化成分，或具有特殊释放功能的爆珠、香精胶囊、滤嘴棒、香精香料及其他辅材。</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：含尼古丁、烟草成分或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
@@ -360,7 +360,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-1.5 flex-shrink-0"></span>
-                    <span>含液体/凝胶尼古丁的，不能按普通辅材处理，应重点确认《毒药法》及药剂监管要求。</span>
+                    <span>含液体 / 凝胶尼古丁的，不能按普通辅材处理，应重点确认《毒药法》及药剂监管要求。</span>
                   </li>
                 </ul>
               </>}
@@ -385,7 +385,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-7">适用于传统卷烟、雪茄、烟丝/切丝烟草、HNB烟支、加热烟草产品、不含尼古丁电子烟液、电子烟设备、含烟草无烟产品，以及其他落入 Act 852 的吸烟产品。</span>
+                <span className="text-[#334155] text-base leading-7">适用于传统卷烟、雪茄、烟丝/切丝烟草、HNB 烟支、加热烟草产品、不含尼古丁电子烟液、电子烟设备、含烟草无烟产品，以及其他落入 Act 852 的吸烟产品。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -437,7 +437,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-7">适用于烟草产品、HNB烟支、电子烟及相关产品的零售门店、展示销售场所、摊位和其他地方经营场所。</span>
+                <span className="text-[#334155] text-base leading-7">适用于烟草产品、HNB 烟支、电子烟及相关产品的零售门店、展示销售场所、摊位和其他地方经营场所。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -462,7 +462,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-7">适用于在马来西亚本地制造、加工或改造烟草产品、HNB烟支、电子烟产品、烟草薄片、烟草半成品及相关产品的主体。</span>
+                <span className="text-[#334155] text-base leading-7">适用于在马来西亚本地制造、加工或改造烟草产品、HNB 烟支、电子烟产品、烟草薄片、烟草半成品及相关产品的主体。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -641,7 +641,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-7">卷烟、雪茄、散装烟草、无烟烟草、HNB烟支/加热产品，应按对应类别使用规定的识别标记、健康警示、健康信息和销售限制提示。</span>
+                <span className="text-[#334155] text-base leading-7">卷烟、雪茄、散装烟草、无烟烟草、HNB 烟支/加热产品，应按对应类别使用规定的识别标记、健康警示、健康信息和销售限制提示。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -674,7 +674,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-7">禁止广告、促销或赞助吸烟产品，包括传统烟草、HNB烟支/加热产品、电子烟液、电子烟设备及其他吸烟产品。</span>
+                <span className="text-[#334155] text-base leading-7">禁止广告、促销或赞助吸烟产品，包括传统烟草、HNB 烟支/加热产品、电子烟液、电子烟设备及其他吸烟产品。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
@@ -708,7 +708,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
       <TrendAndRedLinesSection
         trendContent={
           <div className="space-y-4">
-            <p className="text-[#334155] text-base leading-7">马来西亚控烟政策的核心目标，是控制尼古丁消费扩张、降低未成年人接触风险，并把新型吸烟产品纳入公共健康监管。传统烟草和 HNB烟支仍有合法空间，但监管态度偏控制型，后续重点会继续围绕税务、包装警示、销售限制和广告禁令展开。</p>
+            <p className="text-[#334155] text-base leading-7">马来西亚控烟政策的核心目标，是控制尼古丁消费扩张、降低未成年人接触风险，并把新型吸烟产品纳入公共健康监管。传统烟草和 HNB 烟支仍有合法空间，但监管态度偏控制型，后续重点会继续围绕税务、包装警示、销售限制和广告禁令展开。</p>
             <p className="text-[#334155] text-base leading-7">含尼古丁电子烟的政策方向已经转向禁止销售。2026年液体尼古丁判决使电子烟用液体/凝胶尼古丁继续受到毒物管制，含尼古丁电子烟失去进入普通商业流通的前置基础。结合卫生部推动电子烟禁令和地方销售执照限制，马来西亚短期内更可能继续压缩含尼古丁电子烟作为消费品进入零售市场的空间。</p>
             <p className="text-[#334155] text-base leading-7">尼古丁袋、尼古丁口含膜等口含类新型尼古丁产品尚未形成清晰准入路径。结合电子烟监管方向，后续监管更可能优先防止此类产品以新形态绕开烟草、毒物或药剂监管进入普通消费市场。</p>
           </div>
@@ -716,7 +716,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         redLineItems={[
           "严禁向未成年人销售、供应或提供任何吸烟产品。",
           "严禁将含尼古丁电子烟液、含尼古丁烟弹、一次性含尼古丁电子烟作为消费型电子烟产品，通过电子烟店、电商平台、经销商、社交媒体、递样、试用或商业推广方式进入市场。",
-          "严禁在未完成卫生总监产品注册前，销售传统卷烟、雪茄、烟丝、HNB烟支、不含尼古丁电子烟液或其他应注册吸烟产品。",
+          "严禁在未完成卫生总监产品注册前，销售传统卷烟、雪茄、烟丝、HNB 烟支、不含尼古丁电子烟液或其他应注册吸烟产品。",
           "严禁通过线上平台、自动售货机销售吸烟产品。",
           "严禁在教育机构、临时摊位或临时市场销售吸烟产品。",
           "严禁公开陈列吸烟产品。",
@@ -740,7 +740,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                 showSeparator
                 url="https://assets.tobaccocontrollaws.org/uploads/legislation/Malaysia/Malaysia-TC-Regs-2024-PL.pdf"
                 title="《公共健康吸烟产品管制（包装和标签）规例》"
-                description="细化卷烟、雪茄、散装烟草、无烟烟草、HNB烟支/加热产品、电子烟液、烟弹、一次性电子烟及相关设备的包装、标签、健康警示、健康信息、容量、尼古丁浓度和禁止性包装表述。"
+                description="细化卷烟、雪茄、散装烟草、无烟烟草、HNB 烟支/加热产品、电子烟液、烟弹、一次性电子烟及相关设备的包装、标签、健康警示、健康信息、容量、尼古丁浓度和禁止性包装表述。"
               />
             </ReferenceGroupCard>
 
