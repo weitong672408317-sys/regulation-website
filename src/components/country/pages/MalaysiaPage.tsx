@@ -31,7 +31,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         introText="2026年以来，马来西亚烟草及新型吸烟产品监管重点进一步转向执法落地和含尼古丁电子烟监管收紧。"
         items={[
           {
-            title: '液体/凝胶尼古丁判决改变含尼古丁电子烟监管状态',
+            title: '1. 液体/凝胶尼古丁判决改变含尼古丁电子烟监管状态',
             content: (
               <>
                 <p className="text-[#334155] text-base leading-7 mb-3">2026年5月，马来西亚高等法院认定，2023年将电子烟用液体/凝胶尼古丁从《毒药法》毒物清单中移除的决定违法。判决后，含尼古丁电子烟相关产品重新涉及《毒药法》管制。</p>
@@ -41,15 +41,15 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             ),
           },
           {
-            title: 'Act 852 执法进入常态化阶段',
+            title: '2. Act 852 执法进入常态化阶段',
             content: 'Act 852 生效后，卫生部已开展大规模执法行动，并发出大量处罚通知，禁烟区、未成年人购买或使用、场所管理责任成为主要执法事项。',
           },
           {
-            title: '吸烟产品广告推广出现公开处罚案例',
+            title: '3. 吸烟产品广告推广出现公开处罚案例',
             content: '2026年1月，马来西亚出现因推广电子烟产品而被处罚的公开案例。相关人员因违反 Act 852 关于禁止广告、促销或赞助吸烟产品的规定，被处以罚款。该动态说明吸烟产品的线上内容、播客、社交媒体和网红推广已进入执法视野。',
           },
           {
-            title: '加热烟草产品税负开始提高',
+            title: '4. 加热烟草产品税负开始提高',
             content: '马来西亚 2026 年预算提出，自2025年11月1日起提高烟草相关税负，其中加热烟草产品消费税按每公斤烟草含量增加 RM20。',
           },
         ]}
@@ -297,8 +297,8 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           </ul>
           <div className="grid md:grid-cols-3 gap-4">
             <StatusCard
-              status="amber"
-              customLabel="可准入，但需按产品形态确认"
+              status="green"
+              customLabel="可准入"
               title="烟叶、烟草薄片"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：烟叶、烟草薄片。</div>
