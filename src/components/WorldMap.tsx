@@ -21,8 +21,8 @@ const countryDataMap: Record<string, any> = {
   'Indonesia': { labelPos: [115, -3], countryCenter: [115, -5], name: '印尼', id: 'indonesia', isoCode: 'ID', intensity: '低至中' },
   'United Arab Emirates': { labelPos: [54, 26], countryCenter: [54, 24], name: '阿联酋', id: 'uae', isoCode: 'AE', intensity: '中' },
   'Russia': { labelPos: [100, 62], countryCenter: [100, 60], name: '俄罗斯', id: 'russia', isoCode: 'RU', intensity: '高' },
-  'Singapore': { labelPos: [116, 6], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG', intensity: '极高' },
-  'Malaysia': { labelPos: [85, 15], countryCenter: [101.69, 3.14], name: '马来西亚', id: 'malaysia', isoCode: 'MY', intensity: '高' },
+  'Singapore': { labelPos: [105, 0], countryCenter: [103.8, 1.35], name: '新加坡', id: 'singapore', isoCode: 'SG', intensity: '极高' },
+  'Malaysia': { labelPos: [100, 6], countryCenter: [101.69, 3.14], name: '马来西亚', id: 'malaysia', isoCode: 'MY', intensity: '高' },
   'Paraguay': { labelPos: [-58, -26], countryCenter: [-58, -23], name: '巴拉圭', id: 'paraguay', isoCode: 'PY', intensity: '低至中' },
   'Hong Kong': { labelPos: [110, 22], countryCenter: [114.17, 22.32], name: '中国香港', id: 'hongkong', isoCode: 'HK', intensity: '极高' },
 };
