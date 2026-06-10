@@ -55,14 +55,28 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           {
             title: '核心特征',
             content: (
-              <>
-                <p className="text-base leading-7 text-[#334155] text-justify mb-4">国家烟草专卖、严格许可准入、强计划管理、强渠道管控和强执法</p>
-                <BulletList items={[
-                  '中国内地将烟叶、卷烟等烟草制品及烟草专用机械作为烟草专卖品，实行专卖管理，即通过许可证、生产计划、准运证、专门销售渠道、进出口审批等方式，控制生产、销售、运输、进出口等全链条经营活动。',
-                  '电子烟已经纳入烟草监管体系，但电子烟与传统卷烟在许可证类型、产品技术审评、交易平台、批发零售渠道和产品标准方面适用不同规则。',
-                  '加热卷烟、尼古丁袋等新型烟草和新型尼古丁产品，目前尚未形成面向中国境内消费者市场的开放销售路径。',
-                ]} />
-              </>
+              <div className="text-justify">
+                <p className="text-lg font-semibold text-[#1F2A44] leading-7 mb-5">国家烟草专卖、严格许可准入、强计划管理、强渠道管控和强执法</p>
+                <div className="space-y-5">
+                  <div>
+                    <h4 className="font-bold text-[#243B63] text-base mb-2">专卖制度</h4>
+                    <p className="text-[#334155] text-base leading-7">中国内地将烟叶、卷烟等烟草制品及烟草专用机械作为烟草专卖品，实行国家烟草专卖制度。国家烟草专卖局与中国烟草总公司实行"一套人马、两块牌子"，分别承担专卖行政管理和行业经营管理职能。</p>
+                    <p className="text-[#334155] text-base leading-7 mt-2">专卖管理贯穿烟草专卖品生产、销售、运输、进出口等全链条，主要通过许可证、生产计划、准运证、专门销售渠道、进出口审批和执法检查等方式实现。</p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#243B63] text-base mb-2">卷烟等传统烟草制品</h4>
+                    <p className="text-[#334155] text-base leading-7">卷烟等传统烟草制品不是普通市场自由经营。生产、批发和进出口主要在中国烟草总公司及其所属企业体系内组织；零售主体需取得烟草专卖零售许可证，并在当地烟草专卖批发企业进货，接受发证机关监督管理。</p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#243B63] text-base mb-2">电子烟</h4>
+                    <p className="text-[#334155] text-base leading-7">电子烟已经纳入烟草监管体系，但与传统卷烟适用不同规则，主要体现在许可证类型、产品技术审评、交易平台、批发零售渠道和产品标准等方面。</p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#243B63] text-base mb-2">新型烟草和新型尼古丁产品</h4>
+                    <p className="text-[#334155] text-base leading-7">加热卷烟、尼古丁袋等新型烟草和新型尼古丁产品，目前尚未形成面向中国境内消费者市场的开放销售路径。</p>
+                  </div>
+                </div>
+              </div>
             ),
           },
           {
