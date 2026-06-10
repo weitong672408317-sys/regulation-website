@@ -440,7 +440,11 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                     <ul className="space-y-1.5">
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">11% + 0.005 元 / 支。</span>
+                        <span className="flex-1 min-w-0">批发环节不区分甲类、乙类。</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                        <span className="flex-1 min-w-0">按批发卷烟的销售额计征 11%，并按 0.005 元 / 支加征从量税。</span>
                       </li>
                     </ul>
                   </td>
@@ -479,11 +483,11 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                     <ul className="space-y-1.5">
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">36%。</span>
+                        <span className="flex-1 min-w-0">生产 / 进口环节税率为 36%。</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">电子烟代加工、品牌持有和进口安排会影响纳税主体和计税价格。</span>
+                        <span className="flex-1 min-w-0">生产环节按生产电子烟的销售额计税；进口环节按组成计税价格计税。</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
@@ -499,11 +503,11 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                     <ul className="space-y-1.5">
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">11%。</span>
+                        <span className="flex-1 min-w-0">批发环节税率为 11%。</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">批发安排会影响纳税主体和计税价格。</span>
+                        <span className="flex-1 min-w-0">按批发电子烟的销售额计税。</span>
                       </li>
                     </ul>
                   </td>
@@ -698,6 +702,26 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                 title="《尼古丁袋》强制性国家标准拟立项项目"
                 url="https://cn.2firsts.com/news/du-jia--zhong-guo-qi-dong-jia-re-juan-yan-yu-ni-gu-ding-dai-qiang-zhi-xing-guo-jia-biao-zhun-zhi-ding-cheng-xu"
                 description="由国家烟草局提出，属于制定中的强制性国家标准项目，体现尼古丁袋技术监管规则建设进展。"
+                showSeparator
+              />
+            </ReferenceGroupCard>
+
+            <ReferenceGroupCard title="消费税相关规定">
+              <ReferenceItem
+                title="《财政部 国家税务总局关于调整烟产品消费税政策的通知》（财税〔2009〕84号）"
+                url="https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=918"
+                description="调整卷烟、雪茄烟等烟产品消费税政策。明确甲类卷烟、乙类卷烟的生产环节税率和从量税，雪茄烟生产环节税率，并在卷烟批发环节加征一道消费税。"
+              />
+              <ReferenceItem
+                title="《财政部 国家税务总局关于调整卷烟消费税的通知》（财税〔2015〕60号）"
+                url="https://shanghai.chinatax.gov.cn/zcfw/zcfgk/xfs/201507/t417688.html"
+                description="将卷烟批发环节从价税税率提高至 11%，并按 0.005 元 / 支加征从量税；兼营卷烟批发和零售业务的纳税人，应分别核算批发和零售环节销售额、销售数量。"
+                showSeparator
+              />
+              <ReferenceItem
+                title="《财政部 海关总署 税务总局关于对电子烟征收消费税的公告》（财政部 海关总署 税务总局公告2022年第33号）"
+                url="https://szs.mof.gov.cn/zhengcefabu/202210/t20221025_3847603.htm"
+                description="将电子烟纳入消费税征收范围，明确电子烟生产 / 进口环节税率为 36%，批发环节税率为 11%；生产、批发按销售额计税，进口按组成计税价格计税，并明确代加工电子烟由持有商标的企业缴纳消费税。"
                 showSeparator
               />
             </ReferenceGroupCard>
