@@ -348,15 +348,15 @@ export default function SingaporePage({ country }: SingaporePageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">适用于进口、批发和分销传统烟草产品的经营活动。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">适用于进口、批发和分销传统烟草产品的经营活动。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">进口、批发或分销烟草产品前，应取得 HSA 烟草进口商和批发商许可证。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">进口、批发或分销烟草产品前，应取得 HSA 烟草进口商和批发商许可证。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">申请通常需要提交经营主体、仓库或办公场所、生产商授权等资料，许可管理与具体经营安排相关。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">申请通常需要提交经营主体、仓库或办公场所、生产商授权等资料，许可管理与具体经营安排相关。</span>
               </div>
             </div>
           </div>
@@ -369,15 +369,15 @@ export default function SingaporePage({ country }: SingaporePageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">适用于在新加坡本地零售传统烟草产品的门店。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">适用于在新加坡本地零售传统烟草产品的门店。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">烟草零售许可证按具体门店发放，经营多个门店的，应分别申请。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">烟草零售许可证按具体门店发放，经营多个门店的，应分别申请。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">零售许可证不得在不同公司或不同门店之间转让。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">零售许可证不得在不同公司或不同门店之间转让。</span>
               </div>
             </div>
           </div>
@@ -391,23 +391,23 @@ export default function SingaporePage({ country }: SingaporePageProps) {
           <div className="ml-9 space-y-2">
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">新加坡法规对部分禁止类产品设有有限豁免，涉及无烟烟草产品、雾化器溶液、雾化器、豁免仿烟产品及其组件。</span>
+              <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">新加坡法规对部分禁止类产品设有有限豁免，涉及无烟烟草产品、雾化器溶液、雾化器、豁免仿烟产品及其组件。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">法规列明的豁免目的包括非临床研究、产品开发和供应链相关活动。</span>
+              <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">法规列明的豁免目的包括非临床研究、产品开发和供应链相关活动。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">供应链相关活动指产品及组件的移动和储存，包括采购、供应商管理、生产排期、库存管理、进出口合规、分销及支持活动。</span>
+              <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">供应链相关活动指产品及组件的移动和储存，包括采购、供应商管理、生产排期、库存管理、进出口合规、分销及支持活动。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">上述供应链活动仅用于判断豁免目的范围，产品进口、持有、移动或储存还需满足豁免令对产品类型、行为、主体、通知、记录、储存和期限等条件。</span>
+              <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">上述供应链活动仅用于判断豁免目的范围，产品进口、持有、移动或储存还需满足豁免令对产品类型、行为、主体、通知、记录、储存和期限等条件。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">该等豁免不等同于本地消费市场准入，不能作为本地销售、递样、展示、推广或消费者使用的依据。</span>
+              <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">该等豁免不等同于本地消费市场准入，不能作为本地销售、递样、展示、推广或消费者使用的依据。</span>
             </div>
           </div>
         </div>

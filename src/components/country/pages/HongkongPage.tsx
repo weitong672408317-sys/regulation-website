@@ -304,15 +304,15 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">适用于传统卷烟、雪茄、中国熟烟及其他制成烟草的进口和出口。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">适用于传统卷烟、雪茄、中国熟烟及其他制成烟草的进口和出口。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">进口或出口应课税烟草产品前，应向香港海关申请应课税品进口 / 出口许可证。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">进口或出口应课税烟草产品前，应向香港海关申请应课税品进口 / 出口许可证。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">许可证对应具体进口或出口安排；取得许可证后，仍需按海关要求完成报关、缴税、仓储或货物流转手续。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">许可证对应具体进口或出口安排；取得许可证后，仍需按海关要求完成报关、缴税、仓储或货物流转手续。</span>
               </div>
             </div>
           </div>
@@ -325,15 +325,15 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">适用于在香港制造传统卷烟、雪茄、中国熟烟及其他制成烟草。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">适用于在香港制造传统卷烟、雪茄、中国熟烟及其他制成烟草。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">制造应课税烟草产品前，应向香港海关申请应课税品制造商许可证。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">制造应课税烟草产品前，应向香港海关申请应课税品制造商许可证。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">制造环节需要配合海关监管，并保存产量、库存、仓储和完税相关记录。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">制造环节需要配合海关监管，并保存产量、库存、仓储和完税相关记录。</span>
               </div>
             </div>
           </div>
@@ -346,15 +346,15 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">仓库许可证解决"在哪里存放、由谁经营仓库"的问题；移离许可证解决"哪批货从哪里移到哪里"的问题。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">仓库许可证解决"在哪里存放、由谁经营仓库"的问题；移离许可证解决"哪批货从哪里移到哪里"的问题。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">未完税应课税烟草产品通常应存放在获许可的仓库内；经营相关仓库的，应向香港海关申请应课税品仓库许可证。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">未完税应课税烟草产品通常应存放在获许可的仓库内；经营相关仓库的，应向香港海关申请应课税品仓库许可证。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">应课税烟草产品从进口运输工具、保税仓、获准地点或本地流通节点移离时，应按具体货物和路线申请移离许可证。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">应课税烟草产品从进口运输工具、保税仓、获准地点或本地流通节点移离时，应按具体货物和路线申请移离许可证。</span>
               </div>
             </div>
           </div>
@@ -367,23 +367,23 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">另类吸烟产品、无烟烟草产品已被禁止，不能通过毒药牌照、药剂制品注册或其他医药监管路径进入香港本地消费市场。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">另类吸烟产品、无烟烟草产品已被禁止，不能通过毒药牌照、药剂制品注册或其他医药监管路径进入香港本地消费市场。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">本项主要适用于不含烟草、但含尼古丁的尼古丁袋、尼古丁口含膜、含尼古丁口含烟等口含类产品。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">本项主要适用于不含烟草、但含尼古丁的尼古丁袋、尼古丁口含膜、含尼古丁口含烟等口含类产品。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">尼古丁（烟草除外）在香港属于毒药表第一部毒药。尼古丁制品产品进入香港前，应确认是否需要毒药销售、供应或管有相关牌照。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">尼古丁（烟草除外）在香港属于毒药表第一部毒药。尼古丁制品产品进入香港前，应确认是否需要毒药销售、供应或管有相关牌照。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">产品如带有戒烟、治疗或其他药用用途，可能被认定为药剂制品，进而需要完成药剂制品注册。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">产品如带有戒烟、治疗或其他药用用途，可能被认定为药剂制品，进而需要完成药剂制品注册。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">未取得毒药相关牌照、药剂制品注册或其他明确合法政府许可的，不得将相关产品进口、销售、供应、递样或携带进入香港。</span>
+                <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">未取得毒药相关牌照、药剂制品注册或其他明确合法政府许可的，不得将相关产品进口、销售、供应、递样或携带进入香港。</span>
               </div>
             </div>
           </div>
@@ -422,8 +422,8 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             </table>
           </div>
           <div className="mt-3 space-y-2">
-            <p className="text-[#334155] text-base leading-6">香烟长度超过 90 毫米的，不包括滤嘴或烟嘴，每增加 90 毫米或不足 90 毫米，按另一支香烟计算。</p>
-            <p className="text-[#334155] text-base leading-6">传统卷烟、雪茄、中国熟烟及其他制成烟草进入香港市场销售前，应按产品类别缴纳烟草税，并保留完税证明及相关流通文件。</p>
+            <p className="text-[#334155] text-base leading-7">香烟长度超过 90 毫米的，不包括滤嘴或烟嘴，每增加 90 毫米或不足 90 毫米，按另一支香烟计算。</p>
+            <p className="text-[#334155] text-base leading-7">传统卷烟、雪茄、中国熟烟及其他制成烟草进入香港市场销售前，应按产品类别缴纳烟草税，并保留完税证明及相关流通文件。</p>
           </div>
         </TaxTableCard>
 
@@ -432,15 +432,15 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">2025年10月6日，香港推出完税烟标签制度先导计划。</span>
+              <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">2025年10月6日，香港推出完税烟标签制度先导计划。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">第一阶段计划于2026年第四季度推出，目标于2027年第二季度全面实施。</span>
+              <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">第一阶段计划于2026年第四季度推出，目标于2027年第二季度全面实施。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-base leading-6 flex-1 min-w-0">完税烟标签将同时具备物理及数字防伪特征，用于区分已完税和未完税卷烟，并协助海关打击私烟。</span>
+              <span className="text-[#334155] text-base leading-7 flex-1 min-w-0">完税烟标签将同时具备物理及数字防伪特征，用于区分已完税和未完税卷烟，并协助海关打击私烟。</span>
             </div>
           </div>
         </TaxTableCard>

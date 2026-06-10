@@ -1,10 +1,12 @@
 'use client';
 
 import { ComposableMap, Geographies, Geography, Line, Marker } from 'react-simple-maps';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState, useCallback } from 'react';
 
-const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+// Use local GeoJSON instead of CDN to eliminate 3+ second network latency
+const geoUrl = '/data/countries-110m.json';
 
 type CountryMapData = {
   labelPos: [number, number];
@@ -18,16 +20,13 @@ type CountryMapData = {
   labelLine?: boolean;
 };
 
-// 监管强度颜色映射 - 与 ComparisonTable 的 Tailwind badge 颜色完全一致
-// 极高=bg-red-600(#DC2626) 高=bg-orange-500(#F97316) 中=bg-yellow-400(#FACC15) 低至中=bg-lime-400(#A3E635)
 const intensityColorMap: Record<string, { fill: string; hover: string; pressed: string; solid: string }> = {
-  '极高': { fill: '#DC2626', hover: '#DC2626', pressed: '#DC2626', solid: '#DC2626' },   // 红色系
-  '高':   { fill: '#F97316', hover: '#F97316', pressed: '#F97316', solid: '#F97316' },   // 橙色系
-  '中':   { fill: '#FACC15', hover: '#FACC15', pressed: '#FACC15', solid: '#FACC15' },   // 黄色系
-  '低至中': { fill: '#A3E635', hover: '#A3E635', pressed: '#A3E635', solid: '#A3E635' }, // 绿色系
+  '极高': { fill: '#DC2626', hover: '#DC2626', pressed: '#DC2626', solid: '#DC2626' },
+  '高':   { fill: '#F97316', hover: '#F97316', pressed: '#F97316', solid: '#F97316' },
+  '中':   { fill: '#FACC15', hover: '#FACC15', pressed: '#FACC15', solid: '#FACC15' },
+  '低至中': { fill: '#A3E635', hover: '#A3E635', pressed: '#A3E635', solid: '#A3E635' },
 };
 
-// 恢复自 82bd244 版本的国家位置配置，删除台湾
 const countryDataMap: Record<string, CountryMapData> = {
   'China': { labelPos: [105, 38], countryCenter: [105, 35], name: '中国内地', id: 'china', isoCode: 'CN', intensity: '极高' },
   'Indonesia': {
@@ -69,7 +68,6 @@ const countryDataMap: Record<string, CountryMapData> = {
 
 const highlightCountryNames = new Set(Object.keys(countryDataMap));
 
-// Stable module-level helpers (no closure over state)
 const isCountryHighlighted = (geo: any) => {
   const name = geo.properties?.name;
   return highlightCountryNames.has(name);
@@ -83,13 +81,18 @@ const getCountryColors = (name: string) => {
   return intensityColorMap['中'];
 };
 
-// 图例数据
 const legendItems = [
   { color: intensityColorMap['极高'].solid, label: '禁止 / 高度限制' },
   { color: intensityColorMap['高'].solid, label: '强监管市场' },
   { color: intensityColorMap['中'].solid, label: '中等监管' },
   { color: intensityColorMap['低至中'].solid, label: '开放 / 相对友好' },
 ];
+
+const countryList = Object.entries(countryDataMap).map(([key, data]) => ({
+  key,
+  data,
+  colors: getCountryColors(key),
+}));
 
 export default function WorldMap() {
   const router = useRouter();
@@ -111,16 +114,20 @@ export default function WorldMap() {
 
   const handleCountryHover = useCallback((name: string) => {
     const data = countryDataMap[name];
-    if (data?.id) {
-      router.prefetch(`/country/${data.id}`);
-    }
     if (data) {
       setHoveredCountry(data.name);
     }
-  }, [router]);
+  }, []);
 
   return (
     <div className="w-full bg-gray-100 rounded-lg p-4">
+      {/* Hidden prefetch links - preload all country pages on mount */}
+      <div className="hidden" aria-hidden="true">
+        {countryList.map(({ data }) => (
+          <Link key={data.id} href={`/country/${data.id}`} prefetch={true} />
+        ))}
+      </div>
+
       <div className="overflow-x-auto">
         <div className="min-w-[800px] h-[550px]">
           <ComposableMap 
@@ -172,8 +179,7 @@ export default function WorldMap() {
               }
             </Geographies>
 
-            {Object.values(countryDataMap).map((data) => {
-              const colors = getCountryColors(Object.keys(countryDataMap).find(k => countryDataMap[k] === data) || '');
+            {countryList.map(({ data, colors }) => {
               const labelDx = data.labelOffset?.dx ?? 0;
               const labelDy = data.labelOffset?.dy ?? 0;
               return (
@@ -184,7 +190,7 @@ export default function WorldMap() {
                       fill={colors.fill}
                       stroke="white"
                       strokeWidth="2"
-                      style={{ cursor: data.id ? 'pointer' : 'default' }}
+                      style={{ cursor: 'pointer' }}
                       onClick={() => handleLabelClick(data.id)}
                     />
                   </Marker>
@@ -215,9 +221,7 @@ export default function WorldMap() {
                           stroke="#FFFFFF"
                           strokeWidth={2}
                           strokeLinejoin="round"
-                          style={{
-                            cursor: data.id ? 'pointer' : 'default',
-                          }}
+                          style={{ cursor: 'pointer' }}
                           onClick={() => handleLabelClick(data.id)}
                         >
                           {data.name}

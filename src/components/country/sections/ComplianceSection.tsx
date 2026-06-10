@@ -20,21 +20,21 @@ export function ComplianceSection({ country, isRussiaStyle = true, overview, chi
           {country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
             <>
               {(overview || country.compliance.licenseRequirements) && (
-                <p className="text-[#334155] mb-6">{overview || country.compliance.licenseRequirements}</p>
+                <p className="text-[#334155] mb-6 text-justify">{overview || country.compliance.licenseRequirements}</p>
               )}
               <ComplianceLicenseCards cards={country.compliance.licenseCards} isRussia={isRussiaStyle} />
             </>
           ) : country.compliance.genericTable ? (
             <>
               {(overview || country.compliance.licenseRequirements) && (
-                <p className="text-[#334155] mb-6">{overview || country.compliance.licenseRequirements}</p>
+                <p className="text-[#334155] mb-6 text-justify">{overview || country.compliance.licenseRequirements}</p>
               )}
               <GenericComplianceTable data={country.compliance.genericTable} isRussia={isRussiaStyle} />
             </>
           ) : country.compliance.secondGenericTable ? (
             <>
               {(overview || country.compliance.licenseRequirements) && (
-                <p className="text-[#334155] mb-6">{overview || country.compliance.licenseRequirements}</p>
+                <p className="text-[#334155] mb-6 text-justify">{overview || country.compliance.licenseRequirements}</p>
               )}
               <GenericComplianceTable data={country.compliance.secondGenericTable} isRussia={isRussiaStyle} />
             </>
@@ -64,7 +64,7 @@ export function ComplianceSection({ country, isRussiaStyle = true, overview, chi
               </table>
             </div>
           ) : (overview || country.compliance.licenseRequirements) ? (
-            <p className="text-[#334155]">{overview || country.compliance.licenseRequirements}</p>
+            <p className="text-[#334155] text-justify">{overview || country.compliance.licenseRequirements}</p>
           ) : null}
         </>
       )}

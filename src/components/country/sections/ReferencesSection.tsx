@@ -20,7 +20,7 @@ export function ReferenceItem({ title, url, description, children, showSeparator
         <div className="font-semibold text-[#243B63] text-base mb-2">{title}</div>
       )}
       {description && (
-        <p className="text-sm text-[#334155] leading-6">{description}</p>
+        <p className="text-sm text-[#334155] leading-6 text-justify">{description}</p>
       )}
       {children}
     </div>

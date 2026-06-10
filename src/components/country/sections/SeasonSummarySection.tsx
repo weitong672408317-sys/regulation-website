@@ -16,7 +16,7 @@ export function SeasonSummarySection({ introText, items, children }: SeasonSumma
   return (
     <SectionCard title="本季监管动态">
       {introText && (
-        <p className="text-[#334155] text-base leading-7 mb-5">{introText}</p>
+        <p className="text-[#334155] text-base leading-7 mb-5 text-justify">{introText}</p>
       )}
       {items && items.length > 0 && (
         <div className="space-y-3">
@@ -25,7 +25,7 @@ export function SeasonSummarySection({ introText, items, children }: SeasonSumma
               <div className="flex items-start gap-3">
                 <div className="flex-1">
                   <h4 className="font-bold text-[#373F7A] text-base mb-1">{item.title}</h4>
-                  <div className="text-[#334155] text-base leading-7">{item.content}</div>
+                  <div className="text-[#334155] text-base leading-7 text-justify">{item.content}</div>
                 </div>
               </div>
             </SubCard>
