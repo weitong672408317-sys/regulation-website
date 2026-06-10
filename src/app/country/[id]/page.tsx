@@ -8,6 +8,7 @@ import {
   TableCellContent, EmirateDifferencesTable
 } from '../../../components/country/CountryComponents';
 import ScrollToTop from '../../../components/country/ScrollToTop';
+import SidebarNav from '../../../components/country/SidebarNav';
 
 const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'));
 const UaePage = dynamic(() => import('../../../components/country/pages/UaePage'));
@@ -58,38 +59,44 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
 
   const CountryPageComponent = countryPageMap[country.id];
 
+  // Countries with dedicated page components use sidebar layout
   if (CountryPageComponent) {
     return (
       <div className="min-h-screen bg-[#F7F9FC]">
         <ScrollToTop countryId={country.id} />
         <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="max-w-7xl lg:max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Link href="/" className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
               <span className="text-lg">←</span> 返回首页
             </Link>
           </div>
         </header>
 
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <section className="mb-8">
-            <h1 className="text-5xl font-bold text-[#0F172A] mb-6">{country.name}</h1>
-          </section>
+        <main className="max-w-7xl lg:max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex gap-8">
+            <SidebarNav countryId={country.id} />
+            <div className="flex-1 min-w-0">
+              <section className="mb-8">
+                <h1 className="text-5xl font-bold text-[#0F172A] mb-6">{country.name}</h1>
+              </section>
 
-          <Suspense fallback={<PageLoading />}>
-            <CountryPageComponent country={country} />
-          </Suspense>
+              <Suspense fallback={<PageLoading />}>
+                <CountryPageComponent country={country} />
+              </Suspense>
 
-          <section className="mb-8">
-            <div className="bg-[#F2F4F7] border border-[#E1E5EA] rounded-xl p-5">
-              <p className="text-sm text-[#64748B] leading-relaxed">
-                免责声明：本网站所载内容仅供一般信息参考，不构成法律意见、合规意见、税务意见或其他专业意见，也不应作为任何商业决策、市场准入、产品注册、进口、销售或宣传行为的依据。相关法律法规、监管口径和执法实践可能随时调整；如涉及具体产品、交易安排或合规判断，请结合最新法规、主管机关口径及当地专业顾问意见进行确认。
-              </p>
+              <section className="mb-8">
+                <div className="bg-[#F2F4F7] border border-[#E1E5EA] rounded-xl p-5">
+                  <p className="text-sm text-[#64748B] leading-relaxed">
+                    免责声明：本网站所载内容仅供一般信息参考，不构成法律意见、合规意见、税务意见或其他专业意见，也不应作为任何商业决策、市场准入、产品注册、进口、销售或宣传行为的依据。相关法律法规、监管口径和执法实践可能随时调整；如涉及具体产品、交易安排或合规判断，请结合最新法规、主管机关口径及当地专业顾问意见进行确认。
+                  </p>
+                </div>
+              </section>
             </div>
-          </section>
+          </div>
         </main>
 
         <footer className="bg-white border-t border-[#D8E0EA]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="max-w-7xl lg:max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <p className="text-center text-[#64748B] text-sm">© 2024 全球法规动态追踪. All rights reserved.</p>
           </div>
         </footer>

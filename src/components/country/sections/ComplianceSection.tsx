@@ -10,9 +10,9 @@ interface ComplianceSectionProps {
   children?: React.ReactNode;
 }
 
-export function ComplianceSection({ country, isRussiaStyle = true, overview, children }: ComplianceSectionProps) {
+export function ComplianceSection({ country, isRussiaStyle = true, overview, children, sectionId }: ComplianceSectionProps & { sectionId?: string }) {
   return (
-    <SectionCard title="合规资质">
+    <SectionCard title="合规资质" id={sectionId}>
       {children ? (
         children
       ) : (

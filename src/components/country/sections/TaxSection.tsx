@@ -33,9 +33,9 @@ interface TaxSectionProps {
   children?: React.ReactNode;
 }
 
-export function TaxSection({ introText, children }: TaxSectionProps) {
+export function TaxSection({ introText, children, sectionId }: TaxSectionProps & { sectionId?: string }) {
   return (
-    <SectionCard title="税收政策">
+    <SectionCard title="税收政策" id={sectionId}>
       {introText && (
         <div className="mb-6">
           {typeof introText === 'string' ? (

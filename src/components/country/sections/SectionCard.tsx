@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function SectionCard({ title, children }: { title: string; children: React.ReactNode }) {
+export function SectionCard({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
   return (
-    <section className="mb-8">
+    <section id={id} className={`mb-8${id ? ' scroll-mt-4' : ''}`}>
       <div className="bg-white border border-[#D4DAEA] rounded-2xl shadow-sm p-6">
         <h2 className="text-2xl font-bold text-[#243B63] mb-6 flex items-center gap-3">
           <div className="w-1 h-7 bg-[#4A6290] rounded-full"></div>
@@ -14,9 +14,9 @@ export function SectionCard({ title, children }: { title: string; children: Reac
   );
 }
 
-export function SubCard({ title, children, className = '' }: { title?: string; children: React.ReactNode; className?: string }) {
+export function SubCard({ title, children, className = '', id }: { title?: string; children: React.ReactNode; className?: string; id?: string }) {
   return (
-    <div className={`bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 ${className}`}>
+    <div id={id} className={`bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 ${className}${id ? ' scroll-mt-4' : ''}`}>
       {title && <h3 className="text-lg font-bold text-[#2E3F73] mb-4">{title}</h3>}
       {children}
     </div>

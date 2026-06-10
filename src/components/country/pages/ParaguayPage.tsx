@@ -21,7 +21,9 @@ import {
   SubCard,
   BulletList,
   BulletPoint,
+  ProductAccessOverviewSection,
 } from '../sections';
+import { paraguayProductAccessOverview } from '../../../data/productAccessOverview';
 
 interface ParaguayPageProps {
   country: CountryData;
@@ -30,7 +32,8 @@ interface ParaguayPageProps {
 export default function ParaguayPage({ country }: ParaguayPageProps) {
   return (
     <CountryPageTemplate>
-      <SeasonSummarySection>
+      <ProductAccessOverviewSection data={paraguayProductAccessOverview} sectionId="product-access-overview" />
+      <SeasonSummarySection sectionId="overview">
         <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
           <div className="space-y-4 text-[#334155] text-base leading-7 text-justify">
             <p>巴拉圭本季监管重点继续集中在《第7508/2025号法》实施后的电子烟、雾化器、烟油、配件和耗材注册、授权和税务合规。</p>
@@ -42,6 +45,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
       </SeasonSummarySection>
 
       <RegulatorySystemSection
+        sectionId="regulatory-system"
         cards={[
           {
             title: '核心特征',
@@ -71,13 +75,14 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         ]}
       />
 
-      <ProductAccessSection>
+      <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 传统烟草产品 / 烟草基产品" label="产品定性">
           <div className="space-y-4 text-[#334155] text-base leading-7 text-justify mb-4">
             <p>根据《第5538/2015号法》，"烟草产品"包括全部或部分以烟草叶为原料制备，并用于吸食、吸吮、咀嚼、鼻吸，或通过电子烟、雾化器或类似产品进行雾化、吸食或吸入的产品。</p>
             <p>DINAVISA 办理资料中使用 Productos a base de Tabaco（烟草基产品）作为烟草产品登记类别。传统卷烟、雪茄、烟丝、加工烟草等属于典型烟草基产品。</p>
           </div>
           <StatusCard
+            id="product-traditional-tobacco"
             status="green"
             customLabel="可准入，需登记"
             title="传统烟草产品 / 烟草基产品"
@@ -113,6 +118,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <p>《第7508/2025号法》同时覆盖其他含或不含尼古丁的新兴装置、相关设备、配件、耗材以及用于雾化的物质。雾化类电子烟、雾化器、烟油 / 补充液、相关配件和耗材，应纳入该专项监管框架判断。</p>
           </div>
           <StatusCard
+            id="product-ecig"
             status="green"
             customLabel="可准入，需注册"
             title="电子烟及雾化产品"
@@ -152,6 +158,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <StatusCard
+              id="product-heat-not-burn"
               status="green"
               customLabel="可准入，需登记"
               title="加热烟草烟支"
@@ -175,6 +182,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               </>}
             />
             <StatusCard
+              id="product-heating-device"
               status="green"
               customLabel="可准入，需注册"
               title="加热装置"
@@ -206,6 +214,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <StatusCard
+              id="product-nicotine-pouch"
               status="amber"
               customLabel="部分限制 / 需确认"
               title="尼古丁袋"
@@ -256,6 +265,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             />
 
             <StatusCard
+              id="product-oral-nicotine"
               status="amber"
               customLabel="部分限制 / 需确认"
               title="其他无烟草口含型尼古丁产品"
@@ -275,6 +285,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             />
 
             <StatusCard
+              id="product-smokeless-tobacco"
               status="amber"
               customLabel="部分限制 / 需确认"
               title="无烟烟草产品"
@@ -304,6 +315,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <p>烟草薄片、烟叶主要作为烟草原料或半成品管理；如已经制成供消费者使用的烟草基产品，应转入烟草产品登记路径。</p>
           </div>
           <StatusCard
+            id="product-tobacco-raw"
             status="green"
             customLabel="可准入，需按烟草原料 / 半成品管理"
             title="烟草原料 / 半成品"
@@ -338,6 +350,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
+              id="product-ordinary-material"
               status="green"
               customLabel="可准入"
               title="普通辅材及香精香料"
@@ -358,6 +371,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             />
 
             <StatusCard
+              id="product-nicotine-material"
               status="amber"
               customLabel="需按成分判断"
               title="含尼古丁 / 烟草成分辅材"
@@ -384,7 +398,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
       </ProductAccessSection>
 
-      <ComplianceSection country={country}>
+      <ComplianceSection sectionId="licenses" country={country}>
         <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 mb-4">
           <p className="text-[#334155] text-base leading-7 text-justify">巴拉圭烟草及新型尼古丁产品的合规资质主要包括三类：（1）DINAVISA 产品登记/注册；（2）DINAVISA 主体或经营场所登记/授权；（3）DNIT 商品归类、税务申报和进口文件。</p>
           <p className="text-[#334155] text-base leading-7 text-justify mt-2">HNB 产品需要拆分判断：HNB 烟支/加热烟草棒按烟草基产品路径处理；HNB设备/加热装置及相关配件按新兴装置、相关设备、配件和耗材路径处理。</p>
@@ -427,7 +441,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </div>
       </ComplianceSection>
 
-      <TaxSection introText="巴拉圭烟草、尼古丁产品进入本土市场，主要涉及三类税费：ISC（选择性消费税）、IVA（增值税）以及进口环节税费。">
+      <TaxSection sectionId="tax" introText="巴拉圭烟草、尼古丁产品进入本土市场，主要涉及三类税费：ISC（选择性消费税）、IVA（增值税）以及进口环节税费。">
         <TaxTableCard title="ISC（选择性消费税）">
           <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
             <table className="w-full text-base min-w-[500px] bg-white">
@@ -492,7 +506,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </TaxTableCard>
       </TaxSection>
 
-      <SalesRulesSection introText={'巴拉圭传统烟草产品和电子烟/雾化产品都要求避免未成年人购买和消费者直接接触产品；差异在于，传统烟草销售限制更接近"直接禁止"，电子烟/雾化产品则在远程销售、自动售货和陈列方面更强调身份识别、年龄识别和封闭管理。'}>
+      <SalesRulesSection sectionId="sales-rules" introText={'巴拉圭传统烟草产品和电子烟/雾化产品都要求避免未成年人购买和消费者直接接触产品；差异在于，传统烟草销售限制更接近"直接禁止"，电子烟/雾化产品则在远程销售、自动售货和陈列方面更强调身份识别、年龄识别和封闭管理。'}>
         <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
           <table className="w-full text-base min-w-[900px] bg-white">
             <thead>
@@ -533,7 +547,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </div>
       </SalesRulesSection>
 
-      <MarketOperationSection>
+      <MarketOperationSection sectionId="operation-rules">
         <RuleModuleCard number={1} title="包装、标签与成分限制">
           <div className="space-y-2 ml-9">
             <BulletPoint>烟草产品包装应使用规定健康警示；健康警示应覆盖包装正反面主要展示区域下方 40%。</BulletPoint>
@@ -559,6 +573,8 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
       </MarketOperationSection>
 
       <TrendAndRedLinesSection
+        sectionId="trend"
+        redLineId="red-lines"
         trendContent={
           <>
             <p className="text-[#334155] text-base leading-7 text-justify mb-4">巴拉圭未来一段时间仍会维持相对开放的烟草及新型尼古丁产品市场。传统烟草、电子烟、HNB 烟支及部分新型尼古丁产品均具备继续保留合法市场空间的政策基础，整体监管思路更倾向于在开放市场中建立秩序，而非压缩为禁止型市场。</p>
@@ -603,6 +619,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
       />
 
       <ReferencesSection
+        sectionId="resources"
         tipText="以下链接主要为官方公布文本、主管机关公开页面或官方信息公告。巴拉圭相关法律、决议和主管机关口径可能经过后续修订或更新，具体适用应以现行有效文本、后续修正和主管机关最新口径为准。"
         regulationContent={
           <div className="space-y-4">

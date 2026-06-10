@@ -25,9 +25,9 @@ interface MarketOperationSectionProps {
   children?: React.ReactNode;
 }
 
-export function MarketOperationSection({ children }: MarketOperationSectionProps) {
+export function MarketOperationSection({ children, sectionId }: MarketOperationSectionProps & { sectionId?: string }) {
   return (
-    <SectionCard title="市场运营规范">
+    <SectionCard title="市场运营规范" id={sectionId}>
       <div className="space-y-4">
         {children}
       </div>

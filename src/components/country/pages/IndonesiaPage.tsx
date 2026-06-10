@@ -19,8 +19,10 @@ import {
   ReferenceItem,
   BulletList,
   BulletPoint,
-  DotList
+  DotList,
+  ProductAccessOverviewSection
 } from '../sections';
+import { indonesiaProductAccessOverview } from '../../../data/productAccessOverview';
 import { TableCellContent } from '../CountryComponents';
 
 interface IndonesiaPageProps {
@@ -30,8 +32,10 @@ interface IndonesiaPageProps {
 export default function IndonesiaPage({ country }: IndonesiaPageProps) {
   return (
     <CountryPageTemplate>
+      <ProductAccessOverviewSection data={indonesiaProductAccessOverview} sectionId="product-access-overview" />
       {/* 一、本季监管动态 */}
       <SeasonSummarySection
+        sectionId="overview"
         introText="2026年以来，印尼烟草及电子烟监管的可确认新动态主要集中在电子烟监管新规、加强流通监管和烟草消费税政策三个方面。传统烟草、电子烟和 HPTL 仍有合法经营空间，但监管重点继续向产品标准、包装标签、广告限制、违法烟液和非法烟草市场治理集中。"
         items={[
           {
@@ -51,6 +55,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
       {/* 二、监管体系 */}
       <RegulatorySystemSection
+        sectionId="regulatory-system"
         cards={[
           {
             title: '核心特征',
@@ -81,7 +86,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       />
 
       {/* 三、产品准入与监管口径 */}
-      <ProductAccessSection>
+      <ProductAccessSection sectionId="product-access">
         {/* 1. 成瘾性物质与烟草制品 */}
         <ProductModuleCard title="1. 成瘾性物质与烟草制品" label="产品定性">
           <div className="space-y-2 mb-4">
@@ -90,6 +95,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <StatusCard
+              id="product-combustible-tobacco"
               status="green"
               title="燃烧类烟草制品"
               customLabel="可准入，但成品进口严格受限"
@@ -117,6 +123,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-heat-not-burn"
               status="green"
               title="加热烟草产品"
               customLabel="可准入"
@@ -157,6 +164,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             <BulletPoint>含有尼古丁和 / 或其他物质的电子烟及其加工产品，包括具有相同或类似类型与性质的合成制品，只要通过电子加热装置加热后吸入使用，也纳入电子烟管理范围。</BulletPoint>
           </div>
           <StatusCard
+            id="product-ecig"
             status="green"
             title="电子烟产品"
             customLabel="可准入，监管趋严"
@@ -192,6 +200,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <StatusCard
+              id="product-smokeless-tobacco"
               status="green"
               title="无烟烟草产品"
               customLabel="可准入"
@@ -215,6 +224,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-novel-nicotine"
               status="amber"
               title="新型尼古丁产品"
               customLabel="部分限制 / 需确认"
@@ -255,6 +265,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <StatusCard
+              id="product-tobacco-sheet"
               status="green"
               title="烟草薄片"
               customLabel="可准入，通常限于工厂自用"
@@ -278,6 +289,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-tobacco-leaf"
               status="green"
               title="烟叶"
               customLabel="可准入，但进口受政府管理"
@@ -310,6 +322,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <StatusCard
+              id="product-bead"
               status="green"
               title="爆珠 / 香精胶囊"
               customLabel="可准入，需按成分确认"
@@ -333,6 +346,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-filter"
               status="green"
               title="滤嘴棒"
               customLabel="可准入"
@@ -360,7 +374,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       </ProductAccessSection>
 
       {/* 四、合规资质 */}
-      <ComplianceSection country={country}>
+      <ComplianceSection sectionId="licenses" country={country}>
         <div className="bg-[#F3F5FB] border-l-4 border-[#4A6290] p-4 mb-6">
           <p className="text-[#2E3F73] font-medium text-lg mb-2">合规资质</p>
           <p className="text-[#334155] leading-relaxed text-justify">
@@ -486,7 +500,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       </ComplianceSection>
 
       {/* 五、税收政策 */}
-      <TaxSection introText="印尼烟草及尼古丁相关产品的税务判断，核心看两点：产品是否属于 BKC（应税消费品），以及产品是否进入印尼本土市场流通。">
+      <TaxSection sectionId="tax" introText="印尼烟草及尼古丁相关产品的税务判断，核心看两点：产品是否属于 BKC（应税消费品），以及产品是否进入印尼本土市场流通。">
         <TaxTableCard title="1. 消费税 Cukai">
           <div className="space-y-2">
             <div className="flex items-start gap-2">
@@ -566,7 +580,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       </TaxSection>
 
       {/* 六、市场运营规范 */}
-      <MarketOperationSection>
+      <MarketOperationSection sectionId="operation-rules">
         <div className="grid md:grid-cols-2 gap-4">
           <RuleModuleCard number={1} title="销售与陈列">
             <DotList items={[
@@ -616,6 +630,8 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
       {/* 七、趋势预判与红线警告 */}
       <TrendAndRedLinesSection
+        sectionId="trend"
+        redLineId="red-lines"
         trendContent={
           <>
             <p className="text-[#334155] text-base leading-7 text-justify mb-4">印尼目前没有明显信号显示将对传统烟草、HNB或电子烟实施全国性全面禁令。2026年以来可观察到的监管方向主要包括：</p>
@@ -680,6 +696,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
       {/* 八、重要资讯 */}
       <ReferencesSection
+        sectionId="resources"
         tipText="以下链接主要为官方公布文本、主管机关公开页面或官方信息公告。印尼相关法律、政府条例和主管机关口径可能经过后续修订或更新，具体适用应以现行有效文本、后续修正和主管机关最新口径为准。"
         regulationContent={
           <div className="space-y-4">

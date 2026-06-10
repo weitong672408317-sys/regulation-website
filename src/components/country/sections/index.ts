@@ -10,3 +10,4 @@ export { MarketOperationSection, RuleModuleCard } from './MarketOperationSection
 export { TrendAndRedLinesSection, RedLineBox } from './TrendAndRedLinesSection';
 export type { RedLineGroup } from './TrendAndRedLinesSection';
 export { ReferencesSection, ReferenceGroupCard, ReferenceItem } from './ReferencesSection';
+export { ProductAccessOverviewSection } from './ProductAccessOverviewSection';

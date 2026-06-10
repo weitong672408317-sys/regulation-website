@@ -1,9 +1,11 @@
 'use client';
 import React from 'react';
 import { CountryData } from '../../../../data/mockData';
+import { chinaProductAccessOverview } from '../../../data/productAccessOverview';
 import {
   CountryPageTemplate,
   SeasonSummarySection,
+  ProductAccessOverviewSection,
   RegulatorySystemSection,
   ProductAccessSection,
   ProductModuleCard,
@@ -30,7 +32,10 @@ interface ChinaPageProps {
 export default function ChinaPage({ country }: ChinaPageProps) {
   return (
     <CountryPageTemplate>
+      <ProductAccessOverviewSection data={chinaProductAccessOverview} sectionId="product-access-overview" />
+
       <SeasonSummarySection
+        sectionId="overview"
         introText="2026年以来，中国内地烟草及新型烟草监管重点继续向产业秩序、出口合规和新型产品规则建设延伸。电子烟监管更关注产能、订单、供应链和出口真实性；加热卷烟、尼古丁袋等产品的标准建设正在推进，但中国市场尚未开放。"
         items={[
           {
@@ -53,15 +58,14 @@ export default function ChinaPage({ country }: ChinaPageProps) {
       />
 
       <RegulatorySystemSection
+        sectionId="regulatory-system"
         cards={[
           {
             title: '核心特征',
             content: (
               <div className="text-justify">
-                {/* 主摘要 - 比小标题稍弱，使用 font-semibold，字号与正文相同 */}
-                <p className="text-base font-semibold text-[#1F2A44] leading-7 mb-5">国家烟草专卖、严格许可准入、强计划管理、强渠道管控和强执法</p>
+                <p className="text-base font-semibold text-[#243B63] leading-7 mb-5">国家烟草专卖、严格许可准入、强计划管理、强渠道管控和强执法</p>
                 <div className="space-y-5">
-                  {/* 模块内小标题 - 使用 font-bold，比主摘要略突出 */}
                   <div>
                     <h4 className="text-base font-bold text-[#2E3F73] mb-2">专卖制度</h4>
                     <div className="space-y-2">
@@ -105,13 +109,14 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         ]}
       />
 
-      <ProductAccessSection>
+      <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 烟草专卖品" label="产品定性">
           <ul className="space-y-2 pl-5 list-disc text-base leading-7 text-[#334155] text-justify mb-4">
             <li>《中华人民共和国烟草专卖法》将烟草专卖品定义为卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、卷烟纸、滤嘴棒、烟用丝束和烟草专用机械；其中，卷烟、雪茄烟、烟丝、复烤烟叶统称烟草制品。烟草薄片作为烟草原料加工形成的再造烟草材料，应结合具体产品形态、用途及流通环节，确定相应的烟草专卖监管要求。</li>
           </ul>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
+              id="product-tobacco-raw"
               status="amber"
               customLabel="可准入，但严格限制"
               title="烟草原料及制品"
@@ -127,6 +132,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-special-material"
               status="amber"
               customLabel="可准入，但严格限制"
               title="特殊配套材料"
@@ -150,6 +156,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           </ul>
           <div className="grid md:grid-cols-3 gap-4">
             <StatusCard
+              id="product-ecig"
               status="amber"
               customLabel="可准入，但严格限制"
               title="电子烟产品"
@@ -168,6 +175,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-e-liquid"
               status="amber"
               customLabel="可准入，但严格限制"
               title="雾化物及电子烟用烟碱"
@@ -184,6 +192,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-nicotine-free-ecig"
               status="red"
               customLabel="不得上市销售"
               title="无烟碱电子烟 / 变相电子烟产品"
@@ -208,12 +217,13 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           </ul>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
+              id="product-heat-not-burn"
               status="red"
               customLabel="完全禁止"
               title="加热烟草产品"
               content={<>
                 <div className="text-base text-[#334155] mb-3">产品定性：该类产品通常指通过专门加热装置加热烟草材料，产生气溶胶供消费者吸用的产品。</div>
-                <div className="text-base text-[#334155] mb-2">适用产品：加热卷烟、加热烟草棒</div>
+                <div className="text-base text-[#334155] mb-2">适用产品：加热卷烟、HNB烟支、加热烟草棒</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <StatusBulletPoint status="red">加热烟草产品具有烟草属性，但不同于已开放销售的传统卷烟，也不属于现行电子烟产品路径下的普通电子烟。</StatusBulletPoint>
@@ -223,6 +233,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-smokeless-tobacco"
               status="red"
               customLabel="完全禁止"
               title="无烟气烟草制品"
@@ -245,6 +256,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <li>《中华人民共和国烟草专卖法实施条例》规定，烟草专用机械是指烟草专用机械的整机，具体范围以国务院烟草专卖行政主管部门公布的烟草专用机械名录为准。</li>
           </ul>
           <StatusCard
+            id="product-machinery"
             status="amber"
             customLabel="可准入，但严格限制"
             title="烟草专用机械"
@@ -266,6 +278,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           </ul>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
+              id="product-ordinary-bead"
               status="green"
               customLabel="可准入"
               title="普通爆珠 / 香精胶囊"
@@ -279,6 +292,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-nicotine-bead"
               status="amber"
               customLabel="可准入，但严格限制"
               title="含尼古丁 / 烟草成分的爆珠、胶囊及类似辅材"
@@ -295,7 +309,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         </ProductModuleCard>
       </ProductAccessSection>
 
-      <ComplianceSection country={country}>
+      <ComplianceSection country={country} sectionId="licenses">
         <p className="text-[#334155] text-base leading-7 text-justify mb-6">中国烟草及新型烟草业务的合规资质应按产品品类和经营活动分别判断。一般营业执照不足以开展涉烟业务，不同产品、不同环节需要不同类型和不同范围的烟草专卖许可证。</p>
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -401,7 +415,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         </div>
       </ComplianceSection>
 
-      <TaxSection>
+      <TaxSection sectionId="tax">
         <TaxTableCard title="消费税">
           <p className="text-[#334155] text-base leading-7 text-justify mb-4">中国对卷烟、雪茄烟、烟丝、电子烟等产品征收消费税。卷烟和电子烟的税率结构涉及多个征税环节，雪茄烟和烟丝的主要税率较明确。</p>
           <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
@@ -528,7 +542,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         </TaxTableCard>
       </TaxSection>
 
-      <MarketOperationSection>
+      <MarketOperationSection sectionId="operation-rules">
         <div className="grid md:grid-cols-2 gap-4">
           <RuleModuleCard number={1} title="销售渠道与平台交易">
             <DotList items={[
@@ -567,6 +581,8 @@ export default function ChinaPage({ country }: ChinaPageProps) {
       </MarketOperationSection>
 
       <TrendAndRedLinesSection
+        trendId="trend"
+        redLineId="red-lines"
         trendContent={
           <div className="space-y-4">
             <div className="space-y-2">
@@ -631,6 +647,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
       />
 
       <ReferencesSection
+        sectionId="resources"
         tipText="以下链接主要为官方公布文本、主管机关公开页面或官方信息公告。中国相关法律、行政法规、部门规章和主管机关口径可能经过后续修订或更新，具体适用应以现行有效文本、后续修正和主管机关最新口径为准。"
         regulationContent={
           <div className="space-y-4">

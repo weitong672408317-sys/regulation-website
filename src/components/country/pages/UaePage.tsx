@@ -20,8 +20,10 @@ import {
   SubCard,
   BulletList,
   BulletPoint,
-  DotList
+  DotList,
+  ProductAccessOverviewSection
 } from '../sections';
+import { uaeProductAccessOverview } from '../../../data/productAccessOverview';
 
 interface UaePageProps {
   country: CountryData;
@@ -30,7 +32,8 @@ interface UaePageProps {
 export default function UaePage({ country }: UaePageProps) {
   return (
     <CountryPageTemplate>
-      <SeasonSummarySection introText="本季无重大监管更新。" />
+      <ProductAccessOverviewSection data={uaeProductAccessOverview} sectionId="product-access-overview" />
+      <SeasonSummarySection introText="本季无重大监管更新。" sectionId="overview" />
 
       <RegulatorySystemSection cards={[
         {
@@ -70,7 +73,7 @@ export default function UaePage({ country }: UaePageProps) {
         },
       ]} />
 
-      <ProductAccessSection>
+      <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 烟草材料" label="产品定性">
           <div className="space-y-2 mb-4">
             <BulletPoint>阿联酋控烟法将烟草界定为各类烟草植物及其根、茎、叶、果实、绿色或干燥种子等部分。烟叶属于典型烟草原料。</BulletPoint>
@@ -78,6 +81,7 @@ export default function UaePage({ country }: UaePageProps) {
           <StatusCard
             status="green"
             title="烟草材料"
+            id="product-tobacco-material"
             customLabel="可准入，需合规"
             content={<>
               <div className="text-base text-[#334155] mb-2">适用产品：烟叶、烟草薄片、烟草废料及其他烟草原料</div>
@@ -104,6 +108,7 @@ export default function UaePage({ country }: UaePageProps) {
           <StatusCard
             status="green"
             title="燃烧类烟草制品"
+            id="product-combustible-tobacco"
             customLabel="可准入，需合规"
             content={<>
               <div className="text-base text-[#334155] mb-2">适用产品：传统卷烟、水烟烟草、雪茄、烟丝及其他燃烧类烟草制品</div>
@@ -169,6 +174,7 @@ export default function UaePage({ country }: UaePageProps) {
             <StatusCard
               status="green"
               title="加热烟草产品"
+              id="product-heat-not-burn"
               customLabel="可准入，需认证"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒、加热烟草产品</div>
@@ -202,6 +208,7 @@ export default function UaePage({ country }: UaePageProps) {
             <StatusCard
               status="green"
               title="无烟草尼古丁袋"
+              id="product-nicotine-pouch"
               customLabel="可准入，需认证"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：无烟草尼古丁袋、袋状口含尼古丁产品</div>
@@ -226,6 +233,7 @@ export default function UaePage({ country }: UaePageProps) {
             <StatusCard
               status="red"
               title="无烟烟草产品"
+              id="product-smokeless-tobacco"
               customLabel="完全禁止"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：含烟草咀嚼制品及其他含烟草但不经燃烧吸用的产品</div>
@@ -248,6 +256,7 @@ export default function UaePage({ country }: UaePageProps) {
             <StatusCard
               status="amber"
               title="其他新型尼古丁产品"
+              id="product-novel-nicotine"
               customLabel="需确认"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：尼古丁口含膜、尼古丁片、尼古丁粉末、鼻吸尼古丁产品及其他不含烟草但含尼古丁、且不属于无烟草尼古丁袋的口腔或鼻用产品</div>
@@ -279,6 +288,7 @@ export default function UaePage({ country }: UaePageProps) {
             <StatusCard
               status="green"
               title="普通辅材"
+              id="product-ordinary-material"
               customLabel="可准入"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：不含尼古丁、烟草成分或烟草提取物的普通辅材</div>
@@ -320,6 +330,7 @@ export default function UaePage({ country }: UaePageProps) {
           <StatusCard
             status="red"
             title="仿烟糖果 / 玩具"
+            id="product-imitation"
             customLabel="完全禁止"
             content={<>
               <div className="text-base text-[#334155] mb-2">适用产品：仿烟糖果 / 玩具</div>
@@ -474,7 +485,7 @@ export default function UaePage({ country }: UaePageProps) {
         </div>
       </ComplianceSection>
 
-      <TaxSection>
+      <TaxSection sectionId="tax">
         <TaxTableCard title="主要税种">
           <p className="text-[#334155] text-base leading-7 text-justify mb-4">烟草制品因其特殊性，在阿联酋涉及多种税务规定。主要包括消费税、增值税和企业所得税三类。</p>
           <p className="text-[#334155] text-base leading-7 text-justify mb-4">下面通过表格汇总对比这三种税种的适用范围、税率和企业的注册义务：</p>
@@ -582,7 +593,7 @@ export default function UaePage({ country }: UaePageProps) {
         </TaxTableCard>
       </TaxSection>
 
-      <MarketOperationSection>
+      <MarketOperationSection sectionId="operation-rules">
         <RuleModuleCard number={1} title="全面广告禁令">
           <p className="text-[#334155] text-base leading-7 text-justify mb-4">阿联酋对烟草制品实施极为严格的广告、促销和赞助禁令，主要内容如下：</p>
           <div className="space-y-4">
@@ -720,6 +731,7 @@ export default function UaePage({ country }: UaePageProps) {
       />
 
       <ReferencesSection
+        sectionId="resources"
         tipText="以下链接主要为官方公布文本、主管机关公开页面或官方信息公告。阿联酋相关法律、内阁决议和技术标准可能经过后续修订或更新，具体适用应以现行有效文本、后续修正和主管机关最新口径为准。"
         regulationContent={
           <div className="space-y-4">

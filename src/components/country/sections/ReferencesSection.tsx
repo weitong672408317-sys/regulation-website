@@ -58,10 +58,11 @@ export function ReferencesSection({
   regulationContent,
   newsTitle = '新闻 / 执法动态',
   newsContent,
-  children
-}: ReferencesSectionProps) {
+  children,
+  sectionId
+}: ReferencesSectionProps & { sectionId?: string }) {
   return (
-    <SectionCard title="重要资讯">
+    <SectionCard title="重要资讯" id={sectionId}>
       {children || (
         <>
           <div className="pb-6">

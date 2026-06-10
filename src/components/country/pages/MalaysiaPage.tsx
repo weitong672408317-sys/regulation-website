@@ -19,7 +19,9 @@ import {
   ReferenceItem,
   BulletList,
   BulletPoint,
+  ProductAccessOverviewSection,
 } from '../sections';
+import { malaysiaProductAccessOverview } from '../../../data/productAccessOverview';
 
 interface MalaysiaPageProps {
   country: CountryData;
@@ -28,7 +30,9 @@ interface MalaysiaPageProps {
 export default function MalaysiaPage({ country }: MalaysiaPageProps) {
   return (
     <CountryPageTemplate>
+      <ProductAccessOverviewSection data={malaysiaProductAccessOverview} sectionId="product-access-overview" />
       <SeasonSummarySection
+        sectionId="overview"
         introText="2026年以来，马来西亚烟草及新型吸烟产品监管重点进一步转向执法落地和含尼古丁电子烟监管收紧。"
         items={[
           {
@@ -57,6 +61,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
       />
 
       <RegulatorySystemSection
+        sectionId="regulatory-system"
         cards={[
           {
             title: '核心特征',
@@ -86,7 +91,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         ]}
       />
 
-      <ProductAccessSection>
+      <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 传统烟草及加热烟草产品" label="产品定性">
           <div className="space-y-2 mb-4">
             <BulletPoint>马来西亚 Act 852 使用"吸烟产品"作为上位概念，覆盖烟草产品、吸烟物质和替代烟草产品。传统卷烟、雪茄、烟丝/切丝烟草及其他制成烟草，属于典型烟草产品。</BulletPoint>
@@ -94,6 +99,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
+              id="product-traditional-tobacco"
               status="green"
               customLabel="可准入"
               title="传统烟草产品"
@@ -121,6 +127,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-heat-not-burn"
               status="green"
               customLabel="可准入"
               title="加热烟草产品"
@@ -161,8 +168,9 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
-              status="amber"
-              customLabel="高度受限 / 涉及药剂监管"
+              id="product-ecig"
+              status="red"
+              customLabel="高度受限"
               title="含尼古丁电子烟"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：含尼古丁烟油 / 电子烟液 / 补充液、含尼古丁烟弹 / 预灌装产品、含尼古丁电子雾化产品</div>
@@ -188,6 +196,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-nicotine-free-ecig"
               status="amber"
               customLabel="部分限制 / 准入受控"
               title="不含尼古丁电子烟、设备及替代烟草产品"
@@ -228,7 +237,8 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
-              status="amber"
+              id="product-smokeless-tobacco"
+              status="red"
               customLabel="高度受限"
               title="无烟烟草产品"
               content={<>
@@ -263,8 +273,9 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </>}
             />
             <StatusCard
-              status="amber"
-              customLabel="高度受限 / 涉及药剂监管"
+              id="product-novel-nicotine"
+              status="red"
+              customLabel="高度受限"
               title="新型尼古丁产品"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
@@ -298,6 +309,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             <StatusCard
+              id="product-tobacco-raw"
               status="green"
               customLabel="可准入"
               title="烟草原料 / 半成品"
@@ -325,6 +337,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-ordinary-material"
               status="green"
               customLabel="可准入"
               title="普通辅材及香精香料"
@@ -344,6 +357,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </>}
             />
             <StatusCard
+              id="product-nicotine-material"
               status="amber"
               customLabel="需按成分判断"
               title="含尼古丁 / 烟草成分辅材"
@@ -370,7 +384,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         </ProductModuleCard>
       </ProductAccessSection>
 
-      <ComplianceSection country={country}>
+      <ComplianceSection sectionId="licenses" country={country}>
         <p className="text-[#334155] text-base leading-7 text-justify mb-6">马来西亚烟草及新型吸烟产品涉及的核心资质，主要包括产品上市前注册、含尼古丁产品的药剂监管、本地制造业牌照，以及地方营业/零售场所许可。不同资质对应不同产品类别和经营环节，应结合具体产品和业务活动分别判断。</p>
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -482,7 +496,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         </div>
       </ComplianceSection>
 
-      <TaxSection introText="马来西亚烟草及新型吸烟产品主要涉及消费税和销售税。卷烟、雪茄和加热产品另有最低销售价格要求；2026年预算提出数字税票和尼古丁替代治疗产品税收豁免安排。">
+      <TaxSection sectionId="tax" introText="马来西亚烟草及新型吸烟产品主要涉及消费税和销售税。卷烟、雪茄和加热产品另有最低销售价格要求；2026年预算提出数字税票和尼古丁替代治疗产品税收豁免安排。">
         <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 mb-4">
           <h4 className="font-bold text-[#2E3F73] text-base mb-4">1. 消费税</h4>
           <div className="overflow-x-auto">
@@ -586,7 +600,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         </div>
       </TaxSection>
 
-      <MarketOperationSection>
+      <MarketOperationSection sectionId="operation-rules">
         <div className="grid md:grid-cols-2 gap-4">
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
             <div className="flex items-start gap-3 mb-4">
@@ -707,6 +721,8 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
       </MarketOperationSection>
 
       <TrendAndRedLinesSection
+        sectionId="trend"
+        redLineId="red-lines"
         trendContent={
           <div className="space-y-4">
             <p className="text-[#334155] text-base leading-7 text-justify">马来西亚控烟政策的核心目标，是控制尼古丁消费扩张、降低未成年人接触风险，并把新型吸烟产品纳入公共健康监管。传统烟草和 HNB 烟支仍有合法空间，但监管态度偏控制型，后续重点会继续围绕税务、包装警示、销售限制和广告禁令展开。</p>
@@ -728,6 +744,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
       />
 
       <ReferencesSection
+        sectionId="resources"
         tipText="以下链接主要为法律文本、监管规例、官方税务文件或主管机关公开资料。马来西亚烟草、电子烟、尼古丁及相关产品监管口径可能随 Act 852 配套规例、法院判决、卫生部口径和税务政策持续调整，具体适用应以现行有效文本和主管机关最新口径为准。"
         regulationContent={
           <div className="space-y-4">

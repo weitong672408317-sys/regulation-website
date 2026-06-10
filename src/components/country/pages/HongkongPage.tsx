@@ -20,7 +20,9 @@ import {
   BulletList,
   BulletPoint,
   DotList,
+  ProductAccessOverviewSection,
 } from '../sections';
+import { hongkongProductAccessOverview } from '../../../data/productAccessOverview';
 
 interface HongkongPageProps {
   country: CountryData;
@@ -29,35 +31,40 @@ interface HongkongPageProps {
 export default function HongkongPage({ country }: HongkongPageProps) {
   return (
     <CountryPageTemplate>
-      <SeasonSummarySection
-        introText="2026年以来，香港控烟监管继续围绕另类吸烟产品禁令、禁烟场景扩展、传统卷烟追溯和包装展示监管推进。"
-        items={[
-          {
-            title: '1. 另类吸烟产品管控进一步延伸至公众地方管有',
-            content: '自2026年4月30日起，香港禁止在公众地方管有指明另类吸烟产品，官方示例包括烟弹、加热烟支和草本烟。',
-          },
-          {
-            title: '2. 禁烟场景和罚则继续收紧',
-            content: '香港已禁止排队时吸烟，并将指定处所出入口外3米范围纳入法定禁烟区；吸烟罪行定额罚款为港币3,000元。',
-          },
-          {
-            title: '3. 传统卷烟流通追溯和包装展示监管分阶段推进',
-            content: '香港已于2025年10月6日推出完税烟标签制度先导计划，计划于2026年第四季度推出第一阶段，并于2027年第二季度全面实施。统一包装设计计划于2027年第二季度与完税烟标签制度同步实施；禁止加味传统吸烟产品将在完税烟标签制度和统一包装设计全面实施后推进。相关安排显示，香港后续不仅关注烟草是否完税，也会进一步管控传统吸烟产品的包装展示和口味吸引力。',
-          },
-        ]}
-      />
+      <div className="hk-page">
+        <ProductAccessOverviewSection data={hongkongProductAccessOverview} sectionId="product-access-overview" />
+        <SeasonSummarySection
+          sectionId="overview"
+          introText="2026年以来，香港控烟监管继续围绕另类吸烟产品禁令、禁烟场景扩展、传统卷烟追溯和包装展示监管推进。"
+          items={[
+            {
+              title: '1. 另类吸烟产品管控进一步延伸至公众地方管有',
+              content: '自2026年4月30日起，香港禁止在公众地方管有指明另类吸烟产品，官方示例包括烟弹、加热烟支和草本烟。',
+            },
+            {
+              title: '2. 禁烟场景和罚则继续收紧',
+              content: '香港已禁止排队时吸烟，并将指定处所出入口外3米范围纳入法定禁烟区；吸烟罪行定额罚款为港币3,000元。',
+            },
+            {
+              title: '3. 传统卷烟流通追溯和包装展示监管分阶段推进',
+              content: '香港已于2025年10月6日推出完税烟标签制度先导计划，计划于2026年第四季度推出第一阶段，并于2027年第二季度全面实施。统一包装设计计划于2027年第二季度与完税烟标签制度同步实施；禁止加味传统吸烟产品将在完税烟标签制度和统一包装设计全面实施后推进。相关安排显示，香港后续不仅关注烟草是否完税，也会进一步管控传统吸烟产品的包装展示和口味吸引力。',
+            },
+          ]}
+        />
 
       <RegulatorySystemSection
+        sectionId="regulatory-system"
         cards={[
           {
             title: '核心特征',
             content: (
               <>
-                <p className="text-base leading-7 text-[#334155] text-justify mb-4">传统吸烟产品有限准入、新型吸烟产品多环节禁止、非法烟草流通重点打击</p>
+                <p className="text-base leading-7 text-[#334155] text-justify mb-4">公共健康优先、传统烟草严管、新型吸烟产品禁止、新型尼古丁产品高度受限</p>
                 <BulletList items={[
-                  '传统卷烟、雪茄等传统吸烟产品可以依法进口和销售，但受完税、包装警示、广告限制、禁烟场所、未成年人保护和海关监管等约束。',
-                  '电子烟、加热烟草产品、草本烟等另类吸烟产品，禁止进口、制造、销售、推广及商业用途管有；在公众地方管有另类吸烟产品也被禁止。',
-                  '无烟烟草产品禁止进口、制造和销售等市场流通行为；含尼古丁但不含烟草的口含类产品，需进一步判断是否适用毒药和药剂制品监管。',
+                  '香港烟草监管以保护公共健康为核心理念，监管重点围绕降低烟草及相关产品对公众健康的影响展开，包括减少吸烟和减少二手烟接触。',
+                  '传统卷烟、雪茄等吸烟产品可以依法经营，但整体处于较高强度监管之下。',
+                  '电子烟、加热烟产品、草本烟等另类吸烟产品，以及无烟烟草产品，在香港均受到禁止性监管。',
+                  '含尼古丁但不含烟草的新型产品，因尼古丁属于毒药而被严格监管、高度受限；仅在符合药品、药剂制品或相关医药监管要求时，才可能存在合规路径。',
                 ]} />
               </>
             ),
@@ -66,10 +73,10 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             title: '监管部门',
             content: (
               <div className="space-y-3">
-                <BulletPoint><span className="font-semibold text-[#263247]">控烟酒办公室：</span>负责控烟政策、禁烟场所、排队吸烟禁令、另类吸烟产品禁令、烟草广告限制、传统吸烟产品销售限制和相关执法。</BulletPoint>
-                <BulletPoint><span className="font-semibold text-[#263247]">食物环境卫生署（FEHD）：</span>负责无烟烟草产品禁令相关执法。</BulletPoint>
-                <BulletPoint><span className="font-semibold text-[#263247]">药物办公室、药剂业及毒药管理局：</span>负责毒药及药剂制品监管，重点影响含尼古丁但不含烟草的口含类产品、含尼古丁物质和可能具有药剂属性的产品。</BulletPoint>
-                <BulletPoint><span className="font-semibold text-[#263247]">海关：</span>负责应课税品、烟草税、完税管理、私烟执法、边境执法，以及另类吸烟产品走私和非法进口查缉。</BulletPoint>
+                <BulletPoint><span className="font-semibold text-[#263247]">控烟酒办公室：</span>主要负责《吸烟（公众卫生）条例》下的控烟监管，包括传统吸烟产品销售限制、烟草广告、禁烟场所，以及另类吸烟产品禁令相关事项。</BulletPoint>
+                <BulletPoint><span className="font-semibold text-[#263247]">食物环境卫生署：</span>主要负责《无烟烟草产品（禁止）规例》下的无烟烟草产品监管。</BulletPoint>
+                <BulletPoint><span className="font-semibold text-[#263247]">药物办公室、药剂业及毒药管理局：</span>主要负责《药剂业及毒药条例》下的毒药及药剂制品监管，涉及含尼古丁但不含烟草的产品、尼古丁制剂及具有药剂属性的产品。</BulletPoint>
+                <BulletPoint><span className="font-semibold text-[#263247]">海关：</span>主要负责烟草应课税品和边境环节监管，包括烟草税、完税管理、私烟查缉，以及另类吸烟产品非法进口和走私查缉。</BulletPoint>
               </div>
             ),
           },
@@ -82,6 +89,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <BulletPoint>香港传统吸烟产品主要包括传统卷烟、雪茄、中国熟烟及其他制成烟草。</BulletPoint>
           </div>
           <StatusCard
+            id="product-traditional-tobacco"
             status="amber"
             customLabel="可准入，但严格限制"
             title="传统吸烟产品"
@@ -121,6 +129,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <BulletPoint>以任何物料卷裹、能够即时用于模仿传统吸烟的植物材料，即草本烟。</BulletPoint>
           </div>
           <StatusCard
+            id="product-alternative-smoking"
             status="red"
             customLabel="完全禁止"
             title="另类吸烟产品"
@@ -154,6 +163,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <BulletPoint>香港《无烟烟草产品（禁止）规例》（第132BW章）禁止无烟烟草产品进入市场流通。香港食环署公开执法资料称，无烟烟草产品是指含有烟草或以烟草为主要成分并拟供人口服的产品，包括嚼烟，不论是散烟叶、硬烟饼、湿烟饼、口嚼搓烟或口嚼卷烟，以及湿鼻烟；但不包括用鼻吸入的干鼻烟。</BulletPoint>
           </div>
           <StatusCard
+            id="product-smokeless-tobacco"
             status="red"
             customLabel="完全禁止"
             title="无烟烟草产品"
@@ -179,27 +189,28 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <BulletPoint>新型尼古丁产品应按是否含烟草、是否含尼古丁、是否拟供人口服分别判断。该类产品不能直接按普通消费品处理。</BulletPoint>
           </div>
           <StatusCard
-            status="amber"
-            customLabel="高度受限 / 涉及毒药及药剂制品判断"
+            id="product-novel-nicotine"
+            status="red"
+            customLabel="高度受限"
             title="新型尼古丁产品"
             content={<>
               <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843] mt-[9px] flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">含烟草并拟供人口服的，可能被按无烟烟草产品处理，不得进入香港市场流通。</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843] mt-[9px] flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">不含烟草但含尼古丁的口含类产品，可能被视为毒药表第一部毒药；如具有治疗、戒烟或其他药用宣称，还可能被认定为药剂制品。</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843] mt-[9px] flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">未取得毒药销售、供应、管有相关牌照或药剂制品注册的，不得进口、销售、供应、递样或携带相关产品进入香港。</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843] mt-[9px] flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">香港海关曾查获含怀疑第一部毒药尼古丁的口含烟。该案例说明，含尼古丁口含类产品即使不含烟草，也可能触发毒药监管和海关执法风险。</span>
                 </div>
               </div>
@@ -212,6 +223,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <BulletPoint>烟草薄片、烟叶等烟草材料主要作为烟草原料或半成品管理；是否进入传统吸烟产品、另类吸烟产品、无烟烟草产品或应课税品监管路径，应按加工形态、成分和最终产品形态判断。</BulletPoint>
           </div>
           <StatusCard
+            id="product-tobacco-material"
             status="amber"
             customLabel="需按烟草材料、制成烟草或应课税品分类判断"
             title="烟草材料"
@@ -246,6 +258,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
+              id="product-ordinary-material"
               status="green"
               customLabel="可准入"
               title="普通辅材及香精香料"
@@ -266,6 +279,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             />
 
             <StatusCard
+              id="product-special-material"
               status="amber"
               customLabel="需按成分和功能拆分判断"
               title="含特殊成分或特定功能辅材"
@@ -390,7 +404,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
         </div>
       </ComplianceSection>
 
-      <TaxSection>
+      <TaxSection sectionId="tax">
         <TaxTableCard title="烟草税">
           <p className="text-[#334155] text-base leading-7 text-justify mb-4">香港税收政策重点集中在传统吸烟产品的烟草税和卷烟完税识别。传统卷烟、雪茄、中国熟烟及其他制成烟草依法进入香港市场前，应按类别缴纳烟草税；另类吸烟产品、无烟烟草产品等禁止类产品，不能通过缴纳税款取得本地市场准入资格。</p>
           <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
@@ -446,7 +460,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
         </TaxTableCard>
       </TaxSection>
 
-      <MarketOperationSection>
+      <MarketOperationSection sectionId="operation-rules">
         <div className="grid md:grid-cols-2 gap-4">
           <RuleModuleCard number={1} title="销售渠道与本地流通">
             <DotList items={[
@@ -531,6 +545,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
       />
 
       <ReferencesSection
+        sectionId="resources"
         tipText="以下链接主要为官方公布文本、主管机关公开页面或官方信息公告。香港相关法例、附属法例和主管机关口径可能经过后续修订或更新，具体适用应以现行有效文本、后续修正和主管机关最新口径为准。"
         regulationContent={
           <div className="space-y-4">
@@ -649,6 +664,15 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           </ReferenceGroupCard>
         }
       />
+      </div>
+      <style jsx global>{`
+        .hk-page section p:not(table *),
+        .hk-page section span.flex-1:not(table *),
+        .hk-page section div.text-\\[\\#334155\\]:not(table *) {
+          text-align: justify;
+          text-justify: inter-ideograph;
+        }
+      `}</style>
     </CountryPageTemplate>
   );
 }

@@ -21,7 +21,9 @@ import {
   DotList,
   SectionCard,
   RedLineBox,
+  ProductAccessOverviewSection,
 } from '../sections';
+import { singaporeProductAccessOverview } from '../../../data/productAccessOverview';
 
 interface SingaporePageProps {
   country: CountryData;
@@ -30,6 +32,7 @@ interface SingaporePageProps {
 export default function SingaporePage({ country }: SingaporePageProps) {
   return (
     <CountryPageTemplate>
+      <ProductAccessOverviewSection data={singaporeProductAccessOverview} sectionId="product-access-overview" />
       {/* 本季监管动态 */}
       <SeasonSummarySection
         introText={<>2026年以来，新加坡烟草监管继续沿着&ldquo;传统烟草产品有限准入、新型产品从严禁止&rdquo;的方向推进。自2026年5月1日起，《Tobacco and Vaporisers Control Act 1993》生效，监管重点集中在雾化器、HNB产品、尼古丁袋、烟油、仿烟产品及相关组件的处罚升级、场所责任强化，以及传统烟草产品消费税提高。</>}
@@ -85,7 +88,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       />
 
       {/* 产品准入与监管口径 */}
-      <ProductAccessSection>
+      <ProductAccessSection sectionId="product-access">
         {/* 1. 传统烟草产品及烟草材料 */}
         <ProductModuleCard title="1. 传统烟草产品及烟草材料" label="产品定性">
           <div className="space-y-2 mb-4">
@@ -96,6 +99,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               status="amber"
               customLabel="可准入，但严格限制"
               title="传统烟草成品"
+              id="product-traditional-tobacco"
               content={<>
                 <div className="text-base text-justify text-[#334155] mb-2">适用产品：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、其他制成烟草</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -205,6 +209,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               status="red"
               customLabel="完全禁止"
               title="无烟烟草产品"
+              id="product-smokeless-tobacco"
               content={<>
                 <div className="text-base text-justify text-[#334155] mb-2">适用产品：口含烟、鼻烟、嚼烟、snus、可溶性烟草，以及 Gutkha、Khaini、Zarda 等含烟草但不经燃烧吸用的产品</div>
                 <div className="text-sm text-[#64748B] mb-2 leading-6">
@@ -234,6 +239,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               status="red"
               customLabel="完全禁止"
               title="新型尼古丁产品"
+              id="product-novel-nicotine"
               content={<>
                 <div className="text-base text-justify text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -257,6 +263,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               status="red"
               customLabel="完全禁止"
               title="仿烟产品及相关组件"
+              id="product-imitation"
               content={<>
                 <div className="text-base text-justify text-[#334155] mb-2">适用产品：仿烟产品、仿烟组件及相关配件</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -289,6 +296,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               status="green"
               customLabel="可准入，需按成分确认"
               title="爆珠 / 香精胶囊"
+              id="product-bead"
               content={<>
                 <div className="text-base text-justify text-[#334155] mb-2">适用产品：不含烟草、尼古丁或受控成分的爆珠、香精胶囊</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -312,6 +320,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               status="green"
               customLabel="可准入，需按成分确认"
               title="滤嘴棒及其他普通辅材"
+              id="product-filter"
               content={<>
                 <div className="text-base text-justify text-[#334155] mb-2">适用产品：滤嘴棒及其他不含烟草、尼古丁或受控成分的普通辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -414,7 +423,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       </ComplianceSection>
 
       {/* 税收政策 */}
-      <TaxSection>
+      <TaxSection sectionId="tax">
         <TaxTableCard title="1. 烟草消费税">
           <p className="text-[#334155] text-base leading-7 text-justify mb-4">新加坡烟草相关税负主要包括烟草消费税、关税和 GST。自2026年2月12日起，新加坡所有烟草产品消费税提高20%；下表为提高后的现行消费税率。</p>
           <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
@@ -516,7 +525,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       </MarketOperationSection>
 
       {/* 政策趋势分析 */}
-      <SectionCard title="政策趋势分析">
+      <SectionCard title="趋势预判" id="trend">
         <div className="space-y-4">
           <p className="text-[#334155] text-base leading-7 text-justify">新加坡烟草监管长期以控烟和公共健康保护为核心。传统烟草产品仍保留有限经营空间，但监管重点是减少展示、减少宣传、提高税负，并通过禁烟场所规则限制使用场景。电子烟、HNB 烟支、尼古丁袋、雾化器等新型产品则继续采取原则禁止和严格执法的路径。</p>
           <p className="text-[#334155] text-base leading-7 text-justify">2026年的修法进一步强化了这一方向。监管已经从传统的进口、销售和广告控制，延伸到购买、持有、使用、储存、场所责任、雾化器组件、仿烟产品以及含特定精神活性物质产品。</p>
@@ -525,7 +534,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       </SectionCard>
 
       {/* 合规红线清单 */}
-      <SectionCard title="合规红线清单">
+      <SectionCard title="合规红线清单" id="red-lines">
         <RedLineBox groups={[
           {
             title: '禁止类产品',
@@ -562,6 +571,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
 
       {/* 重要资讯 */}
       <ReferencesSection
+        sectionId="resources"
         tipText="以下链接主要为官方公布文本、主管机关公开页面或官方信息公告。新加坡相关法律、政府条例和主管机关口径可能经过后续修订或更新，具体适用应以现行有效文本、后续修正和主管机关最新口径为准。"
         regulationTitle="法规 / 官方资料"
         newsTitle="新闻 / 动态"

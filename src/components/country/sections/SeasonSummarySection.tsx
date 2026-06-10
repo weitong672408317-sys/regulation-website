@@ -12,9 +12,9 @@ interface SeasonSummarySectionProps {
   children?: React.ReactNode;
 }
 
-export function SeasonSummarySection({ introText, items, children }: SeasonSummarySectionProps) {
+export function SeasonSummarySection({ introText, items, children, sectionId }: SeasonSummarySectionProps & { sectionId?: string }) {
   return (
-    <SectionCard title="本季监管动态">
+    <SectionCard title="本季监管动态" id={sectionId}>
       {introText && (
         <p className="text-[#334155] text-base leading-7 mb-5 text-justify">{introText}</p>
       )}

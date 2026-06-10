@@ -12,9 +12,9 @@ interface RedLineBoxProps {
   children?: React.ReactNode;
 }
 
-export function RedLineBox({ groups, items, children }: RedLineBoxProps) {
+export function RedLineBox({ groups, items, children, id }: RedLineBoxProps & { id?: string }) {
   return (
-    <div className="bg-[#FEF2F2] border border-[#FCA5A5] rounded-xl p-5">
+    <div id={id} className={`bg-[#FEF2F2] border border-[#FCA5A5] rounded-xl p-5${id ? ' scroll-mt-4' : ''}`}>
       <div className="flex items-center gap-2 mb-4">
         <h3 className="text-lg font-bold text-[#DC2626]">合规红线清单</h3>
       </div>
@@ -57,16 +57,19 @@ interface TrendAndRedLinesSectionProps {
   redLineGroups?: RedLineGroup[];
   redLineItems?: string[];
   children?: React.ReactNode;
+  sectionId?: string;
+  trendId?: string;
+  redLineId?: string;
 }
 
-export function TrendAndRedLinesSection({ title = '趋势预判与红线警告', trendTitle = '趋势预判', trendContent, redLineGroups, redLineItems, children }: TrendAndRedLinesSectionProps) {
+export function TrendAndRedLinesSection({ title = '趋势预判与合规红线清单', trendTitle = '趋势预判', trendContent, redLineGroups, redLineItems, children, sectionId, trendId, redLineId }: TrendAndRedLinesSectionProps) {
   return (
-    <SectionCard title={title}>
+    <SectionCard title={title} id={sectionId}>
       <div className="space-y-4">
-        <SubCard title={trendTitle}>
+        <SubCard title={trendTitle} id={trendId}>
           {trendContent}
         </SubCard>
-        <RedLineBox groups={redLineGroups} items={redLineItems} />
+        <RedLineBox groups={redLineGroups} items={redLineItems} id={redLineId} />
         {children}
       </div>
     </SectionCard>

@@ -6,6 +6,8 @@ import {
   ComplianceLicenseCards, GenericComplianceTable,
   TableCellContent
 } from '../CountryComponents';
+import { ProductAccessOverviewSection } from '../sections';
+import { russiaProductAccessOverview } from '../../../data/productAccessOverview';
 import {
   CountryPageTemplate,
   SeasonSummarySection,
@@ -36,7 +38,9 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
   return (
     <CountryPageTemplate>
+      <ProductAccessOverviewSection data={russiaProductAccessOverview} sectionId="product-access-overview" />
       <SeasonSummarySection
+        sectionId="overview"
         introText="2026年以来，俄罗斯监管重点继续集中在产品许可、数字标识、税费和价格监管。烟草和尼古丁产品仍有合法准入空间，但经营端控制持续加强。"
         items={[
           {
@@ -69,6 +73,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
       />
 
       <RegulatorySystemSection
+        sectionId="regulatory-system"
         cards={[
           {
             title: '核心特征',
@@ -105,7 +110,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         ]}
       />
 
-      <ProductAccessSection>
+      <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 传统烟草制品" label="产品定性">
           <div className="space-y-2 mb-4">
             <BulletPoint>根据 TR CU 035/2014，烟草制品是全部或部分以烟草叶为原料制成，并以消费者包装投放市场的产品。</BulletPoint>
@@ -115,6 +120,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             status="amber"
             customLabel="可准入，强监管"
             title="传统烟草制品"
+            id="product-traditional-tobacco"
             content={<>
               <div className="text-base text-[#334155] mb-2">适用产品：传统卷烟、papirosy（俄式纸嘴卷烟）、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -133,6 +139,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             status="amber"
             customLabel="可准入，监管收紧"
             title="加热烟草产品"
+            id="product-heat-not-burn"
             content={<>
               <div className="text-base text-[#334155] mb-2">适用产品：HNB 烟支、加热消费用烟草、加热烟草产品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -149,6 +156,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               status="amber"
               customLabel="可准入，监管收紧"
               title="电子烟设备"
+              id="product-ecig"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：电子烟设备、雾化器、个人电加热雾化设备、相关装置及组件</div>
                 <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
@@ -175,6 +183,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               status="amber"
               customLabel="可准入，监管收紧"
               title="烟油 / 电子烟液 / 补充液"
+              id="product-e-liquid"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：烟油、电子烟液、补充液、含尼古丁或不含尼古丁的电子烟用液体</div>
                 <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
@@ -210,6 +219,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               status="amber"
               customLabel="可准入，监管收紧"
               title="烟弹 / 预灌装产品及组合产品"
+              id="product-cartridge"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：烟弹 / 预灌装产品、设备与液体组合产品、空烟弹、空雾化组件</div>
                 <div className="font-semibold text-[#263247] mb-1">产品定性：</div>
@@ -266,6 +276,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               status="red"
               customLabel="完全禁止"
               title="新型尼古丁产品"
+              id="product-novel-nicotine"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片、食品型尼古丁产品，以及其他不含烟草但含尼古丁的口含、鼻吸或咀嚼类产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -290,6 +301,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               status="amber"
               customLabel="可准入，强监管"
               title="传统非吸烟烟草产品"
+              id="product-non-smoking-tobacco"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：除 snus、nasvay 及其他明确禁售产品以外的非吸烟烟草产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -320,6 +332,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             status="green"
             customLabel="可准入"
             title="烟草及尼古丁原料"
+            id="product-tobacco-raw"
             content={<>
               <div className="text-base text-[#334155] mb-2">适用产品：烟叶、烟草薄片、烟草废料、尼古丁原料</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -354,6 +367,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               status="green"
               customLabel="可准入"
               title="普通辅材及香精香料"
+              id="product-ordinary-material"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：普通香精香料、爆珠、香精胶囊、滤嘴棒及其他不含烟草、尼古丁或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -374,6 +388,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               status="amber"
               customLabel="需按成分判断"
               title="含尼古丁 / 烟草成分辅材"
+              id="product-nicotine-material"
               content={<>
                 <div className="text-base text-[#334155] mb-2">适用产品：含尼古丁、烟草成分或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -393,9 +408,9 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         </ProductModuleCard>
       </ProductAccessSection>
 
-      <ComplianceSection country={country} isRussiaStyle={isRussiaStyle} />
+      <ComplianceSection country={country} isRussiaStyle={isRussiaStyle} sectionId="licenses" />
 
-      <TaxSection>
+      <TaxSection sectionId="tax">
         {country.tax.exciseTax && (
           <div className="mb-6">
             <p className="text-[#334155] text-base leading-7 text-justify">{country.tax.exciseTax}</p>
@@ -490,7 +505,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         )}
       </TaxSection>
 
-      <MarketOperationSection>
+      <MarketOperationSection sectionId="operation-rules">
         {country.marketOperation.regulations.length > 0 ? (
           <div className="grid md:grid-cols-2 gap-4">
             {country.marketOperation.regulations.map((regulation, index) => (
@@ -523,7 +538,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         )}
       </MarketOperationSection>
 
-      <SectionCard title="政策趋势分析">
+      <SectionCard title="趋势预判与合规红线清单" id="trend">
         <SubCard title="趋势分析">
           <div className="space-y-5">
             <div>
@@ -546,10 +561,11 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             </div>
           </div>
         </SubCard>
-        <RedLineBox items={country.trendsWarnings.redLines} />
+        <RedLineBox items={country.trendsWarnings.redLines} id="red-lines" />
       </SectionCard>
 
       <ReferencesSection
+        sectionId="resources"
         tipText="以下链接主要为官方公布文本、主管机关公开页面或官方信息公告。俄罗斯相关法律、政府令和部门公告可能经过后续修订或按年度更新，具体适用应以现行有效文本、后续修正和主管机关最新口径为准。"
         regulationContent={
           <div className="space-y-4">
