@@ -246,11 +246,11 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
-                    <span>以草本、中药、无烟碱、医疗器械等名义包装或宣传，不能当然排除电子烟监管。产品实质属于消费级雾化吸入产品的，可能被认定为变相电子烟，面临被查处、下架、行政处罚乃至刑事处罚等后果。</span>
+                    <span>以草本、中药、无烟碱、医疗器械等名义包装或宣传，不能当然排除电子烟监管；产品实际以类似电子烟方式使用的，可能被认定为变相电子烟，面临查处、下架、行政处罚乃至刑事处罚。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
-                    <span>医用雾化器、雾化吸入制剂、雾化给药装置等具有真实医疗用途的产品，应按药品、医疗器械等医药产品路径履行注册备案、生产销售和宣传使用要求，不应按消费级电子烟或变相电子烟路径包装销售。</span>
+                    <span>医用雾化器、雾化吸入制剂、雾化给药装置等真实医疗用途产品，应按药品、医疗器械等医药产品路径履行合规要求，不应按电子烟概念包装销售。</span>
                   </li>
                 </ul>
               </>}
@@ -269,17 +269,21 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               customLabel="完全禁止"
               title="加热烟草产品"
               content={<>
-                <div className="text-base text-[#334155] mb-3">产品定性：该类产品通常指通过专门加热装置加热烟草材料，产生气溶胶供消费者吸用的产品，监管上不能直接按已开放销售的传统卷烟或一般电子烟处理。</div>
+                <div className="text-base text-[#334155] mb-3">产品定性：该类产品通常指通过专门加热装置加热烟草材料，产生气溶胶供消费者吸用的产品。</div>
                 <div className="text-base text-[#334155] mb-2">适用产品：加热卷烟、加热烟草棒</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <ul className="space-y-1 text-[#334155]">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
-                    <span>中国目前尚未开放加热卷烟在境内生产、销售或流通。</span>
+                    <span>加热烟草产品具有烟草属性，但不同于已开放销售的传统卷烟，也不属于现行电子烟产品路径下的普通电子烟。</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
-                    <span>2026年《加热卷烟》强制性国家标准拟立项，说明监管标准建设正在推进；在正式准入规则、许可路径和销售渠道安排落地前，相关产品不能进入中国市场销售。</span>
+                    <span>中国目前尚未开放加热卷烟在境内消费者市场销售或流通。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-1.5 flex-shrink-0"></span>
+                    <span>2026年《加热卷烟》强制性国家标准拟立项，说明相关产品的定义、技术要求和质量安全规则正在推进；在准入规则、许可路径和销售渠道明确前，相关产品不能进入中国境内消费者市场销售。</span>
                   </li>
                 </ul>
               </>}
@@ -497,20 +501,21 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <table className="w-full text-base min-w-[600px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
-                  <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED]" style={{ width: '15%' }}>产品</th>
-                  <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED]" style={{ width: '20%' }}>征税环节</th>
-                  <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED]" style={{ width: '65%' }}>税率口径</th>
+                  <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED]" style={{ width: '12%' }}>产品</th>
+                  <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED]" style={{ width: '18%' }}>征税环节</th>
+                  <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED]" style={{ width: '70%' }}>税率口径</th>
                 </tr>
               </thead>
               <tbody>
+                {/* 卷烟 - 生产/进口环节 */}
                 <tr className="bg-white/50">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top">卷烟</td>
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节；批发环节</td>
+                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top" rowSpan={2}>卷烟</td>
+                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
                   <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
                     <ul className="space-y-1.5">
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span>生产 / 进口环节按甲类、乙类分别计征，并叠加从量税。</span>
+                        <span>按甲类、乙类分别计征，并叠加从量税。</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
@@ -520,13 +525,22 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
                         <span>乙类卷烟：调拨价每标准条 70 元以下，税率为 36% + 0.003 元 / 支。</span>
                       </li>
+                    </ul>
+                  </td>
+                </tr>
+                {/* 卷烟 - 批发环节 */}
+                <tr className="bg-white/50">
+                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">批发环节</td>
+                  <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
+                    <ul className="space-y-1.5">
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span>批发环节另按 11% + 0.005 元 / 支计征。</span>
+                        <span>11% + 0.005 元 / 支。</span>
                       </li>
                     </ul>
                   </td>
                 </tr>
+                {/* 雪茄烟 */}
                 <tr className="bg-[#F3F5FB]">
                   <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top">雪茄烟</td>
                   <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
@@ -539,6 +553,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                     </ul>
                   </td>
                 </tr>
+                {/* 烟丝 */}
                 <tr className="bg-white/50">
                   <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top">烟丝</td>
                   <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
@@ -551,26 +566,39 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                     </ul>
                   </td>
                 </tr>
+                {/* 电子烟 - 生产/进口环节 */}
                 <tr className="bg-[#F3F5FB]">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top">电子烟</td>
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节；批发环节</td>
+                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top" rowSpan={2}>电子烟</td>
+                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
                   <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
                     <ul className="space-y-1.5">
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span>生产 / 进口环节税率为 36%。</span>
+                        <span>36%。</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span>批发环节税率为 11%。</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span>电子烟代加工、品牌持有、进口和批发安排会影响纳税主体和计税价格。</span>
+                        <span>电子烟代加工、品牌持有和进口安排会影响纳税主体和计税价格。</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
                         <span>通过代加工方式生产电子烟的，由持有商标的企业缴纳消费税。</span>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                {/* 电子烟 - 批发环节 */}
+                <tr className="bg-[#F3F5FB]">
+                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">批发环节</td>
+                  <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
+                    <ul className="space-y-1.5">
+                      <li className="flex items-start gap-2">
+                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                        <span>11%。</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                        <span>批发安排会影响纳税主体和计税价格。</span>
                       </li>
                     </ul>
                   </td>
