@@ -1,15 +1,13 @@
-'use client';
-
-import React, { useEffect, useState, Suspense, useLayoutEffect } from 'react';
-import { useParams } from 'next/navigation';
-import dynamic from 'next/dynamic';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { baseCountries } from '../../../../data/mockData';
 import {
   InfoBlock, FormattedText, parseOverview,
   ComplianceLicenseCards, GenericComplianceTable,
   TableCellContent, EmirateDifferencesTable
 } from '../../../components/country/CountryComponents';
+import ScrollToTop from '../../../components/country/ScrollToTop';
 
 const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'));
 const UaePage = dynamic(() => import('../../../components/country/pages/UaePage'));
@@ -39,19 +37,12 @@ function PageLoading() {
   );
 }
 
-export default function CountryDetail() {
-  const params = useParams();
-  const countryId = params.id as string;
-  const [mounted, setMounted] = useState(false);
+export function generateStaticParams() {
+  return baseCountries.map(c => ({ id: c.id }));
+}
 
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, [countryId]);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+export default async function CountryDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id: countryId } = await params;
   const country = baseCountries.find(c => c.id === countryId) || null;
 
   if (!country) {
@@ -70,6 +61,7 @@ export default function CountryDetail() {
   if (CountryPageComponent) {
     return (
       <div className="min-h-screen bg-[#F7F9FC]">
+        <ScrollToTop countryId={country.id} />
         <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Link href="/" className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
@@ -107,6 +99,7 @@ export default function CountryDetail() {
 
   return (
     <div className="min-h-screen bg-[#F7F9FC]">
+      <ScrollToTop countryId={country.id} />
       <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link href="/" className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
