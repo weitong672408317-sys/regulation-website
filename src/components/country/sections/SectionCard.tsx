@@ -33,25 +33,40 @@ export function ProductLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function BulletList({ items, className = '' }: { items: React.ReactNode[]; className?: string }) {
+/**
+ * Unified bullet point component with proper hanging indent.
+ * Use this for all bullet point lists across country pages.
+ * - Bullet dot: w-1.5 h-1.5, rounded-full, color bg-[#4A6290]
+ * - Gap between dot and text: gap-2 (8px)
+ * - Text wraps with hanging indent (second line aligns with first line text)
+ */
+export function BulletPoint({ children }: { children: React.ReactNode }) {
   return (
-    <ul className={`space-y-3 pl-5 list-disc ${className}`}>
-      {items.map((item, index) => (
-        <li key={index} className="text-base leading-7 text-[#334155]">{item}</li>
-      ))}
-    </ul>
+    <div className="flex items-start gap-2">
+      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
+      <span className="text-[#334155] text-base leading-7 text-justify flex-1 min-w-0">{children}</span>
+    </div>
   );
 }
 
-export function DotList({ items }: { items: React.ReactNode[] }) {
+/**
+ * Unified bullet list using BulletPoint with proper hanging indent.
+ * Use this for all bullet lists across country pages.
+ */
+export function BulletList({ items, className = '' }: { items: React.ReactNode[]; className?: string }) {
   return (
-    <ul className="space-y-2">
+    <div className={`space-y-2 ${className}`}>
       {items.map((item, index) => (
-        <li key={index} className="flex items-start gap-3">
-          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-          <span className="text-[#334155] text-base leading-7">{item}</span>
-        </li>
+        <BulletPoint key={index}>{item}</BulletPoint>
       ))}
-    </ul>
+    </div>
   );
+}
+
+/**
+ * DotList is now an alias for BulletList with consistent styling.
+ * Kept for backward compatibility.
+ */
+export function DotList({ items }: { items: React.ReactNode[] }) {
+  return <BulletList items={items} />;
 }

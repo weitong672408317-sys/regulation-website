@@ -1,5 +1,6 @@
 import React from 'react';
 import { AccessRestrictionsByStatus, EmirateDifferenceRow, ComplianceLicenseCard } from '../../../data/mockData';
+import { BulletPoint } from './sections/SectionCard';
 
 export const colors = {
   pageBg: '#F7F9FC',
@@ -53,26 +54,23 @@ export const SeasonSummaryCard = ({ title, text }: { title: string; text: string
         <div className="w-1 h-7 rounded-full bg-[#4A6290]" />
         <h2 className="text-2xl font-bold text-[#243B63]">{title}</h2>
       </div>
-      <div className="text-[#334155] leading-relaxed space-y-4">
+      <div className="text-[#334155] leading-relaxed space-y-4 text-justify">
         {paragraphs.map((paragraph, pIndex) => {
           const lines = paragraph.split('\n').filter(line => line.trim());
           const hasBullets = lines.some(line => line.trim().startsWith('•'));
 
           if (hasBullets) {
             return (
-              <ul key={pIndex} className="space-y-2 pl-0">
+              <div key={pIndex} className="space-y-2">
                 {lines.map((line, lIndex) => {
                   const trimmed = line.trim();
                   if (!trimmed) return null;
                   const content = trimmed.replace(/^•\s*/, '');
                   return (
-                    <li key={lIndex} className="flex items-start gap-3 list-none">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-1.5 flex-shrink-0"></span>
-                      <span className="text-[#334155]">{content}</span>
-                    </li>
+                    <BulletPoint key={lIndex}>{content}</BulletPoint>
                   );
                 })}
-              </ul>
+              </div>
             );
           }
 
@@ -114,7 +112,22 @@ export const StatusCard = ({ status, title, subtitle, content, customLabel }: { 
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}
       </div>
       {title && <div className="font-bold text-[#263247] text-base mb-2">{title}</div>}
-      <div className="text-[#334155] text-base leading-7">{content}</div>
+      <div className="text-[#334155] text-base leading-7 text-justify">{content}</div>
+    </div>
+  );
+};
+
+/** Colored bullet point for use inside StatusCard content areas */
+export const StatusBulletPoint = ({ status, children }: { status: 'green' | 'amber' | 'red'; children: React.ReactNode }) => {
+  const dotColors = {
+    green: 'bg-[#6AAF7C]',
+    amber: 'bg-[#C9A24C]',
+    red: 'bg-[#DC6B6B]',
+  };
+  return (
+    <div className="flex items-start gap-2">
+      <span className={`w-1.5 h-1.5 rounded-full ${dotColors[status]} mt-[9px] flex-shrink-0`}></span>
+      <span className="text-[#334155] text-base leading-7 text-justify flex-1 min-w-0">{children}</span>
     </div>
   );
 };
@@ -126,7 +139,7 @@ export const RegulatoryUpdateCard = ({ title, content }: { title: string; conten
         <div className="w-2 h-2 rounded-full bg-[#4D5F9A] mt-2 flex-shrink-0"></div>
         <div className="flex-1">
           <h4 className="font-bold text-[#373F7A] text-base mb-2">{title}</h4>
-          {content && <p className="text-[#334155] leading-relaxed">{content}</p>}
+          {content && <p className="text-[#334155] leading-relaxed text-justify">{content}</p>}
         </div>
       </div>
     </div>
@@ -145,13 +158,11 @@ export const RuleCard = ({ number, title, items }: { number: number; title: stri
         <h4 className="font-bold text-[#2E3F73] text-base">{title}</h4>
       </div>
       {filteredItems.length > 0 && (
-        <ul className="space-y-2 ml-9 pl-5 list-disc">
+        <div className="space-y-2 ml-9">
           {filteredItems.map((item, index) => (
-            <li key={index} className="text-[#334155] text-base leading-7">
-              {item}
-            </li>
+            <BulletPoint key={index}>{item}</BulletPoint>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
@@ -168,7 +179,7 @@ export const ProductDefinitionCard = ({ title, sections }: { title: string; sect
         {sections.map((section, index) => (
           <div key={index}>
             <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-xs font-semibold mb-2">{section.label}</div>
-            <p className="text-[#334155] text-base leading-7">{section.content}</p>
+            <p className="text-[#334155] text-base leading-7 text-justify">{section.content}</p>
           </div>
         ))}
       </div>
@@ -186,7 +197,7 @@ export const FormattedOverviewText = ({ text }: { text: string }) => {
   const lines = text.split('\n').filter(line => line.trim());
 
   return (
-    <ul className="space-y-3">
+    <div className="space-y-2">
       {lines.map((line, index) => {
         const trimmedLine = line.trim();
         if (!trimmedLine) return null;
@@ -197,20 +208,18 @@ export const FormattedOverviewText = ({ text }: { text: string }) => {
           const contentPart = trimmedLine.substring(colonIndex + 1).trim();
 
           return (
-            <li key={index} className="leading-8 text-base text-[#334155]">
+            <BulletPoint key={index}>
               <span className="font-semibold text-[#1F2A44]">{titlePart}</span>
               {contentPart && <span>{contentPart}</span>}
-            </li>
+            </BulletPoint>
           );
         }
 
         return (
-          <li key={index} className="leading-8 text-base text-[#334155]">
-            {trimmedLine}
-          </li>
+          <BulletPoint key={index}>{trimmedLine}</BulletPoint>
         );
       })}
-    </ul>
+    </div>
   );
 };
 
@@ -252,7 +261,7 @@ export const InfoBlock = ({ title, children, isRussia = false, variant = 'defaul
   return (
     <div className={`${v.bg} border border-l-4 ${v.borderLeft} rounded-xl p-5 shadow-none`}>
       {title && <h3 className={`text-base font-bold ${v.title} mb-3`}>{title}</h3>}
-      <div className={`${v.body} text-base leading-relaxed`}>
+      <div className={`${v.body} text-base leading-relaxed text-justify`}>
         {children}
       </div>
     </div>
@@ -273,7 +282,7 @@ export const OverviewSectionCard = ({ title, content, isRussia = false, variant 
   return (
     <div className={`${v.bg} border rounded-xl p-5`}>
       <h3 className={`text-base font-bold ${v.title} mb-3`}>{title}</h3>
-      <div className={`${v.body} text-base leading-relaxed whitespace-pre-wrap`}>{content}</div>
+      <div className={`${v.body} text-base leading-relaxed whitespace-pre-wrap text-justify`}>{content}</div>
     </div>
   );
 };
@@ -301,7 +310,7 @@ export const FormattedText = ({ text }: { text: string }) => {
           });
 
           return (
-            <ul key={pIndex} className="space-y-2">
+            <div key={pIndex} className="space-y-2">
               {items.map((item, iIndex) => {
                 const trimmedItem = item.trim().replace(/^[•·\-]\s*/, '');
                 if (!trimmedItem || /^[•·。\-·\s]*$/.test(trimmedItem)) return null;
@@ -311,28 +320,22 @@ export const FormattedText = ({ text }: { text: string }) => {
                   const titlePart = trimmedItem.substring(0, colonPos + 1);
                   const contentPart = trimmedItem.substring(colonPos + 1).trim();
                   return (
-                    <li key={iIndex} className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#8AA0B8] mt-1.5 flex-shrink-0"></span>
-                      <span>
-                        <span className="font-semibold text-[#0F172A]">{titlePart}</span>
-                        {contentPart && <span className="text-[#334155]">{contentPart}</span>}
-                      </span>
-                    </li>
+                    <BulletPoint key={iIndex}>
+                      <span className="font-semibold text-[#0F172A]">{titlePart}</span>
+                      {contentPart && <span>{contentPart}</span>}
+                    </BulletPoint>
                   );
                 }
 
                 return (
-                  <li key={iIndex} className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8AA0B8] mt-1.5 flex-shrink-0"></span>
-                    <span className="text-[#334155]">{trimmedItem}</span>
-                  </li>
+                  <BulletPoint key={iIndex}>{trimmedItem}</BulletPoint>
                 );
               })}
-            </ul>
+            </div>
           );
         }
 
-        return <p key={pIndex} className="text-[#334155] leading-relaxed whitespace-pre-wrap">{cleaned}</p>;
+        return <p key={pIndex} className="text-[#334155] leading-relaxed whitespace-pre-wrap text-justify">{cleaned}</p>;
       })}
     </div>
   );
@@ -341,17 +344,14 @@ export const FormattedText = ({ text }: { text: string }) => {
 export const TableCellContent = ({ content }: { content: string | string[] }) => {
   if (Array.isArray(content)) {
     return (
-      <ul className="space-y-1">
+      <div className="space-y-1">
         {content.map((item, index) => (
-          <li key={index} className="flex items-start gap-1">
-            <span className="w-1 h-1 rounded-full bg-[#8AA0B8] mt-1.5 flex-shrink-0"></span>
-            <span className="text-[#334155]">{item}</span>
-          </li>
+          <BulletPoint key={index}>{item}</BulletPoint>
         ))}
-      </ul>
+      </div>
     );
   }
-  return <span className="text-[#334155]">{content}</span>;
+  return <span className="text-[#334155] text-justify">{content}</span>;
 };
 
 export const GenericComplianceTable = ({ data, isRussia = false }: { data: { headers: string[]; rows: (string | string[])[][] }, isRussia?: boolean }) => {
@@ -425,7 +425,7 @@ export const AccessRestrictionsByStatusView = ({ data, isRussia = false }: { dat
           {data.fullyProhibited.map((item, index) => (
             <div key={index} className={isRussia ? "bg-white/55 border border-white/70 rounded-lg p-4 shadow-none" : "bg-white border border-gray-200 rounded-lg p-4 shadow-sm"}>
               <div className="font-bold text-gray-900 text-base mb-2">{item.productName}</div>
-              <div className="text-gray-700 leading-relaxed">{item.rule}</div>
+              <div className="text-gray-700 leading-relaxed text-justify">{item.rule}</div>
             </div>
           ))}
         </div>
@@ -447,7 +447,7 @@ export const AccessRestrictionsByStatusView = ({ data, isRussia = false }: { dat
             {data.partiallyRestricted.map((item, index) => (
               <div key={index} className={isRussia ? "bg-white/55 border border-white/70 rounded-lg p-4 shadow-none" : "bg-white border border-gray-200 rounded-lg p-4 shadow-sm"}>
                 <div className="font-bold text-gray-900 text-base mb-2">{item.productName}</div>
-                <div className="text-gray-700 leading-relaxed">{item.rule}</div>
+                <div className="text-gray-700 leading-relaxed text-justify">{item.rule}</div>
               </div>
             ))}
           </div>
@@ -469,7 +469,7 @@ export const AccessRestrictionsByStatusView = ({ data, isRussia = false }: { dat
           {data.openAccessible.map((item, index) => (
             <div key={index} className={isRussia ? "bg-white/55 border border-white/70 rounded-lg p-4 shadow-none" : "bg-white border border-gray-200 rounded-lg p-4 shadow-sm"}>
               <div className="font-bold text-gray-900 text-base mb-2">{item.productName}</div>
-              <div className="text-gray-700 leading-relaxed">{item.rule}</div>
+              <div className="text-gray-700 leading-relaxed text-justify">{item.rule}</div>
             </div>
           ))}
         </div>
@@ -518,14 +518,14 @@ export const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Com
     if (hasSemicolon) {
       const items = description.split('；').map(item => item.trim()).filter(item => item);
       return (
-        <ul className="list-disc pl-5 space-y-2 text-base leading-7 text-[#334155]">
+        <div className="space-y-2">
           {items.map((item, idx) => (
-            <li key={idx}>{item}</li>
+            <BulletPoint key={idx}>{item}</BulletPoint>
           ))}
-        </ul>
+        </div>
       );
     }
-    return <p className="text-base leading-7 text-[#334155]">{description}</p>;
+    return <p className="text-base leading-7 text-[#334155] text-justify">{description}</p>;
   };
 
   return (
@@ -538,7 +538,7 @@ export const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Com
             </span>
             <div className="flex-1">
               <h4 className={isRussia ? "font-bold text-[#2E3F73] text-base mb-3" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
-              {isRussia ? renderDescription(card.description) : <p className="text-slate-700 leading-relaxed">{card.description}</p>}
+              {isRussia ? renderDescription(card.description) : <p className="text-slate-700 leading-relaxed text-justify">{card.description}</p>}
             </div>
           </div>
         </div>
@@ -575,26 +575,21 @@ export const SeasonSummaryText = ({ text }: { text: string }) => {
           });
 
           return (
-            <ul key={blockIndex} className="space-y-3 pl-0">
+            <div key={blockIndex} className="space-y-2">
               {items.map((item, itemIndex) => (
-                <li key={itemIndex} className="list-none">
-                  <div className="flex items-start gap-2">
-                    <span className="flex-shrink-0 mt-0.5">•</span>
-                    <div className="flex-1">
-                      <span className="leading-relaxed">{item.title}</span>
-                      {item.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="leading-relaxed mt-1">{detail}</p>
-                      ))}
-                    </div>
-                  </div>
-                </li>
+                <BulletPoint key={itemIndex}>
+                  <span className="leading-relaxed text-justify">{item.title}</span>
+                  {item.details.map((detail, detailIndex) => (
+                    <p key={detailIndex} className="leading-relaxed mt-1 text-justify">{detail}</p>
+                  ))}
+                </BulletPoint>
               ))}
-            </ul>
+            </div>
           );
         }
 
         return lines.map((line, lineIndex) => (
-          <p key={`${blockIndex}-${lineIndex}`} className="leading-relaxed">{line}</p>
+          <p key={`${blockIndex}-${lineIndex}`} className="leading-relaxed text-justify">{line}</p>
         ));
       })}
     </div>

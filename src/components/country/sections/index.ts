@@ -1,8 +1,8 @@
-export { SectionCard, SubCard, ProductLabel, BulletList, DotList } from './SectionCard';
+export { SectionCard, SubCard, ProductLabel, BulletPoint, BulletList, DotList } from './SectionCard';
 export { CountryPageTemplate } from './CountryPageTemplate';
 export { SeasonSummarySection } from './SeasonSummarySection';
 export { RegulatorySystemSection } from './RegulatorySystemSection';
-export { ProductAccessSection, ProductModuleCard, StatusCard } from './ProductAccessSection';
+export { ProductAccessSection, ProductModuleCard, StatusCard, StatusBulletPoint } from './ProductAccessSection';
 export { ComplianceSection } from './ComplianceSection';
 export { TaxSection, TaxTableCard, PolicyCard } from './TaxSection';
 export { SalesRulesSection } from './SalesRulesSection';

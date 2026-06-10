@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionCard, SubCard, ProductLabel } from './SectionCard';
-import { StatusCard } from '../CountryComponents';
+import { StatusCard, StatusBulletPoint } from '../CountryComponents';
 
 interface ProductModuleCardProps {
   title: string;
@@ -32,4 +32,4 @@ export function ProductAccessSection({ children }: ProductAccessSectionProps) {
   );
 }
 
-export { StatusCard };
+export { StatusCard, StatusBulletPoint };
