@@ -3,7 +3,7 @@
 import { ComposableMap, Geographies, Geography, Line, Marker } from 'react-simple-maps';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 // Use local GeoJSON instead of CDN to eliminate 3+ second network latency
 const geoUrl = '/data/countries-110m.json';
@@ -97,6 +97,22 @@ const countryList = Object.entries(countryDataMap).map(([key, data]) => ({
 export default function WorldMap() {
   const router = useRouter();
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Preload all country pages immediately on mount
+    countryList.forEach(({ data }) => {
+      fetch(`/country/${data.id}`, { method: 'HEAD' });
+    });
+  }, []);
+
+  useEffect(() => {
+    // Simulate loading completion based on common map load time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleCountryClick = useCallback((geo: any) => {
     const name = geo.properties?.name;
@@ -121,19 +137,30 @@ export default function WorldMap() {
 
   return (
     <div className="w-full bg-gray-100 rounded-lg p-4">
-      {/* Hidden prefetch links - preload all country pages on mount */}
-      <div className="hidden" aria-hidden="true">
-        {countryList.map(({ data }) => (
-          <Link key={data.id} href={`/country/${data.id}`} prefetch={true} />
-        ))}
-      </div>
+      {/* Prefetch links for country pages - placed at top for early execution */}
+      {countryList.map(({ data }) => (
+        <Link 
+          key={data.id} 
+          href={`/country/${data.id}`} 
+          prefetch={true}
+          className="hidden"
+        />
+      ))}
+
+      {isLoading && (
+        <div className="min-w-[800px] h-[550px] flex flex-col justify-center items-center bg-[#F8FAFC] rounded-lg">
+          <div className="w-10 h-10 border-3 border-[#4A6290] border-t-transparent rounded-full animate-spin"></div>
+          <p className="mt-4 text-gray-500 text-sm">加载地图中...</p>
+        </div>
+      )}
 
       <div className="overflow-x-auto">
-        <div className="min-w-[800px] h-[550px]">
+        <div className="min-w-[800px] h-[550px]" style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.3s ease' }}>
           <ComposableMap 
             projection="geoMercator" 
             projectionConfig={{ scale: 160, center: [0, 20] }}
             style={{ width: '100%', height: '100%' }}
+            onLoad={() => setIsLoading(false)}
           >
             <Geographies geography={geoUrl}>
               {({ geographies }) =>

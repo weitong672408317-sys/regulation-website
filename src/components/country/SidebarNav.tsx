@@ -83,7 +83,7 @@ export default function SidebarNav({ countryId = 'china' }: SidebarNavProps) {
   }, []);
 
   return (
-    <nav className="hidden lg:block w-[200px] flex-shrink-0">
+    <nav className="hidden lg:block w-[210px] flex-shrink-0">
       <div className="sticky top-8">
         <div className="bg-white border border-[#D8DDED] rounded-xl p-4 shadow-sm">
           <h3 className="text-sm font-bold text-[#243B63] mb-3 pb-2 border-b border-[#E8EDF5]">页面导航</h3>

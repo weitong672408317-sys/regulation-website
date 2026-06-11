@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { baseCountries } from '../../../../data/mockData';
@@ -10,14 +10,39 @@ import {
 import ScrollToTop from '../../../components/country/ScrollToTop';
 import SidebarNav from '../../../components/country/SidebarNav';
 
-const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'));
-const UaePage = dynamic(() => import('../../../components/country/pages/UaePage'));
-const ParaguayPage = dynamic(() => import('../../../components/country/pages/ParaguayPage'));
-const IndonesiaPage = dynamic(() => import('../../../components/country/pages/IndonesiaPage'));
-const MalaysiaPage = dynamic(() => import('../../../components/country/pages/MalaysiaPage'));
-const SingaporePage = dynamic(() => import('../../../components/country/pages/SingaporePage'));
-const ChinaPage = dynamic(() => import('../../../components/country/pages/ChinaPage'));
-const HongkongPage = dynamic(() => import('../../../components/country/pages/HongkongPage'));
+// Load country pages with prefetch enabled
+const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'), {
+  ssr: true,
+  loading: () => <PageLoading />,
+});
+const UaePage = dynamic(() => import('../../../components/country/pages/UaePage'), {
+  ssr: true,
+  loading: () => <PageLoading />,
+});
+const ParaguayPage = dynamic(() => import('../../../components/country/pages/ParaguayPage'), {
+  ssr: true,
+  loading: () => <PageLoading />,
+});
+const IndonesiaPage = dynamic(() => import('../../../components/country/pages/IndonesiaPage'), {
+  ssr: true,
+  loading: () => <PageLoading />,
+});
+const MalaysiaPage = dynamic(() => import('../../../components/country/pages/MalaysiaPage'), {
+  ssr: true,
+  loading: () => <PageLoading />,
+});
+const SingaporePage = dynamic(() => import('../../../components/country/pages/SingaporePage'), {
+  ssr: true,
+  loading: () => <PageLoading />,
+});
+const ChinaPage = dynamic(() => import('../../../components/country/pages/ChinaPage'), {
+  ssr: true,
+  loading: () => <PageLoading />,
+});
+const HongkongPage = dynamic(() => import('../../../components/country/pages/HongkongPage'), {
+  ssr: true,
+  loading: () => <PageLoading />,
+});
 
 const countryPageMap: Record<string, React.ComponentType<{ country: any }>> = {
   russia: RussiaPage,
@@ -33,7 +58,10 @@ const countryPageMap: Record<string, React.ComponentType<{ country: any }>> = {
 function PageLoading() {
   return (
     <div className="flex items-center justify-center py-20">
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#4A6290]"></div>
+      <div className="text-center">
+        <div className="w-10 h-10 border-4 border-[#4A6290] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        <p className="text-gray-500 text-sm">加载中...</p>
+      </div>
     </div>
   );
 }
@@ -45,6 +73,15 @@ export function generateStaticParams() {
 export default async function CountryDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id: countryId } = await params;
   const country = baseCountries.find(c => c.id === countryId) || null;
+
+  useEffect(() => {
+    // Prefetch other country pages for faster navigation
+    baseCountries.forEach(c => {
+      if (c.id !== countryId) {
+        fetch(`/country/${c.id}`, { method: 'HEAD' });
+      }
+    });
+  }, [countryId]);
 
   if (!country) {
     return (
