@@ -43,8 +43,8 @@ export function ProductLabel({ children }: { children: React.ReactNode }) {
 export function BulletPoint({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-start gap-3">
-      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-      <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">{children}</span>
+      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[8px] flex-shrink-0"></span>
+      <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">{children}</span>
     </div>
   );
 }

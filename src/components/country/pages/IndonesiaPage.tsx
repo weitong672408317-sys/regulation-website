@@ -61,7 +61,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             title: '核心特征',
             content: (
               <>
-                <p className="text-base leading-7 text-[#334155] text-justify mb-4">开放型烟草市场，以税收秩序和合法流通为监管主线</p>
+                <p className="text-sm leading-relaxed text-[#334155] text-justify mb-4">开放型烟草市场，以税收秩序和合法流通为监管主线</p>
                 <BulletList items={[
                   '印尼属于烟草及电子烟产品开放度较高的市场。传统烟草产品、电子烟、HNB原则上均存在合法准入和经营空间。',
                   '印尼监管的基本逻辑，是在允许合法市场存在的基础上，通过税收管理和公共健康规则维持市场秩序。',
@@ -100,7 +100,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               title="燃烧类烟草制品"
               customLabel="可准入，但成品进口严格受限"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：传统卷烟、雪茄、烟丝、其他燃烧类烟草制品</div>
+                <div className="text-sm text-[#334155] mb-2">适用产品：传统卷烟、雪茄、烟丝、其他燃烧类烟草制品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -128,7 +128,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               title="加热烟草产品"
               customLabel="可准入"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒、其他加热烟草制品</div>
+                <div className="text-sm text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒、其他加热烟草制品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -169,7 +169,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             title="电子烟产品"
             customLabel="可准入，监管趋严"
             content={<>
-              <div className="text-base text-[#334155] mb-2">适用产品：电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、设备与液体组合产品</div>
+              <div className="text-sm text-[#334155] mb-2">适用产品：电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、设备与液体组合产品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
@@ -205,7 +205,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               title="无烟烟草产品"
               customLabel="可准入"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：口含烟、鼻烟、嚼烟及其他含烟草但不经燃烧吸用的产品</div>
+                <div className="text-sm text-[#334155] mb-2">适用产品：口含烟、鼻烟、嚼烟及其他含烟草但不经燃烧吸用的产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -229,7 +229,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               title="新型尼古丁产品"
               customLabel="部分限制 / 需确认"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
+                <div className="text-sm text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -270,7 +270,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               title="烟草薄片"
               customLabel="可准入，通常限于工厂自用"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：烟草薄片</div>
+                <div className="text-sm text-[#334155] mb-2">适用产品：烟草薄片</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -294,7 +294,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               title="烟叶"
               customLabel="可准入，但进口受政府管理"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：烟叶</div>
+                <div className="text-sm text-[#334155] mb-2">适用产品：烟叶</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -327,7 +327,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               title="爆珠 / 香精胶囊"
               customLabel="可准入，需按成分确认"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：不含尼古丁、烟草成分或烟草提取物的爆珠、香精胶囊</div>
+                <div className="text-sm text-[#334155] mb-2">适用产品：不含尼古丁、烟草成分或烟草提取物的爆珠、香精胶囊</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -351,7 +351,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               title="滤嘴棒"
               customLabel="可准入"
               content={<>
-                <div className="text-base text-[#334155] mb-2">适用产品：滤嘴棒</div>
+                <div className="text-sm text-[#334155] mb-2">适用产品：滤嘴棒</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -634,13 +634,13 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
         redLineId="red-lines"
         trendContent={
           <>
-            <p className="text-[#334155] text-base leading-7 text-justify mb-4">印尼目前没有明显信号显示将对传统烟草、HNB或电子烟实施全国性全面禁令。2026年以来可观察到的监管方向主要包括：</p>
+            <p className="text-[#334155] text-sm leading-relaxed text-justify mb-4">印尼目前没有明显信号显示将对传统烟草、HNB或电子烟实施全国性全面禁令。2026年以来可观察到的监管方向主要包括：</p>
             <BulletList items={[
               '对非法卷烟和无税票产品持续高压执法，海关及消费税总局查处数量明显增加。',
               '电子烟监管更关注流通端和非法产品，特别是含毒品电子烟液、违禁成分、BPOM流通监管、年龄限制、包装警示和广告限制。',
               '消费税政策可能继续围绕非法市场治理调整，但是否新增税收层级、如何调整税率结构，仍存在政策讨论和争议。',
             ]} />
-            <p className="text-[#334155] text-base leading-7 text-justify mt-4">整体看，印尼仍是烟草及新型烟草产品可准入且相对友好的市场，政策重点是把产品纳入合法资质、税务、包装和销售监管体系，维持合法市场秩序并压缩非法流通空间。传统卷烟和HNB的重点风险在税票、NPPBKC、清关和包装；电子烟的重点风险在BPOM监管、成分和非法烟液；尼古丁袋/口含膜的重点风险在产品定性和主管机关口径不稳定。</p>
+            <p className="text-[#334155] text-sm leading-relaxed text-justify mt-4">整体看，印尼仍是烟草及新型烟草产品可准入且相对友好的市场，政策重点是把产品纳入合法资质、税务、包装和销售监管体系，维持合法市场秩序并压缩非法流通空间。传统卷烟和HNB的重点风险在税票、NPPBKC、清关和包装；电子烟的重点风险在BPOM监管、成分和非法烟液；尼古丁袋/口含膜的重点风险在产品定性和主管机关口径不稳定。</p>
           </>
         }
         redLineGroups={[

@@ -10,7 +10,8 @@ import ScrollToTop from '../../../components/country/ScrollToTop';
 import SidebarNav from '../../../components/country/SidebarNav';
 import PrefetchLinks from '../../../components/country/PrefetchLinks';
 
-// Static imports for faster navigation (all pages are pre-rendered)
+// Static imports - all country pages are pre-rendered SSG,
+// so bundling them together ensures instant navigation
 import RussiaPage from '../../../components/country/pages/RussiaPage';
 import UaePage from '../../../components/country/pages/UaePage';
 import ParaguayPage from '../../../components/country/pages/ParaguayPage';

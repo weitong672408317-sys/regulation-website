@@ -54,7 +54,7 @@ export const SeasonSummaryCard = ({ title, text }: { title: string; text: string
         <div className="w-1 h-7 rounded-full bg-[#4A6290]" />
         <h2 className="text-2xl font-bold text-[#243B63]">{title}</h2>
       </div>
-      <div className="text-[#334155] leading-relaxed space-y-4 text-justify">
+      <div className="text-[#334155] text-sm leading-relaxed space-y-4 text-justify">
         {paragraphs.map((paragraph, pIndex) => {
           const lines = paragraph.split('\n').filter(line => line.trim());
           const hasBullets = lines.some(line => line.trim().startsWith('•'));
@@ -112,7 +112,7 @@ export const StatusCard = ({ status, title, subtitle, content, customLabel, id }
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}
       </div>
       {title && <div className="font-bold text-[#263247] text-base mb-3">{title}</div>}
-      <div className="text-[#334155] text-base leading-relaxed text-justify">{content}</div>
+      <div className="text-[#334155] text-sm leading-relaxed text-justify">{content}</div>
     </div>
   );
 };
@@ -127,7 +127,7 @@ export const StatusBulletPoint = ({ status, children }: { status: 'green' | 'amb
   return (
     <div className="flex items-start gap-3">
       <span className={`w-1.5 h-1.5 rounded-full ${dotColors[status]} mt-[9px] flex-shrink-0`}></span>
-      <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">{children}</span>
+      <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">{children}</span>
     </div>
   );
 };
@@ -139,7 +139,7 @@ export const RegulatoryUpdateCard = ({ title, content }: { title: string; conten
         <div className="w-2 h-2 rounded-full bg-[#4D5F9A] mt-2 flex-shrink-0"></div>
         <div className="flex-1">
           <h4 className="font-bold text-[#373F7A] text-base mb-3">{title}</h4>
-          {content && <p className="text-[#334155] leading-relaxed text-justify">{content}</p>}
+          {content && <p className="text-[#334155] text-sm leading-relaxed text-justify">{content}</p>}
         </div>
       </div>
     </div>
@@ -179,7 +179,7 @@ export const ProductDefinitionCard = ({ title, sections }: { title: string; sect
         {sections.map((section, index) => (
           <div key={index}>
             <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-xs font-semibold mb-3">{section.label}</div>
-            <p className="text-[#334155] text-base leading-relaxed text-justify">{section.content}</p>
+            <p className="text-[#334155] text-sm leading-relaxed text-justify">{section.content}</p>
           </div>
         ))}
       </div>
@@ -261,7 +261,7 @@ export const InfoBlock = ({ title, children, isRussia = false, variant = 'defaul
   return (
     <div className={`${v.bg} border border-l-4 ${v.borderLeft} rounded-xl p-5 shadow-none`}>
       {title && <h3 className={`text-base font-bold ${v.title} mb-3`}>{title}</h3>}
-      <div className={`${v.body} text-base leading-relaxed text-justify`}>
+      <div className={`${v.body} text-sm leading-relaxed text-justify`}>
         {children}
       </div>
     </div>
@@ -282,7 +282,7 @@ export const OverviewSectionCard = ({ title, content, isRussia = false, variant 
   return (
     <div className={`${v.bg} border rounded-xl p-5`}>
       <h3 className={`text-base font-bold ${v.title} mb-3`}>{title}</h3>
-      <div className={`${v.body} text-base leading-relaxed whitespace-pre-wrap text-justify`}>{content}</div>
+      <div className={`${v.body} text-sm leading-relaxed whitespace-pre-wrap text-justify`}>{content}</div>
     </div>
   );
 };
@@ -357,7 +357,7 @@ export const TableCellContent = ({ content }: { content: string | string[] }) =>
 export const GenericComplianceTable = ({ data, isRussia = false }: { data: { headers: string[]; rows: (string | string[])[][] }, isRussia?: boolean }) => {
   return (
     <div className={isRussia ? "overflow-x-auto rounded-xl border border-[#D8DDED] shadow-none" : "overflow-x-auto rounded-xl border border-blue-200 shadow-sm"}>
-      <table className="w-full text-base min-w-[600px] bg-white">
+      <table className="w-full text-sm min-w-[600px] bg-white">
         <thead>
           <tr className={isRussia ? "bg-[#E8EDF5]" : "bg-blue-50"}>
             {data.headers.map((header, index) => (
@@ -525,7 +525,7 @@ export const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Com
         </div>
       );
     }
-    return <p className="text-base leading-7 text-[#334155] text-justify">{description}</p>;
+    return <p className="text-sm leading-relaxed text-[#334155] text-justify">{description}</p>;
   };
 
   return (
