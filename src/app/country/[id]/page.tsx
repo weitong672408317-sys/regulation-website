@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { baseCountries } from '../../../../data/mockData';
@@ -9,6 +9,7 @@ import {
 } from '../../../components/country/CountryComponents';
 import ScrollToTop from '../../../components/country/ScrollToTop';
 import SidebarNav from '../../../components/country/SidebarNav';
+import PrefetchLinks from '../../../components/country/PrefetchLinks';
 
 // Load country pages with prefetch enabled
 const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'), {
@@ -74,15 +75,6 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
   const { id: countryId } = await params;
   const country = baseCountries.find(c => c.id === countryId) || null;
 
-  useEffect(() => {
-    // Prefetch other country pages for faster navigation
-    baseCountries.forEach(c => {
-      if (c.id !== countryId) {
-        fetch(`/country/${c.id}`, { method: 'HEAD' });
-      }
-    });
-  }, [countryId]);
-
   if (!country) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -101,6 +93,7 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
     return (
       <div className="min-h-screen bg-[#F7F9FC]">
         <ScrollToTop countryId={country.id} />
+        <PrefetchLinks currentCountryId={country.id} />
         <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
           <div className="max-w-7xl lg:max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Link href="/" className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">

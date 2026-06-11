@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState, useCallback, useEffect } from 'react';
 
-// Use local GeoJSON instead of CDN to eliminate 3+ second network latency
-const geoUrl = '/data/countries-110m.json';
+// Import GeoJSON directly to eliminate runtime fetch delay
+import geoData from '../../public/data/countries-110m.json';
 
 type CountryMapData = {
   labelPos: [number, number];
@@ -97,7 +97,6 @@ const countryList = Object.entries(countryDataMap).map(([key, data]) => ({
 export default function WorldMap() {
   const router = useRouter();
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
-  const [mapReady, setMapReady] = useState(false);
 
   useEffect(() => {
     // Preload all country pages immediately on mount
@@ -139,26 +138,15 @@ export default function WorldMap() {
         />
       ))}
 
-      {!mapReady && (
-        <div className="min-w-[800px] h-[550px] flex flex-col justify-center items-center bg-[#F8FAFC] rounded-lg">
-          <div className="w-10 h-10 border-4 border-[#4A6290] border-t-transparent rounded-full animate-spin"></div>
-          <p className="mt-4 text-gray-500 text-sm">加载地图中...</p>
-        </div>
-      )}
-
-      <div className="overflow-x-auto" style={{ display: mapReady ? 'block' : 'none' }}>
+      <div className="overflow-x-auto">
         <div className="min-w-[800px] h-[550px]">
           <ComposableMap 
             projection="geoMercator" 
             projectionConfig={{ scale: 160, center: [0, 20] }}
             style={{ width: '100%', height: '100%' }}
           >
-            <Geographies geography={geoUrl}>
+            <Geographies geography={geoData}>
               {({ geographies }) => {
-                // Mark map as ready once geographies data is loaded
-                if (!mapReady && geographies.length > 0) {
-                  setMapReady(true);
-                }
                 return geographies.map((geo) => {
                   const isHighlighted = isCountryHighlighted(geo);
                   const name = geo.properties?.name;
