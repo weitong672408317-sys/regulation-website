@@ -1,6 +1,5 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import { baseCountries } from '../../../../data/mockData';
 import {
   InfoBlock, FormattedText, parseOverview,
@@ -11,39 +10,15 @@ import ScrollToTop from '../../../components/country/ScrollToTop';
 import SidebarNav from '../../../components/country/SidebarNav';
 import PrefetchLinks from '../../../components/country/PrefetchLinks';
 
-// Load country pages with prefetch enabled
-const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'), {
-  ssr: true,
-  loading: () => <PageLoading />,
-});
-const UaePage = dynamic(() => import('../../../components/country/pages/UaePage'), {
-  ssr: true,
-  loading: () => <PageLoading />,
-});
-const ParaguayPage = dynamic(() => import('../../../components/country/pages/ParaguayPage'), {
-  ssr: true,
-  loading: () => <PageLoading />,
-});
-const IndonesiaPage = dynamic(() => import('../../../components/country/pages/IndonesiaPage'), {
-  ssr: true,
-  loading: () => <PageLoading />,
-});
-const MalaysiaPage = dynamic(() => import('../../../components/country/pages/MalaysiaPage'), {
-  ssr: true,
-  loading: () => <PageLoading />,
-});
-const SingaporePage = dynamic(() => import('../../../components/country/pages/SingaporePage'), {
-  ssr: true,
-  loading: () => <PageLoading />,
-});
-const ChinaPage = dynamic(() => import('../../../components/country/pages/ChinaPage'), {
-  ssr: true,
-  loading: () => <PageLoading />,
-});
-const HongkongPage = dynamic(() => import('../../../components/country/pages/HongkongPage'), {
-  ssr: true,
-  loading: () => <PageLoading />,
-});
+// Static imports for faster navigation (all pages are pre-rendered)
+import RussiaPage from '../../../components/country/pages/RussiaPage';
+import UaePage from '../../../components/country/pages/UaePage';
+import ParaguayPage from '../../../components/country/pages/ParaguayPage';
+import IndonesiaPage from '../../../components/country/pages/IndonesiaPage';
+import MalaysiaPage from '../../../components/country/pages/MalaysiaPage';
+import SingaporePage from '../../../components/country/pages/SingaporePage';
+import ChinaPage from '../../../components/country/pages/ChinaPage';
+import HongkongPage from '../../../components/country/pages/HongkongPage';
 
 const countryPageMap: Record<string, React.ComponentType<{ country: any }>> = {
   russia: RussiaPage,
@@ -55,17 +30,6 @@ const countryPageMap: Record<string, React.ComponentType<{ country: any }>> = {
   hongkong: HongkongPage,
   china: ChinaPage,
 };
-
-function PageLoading() {
-  return (
-    <div className="flex items-center justify-center py-20">
-      <div className="text-center">
-        <div className="w-10 h-10 border-4 border-[#4A6290] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-        <p className="text-gray-500 text-sm">加载中...</p>
-      </div>
-    </div>
-  );
-}
 
 export function generateStaticParams() {
   return baseCountries.map(c => ({ id: c.id }));
@@ -95,14 +59,14 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
         <ScrollToTop countryId={country.id} />
         <PrefetchLinks currentCountryId={country.id} />
         <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
-          <div className="max-w-7xl lg:max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="max-w-7xl lg:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Link href="/" className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
               <span className="text-lg">←</span> 返回首页
             </Link>
           </div>
         </header>
 
-        <main className="max-w-7xl lg:max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="max-w-7xl lg:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex gap-8">
             <SidebarNav countryId={country.id} />
             <div className="flex-1 min-w-0">
@@ -110,9 +74,7 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
                 <h1 className="text-5xl font-bold text-[#0F172A] mb-6">{country.name}</h1>
               </section>
 
-              <Suspense fallback={<PageLoading />}>
-                <CountryPageComponent country={country} />
-              </Suspense>
+              <CountryPageComponent country={country} />
 
               <section className="mb-8">
                 <div className="bg-[#F2F4F7] border border-[#E1E5EA] rounded-xl p-5">
@@ -126,7 +88,7 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
         </main>
 
         <footer className="bg-white border-t border-[#D8E0EA]">
-          <div className="max-w-7xl lg:max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="max-w-7xl lg:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <p className="text-center text-[#64748B] text-sm">© 2024 全球法规动态追踪. All rights reserved.</p>
           </div>
         </footer>
