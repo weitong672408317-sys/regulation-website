@@ -106,13 +106,13 @@ export const StatusCard = ({ status, title, subtitle, content, customLabel, id }
   const s = styles[status];
 
   return (
-    <div id={id} className={`bg-white border border-[#E2E6EF] ${s.borderLeft} border-l-2 rounded-xl p-4 shadow-sm w-full${id ? ' scroll-mt-4' : ''}`}>
-      <div className="flex items-center gap-2 mb-3">
+    <div id={id} className={`bg-white border border-[#E2E6EF] ${s.borderLeft} border-l-2 rounded-xl p-6 shadow-sm w-full${id ? ' scroll-mt-4' : ''}`}>
+      <div className="flex items-center gap-2 mb-4">
         <span className={`px-3 py-1 rounded-full text-sm font-semibold ${s.badge}`}>{customLabel || s.label}</span>
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}
       </div>
-      {title && <div className="font-bold text-[#263247] text-base mb-2">{title}</div>}
-      <div className="text-[#334155] text-base leading-7 text-justify">{content}</div>
+      {title && <div className="font-bold text-[#263247] text-base mb-3">{title}</div>}
+      <div className="text-[#334155] text-base leading-relaxed text-justify">{content}</div>
     </div>
   );
 };
@@ -125,20 +125,20 @@ export const StatusBulletPoint = ({ status, children }: { status: 'green' | 'amb
     red: 'bg-[#DC6B6B]',
   };
   return (
-    <div className="flex items-start gap-2">
+    <div className="flex items-start gap-3">
       <span className={`w-1.5 h-1.5 rounded-full ${dotColors[status]} mt-[9px] flex-shrink-0`}></span>
-      <span className="text-[#334155] text-base leading-7 text-justify flex-1 min-w-0">{children}</span>
+      <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">{children}</span>
     </div>
   );
 };
 
 export const RegulatoryUpdateCard = ({ title, content }: { title: string; content: string }) => {
   return (
-    <div className="bg-[#F1F3FB] border border-[#CBD2EE] rounded-xl p-5 hover:shadow-md transition-shadow">
+    <div className="bg-[#F1F3FB] border border-[#CBD2EE] rounded-xl p-6 hover:shadow-md transition-shadow">
       <div className="flex items-start gap-3">
         <div className="w-2 h-2 rounded-full bg-[#4D5F9A] mt-2 flex-shrink-0"></div>
         <div className="flex-1">
-          <h4 className="font-bold text-[#373F7A] text-base mb-2">{title}</h4>
+          <h4 className="font-bold text-[#373F7A] text-base mb-3">{title}</h4>
           {content && <p className="text-[#334155] leading-relaxed text-justify">{content}</p>}
         </div>
       </div>
@@ -150,15 +150,15 @@ export const RuleCard = ({ number, title, items }: { number: number; title: stri
   const filteredItems = items.map(i => i.trim()).filter(Boolean);
 
   return (
-    <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-4">
-      <div className="flex items-start gap-3 mb-3">
+    <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
+      <div className="flex items-start gap-3 mb-4">
         <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">
           {number}
         </span>
         <h4 className="font-bold text-[#2E3F73] text-base">{title}</h4>
       </div>
       {filteredItems.length > 0 && (
-        <div className="space-y-2 ml-9">
+        <div className="space-y-3 ml-9">
           {filteredItems.map((item, index) => (
             <BulletPoint key={index}>{item}</BulletPoint>
           ))}
@@ -170,16 +170,16 @@ export const RuleCard = ({ number, title, items }: { number: number; title: stri
 
 export const ProductDefinitionCard = ({ title, sections }: { title: string; sections: { label: string; content: string }[] }) => {
   return (
-    <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-5 shadow-none">
-      <div className="flex items-center gap-3 mb-4">
+    <div className="bg-[#F3F5FB] border border-[#D8DDED] border-l-4 border-l-[#4A6290] rounded-xl p-6 shadow-none">
+      <div className="flex items-center gap-3 mb-5">
         <span className="w-2 h-2 rounded-full bg-[#4A6290] flex-shrink-0"></span>
         <h4 className="font-bold text-[#2E3F73] text-base">{title}</h4>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-5">
         {sections.map((section, index) => (
           <div key={index}>
-            <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-xs font-semibold mb-2">{section.label}</div>
-            <p className="text-[#334155] text-base leading-7 text-justify">{section.content}</p>
+            <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-xs font-semibold mb-3">{section.label}</div>
+            <p className="text-[#334155] text-base leading-relaxed text-justify">{section.content}</p>
           </div>
         ))}
       </div>
