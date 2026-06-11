@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { baseCountries } from '../../../data/mockData';
 
 interface PrefetchLinksProps {
@@ -8,13 +9,15 @@ interface PrefetchLinksProps {
 }
 
 export default function PrefetchLinks({ currentCountryId }: PrefetchLinksProps) {
+  const router = useRouter();
+
   useEffect(() => {
     baseCountries.forEach(c => {
       if (c.id !== currentCountryId) {
-        fetch(`/country/${c.id}`, { method: 'HEAD' });
+        router.prefetch(`/country/${c.id}`);
       }
     });
-  }, [currentCountryId]);
+  }, [currentCountryId, router]);
 
   return null;
 }

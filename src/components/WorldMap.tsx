@@ -99,11 +99,11 @@ export default function WorldMap() {
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
 
   useEffect(() => {
-    // Preload all country pages immediately on mount
+    // Prefetch all country pages using Next.js router.prefetch
     countryList.forEach(({ data }) => {
-      fetch(`/country/${data.id}`, { method: 'HEAD' });
+      router.prefetch(`/country/${data.id}`);
     });
-  }, []);
+  }, [router]);
 
   const handleCountryClick = useCallback((geo: any) => {
     const name = geo.properties?.name;
@@ -123,6 +123,8 @@ export default function WorldMap() {
     const data = countryDataMap[name];
     if (data) {
       setHoveredCountry(data.name);
+      // Prefetch on hover for instant navigation
+      router.prefetch(`/country/${data.id}`);
     }
   }, []);
 
