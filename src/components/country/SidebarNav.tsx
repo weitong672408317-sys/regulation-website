@@ -83,7 +83,7 @@ export default function SidebarNav({ countryId = 'china' }: SidebarNavProps) {
   }, []);
 
   return (
-    <nav className="hidden lg:block w-[180px] flex-shrink-0">
+    <nav className="hidden lg:block w-[200px] flex-shrink-0">
       <div className="sticky top-8">
         <div className="bg-white border border-[#D8DDED] rounded-xl p-4 shadow-sm">
           <h3 className="text-sm font-bold text-[#243B63] mb-3 pb-2 border-b border-[#E8EDF5]">页面导航</h3>
@@ -92,7 +92,7 @@ export default function SidebarNav({ countryId = 'china' }: SidebarNavProps) {
               <li key={id}>
                 <button
                   onClick={() => handleClick(id)}
-                  className={`w-full text-left px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+                  className={`w-full text-left px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer flex items-center gap-2 ${
                     activeId === id
                       ? 'bg-[#E8EDF5] text-[#2E3F73] font-semibold'
                       : 'text-[#64748B] hover:text-[#2E3F73] hover:bg-[#F3F5FB]'
@@ -101,7 +101,7 @@ export default function SidebarNav({ countryId = 'china' }: SidebarNavProps) {
                   <span className="w-5 h-5 flex items-center justify-center rounded-full bg-[#E8EDF5] text-[#64748B] text-xs font-medium flex-shrink-0">
                     {index + 1}
                   </span>
-                  <span className="truncate">{label}</span>
+                  <span className="whitespace-nowrap">{label}</span>
                 </button>
               </li>
             ))}
