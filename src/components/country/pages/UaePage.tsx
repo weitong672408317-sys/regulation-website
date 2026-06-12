@@ -257,7 +257,7 @@ export default function UaePage({ country }: UaePageProps) {
               status="amber"
               title="其他新型尼古丁产品"
               id="product-novel-nicotine"
-              customLabel="需确认"
+              customLabel="监管要求不明确"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：尼古丁口含膜、尼古丁片、尼古丁粉末、鼻吸尼古丁产品及其他不含烟草但含尼古丁、且不属于无烟草尼古丁袋的口腔或鼻用产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
