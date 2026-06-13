@@ -76,7 +76,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
       />
 
       <ProductAccessSection sectionId="product-access">
-        <ProductModuleCard title="1. 传统烟草产品 / 烟草基产品" label="产品定性">
+        <ProductModuleCard title="1. 传统烟草产品 / 烟草基产品" label="产品定性" id="module-traditional-tobacco">
           <div className="space-y-4 text-[#334155] text-sm leading-relaxed text-justify mb-4">
             <p>根据《第5538/2015号法》，"烟草产品"包括全部或部分以烟草叶为原料制备，并用于吸食、吸吮、咀嚼、鼻吸，或通过电子烟、雾化器或类似产品进行雾化、吸食或吸入的产品。</p>
             <p>DINAVISA 办理资料中使用 Productos a base de Tabaco（烟草基产品）作为烟草产品登记类别。传统卷烟、雪茄、烟丝、加工烟草等属于典型烟草基产品。</p>
@@ -111,7 +111,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="2. 电子烟及雾化产品" label="产品定性">
+        <ProductModuleCard title="2. 电子烟及雾化产品" label="产品定性" id="module-ecig">
           <div className="space-y-4 text-[#334155] text-sm leading-relaxed text-justify mb-4">
             <p>《第7508/2025号法》使用 Sistemas Electrónicos de Administración de Nicotina（SEAN，电子尼古丁输送系统）和 Sistemas Similares Sin Nicotina（SSSN，无尼古丁类似系统）两个核心概念。</p>
             <p>SEAN 指通过电子装置加热含尼古丁溶液并产生可吸入气溶胶的系统；SSSN 指通过电子装置加热不含尼古丁溶液并产生可吸入气溶胶的系统。</p>
@@ -216,7 +216,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <StatusCard
               id="product-nicotine-pouch"
               status="amber"
-              customLabel="部分限制 / 需确认"
+              customLabel="监管要求不明确"
               title="尼古丁袋"
               content={
                 <div className="text-[#334155] text-sm leading-relaxed text-justify">
@@ -267,7 +267,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <StatusCard
               id="product-oral-nicotine"
               status="amber"
-              customLabel="部分限制 / 需确认"
+              customLabel="监管要求不明确"
               title="其他无烟草口含型尼古丁产品"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：尼古丁口含膜、尼古丁含片、尼古丁粉末袋及其他不含烟草但含尼古丁的口含类产品</div>
@@ -287,7 +287,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <StatusCard
               id="product-smokeless-tobacco"
               status="amber"
-              customLabel="部分限制 / 需确认"
+              customLabel="需结合产品特性确认"
               title="无烟烟草产品"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：口含烟、鼻烟、嚼烟及其他含烟草但不经燃烧吸用的产品</div>
@@ -310,14 +310,14 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           </div>
         </ProductModuleCard>
 
-        <ProductModuleCard title="5. 烟草原料 / 半成品" label="产品定性">
+        <ProductModuleCard title="5. 烟草原料 / 半成品" label="产品定性" id="module-tobacco-raw">
           <div className="space-y-4 text-[#334155] text-sm leading-relaxed text-justify mb-4">
             <p>烟草薄片、烟叶主要作为烟草原料或半成品管理；如已经制成供消费者使用的烟草基产品，应转入烟草产品登记路径。</p>
           </div>
           <StatusCard
             id="product-tobacco-raw"
             status="green"
-            customLabel="可准入，需按烟草原料 / 半成品管理"
+            customLabel="可准入"
             title="烟草原料 / 半成品"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：烟草薄片、烟叶及其他烟草原料</div>
@@ -344,7 +344,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="6. 普通辅材及香精香料" label="产品定性">
+        <ProductModuleCard title="6. 普通辅材及香精香料" label="产品定性" id="module-ordinary-material">
           <div className="space-y-4 text-[#334155] text-sm leading-relaxed text-justify mb-4">
             <p>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；是否涉及烟草产品、SEAN / SSSN 产品、雾化物质或尼古丁产品监管，应按成分和产品形态判断。</p>
           </div>

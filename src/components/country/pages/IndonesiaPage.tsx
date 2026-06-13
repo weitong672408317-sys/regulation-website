@@ -227,7 +227,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               id="product-novel-nicotine"
               status="amber"
               title="新型尼古丁产品"
-              customLabel="部分限制 / 需确认"
+              customLabel="部分限制 / 监管要求不明确"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -259,7 +259,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
         </ProductModuleCard>
 
         {/* 4. 烟草原料 */}
-        <ProductModuleCard title="4. 烟草原料" label="产品定性">
+        <ProductModuleCard title="4. 烟草原料" label="产品定性" id="product-tobacco-raw">
           <div className="space-y-2 mb-4">
             <BulletPoint>烟草薄片、烟叶主要作为烟草原料或半成品管理；具体监管要求取决于产品形态、是否进入应税消费品生产链条，以及是否涉及进口批准要求。</BulletPoint>
           </div>
@@ -316,7 +316,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
         </ProductModuleCard>
 
         {/* 5. 普通辅材及香精香料 */}
-        <ProductModuleCard title="5. 普通辅材及香精香料" label="产品定性">
+        <ProductModuleCard title="5. 普通辅材及香精香料" label="产品定性" id="product-ordinary-material">
           <div className="space-y-2 mb-4">
             <BulletPoint>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；是否进入烟草制品、电子烟、雾化液、应税消费品或其他专项监管路径，应按成分和产品形态判断。</BulletPoint>
           </div>
