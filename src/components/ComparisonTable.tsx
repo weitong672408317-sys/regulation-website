@@ -26,7 +26,7 @@ const accessCategoryConfig: Record<AccessCategory, { label: string; dotColor: st
     barTextColor: '#ffffff',  // 白色文字
   },
   restricted: {
-    label: '部分限制/监管要求不明确/需结合产品特性确认',
+    label: '部分限制/需确认',
     dotColor: `bg-[${accessStatusColors.amber.dot}]`,
     barColor: '#B89038',   // 比badge更深的琥珀色
     barTextColor: '#ffffff',  // 白色文字
