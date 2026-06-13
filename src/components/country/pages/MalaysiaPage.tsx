@@ -359,7 +359,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <StatusCard
               id="product-nicotine-material"
               status="amber"
-              customLabel="需按成分判断"
+              customLabel="需结合产品特性确认"
               title="含尼古丁 / 烟草成分辅材"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：含尼古丁、烟草成分或烟草提取物的辅材</div>

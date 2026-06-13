@@ -225,7 +225,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           <StatusCard
             id="product-tobacco-material"
             status="amber"
-            customLabel="需按烟草材料、制成烟草或应课税品分类判断"
+            customLabel="需按成分和功能拆分判断"
             title="烟草材料"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：烟草薄片、烟叶及其他烟草材料</div>

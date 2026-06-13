@@ -76,19 +76,31 @@ export const russiaProductAccessOverview: ProductAccessOverviewData = {
       status: '可准入',
       statusType: 'green',
       products: [
-        { productName: '传统烟草制品：传统卷烟、papirosy（俄式纸嘴卷烟）、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草', targetId: 'product-traditional-tobacco' },
-        { productName: '加热烟草产品：HNB 烟支、加热消费用烟草', targetId: 'product-heat-not-burn' },
-        { productName: '电子烟及液体产品', targetId: 'product-ecig' },
-        { productName: '除 snus、nasvay 及其他明确禁售产品以外的非吸烟烟草产品', targetId: 'product-non-smoking-tobacco' },
         { productName: '烟叶、烟草薄片、烟草废料等烟草及尼古丁原料', targetId: 'product-tobacco-raw' },
-        { productName: '不含尼古丁、烟草成分或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'product-ordinary-material' },
+        { productName: '不含烟草、尼古丁或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'product-ordinary-material' },
+      ],
+    },
+    {
+      status: '可准入，强监管',
+      statusType: 'amber',
+      products: [
+        { productName: '传统烟草制品：传统卷烟、papirosy（俄式纸嘴卷烟）、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草', targetId: 'product-traditional-tobacco' },
+        { productName: '大部分无烟烟草产品：除 snus（湿润口含烟草）、nasvay（中亚口含烟草制品）及其他明确禁售产品以外的无烟烟草产品', targetId: 'product-non-smoking-tobacco' },
+      ],
+    },
+    {
+      status: '可准入，监管收紧',
+      statusType: 'amber',
+      products: [
+        { productName: '加热烟草产品：HNB 烟支、加热消费用烟草', targetId: 'product-heat-not-burn' },
+        { productName: '电子烟及液体产品', targetId: 'module-ecig' },
       ],
     },
     {
       status: '完全禁止',
       statusType: 'red',
       products: [
-        { productName: 'snus（湿润口含烟草）、nasvay（中亚口含烟草制品）', targetId: 'product-smokeless-tobacco' },
+        { productName: '特定无烟烟草产品：snus（湿润口含烟草）、nasvay（中亚口含烟草制品）', targetId: 'product-smokeless-tobacco' },
         { productName: '新型尼古丁产品：尼古丁袋、尼古丁口含膜、尼古丁含片、食品型尼古丁产品，以及其他不含烟草但含尼古丁的口含、鼻吸或咀嚼类产品', targetId: 'product-novel-nicotine' },
       ],
     },
@@ -109,7 +121,7 @@ export const uaeProductAccessOverview: ProductAccessOverviewData = {
         { productName: '电子尼古丁产品：电子烟设备、雾化器、烟油 / 电子烟液等', targetId: 'product-heat-not-burn' },
         { productName: '加热烟草产品：HNB 烟支、加热烟草棒、加热烟草产品', targetId: 'product-heat-not-burn' },
         { productName: '无烟草尼古丁袋', targetId: 'product-nicotine-pouch' },
-        { productName: '不含尼古丁、烟草成分或烟草提取物的普通辅材', targetId: 'product-ordinary-material' },
+        { productName: '不含烟草、尼古丁或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'product-ordinary-material' },
       ],
     },
     {
@@ -169,7 +181,7 @@ export const malaysiaProductAccessOverview: ProductAccessOverviewData = {
         { productName: '传统烟草产品：传统卷烟、雪茄、烟丝 / 切丝烟草、其他制成烟草', targetId: 'product-traditional-tobacco' },
         { productName: '加热烟草产品：HNB 烟支、加热烟草棒、其他含烟草材料的加热产品', targetId: 'product-heat-not-burn' },
         { productName: '烟草原料 / 半成品：烟叶、烟草薄片', targetId: 'product-tobacco-raw' },
-        { productName: '普通辅材及香精香料：不含烟草、尼古丁或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'product-ordinary-material' },
+        { productName: '不含烟草、尼古丁或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'product-ordinary-material' },
       ],
     },
     {
@@ -284,7 +296,7 @@ export const paraguayProductAccessOverview: ProductAccessOverviewData = {
         { productName: '加热烟草：HNB 烟支、加热烟草棒', targetId: 'product-heat-not-burn' },
         { productName: '加热烟草装置：HNB 设备、加热装置及相关配件', targetId: 'product-heating-device' },
         { productName: '烟草原料 / 半成品：烟草薄片、烟叶及其他烟草原料', targetId: 'module-tobacco-raw' },
-        { productName: '普通辅材及香精香料', targetId: 'module-ordinary-material' },
+        { productName: '不含烟草、尼古丁或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'module-ordinary-material' },
       ],
     },
     {

@@ -82,7 +82,7 @@ export default function UaePage({ country }: UaePageProps) {
             status="green"
             title="烟草材料"
             id="product-tobacco-material"
-            customLabel="可准入，需合规"
+            customLabel="可准入"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：烟叶、烟草薄片、烟草废料及其他烟草原料</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -109,7 +109,7 @@ export default function UaePage({ country }: UaePageProps) {
             status="green"
             title="燃烧类烟草制品"
             id="product-combustible-tobacco"
-            customLabel="可准入，需合规"
+            customLabel="可准入"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：传统卷烟、水烟烟草、雪茄、烟丝及其他燃烧类烟草制品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -143,7 +143,7 @@ export default function UaePage({ country }: UaePageProps) {
             <StatusCard
               status="green"
               title="电子尼古丁产品"
-              customLabel="可准入，需认证"
+              customLabel="可准入"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、设备与液体组合产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -175,7 +175,7 @@ export default function UaePage({ country }: UaePageProps) {
               status="green"
               title="加热烟草产品"
               id="product-heat-not-burn"
-              customLabel="可准入，需认证"
+              customLabel="可准入"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒、加热烟草产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -209,7 +209,7 @@ export default function UaePage({ country }: UaePageProps) {
               status="green"
               title="无烟草尼古丁袋"
               id="product-nicotine-pouch"
-              customLabel="可准入，需认证"
+              customLabel="可准入"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：无烟草尼古丁袋、袋状口含尼古丁产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -304,7 +304,7 @@ export default function UaePage({ country }: UaePageProps) {
             <StatusCard
               status="amber"
               title="含尼古丁 / 烟草成分辅材"
-              customLabel="需按成分判断"
+              customLabel="需结合产品特性确认"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：含尼古丁、烟草成分或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>

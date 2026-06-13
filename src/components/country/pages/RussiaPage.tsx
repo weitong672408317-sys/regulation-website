@@ -81,7 +81,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               <BulletList items={[
                 '俄罗斯属于烟草及尼古丁产品强监管市场。',
                 '传统烟草、加热烟草、电子烟制品等产品有合规准入空间，但生产、进口、流通、标识、税费、价格和销售环节均受到较强监管。',
-                '俄罗斯对无烟烟草产品实行分类监管。nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品禁止批发和零售；咀嚼烟草、鼻烟等传统非吸烟烟草产品仍有合规准入路径，但适用强监管要求。'
+                '俄罗斯对无烟烟草产品实行分类监管。nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品禁止批发和零售；咀嚼烟草、鼻烟等无烟烟草产品仍有合规准入路径，但适用强监管要求。'
               ]} />
             )
           },
@@ -148,7 +148,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="3. 电子烟及液体产品" label="分类监管">
+        <ProductModuleCard title="3. 电子烟及液体产品" label="分类监管" id="module-ecig">
           <p className="text-sm leading-relaxed text-[#334155] text-justify mb-3">俄罗斯法规通常按产品构成拆分判断电子烟相关产品，不使用一个单一概念统一覆盖全部产品。电子烟相关产品可分为设备类、液体类、预灌装 / 组合产品和空组件。</p>
           <p className="text-sm leading-relaxed text-[#334155] text-justify">俄罗斯目前尚未实施全国性电子烟全面禁售，电子烟及相关液体产品仍有合法市场空间。近期围绕"允许地区政府自行禁止电子烟及相关液体销售"的立法讨论，可能改变部分地区的销售可行性，使该品类面临明显高于传统烟草和加热烟草产品的政策变动风险。</p>
           <div className="grid md:grid-cols-3 gap-4 mt-4">
@@ -248,31 +248,10 @@ export default function RussiaPage({ country }: RussiaPageProps) {
           <div className="space-y-2 mb-4">
             <BulletPoint>无烟烟草产品是一个大类。俄罗斯法规主要根据产品成分、使用方式和具体产品类别区分监管，没有对所有无烟烟草产品适用统一准入规则。</BulletPoint>
             <BulletPoint>nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品，属于明确禁售产品。</BulletPoint>
-            <BulletPoint>咀嚼烟草、鼻烟等传统非吸烟烟草产品，在俄罗斯法规体系中仍有合规准入路径，但适用强监管要求。</BulletPoint>
+            <BulletPoint>咀嚼烟草、鼻烟等无烟烟草产品，在俄罗斯法规体系中仍有合规准入路径，但适用强监管要求。</BulletPoint>
             <BulletPoint>HNB 烟支 / 加热烟草产品不放在本栏目判断，相关信息请参见"加热烟草产品"栏目。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
-            <StatusCard
-              status="red"
-              customLabel="完全禁止"
-              title="无烟烟草产品"
-              id="product-smokeless-tobacco"
-              content={<>
-                <div className="text-sm text-[#334155] mb-2">适用产品：snus（湿润口含烟草）、nasvay（中亚口含烟草制品）</div>
-                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D04A4A] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">nasvay、snus 禁止批发和零售。</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D04A4A] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">产品构成 nasvay、snus 的，应按禁售产品处理。</span>
-                  </div>
-                </div>
-              </>}
-            />
-
             <StatusCard
               status="red"
               customLabel="完全禁止"
@@ -299,17 +278,38 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             />
 
             <StatusCard
+              status="red"
+              customLabel="完全禁止"
+              title="特定无烟烟草产品"
+              id="product-smokeless-tobacco"
+              content={<>
+                <div className="text-sm text-[#334155] mb-2">适用产品：snus（湿润口含烟草）、nasvay（中亚口含烟草制品）</div>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D04A4A] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">nasvay、snus 禁止批发和零售。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D04A4A] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">产品构成 nasvay、snus 的，应按禁售产品处理。</span>
+                  </div>
+                </div>
+              </>}
+            />
+
+            <StatusCard
               status="amber"
               customLabel="可准入，强监管"
-              title="传统非吸烟烟草产品"
+              title="大部分无烟烟草产品"
               id="product-non-smoking-tobacco"
               content={<>
-                <div className="text-sm text-[#334155] mb-2">适用产品：除 snus、nasvay 及其他明确禁售产品以外的非吸烟烟草产品</div>
+                <div className="text-sm text-[#334155] mb-2">适用产品：除 snus、nasvay 及其他明确禁售产品以外的无烟烟草产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">产品本身有合规准入空间，但需按非吸烟烟草产品的具体类别判断监管要求。</span>
+                    <span className="flex-1 min-w-0">产品本身有合规准入空间，但需按无烟烟草产品的具体类别判断监管要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
@@ -317,7 +317,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">如主张按传统非吸烟烟草产品进入市场，应重点确认产品定义、成分、使用方式、标签标识、生产 / 进口流通许可、最低价格和主管机关口径。</span>
+                    <span className="flex-1 min-w-0">如主张按无烟烟草产品进入市场，应重点确认产品定义、成分、使用方式、标签标识、生产 / 进口流通许可、最低价格和主管机关口径。</span>
                   </div>
                 </div>
               </>}
@@ -387,7 +387,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
             <StatusCard
               status="amber"
-              customLabel="需按成分判断"
+              customLabel="需结合产品特性确认"
               title="含尼古丁 / 烟草成分辅材"
               id="product-nicotine-material"
               content={<>
@@ -594,7 +594,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
                 showSeparator
                 url="https://www.kremlin.ru/acts/bank/28603"
                 title="《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》"
-                description={<><span className="font-semibold">主要内容：</span>无烟烟草产品的技术识别和技术合规规则，主要涉及非吸烟烟草产品的技术要求、识别、标签和合格评定。该技术法规本身不等于市场准入许可；具体产品能否进入俄罗斯市场，还需结合第15-FZ号法的禁售规则、第203-FZ号法的生产流通监管、数字标识、最低价格和销售限制判断。</>}
+                description={<><span className="font-semibold">主要内容：</span>无烟烟草产品的技术识别和技术合规规则，主要涉及无烟烟草产品的技术要求、识别、标签和合格评定。该技术法规本身不等于市场准入许可；具体产品能否进入俄罗斯市场，还需结合第15-FZ号法的禁售规则、第203-FZ号法的生产流通监管、数字标识、最低价格和销售限制判断。</>}
               />
             </ReferenceGroupCard>
 
