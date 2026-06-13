@@ -525,7 +525,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       </MarketOperationSection>
 
       {/* 政策趋势分析 */}
-      <SectionCard title="趋势预判" id="trend">
+      <SectionCard title="监管趋势" id="trend">
         <div className="space-y-4">
           <p className="text-[#334155] text-sm leading-relaxed text-justify">新加坡烟草监管长期以控烟和公共健康保护为核心。传统烟草产品仍保留有限经营空间，但监管重点是减少展示、减少宣传、提高税负，并通过禁烟场所规则限制使用场景。电子烟、HNB 烟支、尼古丁袋、雾化器等新型产品则继续采取原则禁止和严格执法的路径。</p>
           <p className="text-[#334155] text-sm leading-relaxed text-justify">2026年的修法进一步强化了这一方向。监管已经从传统的进口、销售和广告控制，延伸到购买、持有、使用、储存、场所责任、雾化器组件、仿烟产品以及含特定精神活性物质产品。</p>

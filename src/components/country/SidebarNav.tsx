@@ -28,7 +28,7 @@ function getNavItems(countryId: string): NavItem[] {
   }
   items.push(
     { id: 'operation-rules', label: '市场运营规范' },
-    { id: 'trend', label: '趋势预判' },
+    { id: 'trend', label: '监管趋势' },
     { id: 'red-lines', label: '合规红线清单' },
     { id: 'resources', label: '重要资讯' },
   );

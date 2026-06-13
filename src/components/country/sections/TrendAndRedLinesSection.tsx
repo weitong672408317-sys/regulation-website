@@ -62,7 +62,7 @@ interface TrendAndRedLinesSectionProps {
   redLineId?: string;
 }
 
-export function TrendAndRedLinesSection({ title = '趋势预判与合规红线清单', trendTitle = '趋势预判', trendContent, redLineGroups, redLineItems, children, sectionId, trendId, redLineId }: TrendAndRedLinesSectionProps) {
+export function TrendAndRedLinesSection({ title = '监管趋势与合规红线清单', trendTitle = '监管趋势', trendContent, redLineGroups, redLineItems, children, sectionId, trendId, redLineId }: TrendAndRedLinesSectionProps) {
   return (
     <SectionCard title={title} id={sectionId}>
       <div className="space-y-4">

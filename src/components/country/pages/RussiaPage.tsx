@@ -141,7 +141,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             title="加热烟草产品"
             id="product-heat-not-burn"
             content={<>
-              <div className="text-sm text-[#334155] mb-2">适用产品：HNB 烟支、加热消费用烟草、加热烟草产品</div>
+              <div className="text-sm text-[#334155] mb-2">适用产品：HNB 烟支、加热消费用烟草</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <p className="text-[#334155]">产品本身可准入，重点关注生产或进口投入流通许可、数字标识、消费税、最低价格、包装标签和销售限制。</p>
             </>}
@@ -256,6 +256,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               status="red"
               customLabel="完全禁止"
               title="无烟烟草产品"
+              id="product-smokeless-tobacco"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：snus（湿润口含烟草）、nasvay（中亚口含烟草制品）</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -538,8 +539,8 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         )}
       </MarketOperationSection>
 
-      <SectionCard title="趋势预判与合规红线清单" id="trend">
-        <SubCard title="趋势分析">
+      <SectionCard title="监管趋势与合规红线清单" id="trend">
+        <SubCard title="监管趋势">
           <div className="space-y-5">
             <div>
               <h4 className="font-bold text-[#243B63] text-base mb-2">1. 整体方向：保留合法市场，提高监管控制力</h4>

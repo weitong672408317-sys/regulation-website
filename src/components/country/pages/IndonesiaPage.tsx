@@ -628,7 +628,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
         </div>
       </MarketOperationSection>
 
-      {/* 七、趋势预判与红线警告 */}
+      {/* 七、监管趋势与红线警告 */}
       <TrendAndRedLinesSection
         sectionId="trend"
         redLineId="red-lines"
