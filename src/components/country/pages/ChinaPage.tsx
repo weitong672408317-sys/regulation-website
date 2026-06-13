@@ -250,7 +250,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           </div>
         </ProductModuleCard>
 
-        <ProductModuleCard title="4. 烟草专用机械" label="产品定性">
+        <ProductModuleCard title="4. 烟草专用机械" label="产品定性" id="module-machinery">
           <ul className="space-y-2 pl-5 list-disc text-sm leading-relaxed text-[#334155] text-justify mb-4">
             <li>《中华人民共和国烟草专卖法》将烟草专用机械列入烟草专卖品。</li>
             <li>《中华人民共和国烟草专卖法实施条例》规定，烟草专用机械是指烟草专用机械的整机，具体范围以国务院烟草专卖行政主管部门公布的烟草专用机械名录为准。</li>

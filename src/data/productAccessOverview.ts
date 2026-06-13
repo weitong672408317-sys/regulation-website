@@ -52,7 +52,7 @@ export const chinaProductAccessOverview: ProductAccessOverviewData = {
         { productName: '特殊配套材料：卷烟纸、滤嘴棒、烟用丝束', targetId: 'product-special-material' },
         { productName: '电子烟产品：烟具、烟弹、烟弹与烟具组合销售产品', targetId: 'product-ecig' },
         { productName: '雾化物及电子烟用烟碱', targetId: 'product-e-liquid' },
-        { productName: '烟草专用机械', targetId: 'product-machinery' },
+        { productName: '烟草专用机械', targetId: 'module-machinery' },
       ],
     },
     {
