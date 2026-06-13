@@ -1,97 +1,592 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { baseCountries, CountryData } from '../../data/mockData';
+import { useState, useMemo } from 'react';
+import Link from 'next/link';
+import {
+  countryOverviewData,
+  intensityDistribution,
+  productCategories,
+  productComparisonMap,
+  type AccessColor,
+  type IntensityLevel,
+  type ProductStatusType,
+} from '@/data/comparisonData';
+import { accessStatusColors } from '@/data/productAccessOverview';
+
+type TabType = 'overview' | 'product';
+
+// ===== 产品准入三分类（用户要求固定三类） =====
+type AccessCategory = 'accessible' | 'restricted' | 'prohibited';
+
+const accessCategoryConfig: Record<AccessCategory, { label: string; dotColor: string; barColor: string; barTextColor: string }> = {
+  accessible: {
+    label: '可准入',
+    dotColor: `bg-[${accessStatusColors.green.dot}]`,
+    barColor: '#4A9B5A',   // 比badge更深的绿色
+    barTextColor: '#ffffff',  // 白色文字
+  },
+  restricted: {
+    label: '部分限制/监管要求不明确/需结合产品特性确认',
+    dotColor: `bg-[${accessStatusColors.amber.dot}]`,
+    barColor: '#B89038',   // 比badge更深的琥珀色
+    barTextColor: '#ffffff',  // 白色文字
+  },
+  prohibited: {
+    label: '禁止/未开放',
+    dotColor: `bg-[${accessStatusColors.red.dot}]`,
+    barColor: '#C45252',   // 比badge更深的红色
+    barTextColor: '#ffffff',  // 白色文字
+  },
+};
+
+// 将 statusType 映射到三分类
+const mapToAccessCategory = (statusType: ProductStatusType): AccessCategory => {
+  switch (statusType) {
+    case 'green': return 'accessible';
+    case 'amber': return 'restricted';
+    case 'mixed': return 'restricted';
+    case 'red': return 'prohibited';
+  }
+};
+
+// ===== 监管强度配色 =====
+
+const intensityColorConfig: Record<IntensityLevel, { bg: string; text: string; border: string }> = {
+  '极高': { bg: '#DC2626', text: '#ffffff', border: '#B91C1C' },
+  '高':   { bg: '#F97316', text: '#ffffff', border: '#EA580C' },
+  '中':   { bg: '#FACC15', text: '#78350F', border: '#CA8A04' },
+  '低至中': { bg: '#A3E635', text: '#166534', border: '#84CC16' },
+};
+
+const getIntensityBadgeClass = (intensity: IntensityLevel) => {
+  const c = intensityColorConfig[intensity];
+  return { backgroundColor: c.bg, color: c.text };
+};
+
+// ===== 辅助函数 =====
+
+const getDotColor = (color: AccessColor) => {
+  switch (color) {
+    case 'green': return `bg-[${accessStatusColors.green.dot}]`;
+    case 'amber': return `bg-[${accessStatusColors.amber.dot}]`;
+    case 'red': return `bg-[${accessStatusColors.red.dot}]`;
+  }
+};
+
+const getAccessCategoryDotColor = (category: AccessCategory) => {
+  return accessCategoryConfig[category].dotColor;
+};
 
 export default function ComparisonTable() {
-  const router = useRouter();
-  const countries: CountryData[] = baseCountries;
+  const [activeTab, setActiveTab] = useState<TabType>('overview');
+  const [selectedIntensity, setSelectedIntensity] = useState<IntensityLevel | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<string>('traditional-tobacco');
+  const [selectedAccessCategory, setSelectedAccessCategory] = useState<AccessCategory | null>(null);
 
-  const getIntensityColor = (intensity: string) => {
-    switch (intensity) {
-      case '极高':
-        return 'bg-red-600 text-white';
-      case '高':
-        return 'bg-orange-500 text-white';
-      case '中':
-        return 'bg-yellow-400 text-yellow-900';
-      case '低至中':
-        return 'bg-lime-400 text-lime-900';
-      case '低':
-        return 'bg-green-400 text-green-900';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
+  const totalCountries = countryOverviewData.length;
+
+  // Tab 1: 按监管强度筛选国家
+  const filteredOverviewCountries = useMemo(() => {
+    if (!selectedIntensity) return countryOverviewData;
+    return countryOverviewData.filter(c => c.intensity === selectedIntensity);
+  }, [selectedIntensity]);
+
+  // Tab 2: 当前产品的对比数据
+  const currentProductData = useMemo(() => {
+    return productComparisonMap[selectedProduct] || [];
+  }, [selectedProduct]);
+
+  // Tab 2: 计算三分类分布
+  const accessDistribution = useMemo(() => {
+    const dist: Record<AccessCategory, number> = { accessible: 0, restricted: 0, prohibited: 0 };
+    const names: Record<AccessCategory, string[]> = { accessible: [], restricted: [], prohibited: [] };
+    currentProductData.forEach(c => {
+      const cat = mapToAccessCategory(c.statusType);
+      dist[cat]++;
+      names[cat].push(c.countryName);
+    });
+    return { dist, names };
+  }, [currentProductData]);
+
+  // Tab 2: 按准入分类筛选
+  const filteredProductCountries = useMemo(() => {
+    if (!selectedAccessCategory) return currentProductData;
+    return currentProductData.filter(c => mapToAccessCategory(c.statusType) === selectedAccessCategory);
+  }, [currentProductData, selectedAccessCategory]);
+
+  const handleIntensityClick = (intensity: IntensityLevel) => {
+    setSelectedIntensity(prev => prev === intensity ? null : intensity);
   };
 
-  const formatBulletPoints = (text: string) => {
-    if (!text) return text;
-    const parts = text.split('；').map(s => s.trim()).filter(s => s);
-    if (parts.length > 1) {
-      return (
-        <div className="space-y-1">
-          {parts.map((part, index) => (
-            <div key={index} className="flex items-start">
-              <span className="mr-2 text-gray-400 shrink-0">·</span>
-              <span className="text-sm text-gray-700 leading-6">{part}</span>
-            </div>
-          ))}
-        </div>
-      );
-    }
-    return <span className="text-sm text-gray-700 leading-6">{text}</span>;
+  const handleAccessCategoryClick = (category: AccessCategory) => {
+    setSelectedAccessCategory(prev => prev === category ? null : category);
+  };
+
+  const handleProductChange = (productId: string) => {
+    setSelectedProduct(productId);
+    setSelectedAccessCategory(null);
+  };
+
+  const handleTabChange = (tab: TabType) => {
+    setActiveTab(tab);
+    setSelectedIntensity(null);
+    setSelectedAccessCategory(null);
   };
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-      <table className="w-full">
-        <thead className="bg-gray-50">
-          <tr>
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[10%]">
-              国家/地区
-            </th>
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[22%]">
-              总体状态
-            </th>
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[28%]">
-              产品定性
-            </th>
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[30%]">
-              主要监管要求
-            </th>
-            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[10%]">
-              监管强度
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          {countries.map((country) => (
-            <tr
-              key={country.id}
-              onClick={() => router.push(`/country/${country.id}`)}
-              className="hover:bg-gray-50 cursor-pointer transition-colors"
-            >
-              <td className="px-3 py-3 align-top">
-                <div className="text-sm font-bold text-gray-900">{country.name}</div>
-              </td>
-              <td className="px-3 py-3 align-top">
-                <div className="text-sm text-gray-700 leading-6">{country.status}</div>
-              </td>
-              <td className="px-3 py-3 align-top">
-                {formatBulletPoints(country.productQualification)}
-              </td>
-              <td className="px-3 py-3 align-top">
-                {formatBulletPoints(country.restrictions)}
-              </td>
-              <td className="px-3 py-3 align-top">
-                <span className={`inline-flex px-2 py-1 text-xs font-medium rounded ${getIntensityColor(country.regulatoryIntensity)}`}>
-                  {country.regulatoryIntensity}
+      {/* ===== 选项卡 ===== */}
+      <div className="flex border-b border-gray-200 bg-gray-50">
+        <button
+          className={`px-5 sm:px-6 py-3 text-sm font-medium transition-colors relative ${
+            activeTab === 'overview'
+              ? 'text-indigo-600 bg-white'
+              : 'text-gray-500 hover:text-gray-700'
+          }`}
+          onClick={() => handleTabChange('overview')}
+        >
+          国家监管概览
+          {activeTab === 'overview' && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />
+          )}
+        </button>
+        <button
+          className={`px-5 sm:px-6 py-3 text-sm font-medium transition-colors relative ${
+            activeTab === 'product'
+              ? 'text-indigo-600 bg-white'
+              : 'text-gray-500 hover:text-gray-700'
+          }`}
+          onClick={() => handleTabChange('product')}
+        >
+          产品准入对比
+          {activeTab === 'product' && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />
+          )}
+        </button>
+      </div>
+
+      {/* ===== 选项卡一：国家监管概览 ===== */}
+      {activeTab === 'overview' && (
+        <div className="p-4 sm:p-6">
+          {/* 区域标题 */}
+          <div className="flex items-baseline justify-between mb-1">
+            <h3 className="text-sm font-semibold text-gray-800">监管强度分布</h3>
+            <span className="text-xs text-slate-400">共 {totalCountries} 个国家/地区</span>
+          </div>
+
+          {/* 操作说明 */}
+          <p className="text-xs text-slate-400 mb-3">
+            点击监管强度色块，可筛选对应强度的国家/地区。
+          </p>
+
+          {/* 监管强度分布条 */}
+          <div className="mb-3">
+            <div className="flex h-9 rounded-lg overflow-hidden border border-gray-200">
+              {intensityDistribution.map(seg => {
+                const config = intensityColorConfig[seg.label];
+                const isSelected = selectedIntensity === seg.label;
+                return (
+                  <div
+                    key={seg.label}
+                    className="flex items-center justify-center text-xs cursor-pointer transition-all duration-200 select-none"
+                    style={{
+                      width: `${(seg.count / totalCountries) * 100}%`,
+                      minWidth: '2.5rem',
+                      backgroundColor: config.bg,
+                      color: config.text,
+                      boxShadow: isSelected ? `inset 0 0 0 2px rgba(0,0,0,0.25)` : 'none',
+                      fontWeight: isSelected ? 700 : 500,
+                    }}
+                    onClick={() => handleIntensityClick(seg.label)}
+                    title={`${seg.label}：${seg.count}个（${seg.countries.join('、')}）`}
+                  >
+                    <span className="px-1 whitespace-nowrap">{seg.label} {seg.count}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 当前显示范围 / 当前筛选条件 */}
+          <div className="mb-4 flex items-center gap-2 text-sm text-gray-500">
+            {selectedIntensity ? (
+              <>
+                <span>
+                  当前筛选：监管强度 = <span className="font-medium text-gray-700">{selectedIntensity}</span>
+                  ｜显示 {filteredOverviewCountries.length} 个国家/地区
                 </span>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                <button
+                  className="text-indigo-600 hover:underline text-sm"
+                  onClick={() => setSelectedIntensity(null)}
+                >
+                  清除筛选
+                </button>
+              </>
+            ) : (
+              <span>当前显示：全部国家/地区（共 {totalCountries} 个）</span>
+            )}
+          </div>
+
+          {/* 国家监管概览表 - 桌面端 */}
+          <div className="hidden md:block overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '12%' }}>
+                    国家/地区
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '32%' }}>
+                    核心监管特征
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '44%' }}>
+                    产品准入速览
+                  </th>
+                  <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '12%' }}>
+                    监管强度
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {filteredOverviewCountries.length === 0 ? (
+                  <tr>
+                    <td colSpan={4} className="px-4 py-8 text-center text-sm text-gray-400">
+                      暂无国家/地区属于该状态。
+                    </td>
+                  </tr>
+                ) : (
+                  filteredOverviewCountries.map(country => (
+                    <tr key={country.countryId} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-4 py-4 align-middle">
+                        <Link
+                          href={`/country/${country.countryId}`}
+                          className="group inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-800 hover:underline cursor-pointer"
+                        >
+                          {country.countryName}
+                          <svg className="w-3 h-3 ml-0.5 opacity-0 group-hover:opacity-60 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      </td>
+                      <td className="px-4 py-4 align-middle">
+                        <Link
+                          href={`/country/${country.countryId}#regulatory-system`}
+                          className="text-sm text-gray-700 leading-relaxed hover:text-indigo-600"
+                        >
+                          {country.coreFeature}
+                        </Link>
+                      </td>
+                      <td className="px-4 py-4 align-middle">
+                        <Link
+                          href={`/country/${country.countryId}#product-access-overview`}
+                          className="block hover:text-indigo-600"
+                        >
+                          <div className="space-y-1.5">
+                            {country.productAccessSummary.map((item, idx) => (
+                              <div key={idx} className="flex items-start gap-2">
+                                <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-[9px] ${getDotColor(item.color)}`} />
+                                <span className="text-sm text-gray-700 leading-relaxed">
+                                  <span className="font-medium">{item.status}</span>：{item.products}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </Link>
+                      </td>
+                      <td className="px-4 py-4 align-middle text-center">
+                        <span
+                          className="inline-flex px-3 py-1.5 text-xs font-medium rounded-full whitespace-nowrap"
+                          style={getIntensityBadgeClass(country.intensity)}
+                        >
+                          {country.intensity}
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          {/* 国家监管概览 - 移动端卡片 */}
+          <div className="md:hidden space-y-4">
+            {filteredOverviewCountries.length === 0 ? (
+              <div className="py-8 text-center text-sm text-gray-400">
+                暂无国家/地区属于该状态。
+              </div>
+            ) : (
+              filteredOverviewCountries.map(country => (
+                <div key={country.countryId} className="border border-gray-200 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <Link
+                      href={`/country/${country.countryId}`}
+                      className="group inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-800 cursor-pointer"
+                    >
+                      {country.countryName}
+                      <svg className="w-3 h-3 ml-0.5 opacity-0 group-hover:opacity-60 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                    <span
+                      className="inline-flex px-2 py-1 text-xs font-medium rounded whitespace-nowrap"
+                      style={getIntensityBadgeClass(country.intensity)}
+                    >
+                      {country.intensity}
+                    </span>
+                  </div>
+                  <div className="mb-3">
+                    <Link
+                      href={`/country/${country.countryId}#regulatory-system`}
+                      className="text-sm text-gray-700 leading-6 hover:text-indigo-600"
+                    >
+                      {country.coreFeature}
+                    </Link>
+                  </div>
+                  <Link
+                    href={`/country/${country.countryId}#product-access-overview`}
+                    className="block hover:text-indigo-600"
+                  >
+                    <div className="space-y-1.5">
+                      {country.productAccessSummary.map((item, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
+                          <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-[9px] ${getDotColor(item.color)}`} />
+                          <span className="text-sm text-gray-700 leading-6">
+                            <span className="font-medium">{item.status}</span>：{item.products}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </Link>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* ===== 选项卡二：产品准入对比 ===== */}
+      {activeTab === 'product' && (
+        <div className="p-4 sm:p-6">
+          {/* 选择产品标题 */}
+          <div className="mb-1">
+            <label className="block text-sm font-semibold text-gray-800 mb-1">选择产品</label>
+            
+            {/* 操作说明 - 移到下拉框上方，使用深色文字 */}
+            <p className="text-sm text-gray-600 mb-2">
+              选择产品后，点击"准入状态"色块查看对应状态的国家；点击表格中的国家名称，可查看详情。
+            </p>
+            
+            <select
+              value={selectedProduct}
+              onChange={(e) => handleProductChange(e.target.value)}
+              className="w-full sm:w-auto max-w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            >
+              {productCategories.map(cat => (
+                <option key={cat.id} value={cat.id}>{cat.name}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* 产品准入状态分布条标题 */}
+          <div className="flex items-baseline justify-between mb-1 mt-4">
+            <h3 className="text-sm font-semibold text-gray-800">所选产品的准入状态分布</h3>
+          </div>
+
+          {/* 产品状态分布条 - 三类状态始终在同一容器内 */}
+          <div className="mb-3">
+            {(() => {
+              const ZERO_WIDTH_PCT = 14;
+              const cats: AccessCategory[] = ['accessible', 'restricted', 'prohibited'];
+              const zeroCount = cats.filter(c => accessDistribution.dist[c] === 0).length;
+              const nonZeroTotal = cats.reduce((s, c) => s + accessDistribution.dist[c], 0);
+              const availablePct = 100 - zeroCount * ZERO_WIDTH_PCT;
+
+              return (
+                <div className="flex h-9 rounded-lg overflow-hidden border border-gray-200">
+                  {cats.map((category, idx) => {
+                    const config = accessCategoryConfig[category];
+                    const count = accessDistribution.dist[category];
+                    const isSelected = selectedAccessCategory === category;
+                    const hasCount = count > 0;
+
+                    const widthPct = hasCount
+                      ? (nonZeroTotal > 0 ? (count / nonZeroTotal) * availablePct : 0)
+                      : ZERO_WIDTH_PCT;
+
+                    const borderLeft = idx > 0 ? '1px solid rgba(0,0,0,0.08)' : 'none';
+
+                    const boxShadow = isSelected
+                      ? `inset 0 0 0 2px ${config.barTextColor}44`
+                      : 'none';
+                    const fontWeight = isSelected ? 700 : 500;
+
+                    // 深色背景，零值状态用浅色版本
+                    const bgColor = hasCount
+                      ? config.barColor
+                      : `${config.barColor}44`;
+                    const textColor = hasCount
+                      ? config.barTextColor
+                      : `${config.barColor}`;
+
+                    return (
+                      <div
+                        key={category}
+                        className="flex items-center justify-center text-xs cursor-pointer transition-all duration-200 select-none"
+                        style={{
+                          width: `${widthPct}%`,
+                          backgroundColor: bgColor,
+                          color: textColor,
+                          boxShadow,
+                          fontWeight,
+                          borderLeft,
+                          padding: '0 6px',
+                        }}
+                        onClick={() => handleAccessCategoryClick(category)}
+                        title={hasCount
+                          ? `${config.label}：${count}个（${accessDistribution.names[category].join('、')}）`
+                          : `${config.label}：0个`}
+                      >
+                        <span className="whitespace-nowrap">{config.label} {count}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
+          </div>
+
+          {/* 当前显示范围 / 当前筛选条件 */}
+          <div className="mb-4 flex items-center gap-2 text-sm text-gray-500">
+            {selectedAccessCategory ? (
+              <>
+                <span>
+                  当前筛选：准入状态 = <span className="font-medium text-gray-700">{accessCategoryConfig[selectedAccessCategory].label}</span>
+                  ｜显示 {filteredProductCountries.length} 个国家/地区
+                </span>
+                <button
+                  className="text-indigo-600 hover:underline text-sm"
+                  onClick={() => setSelectedAccessCategory(null)}
+                >
+                  清除筛选
+                </button>
+              </>
+            ) : (
+              <span>当前显示：全部国家/地区（共 {currentProductData.length} 个）</span>
+            )}
+          </div>
+
+          {/* 判断是否有备注 */}
+          {(() => {
+            const hasNotes = currentProductData.some(entry => entry.note && entry.note.trim());
+            
+            return (
+              /* 产品准入对比表 - 桌面端 */
+              <div className="hidden md:block overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: hasNotes ? '18%' : '20%' }}>
+                        国家/地区
+                      </th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: hasNotes ? '27%' : '80%' }}>
+                        准入速览
+                      </th>
+                      {hasNotes && (
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '55%' }}>
+                          备注
+                        </th>
+                      )}
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {filteredProductCountries.length === 0 ? (
+                      <tr>
+                        <td colSpan={hasNotes ? 3 : 2} className="px-4 py-8 text-center text-sm text-gray-400">
+                          暂无国家/地区属于该状态。
+                        </td>
+                      </tr>
+                    ) : (
+                      filteredProductCountries.map(entry => {
+                        const category = mapToAccessCategory(entry.statusType);
+                        return (
+                          <tr key={entry.countryId} className="hover:bg-gray-50 transition-colors">
+                            <td className="px-4 py-4 align-middle text-center">
+                              <Link
+                                href={`/country/${entry.countryId}#${entry.targetId}`}
+                                className="group inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-800 hover:underline cursor-pointer"
+                              >
+                                {entry.countryName}
+                                <svg className="w-3 h-3 ml-0.5 opacity-0 group-hover:opacity-60 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                              </Link>
+                            </td>
+                            <td className="px-4 py-4 align-middle">
+                              <div className="flex items-center gap-2">
+                                <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${getAccessCategoryDotColor(category)}`} />
+                                <span className={`text-sm whitespace-nowrap ${
+                                  entry.statusType === 'mixed' ? 'text-gray-500' : 'text-gray-700'
+                                }`}>
+                                  {entry.status}
+                                </span>
+                              </div>
+                            </td>
+                            {hasNotes && (
+                              <td className="px-4 py-4 align-top">
+                                {entry.note && (
+                                  <span className="text-sm text-gray-500 leading-relaxed">{entry.note}</span>
+                                )}
+                              </td>
+                            )}
+                          </tr>
+                        );
+                      })
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            );
+          })()}
+
+          {/* 产品准入对比 - 移动端卡片 */}
+          <div className="md:hidden space-y-4">
+            {filteredProductCountries.length === 0 ? (
+              <div className="py-8 text-center text-sm text-gray-400">
+                暂无国家/地区属于该状态。
+              </div>
+            ) : (
+              filteredProductCountries.map(entry => {
+                const category = mapToAccessCategory(entry.statusType);
+                return (
+                  <div key={entry.countryId} className="border border-gray-200 rounded-lg p-4">
+                    <div className="mb-2">
+                      <Link
+                        href={`/country/${entry.countryId}#${entry.targetId}`}
+                        className="group inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-800 cursor-pointer"
+                      >
+                        {entry.countryName}
+                        <svg className="w-3 h-3 ml-0.5 opacity-0 group-hover:opacity-60 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${getAccessCategoryDotColor(category)}`} />
+                      <span className={`text-sm ${
+                        entry.statusType === 'mixed' ? 'text-gray-500' : 'text-gray-700'
+                      }`}>
+                        {entry.status}
+                      </span>
+                    </div>
+                    {entry.note && (
+                      <p className="text-sm text-gray-500 leading-6 mt-1">{entry.note}</p>
+                    )}
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

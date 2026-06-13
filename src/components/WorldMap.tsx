@@ -32,10 +32,10 @@ const intensityColorMap: Record<string, string> = {
 const highlightCountryNames = new Set(mapLabels.map((l: LabelItem) => l.countryName));
 
 const legendItems = [
-  { color: '#DC2626', label: '禁止 / 高度限制' },
-  { color: '#F97316', label: '强监管市场' },
-  { color: '#FACC15', label: '中等监管' },
-  { color: '#A3E635', label: '开放 / 相对友好' },
+  { color: '#DC2626', label: '极高' },
+  { color: '#F97316', label: '高' },
+  { color: '#FACC15', label: '中' },
+  { color: '#A3E635', label: '低至中' },
 ];
 
 export default function WorldMap() {
@@ -182,12 +182,13 @@ export default function WorldMap() {
         </div>
       )}
 
-      {/* Legend */}
-      <div className="flex items-center justify-center gap-6 mt-4 flex-wrap">
+      {/* Legend - single line */}
+      <div className="flex items-center justify-center gap-4 mt-4 flex-wrap">
+        <span className="text-sm text-gray-500">监管强度：</span>
         {legendItems.map((item) => (
-          <div key={item.label} className="flex items-center gap-2">
+          <div key={item.label} className="flex items-center gap-1.5">
             <span
-              className="inline-block w-4 h-4 rounded-sm border border-gray-300"
+              className="inline-block w-3.5 h-3.5 rounded-sm border border-gray-300"
               style={{ backgroundColor: item.color }}
             />
             <span className="text-sm text-gray-600">{item.label}</span>

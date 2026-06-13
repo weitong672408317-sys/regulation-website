@@ -5,6 +5,13 @@
 
 export type AccessStatusType = 'green' | 'amber' | 'red';
 
+/** 产品准入状态公共颜色配置，首页与子页面统一引用 */
+export const accessStatusColors: Record<AccessStatusType, { dot: string; badge: string; badgeText: string }> = {
+  green: { dot: '#6AAF7C', badge: '#E8F5ED', badgeText: '#3D7050' },
+  amber: { dot: '#C9A24C', badge: '#F8F3E8', badgeText: '#8B6F2E' },
+  red:   { dot: '#DC6B6B', badge: '#FCEAEA', badgeText: '#B33B3B' },
+};
+
 export interface ProductAccessEntry {
   /** 产品名称（显示文字） */
   productName: string;

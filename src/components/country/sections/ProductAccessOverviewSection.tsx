@@ -1,19 +1,19 @@
 import React from 'react';
 import { SectionCard } from './SectionCard';
-import type { ProductAccessOverviewData, AccessStatusType } from '../../../data/productAccessOverview';
+import { accessStatusColors, type ProductAccessOverviewData, type AccessStatusType } from '../../../data/productAccessOverview';
 
 const statusStyles: Record<AccessStatusType, { badge: string; dot: string }> = {
   green: {
-    badge: 'bg-[#E8F5ED] text-[#3D7050]',
-    dot: 'bg-[#6AAF7C]',
+    badge: `bg-[${accessStatusColors.green.badge}] text-[${accessStatusColors.green.badgeText}]`,
+    dot: `bg-[${accessStatusColors.green.dot}]`,
   },
   amber: {
-    badge: 'bg-[#F8F3E8] text-[#8B6F2E]',
-    dot: 'bg-[#C9A24C]',
+    badge: `bg-[${accessStatusColors.amber.badge}] text-[${accessStatusColors.amber.badgeText}]`,
+    dot: `bg-[${accessStatusColors.amber.dot}]`,
   },
   red: {
-    badge: 'bg-[#FCEAEA] text-[#B33B3B]',
-    dot: 'bg-[#DC6B6B]',
+    badge: `bg-[${accessStatusColors.red.badge}] text-[${accessStatusColors.red.badgeText}]`,
+    dot: `bg-[${accessStatusColors.red.dot}]`,
   },
 };
 

@@ -6,7 +6,7 @@ import AuthWrapper from '../components/AuthWrapper';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: '全球法规动态追踪',
+  title: '全球烟草监管信息参考',
   description: '专业监管法规智能追踪与合规分析平台',
   keywords: ['法规', '监管', '合规', '全球', '追踪'],
   authors: [{ name: 'WT Studio' }],
