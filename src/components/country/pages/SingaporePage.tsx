@@ -35,6 +35,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       <ProductAccessOverviewSection data={singaporeProductAccessOverview} sectionId="product-access-overview" />
       {/* 本季监管动态 */}
       <SeasonSummarySection
+        sectionId="overview"
         introText={<>2026年以来，新加坡烟草监管继续沿着&ldquo;传统烟草产品有限准入、新型产品从严禁止&rdquo;的方向推进。自2026年5月1日起，《Tobacco and Vaporisers Control Act 1993》生效，监管重点集中在雾化器、HNB产品、尼古丁袋、烟油、仿烟产品及相关组件的处罚升级、场所责任强化，以及传统烟草产品消费税提高。</>}
         items={[
           {
@@ -58,6 +59,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
 
       {/* 监管体系 */}
       <RegulatorySystemSection
+        sectionId="regulatory-system"
         cards={[
           {
             title: '核心特征',
@@ -346,7 +348,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       </ProductAccessSection>
 
       {/* 合规资质 */}
-      <ComplianceSection country={country}>
+      <ComplianceSection country={country} sectionId="licenses">
         <p className="text-[#334155] text-sm leading-relaxed text-justify mb-6">新加坡烟草产品合规资质主要集中在 HSA 烟草许可证和特定禁止类产品的有限豁免安排。传统烟草产品存在许可经营路径，但许可证按经营环节和具体门店管理；禁止类产品只有在法规明确列明的特定产品、行为和目的下，才可能适用有限豁免。</p>
 
         <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -492,7 +494,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       </TaxSection>
 
       {/* 市场运营规范 */}
-      <MarketOperationSection>
+      <MarketOperationSection sectionId="operation-rules">
         <div className="grid md:grid-cols-2 gap-4">
           <RuleModuleCard number={1} title="销售对象与零售陈列">
             <DotList items={[

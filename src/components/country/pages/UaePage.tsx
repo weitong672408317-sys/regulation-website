@@ -35,7 +35,7 @@ export default function UaePage({ country }: UaePageProps) {
       <ProductAccessOverviewSection data={uaeProductAccessOverview} sectionId="product-access-overview" />
       <SeasonSummarySection introText="本季无重大监管更新。" sectionId="overview" />
 
-      <RegulatorySystemSection cards={[
+      <RegulatorySystemSection sectionId="regulatory-system" cards={[
         {
           title: '核心特征',
           content: <>
@@ -380,7 +380,7 @@ export default function UaePage({ country }: UaePageProps) {
         )}
       </ProductAccessSection>
 
-      <ComplianceSection country={country}>
+      <ComplianceSection country={country} sectionId="licenses">
         <p className="text-[#334155] text-sm leading-relaxed text-justify mb-6">阿联酋烟草及新型烟草产品的合规重点，不在于一般公司设立资质，而在于产品认证、行业许可、税务税票和地方销售许可。</p>
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -674,6 +674,8 @@ export default function UaePage({ country }: UaePageProps) {
       </MarketOperationSection>
 
       <TrendAndRedLinesSection
+        trendId="trend"
+        redLineId="red-lines"
         trendContent={
           <>
             <p className="text-[#334155] text-sm leading-relaxed text-justify mb-4">阿联酋烟草及新型烟草产品监管预计会继续沿着"合法市场内强合规管理"的方向发展。传统卷烟、水烟烟草、HNB烟支、电子烟及烟油等产品短期内出现全国性全面禁令的可能性较低，监管重点更可能继续集中在产品认证、消费税、数字税票、进口清关、地方销售许可和广告促销限制。</p>

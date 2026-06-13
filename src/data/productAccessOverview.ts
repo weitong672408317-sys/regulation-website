@@ -246,21 +246,21 @@ export const hongkongProductAccessOverview: ProductAccessOverviewData = {
       status: '可准入',
       statusType: 'green',
       products: [
-        { productName: '普通辅材及香精香料：普通香精香料、爆珠、香精胶囊、滤嘴棒及其他不含烟草、尼古丁或烟草提取物的辅材', targetId: 'product-ordinary-material' },
+        { productName: '不含烟草、尼古丁或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'module-ordinary-material' },
       ],
     },
     {
       status: '可准入，但严格限制',
       statusType: 'amber',
       products: [
-        { productName: '传统吸烟产品：传统卷烟、雪茄、中国熟烟、烟斗烟、其他制成烟草', targetId: 'product-traditional-tobacco' },
+        { productName: '传统吸烟产品：传统卷烟、雪茄、中国熟烟、烟斗烟、其他制成烟草', targetId: 'module-traditional-tobacco' },
       ],
     },
     {
       status: '需按成分和功能拆分判断',
       statusType: 'amber',
       products: [
-        { productName: '烟草材料：烟草薄片、烟叶及其他烟草材料', targetId: 'product-tobacco-material' },
+        { productName: '烟草材料：烟草薄片、烟叶及其他烟草材料', targetId: 'module-tobacco-material' },
         { productName: '含特殊成分或特定功能辅材：加入尼古丁、烟草材料、烟草提取物，或属于另类吸烟产品组件 / 配件的爆珠、香精胶囊、滤嘴棒、香精香料及其他辅材', targetId: 'product-special-material' },
       ],
     },
@@ -268,15 +268,15 @@ export const hongkongProductAccessOverview: ProductAccessOverviewData = {
       status: '完全禁止',
       statusType: 'red',
       products: [
-        { productName: '另类吸烟产品：电子烟、HNB 烟支 / 加热烟草产品、电子雾化设备、烟弹 / 预灌装产品、烟油 / 电子烟液 / 补充液、加热装置、相关装置及组件', targetId: 'product-alternative-smoking' },
-        { productName: '无烟烟草产品：嚼烟、口嚼卷烟、口嚼搓烟、湿鼻烟等含烟草但不经燃烧吸用的产品', targetId: 'product-smokeless-tobacco' },
+        { productName: '另类吸烟产品：电子烟、HNB 烟支 / 加热烟草产品、电子雾化设备、烟弹 / 预灌装产品、烟油 / 电子烟液 / 补充液、加热装置、相关装置及组件', targetId: 'module-alternative-smoking' },
+        { productName: '无烟烟草产品：嚼烟、口嚼卷烟、口嚼搓烟、湿鼻烟等含烟草但不经燃烧吸用的产品', targetId: 'module-smokeless-tobacco' },
       ],
     },
     {
       status: '高度受限',
       statusType: 'red',
       products: [
-        { productName: '新型尼古丁产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品', targetId: 'product-novel-nicotine' },
+        { productName: '新型尼古丁产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品', targetId: 'module-novel-nicotine' },
       ],
     },
   ],

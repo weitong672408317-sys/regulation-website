@@ -83,8 +83,8 @@ export default function HongkongPage({ country }: HongkongPageProps) {
         ]}
       />
 
-      <ProductAccessSection>
-        <ProductModuleCard title="1. 传统吸烟产品" label="产品定性">
+      <ProductAccessSection sectionId="product-access">
+        <ProductModuleCard title="1. 传统吸烟产品" label="产品定性" id="module-traditional-tobacco">
           <div className="space-y-2 mb-4">
             <BulletPoint>香港传统吸烟产品主要包括传统卷烟、雪茄、中国熟烟及其他制成烟草。</BulletPoint>
           </div>
@@ -122,7 +122,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="2. 另类吸烟产品" label="产品定性">
+        <ProductModuleCard title="2. 另类吸烟产品" label="产品定性" id="module-alternative-smoking">
           <div className="space-y-2 mb-4">
             <BulletPoint>不经点燃即可从任何物质产生气雾、并用于模仿传统吸烟的器具，以及该等器具的零件和配件，但不包括水烟壶。</BulletPoint>
             <BulletPoint>用于上述器具产生气雾的任何物质，例如电子烟油、加热烟支等。</BulletPoint>
@@ -158,7 +158,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="3. 无烟烟草产品" label="产品定性">
+        <ProductModuleCard title="3. 无烟烟草产品" label="产品定性" id="module-smokeless-tobacco">
           <div className="space-y-2 mb-4">
             <BulletPoint>香港《无烟烟草产品（禁止）规例》（第132BW章）禁止无烟烟草产品进入市场流通。香港食环署公开执法资料称，无烟烟草产品是指含有烟草或以烟草为主要成分并拟供人口服的产品，包括嚼烟，不论是散烟叶、硬烟饼、湿烟饼、口嚼搓烟或口嚼卷烟，以及湿鼻烟；但不包括用鼻吸入的干鼻烟。</BulletPoint>
           </div>
@@ -184,7 +184,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="4. 新型尼古丁产品" label="产品定性">
+        <ProductModuleCard title="4. 新型尼古丁产品" label="产品定性" id="module-novel-nicotine">
           <div className="space-y-2 mb-4">
             <BulletPoint>新型尼古丁产品应按是否含烟草、是否含尼古丁、是否拟供人口服分别判断。该类产品不能直接按普通消费品处理。</BulletPoint>
           </div>
@@ -218,7 +218,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="5. 烟草材料" label="产品定性">
+        <ProductModuleCard title="5. 烟草材料" label="产品定性" id="module-tobacco-material">
           <div className="space-y-2 mb-4">
             <BulletPoint>烟草薄片、烟叶等烟草材料主要作为烟草原料或半成品管理；是否进入传统吸烟产品、另类吸烟产品、无烟烟草产品或应课税品监管路径，应按加工形态、成分和最终产品形态判断。</BulletPoint>
           </div>
@@ -252,7 +252,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="6. 普通辅材及香精香料" label="产品定性">
+        <ProductModuleCard title="6. 普通辅材及香精香料" label="产品定性" id="module-ordinary-material">
           <div className="space-y-2 mb-4">
             <BulletPoint>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；涉及尼古丁、烟草材料、无烟烟草产品，或属于另类吸烟产品组件 / 配件的，应按对应监管路径另行判断。</BulletPoint>
           </div>
@@ -306,7 +306,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
         </ProductModuleCard>
       </ProductAccessSection>
 
-      <ComplianceSection country={country}>
+      <ComplianceSection country={country} sectionId="licenses">
         <p className="text-[#334155] text-sm leading-relaxed text-justify mb-6">香港烟草及相关产品的合规资质主要集中在应课税品许可证、保税仓储和移离许可，以及毒药和药剂制品牌照 / 注册。传统卷烟、雪茄等传统吸烟产品涉及香港海关应课税品监管；不含烟草但含尼古丁的产品，可能需要进入毒药及药剂制品监管路径。</p>
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -502,6 +502,8 @@ export default function HongkongPage({ country }: HongkongPageProps) {
       </MarketOperationSection>
 
       <TrendAndRedLinesSection
+        trendId="trend"
+        redLineId="red-lines"
         trendContent={
           <div className="space-y-4">
             <div className="space-y-2">
