@@ -26,7 +26,7 @@ const accessCategoryConfig: Record<AccessCategory, { label: string; dotColor: st
     barTextColor: '#ffffff',  // 白色文字
   },
   restricted: {
-    label: '部分限制/需确认',
+    label: '部分限制 / 监管要求不明确',
     dotColor: `bg-[${accessStatusColors.amber.dot}]`,
     barColor: '#B89038',   // 比badge更深的琥珀色
     barTextColor: '#ffffff',  // 白色文字
@@ -384,6 +384,13 @@ export default function ComparisonTable() {
                 <option key={cat.id} value={cat.id}>{cat.name}</option>
               ))}
             </select>
+
+            {/* 爆珠、香精香料及辅材的统一口径说明 */}
+            {selectedProduct === 'ordinary-material' && (
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                普通辅材是指不含烟草、尼古丁或烟草提取物的爆珠、香精香料及其他辅材；含有上述成分的产品，需结合产品特性和当地监管口径个案判断。
+              </p>
+            )}
           </div>
 
           {/* 产品准入状态分布条标题 */}
@@ -394,23 +401,40 @@ export default function ComparisonTable() {
           {/* 产品状态分布条 - 三类状态始终在同一容器内 */}
           <div className="mb-3">
             {(() => {
-              const ZERO_WIDTH_PCT = 14;
+              const MIN_WIDTH_PCT = 20; // 每个状态最小占比(%)，确保长文字完整显示
               const cats: AccessCategory[] = ['accessible', 'restricted', 'prohibited'];
-              const zeroCount = cats.filter(c => accessDistribution.dist[c] === 0).length;
               const nonZeroTotal = cats.reduce((s, c) => s + accessDistribution.dist[c], 0);
-              const availablePct = 100 - zeroCount * ZERO_WIDTH_PCT;
+              
+              // 计算有数量的状态数
+              const nonZeroCount = cats.filter(c => accessDistribution.dist[c] > 0).length;
+              
+              // 计算可分配给有数量状态的最大宽度（扣除零值状态的最小宽度）
+              const zeroCount = cats.filter(c => accessDistribution.dist[c] === 0).length;
+              const zeroWidth = zeroCount * MIN_WIDTH_PCT;
+              const availablePct = Math.max(0, 100 - zeroWidth);
+              
+              // 计算每个有数量状态的基础宽度（按比例）和最小宽度
+              const getWidth = (count: number) => {
+                if (count === 0) return MIN_WIDTH_PCT;
+                const proportionalWidth = (count / nonZeroTotal) * availablePct;
+                const minWidthForNonZero = Math.max(MIN_WIDTH_PCT, proportionalWidth);
+                return minWidthForNonZero;
+              };
+              
+              // 计算总宽度，如果超出100%则按比例缩减
+              const totalWidth = cats.reduce((sum, c) => sum + getWidth(accessDistribution.dist[c]), 0);
+              const scaleFactor = totalWidth > 100 ? 100 / totalWidth : 1;
 
               return (
-                <div className="flex h-9 rounded-lg overflow-hidden border border-gray-200">
+                <div className="flex h-9 rounded-lg overflow-hidden border border-gray-200" style={{ boxSizing: 'border-box', width: '100%', maxWidth: '100%' }}>
                   {cats.map((category, idx) => {
                     const config = accessCategoryConfig[category];
                     const count = accessDistribution.dist[category];
                     const isSelected = selectedAccessCategory === category;
                     const hasCount = count > 0;
 
-                    const widthPct = hasCount
-                      ? (nonZeroTotal > 0 ? (count / nonZeroTotal) * availablePct : 0)
-                      : ZERO_WIDTH_PCT;
+                    const rawWidth = getWidth(count);
+                    const widthPct = rawWidth * scaleFactor;
 
                     const borderLeft = idx > 0 ? '1px solid rgba(0,0,0,0.08)' : 'none';
 
@@ -430,22 +454,26 @@ export default function ComparisonTable() {
                     return (
                       <div
                         key={category}
-                        className="flex items-center justify-center text-xs cursor-pointer transition-all duration-200 select-none"
+                        className="flex items-center justify-center cursor-pointer transition-all duration-200 select-none"
                         style={{
                           width: `${widthPct}%`,
+                          minWidth: 0,
+                          boxSizing: 'border-box',
                           backgroundColor: bgColor,
                           color: textColor,
                           boxShadow,
                           fontWeight,
                           borderLeft,
-                          padding: '0 6px',
+                          padding: '0 4px',
+                          fontSize: '11px',
+                          lineHeight: '1.2',
                         }}
                         onClick={() => handleAccessCategoryClick(category)}
                         title={hasCount
                           ? `${config.label}：${count}个（${accessDistribution.names[category].join('、')}）`
                           : `${config.label}：0个`}
                       >
-                        <span className="whitespace-nowrap">{config.label} {count}</span>
+                        <span style={{ whiteSpace: 'nowrap' }}>{config.label} {count}</span>
                       </div>
                     );
                   })}
@@ -474,78 +502,82 @@ export default function ComparisonTable() {
             )}
           </div>
 
-          {/* 判断是否有备注 */}
-          {(() => {
-            const hasNotes = currentProductData.some(entry => entry.note && entry.note.trim());
-            
-            return (
-              /* 产品准入对比表 - 桌面端 */
-              <div className="hidden md:block overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: hasNotes ? '18%' : '20%' }}>
-                        国家/地区
-                      </th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: hasNotes ? '27%' : '80%' }}>
-                        准入速览
-                      </th>
-                      {hasNotes && (
-                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '55%' }}>
-                          备注
-                        </th>
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {filteredProductCountries.length === 0 ? (
-                      <tr>
-                        <td colSpan={hasNotes ? 3 : 2} className="px-4 py-8 text-center text-sm text-gray-400">
-                          暂无国家/地区属于该状态。
+          {/* 产品准入对比表 - 桌面端 */}
+          <div className="hidden md:block">
+            <table className="w-full" style={{ tableLayout: 'fixed' }}>
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '20%' }}>
+                    国家/地区
+                  </th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '80%' }}>
+                    准入结论
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {filteredProductCountries.length === 0 ? (
+                  <tr>
+                    <td colSpan={2} className="px-4 py-8 text-center text-sm text-gray-400">
+                      暂无国家/地区属于该状态。
+                    </td>
+                  </tr>
+                ) : (
+                  filteredProductCountries.map(entry => {
+                    const category = mapToAccessCategory(entry.statusType);
+                    return (
+                      <tr key={entry.countryId} className="hover:bg-gray-50 transition-colors">
+                        <td className="px-4 py-4 align-top">
+                          <Link
+                            href={`/country/${entry.countryId}#${entry.targetId}`}
+                            className="group inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-800 hover:underline cursor-pointer"
+                          >
+                            {entry.countryName}
+                            <svg className="w-3 h-3 ml-0.5 opacity-0 group-hover:opacity-60 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </Link>
+                        </td>
+                        <td className="px-4 py-4 align-top" style={{ overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+                          {/* 第一行：总体状态 */}
+                          <div className="flex items-center gap-2">
+                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${getAccessCategoryDotColor(category)}`} />
+                            <span className={`text-sm ${
+                              entry.statusType === 'mixed' ? 'text-gray-500' : 'text-gray-700'
+                            }`}>
+                              {entry.status}
+                            </span>
+                          </div>
+                          
+                          {/* 子项说明或备注 */}
+                          {(entry.subStatuses && entry.subStatuses.length > 0) || entry.note ? (
+                            <div className="ml-[18px] mt-2 space-y-1.5">
+                              {/* 显示子项 */}
+                              {entry.subStatuses && entry.subStatuses.length > 0 && (
+                                entry.subStatuses.map((sub, idx) => (
+                                  <div key={idx} className="flex items-start gap-2">
+                                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-[6px] ${getDotColor(sub.color)}`} />
+                                    <span className="text-sm text-gray-600">
+                                      {sub.product}：<span className="font-medium">{sub.status}</span>
+                                    </span>
+                                  </div>
+                                ))
+                              )}
+                              
+                              {/* 显示备注 */}
+                              {entry.note && !entry.subStatuses && (
+                                <p className="text-sm text-gray-500 leading-relaxed">{entry.note}</p>
+                              )}
+                            </div>
+                          ) : null}
                         </td>
                       </tr>
-                    ) : (
-                      filteredProductCountries.map(entry => {
-                        const category = mapToAccessCategory(entry.statusType);
-                        return (
-                          <tr key={entry.countryId} className="hover:bg-gray-50 transition-colors">
-                            <td className="px-4 py-4 align-middle text-center">
-                              <Link
-                                href={`/country/${entry.countryId}#${entry.targetId}`}
-                                className="group inline-flex items-center text-sm font-bold text-indigo-600 hover:text-indigo-800 hover:underline cursor-pointer"
-                              >
-                                {entry.countryName}
-                                <svg className="w-3 h-3 ml-0.5 opacity-0 group-hover:opacity-60 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                              </Link>
-                            </td>
-                            <td className="px-4 py-4 align-middle">
-                              <div className="flex items-center gap-2">
-                                <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${getAccessCategoryDotColor(category)}`} />
-                                <span className={`text-sm whitespace-nowrap ${
-                                  entry.statusType === 'mixed' ? 'text-gray-500' : 'text-gray-700'
-                                }`}>
-                                  {entry.status}
-                                </span>
-                              </div>
-                            </td>
-                            {hasNotes && (
-                              <td className="px-4 py-4 align-top">
-                                {entry.note && (
-                                  <span className="text-sm text-gray-500 leading-relaxed">{entry.note}</span>
-                                )}
-                              </td>
-                            )}
-                          </tr>
-                        );
-                      })
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            );
-          })()}
+                    );
+                  })
+                )}
+              </tbody>
+            </table>
+          </div>
 
           {/* 产品准入对比 - 移动端卡片 */}
           <div className="md:hidden space-y-4">
@@ -569,7 +601,9 @@ export default function ComparisonTable() {
                         </svg>
                       </Link>
                     </div>
-                    <div className="flex items-center gap-2 mb-1">
+                    
+                    {/* 总体状态 */}
+                    <div className="flex items-center gap-2">
                       <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${getAccessCategoryDotColor(category)}`} />
                       <span className={`text-sm ${
                         entry.statusType === 'mixed' ? 'text-gray-500' : 'text-gray-700'
@@ -577,9 +611,28 @@ export default function ComparisonTable() {
                         {entry.status}
                       </span>
                     </div>
-                    {entry.note && (
-                      <p className="text-sm text-gray-500 leading-6 mt-1">{entry.note}</p>
-                    )}
+                    
+                    {/* 子项说明或备注 */}
+                    {(entry.subStatuses && entry.subStatuses.length > 0) || entry.note ? (
+                      <div className="ml-[18px] mt-2 space-y-1.5">
+                        {/* 显示子项 */}
+                        {entry.subStatuses && entry.subStatuses.length > 0 && (
+                          entry.subStatuses.map((sub, idx) => (
+                            <div key={idx} className="flex items-start gap-2">
+                              <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-[6px] ${getDotColor(sub.color)}`} />
+                              <span className="text-sm text-gray-600">
+                                {sub.product}：<span className="font-medium">{sub.status}</span>
+                              </span>
+                            </div>
+                          ))
+                        )}
+                        
+                        {/* 显示备注 */}
+                        {entry.note && !entry.subStatuses && (
+                          <p className="text-sm text-gray-500 leading-relaxed">{entry.note}</p>
+                        )}
+                      </div>
+                    ) : null}
                   </div>
                 );
               })

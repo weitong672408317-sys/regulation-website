@@ -130,6 +130,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               </>}
             />
             <StatusCard
+              id="product-tobacco-material"
               status="amber"
               customLabel="需分类确认"
               title="烟草材料 / 原料"
@@ -157,6 +158,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               </>}
             />
             <StatusCard
+              id="product-hookah"
               status="red"
               customLabel="完全禁止"
               title="水烟烟草"

@@ -35,6 +35,7 @@ export interface ProductCategory {
   name: string;
 }
 
+// 支持多条准入状态（用于显示细分差异）
 export interface ProductComparisonEntry {
   countryId: string;
   countryName: string;
@@ -42,6 +43,8 @@ export interface ProductComparisonEntry {
   statusType: ProductStatusType;
   targetId: string;
   note?: string;
+  // 多条准入状态（用于显示细分差异）
+  subStatuses?: { color: AccessColor; status: string; product: string }[];
 }
 
 // ===== 国家监管概览数据（文字严格按提示词） =====
@@ -159,7 +162,7 @@ export const productCategories: ProductCategory[] = [
   { id: 'smokeless-tobacco', name: '无烟烟草产品' },
   { id: 'novel-nicotine', name: '新型尼古丁产品' },
   { id: 'tobacco-raw', name: '烟草原料/半成品' },
-  { id: 'ordinary-material', name: '普通辅材及香精香料' },
+  { id: 'ordinary-material', name: '爆珠、香精香料及辅材' },
 ];
 
 // ===== 产品准入对比数据（来源于各国子页面 productAccessOverview） =====
@@ -191,7 +194,7 @@ export const productComparisonMap: Record<string, ProductComparisonEntry[]> = {
     { countryId: 'singapore', countryName: '新加坡', status: '完全禁止', statusType: 'red', targetId: 'product-heat-not-burn' },
     { countryId: 'indonesia', countryName: '印度尼西亚', status: '可准入', statusType: 'green', targetId: 'product-ecig' },
     { countryId: 'paraguay', countryName: '巴拉圭', status: '可准入', statusType: 'green', targetId: 'module-ecig' },
-    { countryId: 'uae', countryName: '阿联酋', status: '可准入', statusType: 'green', targetId: 'product-heat-not-burn' },
+    { countryId: 'uae', countryName: '阿联酋', status: '可准入', statusType: 'green', targetId: 'product-ecig' },
     { countryId: 'russia', countryName: '俄罗斯', status: '可准入，监管收紧', statusType: 'amber', targetId: 'module-ecig' },
     { countryId: 'malaysia', countryName: '马来西亚', status: '分项适用', statusType: 'mixed', targetId: 'product-nicotine-free-ecig', note: '不含尼古丁电子烟及设备：部分限制/准入受控；含尼古丁电子烟：高度受限。' },
   ],
@@ -218,7 +221,7 @@ export const productComparisonMap: Record<string, ProductComparisonEntry[]> = {
   'tobacco-raw': [
     { countryId: 'china', countryName: '中国内地', status: '可准入，但严格监管', statusType: 'amber', targetId: 'product-tobacco-raw' },
     { countryId: 'hongkong', countryName: '中国香港', status: '需按成分和功能拆分判断', statusType: 'amber', targetId: 'module-tobacco-material' },
-    { countryId: 'singapore', countryName: '新加坡', status: '可准入，但严格限制', statusType: 'amber', targetId: 'product-traditional-tobacco' },
+    { countryId: 'singapore', countryName: '新加坡', status: '可准入，但严格限制', statusType: 'amber', targetId: 'product-tobacco-material' },
     { countryId: 'indonesia', countryName: '印度尼西亚', status: '可准入', statusType: 'green', targetId: 'product-tobacco-raw' },
     { countryId: 'paraguay', countryName: '巴拉圭', status: '可准入', statusType: 'green', targetId: 'module-tobacco-raw' },
     { countryId: 'uae', countryName: '阿联酋', status: '可准入', statusType: 'green', targetId: 'product-tobacco-material' },
@@ -226,7 +229,17 @@ export const productComparisonMap: Record<string, ProductComparisonEntry[]> = {
     { countryId: 'malaysia', countryName: '马来西亚', status: '可准入', statusType: 'green', targetId: 'product-tobacco-raw' },
   ],
   'ordinary-material': [
-    { countryId: 'china', countryName: '中国内地', status: '可准入', statusType: 'green', targetId: 'product-ordinary-bead' },
+    { 
+      countryId: 'china', 
+      countryName: '中国内地', 
+      status: '部分限制 / 监管要求不明确', 
+      statusType: 'mixed', 
+      targetId: 'product-ordinary-bead',
+      subStatuses: [
+        { color: 'green', status: '可准入', product: '普通爆珠、香精香料及辅材' },
+        { color: 'amber', status: '可准入，但严格监管', product: '特殊配套材料' },
+      ]
+    },
     { countryId: 'hongkong', countryName: '中国香港', status: '可准入', statusType: 'green', targetId: 'module-ordinary-material' },
     { countryId: 'singapore', countryName: '新加坡', status: '可准入', statusType: 'green', targetId: 'module-ordinary-material' },
     { countryId: 'indonesia', countryName: '印度尼西亚', status: '可准入', statusType: 'green', targetId: 'product-ordinary-material' },

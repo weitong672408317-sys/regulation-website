@@ -141,6 +141,7 @@ export default function UaePage({ country }: UaePageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
+              id="product-ecig"
               status="green"
               title="电子尼古丁产品"
               customLabel="可准入"
