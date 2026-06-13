@@ -49,7 +49,7 @@ export function ProductAccessOverviewSection({ data, sectionId }: ProductAccessO
               return (
                 <tr key={groupIdx} className={isEven ? 'bg-white' : 'bg-[#F3F5FB]'}>
                   <td className="px-5 py-4 border-b border-r border-[#D8DDED] align-middle text-center">
-                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${statusStyles[group.statusType].badge}`}>
+                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap ${statusStyles[group.statusType].badge}`}>
                       {group.status}
                     </span>
                   </td>

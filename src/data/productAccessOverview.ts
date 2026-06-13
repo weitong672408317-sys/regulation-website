@@ -288,7 +288,7 @@ export const paraguayProductAccessOverview: ProductAccessOverviewData = {
   note,
   groups: [
     {
-      status: '可准入，需登记 / 注册',
+      status: '可准入',
       statusType: 'green',
       products: [
         { productName: '传统烟草产品 / 烟草基产品：传统卷烟、雪茄、烟丝、加工烟草及其他烟草基产品', targetId: 'module-traditional-tobacco' },

@@ -108,7 +108,7 @@ export const StatusCard = ({ status, title, subtitle, content, customLabel, id }
   return (
     <div id={id} className={`bg-white border border-[#E2E6EF] ${s.borderLeft} border-l-2 rounded-xl p-6 shadow-sm w-full${id ? ' scroll-mt-4' : ''}`}>
       <div className="flex items-center gap-2 mb-4">
-        <span className={`px-3 py-1 rounded-full text-sm font-semibold ${s.badge}`}>{customLabel || s.label}</span>
+        <span className={`px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap w-fit ${s.badge}`}>{customLabel || s.label}</span>
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}
       </div>
       {title && <div className="font-bold text-[#263247] text-base mb-3">{title}</div>}

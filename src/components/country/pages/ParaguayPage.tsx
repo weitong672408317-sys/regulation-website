@@ -84,7 +84,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           <StatusCard
             id="product-traditional-tobacco"
             status="green"
-            customLabel="可准入，需登记"
+            customLabel="可准入"
             title="传统烟草产品 / 烟草基产品"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：传统卷烟、雪茄、烟丝、加工烟草及其他烟草基产品</div>
@@ -120,7 +120,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           <StatusCard
             id="product-ecig"
             status="green"
-            customLabel="可准入，需注册"
+            customLabel="可准入"
             title="电子烟及雾化产品"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、电子雾化相关配件和耗材</div>
@@ -160,7 +160,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <StatusCard
               id="product-heat-not-burn"
               status="green"
-              customLabel="可准入，需登记"
+              customLabel="可准入"
               title="加热烟草烟支"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒</div>
@@ -184,7 +184,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             <StatusCard
               id="product-heating-device"
               status="green"
-              customLabel="可准入，需注册"
+              customLabel="可准入"
               title="加热装置"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：HNB 设备、加热装置及相关配件</div>
