@@ -118,7 +118,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               id="product-tobacco-raw"
               status="amber"
-              customLabel="可准入，但严格限制"
+              customLabel="可准入，但严格监管"
               title="烟草原料及制品"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、烟草薄片</div>
@@ -134,7 +134,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               id="product-special-material"
               status="amber"
-              customLabel="可准入，但严格限制"
+              customLabel="可准入，但严格监管"
               title="特殊配套材料"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：卷烟纸、滤嘴棒、烟用丝束</div>
@@ -158,7 +158,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               id="product-ecig"
               status="amber"
-              customLabel="可准入，但严格限制"
+              customLabel="可准入，但严格监管"
               title="电子烟产品"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：烟具、烟弹、烟弹与烟具组合销售产品</div>
@@ -177,7 +177,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               id="product-e-liquid"
               status="amber"
-              customLabel="可准入，但严格限制"
+              customLabel="可准入，但严格监管"
               title="雾化物及电子烟用烟碱"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：雾化物、电子烟用烟碱及相关原料</div>
@@ -194,7 +194,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               id="product-nicotine-free-ecig"
               status="red"
-              customLabel="不得上市销售"
+              customLabel="未开放，实质禁止"
               title="无烟碱电子烟 / 变相电子烟产品"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：草本雾化器、草本烟弹、无烟碱烟弹、本草 / 中药雾化器、其他宣称不含烟碱但用于雾化吸入的消费级电子传送产品</div>
@@ -219,7 +219,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               id="product-heat-not-burn"
               status="red"
-              customLabel="完全禁止"
+              customLabel="未开放，实质禁止"
               title="加热烟草产品"
               content={<>
                 <div className="text-sm text-[#334155] mb-3">产品定性：该类产品通常指通过专门加热装置加热烟草材料，产生气溶胶供消费者吸用的产品。</div>
@@ -235,7 +235,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               id="product-smokeless-tobacco"
               status="red"
-              customLabel="完全禁止"
+              customLabel="未开放，实质禁止"
               title="无烟气烟草制品"
               content={<>
                 <div className="text-sm text-[#334155] mb-3">产品定性：国家烟草专卖局2026年第1号公告将无烟气烟草制品定义为含有烟碱成分，通过口用、鼻用或外用等方式使用，且不产生烟气的烟草制品。</div>
@@ -258,7 +258,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           <StatusCard
             id="product-machinery"
             status="amber"
-            customLabel="可准入，但严格限制"
+            customLabel="可准入，但严格监管"
             title="烟草专用机械"
             content={<>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -294,7 +294,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             <StatusCard
               id="product-nicotine-bead"
               status="amber"
-              customLabel="可准入，但严格限制"
+              customLabel="可准入，但严格监管"
               title="含尼古丁 / 烟草成分的爆珠、胶囊及类似辅材"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：含尼古丁、烟草原料或烟草提取物的爆珠、香精胶囊及类似辅材</div>

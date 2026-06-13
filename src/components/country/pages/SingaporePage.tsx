@@ -186,6 +186,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               status="red"
               customLabel="完全禁止"
               title="加热烟草及电子雾化产品"
+              id="product-heat-not-burn"
               content={<>
                 <div className="text-base text-justify text-[#334155] mb-2">适用产品：HNB 烟支 / 加热烟草产品、电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、电子雾化组件</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -287,7 +288,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
         </ProductModuleCard>
 
         {/* 3. 普通辅材及香精香料 */}
-        <ProductModuleCard title="3. 普通辅材及香精香料" label="产品定性">
+        <ProductModuleCard title="3. 普通辅材及香精香料" label="产品定性" id="module-ordinary-material">
           <div className="space-y-2 mb-4">
             <BulletPoint>新加坡公开资料未见对爆珠、香精胶囊、滤嘴棒等普通辅材及香精香料设置统一、单独的产品定义。该类产品应结合成分、形态、进口申报品名和产品功能判断。</BulletPoint>
           </div>

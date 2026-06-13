@@ -56,7 +56,7 @@ export const chinaProductAccessOverview: ProductAccessOverviewData = {
       ],
     },
     {
-      status: '未开放 / 禁止',
+      status: '未开放，实质禁止',
       statusType: 'red',
       products: [
         { productName: '无烟碱电子烟 / 变相电子烟产品', targetId: 'product-nicotine-free-ecig' },
@@ -213,14 +213,14 @@ export const singaporeProductAccessOverview: ProductAccessOverviewData = {
       statusType: 'amber',
       products: [
         { productName: '传统烟草成品：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、其他制成烟草', targetId: 'product-traditional-tobacco' },
-        { productName: '烟草材料 / 原料：烟叶、烟草薄片、烟草废料及其他烟草原料', targetId: 'product-traditional-tobacco' },
+        { productName: '烟叶、烟草薄片、烟草废料及其他烟草材料 / 原料', targetId: 'product-traditional-tobacco' },
       ],
     },
     {
-      status: '可准入，需按成分确认',
+      status: '可准入',
       statusType: 'green',
       products: [
-        { productName: '不含烟草、尼古丁或受控成分的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'product-bead' },
+        { productName: '不含烟草、尼古丁或受控成分的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'module-ordinary-material' },
       ],
     },
     {
@@ -228,7 +228,7 @@ export const singaporeProductAccessOverview: ProductAccessOverviewData = {
       statusType: 'red',
       products: [
         { productName: '水烟烟草', targetId: 'product-traditional-tobacco' },
-        { productName: '加热烟草及电子雾化产品：HNB 烟支 / 加热烟草产品、电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、电子雾化组件', targetId: 'product-traditional-tobacco' },
+        { productName: '加热烟草及电子雾化产品：HNB 烟支 / 加热烟草产品、电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、电子雾化组件', targetId: 'product-heat-not-burn' },
         { productName: '无烟烟草产品：口含烟、鼻烟、嚼烟、snus、可溶性烟草，以及 Gutkha、Khaini、Zarda 等含烟草但不经燃烧吸用的产品', targetId: 'product-smokeless-tobacco' },
         { productName: '新型尼古丁产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品', targetId: 'product-novel-nicotine' },
         { productName: '仿烟产品及相关组件', targetId: 'product-imitation' },
