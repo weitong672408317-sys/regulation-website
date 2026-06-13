@@ -76,8 +76,8 @@ export const russiaProductAccessOverview: ProductAccessOverviewData = {
       status: '可准入',
       statusType: 'green',
       products: [
-        { productName: '烟叶、烟草薄片、烟草废料等烟草及尼古丁原料', targetId: 'product-tobacco-raw' },
-        { productName: '不含烟草、尼古丁或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'product-ordinary-material' },
+        { productName: '烟叶、烟草薄片、烟草废料等烟草及尼古丁原料', targetId: 'module-tobacco-raw' },
+        { productName: '不含烟草、尼古丁或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'module-ordinary-material' },
       ],
     },
     {
