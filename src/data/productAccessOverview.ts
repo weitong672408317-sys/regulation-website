@@ -168,9 +168,15 @@ export const malaysiaProductAccessOverview: ProductAccessOverviewData = {
       products: [
         { productName: '传统烟草产品：传统卷烟、雪茄、烟丝 / 切丝烟草、其他制成烟草', targetId: 'product-traditional-tobacco' },
         { productName: '加热烟草产品：HNB 烟支、加热烟草棒、其他含烟草材料的加热产品', targetId: 'product-heat-not-burn' },
+        { productName: '烟草原料 / 半成品：烟叶、烟草薄片', targetId: 'product-tobacco-raw' },
+        { productName: '普通辅材及香精香料：不含烟草、尼古丁或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'product-ordinary-material' },
+      ],
+    },
+    {
+      status: '部分限制 / 准入受控',
+      statusType: 'amber',
+      products: [
         { productName: '不含尼古丁电子烟、设备及替代烟草产品', targetId: 'product-nicotine-free-ecig' },
-        { productName: '烟草原料/半成品：烟叶、烟草薄片', targetId: 'product-tobacco-raw' },
-        { productName: '不含尼古丁、烟草成分或烟草提取物的爆珠、香精胶囊、滤嘴棒等普通辅材', targetId: 'product-ordinary-material' },
       ],
     },
     {
