@@ -65,9 +65,9 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             title: '监管部门',
             content: (
               <div className="space-y-3">
-                <BulletPoint><span className="font-semibold text-[#263247]">公共卫生和社会福利部（MSPBS）</span>：巴拉圭公共卫生和控烟政策的上位主管部门，主要负责公共健康政策、控烟规则、无烟环境、健康警示、广告促销限制和电子烟公共健康监管。</BulletPoint>
+                <BulletPoint><span className="font-semibold text-[#263247]">公共卫生和社会福利部（MSPBS）</span>：负责公共卫生政策、控烟监管及电子烟公共健康管理。</BulletPoint>
                 <BulletPoint><span className="font-semibold text-[#263247]">国家卫生监督局（DINAVISA）</span>：MSPBS 卫生体系下具有行政和财务自主管理权的专业卫生监管机构，负责产品注册、经营场所授权、检查和市场监督。传统烟草涉及烟草基产品登记和烟草主体登记；电子烟及雾化产品（包括器具、烟油），以 DINAVISA 产品注册和经营场所授权为核心。</BulletPoint>
-                <BulletPoint><span className="font-semibold text-[#263247]">国家税收收入局（DNIT）</span>：负责税务、海关归类、进口申报和选择性消费税。对烟草、电子烟、HNB、烟油、尼古丁袋等产品，主要影响海关归类、进口税费和 ISC 申报。</BulletPoint>
+                <BulletPoint><span className="font-semibold text-[#263247]">国家税收收入局（DNIT）</span>：负责税务、海关监管、进口申报及选择性消费税征管。</BulletPoint>
                 <BulletPoint><span className="font-semibold text-[#263247]">工业和商业部（MIC）、消费者保护主管机关（SEDECO）、环境和可持续发展部（MADES）等其他机关</span>：MIC 负责工业、商业活动和产品流通相关事项；SEDECO 负责消费者保护、广告和销售行为相关事项；MADES 负责环境保护、废弃物、电池、耗材回收和环境影响相关事项。</BulletPoint>
               </div>
             ),
@@ -101,10 +101,6 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">普通零售端未见单独烟草零售许可证要求，但销售行为仍需遵守未成年人保护、包装警示、广告限制、公共场所使用限制和税务规则。</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">公开资料下未见传统卷烟、雪茄、烟丝、加工烟草等烟草基产品的全国性全面禁售规则。</span>
                 </div>
               </div>
             </>}
@@ -219,8 +215,8 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               customLabel="监管要求不明确"
               title="尼古丁袋"
               content={
-                <div className="text-[#334155] text-sm leading-relaxed text-justify">
-                  <div className="text-sm text-[#334155] mb-3">适用产品：尼古丁袋、无烟草尼古丁袋</div>
+                <>
+                  <div className="text-sm text-[#334155] mb-2">适用产品：尼古丁袋、无烟草尼古丁袋</div>
                   <div className="mb-3">
                     <div className="font-semibold text-[#263247] mb-1">DINAVISA 注册口径</div>
                     <div className="space-y-2">
@@ -243,11 +239,11 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">DNIT 已将"无烟草尼古丁袋"纳入商品归类查询 / 裁定资料中，说明该类产品在进口申报时已有海关税则归类口径。</span>
+                        <span className="flex-1 min-w-0">DNIT 已将"无烟草尼古丁袋"纳入商品归类查询/裁定资料中，说明该类产品在进口申报时已有海关税则归类口径。</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">该口径仅用于 HS 编码 / 税号和进口税费申报，不等于取得 DINAVISA 卫生注册，也不等于产品已经形成稳定上市路径。</span>
+                        <span className="flex-1 min-w-0">该口径仅用于 HS 编码/税号和进口税费申报，不等于取得 DINAVISA 卫生注册，也不等于产品已经形成稳定上市路径。</span>
                       </div>
                     </div>
                   </div>
@@ -256,11 +252,11 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">尼古丁袋进入市场前，仍需确认 DINAVISA 卫生注册、标签、尼古丁含量、主体 / 场所授权、商品归类和税务申报口径。</span>
+                        <span className="flex-1 min-w-0">尼古丁袋进入市场前，仍需确认 DINAVISA 卫生注册、标签、尼古丁含量、主体/场所授权、商品归类和税务申报口径。</span>
                       </div>
                     </div>
                   </div>
-                </div>
+                </>
               }
             />
 
@@ -335,10 +331,6 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">烟草薄片如已经制成供消费者吸食、加热、咀嚼、含用或其他方式使用的烟草基产品，应办理 DINAVISA 烟草产品登记，登记结果体现为烟草产品证书或相应产品登记证明。</span>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">烟草薄片如被制成雾化液、烟油、含尼古丁液体或其他新兴装置使用的雾化物质，应转入《第7508/2025号法》项下 DINAVISA 产品注册和经营场所授权要求。</span>
-                </div>
               </div>
             </>}
           />
@@ -401,41 +393,78 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
       <ComplianceSection sectionId="licenses" country={country}>
         <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 mb-4">
           <p className="text-[#334155] text-sm leading-relaxed text-justify">巴拉圭烟草及新型尼古丁产品的合规资质主要包括三类：（1）DINAVISA 产品登记/注册；（2）DINAVISA 主体或经营场所登记/授权；（3）DNIT 商品归类、税务申报和进口文件。</p>
-          <p className="text-[#334155] text-sm leading-relaxed text-justify mt-2">HNB 产品需要拆分判断：HNB 烟支/加热烟草棒按烟草基产品路径处理；HNB设备/加热装置及相关配件按新兴装置、相关设备、配件和耗材路径处理。</p>
-          <p className="text-[#334155] text-sm leading-relaxed text-justify mt-2">边界产品应根据成分、用途和销售形态判断：普通辅材原则上不单独按电子烟产品注册；含尼古丁、烟草提取物，或作为雾化耗材、HNB配件、尼古丁产品组件销售的，应转入对应产品路径确认登记/注册、标签和税务要求。</p>
+          <p className="text-[#334155] text-sm leading-relaxed text-justify mt-2">HNB 产品需要拆分判断：</p>
+          <div className="space-y-2 mt-2">
+            <BulletPoint>HNB 烟支/加热烟草棒按烟草基产品路径处理；</BulletPoint>
+            <BulletPoint>HNB设备/加热装置及相关配件按新兴装置、相关设备、配件和耗材路径处理。</BulletPoint>
+          </div>
+          <p className="text-[#334155] text-sm leading-relaxed text-justify mt-2">边界产品应根据成分、用途和销售形态判断，详见{"\u201c"}<a href="#product-access" className="text-indigo-600 hover:text-indigo-800 hover:underline">产品监管口径</a>{"\u201d"}栏目。</p>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-            <div className="flex items-start gap-3 mb-3">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">DINAVISA 产品登记 / 产品注册</h4>
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl" style={{ padding: '32px 30px' }}>
+            <div className="flex items-start mb-5" style={{ gap: '15px' }}>
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white font-bold flex-shrink-0" style={{ fontSize: '14px' }}>1</span>
+              <h4 className="text-[#2E3F73]" style={{ fontSize: '18px', fontWeight: 700, lineHeight: '1.45' }}>DINAVISA 产品登记 / 产品注册</h4>
             </div>
-            <div className="space-y-2">
-              <BulletPoint>烟草基产品、含烟草材料的 HNB 烟支/加热烟草棒，需要办理 DINAVISA 烟草基产品登记。</BulletPoint>
-              <BulletPoint>电子烟、雾化器、烟油/补充液、HNB设备、加热装置及相关配件，需要结合《第7508/2025号法》办理 DINAVISA 产品注册。</BulletPoint>
-              <BulletPoint>尼古丁袋已有 DINAVISA 专项注册草案，但草案尚未正式落地，进入市场前仍需确认现行卫生注册口径。</BulletPoint>
+            <div style={{ fontSize: '15px', fontWeight: 400, lineHeight: '1.75', color: '#334155' }}>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                  <span className="flex-1 min-w-0">烟草基产品、含烟草材料的 HNB 烟支/加热烟草棒，需要办理 DINAVISA 烟草基产品登记。</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                  <span className="flex-1 min-w-0">电子烟、雾化器、烟油/补充液、HNB设备、加热装置及相关配件，需要结合《第7508/2025号法》办理 DINAVISA 产品注册。</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                  <span className="flex-1 min-w-0">尼古丁袋已有 DINAVISA 专项注册草案，但草案尚未正式落地，进入市场前仍需确认现行卫生注册口径。</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-            <div className="flex items-start gap-3 mb-3">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">DINAVISA 主体登记 / 经营场所授权</h4>
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl" style={{ padding: '32px 30px' }}>
+            <div className="flex items-start mb-5" style={{ gap: '15px' }}>
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white font-bold flex-shrink-0" style={{ fontSize: '14px' }}>2</span>
+              <h4 className="text-[#2E3F73]" style={{ fontSize: '18px', fontWeight: 700, lineHeight: '1.45' }}>DINAVISA 主体登记 / 经营场所授权</h4>
             </div>
-            <div className="space-y-2">
-              <BulletPoint>从事烟草、烟草产品或烟草产品原料制造、进口、出口的主体，需要办理 DINAVISA 烟草主体登记。</BulletPoint>
-              <BulletPoint>从事电子烟、雾化产品、HNB设备及相关电子装置进口、出口、生产、分销、仓储或销售的主体及经营场所，需要取得 DINAVISA 授权。</BulletPoint>
-              <BulletPoint>普通烟草零售端未见单独烟草零售许可证要求。</BulletPoint>
+            <div style={{ fontSize: '15px', fontWeight: 400, lineHeight: '1.75', color: '#334155' }}>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                  <span className="flex-1 min-w-0">从事烟草、烟草产品或烟草产品原料制造、进口、出口的主体，需要办理 DINAVISA 烟草主体登记。</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                  <span className="flex-1 min-w-0">从事电子烟、雾化产品、HNB设备及相关电子装置进口、出口、生产、分销、仓储或销售的主体及经营场所，需要取得 DINAVISA 授权。</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                  <span className="flex-1 min-w-0">普通烟草零售端未见单独烟草零售许可证要求。</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-            <div className="flex items-start gap-3 mb-3">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">DNIT 商品归类、税务申报和进口文件</h4>
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl" style={{ padding: '32px 30px' }}>
+            <div className="flex items-start mb-5" style={{ gap: '15px' }}>
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white font-bold flex-shrink-0" style={{ fontSize: '14px' }}>3</span>
+              <h4 className="text-[#2E3F73]" style={{ fontSize: '18px', fontWeight: 700, lineHeight: '1.45' }}>DNIT 商品归类、税务申报和进口文件</h4>
             </div>
-            <div className="space-y-2">
-              <BulletPoint>进口烟草、电子烟、雾化产品、HNB设备、尼古丁袋、烟草原料或相关配件时，需要确认商品归类、进口税费、ISC、IVA 和进口申报文件。</BulletPoint>
-              <BulletPoint>DNIT 已将"无烟草尼古丁袋"纳入商品归类查询/裁定资料；该口径仅用于 HS 编码/税号和进口税费申报，不替代 DINAVISA 卫生注册或上市许可。</BulletPoint>
-              <BulletPoint>税务申报口径应与产品登记/注册资料、进口文件、包装标签和实际用途保持一致。</BulletPoint>
+            <div style={{ fontSize: '15px', fontWeight: 400, lineHeight: '1.75', color: '#334155' }}>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                  <span className="flex-1 min-w-0">进口烟草、电子烟、雾化产品、HNB设备、尼古丁袋、烟草原料或相关配件时，需要确认商品归类、进口税费、ISC、IVA 和进口申报文件。</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                  <span className="flex-1 min-w-0">DNIT 已将"无烟草尼古丁袋"纳入商品归类查询/裁定资料；该口径仅用于 HS 编码/税号和进口税费申报，不替代 DINAVISA 卫生注册或上市许可，进入市场前仍需确认现行注册/许可要求。</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                  <span className="flex-1 min-w-0">税务申报口径应与产品登记/注册资料、进口文件、包装标签和实际用途保持一致。</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -501,7 +530,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           <div className="space-y-2">
             <BulletPoint>进口环节需要根据 HS 编码、产品成分、用途和申报价格，确认关税、进口 IVA、ISC 及其他进口费用。</BulletPoint>
             <BulletPoint>除关税和进口税费外，还可能涉及港口费、海关估价服务费、领事费、IT 系统使用费等费用。</BulletPoint>
-            <BulletPoint>DNIT 已将"无烟草尼古丁袋"纳入商品归类查询 / 裁定资料；该口径仅用于 HS 编码 / 税号和进口税费申报，不替代 DINAVISA 卫生注册或上市许可。</BulletPoint>
+            <BulletPoint>DNIT 已将"无烟草尼古丁袋"纳入商品归类查询/裁定资料；该口径仅用于 HS 编码/税号和进口税费申报，不替代 DINAVISA 卫生注册或上市许可，进入市场前仍需确认现行注册/许可要求。</BulletPoint>
           </div>
         </TaxTableCard>
       </TaxSection>

@@ -13,7 +13,7 @@ export function SalesRulesSection({ introText, children, sectionId }: SalesRules
       {introText && (
         <div className="mb-4">
           {typeof introText === 'string' ? (
-            <p className="text-[#334155] text-base leading-7 text-justify">{introText}</p>
+            <p className="text-[#334155] text-sm leading-relaxed text-justify">{introText}</p>
           ) : (
             introText
           )}
