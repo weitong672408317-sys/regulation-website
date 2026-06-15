@@ -13,7 +13,7 @@ export type ProductStatusType = 'green' | 'amber' | 'red' | 'mixed';
 export interface ProductAccessSummaryItem {
   color: AccessColor;
   status: string;
-  products: string;
+  products: string[];
 }
 
 export interface CountryOverviewEntry {
@@ -55,9 +55,9 @@ export const countryOverviewData: CountryOverviewEntry[] = [
     countryName: '中国内地',
     coreFeature: '国家烟草专卖、严格许可准入、强计划管理、强渠道管控和强执法。',
     productAccessSummary: [
-      { color: 'green', status: '可准入', products: '普通辅材' },
-      { color: 'amber', status: '可准入，但严格监管', products: '烟草原料及制品、电子烟、雾化物及电子烟用烟碱、烟草专用机械、特殊配套材料（卷烟纸、滤嘴棒、烟用丝束）' },
-      { color: 'red', status: '未开放，实质禁止', products: '加热烟草产品（如HNB）、无烟气烟草制品（如尼古丁袋）、无烟碱电子烟/变相电子烟产品' },
+      { color: 'green', status: '可准入', products: ['普通辅材'] },
+      { color: 'amber', status: '可准入，但严格监管', products: ['烟草原料及制品', '电子烟、雾化物及电子烟用烟碱', '烟草专用机械', '特殊配套材料（卷烟纸、滤嘴棒、烟用丝束）'] },
+      { color: 'red', status: '未开放，实质禁止', products: ['加热烟草产品（如HNB）', '无烟气烟草制品（如尼古丁袋）', '无烟碱电子烟/变相电子烟产品'] },
     ],
     intensity: '极高',
   },
@@ -66,11 +66,11 @@ export const countryOverviewData: CountryOverviewEntry[] = [
     countryName: '中国香港',
     coreFeature: '公共健康优先，传统烟草严管，新型产品实行禁止或高度限制。',
     productAccessSummary: [
-      { color: 'green', status: '可准入', products: '普通辅材' },
-      { color: 'amber', status: '可准入，但严格限制', products: '传统吸烟产品' },
-      { color: 'amber', status: '需按成分和功能拆分判断', products: '烟草材料、特殊成分或特定功能辅材' },
-      { color: 'red', status: '完全禁止', products: '另类吸烟产品、无烟烟草产品' },
-      { color: 'red', status: '高度受限', products: '新型尼古丁产品' },
+      { color: 'green', status: '可准入', products: ['普通辅材'] },
+      { color: 'amber', status: '可准入，但严格限制', products: ['传统吸烟产品'] },
+      { color: 'amber', status: '需按成分和功能拆分判断', products: ['烟草材料、特殊成分或特定功能辅材'] },
+      { color: 'red', status: '完全禁止', products: ['另类吸烟产品', '无烟烟草产品'] },
+      { color: 'red', status: '高度受限', products: ['新型尼古丁产品'] },
     ],
     intensity: '极高',
   },
@@ -79,10 +79,10 @@ export const countryOverviewData: CountryOverviewEntry[] = [
     countryName: '新加坡',
     coreFeature: '传统烟草产品从严管控，新型烟草及尼古丁产品明确禁入，烟草使用空间高度受限。',
     productAccessSummary: [
-      { color: 'green', status: '可准入', products: '普通辅材' },
-      { color: 'amber', status: '可准入，但严格限制', products: '传统烟草成品' },
-      { color: 'amber', status: '需分类确认', products: '烟草材料/原料' },
-      { color: 'red', status: '完全禁止', products: '水烟烟草、HNB及电子雾化产品、无烟烟草产品、新型尼古丁产品、仿烟产品' },
+      { color: 'green', status: '可准入', products: ['普通辅材'] },
+      { color: 'amber', status: '可准入，但严格限制', products: ['传统烟草成品'] },
+      { color: 'amber', status: '需分类确认', products: ['烟草材料/原料'] },
+      { color: 'red', status: '完全禁止', products: ['水烟烟草', 'HNB及电子雾化产品', '无烟烟草产品', '新型尼古丁产品', '仿烟产品'] },
     ],
     intensity: '极高',
   },
@@ -91,8 +91,8 @@ export const countryOverviewData: CountryOverviewEntry[] = [
     countryName: '印度尼西亚',
     coreFeature: '开放型烟草市场，以税收秩序和合法流通为监管主线。',
     productAccessSummary: [
-      { color: 'green', status: '可准入', products: '传统烟草、HNB、电子烟、无烟烟草、烟草原料、普通辅材' },
-      { color: 'amber', status: '部分限制/监管要求不明确', products: '新型尼古丁产品' },
+      { color: 'green', status: '可准入', products: ['传统烟草', 'HNB', '电子烟', '无烟烟草', '烟草原料', '普通辅材'] },
+      { color: 'amber', status: '部分限制/监管要求不明确', products: ['新型尼古丁产品'] },
     ],
     intensity: '低至中',
   },
@@ -101,9 +101,9 @@ export const countryOverviewData: CountryOverviewEntry[] = [
     countryName: '巴拉圭',
     coreFeature: '相对开放市场，监管由控烟基础法、专项产品规则、DINAVISA登记/注册、税收及进口申报共同构成。',
     productAccessSummary: [
-      { color: 'green', status: '可准入', products: '传统烟草、电子烟及雾化产品、HNB、烟草原料、普通辅材' },
-      { color: 'amber', status: '监管要求不明确', products: '尼古丁袋、其他无烟草口含型尼古丁产品' },
-      { color: 'amber', status: '需结合产品特性确认', products: '无烟烟草产品、含尼古丁或烟草成分辅材' },
+      { color: 'green', status: '可准入', products: ['传统烟草', '电子烟及雾化产品', 'HNB', '烟草原料', '普通辅材'] },
+      { color: 'amber', status: '监管要求不明确', products: ['尼古丁袋', '其他无烟草口含型尼古丁产品'] },
+      { color: 'amber', status: '需结合产品特性确认', products: ['无烟烟草产品', '含尼古丁或烟草成分辅材'] },
     ],
     intensity: '低至中',
   },
@@ -112,10 +112,10 @@ export const countryOverviewData: CountryOverviewEntry[] = [
     countryName: '阿联酋',
     coreFeature: '整体属于烟草及新型烟草产品可准入市场，实行联邦规则与地方许可相结合的监管模式。',
     productAccessSummary: [
-      { color: 'green', status: '可准入', products: '烟草材料、燃烧类烟草、电子烟、HNB、无烟草尼古丁袋、普通辅材' },
-      { color: 'amber', status: '监管要求不明确', products: '其他新型尼古丁产品' },
-      { color: 'amber', status: '需结合产品特性确认', products: '含尼古丁或烟草成分辅材' },
-      { color: 'red', status: '完全禁止', products: '无烟烟草产品、仿烟糖果及玩具' },
+      { color: 'green', status: '可准入', products: ['烟草材料', '燃烧类烟草', '电子烟', 'HNB', '无烟草尼古丁袋', '普通辅材'] },
+      { color: 'amber', status: '监管要求不明确', products: ['其他新型尼古丁产品'] },
+      { color: 'amber', status: '需结合产品特性确认', products: ['含尼古丁或烟草成分辅材'] },
+      { color: 'red', status: '完全禁止', products: ['无烟烟草产品', '仿烟糖果及玩具'] },
     ],
     intensity: '中',
   },
@@ -124,10 +124,10 @@ export const countryOverviewData: CountryOverviewEntry[] = [
     countryName: '俄罗斯',
     coreFeature: '烟草及尼古丁产品强监管市场，合规准入与生产、进口、流通、标识、税费、价格及销售监管并行。',
     productAccessSummary: [
-      { color: 'green', status: '可准入', products: '烟草及尼古丁原料、普通辅材' },
-      { color: 'amber', status: '可准入，强监管', products: '传统烟草、大部分无烟烟草产品' },
-      { color: 'amber', status: '可准入，监管收紧', products: 'HNB、电子烟及液体产品' },
-      { color: 'red', status: '完全禁止', products: '特定无烟烟草产品、新型尼古丁产品' },
+      { color: 'green', status: '可准入', products: ['烟草及尼古丁原料', '普通辅材'] },
+      { color: 'amber', status: '可准入，强监管', products: ['传统烟草', '大部分无烟烟草产品'] },
+      { color: 'amber', status: '可准入，监管收紧', products: ['HNB', '电子烟及液体产品'] },
+      { color: 'red', status: '完全禁止', products: ['特定无烟烟草产品', '新型尼古丁产品'] },
     ],
     intensity: '高',
   },
@@ -136,9 +136,9 @@ export const countryOverviewData: CountryOverviewEntry[] = [
     countryName: '马来西亚',
     coreFeature: '实行分类监管，不同产品的准入条件和监管强度差异明显。',
     productAccessSummary: [
-      { color: 'green', status: '可准入', products: '传统烟草、HNB、烟草原料、普通辅材' },
-      { color: 'amber', status: '部分限制/准入受控', products: '不含尼古丁电子烟及设备' },
-      { color: 'red', status: '高度受限', products: '含尼古丁电子烟、无烟烟草产品、新型尼古丁产品' },
+      { color: 'green', status: '可准入', products: ['传统烟草', 'HNB', '烟草原料', '普通辅材'] },
+      { color: 'amber', status: '部分限制/准入受控', products: ['不含尼古丁电子烟及设备'] },
+      { color: 'red', status: '高度受限', products: ['含尼古丁电子烟', '无烟烟草产品', '新型尼古丁产品'] },
     ],
     intensity: '高',
   },

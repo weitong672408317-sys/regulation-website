@@ -75,6 +75,23 @@ const getAccessCategoryDotStyle = (category: AccessCategory): React.CSSPropertie
   return { backgroundColor: accessStatusColors[colorMap[category]].dot };
 };
 
+/** 按状态色分组产品准入条目 */
+const groupByColor = (items: { color: AccessColor; status: string; products: string[] }[]) => {
+  const order: AccessColor[] = ['green', 'amber', 'red'];
+  const groups: { color: AccessColor; items: { status: string; products: string[] }[] }[] = [];
+  for (const c of order) {
+    const filtered = items.filter(i => i.color === c);
+    if (filtered.length > 0) groups.push({ color: c, items: filtered });
+  }
+  return groups;
+};
+
+const statusCardStyles: Record<AccessColor, { bg: string; title: string }> = {
+  green: { bg: 'bg-[#E8F5ED]', title: 'text-[#3D7050]' },
+  amber: { bg: 'bg-[#F8F3E8]', title: 'text-[#8B6F2E]' },
+  red:   { bg: 'bg-[#FCEAEA]', title: 'text-[#B33B3B]' },
+};
+
 export default function ComparisonTable() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
   const [selectedIntensity, setSelectedIntensity] = useState<IntensityLevel | null>(null);
@@ -233,10 +250,10 @@ export default function ComparisonTable() {
                   <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '12%' }}>
                     国家/地区
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '32%' }}>
-                    核心监管特征
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '28%' }}>
+                    监管特征
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '44%' }}>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '48%' }}>
                     产品准入速览
                   </th>
                   <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider" style={{ width: '12%' }}>
@@ -268,7 +285,7 @@ export default function ComparisonTable() {
                       <td className="px-4 py-4 align-middle">
                         <Link
                           href={`/country/${country.countryId}#regulatory-system`}
-                          className="text-sm text-gray-700 leading-relaxed hover:text-indigo-600"
+                          className="text-sm text-gray-700 leading-relaxed text-justify hover:text-indigo-600"
                         >
                           {country.coreFeature}
                         </Link>
@@ -278,15 +295,25 @@ export default function ComparisonTable() {
                           href={`/country/${country.countryId}#product-access-overview`}
                           className="block hover:text-indigo-600"
                         >
-                          <div className="space-y-1.5">
-                            {country.productAccessSummary.map((item, idx) => (
-                              <div key={idx} className="flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[9px]" style={getDotStyle(item.color)} />
-                                <span className="text-sm text-gray-700 leading-relaxed">
-                                  <span className="font-medium">{item.status}</span>：{item.products}
-                                </span>
-                              </div>
-                            ))}
+                          <div className="space-y-1">
+                            {groupByColor(country.productAccessSummary).map((group, gIdx) => {
+                              const cardStyle = statusCardStyles[group.color];
+                              return (
+                                <div key={gIdx} className={`rounded px-2 py-1 ${cardStyle.bg}`}>
+                                  <div className="space-y-0.5">
+                                    {group.items.map((item, iIdx) => (
+                                      <div key={iIdx} className="flex items-start gap-1.5">
+                                        <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[7px]" style={getDotStyle(group.color)} />
+                                        <span className="text-sm leading-relaxed text-justify">
+                                          <span className={`font-semibold ${cardStyle.title}`}>{item.status}</span>
+                                          <span className="text-gray-700">：{item.products.join('、')}</span>
+                                        </span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              );
+                            })}
                           </div>
                         </Link>
                       </td>
@@ -334,7 +361,7 @@ export default function ComparisonTable() {
                   <div className="mb-3">
                     <Link
                       href={`/country/${country.countryId}#regulatory-system`}
-                      className="text-sm text-gray-700 leading-6 hover:text-indigo-600"
+                      className="text-sm text-gray-700 leading-6 text-justify hover:text-indigo-600"
                     >
                       {country.coreFeature}
                     </Link>
@@ -343,15 +370,25 @@ export default function ComparisonTable() {
                     href={`/country/${country.countryId}#product-access-overview`}
                     className="block hover:text-indigo-600"
                   >
-                    <div className="space-y-1.5">
-                      {country.productAccessSummary.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[9px]" style={getDotStyle(item.color)} />
-                          <span className="text-sm text-gray-700 leading-6">
-                            <span className="font-medium">{item.status}</span>：{item.products}
-                          </span>
-                        </div>
-                      ))}
+                    <div className="space-y-1">
+                      {groupByColor(country.productAccessSummary).map((group, gIdx) => {
+                        const cardStyle = statusCardStyles[group.color];
+                        return (
+                          <div key={gIdx} className={`rounded px-2 py-1 ${cardStyle.bg}`}>
+                            <div className="space-y-0.5">
+                              {group.items.map((item, iIdx) => (
+                                <div key={iIdx} className="flex items-start gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[7px]" style={getDotStyle(group.color)} />
+                                  <span className="text-sm leading-relaxed">
+                                    <span className={`font-semibold ${cardStyle.title}`}>{item.status}</span>
+                                    <span className="text-gray-700">：{item.products.join('、')}</span>
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </Link>
                 </div>
