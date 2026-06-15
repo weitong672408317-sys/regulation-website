@@ -11,29 +11,26 @@ import {
   type IntensityLevel,
   type ProductStatusType,
 } from '@/data/comparisonData';
-import { accessStatusColors } from '@/data/productAccessOverview';
+import { accessStatusColors, type AccessStatusType } from '@/data/productAccessOverview';
 
 type TabType = 'overview' | 'product';
 
 // ===== 产品准入三分类（用户要求固定三类） =====
 type AccessCategory = 'accessible' | 'restricted' | 'prohibited';
 
-const accessCategoryConfig: Record<AccessCategory, { label: string; dotColor: string; barColor: string; barTextColor: string }> = {
+const accessCategoryConfig: Record<AccessCategory, { label: string; barColor: string; barTextColor: string }> = {
   accessible: {
     label: '可准入',
-    dotColor: `bg-[${accessStatusColors.green.dot}]`,
     barColor: '#4A9B5A',   // 比badge更深的绿色
     barTextColor: '#ffffff',  // 白色文字
   },
   restricted: {
-    label: '部分限制 / 监管要求不明确',
-    dotColor: `bg-[${accessStatusColors.amber.dot}]`,
+    label: '部分限制/监管要求不明确',
     barColor: '#B89038',   // 比badge更深的琥珀色
     barTextColor: '#ffffff',  // 白色文字
   },
   prohibited: {
     label: '禁止/未开放',
-    dotColor: `bg-[${accessStatusColors.red.dot}]`,
     barColor: '#C45252',   // 比badge更深的红色
     barTextColor: '#ffffff',  // 白色文字
   },
@@ -65,16 +62,17 @@ const getIntensityBadgeClass = (intensity: IntensityLevel) => {
 
 // ===== 辅助函数 =====
 
-const getDotColor = (color: AccessColor) => {
+const getDotStyle = (color: AccessColor): React.CSSProperties => {
   switch (color) {
-    case 'green': return `bg-[${accessStatusColors.green.dot}]`;
-    case 'amber': return `bg-[${accessStatusColors.amber.dot}]`;
-    case 'red': return `bg-[${accessStatusColors.red.dot}]`;
+    case 'green': return { backgroundColor: accessStatusColors.green.dot };
+    case 'amber': return { backgroundColor: accessStatusColors.amber.dot };
+    case 'red': return { backgroundColor: accessStatusColors.red.dot };
   }
 };
 
-const getAccessCategoryDotColor = (category: AccessCategory) => {
-  return accessCategoryConfig[category].dotColor;
+const getAccessCategoryDotStyle = (category: AccessCategory): React.CSSProperties => {
+  const colorMap: Record<AccessCategory, AccessStatusType> = { accessible: 'green', restricted: 'amber', prohibited: 'red' };
+  return { backgroundColor: accessStatusColors[colorMap[category]].dot };
 };
 
 export default function ComparisonTable() {
@@ -283,7 +281,7 @@ export default function ComparisonTable() {
                           <div className="space-y-1.5">
                             {country.productAccessSummary.map((item, idx) => (
                               <div key={idx} className="flex items-start gap-2">
-                                <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-[9px] ${getDotColor(item.color)}`} />
+                                <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[9px]" style={getDotStyle(item.color)} />
                                 <span className="text-sm text-gray-700 leading-relaxed">
                                   <span className="font-medium">{item.status}</span>：{item.products}
                                 </span>
@@ -348,7 +346,7 @@ export default function ComparisonTable() {
                     <div className="space-y-1.5">
                       {country.productAccessSummary.map((item, idx) => (
                         <div key={idx} className="flex items-start gap-2">
-                          <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-[9px] ${getDotColor(item.color)}`} />
+                          <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[9px]" style={getDotStyle(item.color)} />
                           <span className="text-sm text-gray-700 leading-6">
                             <span className="font-medium">{item.status}</span>：{item.products}
                           </span>
@@ -541,7 +539,7 @@ export default function ComparisonTable() {
                         <td className="px-4 py-4 align-top" style={{ overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                           {/* 第一行：总体状态 */}
                           <div className="flex items-center gap-2">
-                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${getAccessCategoryDotColor(category)}`} />
+                            <span className="w-1.5 h-1.5 rounded-full shrink-0" style={getAccessCategoryDotStyle(category)} />
                             <span className={`text-sm ${
                               entry.statusType === 'mixed' ? 'text-gray-500' : 'text-gray-700'
                             }`}>
@@ -556,7 +554,7 @@ export default function ComparisonTable() {
                               {entry.subStatuses && entry.subStatuses.length > 0 && (
                                 entry.subStatuses.map((sub, idx) => (
                                   <div key={idx} className="flex items-start gap-2">
-                                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-[6px] ${getDotColor(sub.color)}`} />
+                                    <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[6px]" style={getDotStyle(sub.color)} />
                                     <span className="text-sm text-gray-600">
                                       {sub.product}：<span className="font-medium">{sub.status}</span>
                                     </span>
@@ -604,7 +602,7 @@ export default function ComparisonTable() {
                     
                     {/* 总体状态 */}
                     <div className="flex items-center gap-2">
-                      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${getAccessCategoryDotColor(category)}`} />
+                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={getAccessCategoryDotStyle(category)} />
                       <span className={`text-sm ${
                         entry.statusType === 'mixed' ? 'text-gray-500' : 'text-gray-700'
                       }`}>
@@ -619,7 +617,7 @@ export default function ComparisonTable() {
                         {entry.subStatuses && entry.subStatuses.length > 0 && (
                           entry.subStatuses.map((sub, idx) => (
                             <div key={idx} className="flex items-start gap-2">
-                              <span className={`w-1.5 h-1.5 rounded-full shrink-0 mt-[6px] ${getDotColor(sub.color)}`} />
+                              <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[6px]" style={getDotStyle(sub.color)} />
                               <span className="text-sm text-gray-600">
                                 {sub.product}：<span className="font-medium">{sub.status}</span>
                               </span>

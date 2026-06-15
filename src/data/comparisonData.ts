@@ -56,8 +56,8 @@ export const countryOverviewData: CountryOverviewEntry[] = [
     coreFeature: '国家烟草专卖、严格许可准入、强计划管理、强渠道管控和强执法。',
     productAccessSummary: [
       { color: 'green', status: '可准入', products: '普通辅材' },
-      { color: 'amber', status: '可准入，但严格监管', products: '烟草原料及制品、电子烟、烟草专用机械、特殊配套材料' },
-      { color: 'red', status: '未开放，实质禁止', products: 'HNB、无烟气烟草制品、无烟碱及变相电子烟' },
+      { color: 'amber', status: '可准入，但严格监管', products: '烟草原料及制品、电子烟、雾化物及电子烟用烟碱、烟草专用机械、特殊配套材料（卷烟纸、滤嘴棒、烟用丝束）' },
+      { color: 'red', status: '未开放，实质禁止', products: '加热烟草产品（如HNB）、无烟气烟草制品（如尼古丁袋）、无烟碱电子烟/变相电子烟产品' },
     ],
     intensity: '极高',
   },
@@ -232,7 +232,7 @@ export const productComparisonMap: Record<string, ProductComparisonEntry[]> = {
     { 
       countryId: 'china', 
       countryName: '中国内地', 
-      status: '部分限制 / 监管要求不明确', 
+      status: '部分限制/监管要求不明确', 
       statusType: 'mixed', 
       targetId: 'product-ordinary-bead',
       subStatuses: [
