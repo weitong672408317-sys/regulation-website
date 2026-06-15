@@ -27,7 +27,7 @@ export function RedLineBox({ groups, items, children, id }: RedLineBoxProps & { 
                 {group.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start gap-3">
                     <span className="text-[#DC2626] mt-1.5">✗</span>
-                    <span className="text-[#334155] leading-relaxed text-justify">{item}</span>
+                    <span className="text-[#334155] text-sm leading-relaxed text-justify">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -40,7 +40,7 @@ export function RedLineBox({ groups, items, children, id }: RedLineBoxProps & { 
           {items.map((item, index) => (
             <li key={index} className="flex items-start gap-3">
               <span className="text-[#DC2626] mt-1.5">✗</span>
-              <span className="text-[#334155] leading-relaxed text-justify">{item}</span>
+              <span className="text-[#334155] text-sm leading-relaxed text-justify">{item}</span>
             </li>
           ))}
         </ul>

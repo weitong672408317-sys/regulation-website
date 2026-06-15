@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 
 // Pre-generated SVG path data (no runtime d3-geo dependency)
 import worldPaths from '@/data/world-paths.json';
@@ -29,7 +29,29 @@ const intensityColorMap: Record<string, string> = {
   '低至中': '#A3E635',
 };
 
-const highlightCountryNames = new Set(mapLabels.map((l: LabelItem) => l.countryName));
+const labels = mapLabels as LabelItem[];
+const highlightCountryNames = new Set(labels.map((l) => l.countryName));
+
+// Module-level Map for O(1) countryName → label lookup (replaces per-render .find())
+const countryNameToLabel = new Map<string, LabelItem>();
+labels.forEach((l) => countryNameToLabel.set(l.countryName, l));
+
+// Pre-compute static path rendering data (does not change between renders)
+type PathRenderData = {
+  name: string;
+  path: string;
+  isHighlighted: boolean;
+  fillColor: string;
+};
+
+const pathRenderData: PathRenderData[] = (worldPaths as PathItem[]).map((item) => {
+  const isHighlighted = highlightCountryNames.has(item.name);
+  const label = countryNameToLabel.get(item.name);
+  const fillColor = isHighlighted && label
+    ? intensityColorMap[label.intensity] || '#FACC15'
+    : '#e5e7eb';
+  return { name: item.name, path: item.path, isHighlighted, fillColor };
+});
 
 const legendItems = [
   { color: '#DC2626', label: '极高' },
@@ -42,37 +64,20 @@ export default function WorldMap() {
   const router = useRouter();
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Prefetch country pages one at a time when idle, to avoid network congestion
-    const labels = mapLabels as LabelItem[];
-    let index = 0;
-    const prefetchNext = () => {
-      if (index < labels.length) {
-        router.prefetch(`/country/${labels[index].id}`);
-        index++;
-        setTimeout(prefetchNext, 300);
-      }
-    };
-    if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(() => setTimeout(prefetchNext, 500));
-    } else {
-      setTimeout(prefetchNext, 1000);
-    }
-  }, [router]);
-
   const handleCountryClick = useCallback((countryName: string) => {
-    const label = (mapLabels as LabelItem[]).find((l) => l.countryName === countryName);
+    const label = countryNameToLabel.get(countryName);
     if (label) {
       router.push(`/country/${label.id}`);
     }
   }, [router]);
 
-  const handleLabelClick = useCallback((countryId: string) => {
+  const handleLabelClick = useCallback((countryId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
     router.push(`/country/${countryId}`);
   }, [router]);
 
   const handleCountryHover = useCallback((countryName: string) => {
-    const label = (mapLabels as LabelItem[]).find((l) => l.countryName === countryName);
+    const label = countryNameToLabel.get(countryName);
     if (label) {
       setHoveredCountry(label.name);
       router.prefetch(`/country/${label.id}`);
@@ -82,7 +87,7 @@ export default function WorldMap() {
   return (
     <div className="w-full bg-gray-100 rounded-lg p-4">
       {/* Prefetch links for country pages */}
-      {(mapLabels as LabelItem[]).map((label) => (
+      {labels.map((label) => (
         <Link
           key={label.id}
           href={`/country/${label.id}`}
@@ -95,33 +100,25 @@ export default function WorldMap() {
         <div className="min-w-[800px] h-[550px]">
           <svg viewBox="0 0 960 550" width="100%" height="100%">
             {/* Country paths */}
-            {(worldPaths as PathItem[]).map((item, index) => {
-              const isHighlighted = highlightCountryNames.has(item.name);
-              const label = (mapLabels as LabelItem[]).find((l) => l.countryName === item.name);
-              const fillColor = isHighlighted && label
-                ? intensityColorMap[label.intensity] || '#FACC15'
-                : '#e5e7eb';
-
-              return (
-                <path
-                  key={index}
-                  d={item.path}
-                  fill={fillColor}
-                  stroke="#9ca3af"
-                  strokeWidth={0.5}
-                  style={{
-                    cursor: isHighlighted ? 'pointer' : 'default',
-                    transition: 'fill 0.2s ease',
-                  }}
-                  onClick={() => isHighlighted && handleCountryClick(item.name)}
-                  onMouseEnter={() => isHighlighted && handleCountryHover(item.name)}
-                  onMouseLeave={() => setHoveredCountry(null)}
-                />
-              );
-            })}
+            {pathRenderData.map((item, index) => (
+              <path
+                key={index}
+                d={item.path}
+                fill={item.fillColor}
+                stroke="#9ca3af"
+                strokeWidth={0.5}
+                style={{
+                  cursor: item.isHighlighted ? 'pointer' : 'default',
+                  transition: 'fill 0.2s ease',
+                }}
+                onClick={() => item.isHighlighted && handleCountryClick(item.name)}
+                onMouseEnter={() => item.isHighlighted && handleCountryHover(item.name)}
+                onMouseLeave={() => setHoveredCountry(null)}
+              />
+            ))}
 
             {/* Country markers and labels */}
-            {(mapLabels as LabelItem[]).map((label) => {
+            {labels.map((label) => {
               const color = intensityColorMap[label.intensity] || '#FACC15';
               return (
                 <g key={label.id}>
@@ -134,7 +131,7 @@ export default function WorldMap() {
                     stroke="white"
                     strokeWidth={2}
                     style={{ cursor: 'pointer' }}
-                    onClick={() => handleLabelClick(label.id)}
+                    onClick={(e) => handleLabelClick(label.id, e)}
                   />
 
                   {/* Label line (for Singapore) */}
@@ -165,7 +162,7 @@ export default function WorldMap() {
                     strokeWidth={2}
                     strokeLinejoin="round"
                     style={{ cursor: 'pointer' }}
-                    onClick={() => handleLabelClick(label.id)}
+                    onClick={(e) => handleLabelClick(label.id, e)}
                   >
                     {label.name}
                   </text>

@@ -98,23 +98,23 @@ export default function HongkongPage({ country }: HongkongPageProps) {
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">进口、制造、储存或搬运应课税烟草产品前，应取得相应应课税品许可证，并按海关要求办理进口申报、仓储、移运和完税手续。</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">传统吸烟产品进入香港市场销售前，应完成烟草税缴纳，并保留完税证明、货物来源、进口及销售渠道文件，避免被认定为私烟或未完税烟草。</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">产品包装应按规定展示健康警示和焦油 / 尼古丁含量等信息；销售、陈列、宣传和赞助安排不得构成烟草广告、变相广告或促销。</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">零售端不得向未成年人销售传统吸烟产品，并需遵守禁烟区、排队吸烟禁令、指定处所出入口3米范围禁烟区及其他公共场所使用限制。</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">完税烟标签制度、统一包装设计和加味传统吸烟产品管控将分阶段推进，后续会进一步影响传统卷烟的标签、防伪追溯、包装展示和口味设计。</span>
                 </div>
               </div>
@@ -288,15 +288,15 @@ export default function HongkongPage({ country }: HongkongPageProps) {
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">尼古丁路径：加入尼古丁的，应按毒药或药剂制品路径判断；如产品具有治疗、戒烟、尼古丁替代或其他药用宣称，还需进一步确认药剂制品注册要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">烟草路径：加入烟草材料或烟草提取物的，应按实际产品形态判断是否进入传统吸烟产品或无烟烟草产品路径；属于无烟烟草产品的，不得进入香港市场流通。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">另类吸烟产品路径：属于电子烟、HNB、草本烟等另类吸烟产品的组件 / 配件的，应按另类吸烟产品禁止规则处理。</span>
                   </div>
                 </div>

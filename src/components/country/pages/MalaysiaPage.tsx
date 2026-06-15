@@ -177,19 +177,19 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">产品同时涉及 Act 852 项下吸烟产品注册，以及《毒药法》及药剂监管要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">液体 / 凝胶尼古丁继续涉及《毒药法》管制，含尼古丁制剂通常需要药品 / 制剂注册或主管机关批准。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">供应主体通常限于持牌药剂师、注册医生、牙医、兽医等特定主体；使用场景通常限于药剂、医疗、牙科或兽医用途。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">Act 852 项下包装标签、识别标记、健康警示及吸烟产品注册要求仍需同步确认。</span>
                   </div>
                 </div>
@@ -205,23 +205,23 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">不含尼古丁电子烟液、补充液和烟弹内液体，应按吸烟物质确认 Act 852 项下注册要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">电子烟设备、电子雾化设备及相关组件，应按替代烟草产品或吸烟产品相关组件确认注册要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">产品上市前应向卫生总监提交资料，完成相应吸烟产品注册。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">包装应标注卫生总监批准的识别标记，并使用规定的图文健康警示。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">产品标签应标注是否含尼古丁及其他适用成分信息。</span>
                   </div>
                 </div>
@@ -246,27 +246,27 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">含烟草并设计供人消费的无烟产品，应按 Act 852 项下烟草产品确认注册要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">产品上市前应向卫生总监提交资料，确认是否可以完成相应烟草产品注册。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">包装应标注卫生总监批准的识别标记，并使用适用于无烟烟草产品的健康警示和健康信息。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">产品标签应标注尼古丁、焦油或其他适用成分信息。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">产品额外添加尼古丁或其他受管制成分的，应同步确认《毒药法》及药剂监管要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">使用"安全""无害""非致癌""降低健康风险""戒烟""治疗""尼古丁替代"等减害 / 医药用宣称的，应具备充分科学证据，并确认药品 / 制剂方面的监管要求。</span>
                   </div>
                 </div>
@@ -282,19 +282,19 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">该类产品不能直接按烟草产品注册路径处理。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">尼古丁袋已被卫生部公开归入《毒药法》监管范围，销售或供应通常限于授权主体；网上销售属于违法。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">含尼古丁成分的，应确认《毒药法》及药剂监管要求，包括药品 / 制剂注册、主管机关批准、供应主体和适用场景要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
                     <span className="flex-1 min-w-0">使用"安全""无害""非致癌""降低健康风险""戒烟""治疗""尼古丁替代"等减害 / 医药用宣称的，应具备充分科学证据，并确认药品 / 制剂方面的监管要求。</span>
                   </div>
                 </div>
