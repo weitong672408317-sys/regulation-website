@@ -651,7 +651,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               />
               <ReferenceItem
                 title="《国家卫生监督局第153/2021号决议：关于电子烟、雾化器、电子尼古丁输送系统、无尼古丁类似系统及相关使用物质的产品登记和经营场所授权要求的决议》"
-                url="https://www.mspbs.gov.py/dependencias/dnvs/adjunto/843cb0-ResolucionDNVSN1531.pdf"
+                url="https://www.asuntosregulatorios.com.py/2025/10/08/resolucion-dnvs-d-g-n-153-2021/"
                 description="电子烟及相关产品的注册和经营场所授权规则，涉及产品登记、进口、出口、生产、分销和商业化场所授权。第7508/2025号法出台后，该决议未见被明文废止，仍可作为登记/授权程序依据；具体适用应与第7508/2025号法项下的新监管要求一并判断。"
                 showSeparator
               />

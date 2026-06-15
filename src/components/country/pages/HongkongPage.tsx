@@ -559,13 +559,13 @@ export default function HongkongPage({ country }: HongkongPageProps) {
               />
               <ReferenceItem
                 title="香港卫生署控烟酒办公室：法定禁烟区"
-                url="https://www.taco.gov.hk/t/sc_chi/legislation/legislation_sa.html"
+                url="https://www.clic.org.hk/en/topics/tobacco-alcohol-control/smoking_products_and_smoking/smoking_bans"
                 description="说明香港法定禁烟区范围、排队吸烟禁令、指定处所出入口3米范围禁烟区及吸烟罪行定额罚款等规则。"
                 showSeparator
               />
               <ReferenceItem
                 title="香港卫生署控烟酒办公室：《2025年控烟法例（修订）条例》说明页面"
-                url="https://www.taco.gov.hk/t/tc_chi/legislation/legislation_tcl.html"
+                url="http://www.hcmstl.edu.hk/assets/img/2025%E5%B9%B4%E6%8E%A7%E7%85%99%E6%B3%95%E4%BE%8B%E4%BF%AE%E8%A8%82%E6%A2%9D%E4%BE%8B.pdf"
                 description="说明香港最新一轮控烟措施，包括公众地方持有指明另类吸烟产品、禁烟区扩展、完税烟标签、统一包装设计及加味传统吸烟产品管控安排。"
                 showSeparator
               />
@@ -579,7 +579,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
               />
               <ReferenceItem
                 title="《2021年吸烟（公众卫生）（修订）条例》"
-                url="https://www.elegislation.gov.hk/hk/2021/14"
+                url="https://www.elegislation.gov.hk/hk/2021/39%21en?utm_source=chatgpt.com"
                 description="在第371章下引入另类吸烟产品禁令，是香港禁止电子烟、加热烟草产品和草本烟等产品进入本地市场的重要依据。"
                 showSeparator
               />
@@ -594,12 +594,12 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <ReferenceGroupCard title="烟草税、完税和海关监管">
               <ReferenceItem
                 title="《应课税品条例》（第109章）"
-                url="https://www.elegislation.gov.hk/hk/cap109"
+                url="https://www.clic.org.hk/en/topics/tobacco-alcohol-control/smoking_products_and_smoking/duty_on_tobacco"
                 description="香港烟草税、应课税品许可证、进口、出口、制造、仓储、移离、完税管理和私烟执法的核心法规。"
               />
               <ReferenceItem
                 title="香港海关：应课税品类别及烟草税率"
-                url="https://www.customs.gov.hk/tc/service-enforcement-information/trade-facilitation/dutiable-commodities/types-and-duty-rates/index.html"
+                url="https://www.customs.gov.hk/en/service-enforcement-information/trade-facilitation/dutiable-commodities/types-and-duty-rates/index.html?utm_source=chatgpt.com"
                 description="列明香烟、雪茄、中国熟烟和其他制成烟草的现行烟草税率。"
                 showSeparator
               />
@@ -608,12 +608,12 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             <ReferenceGroupCard title="无烟烟草与尼古丁产品监管">
               <ReferenceItem
                 title="《无烟烟草产品（禁止）规例》（第132BW章）"
-                url="https://www.elegislation.gov.hk/hk/cap132BW"
+                url="https://www.hklii.hk/en/legis/reg/132bw"
                 description="禁止输入、制造、售卖、为出售而管有、要约出售、为出售而展示、托付或交付无烟烟草产品。"
               />
               <ReferenceItem
                 title="《药剂业及毒药条例》（第138章）"
-                url="https://www.elegislation.gov.hk/hk/cap138"
+                url="https://www.ppbhk.org.hk/eng/ordinance/138.html"
                 description="影响含尼古丁但不含烟草产品的毒药及药剂制品监管。尼古丁袋、尼古丁口含膜等产品需结合该条例判断是否涉及毒药、药剂制品注册、销售、供应或管有要求。"
                 showSeparator
               />
@@ -624,18 +624,18 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           <ReferenceGroupCard title="政策与执法动态">
             <ReferenceItem
               title="香港政府：《2025年控烟法例（修订）条例草案》刊宪"
-              url="https://www.info.gov.hk/gia/general/202504/25/P2025042500383.htm"
+              url="https://www.legco.gov.hk/en/legco-business/council/bills.html?bill_key=10037&session=2025&utm_source=chatgpt.com"
               description="提出完税烟标签、提高未完税烟草罚则、禁烟区扩展、禁止公众地方管有指明另类吸烟产品、统一包装设计及加味传统吸烟产品管控等措施。"
             />
             <ReferenceItem
               title="香港政府新闻网：医务卫生局说明统一包装设计与完税标签制度的不同功能"
-              url="https://www.news.gov.hk/chi/2026/03/20260312/20260312_214452_431.html"
+              url="https://gbcode.rthk.hk/TuniS/news.rthk.hk/rthk/ch/component/k2/1847120-20260312.htm?archive_date=2026-03-12&spTabChangeable=0"
               description="说明统一包装设计用于减低烟草产品吸引力，完税标签用于加强打击白牌烟，两者功能不同。"
               showSeparator
             />
             <ReferenceItem
               title="香港海关：完税标签制度先导计划顺利完成"
-              url="https://www.customs.gov.hk/tc/customs-announcement/press-release/index_id_5002.html"
+              url="https://www.info.gov.hk/gia/general/202601/06/P2026010600539.htm?utm_source=chatgpt.com"
               description="说明海关计划于2026年第四季度实施首阶段措施，并于2027年第二季度全面推行，以区分已完税和未完税香烟、打击白牌烟。"
               showSeparator
             />
@@ -653,7 +653,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
             />
             <ReferenceItem
               title="香港海关：2026年5月6日侦破以远洋船走私怀疑另类吸烟产品案件"
-              url="https://www.customs.gov.hk/sc/customs-announcement/press-release/index.html?m=&p=9&y="
+              url="https://www.customs.gov.hk/tc/customs-announcement/press-release/index_id_5279.html"
               description="显示另类吸烟产品仍是香港边境及走私执法重点。"
               showSeparator
             />

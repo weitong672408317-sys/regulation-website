@@ -702,7 +702,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           <div className="space-y-4">
             <ReferenceGroupCard title="公共健康与产品监管">
               <ReferenceItem
-                url="https://peraturan.bpk.go.id/details/258028/uu-no-17-tahun-2023"
+                url="https://jdih.kemkes.go.id/documents/law-of-the-republic-of-indonesia-number-17-of-2023"
                 title="《健康法》（2023年第17号法，UU 17/2023 tentang Kesehatan）"
                 description="印尼公共健康基础法律，将烟草制品及相关成瘾性物质纳入健康监管框架，为生产、流通、销售、广告、使用限制和健康保护措施提供上位法律依据。"
               />
@@ -728,7 +728,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               />
               <ReferenceItem
                 showSeparator
-                url="https://peraturan.bpk.go.id/Details/311451/pmk-no-96-tahun-2024"
+                url="https://jdih.kemenkeu.go.id/dok/pmk-96-tahun-2024"
                 title="《财政部第96/2024号部长规章》（PMK 96/2024）"
                 description="修改电子烟及其他烟草加工产品消费税规则，调整电子烟、HPTL 等产品的消费税税率、最低零售价格、市场交易价格监测和相关税务管理要求。"
               />
@@ -758,7 +758,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             />
             <ReferenceItem
               showSeparator
-              url="https://jakartaglobe.id/news/customs-seizes-249-million-illegal-cigarettes-in-january"
+              url="https://media.kemenkeu.go.id/getmedia/35d43141-006f-4197-982d-8eebb09e9469/Newsletter-APBN-KITA-Februari-2026-%281%29.pdf?ext=.pdf"
               title="2026年2月｜印尼海关1月查获约2.49亿支非法卷烟"
               description="印尼海关及消费税总局在2026年1月查获约2.49亿支非法卷烟，说明非法卷烟和未贴税票产品仍是执法重点。"
             />
@@ -776,7 +776,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             />
             <ReferenceItem
               showSeparator
-              url="https://jakartaglobe.id/news/indonesia-to-step-up-surveillance-of-vape"
+              url="https://www.pom.go.id/berita/bpom-soroti-ancaman-zat-adiktif-pada-rokok-elektronik-bagi-generasi-muda"
               title="2026年5月｜BPOM 将加强电子烟流通监管，重点关注非法或含违禁成分烟液"
               description="BPOM 表示将加强电子烟流通监管，并与国家禁毒机构 BNN 协作应对含毒品或违禁成分电子烟液问题；BPOM并未支持直接实施电子烟全面禁令。"
             />

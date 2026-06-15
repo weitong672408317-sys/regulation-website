@@ -605,7 +605,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
             <ReferenceGroupCard title="许可证、包装与税务">
               <ReferenceItem
                 title="新加坡卫生科学局 HSA：Tobacco licences"
-                url="https://www.hsa.gov.sg/tobacco-regulation/tobacco-licences"
+                url="https://www.hsa.gov.sg/tobacco-regulation/licences/"
                 description="说明烟草进口商、批发商、分销商和零售商许可证要求，以及烟草零售许可证按具体门店管理、不得转让等安排。"
               />
               <ReferenceItem

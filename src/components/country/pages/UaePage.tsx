@@ -790,7 +790,7 @@ export default function UaePage({ country }: UaePageProps) {
               />
               <ReferenceItem
                 title="《内阁决议第 52 号（2019 年）—消费税货物、税率与消费税价格》"
-                url="https://uaelegislation.gov.ae/en/legislations/3983"
+                url="https://uaelegislation.gov.ae/en/legislations/2506/download"
                 description="规定消费税应税货物、适用税率及消费税价格计算机制，覆盖烟草制品、电子吸烟设备及相关液体等应税消费品。"
                 showSeparator
               />

@@ -572,13 +572,13 @@ export default function RussiaPage({ country }: RussiaPageProps) {
           <div className="space-y-4">
             <ReferenceGroupCard title="市场准入与生产流通监管">
               <ReferenceItem
-                url="https://publication.pravo.gov.ru/document/0001202306130005"
+                url="https://www.consultant.ru/document/cons_doc_LAW_449350/"
                 title="《俄罗斯联邦第203-FZ号法〈关于烟草制品、烟草产品、尼古丁产品及其生产原料的生产和流通国家监管〉》"
                 description={<><span className="font-semibold">主要内容：</span>俄罗斯烟草、尼古丁产品及相关原料生产流通的基础法律，主要影响生产、进口、出口、储存、供应、生产流通许可及相关监管要求。页面链接为官方公布文本；后续适用需结合后续修正及现行有效文本确认。</>}
               />
               <ReferenceItem
                 showSeparator
-                url="https://publication.pravo.gov.ru/Document/View/0001201302250007"
+                url="https://www.consultant.ru/document/cons_doc_LAW_142515/"
                 title="《俄罗斯联邦第15-FZ号法〈关于保护公民健康免受环境烟草烟雾影响、烟草消费后果或尼古丁产品消费后果影响〉》"
                 description={<><span className="font-semibold">主要内容：</span>俄罗斯控烟和市场销售限制的核心法律，主要影响销售地点、销售方式、产品展示、广告促销、未成年人保护、公共场所使用限制和特定产品禁售。该法后续曾多次修订，页面链接为2013年官方公布文本；涉及尼古丁产品、禁售范围等问题时，应结合后续修正后的现行文本确认。</>}
               />
@@ -592,7 +592,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               />
               <ReferenceItem
                 showSeparator
-                url="https://www.kremlin.ru/acts/bank/28603"
+                url="https://www.consultant.ru/document/cons_doc_LAW_82841/"
                 title="《俄罗斯联邦第268-FZ号法〈无烟烟草产品技术法规〉》"
                 description={<><span className="font-semibold">主要内容：</span>无烟烟草产品的技术识别和技术合规规则，主要涉及无烟烟草产品的技术要求、识别、标签和合格评定。该技术法规本身不等于市场准入许可；具体产品能否进入俄罗斯市场，还需结合第15-FZ号法的禁售规则、第203-FZ号法的生产流通监管、数字标识、最低价格和销售限制判断。</>}
               />
@@ -600,7 +600,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
             <ReferenceGroupCard title="数字标识与追溯规则">
               <ReferenceItem
-                url="https://publication.pravo.gov.ru/Document/View/0001201903060010"
+                url="https://www.consultant.ru/document/cons_doc_LAW_319565/"
                 title="《俄罗斯联邦政府第224号令〈关于批准烟草产品识别标识规则等〉》"
                 description={<><span className="font-semibold">主要内容：</span>烟草产品数字标识和追溯规则的基础政府令，主要影响赋码、贴码、流转信息报送及市场追溯。后续俄罗斯对烟草、尼古丁产品及相关原料的标识和追溯规则已有扩展，具体适用品类和操作要求需结合最新修订、Chestny ZNAK系统规则及主管机关口径确认。</>}
               />
@@ -608,6 +608,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
             <ReferenceGroupCard title="消费税规则">
               <ReferenceItem
+                url="https://www.nalog.gov.ru/rn77/taxation/taxes/akciz/"
                 title="《俄罗斯联邦税法典》消费税规则"
                 description="俄罗斯烟草、加热烟草、电子烟液、尼古丁原料、无烟草尼古丁加热混合物等产品的消费税主要依据《俄罗斯联邦税法典》确定。消费税税目和税率按产品类型和年度列明，页面中的2026—2028年税率应以税法典现行有效文本为准。"
               />
@@ -621,6 +622,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               />
               <ReferenceItem
                 showSeparator
+                url="https://www.consultant.ru/document/cons_doc_LAW_472346/"
                 title="俄罗斯政府最低价格确定规则"
                 description={<><span className="font-semibold">主要内容：</span>最低价格不是由一个文件单独完成，通常由第203-FZ号法第7条、俄罗斯政府批准的最低价格确定规则，以及俄罗斯农业部年度信息公告共同构成。卷烟、papirosy，其他烟草产品，以及尼古丁产品分别适用不同的最低价格发布口径。</>}
               />
@@ -632,7 +634,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               >
                 <div className="ml-4 pl-4 border-l-2 border-[#D8DDED] space-y-3">
                   <div>
-                    <a href="https://mcx.gov.ru/upload/iblock/f9d/kerwlytu1facd9hpgt98jp71sdtf6ri4.pdf" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#263247] text-base mb-1 hover:underline block">
+                    <a href="https://www.consultant.ru/document/cons_doc_LAW_520847/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#263247] text-base mb-1 hover:underline block">
                       1. 卷烟、papirosy 2026年统一最低价格信息公告
                     </a>
                     <p className="text-sm text-[#334155]">
@@ -641,7 +643,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
                   </div>
 
                   <div>
-                    <a href="https://mcx.gov.ru/upload/iblock/987/u63qxprbo9xrcsuayjbfnhn9ed3o3b03.pdf" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#263247] text-base mb-1 hover:underline block">
+                    <a href="https://www.consultant.ru/document/cons_doc_LAW_520849/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#263247] text-base mb-1 hover:underline block">
                       2. 尼古丁产品2026年最低价格信息公告
                     </a>
                     <p className="text-sm text-[#334155]">
@@ -650,7 +652,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
                   </div>
 
                   <div>
-                    <a href="https://mcx.gov.ru/upload/iblock/852/cxse5pvp2iotik4yv28jnma3r33crey5.pdf" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#263247] text-base mb-1 hover:underline block">
+                    <a href="https://www.consultant.ru/document/cons_doc_LAW_522525/c59c7905b3e6d45c8fb4e45587eecd77efd3397b/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#263247] text-base mb-1 hover:underline block">
                       3. 烟草产品2026年最低价格信息公告
                     </a>
                     <p className="text-sm text-[#334155]">

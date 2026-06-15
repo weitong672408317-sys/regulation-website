@@ -764,7 +764,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
 
             <ReferenceGroupCard title="尼古丁、毒物及药剂监管">
               <ReferenceItem
-                url="https://www.pharmacy.gov.my/v2/sites/default/files/document-upload/poisons-act-1952-act-366-regulations.pdf"
+                url="https://pharmacy.moh.gov.my/sites/default/files/document-upload/poisons-act-1952-act-366.pdf"
                 title="《毒药法》（Poisons Act 1952）"
                 description="用于确认尼古丁、毒物、药剂制品及相关供应活动的监管基础。液体/凝胶尼古丁、含尼古丁电子烟液、含尼古丁烟弹、一次性含尼古丁电子烟及其他含尼古丁产品，需结合该法及药剂监管框架判断。"
               />
