@@ -40,7 +40,7 @@ export function ComplianceSection({ country, isRussiaStyle = true, overview, chi
             </>
           ) : country.compliance.table.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="w-full text-base">
                 <thead>
                   <tr className="bg-[#E8EDF5]">
                     <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">产品</th>

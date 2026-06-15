@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import Link from 'next/link';
 import { productAccessOverviewMap } from '../../data/productAccessOverview';
 
 interface NavItem {
@@ -83,7 +84,7 @@ export default function SidebarNav({ countryId = 'china' }: SidebarNavProps) {
   }, []);
 
   return (
-    <nav className="hidden lg:block w-[240px] flex-shrink-0">
+    <nav className="hidden lg:block w-[200px] flex-shrink-0">
       <div className="sticky top-8">
         <div className="bg-white border border-[#D8DDED] rounded-xl p-4 shadow-sm">
           <h3 className="text-sm font-bold text-[#243B63] mb-3 pb-2 border-b border-[#E8EDF5]">页面导航</h3>
@@ -105,6 +106,17 @@ export default function SidebarNav({ countryId = 'china' }: SidebarNavProps) {
                 </button>
               </li>
             ))}
+            <li className="mt-3 pt-3 border-t border-[#E8EDF5]">
+              <Link
+                href="/"
+                className="w-full text-left px-3 py-1.5 rounded-lg text-sm transition-colors flex items-center gap-2 text-[#64748B] hover:text-[#2E3F73] hover:bg-[#F3F5FB]"
+              >
+                <span className="w-5 h-5 flex items-center justify-center flex-shrink-0 text-[#64748B]">
+                  ←
+                </span>
+                <span>返回首页</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

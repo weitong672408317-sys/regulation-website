@@ -65,7 +65,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
             title: '核心特征',
             content: (
               <>
-                <p className="text-sm leading-relaxed text-[#334155] text-justify mb-4">新加坡采取&ldquo;传统烟草产品从严管控、新型烟草及尼古丁产品明确禁入、烟草使用空间高度受限&rdquo;的监管模式。</p>
+                <p className="text-base leading-relaxed text-[#334155] text-justify mb-4">新加坡采取&ldquo;传统烟草产品从严管控、新型烟草及尼古丁产品明确禁入、烟草使用空间高度受限&rdquo;的监管模式。</p>
                 <BulletList items={[
                   '传统卷烟、雪茄、烟丝等产品可以依法经营，但销售、展示、广告、包装和吸烟地点均受到严格限制。',
                   '电子烟、HNB产品、尼古丁袋等新型烟草及尼古丁产品，在新加坡不得进口、销售、供应、购买、使用或持有。',
@@ -103,7 +103,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               title="传统烟草成品"
               id="product-traditional-tobacco"
               content={<>
-                <div className="text-base text-justify text-[#334155] mb-2">适用产品：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、其他制成烟草</div>
+                <div className="text-sm text-justify text-[#334155] mb-2">适用产品：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、其他制成烟草</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -135,7 +135,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               customLabel="需分类确认"
               title="烟草材料 / 原料"
               content={<>
-                <div className="text-base text-justify text-[#334155] mb-2">适用产品：烟叶、烟草薄片、烟草废料及其他烟草原料</div>
+                <div className="text-sm text-justify text-[#334155] mb-2">适用产品：烟叶、烟草薄片、烟草废料及其他烟草原料</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -163,7 +163,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               customLabel="完全禁止"
               title="水烟烟草"
               content={<>
-                <div className="text-base text-justify text-[#334155] mb-2">适用产品：水烟烟草</div>
+                <div className="text-sm text-justify text-[#334155] mb-2">适用产品：水烟烟草</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -192,7 +192,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               title="加热烟草及电子雾化产品"
               id="product-heat-not-burn"
               content={<>
-                <div className="text-base text-justify text-[#334155] mb-2">适用产品：HNB 烟支 / 加热烟草产品、电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、电子雾化组件</div>
+                <div className="text-sm text-justify text-[#334155] mb-2">适用产品：HNB 烟支 / 加热烟草产品、电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、电子雾化组件</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -216,7 +216,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               title="无烟烟草产品"
               id="product-smokeless-tobacco"
               content={<>
-                <div className="text-base text-justify text-[#334155] mb-2">适用产品：口含烟、鼻烟、嚼烟、snus、可溶性烟草，以及 Gutkha、Khaini、Zarda 等含烟草但不经燃烧吸用的产品</div>
+                <div className="text-sm text-justify text-[#334155] mb-2">适用产品：口含烟、鼻烟、嚼烟、snus、可溶性烟草，以及 Gutkha、Khaini、Zarda 等含烟草但不经燃烧吸用的产品</div>
                 <div className="text-sm text-[#64748B] mb-2 leading-6">
                   注：<br />
                   Gutkha：通常是小袋包装，属于口含 / 咀嚼使用的烟草混合物，常和 pan masala 类产品放在一起销售。<br />
@@ -246,7 +246,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               title="新型尼古丁产品"
               id="product-novel-nicotine"
               content={<>
-                <div className="text-base text-justify text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
+                <div className="text-sm text-justify text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁口含膜、尼古丁含片及其他不含烟草但含尼古丁的口含类产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -270,7 +270,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               title="仿烟产品及相关组件"
               id="product-imitation"
               content={<>
-                <div className="text-base text-justify text-[#334155] mb-2">适用产品：仿烟产品、仿烟组件及相关配件</div>
+                <div className="text-sm text-justify text-[#334155] mb-2">适用产品：仿烟产品、仿烟组件及相关配件</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -303,7 +303,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               title="爆珠 / 香精胶囊"
               id="product-bead"
               content={<>
-                <div className="text-base text-justify text-[#334155] mb-2">适用产品：不含烟草、尼古丁或受控成分的爆珠、香精胶囊</div>
+                <div className="text-sm text-justify text-[#334155] mb-2">适用产品：不含烟草、尼古丁或受控成分的爆珠、香精胶囊</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -327,7 +327,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               title="滤嘴棒及其他普通辅材"
               id="product-filter"
               content={<>
-                <div className="text-base text-justify text-[#334155] mb-2">适用产品：滤嘴棒及其他不含烟草、尼古丁或受控成分的普通辅材</div>
+                <div className="text-sm text-justify text-[#334155] mb-2">适用产品：滤嘴棒及其他不含烟草、尼古丁或受控成分的普通辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
@@ -351,7 +351,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
 
       {/* 合规资质 */}
       <ComplianceSection country={country} sectionId="licenses">
-        <p className="text-[#334155] text-sm leading-relaxed text-justify mb-6">新加坡烟草产品合规资质主要集中在 HSA 烟草许可证和特定禁止类产品的有限豁免安排。传统烟草产品存在许可经营路径，但许可证按经营环节和具体门店管理；禁止类产品只有在法规明确列明的特定产品、行为和目的下，才可能适用有限豁免。</p>
+        <p className="text-[#334155] text-base leading-relaxed text-justify mb-6">新加坡烟草产品合规资质主要集中在 HSA 烟草许可证和特定禁止类产品的有限豁免安排。传统烟草产品存在许可经营路径，但许可证按经营环节和具体门店管理；禁止类产品只有在法规明确列明的特定产品、行为和目的下，才可能适用有限豁免。</p>
 
         <div className="grid md:grid-cols-2 gap-4 mb-4">
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
@@ -362,15 +362,15 @@ export default function SingaporePage({ country }: SingaporePageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">适用于进口、批发和分销传统烟草产品的经营活动。</span>
+                <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">适用于进口、批发和分销传统烟草产品的经营活动。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">进口、批发或分销烟草产品前，应取得 HSA 烟草进口商和批发商许可证。</span>
+                <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">进口、批发或分销烟草产品前，应取得 HSA 烟草进口商和批发商许可证。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">申请通常需要提交经营主体、仓库或办公场所、生产商授权等资料，许可管理与具体经营安排相关。</span>
+                <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">申请通常需要提交经营主体、仓库或办公场所、生产商授权等资料，许可管理与具体经营安排相关。</span>
               </div>
             </div>
           </div>
@@ -383,15 +383,15 @@ export default function SingaporePage({ country }: SingaporePageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">适用于在新加坡本地零售传统烟草产品的门店。</span>
+                <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">适用于在新加坡本地零售传统烟草产品的门店。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">烟草零售许可证按具体门店发放，经营多个门店的，应分别申请。</span>
+                <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">烟草零售许可证按具体门店发放，经营多个门店的，应分别申请。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">零售许可证不得在不同公司或不同门店之间转让。</span>
+                <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">零售许可证不得在不同公司或不同门店之间转让。</span>
               </div>
             </div>
           </div>
@@ -405,23 +405,23 @@ export default function SingaporePage({ country }: SingaporePageProps) {
           <div className="ml-9 space-y-2">
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">新加坡法规对部分禁止类产品设有有限豁免，涉及无烟烟草产品、雾化器溶液、雾化器、豁免仿烟产品及其组件。</span>
+              <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">新加坡法规对部分禁止类产品设有有限豁免，涉及无烟烟草产品、雾化器溶液、雾化器、豁免仿烟产品及其组件。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">法规列明的豁免目的包括非临床研究、产品开发和供应链相关活动。</span>
+              <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">法规列明的豁免目的包括非临床研究、产品开发和供应链相关活动。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">供应链相关活动指产品及组件的移动和储存，包括采购、供应商管理、生产排期、库存管理、进出口合规、分销及支持活动。</span>
+              <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">供应链相关活动指产品及组件的移动和储存，包括采购、供应商管理、生产排期、库存管理、进出口合规、分销及支持活动。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">上述供应链活动仅用于判断豁免目的范围，产品进口、持有、移动或储存还需满足豁免令对产品类型、行为、主体、通知、记录、储存和期限等条件。</span>
+              <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">上述供应链活动仅用于判断豁免目的范围，产品进口、持有、移动或储存还需满足豁免令对产品类型、行为、主体、通知、记录、储存和期限等条件。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-sm leading-relaxed flex-1 min-w-0">该等豁免不等同于本地消费市场准入，不能作为本地销售、递样、展示、推广或消费者使用的依据。</span>
+              <span className="text-[#334155] text-base leading-relaxed flex-1 min-w-0">该等豁免不等同于本地消费市场准入，不能作为本地销售、递样、展示、推广或消费者使用的依据。</span>
             </div>
           </div>
         </div>
@@ -430,9 +430,9 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       {/* 税收政策 */}
       <TaxSection sectionId="tax">
         <TaxTableCard title="1. 烟草消费税">
-          <p className="text-[#334155] text-sm leading-relaxed text-justify mb-4">新加坡烟草相关税负主要包括烟草消费税、关税和 GST。自2026年2月12日起，新加坡所有烟草产品消费税提高20%；下表为提高后的现行消费税率。</p>
+          <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">新加坡烟草相关税负主要包括烟草消费税、关税和 GST。自2026年2月12日起，新加坡所有烟草产品消费税提高20%；下表为提高后的现行消费税率。</p>
           <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
-            <table className="w-full text-sm min-w-[500px] bg-white">
+            <table className="w-full text-base min-w-[500px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
                   <th className="px-6 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED]">产品类别</th>
@@ -458,9 +458,9 @@ export default function SingaporePage({ country }: SingaporePageProps) {
         </TaxTableCard>
 
         <TaxTableCard title="2. 关税 / 消费税计征方式">
-          <p className="text-[#334155] text-sm leading-relaxed text-justify mb-4">新加坡烟草产品属于应税货物，适用特定税率，不按统一百分比区间计征。非卷烟类烟草通常按重量计算；卷烟按支数及每支重量计算，且每支重量向上取整至最接近的克数。</p>
+          <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">新加坡烟草产品属于应税货物，适用特定税率，不按统一百分比区间计征。非卷烟类烟草通常按重量计算；卷烟按支数及每支重量计算，且每支重量向上取整至最接近的克数。</p>
           <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
-            <table className="w-full text-sm min-w-[500px] bg-white">
+            <table className="w-full text-base min-w-[500px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
                   <th className="px-6 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED]">产品类别</th>
@@ -485,11 +485,11 @@ export default function SingaporePage({ country }: SingaporePageProps) {
           <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">新加坡现行 GST 税率为 9%。</span>
+              <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">新加坡现行 GST 税率为 9%。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">传统烟草产品在新加坡本地销售通常需缴纳 GST；进口烟草产品也需在进口环节缴纳 GST，计税基础通常包括货物价值、保险费、运费，以及适用的关税和消费税。</span>
+              <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">传统烟草产品在新加坡本地销售通常需缴纳 GST；进口烟草产品也需在进口环节缴纳 GST，计税基础通常包括货物价值、保险费、运费，以及适用的关税和消费税。</span>
             </div>
           </div>
         </TaxTableCard>
@@ -532,9 +532,9 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       {/* 政策趋势分析 */}
       <SectionCard title="监管趋势" id="trend">
         <div className="space-y-4">
-          <p className="text-[#334155] text-sm leading-relaxed text-justify">新加坡烟草监管长期以控烟和公共健康保护为核心。传统烟草产品仍保留有限经营空间，但监管重点是减少展示、减少宣传、提高税负，并通过禁烟场所规则限制使用场景。电子烟、HNB 烟支、尼古丁袋、雾化器等新型产品则继续采取原则禁止和严格执法的路径。</p>
-          <p className="text-[#334155] text-sm leading-relaxed text-justify">2026年的修法进一步强化了这一方向。监管已经从传统的进口、销售和广告控制，延伸到购买、持有、使用、储存、场所责任、雾化器组件、仿烟产品以及含特定精神活性物质产品。</p>
-          <p className="text-[#334155] text-sm leading-relaxed text-justify">未来新加坡大概率仍将维持&ldquo;传统烟草产品有限准入、新型产品原则禁止、个人和场所责任同步强化&rdquo;的监管格局。</p>
+          <p className="text-[#334155] text-base leading-relaxed text-justify">新加坡烟草监管长期以控烟和公共健康保护为核心。传统烟草产品仍保留有限经营空间，但监管重点是减少展示、减少宣传、提高税负，并通过禁烟场所规则限制使用场景。电子烟、HNB 烟支、尼古丁袋、雾化器等新型产品则继续采取原则禁止和严格执法的路径。</p>
+          <p className="text-[#334155] text-base leading-relaxed text-justify">2026年的修法进一步强化了这一方向。监管已经从传统的进口、销售和广告控制，延伸到购买、持有、使用、储存、场所责任、雾化器组件、仿烟产品以及含特定精神活性物质产品。</p>
+          <p className="text-[#334155] text-base leading-relaxed text-justify">未来新加坡大概率仍将维持&ldquo;传统烟草产品有限准入、新型产品原则禁止、个人和场所责任同步强化&rdquo;的监管格局。</p>
         </div>
       </SectionCard>
 

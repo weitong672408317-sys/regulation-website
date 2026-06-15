@@ -39,8 +39,8 @@ export default function UaePage({ country }: UaePageProps) {
         {
           title: '核心特征',
           content: <>
-            <p className="text-sm leading-relaxed text-[#334155] text-justify mb-4">阿联酋整体属于烟草及新型烟草产品可准入的市场。</p>
-            <p className="text-sm leading-relaxed text-[#334155] text-justify mb-4">一般而言，在阿联酋，从事烟草相关业务的企业必须首先取得与其经营活动相对应的营业执照。除此之外，部分烟草相关活动还需根据联邦及地方（如迪拜市政厅）相关法规，额外申请专项许可或获得主管部门的批准。例如：</p>
+            <p className="text-base leading-relaxed text-[#334155] text-justify mb-4">阿联酋整体属于烟草及新型烟草产品可准入的市场。</p>
+            <p className="text-base leading-relaxed text-[#334155] text-justify mb-4">一般而言，在阿联酋，从事烟草相关业务的企业必须首先取得与其经营活动相对应的营业执照。除此之外，部分烟草相关活动还需根据联邦及地方（如迪拜市政厅）相关法规，额外申请专项许可或获得主管部门的批准。例如：</p>
             <BulletList items={[
               '烟草种植与制造可能需要取得专门的农业或工业许可，并满足一系列合规要求。',
               '烟草产品的进口、分销和零售需要满足营业许可、产品认证、消费税、数字税票、进口清关和地方销售许可等要求。',
@@ -50,8 +50,8 @@ export default function UaePage({ country }: UaePageProps) {
         {
           title: '监管体系',
           content: <>
-            <p className="text-sm leading-relaxed text-[#334155] text-justify mb-4">阿联酋对烟草制品的监管体系，采取联邦法规与各酋长国地方政策相结合的模式。在联邦控烟法律的统一框架下，各酋长国有权依据自身情况实施更为严格的地方性监管措施。同时，阿联酋境内划分为大陆地区与多个自由贸易区（Free Zones），各自由区在联邦法律基础上，亦可制定自己的行政管理规定和准入标准。</p>
-            <p className="text-sm leading-relaxed text-[#334155] text-justify mb-4">其中：</p>
+            <p className="text-base leading-relaxed text-[#334155] text-justify mb-4">阿联酋对烟草制品的监管体系，采取联邦法规与各酋长国地方政策相结合的模式。在联邦控烟法律的统一框架下，各酋长国有权依据自身情况实施更为严格的地方性监管措施。同时，阿联酋境内划分为大陆地区与多个自由贸易区（Free Zones），各自由区在联邦法律基础上，亦可制定自己的行政管理规定和准入标准。</p>
+            <p className="text-base leading-relaxed text-[#334155] text-justify mb-4">其中：</p>
             <BulletList items={[
               '联邦层面重点管理烟草控制、产品标准、消费税、数字税票、未成年人保护和广告促销限制。',
               '酋长国规则主要影响销售点许可、水烟场所、距离限制、陈列要求、公共场所使用和实际执法尺度。',
@@ -89,11 +89,11 @@ export default function UaePage({ country }: UaePageProps) {
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">重点关注进口申报、用途、税务、仓储、转口和下游产品合规。</span>
+                  <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">重点关注进口申报、用途、税务、仓储、转口和下游产品合规。</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">作为工业原料进入生产、加工或转口场景，与作为消费者成品进入本地市场销售，应分别判断。</span>
+                  <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">作为工业原料进入生产、加工或转口场景，与作为消费者成品进入本地市场销售，应分别判断。</span>
                 </div>
               </div>
             </>}
@@ -116,15 +116,15 @@ export default function UaePage({ country }: UaePageProps) {
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">进入阿联酋或在境内交易的烟草及烟草制品，应符合阿联酋相关强制标准、包装标签和健康警示要求。</span>
+                  <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">进入阿联酋或在境内交易的烟草及烟草制品，应符合阿联酋相关强制标准、包装标签和健康警示要求。</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">烟草制品适用100%消费税，进口商及生产商需向联邦税务局（FTA）注册并贴附数字税票；未贴附数字税票的相关产品不得进口进入阿联酋或在本地市场销售。</span>
+                  <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">烟草制品适用100%消费税，进口商及生产商需向联邦税务局（FTA）注册并贴附数字税票；未贴附数字税票的相关产品不得进口进入阿联酋或在本地市场销售。</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">销售端须遵守所在地酋长国 / 市政部门的销售点许可、未成年人保护、禁售地点、距离限制、陈列和广告促销限制。</span>
+                  <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">销售端须遵守所在地酋长国 / 市政部门的销售点许可、未成年人保护、禁售地点、距离限制、陈列和广告促销限制。</span>
                 </div>
               </div>
             </>}
@@ -151,23 +151,23 @@ export default function UaePage({ country }: UaePageProps) {
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">电子雾化产品、电子烟、电子水烟、烟油、补充液、含液体烟弹及补充装产品，应按 UAE.S 5030:2018 办理 ECAS / CoC。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">电子雾化产品、电子烟、电子水烟、烟油、补充液、含液体烟弹及补充装产品，应按 UAE.S 5030:2018 办理 ECAS / CoC。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">电子液体中的尼古丁含量不得超过 20mg/ml；一体式电子液体储罐容量不得超过 10ml；电子液体补充装容量每包不得超过 50ml。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">电子液体中的尼古丁含量不得超过 20mg/ml；一体式电子液体储罐容量不得超过 10ml；电子液体补充装容量每包不得超过 50ml。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">电子吸烟设备及工具、电子吸烟设备及工具所用液体适用 100% 消费税。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">电子吸烟设备及工具、电子吸烟设备及工具所用液体适用 100% 消费税。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">烟油和补充液应符合药用级纯度、禁限用成分、泄漏防护、儿童防护包装、标签警示和进口申报要求。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">烟油和补充液应符合药用级纯度、禁限用成分、泄漏防护、儿童防护包装、标签警示和进口申报要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">特定有害添加物或口味在部分酋长国可能存在限制，需结合地方执行口径确认。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">特定有害添加物或口味在部分酋长国可能存在限制，需结合地方执行口径确认。</span>
                   </div>
                 </div>
               </>}
@@ -183,11 +183,11 @@ export default function UaePage({ country }: UaePageProps) {
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">HNB 等加热烟草产品进入本土市场前，应同时关注 UAE.S 5030:2018、烟草制品规则、消费税、数字税票、包装标签和地方销售许可要求。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">HNB 等加热烟草产品进入本土市场前，应同时关注 UAE.S 5030:2018、烟草制品规则、消费税、数字税票、包装标签和地方销售许可要求。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">加热卷烟产品属于消费税和数字税票重点品类；未贴附数字税票的相关产品不得进口进入阿联酋或在本地市场销售。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">加热卷烟产品属于消费税和数字税票重点品类；未贴附数字税票的相关产品不得进口进入阿联酋或在本地市场销售。</span>
                   </div>
                 </div>
               </>}
@@ -217,15 +217,15 @@ export default function UaePage({ country }: UaePageProps) {
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">未取得主管机关正式批准并提交规定文件的，不得进口、制造或投放市场。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">未取得主管机关正式批准并提交规定文件的，不得进口、制造或投放市场。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">产品应符合 UAE.S 5061:2025技术要求，例如每袋尼古丁总量不得超过 20mg；最终产品 pH 值不得超过 9.1；水分活度不得超过 0.7。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">产品应符合 UAE.S 5061:2025技术要求，例如每袋尼古丁总量不得超过 20mg；最终产品 pH 值不得超过 9.1；水分活度不得超过 0.7。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">包装和标签也应符合 UAE.S 5061:2025 要求，例如每个零售包装应含 15–20 个小袋。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">包装和标签也应符合 UAE.S 5061:2025 要求，例如每个零售包装应含 15–20 个小袋。</span>
                   </div>
                 </div>
               </>}
@@ -238,17 +238,17 @@ export default function UaePage({ country }: UaePageProps) {
               customLabel="完全禁止"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：含烟草咀嚼制品及其他含烟草但不经燃烧吸用的产品</div>
-                <p className="mb-2 text-[#334155]">公开资料未见阿联酋对"含烟草咀嚼制品"设置单独完整定义。</p>
-                <p className="mb-2 text-[#334155]">结合现有禁止性口径，该类产品可理解为含有烟草材料、通过咀嚼或口含方式使用的烟草产品，典型产品包括 Paan、Gutkha、Mawa 等。</p>
+                <p className="text-sm leading-relaxed mb-2 text-[#334155]">公开资料未见阿联酋对"含烟草咀嚼制品"设置单独完整定义。</p>
+                <p className="text-sm leading-relaxed mb-2 text-[#334155]">结合现有禁止性口径，该类产品可理解为含有烟草材料、通过咀嚼或口含方式使用的烟草产品，典型产品包括 Paan、Gutkha、Mawa 等。</p>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">禁止进口、销售、持有或分销。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">禁止进口、销售、持有或分销。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">含烟草材料的咀嚼类产品不得套用无烟草尼古丁袋路径。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">含烟草材料的咀嚼类产品不得套用无烟草尼古丁袋路径。</span>
                   </div>
                 </div>
               </>}
@@ -265,15 +265,15 @@ export default function UaePage({ country }: UaePageProps) {
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">公开法规尚未见单独、明确、成熟的定义或准入路径。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">公开法规尚未见单独、明确、成熟的定义或准入路径。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">非袋状口含尼古丁产品不能当然等同于无烟草尼古丁袋，主要原因是 UAE.S 5061:2025 对无烟草尼古丁袋设置了明确的袋状形态和口腔使用方式定义。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">非袋状口含尼古丁产品不能当然等同于无烟草尼古丁袋，主要原因是 UAE.S 5061:2025 对无烟草尼古丁袋设置了明确的袋状形态和口腔使用方式定义。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">进入市场前，应结合产品形态、成分、使用方式、是否含烟草材料及主管机关口径确认产品归类和认证要求。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">进入市场前，应结合产品形态、成分、使用方式、是否含烟草材料及主管机关口径确认产品归类和认证要求。</span>
                   </div>
                 </div>
               </>}
@@ -297,7 +297,7 @@ export default function UaePage({ country }: UaePageProps) {
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">不含尼古丁、不含烟草提取物，且不作为消费者直接使用产品销售的，通常可按普通辅材或配套材料理解；公开资料下未见单独产品准入许可或专项认证要求。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">不含尼古丁、不含烟草提取物，且不作为消费者直接使用产品销售的，通常可按普通辅材或配套材料理解；公开资料下未见单独产品准入许可或专项认证要求。</span>
                   </div>
                 </div>
               </>}
@@ -312,11 +312,11 @@ export default function UaePage({ country }: UaePageProps) {
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">如产品含尼古丁、烟草提取物，或对外作为消费者可直接使用产品销售，不能直接按普通辅材处理。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">如产品含尼古丁、烟草提取物，或对外作为消费者可直接使用产品销售，不能直接按普通辅材处理。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">应根据产品成分、使用方式和销售形态，转入烟草制品、电子尼古丁产品、无烟草尼古丁袋或其他对应路径确认准入和认证要求。</span>
+                    <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">应根据产品成分、使用方式和销售形态，转入烟草制品、电子尼古丁产品、无烟草尼古丁袋或其他对应路径确认准入和认证要求。</span>
                   </div>
                 </div>
               </>}
@@ -339,7 +339,7 @@ export default function UaePage({ country }: UaePageProps) {
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">禁止进口和在阿联酋境内销售。</span>
+                  <span className="flex-1 min-w-0 text-sm leading-relaxed text-[#334155]">禁止进口和在阿联酋境内销售。</span>
                 </div>
               </div>
             </>}
@@ -349,7 +349,7 @@ export default function UaePage({ country }: UaePageProps) {
         {country.emirateDifferences && (
           <SubCard title="主要酋长国差异">
             <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
-              <table className="w-full text-sm min-w-[600px] bg-white">
+              <table className="w-full text-base min-w-[600px] bg-white">
                 <thead>
                   <tr className="bg-[#E8EDF5]">
                     <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED] border-r border-[#D8DDED] w-[14%]">酋长国</th>
@@ -363,13 +363,13 @@ export default function UaePage({ country }: UaePageProps) {
                     <React.Fragment key={index}>
                       <tr className={index % 2 === 0 ? 'bg-white/50' : 'bg-[#F3F5FB]'}>
                         <td className="px-5 py-4 border-b border-[#D8DDED] border-r border-[#D8DDED] font-semibold text-[#1F2A44]">{row.emirate}</td>
-                        <td className="px-5 py-4 border-b border-[#D8DDED] border-r border-[#D8DDED] text-[#334155]">{row.chewingTobacco}</td>
-                        <td className="px-5 py-4 border-b border-[#D8DDED] border-r border-[#D8DDED] text-[#334155]">{row.electronicCigarette}</td>
-                        <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">{row.hookah}</td>
+                        <td className="px-5 py-4 border-b border-[#D8DDED] border-r border-[#D8DDED] text-[#334155] text-justify">{row.chewingTobacco}</td>
+                        <td className="px-5 py-4 border-b border-[#D8DDED] border-r border-[#D8DDED] text-[#334155] text-justify">{row.electronicCigarette}</td>
+                        <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] text-justify">{row.hookah}</td>
                       </tr>
                       {row.note && index === country.emirateDifferences!.length - 1 && (
                         <tr>
-                          <td colSpan={4} className="px-5 py-3 text-[#64748B] text-sm italic border-b border-[#D8DDED]">备注：{row.note}</td>
+                          <td colSpan={4} className="px-5 py-3 text-[#64748B] text-base italic border-b border-[#D8DDED]">备注：{row.note}</td>
                         </tr>
                       )}
                     </React.Fragment>
@@ -382,7 +382,7 @@ export default function UaePage({ country }: UaePageProps) {
       </ProductAccessSection>
 
       <ComplianceSection country={country} sectionId="licenses">
-        <p className="text-[#334155] text-sm leading-relaxed text-justify mb-6">阿联酋烟草及新型烟草产品的合规重点，不在于一般公司设立资质，而在于产品认证、行业许可、税务税票和地方销售许可。</p>
+        <p className="text-[#334155] text-base leading-relaxed text-justify mb-6">阿联酋烟草及新型烟草产品的合规重点，不在于一般公司设立资质，而在于产品认证、行业许可、税务税票和地方销售许可。</p>
 
         <div className="grid md:grid-cols-2 gap-4">
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
@@ -390,7 +390,7 @@ export default function UaePage({ country }: UaePageProps) {
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
               <h4 className="font-bold text-[#2E3F73] text-base">产品符合性证书（CoC）</h4>
             </div>
-            <p className="ml-6 text-[#334155] text-sm leading-relaxed text-justify mb-3">烟草产品（包括电子烟）、无烟草尼古丁袋等受管制产品进入阿联酋市场前，必须依法取得由政府认可的产品符合性证书（Certificate of Conformity, CoC）。</p>
+            <p className="ml-6 text-[#334155] text-base leading-relaxed text-justify mb-3">烟草产品（包括电子烟）、无烟草尼古丁袋等受管制产品进入阿联酋市场前，必须依法取得由政府认可的产品符合性证书（Certificate of Conformity, CoC）。</p>
             <div className="ml-6 space-y-3">
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
@@ -431,7 +431,7 @@ export default function UaePage({ country }: UaePageProps) {
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
               <h4 className="font-bold text-[#2E3F73] text-base">阿联酋符合性评估计划（ECAS）</h4>
             </div>
-            <p className="ml-6 text-[#334155] text-sm leading-relaxed text-justify mb-3">ECAS（Emirates Conformity Assessment Scheme）是一套强制性产品认证机制，用于检验产品是否符合阿联酋法律和技术标准。</p>
+            <p className="ml-6 text-[#334155] text-base leading-relaxed text-justify mb-3">ECAS（Emirates Conformity Assessment Scheme）是一套强制性产品认证机制，用于检验产品是否符合阿联酋法律和技术标准。</p>
             <div className="ml-6">
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="w-1.5 h-1.5 rotate-45 bg-[#6B7FA6] rounded-[1px] flex-shrink-0"></span>
@@ -454,11 +454,11 @@ export default function UaePage({ country }: UaePageProps) {
             <div className="space-y-2 ml-9">
               <div className="flex items-start gap-3">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">NOC 是政府主管部门出具的无异议函，常用于确认相关主管机关对特定受控业务、产品或操作没有异议。</span>
+                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">NOC 是政府主管部门出具的无异议函，常用于确认相关主管机关对特定受控业务、产品或操作没有异议。</span>
               </div>
               <div className="flex items-start gap-3">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">含尼古丁、烟油、高浓度尼古丁、香精等敏感产品，在产品注册、仓储、转运、再包装、出口或自由区操作等环节，可能需要主管机关出具 NOC；涉及戒烟、治疗或健康功效表达的，还可能触发卫生主管机关审查。</span>
+                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">含尼古丁、烟油、高浓度尼古丁、香精等敏感产品，在产品注册、仓储、转运、再包装、出口或自由区操作等环节，可能需要主管机关出具 NOC；涉及戒烟、治疗或健康功效表达的，还可能触发卫生主管机关审查。</span>
               </div>
             </div>
           </div>
@@ -471,15 +471,15 @@ export default function UaePage({ country }: UaePageProps) {
             <div className="space-y-2 ml-9">
               <div className="flex items-start gap-3">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">阿联酋各酋长国及自由区（如RAKEZ、DMCC、JAFZA等）的市政或经济监管机构，会分别制定其烟草经营许可或活动白名单的申请规则，涵盖场地安全、环境卫生、消防标准等。</span>
+                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">阿联酋各酋长国及自由区（如RAKEZ、DMCC、JAFZA等）的市政或经济监管机构，会分别制定其烟草经营许可或活动白名单的申请规则，涵盖场地安全、环境卫生、消防标准等。</span>
               </div>
               <div className="flex items-start gap-3">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">企业应在目标经营地区的官方平台上查询并依法申办许可。</span>
+                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">企业应在目标经营地区的官方平台上查询并依法申办许可。</span>
               </div>
               <div className="flex items-start gap-3">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">例如，在迪拜，烟草及烟草制品的零售、批发、分销、进口、仓储等活动，需依据《迪拜市政厅烟草及烟具销售许可技术指南》申请专项许可，并满足选址、距离、店面布局、产品合规、广告限制、未成年人保护等一系列要求。</span>
+                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">例如，在迪拜，烟草及烟草制品的零售、批发、分销、进口、仓储等活动，需依据《迪拜市政厅烟草及烟具销售许可技术指南》申请专项许可，并满足选址、距离、店面布局、产品合规、广告限制、未成年人保护等一系列要求。</span>
               </div>
             </div>
           </div>
@@ -488,10 +488,10 @@ export default function UaePage({ country }: UaePageProps) {
 
       <TaxSection sectionId="tax">
         <TaxTableCard title="主要税种">
-          <p className="text-[#334155] text-sm leading-relaxed text-justify mb-4">烟草制品因其特殊性，在阿联酋涉及多种税务规定。主要包括消费税、增值税和企业所得税三类。</p>
-          <p className="text-[#334155] text-sm leading-relaxed text-justify mb-4">下面通过表格汇总对比这三种税种的适用范围、税率和企业的注册义务：</p>
+          <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">烟草制品因其特殊性，在阿联酋涉及多种税务规定。主要包括消费税、增值税和企业所得税三类。</p>
+          <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">下面通过表格汇总对比这三种税种的适用范围、税率和企业的注册义务：</p>
           <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
-            <table className="w-full text-sm min-w-[800px] bg-white">
+            <table className="w-full text-base min-w-[800px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
                   <th className="px-4 py-3 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED]" style={{width:'15%'}}>税种</th>
@@ -503,38 +503,38 @@ export default function UaePage({ country }: UaePageProps) {
               <tbody>
                 <tr className="bg-white/50">
                   <td className="px-4 py-3 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-6"><div>消费税</div><div className="whitespace-nowrap text-xs text-[#64748B]">(Excise Tax)</div></div></td>
-                  <td className="px-4 py-3 border-b border-r border-[#D8DDED] text-[#334155] leading-6">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
+                  <td className="px-4 py-3 border-b border-r border-[#D8DDED] text-[#334155] leading-6 text-justify">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</td>
                   <td className="px-4 py-3 border-b border-r border-[#D8DDED] text-[#334155] leading-6">
                     <div className="space-y-1">
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">100%：烟草制品、电子烟装置及烟油；</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">100%：烟草制品、电子烟装置及烟油；</span>
                       </div>
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">50%：含糖饮料等。</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">50%：含糖饮料等。</span>
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-3 border-b border-[#D8DDED] text-[#334155] leading-6">无营业额门槛。凡从事应税特定有害商品进口、本地生产或经营指定仓库者，均须向FTA注册为应税人，并履行申报缴税义务。</td>
+                  <td className="px-4 py-3 border-b border-[#D8DDED] text-[#334155] leading-6 text-justify">无营业额门槛。凡从事应税特定有害商品进口、本地生产或经营指定仓库者，均须向FTA注册为应税人，并履行申报缴税义务。</td>
                 </tr>
                 <tr className="bg-[#F3F5FB]">
                   <td className="px-4 py-3 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44]"><div className="leading-6"><div>增值税</div><div className="whitespace-nowrap text-xs text-[#64748B]">(VAT)</div></div></td>
-                  <td className="px-4 py-3 border-b border-r border-[#D8DDED] text-[#334155] leading-6">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</td>
+                  <td className="px-4 py-3 border-b border-r border-[#D8DDED] text-[#334155] leading-6 text-justify">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</td>
                   <td className="px-4 py-3 border-b border-r border-[#D8DDED] text-[#334155] leading-6">5%（标准税率）</td>
                   <td className="px-4 py-3 border-b border-[#D8DDED] text-[#334155] leading-6">
                     <div className="space-y-1">
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">年应税营业额 ≥ 375,000 AED 须注册；</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">年应税营业额 ≥ 375,000 AED 须注册；</span>
                       </div>
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">187,500–375,000 AED 可自愿注册；</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">187,500–375,000 AED 可自愿注册；</span>
                       </div>
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">低于 187,500 AED 不可注册。</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">低于 187,500 AED 不可注册。</span>
                       </div>
                     </div>
                   </td>
@@ -545,15 +545,15 @@ export default function UaePage({ country }: UaePageProps) {
                     <div className="space-y-1">
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">对阿联酋境内开展营业的公司的净利润征收；</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">对阿联酋境内开展营业的公司的净利润征收；</span>
                       </div>
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">石油和天然气行业及特定自由区合格企业有特殊豁免；</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">石油和天然气行业及特定自由区合格企业有特殊豁免；</span>
                       </div>
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">适用于在阿联酋注册的本土公司、符合条件的自由区公司，以及在阿境内有持续经营场所的外国企业。</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">适用于在阿联酋注册的本土公司、符合条件的自由区公司，以及在阿境内有持续经营场所的外国企业。</span>
                       </div>
                     </div>
                   </td>
@@ -561,15 +561,15 @@ export default function UaePage({ country }: UaePageProps) {
                     <div className="space-y-1">
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">0%：年净利润 ≤ 375,000 AED；</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">0%：年净利润 ≤ 375,000 AED；</span>
                       </div>
                       <div className="flex items-start gap-1.5">
                         <span className="mt-[9px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">9%：年净利润超出 375,000 AED 的部分。</span>
+                        <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">9%：年净利润超出 375,000 AED 的部分。</span>
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-3 border-b border-[#D8DDED] text-[#334155] leading-6">无收入门槛（除特定豁免情形外）。几乎所有在阿联酋境内开展业务的法人实体都须按规定注册企业税，并在规定时限内申报纳税；逾期注册或申报将面临罚款。</td>
+                  <td className="px-4 py-3 border-b border-[#D8DDED] text-[#334155] leading-6 text-justify">无收入门槛（除特定豁免情形外）。几乎所有在阿联酋境内开展业务的法人实体都须按规定注册企业税，并在规定时限内申报纳税；逾期注册或申报将面临罚款。</td>
                 </tr>
               </tbody>
             </table>
@@ -596,56 +596,56 @@ export default function UaePage({ country }: UaePageProps) {
 
       <MarketOperationSection sectionId="operation-rules">
         <RuleModuleCard number={1} title="全面广告禁令">
-          <p className="text-[#334155] text-sm leading-relaxed text-justify mb-4">阿联酋对烟草制品实施极为严格的广告、促销和赞助禁令，主要内容如下：</p>
+          <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">阿联酋对烟草制品实施极为严格的广告、促销和赞助禁令，主要内容如下：</p>
           <div className="space-y-4">
             <div className="bg-white/55 border border-white/70 rounded-lg p-4">
-              <h4 className="font-bold text-[#263247] text-base mb-3">广告媒介禁令</h4>
+              <h4 className="font-bold text-[#2E3F73] text-base mb-3">广告媒介禁令</h4>
               <div className="space-y-2">
                 <div className="flex items-start gap-3">
                   <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0"><span className="font-semibold">禁止大众媒体广告：</span>禁止在报纸、杂志、书籍以及广播、电视、电影等任何传统媒体上刊登烟草广告。</span>
+                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止大众媒体广告：</span>禁止在报纸、杂志、书籍以及广播、电视、电影等任何传统媒体上刊登烟草广告。</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0"><span className="font-semibold">禁止电子媒介宣传：</span>禁止通过互联网、电子邮件、手机短信、社交媒体和电子游戏等发布烟草广告。</span>
+                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止电子媒介宣传：</span>禁止通过互联网、电子邮件、手机短信、社交媒体和电子游戏等发布烟草广告。</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0"><span className="font-semibold">禁止户外和场所广告：</span>禁止使用广告牌、灯箱、海报、传单等形式在公共场所宣传烟草。包括店内也不得放置任何鼓励吸烟的宣传品。</span>
+                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止户外和场所广告：</span>禁止使用广告牌、灯箱、海报、传单等形式在公共场所宣传烟草。包括店内也不得放置任何鼓励吸烟的宣传品。</span>
                 </div>
               </div>
             </div>
             <div className="bg-white/55 border border-white/70 rounded-lg p-4">
-              <h4 className="font-bold text-[#263247] text-base mb-3">促销赞助禁令</h4>
+              <h4 className="font-bold text-[#2E3F73] text-base mb-3">促销赞助禁令</h4>
               <div className="space-y-2">
                 <div className="flex items-start gap-3">
                   <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0"><span className="font-semibold">禁止品牌延伸和赞助：</span>禁止烟草公司赞助各类活动、组织或个人，从而变相宣传其品牌。禁止以企业社会责任为名由烟草企业对外捐助，这被视为变相促销。</span>
+                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止品牌延伸和赞助：</span>禁止烟草公司赞助各类活动、组织或个人，从而变相宣传其品牌。禁止以企业社会责任为名由烟草企业对外捐助，这被视为变相促销。</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0"><span className="font-semibold">禁止产品嫁接宣传：</span>禁止利用烟草制品为其他商品做广告，或反过来利用其他商品广告来推广烟草（例如绝不允许在香烟包装上宣传抽奖活动，也不允许在非烟商品广告中出现香烟形象）。</span>
+                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止产品嫁接宣传：</span>禁止利用烟草制品为其他商品做广告，或反过来利用其他商品广告来推广烟草（例如绝不允许在香烟包装上宣传抽奖活动，也不允许在非烟商品广告中出现香烟形象）。</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0"><span className="font-semibold">禁止公关和免费赠品：</span>禁止在任何比赛、活动中将烟草及其相关物品作为奖品或礼物分发。也不得向公众免费派送样品或通过试用装推广新品。</span>
+                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止公关和免费赠品：</span>禁止在任何比赛、活动中将烟草及其相关物品作为奖品或礼物分发。也不得向公众免费派送样品或通过试用装推广新品。</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0"><span className="font-semibold">禁止变相促销和优惠：</span>销售过程中不得采取任何形式的变相促销手段来刺激烟草产品销售。法律严格禁止降价折扣、捆绑赠送、买赠优惠等活动。例如不得推出"第二件半价"或"买二送一"的卷烟促销。</span>
+                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止变相促销和优惠：</span>销售过程中不得采取任何形式的变相促销手段来刺激烟草产品销售。法律严格禁止降价折扣、捆绑赠送、买赠优惠等活动。例如不得推出"第二件半价"或"买二送一"的卷烟促销。</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">禁止以奖品或礼品形式分发烟草及相关物品。例如不得附赠打火机等赠品。商家亦不可向顾客派发免费样品试用。</span>
+                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">禁止以奖品或礼品形式分发烟草及相关物品。例如不得附赠打火机等赠品。商家亦不可向顾客派发免费样品试用。</span>
                 </div>
               </div>
             </div>
             <div className="bg-white/55 border border-white/70 rounded-lg p-4">
-              <h4 className="font-bold text-[#263247] text-base mb-3">包装和变相营销限制</h4>
+              <h4 className="font-bold text-[#2E3F73] text-base mb-3">包装和变相营销限制</h4>
               <div className="space-y-2">
                 <div className="flex items-start gap-3">
                   <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">包装本身不作为广告，但产品包装本身及其上所印内容亦受限。包装上不能出现公司名称以外的品牌延伸宣传，不能宣称任何健康好处或暗示风险较低。例如禁止标榜"有机烟草""无害电子烟"等误导性字样。一些国家常见的"低焦油""薄荷提神"等卖点在阿联酋都是明令禁止印于包装上的。监管部门也禁止包装内附带促销券或积分卡等营销手段。总之，包装只能传递法规许可的信息（品牌、警示、成分等），不可成为广告载体。</span>
+                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">包装本身不作为广告，但产品包装本身及其上所印内容亦受限。包装上不能出现公司名称以外的品牌延伸宣传，不能宣称任何健康好处或暗示风险较低。例如禁止标榜"有机烟草""无害电子烟"等误导性字样。一些国家常见的"低焦油""薄荷提神"等卖点在阿联酋都是明令禁止印于包装上的。监管部门也禁止包装内附带促销券或积分卡等营销手段。总之，包装只能传递法规许可的信息（品牌、警示、成分等），不可成为广告载体。</span>
                 </div>
               </div>
             </div>
@@ -679,9 +679,9 @@ export default function UaePage({ country }: UaePageProps) {
         redLineId="red-lines"
         trendContent={
           <>
-            <p className="text-[#334155] text-sm leading-relaxed text-justify mb-4">阿联酋烟草及新型烟草产品监管预计会继续沿着"合法市场内强合规管理"的方向发展。传统卷烟、水烟烟草、HNB烟支、电子烟及烟油等产品短期内出现全国性全面禁令的可能性较低，监管重点更可能继续集中在产品认证、消费税、数字税票、进口清关、地方销售许可和广告促销限制。</p>
-            <p className="text-[#334155] text-sm leading-relaxed text-justify mb-4">新型尼古丁产品的监管边界会进一步细化。无烟草尼古丁袋已经通过 UAE.S 5061:2025 建立技术监管基础，说明阿联酋对部分新型尼古丁产品更倾向于设置标准后纳入合规市场；但尼古丁口含膜、尼古丁片、尼古丁粉末、鼻吸尼古丁产品等非袋状产品，仍需要结合产品形态、成分和主管机关口径确认是否具备稳定准入路径。</p>
-            <p className="text-[#334155] text-sm leading-relaxed text-justify">自由区仍会是烟草、电子烟、尼古丁产品及相关原辅材进出口、仓储和转口的重要场景，但自由区安排不会当然解决阿联酋大陆市场销售问题。产品从自由区进入本地市场时，仍需重新关注产品认证、消费税、数字税票、地方销售许可和销售端限制。</p>
+            <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">阿联酋烟草及新型烟草产品监管预计会继续沿着"合法市场内强合规管理"的方向发展。传统卷烟、水烟烟草、HNB烟支、电子烟及烟油等产品短期内出现全国性全面禁令的可能性较低，监管重点更可能继续集中在产品认证、消费税、数字税票、进口清关、地方销售许可和广告促销限制。</p>
+            <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">新型尼古丁产品的监管边界会进一步细化。无烟草尼古丁袋已经通过 UAE.S 5061:2025 建立技术监管基础，说明阿联酋对部分新型尼古丁产品更倾向于设置标准后纳入合规市场；但尼古丁口含膜、尼古丁片、尼古丁粉末、鼻吸尼古丁产品等非袋状产品，仍需要结合产品形态、成分和主管机关口径确认是否具备稳定准入路径。</p>
+            <p className="text-[#334155] text-base leading-relaxed text-justify">自由区仍会是烟草、电子烟、尼古丁产品及相关原辅材进出口、仓储和转口的重要场景，但自由区安排不会当然解决阿联酋大陆市场销售问题。产品从自由区进入本地市场时，仍需重新关注产品认证、消费税、数字税票、地方销售许可和销售端限制。</p>
           </>
         }
         redLineGroups={[
@@ -804,7 +804,7 @@ export default function UaePage({ country }: UaePageProps) {
           </div>
         }
         newsContent={
-          <p className="text-[#64748B] text-base">暂无。</p>
+          <p className="text-[#64748B] text-sm">暂无。</p>
         }
       />
     </CountryPageTemplate>

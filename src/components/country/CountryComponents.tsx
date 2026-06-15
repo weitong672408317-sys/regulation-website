@@ -139,7 +139,7 @@ export const RegulatoryUpdateCard = ({ title, content }: { title: string; conten
         <div className="w-2 h-2 rounded-full bg-[#4D5F9A] mt-2 flex-shrink-0"></div>
         <div className="flex-1">
           <h4 className="font-bold text-[#373F7A] text-base mb-3">{title}</h4>
-          {content && <p className="text-[#334155] text-sm leading-relaxed text-justify">{content}</p>}
+          {content && <p className="text-[#334155] text-base leading-7 text-justify">{content}</p>}
         </div>
       </div>
     </div>

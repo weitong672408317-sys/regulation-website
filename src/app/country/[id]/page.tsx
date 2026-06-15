@@ -67,8 +67,8 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
           </div>
         </header>
 
-        <main className="max-w-7xl lg:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex gap-8">
+        <main className="max-w-7xl lg:max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-4 py-8">
+          <div className="flex gap-6">
             <SidebarNav countryId={country.id} />
             <div className="flex-1 min-w-0">
               <section className="mb-8">
@@ -327,8 +327,8 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
                 <ul className="space-y-3">
                   {country.trendsWarnings.redLines.map((line, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="text-red-600 mt-1.5">✗</span>
-                      <span className="text-gray-800 leading-relaxed">{line}</span>
+                      <span className="text-red-600 text-base leading-7 flex-shrink-0 w-4 text-center">✗</span>
+                      <span className="text-gray-800 leading-7">{line}</span>
                     </li>
                   ))}
                 </ul>

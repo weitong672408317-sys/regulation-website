@@ -26,8 +26,8 @@ export function RedLineBox({ groups, items, children, id }: RedLineBoxProps & { 
               <ul className="space-y-2">
                 {group.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start gap-3">
-                    <span className="text-[#DC2626] mt-1.5">✗</span>
-                    <span className="text-[#334155] text-sm leading-relaxed text-justify">{item}</span>
+                    <span className="text-[#DC2626] text-base leading-7 flex-shrink-0 w-4 text-center">✗</span>
+                    <span className="text-[#334155] text-base leading-7 text-justify">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -39,8 +39,8 @@ export function RedLineBox({ groups, items, children, id }: RedLineBoxProps & { 
         <ul className="space-y-2">
           {items.map((item, index) => (
             <li key={index} className="flex items-start gap-3">
-              <span className="text-[#DC2626] mt-1.5">✗</span>
-              <span className="text-[#334155] text-sm leading-relaxed text-justify">{item}</span>
+              <span className="text-[#DC2626] text-base leading-7 flex-shrink-0 w-4 text-center">✗</span>
+              <span className="text-[#334155] text-base leading-7 text-justify">{item}</span>
             </li>
           ))}
         </ul>
