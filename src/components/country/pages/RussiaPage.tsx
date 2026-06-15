@@ -623,8 +623,8 @@ export default function RussiaPage({ country }: RussiaPageProps) {
               <ReferenceItem
                 showSeparator
                 url="https://www.consultant.ru/document/cons_doc_LAW_472346/"
-                title="俄罗斯政府最低价格确定规则"
-                description={<><span className="font-semibold">主要内容：</span>最低价格不是由一个文件单独完成，通常由第203-FZ号法第7条、俄罗斯政府批准的最低价格确定规则，以及俄罗斯农业部年度信息公告共同构成。卷烟、papirosy，其他烟草产品，以及尼古丁产品分别适用不同的最低价格发布口径。</>}
+                title="俄罗斯政府尼古丁产品最低价格确定规则"
+                description={<><span className="font-semibold">主要内容：</span>俄罗斯政府第301号令及其附件规定尼古丁产品最低价格的确定方法。烟草产品及卷烟、papirosy 等其他品类的最低价格，仍需结合第203-FZ号法、相应政府规则及年度信息公告判断。</>}
               />
               <ReferenceItem
                 showSeparator

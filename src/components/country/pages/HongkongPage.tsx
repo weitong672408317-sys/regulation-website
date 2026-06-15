@@ -559,13 +559,13 @@ export default function HongkongPage({ country }: HongkongPageProps) {
               />
               <ReferenceItem
                 title="香港卫生署控烟酒办公室：法定禁烟区"
-                url="https://www.clic.org.hk/en/topics/tobacco-alcohol-control/smoking_products_and_smoking/smoking_bans"
+                url="https://www.taco.gov.hk/t/tc_chi/legislation/legislation_sa.html"
                 description="说明香港法定禁烟区范围、排队吸烟禁令、指定处所出入口3米范围禁烟区及吸烟罪行定额罚款等规则。"
                 showSeparator
               />
               <ReferenceItem
                 title="香港卫生署控烟酒办公室：《2025年控烟法例（修订）条例》说明页面"
-                url="http://www.hcmstl.edu.hk/assets/img/2025%E5%B9%B4%E6%8E%A7%E7%85%99%E6%B3%95%E4%BE%8B%E4%BF%AE%E8%A8%82%E6%A2%9D%E4%BE%8B.pdf"
+                url="https://www.taco.gov.hk/t/tc_chi/legislation/legislation_tcl.html"
                 description="说明香港最新一轮控烟措施，包括公众地方持有指明另类吸烟产品、禁烟区扩展、完税烟标签、统一包装设计及加味传统吸烟产品管控安排。"
                 showSeparator
               />

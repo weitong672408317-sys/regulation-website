@@ -684,9 +684,9 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                 showSeparator
               />
               <ReferenceItem
-                title="国家烟草专卖局就《电子烟管理办法》和《电子烟》国家标准答问"
+                title="《电子烟》国家标准宣传解读问答"
                 url="https://yjj.sh.gov.cn/scjgyw/20220414/0e620c4625a4480fb19c5d0428785b1e.html"
-                description="说明电子烟监管制度、强制性国家标准、技术审评、运输监管和产品质量要求。"
+                description="说明 GB 41700-2022《电子烟》强制性国家标准的制定背景、主要内容、技术特点及实施过渡期。"
                 showSeparator
               />
             </ReferenceGroupCard>
