@@ -304,10 +304,10 @@ export default function ComparisonTable() {
                                     {group.items.map((item, iIdx) => (
                                       <div key={iIdx} className="flex items-start gap-1.5">
                                         <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[7px]" style={getDotStyle(group.color)} />
-                                        <span className="text-sm leading-relaxed">
-                                          <span className={`font-semibold ${cardStyle.title} whitespace-nowrap`}>{item.status}</span>
-                                          <span className="text-gray-700">：{item.products.join('、')}</span>
-                                        </span>
+                                        <div className="min-w-0">
+                                          <span className={`font-semibold ${cardStyle.title}`}>{item.status}</span>
+                                          <span className="text-sm leading-relaxed text-gray-700">：{item.products.join('、')}</span>
+                                        </div>
                                       </div>
                                     ))}
                                   </div>
@@ -379,10 +379,10 @@ export default function ComparisonTable() {
                               {group.items.map((item, iIdx) => (
                                 <div key={iIdx} className="flex items-start gap-1.5">
                                   <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[7px]" style={getDotStyle(group.color)} />
-                                  <span className="text-sm leading-relaxed">
-                                    <span className={`font-semibold ${cardStyle.title} whitespace-nowrap`}>{item.status}</span>
-                                    <span className="text-gray-700">：{item.products.join('、')}</span>
-                                  </span>
+                                  <div className="min-w-0">
+                                    <span className={`font-semibold ${cardStyle.title}`}>{item.status}</span>
+                                    <span className="text-sm leading-relaxed text-gray-700">：{item.products.join('、')}</span>
+                                  </div>
                                 </div>
                               ))}
                             </div>
