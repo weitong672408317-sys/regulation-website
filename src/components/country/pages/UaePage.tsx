@@ -281,7 +281,7 @@ export default function UaePage({ country }: UaePageProps) {
           </div>
         </ProductModuleCard>
 
-        <ProductModuleCard title="5. 普通辅材及相关配套材料" label="产品定性">
+        <ProductModuleCard title="5. 普通辅材" label="产品定性">
           <div className="space-y-2 mb-4">
             <BulletPoint>阿联酋公开资料未见对滤嘴棒、爆珠、香精胶囊、香精香料设置单独产品定义。该类产品应重点核对成分、用途、HS 编码、进口申报和下游客户产品用途。</BulletPoint>
           </div>

@@ -316,7 +316,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
         </ProductModuleCard>
 
         {/* 5. 普通辅材及香精香料 */}
-        <ProductModuleCard title="5. 普通辅材及香精香料" label="产品定性" id="product-ordinary-material">
+        <ProductModuleCard title="5. 普通辅材" label="产品定性" id="product-ordinary-material">
           <div className="space-y-2 mb-4">
             <BulletPoint>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；是否进入烟草制品、电子烟、雾化液、应税消费品或其他专项监管路径，应按成分和产品形态判断。</BulletPoint>
           </div>

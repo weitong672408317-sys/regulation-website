@@ -151,7 +151,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">含尼古丁的另类吸烟产品还可能同时受到毒药及药剂制品监管；未取得合法依据而持有、销售或供应含尼古丁产品，可能构成第1部毒药或未注册药剂制品相关违法。</span>
+                  <span className="flex-1 min-w-0">含尼古丁的另类吸烟产品还可能同时受到毒药及药剂制品监管；未取得合法依据而持有、销售或供应含尼古丁产品，可能违反毒药管制或未注册药剂制品相关规定。</span>
                 </div>
               </div>
             </>}
@@ -203,7 +203,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">不含烟草但含尼古丁的口含类产品，可能被视为毒药表第一部毒药；如具有治疗、戒烟或其他药用宣称，还可能被认定为药剂制品。</span>
+                  <span className="flex-1 min-w-0">不含烟草但含尼古丁的口含类产品，可能受第1部毒药管制；如具有治疗、戒烟或其他药用宣称，还可能被认定为药剂制品。</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
@@ -211,7 +211,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#DC6B6B] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">香港海关曾查获含怀疑第一部毒药尼古丁的口含烟。该案例说明，含尼古丁口含类产品即使不含烟草，也可能触发毒药监管和海关执法风险。</span>
+                  <span className="flex-1 min-w-0">香港海关曾查获怀疑含尼古丁的口含烟。该案例说明，含尼古丁口含类产品即使不含烟草，也可能触发毒药监管和海关执法风险。</span>
                 </div>
               </div>
             </>}
@@ -241,7 +241,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">已经制成或包装为加热烟支、HNB 烟支等用于另类吸烟产品器具产生气雾的物质的，应按另类吸烟产品禁令处理。</span>
+                  <span className="flex-1 min-w-0">已经制成或包装为加热烟支、HNB烟支等用于另类吸烟产品器具产生气雾的物质，应按另类吸烟产品处理，禁止进口、制造、销售及为商业目的持有；公众地方持有还应遵守自2026年4月30日起实施的相关禁令。</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4A843] mt-[9px] flex-shrink-0"></span>
@@ -252,7 +252,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="6. 普通辅材及香精香料" label="产品定性" id="module-ordinary-material">
+        <ProductModuleCard title="6. 普通辅材" label="产品定性" id="module-ordinary-material">
           <div className="space-y-2 mb-4">
             <BulletPoint>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；涉及尼古丁、烟草材料、无烟烟草产品，或属于另类吸烟产品组件 / 配件的，应按对应监管路径另行判断。</BulletPoint>
           </div>
@@ -261,7 +261,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
               id="product-ordinary-material"
               status="green"
               customLabel="可准入"
-              title="普通辅材及香精香料"
+              title="普通辅材"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：普通香精香料、爆珠、香精胶囊、滤嘴棒及其他不含烟草、尼古丁或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>

@@ -292,7 +292,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
         </ProductModuleCard>
 
         {/* 3. 普通辅材及香精香料 */}
-        <ProductModuleCard title="3. 普通辅材及香精香料" label="产品定性" id="module-ordinary-material">
+        <ProductModuleCard title="3. 普通辅材" label="产品定性" id="module-ordinary-material">
           <div className="space-y-2 mb-4">
             <BulletPoint>新加坡公开资料未见对爆珠、香精胶囊、滤嘴棒等普通辅材及香精香料设置统一、单独的产品定义。该类产品应结合成分、形态、进口申报品名和产品功能判断。</BulletPoint>
           </div>

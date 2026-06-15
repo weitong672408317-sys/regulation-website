@@ -344,7 +344,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="6. 普通辅材及香精香料" label="产品定性" id="module-ordinary-material">
+        <ProductModuleCard title="6. 普通辅材" label="产品定性" id="module-ordinary-material">
           <div className="space-y-4 text-[#334155] text-sm leading-relaxed text-justify mb-4">
             <p>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；是否涉及烟草产品、SEAN / SSSN 产品、雾化物质或尼古丁产品监管，应按成分和产品形态判断。</p>
           </div>
@@ -353,7 +353,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               id="product-ordinary-material"
               status="green"
               customLabel="可准入"
-              title="普通辅材及香精香料"
+              title="普通辅材"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：普通香精香料、爆珠、香精胶囊、滤嘴棒及其他不含烟草、尼古丁或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>

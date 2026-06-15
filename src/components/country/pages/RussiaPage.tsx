@@ -359,7 +359,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
           />
         </ProductModuleCard>
 
-        <ProductModuleCard title="6. 普通辅材及香精香料" label="产品定性" id="module-ordinary-material">
+        <ProductModuleCard title="6. 普通辅材" label="产品定性" id="module-ordinary-material">
           <div className="space-y-2 mb-4">
             <BulletPoint>滤嘴棒、爆珠、香精胶囊和香精香料主要作为普通辅材或配套材料管理；是否进入烟草制品、尼古丁产品、电子烟液或相关生产原料路径，应按成分和产品形态判断。</BulletPoint>
           </div>
@@ -367,7 +367,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
             <StatusCard
               status="green"
               customLabel="可准入"
-              title="普通辅材及香精香料"
+              title="普通辅材"
               id="product-ordinary-material"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：普通香精香料、爆珠、香精胶囊、滤嘴棒及其他不含烟草、尼古丁或烟草提取物的辅材</div>
