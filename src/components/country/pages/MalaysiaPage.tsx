@@ -601,119 +601,119 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
       </TaxSection>
 
       <MarketOperationSection sectionId="operation-rules">
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+        <div className="grid md:grid-cols-2 gap-x-5 gap-y-6">
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
             <div className="flex items-start gap-3 mb-4">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">销售对象、渠道与场所</h4>
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">1</span>
+              <h4 className="font-bold text-[#2E3F73] text-base leading-6">销售对象、渠道与场所</h4>
             </div>
-            <div className="ml-9 space-y-2">
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">吸烟产品只能销售、供应或提供给符合法定年龄要求的消费者。</span>
+            <div className="ml-9 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">吸烟产品只能销售、供应或提供给符合法定年龄要求的消费者。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">吸烟产品不得通过线上平台、自动售货机、临时摊位或临时市场销售。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">吸烟产品不得通过线上平台、自动售货机、临时摊位或临时市场销售。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">教育机构等受限场所不得销售吸烟产品。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">教育机构等受限场所不得销售吸烟产品。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">零售门店、展示销售场所和其他经营场所，应符合所在地营业/零售场所许可要求。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">零售门店、展示销售场所和其他经营场所，应符合所在地营业/零售场所许可要求。</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
             <div className="flex items-start gap-3 mb-4">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">陈列展示与价格呈现</h4>
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">2</span>
+              <h4 className="font-bold text-[#2E3F73] text-base leading-6">陈列展示与价格呈现</h4>
             </div>
-            <div className="ml-9 space-y-2">
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">零售场所不得公开陈列吸烟产品；柜台、货架、收银区域、开放式货架和消费者可直接看到的位置，不应摆放或展示吸烟产品。</span>
+            <div className="ml-9 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">零售场所不得公开陈列吸烟产品；柜台、货架、收银区域、开放式货架和消费者可直接看到的位置，不应摆放或展示吸烟产品。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">产品价目、库存提示或销售说明应控制在销售必要信息范围内，不应通过图片、包装图案、品牌元素、灯箱、海报或屏幕展示形成广告效果。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">产品价目、库存提示或销售说明应控制在销售必要信息范围内，不应通过图片、包装图案、品牌元素、灯箱、海报或屏幕展示形成广告效果。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">卷烟、雪茄和加热产品适用最低销售价格，零售端标价和结算价格不得低于规定价格。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">卷烟、雪茄和加热产品适用最低销售价格，零售端标价和结算价格不得低于规定价格。</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
             <div className="flex items-start gap-3 mb-4">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">包装标签与产品规格</h4>
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">3</span>
+              <h4 className="font-bold text-[#2E3F73] text-base leading-6">包装标签与产品规格</h4>
             </div>
-            <div className="ml-9 space-y-2">
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">卷烟、雪茄、散装烟草、无烟烟草、HNB 烟支/加热产品，应按对应类别使用规定的识别标记、健康警示、健康信息和销售限制提示。</span>
+            <div className="ml-9 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">卷烟、雪茄、散装烟草、无烟烟草、HNB 烟支/加热产品，应按对应类别使用规定的识别标记、健康警示、健康信息和销售限制提示。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">电子烟液、烟弹、一次性电子烟及相关设备，应标注容量、尼古丁浓度、健康警示、销售限制提示，以及制造商/进口商名称和地址。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">电子烟液、烟弹、一次性电子烟及相关设备，应标注容量、尼古丁浓度、健康警示、销售限制提示，以及制造商/进口商名称和地址。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">传统卷烟每包应为 20 支，每条应为 10 包。不得以单支、小包装或不符合最低包装规格的形式销售。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">传统卷烟每包应为 20 支，每条应为 10 包。不得以单支、小包装或不符合最低包装规格的形式销售。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">瓶装电子烟液容量为 15 ml；烟弹容量为 3 ml；一次性电子烟容量为 3 ml。自 2026 年 10 月 1 日起，烟弹和一次性电子烟容量上限降为 2 ml。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">瓶装电子烟液容量为 15 ml；烟弹容量为 3 ml；一次性电子烟容量为 3 ml。自 2026 年 10 月 1 日起，烟弹和一次性电子烟容量上限降为 2 ml。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">电子烟液尼古丁浓度上限为 20 mg/ml。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">电子烟液尼古丁浓度上限为 20 mg/ml。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">包装上的产品名称、容量、尼古丁浓度、制造商/进口商信息，应与产品注册资料和实际销售产品一致。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">包装上的产品名称、容量、尼古丁浓度、制造商/进口商信息，应与产品注册资料和实际销售产品一致。</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
             <div className="flex items-start gap-3 mb-4">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">4</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">广告促销、赞助与宣称</h4>
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">4</span>
+              <h4 className="font-bold text-[#2E3F73] text-base leading-6">广告促销、赞助与宣称</h4>
             </div>
-            <div className="ml-9 space-y-2">
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">禁止广告、促销或赞助吸烟产品，包括传统烟草、HNB 烟支/加热产品、电子烟液、电子烟设备及其他吸烟产品。</span>
+            <div className="ml-9 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">禁止广告、促销或赞助吸烟产品，包括传统烟草、HNB 烟支/加热产品、电子烟液、电子烟设备及其他吸烟产品。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">不得通过社交媒体、短视频、直播、播客、网红推广、品牌植入或线上内容营销推广吸烟产品。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">不得通过社交媒体、短视频、直播、播客、网红推广、品牌植入或线上内容营销推广吸烟产品。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">不得通过赠品、折扣、抽奖、会员积分、组合销售、试用、递样或免费发放方式推广吸烟产品。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">不得通过赠品、折扣、抽奖、会员积分、组合销售、试用、递样或免费发放方式推广吸烟产品。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">不得通过体育、娱乐、校园、公益、社群活动或第三方合作安排推广吸烟产品品牌、商标、包装元素或产品形象。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">不得通过体育、娱乐、校园、公益、社群活动或第三方合作安排推广吸烟产品品牌、商标、包装元素或产品形象。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">包装和宣传材料不得使用虚假、误导性或可能使消费者低估健康风险的文字、图形、声明或其他表示。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">包装和宣传材料不得使用虚假、误导性或可能使消费者低估健康风险的文字、图形、声明或其他表示。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">包装和宣传材料不得使用"light""ultra light""mild""cool""low tar""special""premium""rich""slim"等表示低危害、优越品质或类似含义的表达。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">包装和宣传材料不得使用"light""ultra light""mild""cool""low tar""special""premium""rich""slim"等表示低危害、优越品质或类似含义的表达。</span>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">使用"安全""无害""非致癌""降低健康风险"、戒烟、治疗或尼古丁替代等宣称的，应具备充分科学证据。</span>
+              <div className="flex items-start gap-3">
+                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">使用"安全""无害""非致癌""降低健康风险"、戒烟、治疗或尼古丁替代等宣称的，应具备充分科学证据。</span>
               </div>
             </div>
           </div>

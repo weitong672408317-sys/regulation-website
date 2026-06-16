@@ -22,12 +22,12 @@ export function RedLineBox({ groups, items, children, id }: RedLineBoxProps & { 
         <div className="space-y-5">
           {groups.map((group, index) => (
             <div key={index}>
-              <h4 className="font-bold text-[#7F1D1D] text-base mb-2">{group.title}</h4>
+              <h4 className="font-bold text-[#7F1D1D] text-base leading-[24px] mb-2">{group.title}</h4>
               <ul className="space-y-2">
                 {group.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start gap-3">
-                    <span className="text-[#DC2626] text-base leading-7 flex-shrink-0 w-4 text-center">✗</span>
-                    <span className="text-[#334155] text-base leading-7 text-justify">{item}</span>
+                    <span className={`text-[#DC2626] text-sm leading-6 flex-shrink-0 w-4 text-center`}>✗</span>
+                    <span className="text-[#334155] text-base leading-[24px] font-normal flex-1 min-w-0">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -39,8 +39,8 @@ export function RedLineBox({ groups, items, children, id }: RedLineBoxProps & { 
         <ul className="space-y-2">
           {items.map((item, index) => (
             <li key={index} className="flex items-start gap-3">
-              <span className="text-[#DC2626] text-base leading-7 flex-shrink-0 w-4 text-center">✗</span>
-              <span className="text-[#334155] text-base leading-7 text-justify">{item}</span>
+              <span className={`text-[#DC2626] text-sm leading-6 flex-shrink-0 w-4 text-center`}>✗</span>
+              <span className="text-[#334155] text-base leading-[24px] font-normal flex-1 min-w-0">{item}</span>
             </li>
           ))}
         </ul>

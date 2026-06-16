@@ -595,76 +595,76 @@ export default function UaePage({ country }: UaePageProps) {
       </TaxSection>
 
       <MarketOperationSection sectionId="operation-rules">
-        <RuleModuleCard number={1} title="全面广告禁令">
-          <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">阿联酋对烟草制品实施极为严格的广告、促销和赞助禁令，主要内容如下：</p>
-          <div className="space-y-4">
-            <div className="bg-white/55 border border-white/70 rounded-lg p-4">
-              <h4 className="font-bold text-[#2E3F73] text-base mb-3">广告媒介禁令</h4>
-              <div className="space-y-2">
-                <div className="flex items-start gap-3">
-                  <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止大众媒体广告：</span>禁止在报纸、杂志、书籍以及广播、电视、电影等任何传统媒体上刊登烟草广告。</span>
+        <div className="grid gap-x-5 gap-y-6 md:grid-cols-2">
+          <RuleModuleCard number={1} title="全面广告禁令" className="md:col-span-2 min-w-0" bodyClassName="min-w-0">
+            <p className="text-[#334155] text-base leading-[26px] font-normal text-justify mb-4 min-w-0 break-words [overflow-wrap:anywhere]">阿联酋对烟草制品实施极为严格的广告、促销和赞助禁令，主要内容如下：</p>
+            <div className="space-y-4">
+              <div className="bg-white/55 border border-white/70 rounded-lg p-4 min-w-0">
+                <h4 className="font-bold text-[#2E3F73] text-base mb-3">广告媒介禁令</h4>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0 text-base leading-[26px] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]"><span className="font-semibold">禁止大众媒体广告：</span>禁止在报纸、杂志、书籍以及广播、电视、电影等任何传统媒体上刊登烟草广告。</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0 text-base leading-[26px] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]"><span className="font-semibold">禁止电子媒介宣传：</span>禁止通过互联网、电子邮件、手机短信、社交媒体和电子游戏等发布烟草广告。</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0 text-base leading-[26px] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]"><span className="font-semibold">禁止户外和场所广告：</span>禁止使用广告牌、灯箱、海报、传单等形式在公共场所宣传烟草。包括店内也不得放置任何鼓励吸烟的宣传品。</span>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止电子媒介宣传：</span>禁止通过互联网、电子邮件、手机短信、社交媒体和电子游戏等发布烟草广告。</span>
+              </div>
+              <div className="bg-white/55 border border-white/70 rounded-lg p-4 min-w-0">
+                <h4 className="font-bold text-[#2E3F73] text-base mb-3">促销赞助禁令</h4>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0 text-base leading-[26px] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]"><span className="font-semibold">禁止品牌延伸和赞助：</span>禁止烟草公司赞助各类活动、组织或个人，从而变相宣传其品牌。禁止以企业社会责任为名由烟草企业对外捐助，这被视为变相促销。</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0 text-base leading-[26px] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]"><span className="font-semibold">禁止产品嫁接宣传：</span>禁止利用烟草制品为其他商品做广告，或反过来利用其他商品广告来推广烟草（例如绝不允许在香烟包装上宣传抽奖活动，也不允许在非烟商品广告中出现香烟形象）。</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0 text-base leading-[26px] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]"><span className="font-semibold">禁止公关和免费赠品：</span>禁止在任何比赛、活动中将烟草及其相关物品作为奖品或礼物分发。也不得向公众免费派送样品或通过试用装推广新品。</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0 text-base leading-[26px] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]"><span className="font-semibold">禁止变相促销和优惠：</span>销售过程中不得采取任何形式的变相促销手段来刺激烟草产品销售。法律严格禁止降价折扣、捆绑赠送、买赠优惠等活动。例如不得推出"第二件半价"或"买二送一"的卷烟促销。</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0 text-base leading-[26px] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]">禁止以奖品或礼品形式分发烟草及相关物品。例如不得附赠打火机等赠品。商家亦不可向顾客派发免费样品试用。</span>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止户外和场所广告：</span>禁止使用广告牌、灯箱、海报、传单等形式在公共场所宣传烟草。包括店内也不得放置任何鼓励吸烟的宣传品。</span>
+              </div>
+              <div className="bg-white/55 border border-white/70 rounded-lg p-4 min-w-0">
+                <h4 className="font-bold text-[#2E3F73] text-base mb-3">包装和变相营销限制</h4>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0 text-base leading-[26px] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]">包装本身不作为广告，但产品包装本身及其上所印内容亦受限。包装上不能出现公司名称以外的品牌延伸宣传，不能宣称任何健康好处或暗示风险较低。例如禁止标榜"有机烟草""无害电子烟"等误导性字样。一些国家常见的"低焦油""薄荷提神"等卖点在阿联酋都是明令禁止印于包装上的。监管部门也禁止包装内附带促销券或积分卡等营销手段。总之，包装只能传递法规许可的信息（品牌、警示、成分等），不可成为广告载体。</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="bg-white/55 border border-white/70 rounded-lg p-4">
-              <h4 className="font-bold text-[#2E3F73] text-base mb-3">促销赞助禁令</h4>
-              <div className="space-y-2">
-                <div className="flex items-start gap-3">
-                  <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止品牌延伸和赞助：</span>禁止烟草公司赞助各类活动、组织或个人，从而变相宣传其品牌。禁止以企业社会责任为名由烟草企业对外捐助，这被视为变相促销。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止产品嫁接宣传：</span>禁止利用烟草制品为其他商品做广告，或反过来利用其他商品广告来推广烟草（例如绝不允许在香烟包装上宣传抽奖活动，也不允许在非烟商品广告中出现香烟形象）。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止公关和免费赠品：</span>禁止在任何比赛、活动中将烟草及其相关物品作为奖品或礼物分发。也不得向公众免费派送样品或通过试用装推广新品。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold">禁止变相促销和优惠：</span>销售过程中不得采取任何形式的变相促销手段来刺激烟草产品销售。法律严格禁止降价折扣、捆绑赠送、买赠优惠等活动。例如不得推出"第二件半价"或"买二送一"的卷烟促销。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">禁止以奖品或礼品形式分发烟草及相关物品。例如不得附赠打火机等赠品。商家亦不可向顾客派发免费样品试用。</span>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white/55 border border-white/70 rounded-lg p-4">
-              <h4 className="font-bold text-[#2E3F73] text-base mb-3">包装和变相营销限制</h4>
-              <div className="space-y-2">
-                <div className="flex items-start gap-3">
-                  <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">包装本身不作为广告，但产品包装本身及其上所印内容亦受限。包装上不能出现公司名称以外的品牌延伸宣传，不能宣称任何健康好处或暗示风险较低。例如禁止标榜"有机烟草""无害电子烟"等误导性字样。一些国家常见的"低焦油""薄荷提神"等卖点在阿联酋都是明令禁止印于包装上的。监管部门也禁止包装内附带促销券或积分卡等营销手段。总之，包装只能传递法规许可的信息（品牌、警示、成分等），不可成为广告载体。</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </RuleModuleCard>
+          </RuleModuleCard>
 
-        <div className="grid md:grid-cols-2 gap-4">
           <RuleModuleCard number={2} title="销售与陈列">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal break-words [overflow-wrap:anywhere]" dotClassName="mt-[7px]" items={[
               '不得向未满18岁人员销售烟草或烟草制品',
               '不得通过自动售货机销售烟草或烟草制品',
               '不得通过互联网、电商平台或社交媒体等电子渠道销售烟草制品',
               '不得在宗教场所、教育机构、医疗和体育设施等法定禁烟场所内销售或使用烟草产品',
-              <span className="md:whitespace-nowrap" key="dist">不得在距清真寺100米、学校150米范围内开设烟草销售点或水烟提供场所</span>,
+              <span className="break-words [overflow-wrap:anywhere]" key="dist">不得在距清真寺100米、学校150米范围内开设烟草销售点或水烟提供场所</span>,
             ]} />
           </RuleModuleCard>
 
           <RuleModuleCard number={3} title="包装与标签">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal break-words [overflow-wrap:anywhere]" dotClassName="mt-[7px]" items={[
               '烟草产品包装应包含规定的健康警示和必要产品信息',
               '不得在包装上使用误导性用语或附加促销元素',
               '包装标签应与产品认证、进口申报和销售资料保持一致',

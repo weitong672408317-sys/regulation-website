@@ -60,14 +60,14 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
         <ScrollToTop countryId={country.id} />
         <PrefetchLinks currentCountryId={country.id} />
         <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
-          <div className="max-w-7xl lg:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="max-w-7xl lg:max-w-[1800px] mx-auto px-8 md:px-12 xl:px-16 2xl:pl-20 2xl:pr-24 py-4">
             <Link href="/" className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
               <span className="text-lg">←</span> 返回首页
             </Link>
           </div>
         </header>
 
-        <main className="max-w-7xl lg:max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-4 py-8">
+        <main className="max-w-7xl lg:max-w-[1920px] mx-auto px-8 md:px-12 xl:px-16 2xl:pl-20 2xl:pr-24 py-8">
           <div className="flex gap-6">
             <SidebarNav countryId={country.id} />
             <div className="flex-1 min-w-0">

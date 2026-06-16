@@ -146,21 +146,24 @@ export const RegulatoryUpdateCard = ({ title, content }: { title: string; conten
   );
 };
 
-export const RuleCard = ({ number, title, items }: { number: number; title: string; items: string[] }) => {
+export const RuleCard = ({ number, title, items, className }: { number: number; title: string; items: string[]; className?: string }) => {
   const filteredItems = items.map(i => i.trim()).filter(Boolean);
 
   return (
-    <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
+    <div className={`bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6${className ? ` ${className}` : ''}`}>
       <div className="flex items-start gap-3 mb-4">
         <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">
           {number}
         </span>
-        <h4 className="font-bold text-[#2E3F73] text-base">{title}</h4>
+        <h4 className="font-bold text-[#2E3F73] text-base leading-6">{title}</h4>
       </div>
       {filteredItems.length > 0 && (
         <div className="space-y-3 ml-9">
           {filteredItems.map((item, index) => (
-            <BulletPoint key={index}>{item}</BulletPoint>
+            <div key={index} className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[7px] flex-shrink-0"></span>
+              <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">{item}</span>
+            </div>
           ))}
         </div>
       )}
@@ -525,7 +528,11 @@ export const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Com
         </div>
       );
     }
-    return <p className="text-sm leading-relaxed text-[#334155] text-justify">{description}</p>;
+    return (
+      <p className="text-sm leading-relaxed text-[#334155] text-justify">
+        {description}
+      </p>
+    );
   };
 
   return (

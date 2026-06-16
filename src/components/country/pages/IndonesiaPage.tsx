@@ -581,11 +581,10 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
       {/* 六、市场运营规范 */}
       <MarketOperationSection sectionId="operation-rules">
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-x-5 gap-y-6">
           <RuleModuleCard number={1} title="销售与陈列">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '不得向 21 岁以下人员及孕妇销售烟草制品和电子烟',
-              '不得使用自动售货机销售烟草制品和电子烟',
               '不得单支零售传统卷烟；雪茄和电子烟产品除外',
               '不得在教育机构和儿童游乐场 200 米范围内销售烟草制品和电子烟',
               '不得将烟草制品和电子烟陈列在出入口、收银动线或人流密集区域附近',
@@ -593,7 +592,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             ]} />
           </RuleModuleCard>
           <RuleModuleCard number={2} title="赞助、促销与 CSR">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '禁止免费赠送、打折促销、附赠烟草或电子烟产品',
               '禁止将烟草或电子烟品牌用于非烟草 / 非电子烟产品',
               '赞助活动不得使用烟草或电子烟商标、品牌标识或品牌形象',
@@ -603,7 +602,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             ]} />
           </RuleModuleCard>
           <RuleModuleCard number={3} title="广告与宣传">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '禁止在数字社交媒体发布烟草制品和电子烟广告',
               '网站、商业应用、销售场所、户外媒体、印刷媒体、电视和广播广告均受到限制',
               '网站和商业应用中的广告应包含健康警示、21 岁以上购买限制和禁止向孕妇销售提示，并设置年龄验证机制',
@@ -615,7 +614,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             ]} />
           </RuleModuleCard>
           <RuleModuleCard number={4} title="包装与标签">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '烟草制品和电子烟包装均需标注图文健康警示；健康警示应位于包装正反面宽面上方区域，各占 50%',
               '包装应标注禁止向 21 岁以下人员及孕妇销售、批号、生产日期、生产者名称和地址等基础信息',
               '烟草制品包装应标注尼古丁和焦油声明；电子烟包装应标注含尼古丁声明',

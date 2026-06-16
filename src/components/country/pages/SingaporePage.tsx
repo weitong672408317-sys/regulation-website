@@ -497,30 +497,30 @@ export default function SingaporePage({ country }: SingaporePageProps) {
 
       {/* 市场运营规范 */}
       <MarketOperationSection sectionId="operation-rules">
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-x-5 gap-y-6">
           <RuleModuleCard number={1} title="销售对象与零售陈列">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '传统卷烟、雪茄、小雪茄及其他制成烟草可以在新加坡本地销售，但不得向21岁以下人士销售、供应或提供。',
               '烟草零售点不得公开陈列烟草产品，不得通过货架、柜台、品牌露出或其他可见陈列方式吸引消费者注意。',
               '零售现场不得通过价格优惠、赠品、积分、组合销售或其他利益安排促进烟草产品购买。',
             ]} />
           </RuleModuleCard>
           <RuleModuleCard number={2} title="广告、促销与线上传播">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '不得发布、展示或传播烟草产品广告，也不得通过赞助、品牌活动或宣传材料推广烟草产品。',
               '不得通过样品、赠品、抽奖、折扣、会员计划或其他促销方式提高烟草产品吸引力。',
               '禁止类产品，不得展示、推广、试销、递样或作为赠品提供。',
             ]} />
           </RuleModuleCard>
           <RuleModuleCard number={3} title="包装、标签与规格要求">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '传统烟草产品进入新加坡市场前，应符合标准化包装、健康警示和标签要求；不符合要求的，不得进口、销售、要约销售或分销。',
               '每包香烟不得少于20支；少于20支的香烟包不得进口、分销、销售或要约销售。',
               '包装和标签不得使用可能淡化危害、误导风险或削弱健康警示效果的表述和设计。',
             ]} />
           </RuleModuleCard>
           <RuleModuleCard number={4} title="使用、持有与场所责任">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '传统烟草产品不得在法定禁烟区内使用，吸烟活动限于允许吸烟的指定区域。新加坡禁烟范围覆盖多数室内公共场所、工作场所、公共交通设施、餐饮场所、公共服务车辆、体育和休闲设施，以及部分户外区域。',
               '电子烟、HNB产品、尼古丁袋、雾化器及相关组件等禁止类产品，购买、使用和持有本身即受管控。',
               '场所所有人、占有人及公共娱乐场所经营者不得放任禁止类产品在场所内储存、持有或使用。',

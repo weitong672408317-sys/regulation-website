@@ -461,9 +461,9 @@ export default function HongkongPage({ country }: HongkongPageProps) {
       </TaxSection>
 
       <MarketOperationSection sectionId="operation-rules">
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-x-5 gap-y-6">
           <RuleModuleCard number={1} title="销售渠道与本地流通">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '传统卷烟、雪茄、中国熟烟及其他制成烟草可以在香港本地销售，但销售对象、销售地点、产品展示和广告宣传均受控烟规则限制',
               '不得向18岁以下人士销售或提供传统吸烟产品',
               '电子烟、加热烟草产品、电子烟油、烟弹、加热烟支、草本烟等另类吸烟产品，不得在香港销售、推广、递样、展示或作为赠品提供',
@@ -472,7 +472,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           </RuleModuleCard>
 
           <RuleModuleCard number={2} title="产品包装、标签与展示">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '传统卷烟、雪茄、中国熟烟及其他制成烟草的包装，应符合香港健康警示、焦油 / 尼古丁含量及其他包装标示要求',
               '销售现场的产品展示和包装呈现，不得构成烟草广告、变相广告或促销',
               '香港已将统一包装设计纳入后续控烟措施，相关安排会进一步影响传统吸烟产品的包装颜色、品牌展示和外观呈现',
@@ -480,7 +480,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           </RuleModuleCard>
 
           <RuleModuleCard number={3} title="广告、促销与产品销售限制">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '传统吸烟产品广告、促销和赞助受到严格限制',
               '不得通过广告、宣传材料、赞助、赠品、样品、促销活动或其他安排变相推广传统吸烟产品',
               '另类吸烟产品已经禁止销售和推广，不得通过线上展示、社交媒体、跨境代购、试用活动、样品派发或其他方式推广',
@@ -490,7 +490,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
           </RuleModuleCard>
 
           <RuleModuleCard number={4} title="持有、使用与公共场所">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '香港法定禁烟区覆盖范围较广，包括公共交通工具、公共运输设施、巴士转乘处、食肆、酒吧、卡拉OK场所、商场、街市、超市、银行、室内工作间、学校、医院、公园、泳滩、公共游乐场、公共升降机和自动扶手电梯等场所',
               '禁止在排队期间吸烟',
               '禁止在幼儿中心、院舍、学校、医院、指明诊所及健康中心的专用出入口3米范围内吸烟',
