@@ -543,9 +543,9 @@ export default function ChinaPage({ country }: ChinaPageProps) {
       </TaxSection>
 
       <MarketOperationSection sectionId="operation-rules">
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-x-5 gap-y-6">
           <RuleModuleCard number={1} title="销售渠道与平台交易">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '烟草专卖品、电子烟应在烟草专卖许可范围和规定渠道内经营',
               '电子烟经营主体之间的购销交易，应依法通过电子烟交易管理平台进行',
               '零售主体应通过电子烟交易管理平台，向当地具备电子烟批发业务资格的企业购进电子烟产品，并在持证门店销售',
@@ -555,7 +555,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           </RuleModuleCard>
 
           <RuleModuleCard number={2} title="产品销售与品类限制">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '中国内地只能销售烟草口味电子烟，不得销售其他任何口味的调味电子烟',
               '不得销售可自行添加雾化物的电子烟。',
               '电子烟雾化物应含有烟碱，不符合《电子烟》强制性国家标准或未通过技术审评的产品不得上市销售。',
@@ -564,7 +564,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           </RuleModuleCard>
 
           <RuleModuleCard number={3} title="广告与宣传限制">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '烟草广告受到严格限制，广播、电影、电视、报纸、期刊及法定公共场所不得发布或设置烟草广告',
               '不得通过广播、电视、电影节目以及报纸、期刊文章变相发布烟草广告',
               '不得通过大众传播媒介、公共场所、网络平台、展会、论坛、博览会等方式违规宣传或推介电子烟产品',
@@ -572,7 +572,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
           </RuleModuleCard>
 
           <RuleModuleCard number={4} title="出口合规与回流管控">
-            <DotList items={[
+            <DotList className="space-y-3" textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]" items={[
               '电子烟出口产品应符合目的地国家或地区的法律法规和标准要求，并按中国监管要求完成出口备案和相关证明',
               '不得通过虚假报关、错报品名、错报用途、拆分流转、虚报价格等方式规避中国监管要求',
               '严禁出口回流，严禁以出口名义将不符合中国境内销售要求的电子烟产品变相投入中国市场',

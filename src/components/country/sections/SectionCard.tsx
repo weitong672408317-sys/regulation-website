@@ -40,11 +40,19 @@ export function ProductLabel({ children }: { children: React.ReactNode }) {
  * - Gap between dot and text: gap-2 (8px)
  * - Text wraps with hanging indent (second line aligns with first line text)
  */
-export function BulletPoint({ children }: { children: React.ReactNode }) {
+export function BulletPoint({
+  children,
+  textClassName,
+  dotClassName,
+}: {
+  children: React.ReactNode;
+  textClassName?: string;
+  dotClassName?: string;
+}) {
   return (
     <div className="flex items-start gap-3">
-      <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[8px] flex-shrink-0"></span>
-      <span className="text-[#334155] text-base leading-7 text-justify flex-1 min-w-0">{children}</span>
+      <span className={`w-1.5 h-1.5 rounded-full bg-[#4A6290] ${dotClassName || 'mt-[8px]'} flex-shrink-0`}></span>
+      <span className={`text-[#334155] ${textClassName || 'text-base leading-7'} text-justify flex-1 min-w-0`}>{children}</span>
     </div>
   );
 }
@@ -53,11 +61,21 @@ export function BulletPoint({ children }: { children: React.ReactNode }) {
  * Unified bullet list using BulletPoint with proper hanging indent.
  * Use this for all bullet lists across country pages.
  */
-export function BulletList({ items, className = '' }: { items: React.ReactNode[]; className?: string }) {
+export function BulletList({
+  items,
+  className = '',
+  textClassName,
+  dotClassName,
+}: {
+  items: React.ReactNode[];
+  className?: string;
+  textClassName?: string;
+  dotClassName?: string;
+}) {
   return (
     <div className={`space-y-2 ${className}`}>
       {items.map((item, index) => (
-        <BulletPoint key={index}>{item}</BulletPoint>
+        <BulletPoint key={index} textClassName={textClassName} dotClassName={dotClassName}>{item}</BulletPoint>
       ))}
     </div>
   );
@@ -67,6 +85,16 @@ export function BulletList({ items, className = '' }: { items: React.ReactNode[]
  * DotList is now an alias for BulletList with consistent styling.
  * Kept for backward compatibility.
  */
-export function DotList({ items }: { items: React.ReactNode[] }) {
-  return <BulletList items={items} />;
+export function DotList({
+  items,
+  className,
+  textClassName,
+  dotClassName,
+}: {
+  items: React.ReactNode[];
+  className?: string;
+  textClassName?: string;
+  dotClassName?: string;
+}) {
+  return <BulletList items={items} className={className} textClassName={textClassName} dotClassName={dotClassName} />;
 }

@@ -401,67 +401,67 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
           <p className="text-[#334155] text-base leading-relaxed text-justify mt-2">边界产品应根据成分、用途和销售形态判断，详见{"\u201c"}<a href="#product-access" className="text-indigo-600 hover:text-indigo-800 hover:underline">产品监管口径</a>{"\u201d"}栏目。</p>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl" style={{ padding: '32px 30px' }}>
-            <div className="flex items-start mb-5" style={{ gap: '15px' }}>
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white font-bold flex-shrink-0" style={{ fontSize: '14px' }}>1</span>
-              <h4 className="text-[#2E3F73]" style={{ fontSize: '18px', fontWeight: 700, lineHeight: '1.45' }}>DINAVISA 产品登记 / 产品注册</h4>
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl px-[30px] py-8">
+            <div className="flex items-start gap-3 mb-5">
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">1</span>
+              <h4 className="text-[#2E3F73] text-lg font-bold leading-[1.45]">DINAVISA 产品登记 / 产品注册</h4>
             </div>
-            <div style={{ fontSize: '15px', fontWeight: 400, lineHeight: '1.75', color: '#334155' }}>
+            <div className="text-[#334155] text-base leading-7 font-normal">
               <div className="space-y-4">
-                <div className="flex items-start">
-                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                <div className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">烟草基产品、含烟草材料的 HNB 烟支/加热烟草棒，需要办理 DINAVISA 烟草基产品登记。</span>
                 </div>
-                <div className="flex items-start">
-                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                <div className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">电子烟、雾化器、烟油/补充液、HNB设备、加热装置及相关配件，需要结合《第7508/2025号法》办理 DINAVISA 产品注册。</span>
                 </div>
-                <div className="flex items-start">
-                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                <div className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">尼古丁袋已有 DINAVISA 专项注册草案，但草案尚未正式落地，进入市场前仍需确认现行卫生注册口径。</span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl" style={{ padding: '32px 30px' }}>
-            <div className="flex items-start mb-5" style={{ gap: '15px' }}>
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white font-bold flex-shrink-0" style={{ fontSize: '14px' }}>2</span>
-              <h4 className="text-[#2E3F73]" style={{ fontSize: '18px', fontWeight: 700, lineHeight: '1.45' }}>DINAVISA 主体登记 / 经营场所授权</h4>
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl px-[30px] py-8">
+            <div className="flex items-start gap-3 mb-5">
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">2</span>
+              <h4 className="text-[#2E3F73] text-lg font-bold leading-[1.45]">DINAVISA 主体登记 / 经营场所授权</h4>
             </div>
-            <div style={{ fontSize: '15px', fontWeight: 400, lineHeight: '1.75', color: '#334155' }}>
+            <div className="text-[#334155] text-base leading-7 font-normal">
               <div className="space-y-4">
-                <div className="flex items-start">
-                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                <div className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">从事烟草、烟草产品或烟草产品原料制造、进口、出口的主体，需要办理 DINAVISA 烟草主体登记。</span>
                 </div>
-                <div className="flex items-start">
-                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                <div className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">从事电子烟、雾化产品、HNB设备及相关电子装置进口、出口、生产、分销、仓储或销售的主体及经营场所，需要取得 DINAVISA 授权。</span>
                 </div>
-                <div className="flex items-start">
-                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                <div className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">普通烟草零售端未见单独烟草零售许可证要求。</span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl" style={{ padding: '32px 30px' }}>
-            <div className="flex items-start mb-5" style={{ gap: '15px' }}>
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white font-bold flex-shrink-0" style={{ fontSize: '14px' }}>3</span>
-              <h4 className="text-[#2E3F73]" style={{ fontSize: '18px', fontWeight: 700, lineHeight: '1.45' }}>DNIT 商品归类、税务申报和进口文件</h4>
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl px-[30px] py-8">
+            <div className="flex items-start gap-3 mb-5">
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">3</span>
+              <h4 className="text-[#2E3F73] text-lg font-bold leading-[1.45]">DNIT 商品归类、税务申报和进口文件</h4>
             </div>
-            <div style={{ fontSize: '15px', fontWeight: 400, lineHeight: '1.75', color: '#334155' }}>
+            <div className="text-[#334155] text-base leading-7 font-normal">
               <div className="space-y-4">
-                <div className="flex items-start">
-                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                <div className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">进口烟草、电子烟、雾化产品、HNB设备、尼古丁袋、烟草原料或相关配件时，需要确认商品归类、进口税费、ISC、IVA 和进口申报文件。</span>
                 </div>
-                <div className="flex items-start">
-                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                <div className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">DNIT 已将"无烟草尼古丁袋"纳入商品归类查询/裁定资料；该口径仅用于 HS 编码/税号和进口税费申报，不替代 DINAVISA 卫生注册或上市许可，进入市场前仍需确认现行注册/许可要求。</span>
                 </div>
-                <div className="flex items-start">
-                  <span className="rounded-full bg-[#4A6290] flex-shrink-0" style={{ width: '5px', height: '5px', marginTop: '9px', marginLeft: '2px', marginRight: '11px' }}></span>
+                <div className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
                   <span className="flex-1 min-w-0">税务申报口径应与产品登记/注册资料、进口文件、包装标签和实际用途保持一致。</span>
                 </div>
               </div>
@@ -577,28 +577,30 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
       </SalesRulesSection>
 
       <MarketOperationSection sectionId="operation-rules">
-        <RuleModuleCard number={1} title="包装、标签与成分限制">
-          <div className="space-y-2 ml-9">
-            <BulletPoint>烟草产品包装应使用规定健康警示；健康警示应覆盖包装正反面主要展示区域下方 40%。</BulletPoint>
-            <BulletPoint>电子烟、雾化产品及相关产品包装应标明产品成分、尼古丁含量、原产国、批号、生产日期、有效期，以及 DINAVISA 注册/登记信息。</BulletPoint>
-            <BulletPoint>含尼古丁电子烟液或雾化液的尼古丁浓度不得超过 20mg/ml 或 2%。</BulletPoint>
-            <BulletPoint>包装、标签、说明、销售展示或宣传材料中，不得使用"低风险""减害""健康""有益""戒烟""治疗""不成瘾""更安全"等功效性、治疗性或降低风险暗示。</BulletPoint>
-          </div>
-        </RuleModuleCard>
-        <RuleModuleCard number={2} title="广告、促销与赞助">
-          <div className="space-y-2 ml-9">
-            <BulletPoint>禁止烟草产品广告、促销和赞助；禁止通过广播、电视、纸媒、户外广告、移动广告、互联网、短信、邮寄等方式推广烟草产品。</BulletPoint>
-            <BulletPoint>禁止电子烟、雾化产品及相关产品广告、促销和赞助。</BulletPoint>
-            <BulletPoint>禁止通过销售点广告、社交媒体、互联网、流媒体、短信、邮寄、活动赞助、公益项目、第三方合作、品牌延伸或生活方式营销等方式推广电子烟、雾化产品及相关产品。</BulletPoint>
-            <BulletPoint>禁止通过免费样品、赠品、试用、递样、折扣、抽奖、会员积分、组合销售等方式促销电子烟、雾化产品及相关产品。</BulletPoint>
-          </div>
-        </RuleModuleCard>
-        <RuleModuleCard number={3} title="使用场所与公共场所限制">
-          <div className="space-y-2 ml-9">
-            <BulletPoint>室内公共场所、工作场所和公共交通工具中禁止使用烟草产品、加热烟草产品、电子烟、雾化产品及相关产品。</BulletPoint>
-            <BulletPoint>相关产品只能在符合要求的开放空间使用，且不得在有他人在场或非使用者通行的区域使用。</BulletPoint>
-          </div>
-        </RuleModuleCard>
+        <div className="grid grid-cols-1 gap-6">
+          <RuleModuleCard number={1} title="包装、标签与成分限制">
+            <div className="space-y-3">
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">烟草产品包装应使用规定健康警示；健康警示应覆盖包装正反面主要展示区域下方 40%。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">电子烟、雾化产品及相关产品包装应标明产品成分、尼古丁含量、原产国、批号、生产日期、有效期，以及 DINAVISA 注册/登记信息。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">含尼古丁电子烟液或雾化液的尼古丁浓度不得超过 20mg/ml 或 2%。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">包装、标签、说明、销售展示或宣传材料中，不得使用"低风险""减害""健康""有益""戒烟""治疗""不成瘾""更安全"等功效性、治疗性或降低风险暗示。</BulletPoint>
+            </div>
+          </RuleModuleCard>
+          <RuleModuleCard number={2} title="广告、促销与赞助">
+            <div className="space-y-3">
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">禁止烟草产品广告、促销和赞助；禁止通过广播、电视、纸媒、户外广告、移动广告、互联网、短信、邮寄等方式推广烟草产品。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">禁止电子烟、雾化产品及相关产品广告、促销和赞助。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">禁止通过销售点广告、社交媒体、互联网、流媒体、短信、邮寄、活动赞助、公益项目、第三方合作、品牌延伸或生活方式营销等方式推广电子烟、雾化产品及相关产品。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">禁止通过免费样品、赠品、试用、递样、折扣、抽奖、会员积分、组合销售等方式促销电子烟、雾化产品及相关产品。</BulletPoint>
+            </div>
+          </RuleModuleCard>
+          <RuleModuleCard number={3} title="使用场所与公共场所限制">
+            <div className="space-y-3">
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">室内公共场所、工作场所和公共交通工具中禁止使用烟草产品、加热烟草产品、电子烟、雾化产品及相关产品。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">相关产品只能在符合要求的开放空间使用，且不得在有他人在场或非使用者通行的区域使用。</BulletPoint>
+            </div>
+          </RuleModuleCard>
+        </div>
       </MarketOperationSection>
 
       <TrendAndRedLinesSection
