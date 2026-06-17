@@ -7,43 +7,42 @@ import {
   intensityDistribution,
   productCategories,
   productComparisonMap,
+  productAccessLabels,
   type AccessColor,
   type IntensityLevel,
-  type ProductStatusType,
+  type ProductStatusItem,
 } from '@/data/comparisonData';
-import { accessStatusColors, type AccessStatusType } from '@/data/productAccessOverview';
+import { accessStatusColors } from '@/data/productAccessOverview';
 
 type TabType = 'overview' | 'product';
 
 // ===== 产品准入三分类（用户要求固定三类） =====
 type AccessCategory = 'accessible' | 'restricted' | 'prohibited';
 
-const accessCategoryConfig: Record<AccessCategory, { label: string; barColor: string; barTextColor: string }> = {
+const accessCategoryConfig: Record<AccessCategory, { barColor: string; barTextColor: string }> = {
   accessible: {
-    label: '可准入',
     barColor: '#4A9B5A',   // 比badge更深的绿色
     barTextColor: '#ffffff',  // 白色文字
   },
   restricted: {
-    label: '部分限制/监管要求不明确',
     barColor: '#B89038',   // 比badge更深的琥珀色
     barTextColor: '#ffffff',  // 白色文字
   },
   prohibited: {
-    label: '禁止/未开放',
     barColor: '#C45252',   // 比badge更深的红色
     barTextColor: '#ffffff',  // 白色文字
   },
 };
 
-// 将 statusType 映射到三分类
-const mapToAccessCategory = (statusType: ProductStatusType): AccessCategory => {
-  switch (statusType) {
-    case 'green': return 'accessible';
-    case 'amber': return 'restricted';
-    case 'mixed': return 'restricted';
-    case 'red': return 'prohibited';
-  }
+// 将 level 映射到 AccessCategory
+const levelToCategory = (level: ProductStatusItem['level']): AccessCategory => {
+  return level === 'allowed' ? 'accessible' : level === 'restricted' ? 'restricted' : 'prohibited';
+};
+
+const levelToColor: Record<ProductStatusItem['level'], AccessColor> = {
+  allowed: 'green',
+  restricted: 'amber',
+  prohibited: 'red',
 };
 
 // ===== 监管强度配色 =====
@@ -68,11 +67,6 @@ const getDotStyle = (color: AccessColor): React.CSSProperties => {
     case 'amber': return { backgroundColor: accessStatusColors.amber.dot };
     case 'red': return { backgroundColor: accessStatusColors.red.dot };
   }
-};
-
-const getAccessCategoryDotStyle = (category: AccessCategory): React.CSSProperties => {
-  const colorMap: Record<AccessCategory, AccessStatusType> = { accessible: 'green', restricted: 'amber', prohibited: 'red' };
-  return { backgroundColor: accessStatusColors[colorMap[category]].dot };
 };
 
 /** 按状态色分组产品准入条目 */
@@ -111,22 +105,33 @@ export default function ComparisonTable() {
     return productComparisonMap[selectedProduct] || [];
   }, [selectedProduct]);
 
-  // Tab 2: 计算三分类分布
+  // Tab 2: 计算三分类分布（多状态：一个国家可同时计入多个状态）
   const accessDistribution = useMemo(() => {
     const dist: Record<AccessCategory, number> = { accessible: 0, restricted: 0, prohibited: 0 };
     const names: Record<AccessCategory, string[]> = { accessible: [], restricted: [], prohibited: [] };
     currentProductData.forEach(c => {
-      const cat = mapToAccessCategory(c.statusType);
-      dist[cat]++;
-      names[cat].push(c.countryName);
+      const seen = new Set<AccessCategory>();
+      c.statuses.forEach(s => {
+        const cat: AccessCategory = s.level === 'allowed' ? 'accessible' : s.level === 'restricted' ? 'restricted' : 'prohibited';
+        if (!seen.has(cat)) {
+          seen.add(cat);
+          dist[cat]++;
+          names[cat].push(c.countryName);
+        }
+      });
     });
     return { dist, names };
   }, [currentProductData]);
 
-  // Tab 2: 按准入分类筛选
+  // Tab 2: 按准入分类筛选（多状态：国家任一状态匹配即显示）
   const filteredProductCountries = useMemo(() => {
     if (!selectedAccessCategory) return currentProductData;
-    return currentProductData.filter(c => mapToAccessCategory(c.statusType) === selectedAccessCategory);
+    return currentProductData.filter(c =>
+      c.statuses.some(s => {
+        const cat: AccessCategory = s.level === 'allowed' ? 'accessible' : s.level === 'restricted' ? 'restricted' : 'prohibited';
+        return cat === selectedAccessCategory;
+      })
+    );
   }, [currentProductData, selectedAccessCategory]);
 
   const handleIntensityClick = (intensity: IntensityLevel) => {
@@ -434,9 +439,9 @@ export default function ComparisonTable() {
           </div>
 
           {/* 产品状态分布条 - 三类状态始终在同一容器内 */}
-          <div className="mb-3">
+          <div className="mb-2">
             {(() => {
-              const MIN_WIDTH_PCT = 20; // 每个状态最小占比(%)，确保长文字完整显示
+              const MIN_WIDTH_PCT = 18; // 每个状态最小占比(%)，确保长文字完整显示
               const cats: AccessCategory[] = ['accessible', 'restricted', 'prohibited'];
               const nonZeroTotal = cats.reduce((s, c) => s + accessDistribution.dist[c], 0);
               
@@ -460,10 +465,13 @@ export default function ComparisonTable() {
               const totalWidth = cats.reduce((sum, c) => sum + getWidth(accessDistribution.dist[c]), 0);
               const scaleFactor = totalWidth > 100 ? 100 / totalWidth : 1;
 
+              const currentLabels = productAccessLabels[selectedProduct] || productAccessLabels['traditional-tobacco'];
+
               return (
-                <div className="flex h-9 rounded-lg overflow-hidden border border-gray-200" style={{ boxSizing: 'border-box', width: '100%', maxWidth: '100%' }}>
+                <div className="flex h-10 rounded-lg overflow-hidden border border-gray-200" style={{ boxSizing: 'border-box', width: '100%', maxWidth: '100%' }}>
                   {cats.map((category, idx) => {
                     const config = accessCategoryConfig[category];
+                    const label = currentLabels[category];
                     const count = accessDistribution.dist[category];
                     const isSelected = selectedAccessCategory === category;
                     const hasCount = count > 0;
@@ -476,7 +484,7 @@ export default function ComparisonTable() {
                     const boxShadow = isSelected
                       ? `inset 0 0 0 2px ${config.barTextColor}44`
                       : 'none';
-                    const fontWeight = isSelected ? 700 : 500;
+                    const fontWeight = isSelected ? 700 : 600;
 
                     // 深色背景，零值状态用浅色版本
                     const bgColor = hasCount
@@ -499,16 +507,16 @@ export default function ComparisonTable() {
                           boxShadow,
                           fontWeight,
                           borderLeft,
-                          padding: '0 4px',
-                          fontSize: '11px',
-                          lineHeight: '1.2',
+                          padding: '0 6px',
+                          fontSize: '15px',
+                          lineHeight: '1.3',
                         }}
                         onClick={() => handleAccessCategoryClick(category)}
                         title={hasCount
-                          ? `${config.label}：${count}个（${accessDistribution.names[category].join('、')}）`
-                          : `${config.label}：0个`}
+                          ? `${label}：${count}个（${accessDistribution.names[category].join('、')}）`
+                          : `${label}：0个`}
                       >
-                        <span style={{ whiteSpace: 'nowrap' }}>{config.label} {count}</span>
+                        <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{label} {count}</span>
                       </div>
                     );
                   })}
@@ -517,12 +525,17 @@ export default function ComparisonTable() {
             })()}
           </div>
 
+          {/* 说明文字 */}
+          <p className="text-xs text-gray-400 mb-3">
+            状态数量按涉及该状态的国家统计；同一国家存在多种准入情形时，可同时计入多个状态。
+          </p>
+
           {/* 当前显示范围 / 当前筛选条件 */}
           <div className="mb-4 flex items-center gap-2 text-sm text-gray-500">
             {selectedAccessCategory ? (
               <>
                 <span>
-                  当前筛选：准入状态 = <span className="font-medium text-gray-700">{accessCategoryConfig[selectedAccessCategory].label}</span>
+                  当前筛选：准入状态 = <span className="font-medium text-gray-700">{(productAccessLabels[selectedProduct] || productAccessLabels['traditional-tobacco'])[selectedAccessCategory]}</span>
                   ｜显示 {filteredProductCountries.length} 个国家/地区
                 </span>
                 <button
@@ -559,7 +572,6 @@ export default function ComparisonTable() {
                   </tr>
                 ) : (
                   filteredProductCountries.map(entry => {
-                    const category = mapToAccessCategory(entry.statusType);
                     return (
                       <tr key={entry.countryId} className="hover:bg-gray-50 transition-colors">
                         <td className="px-4 py-4 align-top">
@@ -574,37 +586,14 @@ export default function ComparisonTable() {
                           </Link>
                         </td>
                         <td className="px-4 py-4 align-top" style={{ overflowWrap: 'break-word', wordBreak: 'break-word' }}>
-                          {/* 第一行：总体状态 */}
-                          <div className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full shrink-0" style={getAccessCategoryDotStyle(category)} />
-                            <span className={`text-sm ${
-                              entry.statusType === 'mixed' ? 'text-gray-500' : 'text-gray-700'
-                            }`}>
-                              {entry.status}
-                            </span>
+                          <div className={entry.statuses.length > 1 ? 'space-y-1.5' : ''}>
+                            {entry.statuses.map((s, idx) => (
+                              <div key={idx} className="flex items-start gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[6px]" style={getDotStyle(levelToColor[s.level])} />
+                                <span className="text-sm text-gray-700">{s.text}</span>
+                              </div>
+                            ))}
                           </div>
-                          
-                          {/* 子项说明或备注 */}
-                          {(entry.subStatuses && entry.subStatuses.length > 0) || entry.note ? (
-                            <div className="ml-[18px] mt-2 space-y-1.5">
-                              {/* 显示子项 */}
-                              {entry.subStatuses && entry.subStatuses.length > 0 && (
-                                entry.subStatuses.map((sub, idx) => (
-                                  <div key={idx} className="flex items-start gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[6px]" style={getDotStyle(sub.color)} />
-                                    <span className="text-sm text-gray-600">
-                                      {sub.product}：<span className="font-medium">{sub.status}</span>
-                                    </span>
-                                  </div>
-                                ))
-                              )}
-                              
-                              {/* 显示备注 */}
-                              {entry.note && !entry.subStatuses && (
-                                <p className="text-sm text-gray-500 leading-relaxed">{entry.note}</p>
-                              )}
-                            </div>
-                          ) : null}
                         </td>
                       </tr>
                     );
@@ -622,7 +611,6 @@ export default function ComparisonTable() {
               </div>
             ) : (
               filteredProductCountries.map(entry => {
-                const category = mapToAccessCategory(entry.statusType);
                 return (
                   <div key={entry.countryId} className="border border-gray-200 rounded-lg p-4">
                     <div className="mb-2">
@@ -637,37 +625,14 @@ export default function ComparisonTable() {
                       </Link>
                     </div>
                     
-                    {/* 总体状态 */}
-                    <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={getAccessCategoryDotStyle(category)} />
-                      <span className={`text-sm ${
-                        entry.statusType === 'mixed' ? 'text-gray-500' : 'text-gray-700'
-                      }`}>
-                        {entry.status}
-                      </span>
+                    <div className={entry.statuses.length > 1 ? 'space-y-1.5' : ''}>
+                      {entry.statuses.map((s, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[6px]" style={getDotStyle(levelToColor[s.level])} />
+                          <span className="text-sm text-gray-700">{s.text}</span>
+                        </div>
+                      ))}
                     </div>
-                    
-                    {/* 子项说明或备注 */}
-                    {(entry.subStatuses && entry.subStatuses.length > 0) || entry.note ? (
-                      <div className="ml-[18px] mt-2 space-y-1.5">
-                        {/* 显示子项 */}
-                        {entry.subStatuses && entry.subStatuses.length > 0 && (
-                          entry.subStatuses.map((sub, idx) => (
-                            <div key={idx} className="flex items-start gap-2">
-                              <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[6px]" style={getDotStyle(sub.color)} />
-                              <span className="text-sm text-gray-600">
-                                {sub.product}：<span className="font-medium">{sub.status}</span>
-                              </span>
-                            </div>
-                          ))
-                        )}
-                        
-                        {/* 显示备注 */}
-                        {entry.note && !entry.subStatuses && (
-                          <p className="text-sm text-gray-500 leading-relaxed">{entry.note}</p>
-                        )}
-                      </div>
-                    ) : null}
                   </div>
                 );
               })

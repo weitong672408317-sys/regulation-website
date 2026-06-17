@@ -8,7 +8,6 @@
 
 export type IntensityLevel = '极高' | '高' | '中' | '低至中';
 export type AccessColor = 'green' | 'amber' | 'red';
-export type ProductStatusType = 'green' | 'amber' | 'red' | 'mixed';
 
 export interface ProductAccessSummaryItem {
   color: AccessColor;
@@ -36,15 +35,16 @@ export interface ProductCategory {
 }
 
 // 支持多条准入状态（用于显示细分差异）
+export interface ProductStatusItem {
+  level: 'allowed' | 'restricted' | 'prohibited';
+  text: string;
+}
+
 export interface ProductComparisonEntry {
   countryId: string;
   countryName: string;
-  status: string;
-  statusType: ProductStatusType;
   targetId: string;
-  note?: string;
-  // 多条准入状态（用于显示细分差异）
-  subStatuses?: { color: AccessColor; status: string; product: string }[];
+  statuses: ProductStatusItem[];
 }
 
 // ===== 国家监管概览数据（文字严格按提示词） =====
@@ -154,7 +154,7 @@ export const intensityDistribution: IntensitySegment[] = [
 
 export const productCategories: ProductCategory[] = [
   { id: 'traditional-tobacco', name: '传统烟草产品' },
-  { id: 'hnb', name: 'HNB及加热烟草产品' },
+  { id: 'hnb', name: 'HNB等加热烟草产品' },
   { id: 'ecig', name: '电子烟及雾化产品' },
   { id: 'smokeless-tobacco', name: '无烟烟草产品' },
   { id: 'novel-nicotine', name: '新型尼古丁产品' },
@@ -164,85 +164,86 @@ export const productCategories: ProductCategory[] = [
 
 // ===== 产品准入对比数据（来源于各国子页面 productAccessOverview） =====
 
+// 按产品区分的分布条状态标签
+export const productAccessLabels: Record<string, { accessible: string; restricted: string; prohibited: string }> = {
+  'traditional-tobacco': { accessible: '可准入', restricted: '严格监管/严格限制', prohibited: '禁止/未开放' },
+  'hnb': { accessible: '可准入', restricted: '严格监管', prohibited: '禁止/未开放' },
+  'ecig': { accessible: '可准入', restricted: '严格监管、部分限制/准入受控', prohibited: '禁止/未开放/高度受限' },
+  'smokeless-tobacco': { accessible: '可准入', restricted: '严格监管/需结合产品特性确认', prohibited: '禁止/未开放/高度受限' },
+  'novel-nicotine': { accessible: '可准入', restricted: '严格限制/监管/监管要求不明确', prohibited: '禁止/未开放/高度受限' },
+  'tobacco-raw': { accessible: '可准入', restricted: '严格监管/严格限制/需按成分和功能拆分判断', prohibited: '禁止/未开放' },
+  'ordinary-material': { accessible: '可准入', restricted: '严格监管', prohibited: '禁止/未开放' },
+};
+
 export const productComparisonMap: Record<string, ProductComparisonEntry[]> = {
   'traditional-tobacco': [
-    { countryId: 'china', countryName: '中国内地', status: '可准入，但严格监管', statusType: 'amber', targetId: 'product-tobacco-raw' },
-    { countryId: 'hongkong', countryName: '中国香港', status: '可准入，但严格限制', statusType: 'amber', targetId: 'module-traditional-tobacco' },
-    { countryId: 'singapore', countryName: '新加坡', status: '可准入，但严格限制', statusType: 'amber', targetId: 'product-traditional-tobacco' },
-    { countryId: 'indonesia', countryName: '印度尼西亚', status: '可准入', statusType: 'green', targetId: 'product-combustible-tobacco' },
-    { countryId: 'paraguay', countryName: '巴拉圭', status: '可准入', statusType: 'green', targetId: 'module-traditional-tobacco' },
-    { countryId: 'uae', countryName: '阿联酋', status: '可准入', statusType: 'green', targetId: 'product-combustible-tobacco' },
-    { countryId: 'russia', countryName: '俄罗斯', status: '可准入，但严格监管', statusType: 'amber', targetId: 'product-traditional-tobacco' },
-    { countryId: 'malaysia', countryName: '马来西亚', status: '可准入', statusType: 'green', targetId: 'product-traditional-tobacco' },
+    { countryId: 'china', countryName: '中国内地', targetId: 'product-tobacco-raw', statuses: [{ level: 'restricted', text: '可准入，但严格监管' }] },
+    { countryId: 'hongkong', countryName: '中国香港', targetId: 'module-traditional-tobacco', statuses: [{ level: 'restricted', text: '可准入，但严格限制' }] },
+    { countryId: 'singapore', countryName: '新加坡', targetId: 'product-traditional-tobacco', statuses: [{ level: 'restricted', text: '可准入，但严格限制' }] },
+    { countryId: 'indonesia', countryName: '印度尼西亚', targetId: 'product-combustible-tobacco', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'paraguay', countryName: '巴拉圭', targetId: 'module-traditional-tobacco', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'uae', countryName: '阿联酋', targetId: 'product-combustible-tobacco', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'russia', countryName: '俄罗斯', targetId: 'product-traditional-tobacco', statuses: [{ level: 'restricted', text: '可准入，但严格监管' }] },
+    { countryId: 'malaysia', countryName: '马来西亚', targetId: 'product-traditional-tobacco', statuses: [{ level: 'allowed', text: '可准入' }] },
   ],
   'hnb': [
-    { countryId: 'china', countryName: '中国内地', status: '未开放，实质禁止', statusType: 'red', targetId: 'product-heat-not-burn' },
-    { countryId: 'hongkong', countryName: '中国香港', status: '完全禁止', statusType: 'red', targetId: 'module-alternative-smoking' },
-    { countryId: 'singapore', countryName: '新加坡', status: '完全禁止', statusType: 'red', targetId: 'product-heat-not-burn' },
-    { countryId: 'indonesia', countryName: '印度尼西亚', status: '可准入', statusType: 'green', targetId: 'product-heat-not-burn' },
-    { countryId: 'paraguay', countryName: '巴拉圭', status: '可准入', statusType: 'green', targetId: 'product-heat-not-burn' },
-    { countryId: 'uae', countryName: '阿联酋', status: '可准入', statusType: 'green', targetId: 'product-heat-not-burn' },
-    { countryId: 'russia', countryName: '俄罗斯', status: '可准入，但严格监管', statusType: 'amber', targetId: 'product-heat-not-burn' },
-    { countryId: 'malaysia', countryName: '马来西亚', status: '可准入', statusType: 'green', targetId: 'product-heat-not-burn' },
+    { countryId: 'china', countryName: '中国内地', targetId: 'product-heat-not-burn', statuses: [{ level: 'prohibited', text: '未开放，实质禁止' }] },
+    { countryId: 'hongkong', countryName: '中国香港', targetId: 'module-alternative-smoking', statuses: [{ level: 'prohibited', text: '完全禁止' }] },
+    { countryId: 'singapore', countryName: '新加坡', targetId: 'product-heat-not-burn', statuses: [{ level: 'prohibited', text: '完全禁止' }] },
+    { countryId: 'indonesia', countryName: '印度尼西亚', targetId: 'product-heat-not-burn', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'paraguay', countryName: '巴拉圭', targetId: 'product-heat-not-burn', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'uae', countryName: '阿联酋', targetId: 'product-heat-not-burn', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'russia', countryName: '俄罗斯', targetId: 'product-heat-not-burn', statuses: [{ level: 'restricted', text: '可准入，但严格监管' }] },
+    { countryId: 'malaysia', countryName: '马来西亚', targetId: 'product-heat-not-burn', statuses: [{ level: 'allowed', text: '可准入' }] },
   ],
   'ecig': [
-    { countryId: 'china', countryName: '中国内地', status: '分项适用', statusType: 'mixed', targetId: 'product-ecig', note: '电子烟产品、雾化物及电子烟用烟碱：可准入，但严格监管；无烟碱电子烟和变相电子烟：未开放，实质禁止。' },
-    { countryId: 'hongkong', countryName: '中国香港', status: '完全禁止', statusType: 'red', targetId: 'module-alternative-smoking' },
-    { countryId: 'singapore', countryName: '新加坡', status: '完全禁止', statusType: 'red', targetId: 'product-heat-not-burn' },
-    { countryId: 'indonesia', countryName: '印度尼西亚', status: '可准入', statusType: 'green', targetId: 'product-ecig' },
-    { countryId: 'paraguay', countryName: '巴拉圭', status: '可准入', statusType: 'green', targetId: 'module-ecig' },
-    { countryId: 'uae', countryName: '阿联酋', status: '可准入', statusType: 'green', targetId: 'product-ecig' },
-    { countryId: 'russia', countryName: '俄罗斯', status: '可准入，但严格监管', statusType: 'amber', targetId: 'module-ecig' },
-    { countryId: 'malaysia', countryName: '马来西亚', status: '分项适用', statusType: 'mixed', targetId: 'product-nicotine-free-ecig', note: '不含尼古丁电子烟及设备：部分限制/准入受控；含尼古丁电子烟：高度受限。' },
+    { countryId: 'china', countryName: '中国内地', targetId: 'product-ecig', statuses: [{ level: 'restricted', text: '电子烟产品、雾化物及电子烟用烟碱：可准入，但严格监管' }, { level: 'prohibited', text: '无烟碱电子烟和变相电子烟：未开放，实质禁止' }] },
+    { countryId: 'hongkong', countryName: '中国香港', targetId: 'module-alternative-smoking', statuses: [{ level: 'prohibited', text: '完全禁止' }] },
+    { countryId: 'singapore', countryName: '新加坡', targetId: 'product-heat-not-burn', statuses: [{ level: 'prohibited', text: '完全禁止' }] },
+    { countryId: 'indonesia', countryName: '印度尼西亚', targetId: 'product-ecig', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'paraguay', countryName: '巴拉圭', targetId: 'module-ecig', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'uae', countryName: '阿联酋', targetId: 'product-ecig', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'russia', countryName: '俄罗斯', targetId: 'module-ecig', statuses: [{ level: 'restricted', text: '可准入，但严格监管' }] },
+    { countryId: 'malaysia', countryName: '马来西亚', targetId: 'product-nicotine-free-ecig', statuses: [{ level: 'restricted', text: '不含尼古丁电子烟及设备：部分限制/准入受控' }, { level: 'prohibited', text: '含尼古丁电子烟：高度受限' }] },
   ],
   'smokeless-tobacco': [
-    { countryId: 'china', countryName: '中国内地', status: '未开放，实质禁止', statusType: 'red', targetId: 'product-smokeless-tobacco' },
-    { countryId: 'hongkong', countryName: '中国香港', status: '完全禁止', statusType: 'red', targetId: 'module-smokeless-tobacco' },
-    { countryId: 'singapore', countryName: '新加坡', status: '完全禁止', statusType: 'red', targetId: 'product-smokeless-tobacco' },
-    { countryId: 'indonesia', countryName: '印度尼西亚', status: '可准入', statusType: 'green', targetId: 'product-smokeless-tobacco' },
-    { countryId: 'paraguay', countryName: '巴拉圭', status: '需结合产品特性确认', statusType: 'amber', targetId: 'product-smokeless-tobacco' },
-    { countryId: 'uae', countryName: '阿联酋', status: '完全禁止', statusType: 'red', targetId: 'product-smokeless-tobacco' },
-    { countryId: 'russia', countryName: '俄罗斯', status: '分项适用', statusType: 'mixed', targetId: 'product-non-smoking-tobacco', note: '大部分无烟烟草产品：可准入，但严格监管；snus、nasvay及其他明确禁售产品：完全禁止。' },
-    { countryId: 'malaysia', countryName: '马来西亚', status: '高度受限', statusType: 'red', targetId: 'product-smokeless-tobacco' },
+    { countryId: 'china', countryName: '中国内地', targetId: 'product-smokeless-tobacco', statuses: [{ level: 'prohibited', text: '未开放，实质禁止' }] },
+    { countryId: 'hongkong', countryName: '中国香港', targetId: 'module-smokeless-tobacco', statuses: [{ level: 'prohibited', text: '完全禁止' }] },
+    { countryId: 'singapore', countryName: '新加坡', targetId: 'product-smokeless-tobacco', statuses: [{ level: 'prohibited', text: '完全禁止' }] },
+    { countryId: 'indonesia', countryName: '印度尼西亚', targetId: 'product-smokeless-tobacco', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'paraguay', countryName: '巴拉圭', targetId: 'product-smokeless-tobacco', statuses: [{ level: 'restricted', text: '需结合产品特性确认' }] },
+    { countryId: 'uae', countryName: '阿联酋', targetId: 'product-smokeless-tobacco', statuses: [{ level: 'prohibited', text: '完全禁止' }] },
+    { countryId: 'russia', countryName: '俄罗斯', targetId: 'product-non-smoking-tobacco', statuses: [{ level: 'prohibited', text: 'snus、nasvay：完全禁止' }, { level: 'restricted', text: 'snus、nasvay以外的无烟烟草产品：可准入，但严格监管' }] },
+    { countryId: 'malaysia', countryName: '马来西亚', targetId: 'product-smokeless-tobacco', statuses: [{ level: 'prohibited', text: '高度受限' }] },
   ],
   'novel-nicotine': [
-    { countryId: 'china', countryName: '中国内地', status: '未开放，实质禁止', statusType: 'red', targetId: 'product-smokeless-tobacco' },
-    { countryId: 'hongkong', countryName: '中国香港', status: '高度受限', statusType: 'red', targetId: 'module-novel-nicotine' },
-    { countryId: 'singapore', countryName: '新加坡', status: '完全禁止', statusType: 'red', targetId: 'product-novel-nicotine' },
-    { countryId: 'indonesia', countryName: '印度尼西亚', status: '部分限制/监管要求不明确', statusType: 'amber', targetId: 'product-novel-nicotine' },
-    { countryId: 'paraguay', countryName: '巴拉圭', status: '监管要求不明确', statusType: 'amber', targetId: 'product-nicotine-pouch' },
-    { countryId: 'uae', countryName: '阿联酋', status: '分项适用', statusType: 'mixed', targetId: 'product-nicotine-pouch', note: '无烟草尼古丁袋：可准入；其他新型尼古丁产品：监管要求不明确。' },
-    { countryId: 'russia', countryName: '俄罗斯', status: '完全禁止', statusType: 'red', targetId: 'product-novel-nicotine' },
-    { countryId: 'malaysia', countryName: '马来西亚', status: '高度受限', statusType: 'red', targetId: 'product-novel-nicotine' },
+    { countryId: 'china', countryName: '中国内地', targetId: 'product-smokeless-tobacco', statuses: [{ level: 'prohibited', text: '未开放，实质禁止' }] },
+    { countryId: 'hongkong', countryName: '中国香港', targetId: 'module-novel-nicotine', statuses: [{ level: 'prohibited', text: '高度受限' }] },
+    { countryId: 'singapore', countryName: '新加坡', targetId: 'product-novel-nicotine', statuses: [{ level: 'prohibited', text: '完全禁止' }] },
+    { countryId: 'indonesia', countryName: '印度尼西亚', targetId: 'product-novel-nicotine', statuses: [{ level: 'restricted', text: '部分限制/监管要求不明确' }] },
+    { countryId: 'paraguay', countryName: '巴拉圭', targetId: 'product-nicotine-pouch', statuses: [{ level: 'restricted', text: '监管要求不明确' }] },
+    { countryId: 'uae', countryName: '阿联酋', targetId: 'product-nicotine-pouch', statuses: [{ level: 'allowed', text: '无烟草尼古丁袋：可准入' }, { level: 'restricted', text: '其他新型尼古丁产品：监管要求不明确' }] },
+    { countryId: 'russia', countryName: '俄罗斯', targetId: 'product-novel-nicotine', statuses: [{ level: 'prohibited', text: '完全禁止' }] },
+    { countryId: 'malaysia', countryName: '马来西亚', targetId: 'product-novel-nicotine', statuses: [{ level: 'prohibited', text: '高度受限' }] },
   ],
   'tobacco-raw': [
-    { countryId: 'china', countryName: '中国内地', status: '可准入，但严格监管', statusType: 'amber', targetId: 'product-tobacco-raw' },
-    { countryId: 'hongkong', countryName: '中国香港', status: '需按成分和功能拆分判断', statusType: 'amber', targetId: 'module-tobacco-material' },
-    { countryId: 'singapore', countryName: '新加坡', status: '可准入，但严格限制', statusType: 'amber', targetId: 'product-tobacco-material' },
-    { countryId: 'indonesia', countryName: '印度尼西亚', status: '可准入', statusType: 'green', targetId: 'product-tobacco-raw' },
-    { countryId: 'paraguay', countryName: '巴拉圭', status: '可准入', statusType: 'green', targetId: 'module-tobacco-raw' },
-    { countryId: 'uae', countryName: '阿联酋', status: '可准入', statusType: 'green', targetId: 'product-tobacco-material' },
-    { countryId: 'russia', countryName: '俄罗斯', status: '可准入，但严格监管', statusType: 'amber', targetId: 'module-tobacco-raw' },
-    { countryId: 'malaysia', countryName: '马来西亚', status: '可准入', statusType: 'green', targetId: 'product-tobacco-raw' },
+    { countryId: 'china', countryName: '中国内地', targetId: 'product-tobacco-raw', statuses: [{ level: 'restricted', text: '可准入，但严格监管' }] },
+    { countryId: 'hongkong', countryName: '中国香港', targetId: 'module-tobacco-material', statuses: [{ level: 'restricted', text: '需按成分和功能拆分判断' }] },
+    { countryId: 'singapore', countryName: '新加坡', targetId: 'product-tobacco-material', statuses: [{ level: 'restricted', text: '可准入，但严格限制' }] },
+    { countryId: 'indonesia', countryName: '印度尼西亚', targetId: 'product-tobacco-raw', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'paraguay', countryName: '巴拉圭', targetId: 'module-tobacco-raw', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'uae', countryName: '阿联酋', targetId: 'product-tobacco-material', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'russia', countryName: '俄罗斯', targetId: 'module-tobacco-raw', statuses: [{ level: 'restricted', text: '可准入，但严格监管' }] },
+    { countryId: 'malaysia', countryName: '马来西亚', targetId: 'product-tobacco-raw', statuses: [{ level: 'allowed', text: '可准入' }] },
   ],
   'ordinary-material': [
-    { 
-      countryId: 'china', 
-      countryName: '中国内地', 
-      status: '部分限制/监管要求不明确', 
-      statusType: 'mixed', 
-      targetId: 'product-ordinary-bead',
-      subStatuses: [
-        { color: 'green', status: '可准入', product: '普通爆珠、香精香料及辅材' },
-        { color: 'amber', status: '可准入，但严格监管', product: '特殊配套材料' },
-      ]
-    },
-    { countryId: 'hongkong', countryName: '中国香港', status: '可准入', statusType: 'green', targetId: 'module-ordinary-material' },
-    { countryId: 'singapore', countryName: '新加坡', status: '可准入', statusType: 'green', targetId: 'module-ordinary-material' },
-    { countryId: 'indonesia', countryName: '印度尼西亚', status: '可准入', statusType: 'green', targetId: 'product-ordinary-material' },
-    { countryId: 'paraguay', countryName: '巴拉圭', status: '可准入', statusType: 'green', targetId: 'module-ordinary-material' },
-    { countryId: 'uae', countryName: '阿联酋', status: '可准入', statusType: 'green', targetId: 'product-ordinary-material' },
-    { countryId: 'russia', countryName: '俄罗斯', status: '可准入', statusType: 'green', targetId: 'module-ordinary-material' },
-    { countryId: 'malaysia', countryName: '马来西亚', status: '可准入', statusType: 'green', targetId: 'product-ordinary-material' },
+    { countryId: 'china', countryName: '中国内地', targetId: 'product-ordinary-bead', statuses: [{ level: 'restricted', text: '卷烟纸、滤嘴棒、烟用丝束：可准入，但严格监管' }, { level: 'allowed', text: '普通爆珠、香精香料及其他普通辅材：可准入' }] },
+    { countryId: 'hongkong', countryName: '中国香港', targetId: 'module-ordinary-material', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'singapore', countryName: '新加坡', targetId: 'module-ordinary-material', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'indonesia', countryName: '印度尼西亚', targetId: 'product-ordinary-material', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'paraguay', countryName: '巴拉圭', targetId: 'module-ordinary-material', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'uae', countryName: '阿联酋', targetId: 'product-ordinary-material', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'russia', countryName: '俄罗斯', targetId: 'module-ordinary-material', statuses: [{ level: 'allowed', text: '可准入' }] },
+    { countryId: 'malaysia', countryName: '马来西亚', targetId: 'product-ordinary-material', statuses: [{ level: 'allowed', text: '可准入' }] },
   ],
 };
