@@ -74,9 +74,9 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-[#2E3F73] mb-2">卷烟等传统烟草制品</h4>
+                    <h4 className="text-base font-bold text-[#2E3F73] mb-2">卷烟等传统烟草产品</h4>
                     <div className="space-y-2">
-                      <BulletPoint>卷烟等传统烟草制品不是普通市场自由经营。生产、批发和进出口主要在中国烟草总公司及其所属企业体系内组织；零售主体需取得烟草专卖零售许可证，并在当地烟草专卖批发企业进货，接受发证机关监督管理。</BulletPoint>
+                      <BulletPoint>卷烟等传统烟草产品不是普通市场自由经营。生产、批发和进出口主要在中国烟草总公司及其所属企业体系内组织；零售主体需取得烟草专卖零售许可证，并在当地烟草专卖批发企业进货，接受发证机关监督管理。</BulletPoint>
                     </div>
                   </div>
                   <div>

@@ -100,7 +100,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
             <StatusCard
               status="amber"
               customLabel="可准入，但严格限制"
-              title="传统烟草成品"
+              title="传统烟草产品"
               id="product-traditional-tobacco"
               content={<>
                 <div className="text-sm text-justify text-[#334155] mb-2">适用产品：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、其他制成烟草</div>
@@ -108,7 +108,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">传统烟草成品可以在新加坡依法经营，但进口、批发、分销和零售均需取得对应烟草许可证。</span>
+                    <span className="flex-1 min-w-0">传统烟草产品可以在新加坡依法经营，但进口、批发、分销和零售均需取得对应烟草许可证。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
@@ -116,7 +116,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">进口或本地制造传统烟草成品，均需按规定缴纳消费税；卷烟、雪茄、小雪茄及其他制成烟草的消费税已提高至每支58.9新分。</span>
+                    <span className="flex-1 min-w-0">进口或本地制造传统烟草产品，均需按规定缴纳消费税；卷烟、雪茄、小雪茄及其他制成烟草的消费税已提高至每支58.9新分。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
@@ -144,7 +144,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">已经构成传统卷烟、雪茄、小雪茄或其他制成烟草的，应按传统烟草成品路径处理。</span>
+                    <span className="flex-1 min-w-0">已经构成传统卷烟、雪茄、小雪茄或其他制成烟草的，应按传统烟草产品路径处理。</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C9A24C] mt-[9px] flex-shrink-0"></span>
@@ -217,7 +217,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               id="product-smokeless-tobacco"
               content={<>
                 <div className="text-sm text-justify text-[#334155] mb-2">适用产品：口含烟、鼻烟、嚼烟、snus、可溶性烟草，以及 Gutkha、Khaini、Zarda 等含烟草但不经燃烧吸用的产品</div>
-                <div className="text-sm text-[#64748B] mb-2 leading-6">
+                <div className="text-sm text-[#64748B] mb-2 leading-relaxed">
                   注：<br />
                   Gutkha：通常是小袋包装，属于口含 / 咀嚼使用的烟草混合物，常和 pan masala 类产品放在一起销售。<br />
                   Khaini：湿润烟叶类咀嚼烟草，可能含熟石灰、香料等，形态更接近散状或袋装烟草。<br />

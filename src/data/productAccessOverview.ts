@@ -91,7 +91,7 @@ export const russiaProductAccessOverview: ProductAccessOverviewData = {
       statusType: 'amber',
       products: [
         { productName: '烟草及尼古丁原料：烟叶、烟草薄片、烟草废料、尼古丁原料', targetId: 'module-tobacco-raw' },
-        { productName: '传统烟草制品：传统卷烟、papirosy（俄式纸嘴卷烟）、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草', targetId: 'product-traditional-tobacco' },
+        { productName: '传统烟草产品：传统卷烟、papirosy（俄式纸嘴卷烟）、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草', targetId: 'product-traditional-tobacco' },
         { productName: '大部分无烟烟草产品：除 snus（湿润口含烟草）、nasvay（中亚口含烟草制品）及其他明确禁售产品以外的无烟烟草产品', targetId: 'product-non-smoking-tobacco' },
         { productName: '加热烟草产品：HNB 烟支、加热消费用烟草', targetId: 'product-heat-not-burn' },
         { productName: '电子烟及液体产品', targetId: 'module-ecig' },

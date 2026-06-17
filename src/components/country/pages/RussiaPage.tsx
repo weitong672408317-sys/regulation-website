@@ -111,7 +111,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
       />
 
       <ProductAccessSection sectionId="product-access">
-        <ProductModuleCard title="1. 传统烟草制品" label="产品定性">
+        <ProductModuleCard title="1. 传统烟草产品" label="产品定性">
           <div className="space-y-2 mb-4">
             <BulletPoint>根据 TR CU 035/2014，烟草制品是全部或部分以烟草叶为原料制成，并以消费者包装投放市场的产品。</BulletPoint>
             <BulletPoint>烟草制品主要包括：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草，以及 papirosy（俄式纸嘴卷烟，即一端为烟草段、另一端为较长中空纸嘴的传统燃烧型烟草制品）。</BulletPoint>
@@ -119,7 +119,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
           <StatusCard
             status="amber"
             customLabel="可准入，但严格监管"
-            title="传统烟草制品"
+            title="传统烟草产品"
             id="product-traditional-tobacco"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：传统卷烟、papirosy（俄式纸嘴卷烟）、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草</div>

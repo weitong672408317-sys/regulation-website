@@ -709,7 +709,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
               </div>
               <div className="flex items-start gap-3">
                 <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">包装和宣传材料不得使用"light""ultra light""mild""cool""low tar""special""premium""rich""slim"等表示低危害、优越品质或类似含义的表达。</span>
+                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0 break-words-force">包装和宣传材料不得使用"light""ultra light""mild""cool""low tar""special""premium""rich""slim"等表示低危害、优越品质或类似含义的表达。</span>
               </div>
               <div className="flex items-start gap-3">
                 <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>

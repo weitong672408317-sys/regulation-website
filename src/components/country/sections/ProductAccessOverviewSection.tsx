@@ -60,7 +60,7 @@ export function ProductAccessOverviewSection({ data, sectionId }: ProductAccessO
                           <span className={`w-1.5 h-1.5 rounded-full ${statusStyles[group.statusType].dot} mt-[9px] flex-shrink-0`}></span>
                           <button
                             onClick={() => handleClick(product.targetId)}
-                            className="text-[#4A6290] hover:underline text-base leading-7 text-justify cursor-pointer"
+                            className="text-[#4A6290] hover:underline text-base leading-7 text-justify break-words-force cursor-pointer"
                           >
                             {product.productName}
                           </button>

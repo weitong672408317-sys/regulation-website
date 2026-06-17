@@ -513,7 +513,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">税额计算：</span>印尼消费税按产品类别以固定税额征收，传统烟草制品通常按每支或每克计征，电子烟液等液体产品通常按每毫升计征。具体税额受产品类别、生产者分组和最低零售指导价 HJE 档位影响。</span>
+              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">税额计算：</span>印尼消费税按产品类别以固定税额征收，传统烟草产品通常按每支或每克计征，电子烟液等液体产品通常按每毫升计征。具体税额受产品类别、生产者分组和最低零售指导价 HJE 档位影响。</span>
             </div>
           </div>
         </TaxTableCard>
