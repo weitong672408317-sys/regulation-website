@@ -36,7 +36,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       {/* 一、本季监管动态 */}
       <SeasonSummarySection
         sectionId="overview"
-        introText="2026年以来，印尼烟草及电子烟监管的可确认新动态主要集中在电子烟监管新规、加强流通监管和烟草消费税政策三个方面。传统烟草、电子烟和 HPTL 仍有合法经营空间，但监管重点继续向产品标准、包装标签、广告限制、违法烟液和非法烟草市场治理集中。"
+        introText="2026年以来，印尼烟草及电子烟监管的可确认新动态主要集中在电子烟监管新规、加强流通监管和烟草税收政策三个方面。传统烟草、电子烟和HPTL仍有合法经营空间，但监管重点继续向产品标准、包装标签、广告限制、违法烟液和非法烟草市场治理集中。"
         items={[
           {
             title: '电子烟新规实施',
@@ -47,8 +47,8 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             content: '2026年5月，BPOM 表示将加强全国电子烟流通监管，并与 BNN 协作处理含毒品或违禁成分电子烟液问题。电子烟监管重点正在从一般销售管理，进一步延伸到产品成分、流通渠道和违法烟液执法。'
           },
           {
-            title: '烟草消费税政策',
-            content: '2025年9月，印尼财政部长公开表示，2026年烟草产品消费税税率将维持不变，政策重点转向治理非法烟草市场。'
+            title: '烟草税收政策',
+            content: '2025年9月，印尼财政部长表示，2026年烟草产品消费税税率维持不变，政策重点转向治理非法烟草市场。2026年5月，第26/2026号财政部长条例生效，重新规范卷烟税征收、缴存和地方分配机制，维持卷烟税按消费税额的10%计征，并进一步明确电子烟及其他烟草产品的卷烟税适用范围。'
           }
         ]}
       />
@@ -87,110 +87,158 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
       {/* 三、产品准入与监管口径 */}
       <ProductAccessSection sectionId="product-access">
-        {/* 1. 成瘾性物质与烟草制品 */}
-        <ProductModuleCard title="1. 成瘾性物质与烟草制品" label="产品定性">
-          <div className="space-y-2 mb-4">
-            <BulletPoint>根据《健康法》实施条例，成瘾性物质包括含烟草或不含烟草的产品，无论是香烟或其他具有成瘾性质的形式，只要其使用可能对个人和 / 或社会造成损害，且可以是固体、液体或气体形态。</BulletPoint>
+        {/* 产品定义 */}
+        <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-5 mb-6">
+          <div className="space-y-2">
+            <BulletPoint>根据《健康法》实施条例，成瘾性物质包括含烟草或不含烟草的产品，无论是香烟或其他具有成瘾性质的形式，只要其使用可能对个人和／或社会造成损害，且可以是固体、液体或气体形态。</BulletPoint>
             <BulletPoint>烟草制品是指全部或部分以烟草叶为原料制成的任何产品，经加工后可通过燃烧、加热、雾化、吸食、吸入、咀嚼或其他消费方式使用。法规明确列举的烟草制品包括香烟、雪茄、烟叶卷烟、切丝烟草、固态和液态烟草以及其他烟草加工产品。</BulletPoint>
           </div>
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <StatusCard
-              id="product-combustible-tobacco"
-              status="green"
-              title="燃烧类烟草制品"
-              customLabel="可准入，但成品进口严格受限"
-              content={<>
-                <div className="text-sm text-[#334155] mb-2">适用产品：传统卷烟、雪茄、烟丝、其他燃烧类烟草制品</div>
-                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">传统燃烧烟草制品在印尼具有成熟合法监管路径，可以依法生产、流通和销售。</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">生产及本土流通属于消费税应税消费品管理范围，需要取得 NPPBKC、缴纳消费税和烟草税，并贴附消费税税票。</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">成品卷烟进口并非绝对禁止，但 PI（进口批准书）实务中较难取得，通常仅特定主体获批，数量受到严格限制。</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">未贴税票、低报错报、走私或通过不合规渠道销售，是核心执法重点。</span>
-                  </div>
-                </div>
-              </>}
-            />
-            <StatusCard
-              id="product-heat-not-burn"
-              status="green"
-              title="加热烟草产品"
-              customLabel="可准入"
-              content={<>
-                <div className="text-sm text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒、其他加热烟草制品</div>
-                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">HNB 烟支 / 加热烟草棒属于含烟草材料的烟草产品，进入印尼本土市场时应按烟草制品、其他烟草加工产品或消费税应税消费品管理。</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">生产及本土流通需要取得 NPPBKC，并适用消费税、烟草税和消费税税票要求。</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">包装、健康警示、销售对象、销售地点和广告促销应遵守烟草制品及成瘾性物质监管要求。</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">HNB 加热设备本身不属于 HNB 烟支；单独进口或销售时，不因设备本身取得 NPPBKC，也不贴附 HNB 烟支对应的消费税税票。</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0">HNB 加热设备与 HNB 烟支、烟弹、烟油或其他含烟草 / 尼古丁耗材组合进口或组合销售的，应将设备部分和耗材部分分别申报，并分别判断消费税、税票、标签和流通要求。</span>
-                  </div>
-                </div>
-              </>}
-            />
-          </div>
-        </ProductModuleCard>
+        </div>
 
-        {/* 2. 电子烟 */}
-        <ProductModuleCard title="2. 电子烟" label="产品定性">
-          <div className="space-y-2 mb-4">
-            <BulletPoint>电子烟是指以液态、固态或其他形式存在的烟草制品，由烟草叶通过提取或其他方式加工而成，根据技术发展和消费者偏好制成，供最终消费者使用，并以零售包装形式销售，通过电子加热装置加热后吸入使用。</BulletPoint>
-            <BulletPoint>含有尼古丁和 / 或其他物质的电子烟及其加工产品，包括具有相同或类似类型与性质的合成制品，只要通过电子加热装置加热后吸入使用，也纳入电子烟管理范围。</BulletPoint>
-          </div>
+        {/* 1. 燃烧类烟草制品 */}
+        <ProductModuleCard title="1. 燃烧类烟草制品">
           <StatusCard
-            id="product-ecig"
+            id="product-combustible-tobacco"
             status="green"
-            title="电子烟产品"
-            customLabel="可准入，监管趋严"
+            title="燃烧类烟草制品"
+            customLabel="可准入，但成品进口严格受限"
             content={<>
-              <div className="text-sm text-[#334155] mb-2">适用产品：电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、设备与液体组合产品</div>
+              <div className="text-sm text-[#334155] mb-2">适用产品：传统卷烟、雪茄、烟叶卷烟、切丝烟草及其他通过燃烧方式使用的烟草制品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">电子烟及相关液体在印尼有合法经营路径，进入本土市场时应关注消费税、税票、包装标签、健康警示和销售限制。</span>
+                  <span className="flex-1 min-w-0">燃烧类烟草制品在印尼具有合法生产、流通和销售路径，并按照具体产品类别适用相应消费税、税票、包装标签、健康警示和销售限制要求。</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">尼古丁和焦油的含量有严格的限制。生产商和进口商必须对每种产品进行检测，为确保测量结果准确，必须使用经批准的检测技术。</span>
+                  <span className="flex-1 min-w-0">生产及本土流通经营主体应依法取得NPPBKC，并按照产品类别、生产方式、经营者等级、零售价格及适用计税单位确定消费税。</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">生产商和进口商必须向 BPOM 提交检测结果、登记详细的成分和添加剂清单。</span>
+                  <span className="flex-1 min-w-0">卷烟、雪茄和烟叶卷烟属于卷烟税征税范围，还应按照各自卷烟消费税额的10%缴纳卷烟税。</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">来源不明、成分不明、违法添加、含毒品或含违禁成分的烟液，是 BPOM 和执法机关重点关注的风险。</span>
+                  <span className="flex-1 min-w-0">切丝烟草属于烟草制品消费税应税产品，但不属于卷烟税征税范围。</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                  <span className="flex-1 min-w-0">成品卷烟进口并非绝对禁止，但进口批准实务中较难取得，通常仅特定主体获批，进口数量及经营条件受到严格限制。</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                  <span className="flex-1 min-w-0">未贴税票、低报错报、错误归类、走私或者通过不合规渠道销售，是海关与消费税机关的重点执法事项。</span>
                 </div>
               </div>
             </>}
           />
+        </ProductModuleCard>
+
+        {/* 2. 电子烟产品 */}
+        <ProductModuleCard title="2. 电子烟产品" label="产品定性">
+          <div className="space-y-2 mb-4">
+            <BulletPoint>根据印尼消费税规则，电子烟是指以液态、固态或其他形态存在，由烟叶经提取或其他方式加工制成，不论生产过程中是否使用替代材料或辅助材料，以零售包装向最终消费者提供，并通过电子加热装置加热后吸用的烟草制品。</BulletPoint>
+            <BulletPoint>电子烟具体包括：</BulletPoint>
+            <div className="ml-4 space-y-2">
+              <BulletPoint>固体电子烟（Rokok Elektrik Padat）：是指由烟叶经提取或其他方式加工制成的固态电子烟，不论生产过程中是否使用替代材料或辅助材料，以零售包装向最终消费者提供，并通过电子加热装置加热后吸用。</BulletPoint>
+              <BulletPoint>开放式液体电子烟（Rokok Elektrik Cair Sistem Terbuka）：是指由烟叶经提取或其他方式加工制成的液态电子烟，不论生产过程中是否使用替代材料或辅助材料，以零售包装向最终消费者提供，并通过电子加热装置加热后吸用。</BulletPoint>
+              <BulletPoint>封闭式液体电子烟（Rokok Elektrik Cair Sistem Tertutup）：是指由烟叶经提取或其他方式加工制成的液态电子烟，不论生产过程中是否使用替代材料或辅助材料，装在不可重复加注的一体式装置或者储液容器内，以零售包装向最终消费者提供，并且只能通过专用电子加热装置加热后吸用。</BulletPoint>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            {/* 2.1 固体电子烟产品 */}
+            <StatusCard
+              id="product-solid-ecig"
+              status="green"
+              title="固体电子烟产品"
+              customLabel="可准入，监管趋严"
+              content={<>
+                <div className="text-sm text-[#334155] mb-2">典型产品：HNB烟支、加热烟草棒</div>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">生产商和进口商应依法取得NPPBKC，并办理消费税税率核定、零售价格申报、品牌登记和消费税税票等手续。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">固体电子烟需缴纳消费税，还应按照消费税额的10%缴纳卷烟税。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">产品应符合包装标签、健康警示、销售对象、销售场所、广告促销及其他烟草制品监管要求。</span>
+                  </div>
+                </div>
+              </>}
+            />
+            {/* 2.2 液体电子烟产品 */}
+            <StatusCard
+              id="product-liquid-ecig"
+              status="green"
+              title="液体电子烟产品"
+              customLabel="可准入，监管趋严"
+              content={<>
+                <div className="text-sm text-[#334155] mb-2">适用产品：开放式电子烟液、补充液、封闭式烟弹、一次性预灌装电子烟产品</div>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">电子烟及相关液体在印尼具有合法经营路径，进入本土市场时应符合消费税、税票、包装标签、健康警示和销售限制要求。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">生产商和进口商应依法取得NPPBKC，并办理消费税税率核定、零售价格申报、品牌登记和消费税税票等手续。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">液体电子烟根据产品结构分为开放式液体电子烟和封闭式液体电子烟，均需缴纳消费税，还应按照消费税额的10%缴纳卷烟税。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">电子烟尼古丁含量受法定上限管理。生产商和进口商应对每个产品变体的尼古丁含量进行检测，并按照规定向BPOM报告检测结果。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">生产商和进口商还应按照规定向BPOM报告产品成分等相关资料。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">来源不明、成分不明、违法添加、含毒品或含违禁成分的烟液，是BPOM和执法机关重点关注的风险。</span>
+                  </div>
+                </div>
+              </>}
+            />
+            {/* 2.3 电子烟设备 */}
+            <StatusCard
+              id="product-ecig-device"
+              status="green"
+              title="电子烟设备"
+              customLabel="可准入"
+              content={<>
+                <div className="text-sm text-[#334155] mb-2">适用产品：电子烟设备、雾化器、HNB加热设备、加热组件</div>
+                <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">单独销售且不含烟液、烟弹、HNB烟支、加热烟草棒或其他烟草制品的设备，不属于消费税法规所定义的电子烟产品。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">单独进口或销售设备时，不因设备本身缴纳烟草制品消费税或卷烟税，也不因设备本身申领烟草制品消费税税票。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">设备应符合适用的进口、产品安全、标签、消费者保护和一般商品流通要求。</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6AAF7C] mt-[9px] flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">设备与HNB烟支、加热烟草棒、烟弹或烟液组合进口或组合销售的，应将设备与相关烟草制品分别申报，并分别判断消费税、卷烟税、税票、标签和流通要求。</span>
+                  </div>
+                </div>
+              </>}
+            />
+          </div>
         </ProductModuleCard>
 
         {/* 3. 无烟烟草及新型尼古丁产品 */}
@@ -537,19 +585,43 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </div>
         </TaxTableCard>
 
-        <TaxTableCard title="3. 烟草税 Pajak Rokok">
+        <TaxTableCard title="3. 卷烟税 Pajak Rokok">
           <div className="space-y-2">
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">适用对象：</span>烟草税是对含烟草制品征收的省级税种，通常适用于已经贴附消费税税票的烟草制品。</span>
+              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">根据第26/2026号财政部长条例，卷烟税以政府核定的卷烟消费税为计税基础，税率为卷烟消费税额的10%。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">计算方式：</span>烟草税通常以消费税为税基，按消费税的 10% 计征。</span>
+              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">征税范围：</span>卷烟、雪茄、烟叶卷烟（rokok daun）和电子烟。电子烟包括固体电子烟、开放式液体电子烟和封闭式液体电子烟；HNB烟支、加热烟草棒属于固体电子烟。</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">提示：</span>消费税、烟草税和增值税属于不同税种，可以并行适用。</span>
+              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]">下列产品不属于卷烟税征税范围：切丝烟草、糖蜜烟草、鼻烟、嚼烟及其他依法归入其他烟草加工产品的产品。需注意，消费税和卷烟税属于不同税种。上述产品不征收卷烟税，但仍应按照相应烟草制品类别缴纳消费税并贴附消费税税票。</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">计税方式：</span></span>
+            </div>
+            <div className="ml-6 mb-2">
+              <span className="text-base leading-relaxed text-[#334155] font-semibold">应缴卷烟税＝相应产品的卷烟消费税额×10%</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">缴纳时点：</span></span>
+            </div>
+            <div className="ml-6 space-y-1">
+              <div className="text-base leading-relaxed text-[#334155]">① 卷烟税由持有NPPBKC的卷烟工厂经营者、生产商和进口商自行计算申报，并由海关与消费税机关在征收卷烟消费税时一并征收。</div>
+              <div className="text-base leading-relaxed text-[#334155]">② 卷烟税申报书（SPPR）原则上与消费税税票订购申请CK-1一并提交。</div>
+              <div className="text-base leading-relaxed text-[#334155]">③ 获准延期缴纳卷烟消费税的，卷烟税可以按照相同期限延期缴纳。</div>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">注意事项：</span></span>
+            </div>
+            <div className="ml-6 space-y-1">
+              <div className="text-base leading-relaxed text-[#334155]">① SPPR、CK-1及实际缴款数据应保持一致。产品类别、经营者等级、零售价格类别或者消费税计算错误，可能同步导致卷烟税少缴。</div>
+              <div className="text-base leading-relaxed text-[#334155]">② 卷烟税未足额缴纳的，海关与消费税机关可以暂停办理后续CK-1或者消费税税票，直至相关税款缴清。</div>
             </div>
           </div>
         </TaxTableCard>
@@ -579,7 +651,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             </div>
             <div className="flex items-start gap-2">
               <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">BKC 产品：</span>BKC 产品应单独判断消费税和烟草税。巴淡岛原先针对烟、酒、乙醇等 BKC 的消费税便利已在 2019 年被取消；烟草制品如属于 BKC，即使在巴淡岛内经营，也应按规定缴纳消费税，并相应判断烟草税要求。</span>
+              <span className="flex-1 min-w-0 text-base leading-relaxed text-[#334155]"><span className="font-semibold text-[#334155]">BKC 产品：</span>BKC 产品应单独判断消费税和卷烟税。巴淡岛原先针对烟、酒、乙醇等 BKC 的消费税便利已在 2019 年被取消；烟草制品如属于 BKC，即使在巴淡岛内经营，也应按规定缴纳消费税，并相应判断卷烟税要求。</span>
             </div>
           </div>
         </TaxTableCard>
@@ -660,7 +732,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             title: '税务、税票与清关',
             items: [
               '严禁在印尼本土销售未贴附消费税税票的 BKC 产品。',
-              '严禁走私、低报价格、错报品名、错报 HS 编码、错报用途，或通过拆分申报、混装、转运等方式规避消费税、烟草税、PPN及进口环节税费。',
+              '严禁走私、低报价格、错报品名、错报 HS 编码、错报用途，或通过拆分申报、混装、转运等方式规避消费税、卷烟税、PPN及进口环节税费。',
               '严禁将仅限保税区、自由贸易区或工厂自用的货物，未经依法申报和补税擅自流入印尼本土市场。',
             ]
           },
@@ -737,6 +809,12 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
                 title="《财政部第96/2024号部长规章》（PMK 96/2024）"
                 description="修改电子烟及其他烟草加工产品消费税规则，调整电子烟、HPTL 等产品的消费税税率、最低零售价格、市场交易价格监测和相关税务管理要求。"
               />
+              <ReferenceItem
+                showSeparator
+                url="https://ptpsi.com/wp-content/uploads/2026/05/PMK-Nomor-26-Tahun-2026.pdf"
+                title="《财政部第26/2026号部长条例》（PMK 26/2026）"
+                description="自2026年5月12日起施行，并废止第143/2023号财政部长条例。该条例重新规定卷烟税的征收、申报缴纳、少缴追缴、收入缴存和地方分配机制，并细化卷烟税用于公共卫生、健康保障和执法的安排。条例维持卷烟税按卷烟消费税额的10%计征，同时进一步明确电子烟属于卷烟税征税范围，切丝烟草及糖蜜烟草、鼻烟、嚼烟等其他烟草加工产品不属于卷烟税征税范围。"
+              />
             </ReferenceGroupCard>
 
             <ReferenceGroupCard title="地方控烟与无烟区规则">
@@ -757,27 +835,21 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             />
             <ReferenceItem
               showSeparator
-              url="https://en.antaranews.com/news/399833/indonesia-plans-new-cigarette-excise-layer-to-tackle-illegal-tobacco"
-              title="2026年1月｜印尼讨论新增卷烟消费税层级，以治理非法卷烟市场"
-              description="印尼财政部讨论新增卷烟消费税层级，政策目标指向非法卷烟治理和税收征管。"
-            />
-            <ReferenceItem
-              showSeparator
               url="https://media.kemenkeu.go.id/getmedia/35d43141-006f-4197-982d-8eebb09e9469/Newsletter-APBN-KITA-Februari-2026-%281%29.pdf?ext=.pdf"
               title="2026年2月｜印尼海关1月查获约2.49亿支非法卷烟"
               description="印尼海关及消费税总局在2026年1月查获约2.49亿支非法卷烟，说明非法卷烟和未贴税票产品仍是执法重点。"
             />
             <ReferenceItem
               showSeparator
-              url="https://jakartaglobe.id/lifestyle/health-groups-reject-plan-for-new-cigarette-excise-tier-warn-of-cheaper-prices"
-              title="2026年2月｜公共健康团体反对新增低价卷烟消费税层级方案"
-              description="公共健康团体反对新增卷烟消费税层级，担心该安排可能压低部分产品价格、扩大低价卷烟可及性，并削弱控烟政策效果。"
-            />
-            <ReferenceItem
-              showSeparator
               url="https://tobaccoreporter.com/2026/04/16/indonesia-to-enforce-new-vape-rules-from-july/"
               title="2026年4月｜电子烟新规执行时间和重点要求受到市场关注"
               description="公开报道显示，PP 28/2024 项下电子烟规则预计自2026年7月起进入执行阶段，重点涉及21岁最低购买年龄、广告限制、尼古丁含量、图文健康警示和无烟区等要求。"
+            />
+            <ReferenceItem
+              showSeparator
+              url="https://ptpsi.com/wp-content/uploads/2026/05/PMK-Nomor-26-Tahun-2026.pdf"
+              title="2026年5月｜印尼颁布新的卷烟税征收、缴存和分配规则"
+              description="印尼财政部第26/2026号条例于2026年5月12日生效，并取代第143/2023号条例。新规全面调整卷烟税的申报缴纳、少缴追缴、中央向地方缴存、地方收入分配及健康保障资金扣划机制，同时维持卷烟税按卷烟消费税额的10%计征。对生产商和进口商而言，新规进一步明确电子烟属于征税范围，切丝烟草及部分其他烟草加工产品不征收卷烟税，并继续将卷烟税缴纳与消费税税票办理相衔接。"
             />
             <ReferenceItem
               showSeparator
