@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { baseCountries } from '../../../../data/mockData';
 import {
   InfoBlock, FormattedText, parseOverview,
@@ -8,18 +9,17 @@ import {
 } from '../../../components/country/CountryComponents';
 import ScrollToTop from '../../../components/country/ScrollToTop';
 import SidebarNav from '../../../components/country/SidebarNav';
-import PrefetchLinks from '../../../components/country/PrefetchLinks';
 
-// Static imports - all country pages are pre-rendered SSG,
-// so bundling them together ensures instant navigation
-import RussiaPage from '../../../components/country/pages/RussiaPage';
-import UaePage from '../../../components/country/pages/UaePage';
-import ParaguayPage from '../../../components/country/pages/ParaguayPage';
-import IndonesiaPage from '../../../components/country/pages/IndonesiaPage';
-import MalaysiaPage from '../../../components/country/pages/MalaysiaPage';
-import SingaporePage from '../../../components/country/pages/SingaporePage';
-import ChinaPage from '../../../components/country/pages/ChinaPage';
-import HongkongPage from '../../../components/country/pages/HongkongPage';
+// Dynamic imports - each country page is loaded as a separate chunk
+// for faster initial page load and navigation
+const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'));
+const UaePage = dynamic(() => import('../../../components/country/pages/UaePage'));
+const ParaguayPage = dynamic(() => import('../../../components/country/pages/ParaguayPage'));
+const IndonesiaPage = dynamic(() => import('../../../components/country/pages/IndonesiaPage'));
+const MalaysiaPage = dynamic(() => import('../../../components/country/pages/MalaysiaPage'));
+const SingaporePage = dynamic(() => import('../../../components/country/pages/SingaporePage'));
+const ChinaPage = dynamic(() => import('../../../components/country/pages/ChinaPage'));
+const HongkongPage = dynamic(() => import('../../../components/country/pages/HongkongPage'));
 
 const countryPageMap: Record<string, React.ComponentType<{ country: any }>> = {
   russia: RussiaPage,
@@ -58,10 +58,9 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
     return (
       <div className="min-h-screen bg-[#F7F9FC]">
         <ScrollToTop countryId={country.id} />
-        <PrefetchLinks currentCountryId={country.id} />
         <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
           <div className="max-w-7xl lg:max-w-[1800px] mx-auto px-8 md:px-12 xl:px-16 2xl:pl-20 2xl:pr-24 py-4">
-            <Link href="/" className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
+            <Link href="/" prefetch={true} className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
               <span className="text-lg">←</span> 返回首页
             </Link>
           </div>

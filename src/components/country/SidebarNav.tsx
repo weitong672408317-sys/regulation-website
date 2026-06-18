@@ -109,6 +109,7 @@ export default function SidebarNav({ countryId = 'china' }: SidebarNavProps) {
             <li className="mt-3 pt-3 border-t border-[#E8EDF5]">
               <Link
                 href="/"
+                prefetch={true}
                 className="w-full text-left px-3 py-1.5 rounded-lg text-sm transition-colors flex items-center gap-2 text-[#64748B] hover:text-[#2E3F73] hover:bg-[#F3F5FB]"
               >
                 <span className="w-5 h-5 flex items-center justify-center flex-shrink-0 text-[#64748B]">
