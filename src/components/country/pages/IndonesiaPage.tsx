@@ -843,7 +843,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               showSeparator
               url="https://tobaccoreporter.com/2026/04/16/indonesia-to-enforce-new-vape-rules-from-july/"
               title="2026年4月｜电子烟新规执行时间和重点要求受到市场关注"
-              description="公开报道显示，PP 28/2024 项下电子烟规则预计自2026年7月起进入执行阶段，重点涉及21岁最低购买年龄、广告限制、尼古丁含量、图文健康警示和无烟区等要求。"
+              description="PP 28/2024 项下电子烟规则预计自2026年7月起进入执行阶段，重点涉及21岁最低购买年龄、广告限制、尼古丁含量、图文健康警示和无烟区等要求。"
             />
             <ReferenceItem
               showSeparator
