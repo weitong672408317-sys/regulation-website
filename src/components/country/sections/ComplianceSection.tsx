@@ -20,21 +20,21 @@ export function ComplianceSection({ country, isRussiaStyle = true, overview, chi
           {country.compliance.licenseCards && country.compliance.licenseCards.length > 0 ? (
             <>
               {(overview || country.compliance.licenseRequirements) && (
-                <p className="text-[#334155] mb-6 text-justify">{overview || country.compliance.licenseRequirements}</p>
+                <p className="text-[#334155] mb-6 leading-[1.6] text-justify">{overview || country.compliance.licenseRequirements}</p>
               )}
               <ComplianceLicenseCards cards={country.compliance.licenseCards} isRussia={isRussiaStyle} />
             </>
           ) : country.compliance.genericTable ? (
             <>
               {(overview || country.compliance.licenseRequirements) && (
-                <p className="text-[#334155] mb-6 text-justify">{overview || country.compliance.licenseRequirements}</p>
+                <p className="text-[#334155] mb-6 leading-[1.6] text-justify">{overview || country.compliance.licenseRequirements}</p>
               )}
               <GenericComplianceTable data={country.compliance.genericTable} isRussia={isRussiaStyle} />
             </>
           ) : country.compliance.secondGenericTable ? (
             <>
               {(overview || country.compliance.licenseRequirements) && (
-                <p className="text-[#334155] mb-6 text-justify">{overview || country.compliance.licenseRequirements}</p>
+                <p className="text-[#334155] mb-6 leading-[1.6] text-justify">{overview || country.compliance.licenseRequirements}</p>
               )}
               <GenericComplianceTable data={country.compliance.secondGenericTable} isRussia={isRussiaStyle} />
             </>
@@ -43,11 +43,11 @@ export function ComplianceSection({ country, isRussiaStyle = true, overview, chi
               <table className="w-full text-base">
                 <thead>
                   <tr className="bg-[#E8EDF5]">
-                    <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">产品</th>
-                    <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">NPPBKC</th>
-                    <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">PI 进口批准</th>
-                    <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">BPOM 注册</th>
-                    <th className="px-4 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]">Halal 认证</th>
+                    <th className="px-4 py-4 text-justify font-bold text-[#2E3F73] border-b border-[#D8DDED]">产品</th>
+                    <th className="px-4 py-4 text-justify font-bold text-[#2E3F73] border-b border-[#D8DDED]">NPPBKC</th>
+                    <th className="px-4 py-4 text-justify font-bold text-[#2E3F73] border-b border-[#D8DDED]">PI 进口批准</th>
+                    <th className="px-4 py-4 text-justify font-bold text-[#2E3F73] border-b border-[#D8DDED]">BPOM 注册</th>
+                    <th className="px-4 py-4 text-justify font-bold text-[#2E3F73] border-b border-[#D8DDED]">Halal 认证</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -64,7 +64,7 @@ export function ComplianceSection({ country, isRussiaStyle = true, overview, chi
               </table>
             </div>
           ) : (overview || country.compliance.licenseRequirements) ? (
-            <p className="text-[#334155] text-justify">{overview || country.compliance.licenseRequirements}</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] leading-[1.6]">{overview || country.compliance.licenseRequirements}</p>
           ) : null}
         </>
       )}

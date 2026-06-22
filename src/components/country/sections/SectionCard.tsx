@@ -52,7 +52,7 @@ export function BulletPoint({
   return (
     <div className="flex items-start gap-3">
       <span className={`w-1.5 h-1.5 rounded-full bg-[#4A6290] ${dotClassName || 'mt-[8px]'} flex-shrink-0`}></span>
-      <span className={`text-[#334155] ${textClassName || 'text-base leading-7'} text-justify flex-1 min-w-0`}>{children}</span>
+      <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph', lineHeight: '1.6' } as unknown as React.CSSProperties} className={`text-[#334155] ${textClassName || 'text-base'} flex-1 min-w-0`}>{children}</span>
     </div>
   );
 }

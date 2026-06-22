@@ -33,7 +33,7 @@ export function ProductAccessOverviewSection({ data, sectionId }: ProductAccessO
   return (
     <SectionCard title="产品准入速览" id={sectionId}>
       {data.note && (
-        <p className="text-[#334155] text-base leading-7 mb-5 text-justify">{data.note}</p>
+        <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-5">{data.note}</p>
       )}
       <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
         <table className="w-full text-base bg-white">

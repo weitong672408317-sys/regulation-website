@@ -39,7 +39,7 @@ export function TaxSection({ introText, children, sectionId }: TaxSectionProps &
       {introText && (
         <div className="mb-6">
           {typeof introText === 'string' ? (
-            <p className="text-[#334155] text-base leading-7 text-justify">{introText}</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">{introText}</p>
           ) : (
             introText
           )}

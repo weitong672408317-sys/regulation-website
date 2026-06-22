@@ -54,7 +54,7 @@ export const SeasonSummaryCard = ({ title, text }: { title: string; text: string
         <div className="w-1 h-7 rounded-full bg-[#4A6290]" />
         <h2 className="text-2xl font-bold text-[#243B63]">{title}</h2>
       </div>
-      <div className="text-[#334155] text-sm leading-relaxed space-y-4 text-justify">
+      <div style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-sm leading-[1.55] space-y-2">
         {paragraphs.map((paragraph, pIndex) => {
           const lines = paragraph.split('\n').filter(line => line.trim());
           const hasBullets = lines.some(line => line.trim().startsWith('•'));
@@ -112,7 +112,7 @@ export const StatusCard = ({ status, title, subtitle, content, customLabel, id }
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}
       </div>
       {title && <div className="font-bold text-[#263247] text-base mb-3">{title}</div>}
-      <div className="text-[#334155] text-sm leading-relaxed text-justify">{content}</div>
+      <div style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-sm leading-[1.55]">{content}</div>
     </div>
   );
 };
@@ -127,7 +127,7 @@ export const StatusBulletPoint = ({ status, children }: { status: 'green' | 'amb
   return (
     <div className="flex items-start gap-3">
       <span className={`w-1.5 h-1.5 rounded-full ${dotColors[status]} mt-[9px] flex-shrink-0`}></span>
-      <span className="text-[#334155] text-sm leading-relaxed text-justify flex-1 min-w-0">{children}</span>
+      <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-sm leading-[1.55] flex-1 min-w-0">{children}</span>
     </div>
   );
 };
@@ -139,7 +139,7 @@ export const RegulatoryUpdateCard = ({ title, content }: { title: string; conten
         <div className="w-2 h-2 rounded-full bg-[#4D5F9A] mt-2 flex-shrink-0"></div>
         <div className="flex-1">
           <h4 className="font-bold text-[#373F7A] text-base mb-3">{title}</h4>
-          {content && <p className="text-[#334155] text-base leading-7 text-justify">{content}</p>}
+          {content && <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">{content}</p>}
         </div>
       </div>
     </div>
@@ -181,7 +181,7 @@ export const ProductDefinitionCard = ({ title, sections }: { title: string; sect
         {sections.map((section, index) => (
           <div key={index}>
             <div className="inline-flex px-2 py-0.5 rounded bg-[#E8EDF5] text-[#2E3F73] text-xs font-semibold mb-3">{section.label}</div>
-            <p className="text-[#334155] text-sm leading-relaxed text-justify">{section.content}</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-sm leading-[1.55]">{section.content}</p>
           </div>
         ))}
       </div>
@@ -263,7 +263,7 @@ export const InfoBlock = ({ title, children, isRussia = false, variant = 'defaul
   return (
     <div className={`${v.bg} border border-l-4 ${v.borderLeft} rounded-xl p-5 shadow-none`}>
       {title && <h3 className={`text-base font-bold ${v.title} mb-3`}>{title}</h3>}
-      <div className={`${v.body} text-sm leading-relaxed text-justify`}>
+      <div style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className={`${v.body} text-sm leading-[1.55]`}>
         {children}
       </div>
     </div>
@@ -284,7 +284,7 @@ export const OverviewSectionCard = ({ title, content, isRussia = false, variant 
   return (
     <div className={`${v.bg} border rounded-xl p-5`}>
       <h3 className={`text-base font-bold ${v.title} mb-3`}>{title}</h3>
-      <div className={`${v.body} text-sm leading-relaxed whitespace-pre-wrap text-justify`}>{content}</div>
+      <div style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className={`${v.body} text-sm leading-[1.55] whitespace-pre-wrap`}>{content}</div>
     </div>
   );
 };
@@ -337,7 +337,7 @@ export const FormattedText = ({ text }: { text: string }) => {
           );
         }
 
-        return <p key={pIndex} className="text-[#334155] leading-relaxed whitespace-pre-wrap text-justify">{cleaned}</p>;
+        return <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} key={pIndex} className="text-[#334155] leading-[1.6] whitespace-pre-wrap">{cleaned}</p>;
       })}
     </div>
   );
@@ -353,7 +353,7 @@ export const TableCellContent = ({ content }: { content: string | string[] }) =>
       </div>
     );
   }
-  return <span className="text-[#334155] text-justify">{content}</span>;
+  return <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155]">{content}</span>;
 };
 
 export const GenericComplianceTable = ({ data, isRussia = false }: { data: { headers: string[]; rows: (string | string[])[][] }, isRussia?: boolean }) => {
@@ -363,7 +363,7 @@ export const GenericComplianceTable = ({ data, isRussia = false }: { data: { hea
         <thead>
           <tr className={isRussia ? "bg-[#E8EDF5]" : "bg-blue-50"}>
             {data.headers.map((header, index) => (
-              <th key={index} className={`px-5 py-4 text-left font-bold ${isRussia ? "text-[#2E3F73] border-b-2 border-[#D8DDED]" : "text-blue-900 border-b-2 border-blue-200"} ${index === 0 ? 'w-48 min-w-[140px]' : ''}`}>
+              <th key={index} className={`px-5 py-4 text-justify font-bold ${isRussia ? "text-[#2E3F73] border-b-2 border-[#D8DDED]" : "text-blue-900 border-b-2 border-blue-200"} ${index === 0 ? 'w-48 min-w-[140px]' : ''}`}>
                 {header}
               </th>
             ))}
@@ -427,7 +427,7 @@ export const AccessRestrictionsByStatusView = ({ data, isRussia = false }: { dat
           {data.fullyProhibited.map((item, index) => (
             <div key={index} className={isRussia ? "bg-white/55 border border-white/70 rounded-lg p-4 shadow-none" : "bg-white border border-gray-200 rounded-lg p-4 shadow-sm"}>
               <div className="font-bold text-gray-900 text-base mb-2">{item.productName}</div>
-              <div className="text-gray-700 leading-relaxed text-justify">{item.rule}</div>
+              <div style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-gray-700 leading-[1.55]">{item.rule}</div>
             </div>
           ))}
         </div>
@@ -449,7 +449,7 @@ export const AccessRestrictionsByStatusView = ({ data, isRussia = false }: { dat
             {data.partiallyRestricted.map((item, index) => (
               <div key={index} className={isRussia ? "bg-white/55 border border-white/70 rounded-lg p-4 shadow-none" : "bg-white border border-gray-200 rounded-lg p-4 shadow-sm"}>
                 <div className="font-bold text-gray-900 text-base mb-2">{item.productName}</div>
-                <div className="text-gray-700 leading-relaxed text-justify">{item.rule}</div>
+                <div style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-gray-700 leading-[1.55]">{item.rule}</div>
               </div>
             ))}
           </div>
@@ -471,7 +471,7 @@ export const AccessRestrictionsByStatusView = ({ data, isRussia = false }: { dat
           {data.openAccessible.map((item, index) => (
             <div key={index} className={isRussia ? "bg-white/55 border border-white/70 rounded-lg p-4 shadow-none" : "bg-white border border-gray-200 rounded-lg p-4 shadow-sm"}>
               <div className="font-bold text-gray-900 text-base mb-2">{item.productName}</div>
-              <div className="text-gray-700 leading-relaxed text-justify">{item.rule}</div>
+              <div style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-gray-700 leading-[1.55]">{item.rule}</div>
             </div>
           ))}
         </div>
@@ -486,10 +486,10 @@ export const EmirateDifferencesTable = ({ data }: { data: EmirateDifferenceRow[]
       <table className="w-full text-sm border-collapse">
         <thead>
           <tr className="bg-gray-100">
-            <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">酋长国</th>
-            <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">咀嚼烟草制品</th>
-            <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">电子烟</th>
-            <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">水烟</th>
+            <th className="px-4 py-3 text-justify font-semibold text-gray-900 border-b border-gray-200">酋长国</th>
+            <th className="px-4 py-3 text-justify font-semibold text-gray-900 border-b border-gray-200">咀嚼烟草制品</th>
+            <th className="px-4 py-3 text-justify font-semibold text-gray-900 border-b border-gray-200">电子烟</th>
+            <th className="px-4 py-3 text-justify font-semibold text-gray-900 border-b border-gray-200">水烟</th>
           </tr>
         </thead>
         <tbody>
@@ -542,7 +542,7 @@ export const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Com
             </span>
             <div className="flex-1">
               <h4 className={isRussia ? "font-bold text-[#2E3F73] text-base mb-3" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
-              {isRussia ? renderDescription(card.description) : <p className="text-slate-700 leading-relaxed text-justify">{card.description}</p>}
+              {isRussia ? renderDescription(card.description) : <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-slate-700 leading-[1.6]">{card.description}</p>}
             </div>
           </div>
         </div>
@@ -582,9 +582,9 @@ export const SeasonSummaryText = ({ text }: { text: string }) => {
             <div key={blockIndex} className="space-y-2">
               {items.map((item, itemIndex) => (
                 <BulletPoint key={itemIndex}>
-                  <span className="leading-relaxed text-justify">{item.title}</span>
+                  <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="leading-[1.6]">{item.title}</span>
                   {item.details.map((detail, detailIndex) => (
-                    <p key={detailIndex} className="leading-relaxed mt-1 text-justify">{detail}</p>
+                    <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} key={detailIndex} className="leading-[1.6] mt-1">{detail}</p>
                   ))}
                 </BulletPoint>
               ))}
@@ -593,7 +593,7 @@ export const SeasonSummaryText = ({ text }: { text: string }) => {
         }
 
         return lines.map((line, lineIndex) => (
-          <p key={`${blockIndex}-${lineIndex}`} className="leading-relaxed text-justify">{line}</p>
+          <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} key={`${blockIndex}-${lineIndex}`} className="leading-[1.6]">{line}</p>
         ));
       })}
     </div>
