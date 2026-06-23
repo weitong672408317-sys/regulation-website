@@ -13,3 +13,100 @@ body {
   max-width: 100%;
   box-sizing: border-box;
 }
+
+.russia-mobile-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+.russia-mobile-nav-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (max-width: 767px) {
+  .russia-page {
+    overflow-x: clip;
+  }
+
+  .russia-page main > .flex {
+    display: block !important;
+  }
+
+  .russia-page main > .flex > nav {
+    display: none !important;
+  }
+
+  .russia-page main > .flex > .flex-1 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .russia-page [id] {
+    scroll-margin-top: 64px !important;
+  }
+
+  .russia-page section[id] .overflow-x-auto {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .russia-page section[id] .overflow-x-auto table {
+    min-width: 600px;
+  }
+
+  .russia-page section[id] .grid.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .russia-page section[id] > div {
+    padding: 16px !important;
+  }
+
+  .russia-page section[id] .ml-9 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .russia-page h1 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .russia-page section[id] > div > h2 {
+    font-size: 19px !important;
+    line-height: 1.25 !important;
+  }
+
+  .russia-page #operation-rules .flex.items-start.gap-3,
+  .russia-page #red-lines .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .russia-page #resources .russia-resource-nested-list {
+    margin-top: 12px !important;
+  }
+
+  .russia-page #resources .russia-resource-nested-list > .russia-resource-nested-item + .russia-resource-nested-item {
+    margin-top: 12px !important;
+  }
+}
+
+.russia-page #resources .russia-resource-nested-list {
+  margin-top: 12px;
+}
+
+.russia-page #resources .russia-resource-nested-list > .russia-resource-nested-item + .russia-resource-nested-item {
+  margin-top: 12px;
+}

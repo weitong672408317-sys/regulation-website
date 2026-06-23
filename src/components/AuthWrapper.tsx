@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 
 const SITE_PASSWORD = 'FYI';
+const SKIP_AUTH = true;
 
 interface AuthWrapperProps {
   children: React.ReactNode;
@@ -33,7 +34,7 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
     }
   };
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && !SKIP_AUTH) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
         <div className="bg-white p-8 rounded-xl shadow-2xl max-w-md w-full mx-4">

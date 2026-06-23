@@ -20,9 +20,10 @@ const statusStyles: Record<AccessStatusType, { badge: string; dot: string }> = {
 interface ProductAccessOverviewSectionProps {
   data: ProductAccessOverviewData;
   sectionId?: string;
+  useMobileCards?: boolean;
 }
 
-export function ProductAccessOverviewSection({ data, sectionId }: ProductAccessOverviewSectionProps) {
+export function ProductAccessOverviewSection({ data, sectionId, useMobileCards = false }: ProductAccessOverviewSectionProps) {
   const handleClick = (targetId: string) => {
     const el = document.getElementById(targetId);
     if (el) {
@@ -35,7 +36,7 @@ export function ProductAccessOverviewSection({ data, sectionId }: ProductAccessO
       {data.note && (
         <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-5">{data.note}</p>
       )}
-      <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+      <div className={`${useMobileCards ? 'hidden md:block ' : ''}overflow-x-auto rounded-xl border border-[#D8DDED]`}>
         <table className="w-full text-base bg-white">
           <thead>
             <tr className="bg-[#E8EDF5]">
@@ -74,6 +75,32 @@ export function ProductAccessOverviewSection({ data, sectionId }: ProductAccessO
           </tbody>
         </table>
       </div>
+      {useMobileCards && (
+        <div className="md:hidden space-y-3">
+          {data.groups.map((group, groupIdx) => (
+            <div key={groupIdx} className="rounded-xl border border-[#D8DDED] bg-white p-4">
+              <div className="mb-3">
+                <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap ${statusStyles[group.statusType].badge}`}>
+                  {group.status}
+                </span>
+              </div>
+              <ul className="space-y-2">
+                {group.products.map((product, productIdx) => (
+                  <li key={productIdx} className="flex items-start gap-2">
+                    <span className={`w-1.5 h-1.5 rounded-full ${statusStyles[group.statusType].dot} mt-[9px] flex-shrink-0`}></span>
+                    <button
+                      onClick={() => handleClick(product.targetId)}
+                      className="text-left text-[#4A6290] hover:underline text-base leading-[1.6] break-words-force cursor-pointer"
+                    >
+                      {product.productName}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
     </SectionCard>
   );
 }

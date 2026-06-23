@@ -38,7 +38,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
   return (
     <CountryPageTemplate>
-      <ProductAccessOverviewSection data={russiaProductAccessOverview} sectionId="product-access-overview" />
+      <ProductAccessOverviewSection data={russiaProductAccessOverview} sectionId="product-access-overview" useMobileCards />
       <SeasonSummarySection
         sectionId="overview"
         introText="2026年以来，俄罗斯监管重点继续集中在产品许可、数字标识、税费和价格监管。烟草和尼古丁产品仍有合法准入空间，但经营端控制持续加强。"
@@ -427,29 +427,45 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
         {country.tax.exciseTaxTable && (
           <TaxTableCard title="消费税税率表">
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse border-[#D8DDED]">
-                <thead>
-                  <tr className="bg-[#E8EDF5]">
-                    {country.tax.exciseTaxTable.headers.map((header, idx) => (
-                      <th key={idx} className="px-4 py-4 text-justify font-bold text-[#2E3F73] border border-[#D8DDED]" style={idx === 0 ? { width: '28%' } : { width: '24%' }}>
-                        {header}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
-                    <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F3F5FB]'}>
-                      {row.map((cell, cellIdx) => (
-                        <td key={cellIdx} className="px-4 py-4 border border-[#D8DDED] text-[#334155] text-sm leading-[1.6]">
-                          {cell}
-                        </td>
+            <div className="hidden md:block">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse border-[#D8DDED]">
+                  <thead>
+                    <tr className="bg-[#E8EDF5]">
+                      {country.tax.exciseTaxTable.headers.map((header, idx) => (
+                        <th key={idx} className="px-4 py-4 text-justify font-bold text-[#2E3F73] border border-[#D8DDED]" style={idx === 0 ? { width: '28%' } : { width: '24%' }}>
+                          {header}
+                        </th>
                       ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
+                      <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F3F5FB]'}>
+                        {row.map((cell, cellIdx) => (
+                          <td key={cellIdx} className="px-4 py-4 border border-[#D8DDED] text-[#334155] text-sm leading-[1.6]">
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="md:hidden space-y-3">
+              {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
+                <div key={rowIdx} className="rounded-xl border border-[#D8E0F0] bg-white p-3.5">
+                  <div className="text-[15px] leading-[1.35] font-bold text-[#27406E]">
+                    {row[0]}
+                  </div>
+                  <div className="mt-2 text-[14px] leading-[1.55] text-[#334155]">
+                    <div>2026年：{row[1]}</div>
+                    <div>2027年：{row[2]}</div>
+                    <div>2028年：{row[3]}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </TaxTableCard>
         )}
@@ -466,38 +482,60 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
         {country.tax.minimumPriceTable && (
           <TaxTableCard title="最低价格表">
-            <div className="overflow-x-auto">
-              <table className="w-full text-base border-collapse border-[#D8DDED]">
-                <thead>
-                  <tr className="bg-[#E8EDF5]">
-                    {country.tax.minimumPriceTable.headers.map((header, idx) => (
-                      <th key={idx} className="px-4 py-4 text-justify font-bold text-[#2E3F73] border border-[#D8DDED]" style={idx === 0 ? { width: '42%' } : { width: '58%' }}>
-                        {header}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {country.tax.minimumPriceTable.rows.map((row, rowIdx) => (
-                    <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F3F5FB]'}>
-                      <td className="px-4 py-4 border border-[#D8DDED] text-[#334155] leading-[1.6] font-medium">
-                        {row[0]}
-                      </td>
-                      <td className="px-4 py-4 border border-[#D8DDED] text-[#334155] leading-[1.6]">
-                        {row[0] === '水烟烟草' ? (
-                          <div className="space-y-1">
-                            {String(row[1]).split('；').map((item: string, i: number) => (
-                              <BulletPoint key={i}>{item}</BulletPoint>
-                            ))}
-                          </div>
-                        ) : (
-                          String(row[1])
-                        )}
-                      </td>
+            <div className="hidden md:block">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse border-[#D8DDED]">
+                  <thead>
+                    <tr className="bg-[#E8EDF5]">
+                      {country.tax.minimumPriceTable.headers.map((header, idx) => (
+                        <th key={idx} className="px-4 py-4 text-justify font-bold text-[#2E3F73] border border-[#D8DDED]" style={idx === 0 ? { width: '42%' } : { width: '58%' }}>
+                          {header}
+                        </th>
+                      ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {country.tax.minimumPriceTable.rows.map((row, rowIdx) => (
+                      <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F3F5FB]'}>
+                        <td className="px-4 py-4 border border-[#D8DDED] text-[#334155] text-sm leading-[1.6]">
+                          {row[0]}
+                        </td>
+                        <td className="px-4 py-4 border border-[#D8DDED] text-[#334155] text-sm leading-[1.6]">
+                          {row[0] === '水烟烟草' ? (
+                            <div className="space-y-1">
+                              {String(row[1]).split('；').map((item: string, i: number) => (
+                                <BulletPoint key={i} textClassName="text-sm">{item}</BulletPoint>
+                              ))}
+                            </div>
+                          ) : (
+                            String(row[1])
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="md:hidden space-y-3">
+              {country.tax.minimumPriceTable.rows.map((row, rowIdx) => (
+                <div key={rowIdx} className="rounded-xl border border-[#D8E0F0] bg-white p-3.5">
+                  <div className="text-[15px] leading-[1.35] font-bold text-[#27406E]">
+                    {row[0]}
+                  </div>
+                  <div className="mt-2 text-[14px] leading-[1.55] text-[#334155]">
+                    {row[0] === '水烟烟草' ? (
+                      <div className="space-y-1">
+                        {String(row[1]).split('；').map((item: string, i: number) => (
+                          <div key={i}>{item}</div>
+                        ))}
+                      </div>
+                    ) : (
+                      String(row[1])
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </TaxTableCard>
         )}
@@ -653,8 +691,8 @@ export default function RussiaPage({ country }: RussiaPageProps) {
                 title="俄罗斯农业部2026年最低价格信息公告"
                 description={<><span className="font-semibold">主要内容：</span>该页面为俄罗斯农业部"葡萄种植、葡萄酒和烟草产品"信息页，集中发布烟草及尼古丁产品最低价格相关信息公告。</>}
               >
-                <div className="ml-4 pl-4 border-l-2 border-[#D8DDED] space-y-3">
-                  <div>
+                <div className="ml-4 pl-4 border-l-2 border-[#D8DDED] space-y-3 russia-resource-nested-list">
+                  <div className="russia-resource-nested-item">
                     <a href="https://www.consultant.ru/document/cons_doc_LAW_520847/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#263247] text-sm mb-1 hover:underline block">
                       1. 卷烟、papirosy 2026年统一最低价格信息公告
                     </a>
@@ -663,7 +701,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
                     </p>
                   </div>
 
-                  <div>
+                  <div className="russia-resource-nested-item">
                     <a href="https://www.consultant.ru/document/cons_doc_LAW_520849/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#263247] text-sm mb-1 hover:underline block">
                       2. 尼古丁产品2026年最低价格信息公告
                     </a>
@@ -672,7 +710,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
                     </p>
                   </div>
 
-                  <div>
+                  <div className="russia-resource-nested-item">
                     <a href="https://www.consultant.ru/document/cons_doc_LAW_522525/c59c7905b3e6d45c8fb4e45587eecd77efd3397b/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#263247] text-sm mb-1 hover:underline block">
                       3. 烟草产品2026年最低价格信息公告
                     </a>
