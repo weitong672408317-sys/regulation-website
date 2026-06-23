@@ -30,7 +30,7 @@ interface MalaysiaPageProps {
 export default function MalaysiaPage({ country }: MalaysiaPageProps) {
   return (
     <CountryPageTemplate>
-      <ProductAccessOverviewSection data={malaysiaProductAccessOverview} sectionId="product-access-overview" />
+      <ProductAccessOverviewSection data={malaysiaProductAccessOverview} sectionId="product-access-overview" useMobileCards />
       <SeasonSummarySection
         sectionId="overview"
         introText="2026年以来，马来西亚烟草及新型吸烟产品监管重点进一步转向执法落地和含尼古丁电子烟监管收紧。"
@@ -103,7 +103,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
 
       <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 传统烟草及加热烟草产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 malaysia-product-access-nature">
             <BulletPoint>马来西亚 Act 852 使用"吸烟产品"作为上位概念，覆盖烟草产品、吸烟物质和替代烟草产品。传统卷烟、雪茄、烟丝/切丝烟草及其他制成烟草，属于典型烟草产品。</BulletPoint>
             <BulletPoint>HNB 烟支 / 加热烟草产品含有烟草材料，主要按烟草产品及加热烟草产品相关规则管理。</BulletPoint>
           </div>
@@ -172,7 +172,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="2. 电子烟及电子雾化产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 malaysia-product-access-nature">
             <BulletPoint>Act 852 将电子烟液、补充液、烟弹内液体等纳入吸烟物质判断范围；电子烟设备、电子雾化设备和相关组件，主要按替代烟草产品或吸烟产品相关组件判断。</BulletPoint>
             <BulletPoint>含尼古丁电子烟相关产品同时涉及 Act 852 吸烟产品监管，以及《毒药法》及药剂监管框架。</BulletPoint>
           </div>
@@ -241,7 +241,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="3. 无烟烟草及新型尼古丁产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 malaysia-product-access-nature">
             <BulletPoint>马来西亚公开法规未见对尼古丁袋、尼古丁口含膜等新型尼古丁产品设置清晰、专门的统一准入分类。</BulletPoint>
             <BulletPoint>含烟草的无烟产品与不含烟草但含尼古丁的新型尼古丁产品，监管判断起点不同：前者主要进入 Act 852 项下烟草产品及无烟烟草包装标签规则，后者重点进入《毒药法》及药剂监管框架。</BulletPoint>
           </div>
@@ -314,7 +314,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="4. 烟草原料、半成品及普通辅材" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 malaysia-product-access-nature">
             <BulletPoint>烟叶、烟草薄片、爆珠、香精胶囊、滤嘴棒和香精香料主要作为原料、半成品、结构性材料或功能性辅材管理；具体是否进入烟草产品、吸烟物质或替代烟草产品监管范围，应在各子类中按成分和产品形态分别判断。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
@@ -509,33 +509,53 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
       <TaxSection sectionId="tax" introText="马来西亚烟草及新型吸烟产品主要涉及消费税和销售税。卷烟、雪茄和加热产品另有最低销售价格要求；2026年预算提出数字税票和尼古丁替代治疗产品税收豁免安排。">
         <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 mb-4">
           <h4 className="font-bold text-[#2E3F73] text-base mb-4">1. 消费税</h4>
-          <div className="overflow-x-auto">
-            <table className="w-full text-base border-collapse">
-              <thead>
-                <tr className="bg-[#E8EDF5]">
-                  <th className="px-4 py-3 text-left font-bold text-[#2E3F73] border border-[#D8DDED]">产品类别</th>
-                  <th className="px-4 py-3 text-left font-bold text-[#2E3F73] border border-[#D8DDED]">消费税口径</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="bg-white/50">
-                  <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">卷烟</td>
-                  <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">RM0.42 / 支</td>
-                </tr>
-                <tr className="bg-[#F3F5FB]">
-                  <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">雪茄、cheroots、cigarillos</td>
-                  <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">RM440 / kg</td>
-                </tr>
-                <tr className="bg-white/50">
-                  <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">加热烟草产品</td>
-                  <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">RM798 / 每公斤烟草含量，即按产品所含烟草重量计征</td>
-                </tr>
-                <tr className="bg-[#F3F5FB]">
-                  <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">电子烟/vape用液体或凝胶</td>
-                  <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">RM0.40 / ml，按液体/凝胶容量计征；适用于含尼古丁和不含尼古丁液体/凝胶</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="hidden md:block">
+            <div className="overflow-x-auto">
+              <table className="w-full text-base border-collapse">
+                <thead>
+                  <tr className="bg-[#E8EDF5]">
+                    <th className="px-4 py-3 text-left font-bold text-[#2E3F73] border border-[#D8DDED]">产品类别</th>
+                    <th className="px-4 py-3 text-left font-bold text-[#2E3F73] border border-[#D8DDED]">消费税口径</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white/50">
+                    <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">卷烟</td>
+                    <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">RM0.42 / 支</td>
+                  </tr>
+                  <tr className="bg-[#F3F5FB]">
+                    <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">雪茄、cheroots、cigarillos</td>
+                    <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">RM440 / kg</td>
+                  </tr>
+                  <tr className="bg-white/50">
+                    <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">加热烟草产品</td>
+                    <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">RM798 / 每公斤烟草含量，即按产品所含烟草重量计征</td>
+                  </tr>
+                  <tr className="bg-[#F3F5FB]">
+                    <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">电子烟/vape用液体或凝胶</td>
+                    <td className="px-4 py-3 border border-[#D8DDED] text-[#334155]">RM0.40 / ml，按液体/凝胶容量计征；适用于含尼古丁和不含尼古丁液体/凝胶</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="md:hidden space-y-3">
+            <div className="malaysia-tax-mobile-card rounded-xl border border-[#D8E0F0] bg-white p-3.5">
+              <div className="font-bold text-[#27406E]">卷烟</div>
+              <div className="mt-2 text-[#334155]">RM0.42 / 支</div>
+            </div>
+            <div className="malaysia-tax-mobile-card rounded-xl border border-[#D8E0F0] bg-white p-3.5">
+              <div className="font-bold text-[#27406E]">雪茄、cheroots、cigarillos</div>
+              <div className="mt-2 text-[#334155]">RM440 / kg</div>
+            </div>
+            <div className="malaysia-tax-mobile-card rounded-xl border border-[#D8E0F0] bg-white p-3.5">
+              <div className="font-bold text-[#27406E]">加热烟草产品</div>
+              <div className="mt-2 text-[#334155]">RM798 / 每公斤烟草含量，即按产品所含烟草重量计征</div>
+            </div>
+            <div className="malaysia-tax-mobile-card rounded-xl border border-[#D8E0F0] bg-white p-3.5">
+              <div className="font-bold text-[#27406E]">电子烟/vape用液体或凝胶</div>
+              <div className="mt-2 text-[#334155]">RM0.40 / ml，按液体/凝胶容量计征；适用于含尼古丁和不含尼古丁液体/凝胶</div>
+            </div>
           </div>
         </div>
 

@@ -31,6 +31,187 @@ body {
 }
 
 @media (max-width: 767px) {
+  .malaysia-page {
+    overflow-x: clip;
+  }
+
+  .malaysia-page main > .flex {
+    display: block !important;
+  }
+
+  .malaysia-page main > .flex > nav {
+    display: none !important;
+  }
+
+  .malaysia-page main > .flex > .flex-1 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .malaysia-page [id] {
+    scroll-margin-top: 64px !important;
+  }
+
+  .malaysia-page h1 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .malaysia-page #product-access-overview > div,
+  .malaysia-page #overview > div,
+  .malaysia-page #regulatory-system > div,
+  .malaysia-page #product-access > div,
+  .malaysia-page #licenses > div,
+  .malaysia-page #tax > div,
+  .malaysia-page #operation-rules > div,
+  .malaysia-page #trend > div,
+  .malaysia-page #resources > div {
+    padding: 16px !important;
+  }
+
+  .malaysia-page #product-access-overview > div > h2,
+  .malaysia-page #overview > div > h2,
+  .malaysia-page #regulatory-system > div > h2,
+  .malaysia-page #product-access > div > h2,
+  .malaysia-page #licenses > div > h2,
+  .malaysia-page #tax > div > h2,
+  .malaysia-page #operation-rules > div > h2,
+  .malaysia-page #trend > div > h2,
+  .malaysia-page #resources > div > h2 {
+    font-size: 19px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .malaysia-page #overview h3,
+  .malaysia-page #overview h4,
+  .malaysia-page #regulatory-system h3,
+  .malaysia-page #regulatory-system h4,
+  .malaysia-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .malaysia-page #licenses h4,
+  .malaysia-page #tax h4,
+  .malaysia-page #operation-rules h4,
+  .malaysia-page #trend h3,
+  .malaysia-page #trend h4,
+  .malaysia-page #red-lines h3,
+  .malaysia-page #red-lines h4,
+  .malaysia-page #resources h3,
+  .malaysia-page #resources h4,
+  .malaysia-page #product-access-overview .md\:hidden h3,
+  .malaysia-page #product-access-overview .md\:hidden h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .malaysia-page #product-access-overview > div > p,
+  .malaysia-page #product-access-overview .md\:hidden button,
+  .malaysia-page #overview > div > p,
+  .malaysia-page #overview > div > .space-y-3 > .rounded-xl div,
+  .malaysia-page #overview > div > .space-y-3 > .rounded-xl p,
+  .malaysia-page #overview > div > .space-y-3 > .rounded-xl span,
+  .malaysia-page #regulatory-system > div > .space-y-4 > .rounded-xl div,
+  .malaysia-page #regulatory-system > div > .space-y-4 > .rounded-xl p,
+  .malaysia-page #regulatory-system > div > .space-y-4 > .rounded-xl span,
+  .malaysia-page #licenses > div > p,
+  .malaysia-page #licenses .grid > div .ml-9,
+  .malaysia-page #licenses .grid > div span.text-\[\#334155\],
+  .malaysia-page #tax > div > .mb-6 > p,
+  .malaysia-page #tax > div > .space-y-4 > .rounded-xl span.text-\[\#334155\],
+  .malaysia-page #tax > div > .space-y-4 > .space-y-4 > .rounded-xl span.text-\[\#334155\],
+  .malaysia-page #tax .malaysia-tax-mobile-card div,
+  .malaysia-page #operation-rules .grid > div .ml-9,
+  .malaysia-page #operation-rules .grid > div span.text-\[\#334155\],
+  .malaysia-page #trend p,
+  .malaysia-page #red-lines span.text-\[\#334155\],
+  .malaysia-page #resources p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .malaysia-page #overview > div > .space-y-3 > .rounded-xl,
+  .malaysia-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .malaysia-page #product-access > div > .space-y-4 > .rounded-xl,
+  .malaysia-page #licenses .grid > div,
+  .malaysia-page #tax > div > .space-y-4 > .rounded-xl,
+  .malaysia-page #tax > div > .space-y-4 > .space-y-4 > .rounded-xl,
+  .malaysia-page #tax .malaysia-tax-mobile-card,
+  .malaysia-page #operation-rules .grid > div,
+  .malaysia-page #trend > div > .space-y-4 > .rounded-xl,
+  .malaysia-page #red-lines,
+  .malaysia-page #resources .rounded-xl.border,
+  .malaysia-page #resources .rounded-xl[class*="border-"] {
+    padding: 12px !important;
+  }
+
+  .malaysia-page #licenses .grid > div .ml-9,
+  .malaysia-page #operation-rules .grid > div .ml-9 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .malaysia-page #overview .flex.items-start.gap-3,
+  .malaysia-page #regulatory-system .flex.items-start.gap-3,
+  .malaysia-page #licenses .flex.items-start.gap-3,
+  .malaysia-page #tax .flex.items-start.gap-3,
+  .malaysia-page #operation-rules .flex.items-start.gap-3,
+  .malaysia-page #red-lines .flex.items-start.gap-3,
+  .malaysia-page #resources .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .malaysia-page #overview .flex-1,
+  .malaysia-page #regulatory-system .flex-1,
+  .malaysia-page #licenses .flex-1,
+  .malaysia-page #tax .flex-1,
+  .malaysia-page #operation-rules .flex-1,
+  .malaysia-page #red-lines .flex-1,
+  .malaysia-page #resources .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .malaysia-page #resources a.font-semibold {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 700 !important;
+  }
+
+  .malaysia-page #tax .malaysia-tax-mobile-card > div:first-child {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .malaysia-page .malaysia-product-access-nature,
+  .malaysia-page .malaysia-product-access-nature span,
+  .malaysia-page .malaysia-product-access-nature p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .malaysia-page .malaysia-product-access-nature .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .malaysia-page .malaysia-product-access-nature span.text-\[\#334155\] {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+  }
+
+  .malaysia-page #product-access [id^="product-"] {
+    padding: 16px !important;
+  }
+
+  .malaysia-page #product-access [id^="product-"] > div.font-bold.text-\[\#263247\] {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
   .russia-page {
     overflow-x: clip;
   }

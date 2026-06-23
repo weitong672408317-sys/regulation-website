@@ -46,11 +46,25 @@ const russiaMobileNavItems = [
   { id: 'resources', label: '重要资讯' },
 ];
 
-function MobileSectionNav() {
+const malaysiaMobileNavItems = [
+  { id: 'home', label: '返回首页' },
+  { id: 'product-access-overview', label: '准入速览' },
+  { id: 'overview', label: '监管动态' },
+  { id: 'regulatory-system', label: '监管体系' },
+  { id: 'product-access', label: '产品口径' },
+  { id: 'licenses', label: '合规资质' },
+  { id: 'tax', label: '税收政策' },
+  { id: 'operation-rules', label: '运营规范' },
+  { id: 'trend', label: '监管趋势' },
+  { id: 'red-lines', label: '红线清单' },
+  { id: 'resources', label: '重要资讯' },
+];
+
+function MobileSectionNav({ items }: { items: { id: string; label: string }[] }) {
   return (
     <nav className="lg:hidden sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-[#D8E0EA]">
       <div className="russia-mobile-nav-scroll flex gap-2 overflow-x-auto px-4 py-2">
-        {russiaMobileNavItems.map(item => (
+        {items.map(item => (
           <a
             key={item.id}
             href={item.id === 'home' ? '/' : `#${item.id}`}
@@ -85,23 +99,30 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
 
   const CountryPageComponent = countryPageMap[country.id];
   const isRussia = country.id === 'russia';
-  const pagePaddingClass = isRussia
-    ? 'px-4 md:px-12 xl:px-16 2xl:pl-20 2xl:pr-24'
+  const isMalaysia = country.id === 'malaysia';
+  const countryPageClass = [
+    'min-h-screen bg-[#F7F9FC]',
+    isRussia ? 'russia-page' : '',
+    isMalaysia ? 'malaysia-page' : '',
+  ].filter(Boolean).join(' ');
+  const pagePaddingClass = isRussia || isMalaysia
+    ? 'px-4 sm:px-6 md:px-12 xl:px-16 2xl:pl-20 2xl:pr-24'
     : 'px-8 md:px-12 xl:px-16 2xl:pl-20 2xl:pr-24';
 
   // Countries with dedicated page components use sidebar layout
   if (CountryPageComponent) {
     return (
-      <div className={`min-h-screen bg-[#F7F9FC]${isRussia ? ' russia-page' : ''}`}>
+      <div className={countryPageClass}>
         <ScrollToTop countryId={country.id} />
-        <header className={`bg-white border-b border-[#D8E0EA] shadow-sm${isRussia ? ' hidden lg:block' : ''}`}>
+        <header className={`bg-white border-b border-[#D8E0EA] shadow-sm${isRussia || isMalaysia ? ' hidden lg:block' : ''}`}>
           <div className={`max-w-7xl lg:max-w-[1800px] mx-auto ${pagePaddingClass} py-4`}>
             <Link href="/" prefetch={true} className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
               <span className="text-lg">←</span> 返回首页
             </Link>
           </div>
         </header>
-        {isRussia && <MobileSectionNav />}
+        {isRussia && <MobileSectionNav items={russiaMobileNavItems} />}
+        {isMalaysia && <MobileSectionNav items={malaysiaMobileNavItems} />}
 
         <main className={`max-w-7xl lg:max-w-[1920px] mx-auto ${pagePaddingClass} py-8`}>
           <div className="flex gap-6">
