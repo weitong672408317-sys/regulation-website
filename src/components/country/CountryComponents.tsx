@@ -522,13 +522,13 @@ export const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Com
       return (
         <div className="space-y-1">
           {items.map((item, idx) => (
-            <BulletPoint key={idx} textClassName="leading-6">{item}</BulletPoint>
+            <BulletPoint key={idx} textClassName="text-base">{item}</BulletPoint>
           ))}
         </div>
       );
     }
     return (
-      <BulletPoint textClassName="leading-6">{description}</BulletPoint>
+      <BulletPoint textClassName="text-base">{description}</BulletPoint>
     );
   };
 

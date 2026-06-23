@@ -24,8 +24,13 @@ export function SeasonSummarySection({ introText, items, children, sectionId }: 
             <SubCard key={index} className="!p-4">
               <div className="flex items-start gap-3">
                 <div className="flex-1">
-                  <h4 className="font-bold text-[#373F7A] text-base mb-1">{item.title}</h4>
-                  <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph', lineHeight: '1.6', display: 'block' } as unknown as React.CSSProperties} className="text-[#334155] text-base">{item.content}</span>
+                  <h4 className="font-bold text-[#373F7A] text-base mb-3">{item.title}</h4>
+                  <div
+                    style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties}
+                    className="text-[#334155] text-base leading-[1.6]"
+                  >
+                    {item.content}
+                  </div>
                 </div>
               </div>
             </SubCard>

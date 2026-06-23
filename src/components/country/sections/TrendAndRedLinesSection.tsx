@@ -8,7 +8,7 @@ interface RedLineGroup {
 
 interface RedLineBoxProps {
   groups?: RedLineGroup[];
-  items?: string[];
+  items?: React.ReactNode[];
   children?: React.ReactNode;
 }
 
@@ -55,7 +55,7 @@ interface TrendAndRedLinesSectionProps {
   trendTitle?: string;
   trendContent?: React.ReactNode;
   redLineGroups?: RedLineGroup[];
-  redLineItems?: string[];
+  redLineItems?: React.ReactNode[];
   children?: React.ReactNode;
   sectionId?: string;
   trendId?: string;

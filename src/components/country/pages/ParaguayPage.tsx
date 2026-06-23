@@ -35,7 +35,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
       <ProductAccessOverviewSection data={paraguayProductAccessOverview} sectionId="product-access-overview" />
       <SeasonSummarySection sectionId="overview">
         <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-          <div className="space-y-4 text-[#334155] text-base leading-relaxed text-justify">
+          <div style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="space-y-4 text-[#334155] text-base leading-[1.6] text-justify">
             <p>巴拉圭本季监管重点继续集中在《第7508/2025号法》实施后的电子烟、雾化器、烟油、配件和耗材注册、授权和税务合规。</p>
             <p>《第7508/2025号法》专门规制电子尼古丁输送系统、无尼古丁类似系统、其他含或不含尼古丁的新兴装置、配件、耗材以及用于雾化的物质，覆盖进口、生产、消费、广告和商业化。</p>
             <p>该法令正式建立了电子烟及雾化产品专项监管框架，标志着巴拉圭电子烟及相关产品从行政决议监管升级为法律层面的专项监管。</p>
@@ -51,8 +51,8 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             title: '核心特征',
             content: (
               <>
-                <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">就烟草及新型尼古丁产品监管而言，巴拉圭属于相对开放市场，传统烟草、电子烟及雾化产品、HNB 烟支及相关器具原则上均有合规准入空间。现行监管框架主要由巴拉圭传统烟草控制基础法（《第5538/2015号法》）、针对 SEAN、SSSN、其他新兴装置、相关设备、配件、耗材及雾化物质的专项监管法（《第7508/2025号法》）、DINAVISA 产品登记/注册和主体/场所授权规则、选择性消费税规则以及进口申报规则共同构成。</p>
-                <p className="text-[#334155] text-base leading-relaxed text-justify mb-3">巴拉圭监管体系目前形成三条主线：</p>
+                <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mb-4">就烟草及新型尼古丁产品监管而言，巴拉圭属于相对开放市场，传统烟草、电子烟及雾化产品、HNB 烟支及相关器具原则上均有合规准入空间。现行监管框架主要由巴拉圭传统烟草控制基础法（《第5538/2015号法》）、针对 SEAN、SSSN、其他新兴装置、相关设备、配件、耗材及雾化物质的专项监管法（《第7508/2025号法》）、DINAVISA 产品登记/注册和主体/场所授权规则、选择性消费税规则以及进口申报规则共同构成。</p>
+                <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mb-3">巴拉圭监管体系目前形成三条主线：</p>
                 <BulletList items={[
                   '卷烟等传统烟草产品：可合规准入，监管重点是 DINAVISA 烟草基产品登记、烟草主体登记、包装警示、公共场所使用限制、广告限制和选择性消费税。',
                   '电子烟、雾化产品及 HNB 电子加热装置：可合规准入，监管重点是 DINAVISA 产品注册、经营场所授权、成分和标签要求、销售渠道限制、广告限制和选择性消费税。',
@@ -77,9 +77,9 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
 
       <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 传统烟草产品 / 烟草基产品" label="产品定性" id="module-traditional-tobacco">
-          <div className="space-y-4 text-[#334155] text-base leading-relaxed text-justify mb-4">
-            <p>根据《第5538/2015号法》，"烟草产品"包括全部或部分以烟草叶为原料制备，并用于吸食、吸吮、咀嚼、鼻吸，或通过电子烟、雾化器或类似产品进行雾化、吸食或吸入的产品。</p>
-            <p>DINAVISA 办理资料中使用 Productos a base de Tabaco（烟草基产品）作为烟草产品登记类别。传统卷烟、雪茄、烟丝、加工烟草等属于典型烟草基产品。</p>
+          <div className="space-y-2 mb-4">
+            <BulletPoint>根据《第5538/2015号法》，"烟草产品"包括全部或部分以烟草叶为原料制备，并用于吸食、吸吮、咀嚼、鼻吸，或通过电子烟、雾化器或类似产品进行雾化、吸食或吸入的产品。</BulletPoint>
+            <BulletPoint>DINAVISA 办理资料中使用 Productos a base de Tabaco（烟草基产品）作为烟草产品登记类别。传统卷烟、雪茄、烟丝、加工烟草等属于典型烟草基产品。</BulletPoint>
           </div>
           <StatusCard
             id="product-traditional-tobacco"
@@ -108,10 +108,10 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="2. 电子烟及雾化产品" label="产品定性" id="module-ecig">
-          <div className="space-y-4 text-[#334155] text-base leading-relaxed text-justify mb-4">
-            <p>《第7508/2025号法》使用 Sistemas Electrónicos de Administración de Nicotina（SEAN，电子尼古丁输送系统）和 Sistemas Similares Sin Nicotina（SSSN，无尼古丁类似系统）两个核心概念。</p>
-            <p>SEAN 指通过电子装置加热含尼古丁溶液并产生可吸入气溶胶的系统；SSSN 指通过电子装置加热不含尼古丁溶液并产生可吸入气溶胶的系统。</p>
-            <p>《第7508/2025号法》同时覆盖其他含或不含尼古丁的新兴装置、相关设备、配件、耗材以及用于雾化的物质。雾化类电子烟、雾化器、烟油 / 补充液、相关配件和耗材，应纳入该专项监管框架判断。</p>
+          <div className="space-y-2 mb-4">
+            <BulletPoint>《第7508/2025号法》使用 Sistemas Electrónicos de Administración de Nicotina（SEAN，电子尼古丁输送系统）和 Sistemas Similares Sin Nicotina（SSSN，无尼古丁类似系统）两个核心概念。</BulletPoint>
+            <BulletPoint>SEAN 指通过电子装置加热含尼古丁溶液并产生可吸入气溶胶的系统；SSSN 指通过电子装置加热不含尼古丁溶液并产生可吸入气溶胶的系统。</BulletPoint>
+            <BulletPoint>《第7508/2025号法》同时覆盖其他含或不含尼古丁的新兴装置、相关设备、配件、耗材以及用于雾化的物质。雾化类电子烟、雾化器、烟油 / 补充液、相关配件和耗材，应纳入该专项监管框架判断。</BulletPoint>
           </div>
           <StatusCard
             id="product-ecig"
@@ -144,10 +144,10 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="3. 加热烟草产品" label="产品定性">
-          <div className="space-y-4 text-[#334155] text-base leading-relaxed text-justify mb-4">
-            <p>巴拉圭公开法规资料未见对 HNB 烟支 / 加热烟草产品设置单独、完整定义。</p>
-            <p>就监管判断而言，加热烟草产品应区分两类：</p>
-            <div className="space-y-2">
+          <div className="space-y-2 mb-4">
+            <BulletPoint>巴拉圭公开法规资料未见对 HNB 烟支 / 加热烟草产品设置单独、完整定义。</BulletPoint>
+            <BulletPoint>就监管判断而言，加热烟草产品应区分两类：</BulletPoint>
+            <div className="ml-4 space-y-2">
               <BulletPoint>含烟草材料的 HNB 烟支 / 加热烟草棒，按烟草基产品口径判断。</BulletPoint>
               <BulletPoint>不含烟草材料的 HNB 设备、加热装置及相关配件，可纳入《第7508/2025号法》关于新兴装置、相关设备、配件和耗材的监管范围。</BulletPoint>
             </div>
@@ -205,8 +205,8 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="4. 无烟烟草及新型尼古丁产品" label="产品定性">
-          <div className="mb-4">
-            <p className="text-[#334155] text-base leading-relaxed text-justify">巴拉圭公开法规资料未见对无烟烟草产品及新型尼古丁产品设置统一定义或统一监管路径。该类产品应根据是否已有专项规则、是否含烟草材料、是否含尼古丁及具体使用方式分类判断。</p>
+          <div className="space-y-2 mb-4">
+            <BulletPoint>巴拉圭公开法规资料未见对无烟烟草产品及新型尼古丁产品设置统一定义或统一监管路径。该类产品应根据是否已有专项规则、是否含烟草材料、是否含尼古丁及具体使用方式分类判断。</BulletPoint>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <StatusCard
@@ -307,8 +307,8 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="5. 烟草原料 / 半成品" label="产品定性" id="module-tobacco-raw">
-          <div className="space-y-4 text-[#334155] text-base leading-relaxed text-justify mb-4">
-            <p>烟草薄片、烟叶主要作为烟草原料或半成品管理；如已经制成供消费者使用的烟草基产品，应转入烟草产品登记路径。</p>
+          <div className="space-y-2 mb-4">
+            <BulletPoint>烟草薄片、烟叶主要作为烟草原料或半成品管理；如已经制成供消费者使用的烟草基产品，应转入烟草产品登记路径。</BulletPoint>
           </div>
           <StatusCard
             id="product-tobacco-raw"
@@ -337,8 +337,8 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="6. 普通辅材" label="产品定性" id="module-ordinary-material">
-          <div className="space-y-4 text-[#334155] text-base leading-relaxed text-justify mb-4">
-            <p>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；是否涉及烟草产品、SEAN / SSSN 产品、雾化物质或尼古丁产品监管，应按成分和产品形态判断。</p>
+          <div className="space-y-2 mb-4">
+            <BulletPoint>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；是否涉及烟草产品、SEAN / SSSN 产品、雾化物质或尼古丁产品监管，应按成分和产品形态判断。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <StatusCard
@@ -392,13 +392,13 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
 
       <ComplianceSection sectionId="licenses" country={country}>
         <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 mb-4">
-          <p className="text-[#334155] text-base leading-relaxed text-justify">巴拉圭烟草及新型尼古丁产品的合规资质主要包括三类：（1）DINAVISA 产品登记/注册；（2）DINAVISA 主体或经营场所登记/授权；（3）DNIT 商品归类、税务申报和进口文件。</p>
-          <p className="text-[#334155] text-base leading-relaxed text-justify mt-2">HNB 产品需要拆分判断：</p>
+          <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify">巴拉圭烟草及新型尼古丁产品的合规资质主要包括三类：（1）DINAVISA 产品登记/注册；（2）DINAVISA 主体或经营场所登记/授权；（3）DNIT 商品归类、税务申报和进口文件。</p>
+          <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mt-2">HNB 产品需要拆分判断：</p>
           <div className="space-y-2 mt-2">
             <BulletPoint>HNB 烟支/加热烟草棒按烟草基产品路径处理；</BulletPoint>
             <BulletPoint>HNB设备/加热装置及相关配件按新兴装置、相关设备、配件和耗材路径处理。</BulletPoint>
           </div>
-          <p className="text-[#334155] text-base leading-relaxed text-justify mt-2">边界产品应根据成分、用途和销售形态判断，详见{"\u201c"}<a href="#product-access" className="text-indigo-600 hover:text-indigo-800 hover:underline">产品监管口径</a>{"\u201d"}栏目。</p>
+          <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mt-2">边界产品应根据成分、用途和销售形态判断，详见{"\u201c"}<a href="#product-access" className="text-indigo-600 hover:text-indigo-800 hover:underline">产品监管口径</a>{"\u201d"}栏目。</p>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl px-[30px] py-8">
@@ -406,21 +406,10 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">1</span>
               <h4 className="text-[#2E3F73] text-lg font-bold leading-[1.45]">DINAVISA 产品登记 / 产品注册</h4>
             </div>
-            <div className="text-[#334155] text-base leading-7 font-normal">
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">烟草基产品、含烟草材料的 HNB 烟支/加热烟草棒，需要办理 DINAVISA 烟草基产品登记。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">电子烟、雾化器、烟油/补充液、HNB设备、加热装置及相关配件，需要结合《第7508/2025号法》办理 DINAVISA 产品注册。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">尼古丁袋已有 DINAVISA 专项注册草案，但草案尚未正式落地，进入市场前仍需确认现行卫生注册口径。</span>
-                </div>
-              </div>
+            <div className="space-y-2">
+              <BulletPoint>烟草基产品、含烟草材料的 HNB 烟支/加热烟草棒，需要办理 DINAVISA 烟草基产品登记。</BulletPoint>
+              <BulletPoint>电子烟、雾化器、烟油/补充液、HNB设备、加热装置及相关配件，需要结合《第7508/2025号法》办理 DINAVISA 产品注册。</BulletPoint>
+              <BulletPoint>尼古丁袋已有 DINAVISA 专项注册草案，但草案尚未正式落地，进入市场前仍需确认现行卫生注册口径。</BulletPoint>
             </div>
           </div>
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl px-[30px] py-8">
@@ -428,21 +417,10 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">2</span>
               <h4 className="text-[#2E3F73] text-lg font-bold leading-[1.45]">DINAVISA 主体登记 / 经营场所授权</h4>
             </div>
-            <div className="text-[#334155] text-base leading-7 font-normal">
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">从事烟草、烟草产品或烟草产品原料制造、进口、出口的主体，需要办理 DINAVISA 烟草主体登记。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">从事电子烟、雾化产品、HNB设备及相关电子装置进口、出口、生产、分销、仓储或销售的主体及经营场所，需要取得 DINAVISA 授权。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">普通烟草零售端未见单独烟草零售许可证要求。</span>
-                </div>
-              </div>
+            <div className="space-y-2">
+              <BulletPoint>从事烟草、烟草产品或烟草产品原料制造、进口、出口的主体，需要办理 DINAVISA 烟草主体登记。</BulletPoint>
+              <BulletPoint>从事电子烟、雾化产品、HNB设备及相关电子装置进口、出口、生产、分销、仓储或销售的主体及经营场所，需要取得 DINAVISA 授权。</BulletPoint>
+              <BulletPoint>普通烟草零售端未见单独烟草零售许可证要求。</BulletPoint>
             </div>
           </div>
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl px-[30px] py-8">
@@ -450,21 +428,10 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">3</span>
               <h4 className="text-[#2E3F73] text-lg font-bold leading-[1.45]">DNIT 商品归类、税务申报和进口文件</h4>
             </div>
-            <div className="text-[#334155] text-base leading-7 font-normal">
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">进口烟草、电子烟、雾化产品、HNB设备、尼古丁袋、烟草原料或相关配件时，需要确认商品归类、进口税费、ISC、IVA 和进口申报文件。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">DNIT 已将"无烟草尼古丁袋"纳入商品归类查询/裁定资料；该口径仅用于 HS 编码/税号和进口税费申报，不替代 DINAVISA 卫生注册或上市许可，进入市场前仍需确认现行注册/许可要求。</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#4A6290] mt-[9px] flex-shrink-0"></span>
-                  <span className="flex-1 min-w-0">税务申报口径应与产品登记/注册资料、进口文件、包装标签和实际用途保持一致。</span>
-                </div>
-              </div>
+            <div className="space-y-2">
+              <BulletPoint>进口烟草、电子烟、雾化产品、HNB设备、尼古丁袋、烟草原料或相关配件时，需要确认商品归类、进口税费、ISC、IVA 和进口申报文件。</BulletPoint>
+              <BulletPoint>DNIT 已将"无烟草尼古丁袋"纳入商品归类查询/裁定资料；该口径仅用于 HS 编码/税号和进口税费申报，不替代 DINAVISA 卫生注册或上市许可，进入市场前仍需确认现行注册/许可要求。</BulletPoint>
+              <BulletPoint>税务申报口径应与产品登记/注册资料、进口文件、包装标签和实际用途保持一致。</BulletPoint>
             </div>
           </div>
         </div>
@@ -482,25 +449,25 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               </thead>
               <tbody>
                 <tr className="bg-white/50">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">卷烟、雪茄、小雪茄、手卷烟草</td>
+                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-[1.6]">卷烟、雪茄、小雪茄、手卷烟草</td>
                   <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">20%</td>
                 </tr>
                 <tr className="bg-[#F3F5FB]">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">加热烟草产品 / HNB 烟支</td>
+                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-[1.6]">加热烟草产品 / HNB 烟支</td>
                   <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">20%</td>
                 </tr>
                 <tr className="bg-white/50">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-7">用于电子烟、雾化器或类似装置的烟草香精或类似产品</td>
+                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] leading-[1.6]">用于电子烟、雾化器或类似装置的烟草香精或类似产品</td>
                   <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155]">18%</td>
                 </tr>
                 <tr className="bg-[#F3F5FB]">
-                  <td className="px-5 py-4 border-r border-[#D8DDED] text-[#334155] leading-7">雾化器及其可雾化液体，无论是否含尼古丁</td>
+                  <td className="px-5 py-4 border-r border-[#D8DDED] text-[#334155] leading-[1.6]">雾化器及其可雾化液体，无论是否含尼古丁</td>
                   <td className="px-5 py-4 text-[#334155]">22%</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="text-[#334155] text-base leading-relaxed text-justify mt-3">《第7508/2025号法》将雾化器及其可雾化液体纳入 ISC 范围；公开税务解读显示，该类产品现行适用 22% 税率。</p>
+          <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mt-3">《第7508/2025号法》将雾化器及其可雾化液体纳入 ISC 范围；公开税务解读显示，该类产品现行适用 22% 税率。</p>
         </TaxTableCard>
 
         <TaxTableCard title="IVA（增值税）">
@@ -580,24 +547,24 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         <div className="grid grid-cols-1 gap-6">
           <RuleModuleCard number={1} title="包装、标签与成分限制">
             <div className="space-y-3">
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">烟草产品包装应使用规定健康警示；健康警示应覆盖包装正反面主要展示区域下方 40%。</BulletPoint>
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">电子烟、雾化产品及相关产品包装应标明产品成分、尼古丁含量、原产国、批号、生产日期、有效期，以及 DINAVISA 注册/登记信息。</BulletPoint>
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">含尼古丁电子烟液或雾化液的尼古丁浓度不得超过 20mg/ml 或 2%。</BulletPoint>
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">包装、标签、说明、销售展示或宣传材料中，不得使用"低风险""减害""健康""有益""戒烟""治疗""不成瘾""更安全"等功效性、治疗性或降低风险暗示。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">烟草产品包装应使用规定健康警示；健康警示应覆盖包装正反面主要展示区域下方 40%。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">电子烟、雾化产品及相关产品包装应标明产品成分、尼古丁含量、原产国、批号、生产日期、有效期，以及 DINAVISA 注册/登记信息。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">含尼古丁电子烟液或雾化液的尼古丁浓度不得超过 20mg/ml 或 2%。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">包装、标签、说明、销售展示或宣传材料中，不得使用"低风险""减害""健康""有益""戒烟""治疗""不成瘾""更安全"等功效性、治疗性或降低风险暗示。</BulletPoint>
             </div>
           </RuleModuleCard>
           <RuleModuleCard number={2} title="广告、促销与赞助">
             <div className="space-y-3">
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">禁止烟草产品广告、促销和赞助；禁止通过广播、电视、纸媒、户外广告、移动广告、互联网、短信、邮寄等方式推广烟草产品。</BulletPoint>
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">禁止电子烟、雾化产品及相关产品广告、促销和赞助。</BulletPoint>
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">禁止通过销售点广告、社交媒体、互联网、流媒体、短信、邮寄、活动赞助、公益项目、第三方合作、品牌延伸或生活方式营销等方式推广电子烟、雾化产品及相关产品。</BulletPoint>
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">禁止通过免费样品、赠品、试用、递样、折扣、抽奖、会员积分、组合销售等方式促销电子烟、雾化产品及相关产品。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">禁止烟草产品广告、促销和赞助；禁止通过广播、电视、纸媒、户外广告、移动广告、互联网、短信、邮寄等方式推广烟草产品。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">禁止电子烟、雾化产品及相关产品广告、促销和赞助。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">禁止通过销售点广告、社交媒体、互联网、流媒体、短信、邮寄、活动赞助、公益项目、第三方合作、品牌延伸或生活方式营销等方式推广电子烟、雾化产品及相关产品。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">禁止通过免费样品、赠品、试用、递样、折扣、抽奖、会员积分、组合销售等方式促销电子烟、雾化产品及相关产品。</BulletPoint>
             </div>
           </RuleModuleCard>
           <RuleModuleCard number={3} title="使用场所与公共场所限制">
             <div className="space-y-3">
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">室内公共场所、工作场所和公共交通工具中禁止使用烟草产品、加热烟草产品、电子烟、雾化产品及相关产品。</BulletPoint>
-              <BulletPoint textClassName="text-base leading-[26px] font-normal" dotClassName="mt-[7px]">相关产品只能在符合要求的开放空间使用，且不得在有他人在场或非使用者通行的区域使用。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">室内公共场所、工作场所和公共交通工具中禁止使用烟草产品、加热烟草产品、电子烟、雾化产品及相关产品。</BulletPoint>
+              <BulletPoint textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[7px]">相关产品只能在符合要求的开放空间使用，且不得在有他人在场或非使用者通行的区域使用。</BulletPoint>
             </div>
           </RuleModuleCard>
         </div>
@@ -608,9 +575,9 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         redLineId="red-lines"
         trendContent={
           <>
-            <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">巴拉圭未来一段时间仍会维持相对开放的烟草及新型尼古丁产品市场。传统烟草、电子烟、HNB 烟支及部分新型尼古丁产品均具备继续保留合法市场空间的政策基础，整体监管思路更倾向于在开放市场中建立秩序，而非压缩为禁止型市场。</p>
-            <p className="text-[#334155] text-base leading-relaxed text-justify mb-4">政策重心预计会从"是否允许某类产品存在"，逐步转向"如何将不同产品纳入可识别、可追踪、可征税、可执法的监管体系"。这一方向既保留巴拉圭作为区域市场和贸易市场的开放特征，也回应公共健康、未成年人保护、非法流通和税收治理压力。</p>
-            <p className="text-[#334155] text-base leading-relaxed text-justify">尼古丁袋/尼古丁口含膜等新型口含尼古丁产品，是观察巴拉圭后续监管态度的重要品类。该类产品目前尚未形成稳定规则，但已有监管讨论和税务归类实践。后续更可能通过专门规则逐步明确准入边界，而非简单并入传统烟草或电子烟规则中处理。</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mb-4">巴拉圭未来一段时间仍会维持相对开放的烟草及新型尼古丁产品市场。传统烟草、电子烟、HNB 烟支及部分新型尼古丁产品均具备继续保留合法市场空间的政策基础，整体监管思路更倾向于在开放市场中建立秩序，而非压缩为禁止型市场。</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mb-4">政策重心预计会从"是否允许某类产品存在"，逐步转向"如何将不同产品纳入可识别、可追踪、可征税、可执法的监管体系"。这一方向既保留巴拉圭作为区域市场和贸易市场的开放特征，也回应公共健康、未成年人保护、非法流通和税收治理压力。</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify">尼古丁袋/尼古丁口含膜等新型口含尼古丁产品，是观察巴拉圭后续监管态度的重要品类。该类产品目前尚未形成稳定规则，但已有监管讨论和税务归类实践。后续更可能通过专门规则逐步明确准入边界，而非简单并入传统烟草或电子烟规则中处理。</p>
           </>
         }
         redLineGroups={[

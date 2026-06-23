@@ -148,9 +148,11 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="3. 电子烟及液体产品" label="分类监管" id="module-ecig">
-          <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-base leading-[1.6] text-[#334155] mb-3">俄罗斯按产品构成对电子烟相关产品分类监管，主要分类包括设备、液体、预灌装 / 组合产品和空组件。</p>
-          <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-base leading-[1.6] text-[#334155]">俄罗斯目前尚未实施全国性电子烟全面禁售，电子烟及相关液体产品仍有合法市场空间。近期围绕"允许地区政府自行禁止电子烟及相关液体销售"的立法讨论，可能改变部分地区的销售可行性，使该品类面临明显高于传统烟草和加热烟草产品的政策变动风险。</p>
-          <div className="grid md:grid-cols-3 gap-4 mt-4">
+          <div className="space-y-2 mb-4">
+            <BulletPoint>俄罗斯按产品构成对电子烟相关产品分类监管，主要分类包括设备、液体、预灌装 / 组合产品和空组件。</BulletPoint>
+            <BulletPoint>俄罗斯目前尚未实施全国性电子烟全面禁售，电子烟及相关液体产品仍有合法市场空间。近期围绕"允许地区政府自行禁止电子烟及相关液体销售"的立法讨论，可能改变部分地区的销售可行性，使该品类面临明显高于传统烟草和加热烟草产品的政策变动风险。</BulletPoint>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
             <StatusCard
               status="amber"
               customLabel="可准入，但严格监管"
@@ -426,7 +428,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         {country.tax.exciseTaxTable && (
           <TaxTableCard title="消费税税率表">
             <div className="overflow-x-auto">
-              <table className="w-full text-base border-collapse border-[#D8DDED]">
+              <table className="w-full text-sm border-collapse border-[#D8DDED]">
                 <thead>
                   <tr className="bg-[#E8EDF5]">
                     {country.tax.exciseTaxTable.headers.map((header, idx) => (
@@ -440,7 +442,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
                   {country.tax.exciseTaxTable.rows.map((row, rowIdx) => (
                     <tr key={rowIdx} className={rowIdx % 2 === 0 ? 'bg-white/50' : 'bg-[#F3F5FB]'}>
                       {row.map((cell, cellIdx) => (
-                        <td key={cellIdx} className="px-4 py-4 border border-[#D8DDED] text-[#334155] leading-[1.6]">
+                        <td key={cellIdx} className="px-4 py-4 border border-[#D8DDED] text-[#334155] text-sm leading-[1.6]">
                           {cell}
                         </td>
                       ))}

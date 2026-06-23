@@ -39,9 +39,9 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             title: '1. 液体/凝胶尼古丁判决改变含尼古丁电子烟监管状态',
             content: (
               <>
-                <p className="text-[#334155] text-base leading-relaxed text-justify mb-3">2026年5月，马来西亚高等法院认定，2023年将电子烟用液体/凝胶尼古丁从《毒药法》毒物清单中移除的决定违法。判决后，含尼古丁电子烟相关产品重新涉及《毒药法》管制。</p>
-                <p className="text-[#334155] text-base leading-relaxed text-justify mb-3">在《毒药法》及药剂监管框架下，含尼古丁制剂通常需要药品/制剂注册或主管机关批准，供应主体通常限于持牌药剂师、注册医生、牙医、兽医等特定主体，使用场景通常限于药剂、医疗、牙科、兽医等用途。</p>
-                <p className="text-[#334155] text-base leading-relaxed text-justify">因此，判决带来的核心变化是：含尼古丁电子烟相关产品重新从"吸烟产品销售监管"进入"尼古丁成分管制 + 药剂供应监管"的问题。对于面向一般消费者销售的电子烟产品而言，药品/制剂注册门槛较高，供应主体和使用场景也受到严格限制，这实际上会显著压缩其作为普通消费品上市、分销和零售的空间。</p>
+                <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-3">2026年5月，马来西亚高等法院认定，2023年将电子烟用液体/凝胶尼古丁从《毒药法》毒物清单中移除的决定违法。判决后，含尼古丁电子烟相关产品重新涉及《毒药法》管制。</p>
+                <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-3">在《毒药法》及药剂监管框架下，含尼古丁制剂通常需要药品/制剂注册或主管机关批准，供应主体通常限于持牌药剂师、注册医生、牙医、兽医等特定主体，使用场景通常限于药剂、医疗、牙科、兽医等用途。</p>
+                <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">因此，判决带来的核心变化是：含尼古丁电子烟相关产品重新从"吸烟产品销售监管"进入"尼古丁成分管制 + 药剂供应监管"的问题。对于面向一般消费者销售的电子烟产品而言，药品/制剂注册门槛较高，供应主体和使用场景也受到严格限制，这实际上会显著压缩其作为普通消费品上市、分销和零售的空间。</p>
               </>
             ),
           },
@@ -66,14 +66,24 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           {
             title: '核心特征',
             content: (
-              <>
-                <p className="text-base leading-relaxed text-[#334155] text-justify mb-4">分类监管，传统烟草和HNB可准入，电子烟及新型尼古丁产品限制更强</p>
-                <p className="text-base leading-relaxed text-[#334155] text-justify mb-4">马来西亚对烟草及新型吸烟产品采取分类监管，对传统烟草和HNB保留准入空间，对电子烟及其他新型尼古丁产品采取更谨慎、更限制性的监管态度，其中：</p>
+              <div className="space-y-2">
+                <p
+                  style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties}
+                  className="text-base leading-[1.6] text-[#334155] text-justify"
+                >
+                  分类监管，传统烟草和HNB可准入，电子烟及新型尼古丁产品限制更强
+                </p>
+                <p
+                  style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties}
+                  className="text-base leading-[1.6] text-[#334155] text-justify"
+                >
+                  马来西亚对烟草及新型吸烟产品采取分类监管，对传统烟草和HNB保留准入空间，对电子烟及其他新型尼古丁产品采取更谨慎、更限制性的监管态度，其中：
+                </p>
                 <BulletList items={[
                   '电子烟：部分地区已经采取禁售、限制销售或更高强度执法措施；全国层面则通过销售对象、广告促销、包装标签和公共场所使用规则持续收紧。含尼古丁电子烟在液体/凝胶尼古丁判决后重新涉及《毒药法》及药剂监管框架，其上市、分销和零售空间进一步受限。',
                   '尼古丁袋等其他新型尼古丁产品：尚未形成稳定、清晰的商业准入路径。',
                 ]} />
-              </>
+              </div>
             ),
           },
           {
@@ -385,7 +395,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
       </ProductAccessSection>
 
       <ComplianceSection sectionId="licenses" country={country}>
-        <p className="text-[#334155] text-base leading-relaxed text-justify mb-6">马来西亚烟草及新型吸烟产品涉及的核心资质，主要包括产品上市前注册、含尼古丁产品的药剂监管、本地制造业牌照，以及地方营业/零售场所许可。不同资质对应不同产品类别和经营环节，应结合具体产品和业务活动分别判断。</p>
+        <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-6">马来西亚烟草及新型吸烟产品涉及的核心资质，主要包括产品上市前注册、含尼古丁产品的药剂监管、本地制造业牌照，以及地方营业/零售场所许可。不同资质对应不同产品类别和经营环节，应结合具体产品和业务活动分别判断。</p>
 
         <div className="grid md:grid-cols-2 gap-4">
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
@@ -396,19 +406,19 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">吸烟产品注册是 Act 852 项下针对烟草产品、吸烟物质和替代烟草产品设置的产品上市前注册要求。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">吸烟产品注册是 Act 852 项下针对烟草产品、吸烟物质和替代烟草产品设置的产品上市前注册要求。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">适用于传统卷烟、雪茄、烟丝/切丝烟草、HNB 烟支、加热烟草产品、不含尼古丁电子烟液、电子烟设备、含烟草无烟产品，以及其他落入 Act 852 的吸烟产品。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">适用于传统卷烟、雪茄、烟丝/切丝烟草、HNB 烟支、加热烟草产品、不含尼古丁电子烟液、电子烟设备、含烟草无烟产品，以及其他落入 Act 852 的吸烟产品。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">相关产品上市前，应向卫生总监提交注册资料，由卫生总监受理和批准。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">相关产品上市前，应向卫生总监提交注册资料，由卫生总监受理和批准。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">产品如含有尼古丁、液体/凝胶尼古丁或其他受管制成分，还需同步确认《毒药法》及药剂监管要求。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">产品如含有尼古丁、液体/凝胶尼古丁或其他受管制成分，还需同步确认《毒药法》及药剂监管要求。</span>
               </div>
             </div>
           </div>
@@ -421,19 +431,19 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">毒物/药剂产品注册及供应资质，是针对尼古丁、毒物、药剂制品及相关供应活动的监管要求。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">毒物/药剂产品注册及供应资质，是针对尼古丁、毒物、药剂制品及相关供应活动的监管要求。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">适用于含尼古丁电子烟液、含尼古丁烟弹、含尼古丁电子烟产品，以及尼古丁袋、尼古丁口含膜、尼古丁片等不含烟草但含尼古丁的产品。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">适用于含尼古丁电子烟液、含尼古丁烟弹、含尼古丁电子烟产品，以及尼古丁袋、尼古丁口含膜、尼古丁片等不含烟草但含尼古丁的产品。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">相关产品应按《毒药法》及药剂监管框架确认产品注册、主管机关批准、供应主体和适用场景。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">相关产品应按《毒药法》及药剂监管框架确认产品注册、主管机关批准、供应主体和适用场景。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">使用"安全""无害""非致癌""降低健康风险"等减害宣称，或戒烟、治疗、尼古丁替代等药用宣称的，应具备充分科学证据，并确认是否触发药品/制剂注册等要求。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">使用"安全""无害""非致癌""降低健康风险"等减害宣称，或戒烟、治疗、尼古丁替代等药用宣称的，应具备充分科学证据，并确认是否触发药品/制剂注册等要求。</span>
               </div>
             </div>
           </div>
@@ -448,19 +458,19 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">地方营业/零售场所许可，是地方政府或地方主管机关针对门店、摊位、展示销售场所和具体经营活动设置的经营场所许可。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">地方营业/零售场所许可，是地方政府或地方主管机关针对门店、摊位、展示销售场所和具体经营活动设置的经营场所许可。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">适用于烟草产品、HNB 烟支、电子烟及相关产品的零售门店、展示销售场所、摊位和其他地方经营场所。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">适用于烟草产品、HNB 烟支、电子烟及相关产品的零售门店、展示销售场所、摊位和其他地方经营场所。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">经营主体应根据所在地地方政府或地方主管机关要求，办理营业执照、零售场所许可、摊位许可或具体经营活动许可。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">经营主体应根据所在地地方政府或地方主管机关要求，办理营业执照、零售场所许可、摊位许可或具体经营活动许可。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">销售含尼古丁并进入药剂监管路径的产品时，还需按照药剂监管要求确认供应主体和适用场景。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">销售含尼古丁并进入药剂监管路径的产品时，还需按照药剂监管要求确认供应主体和适用场景。</span>
               </div>
             </div>
           </div>
@@ -473,23 +483,23 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="ml-9 space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">制造业牌照是马来西亚针对达到法定门槛的本地制造企业设置的工业制造资质。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">制造业牌照是马来西亚针对达到法定门槛的本地制造企业设置的工业制造资质。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">适用于在马来西亚本地制造、加工或改造烟草产品、HNB 烟支、电子烟产品、烟草薄片、烟草半成品及相关产品的主体。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">适用于在马来西亚本地制造、加工或改造烟草产品、HNB 烟支、电子烟产品、烟草薄片、烟草半成品及相关产品的主体。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">制造企业股东资金达到 RM2.5 million 及以上，或雇用 75 名及以上全职受薪员工的，应申请制造业牌照。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">制造企业股东资金达到 RM2.5 million 及以上，或雇用 75 名及以上全职受薪员工的，应申请制造业牌照。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">制造业牌照通常通过马来西亚投资发展局（MIDA）提交申请，由马来西亚投资、贸易及工业部（MITI）批准。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">制造业牌照通常通过马来西亚投资发展局（MIDA）提交申请，由马来西亚投资、贸易及工业部（MITI）批准。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">制造活动、工厂用途、产品类别和生产范围，应与制造业牌照及相关批准内容保持一致。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] flex-1 min-w-0">制造活动、工厂用途、产品类别和生产范围，应与制造业牌照及相关批准内容保持一致。</span>
               </div>
             </div>
           </div>
@@ -535,19 +545,19 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">销售税是马来西亚 SST 体系下对本地制造或进口应税货物征收的单阶段税，通常在本地制造商销售应税货物或货物进口时发生。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">销售税是马来西亚 SST 体系下对本地制造或进口应税货物征收的单阶段税，通常在本地制造商销售应税货物或货物进口时发生。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">销售税通常按 HS 编码确定税率；一般应税货物适用 10%，部分基础食品、建材、农业投入品、基础工业原料和特定机械设备等适用 5%，石油类产品等少数货物适用特定税率。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">销售税通常按 HS 编码确定税率；一般应税货物适用 10%，部分基础食品、建材、农业投入品、基础工业原料和特定机械设备等适用 5%，石油类产品等少数货物适用特定税率。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">烟草及尼古丁相关产品中，未加工烟草/烟草废料，以及含烟草、烟草薄片、尼古丁或烟草/尼古丁替代物的非燃烧吸入产品及其他含尼古丁产品，被列入 5% 销售税范围。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">烟草及尼古丁相关产品中，未加工烟草/烟草废料，以及含烟草、烟草薄片、尼古丁或烟草/尼古丁替代物的非燃烧吸入产品及其他含尼古丁产品，被列入 5% 销售税范围。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">具体产品应按 HS 编码、产品形态和申报品名确认销售税税率。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">具体产品应按 HS 编码、产品形态和申报品名确认销售税税率。</span>
               </div>
             </div>
           </div>
@@ -557,11 +567,11 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">马来西亚对卷烟、雪茄和加热产品设置最低销售价格要求。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">马来西亚对卷烟、雪茄和加热产品设置最低销售价格要求。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">卷烟、雪茄和加热产品的每包最低价格为 RM12。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">卷烟、雪茄和加热产品的每包最低价格为 RM12。</span>
               </div>
             </div>
           </div>
@@ -571,11 +581,11 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">2026 年预算提出由马来西亚皇家关税局引入数字税票机制，用于烟草和酒类产品防伪、追踪和税收监管。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">2026 年预算提出由马来西亚皇家关税局引入数字税票机制，用于烟草和酒类产品防伪、追踪和税收监管。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">该机制仍属于预算提出事项，后续重点关注实施时间、适用品类、贴附方式和检查要求。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">该机制仍属于预算提出事项，后续重点关注实施时间、适用品类、贴附方式和检查要求。</span>
               </div>
             </div>
           </div>
@@ -585,15 +595,15 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
             <div className="space-y-2">
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">尼古丁口香糖、尼古丁贴片、尼古丁喷雾和尼古丁含片适用进口税和销售税豁免，有效期至 2027 年 12 月 31 日。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">尼古丁口香糖、尼古丁贴片、尼古丁喷雾和尼古丁含片适用进口税和销售税豁免，有效期至 2027 年 12 月 31 日。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">该项豁免对应戒烟治疗场景下的尼古丁替代治疗产品，政策目的与 mQuit 计划、肺部健康倡议及 FCTC 下戒烟治疗承诺相关。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">该项豁免对应戒烟治疗场景下的尼古丁替代治疗产品，政策目的与 mQuit 计划、肺部健康倡议及 FCTC 下戒烟治疗承诺相关。</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-relaxed text-justify flex-1 min-w-0">相关产品的监管基础仍是尼古丁替代治疗产品及药剂监管要求；涉及安全性、减害、戒烟、治疗或尼古丁替代等宣称的，应具备充分科学证据。</span>
+                <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify flex-1 min-w-0">相关产品的监管基础仍是尼古丁替代治疗产品及药剂监管要求；涉及安全性、减害、戒烟、治疗或尼古丁替代等宣称的，应具备充分科学证据。</span>
               </div>
             </div>
           </div>
@@ -602,119 +612,59 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
 
       <MarketOperationSection sectionId="operation-rules">
         <div className="grid md:grid-cols-2 gap-x-5 gap-y-6">
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
-            <div className="flex items-start gap-3 mb-4">
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+            <div className="flex items-start gap-3 mb-3">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">1</span>
               <h4 className="font-bold text-[#2E3F73] text-base leading-6">销售对象、渠道与场所</h4>
             </div>
-            <div className="ml-9 space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">吸烟产品只能销售、供应或提供给符合法定年龄要求的消费者。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">吸烟产品不得通过线上平台、自动售货机、临时摊位或临时市场销售。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">教育机构等受限场所不得销售吸烟产品。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">零售门店、展示销售场所和其他经营场所，应符合所在地营业/零售场所许可要求。</span>
-              </div>
+            <div className="ml-9 space-y-2">
+              <BulletPoint>吸烟产品只能销售、供应或提供给符合法定年龄要求的消费者。</BulletPoint>
+              <BulletPoint>吸烟产品不得通过线上平台、自动售货机、临时摊位或临时市场销售。</BulletPoint>
+              <BulletPoint>教育机构等受限场所不得销售吸烟产品。</BulletPoint>
+              <BulletPoint>零售门店、展示销售场所和其他经营场所，应符合所在地营业/零售场所许可要求。</BulletPoint>
             </div>
           </div>
 
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
-            <div className="flex items-start gap-3 mb-4">
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+            <div className="flex items-start gap-3 mb-3">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">2</span>
               <h4 className="font-bold text-[#2E3F73] text-base leading-6">陈列展示与价格呈现</h4>
             </div>
-            <div className="ml-9 space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">零售场所不得公开陈列吸烟产品；柜台、货架、收银区域、开放式货架和消费者可直接看到的位置，不应摆放或展示吸烟产品。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">产品价目、库存提示或销售说明应控制在销售必要信息范围内，不应通过图片、包装图案、品牌元素、灯箱、海报或屏幕展示形成广告效果。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">卷烟、雪茄和加热产品适用最低销售价格，零售端标价和结算价格不得低于规定价格。</span>
-              </div>
+            <div className="ml-9 space-y-2">
+              <BulletPoint>零售场所不得公开陈列吸烟产品；柜台、货架、收银区域、开放式货架和消费者可直接看到的位置，不应摆放或展示吸烟产品。</BulletPoint>
+              <BulletPoint>产品价目、库存提示或销售说明应控制在销售必要信息范围内，不应通过图片、包装图案、品牌元素、灯箱、海报或屏幕展示形成广告效果。</BulletPoint>
+              <BulletPoint>卷烟、雪茄和加热产品适用最低销售价格，零售端标价和结算价格不得低于规定价格。</BulletPoint>
             </div>
           </div>
 
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
-            <div className="flex items-start gap-3 mb-4">
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+            <div className="flex items-start gap-3 mb-3">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">3</span>
               <h4 className="font-bold text-[#2E3F73] text-base leading-6">包装标签与产品规格</h4>
             </div>
-            <div className="ml-9 space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">卷烟、雪茄、散装烟草、无烟烟草、HNB 烟支/加热产品，应按对应类别使用规定的识别标记、健康警示、健康信息和销售限制提示。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">电子烟液、烟弹、一次性电子烟及相关设备，应标注容量、尼古丁浓度、健康警示、销售限制提示，以及制造商/进口商名称和地址。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">传统卷烟每包应为 20 支，每条应为 10 包。不得以单支、小包装或不符合最低包装规格的形式销售。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">瓶装电子烟液容量为 15 ml；烟弹容量为 3 ml；一次性电子烟容量为 3 ml。自 2026 年 10 月 1 日起，烟弹和一次性电子烟容量上限降为 2 ml。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">电子烟液尼古丁浓度上限为 20 mg/ml。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">包装上的产品名称、容量、尼古丁浓度、制造商/进口商信息，应与产品注册资料和实际销售产品一致。</span>
-              </div>
+            <div className="ml-9 space-y-2">
+              <BulletPoint>卷烟、雪茄、散装烟草、无烟烟草、HNB 烟支/加热产品，应按对应类别使用规定的识别标记、健康警示、健康信息和销售限制提示。</BulletPoint>
+              <BulletPoint>电子烟液、烟弹、一次性电子烟及相关设备，应标注容量、尼古丁浓度、健康警示、销售限制提示，以及制造商/进口商名称和地址。</BulletPoint>
+              <BulletPoint>传统卷烟每包应为 20 支，每条应为 10 包。不得以单支、小包装或不符合最低包装规格的形式销售。</BulletPoint>
+              <BulletPoint>瓶装电子烟液容量为 15 ml；烟弹容量为 3 ml；一次性电子烟容量为 3 ml。自 2026 年 10 月 1 日起，烟弹和一次性电子烟容量上限降为 2 ml。</BulletPoint>
+              <BulletPoint>电子烟液尼古丁浓度上限为 20 mg/ml。</BulletPoint>
+              <BulletPoint>包装上的产品名称、容量、尼古丁浓度、制造商/进口商信息，应与产品注册资料和实际销售产品一致。</BulletPoint>
             </div>
           </div>
 
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-6">
-            <div className="flex items-start gap-3 mb-4">
+          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
+            <div className="flex items-start gap-3 mb-3">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-sm font-bold flex-shrink-0">4</span>
-              <h4 className="font-bold text-[#2E3F73] text-base leading-6">广告促销、赞助与宣称</h4>
+              <h4 className="font-bold text-[#2E3F73] text-base leading-6">广告促销与宣传</h4>
             </div>
-            <div className="ml-9 space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">禁止广告、促销或赞助吸烟产品，包括传统烟草、HNB 烟支/加热产品、电子烟液、电子烟设备及其他吸烟产品。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">不得通过社交媒体、短视频、直播、播客、网红推广、品牌植入或线上内容营销推广吸烟产品。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">不得通过赠品、折扣、抽奖、会员积分、组合销售、试用、递样或免费发放方式推广吸烟产品。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">不得通过体育、娱乐、校园、公益、社群活动或第三方合作安排推广吸烟产品品牌、商标、包装元素或产品形象。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">包装和宣传材料不得使用虚假、误导性或可能使消费者低估健康风险的文字、图形、声明或其他表示。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0 break-words-force">包装和宣传材料不得使用"light""ultra light""mild""cool""low tar""special""premium""rich""slim"等表示低危害、优越品质或类似含义的表达。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                <span className="text-[#334155] text-base leading-[26px] font-normal text-justify flex-1 min-w-0">使用"安全""无害""非致癌""降低健康风险"、戒烟、治疗或尼古丁替代等宣称的，应具备充分科学证据。</span>
-              </div>
+            <div className="ml-9 space-y-2">
+              <BulletPoint>禁止广告、促销或赞助吸烟产品，包括传统烟草、HNB 烟支/加热产品、电子烟液、电子烟设备及其他吸烟产品。</BulletPoint>
+              <BulletPoint>不得通过社交媒体、短视频、直播、播客、网红推广、品牌植入或线上内容营销推广吸烟产品。</BulletPoint>
+              <BulletPoint>不得通过赠品、折扣、抽奖、会员积分、组合销售、试用、递样或免费发放方式推广吸烟产品。</BulletPoint>
+              <BulletPoint>不得通过体育、娱乐、校园、公益、社群活动或第三方合作安排推广吸烟产品品牌、商标、包装元素或产品形象。</BulletPoint>
+              <BulletPoint>包装和宣传材料不得使用虚假、误导性或可能使消费者低估健康风险的文字、图形、声明或其他表示。</BulletPoint>
+              <BulletPoint>包装和宣传材料不得使用 “light”、“ultra light”、“mild”、“cool”、“low tar”、“special”、“premium”、“rich”、“slim” 等表示低危害、优越品质或类似含义的表达。</BulletPoint>
+              <BulletPoint>使用"安全""无害""非致癌""降低健康风险"、戒烟、治疗或尼古丁替代等宣称的，应具备充分科学证据。</BulletPoint>
             </div>
           </div>
         </div>
@@ -724,10 +674,10 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
         sectionId="trend"
         redLineId="red-lines"
         trendContent={
-          <div className="space-y-4">
-            <p className="text-[#334155] text-base leading-relaxed text-justify">马来西亚控烟政策的核心目标，是控制尼古丁消费扩张、降低未成年人接触风险，并把新型吸烟产品纳入公共健康监管。传统烟草和 HNB 烟支仍有合法空间，但监管态度偏控制型，后续重点会继续围绕税务、包装警示、销售限制和广告禁令展开。</p>
-            <p className="text-[#334155] text-base leading-relaxed text-justify">含尼古丁电子烟的政策方向已经转向禁止销售。2026年液体尼古丁判决使电子烟用液体/凝胶尼古丁继续受到毒物管制，含尼古丁电子烟失去进入普通商业流通的前置基础。结合卫生部推动电子烟禁令和地方销售执照限制，马来西亚短期内更可能继续压缩含尼古丁电子烟作为消费品进入零售市场的空间。</p>
-            <p className="text-[#334155] text-base leading-relaxed text-justify">尼古丁袋、尼古丁口含膜等口含类新型尼古丁产品尚未形成清晰准入路径。结合电子烟监管方向，后续监管更可能优先防止此类产品以新形态绕开烟草、毒物或药剂监管进入普通消费市场。</p>
+          <div className="space-y-3">
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">马来西亚控烟政策的核心目标，是控制尼古丁消费扩张、降低未成年人接触风险，并把新型吸烟产品纳入公共健康监管。传统烟草和 HNB 烟支仍有合法空间，但监管态度偏控制型，后续重点会继续围绕税务、包装警示、销售限制和广告禁令展开。</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">含尼古丁电子烟的政策方向已经转向禁止销售。2026年液体尼古丁判决使电子烟用液体/凝胶尼古丁继续受到毒物管制，含尼古丁电子烟失去进入普通商业流通的前置基础。结合卫生部推动电子烟禁令和地方销售执照限制，马来西亚短期内更可能继续压缩含尼古丁电子烟作为消费品进入零售市场的空间。</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">尼古丁袋、尼古丁口含膜等口含类新型尼古丁产品尚未形成清晰准入路径。结合电子烟监管方向，后续监管更可能优先防止此类产品以新形态绕开烟草、毒物或药剂监管进入普通消费市场。</p>
           </div>
         }
         redLineItems={[
@@ -739,7 +689,7 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
           "严禁公开陈列吸烟产品。",
           "严禁通过社交媒体、播客、直播、短视频、网红推广、赠品、折扣、抽奖、会员活动、组合销售、赞助或公益活动推广吸烟产品。",
           "严禁销售不符合最低包装规格、容量限制或尼古丁浓度上限的吸烟产品。",
-          '严禁在包装、标签或宣传中使用 "light""ultra light""mild""cool""extra""low tar""special""full flavour""premium""rich""famous""slim""grade A""golden""pearl""edition" 及其他容易使消费者误认产品危害较低、品质更高或更优越的表述。'
+          <span className="break-words" style={{ overflowWrap: 'anywhere' }}>严禁在包装、标签或宣传中使用 "light"、"ultra light"、"mild"、"cool"、"extra"、"low tar"、"special"、"full flavour"、"premium"、"rich"、"famous"、"slim"、"grade A"、"golden"、"pearl"、"edition" 及其他容易使消费者误认产品危害较低、品质更高或更优越的表述。</span>
         ]}
       />
 

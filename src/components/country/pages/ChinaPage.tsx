@@ -69,26 +69,26 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                   <div>
                     <h4 className="text-base font-bold text-[#2E3F73] mb-2">专卖制度</h4>
                     <div className="space-y-2">
-                      <BulletPoint>中国内地将烟叶、卷烟等烟草制品及烟草专用机械作为烟草专卖品，实行国家烟草专卖制度。国家烟草专卖局与中国烟草总公司实行"一套人马、两块牌子"，分别承担专卖行政管理和行业经营管理职能。</BulletPoint>
-                      <BulletPoint>专卖管理贯穿烟草专卖品生产、销售、运输、进出口等全链条，主要通过许可证、生产计划、准运证、专门销售渠道、进出口审批和执法检查等方式实现。</BulletPoint>
+                      <p className="text-[#334155] text-base leading-[1.6]">中国内地将烟叶、卷烟等烟草制品及烟草专用机械作为烟草专卖品，实行国家烟草专卖制度。国家烟草专卖局与中国烟草总公司实行"一套人马、两块牌子"，分别承担专卖行政管理和行业经营管理职能。</p>
+                      <p className="text-[#334155] text-base leading-[1.6]">专卖管理贯穿烟草专卖品生产、销售、运输、进出口等全链条，主要通过许可证、生产计划、准运证、专门销售渠道、进出口审批和执法检查等方式实现。</p>
                     </div>
                   </div>
                   <div>
                     <h4 className="text-base font-bold text-[#2E3F73] mb-2">卷烟等传统烟草产品</h4>
                     <div className="space-y-2">
-                      <BulletPoint>卷烟等传统烟草产品不是普通市场自由经营。生产、批发和进出口主要在中国烟草总公司及其所属企业体系内组织；零售主体需取得烟草专卖零售许可证，并在当地烟草专卖批发企业进货，接受发证机关监督管理。</BulletPoint>
+                      <p className="text-[#334155] text-base leading-[1.6]">卷烟等传统烟草产品不是普通市场自由经营。生产、批发和进出口主要在中国烟草总公司及其所属企业体系内组织；零售主体需取得烟草专卖零售许可证，并在当地烟草专卖批发企业进货，接受发证机关监督管理。</p>
                     </div>
                   </div>
                   <div>
                     <h4 className="text-base font-bold text-[#2E3F73] mb-2">电子烟</h4>
                     <div className="space-y-2">
-                      <BulletPoint>电子烟已经纳入烟草监管体系，但与传统卷烟适用不同规则，主要体现在许可证类型、产品技术审评、交易平台、批发零售渠道和产品标准等方面。</BulletPoint>
+                      <p className="text-[#334155] text-base leading-[1.6]">电子烟已经纳入烟草监管体系，但与传统卷烟适用不同规则，主要体现在许可证类型、产品技术审评、交易平台、批发零售渠道和产品标准等方面。</p>
                     </div>
                   </div>
                   <div>
                     <h4 className="text-base font-bold text-[#2E3F73] mb-2">新型烟草和新型尼古丁产品</h4>
                     <div className="space-y-2">
-                      <BulletPoint>加热卷烟、尼古丁袋等新型烟草和新型尼古丁产品，目前尚未形成面向中国境内消费者市场的开放销售路径。</BulletPoint>
+                      <p className="text-[#334155] text-base leading-[1.6]">加热卷烟、尼古丁袋等新型烟草和新型尼古丁产品，目前尚未形成面向中国境内消费者市场的开放销售路径。</p>
                     </div>
                   </div>
                 </div>
@@ -488,11 +488,11 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         </TaxTableCard>
 
         <TaxTableCard title="增值税">
-          <p className="text-[#334155] text-base leading-relaxed text-justify">烟草制品、电子烟、雾化物、电子烟用烟碱及相关辅材的境内销售，通常按照增值税一般规则处理。境内销售通常涉及销项税额、进项抵扣和发票管理；出口业务需区分退税、免税、征税或取消退税等不同情形。</p>
+          <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify">烟草制品、电子烟、雾化物、电子烟用烟碱及相关辅材的境内销售，通常按照增值税一般规则处理。境内销售通常涉及销项税额、进项抵扣和发票管理；出口业务需区分退税、免税、征税或取消退税等不同情形。</p>
         </TaxTableCard>
 
         <TaxTableCard title="电子烟出口退税">
-          <ul className="space-y-2 pl-5 list-disc text-base leading-relaxed text-[#334155] text-justify">
+          <ul style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="space-y-2 pl-5 list-disc text-base leading-[1.6] text-[#334155] text-justify">
             <li>自2026年4月1日起，商品编码2404120000项下"不含烟草或再造烟草、含尼古丁的非经燃烧吸用的产品"，以及商品编码8543400090项下"其他电子烟及类似个人电子雾化设备"，取消增值税出口退税。</li>
             <li>本次调整仅涉及增值税出口退税；对其中征收消费税的产品，出口消费税政策不作调整，继续适用现行消费税退（免）税政策。</li>
             <li>商品编码8543400010和8543909000未列入本次取消出口退税清单，但具体产品能否归入相关编码，应根据产品实际结构、功能及海关商品归类规则判断，不得以取得出口退税为目的不当申报商品编码。</li>
