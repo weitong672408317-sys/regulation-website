@@ -33,6 +33,7 @@ const countryPageMap: Record<string, React.ComponentType<{ country: any }>> = {
 };
 
 const russiaMobileNavItems = [
+  { id: 'home', label: '返回首页' },
   { id: 'product-access-overview', label: '准入速览' },
   { id: 'overview', label: '监管动态' },
   { id: 'regulatory-system', label: '监管体系' },
@@ -52,7 +53,7 @@ function MobileSectionNav() {
         {russiaMobileNavItems.map(item => (
           <a
             key={item.id}
-            href={`#${item.id}`}
+            href={item.id === 'home' ? '/' : `#${item.id}`}
             className="flex-shrink-0 rounded-full border border-[#D8DDED] bg-[#F7F9FC] px-3 py-1.5 text-sm font-medium text-[#2E3F73]"
           >
             {item.label}
@@ -93,7 +94,7 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
     return (
       <div className={`min-h-screen bg-[#F7F9FC]${isRussia ? ' russia-page' : ''}`}>
         <ScrollToTop countryId={country.id} />
-        <header className="bg-white border-b border-[#D8E0EA] shadow-sm">
+        <header className={`bg-white border-b border-[#D8E0EA] shadow-sm${isRussia ? ' hidden lg:block' : ''}`}>
           <div className={`max-w-7xl lg:max-w-[1800px] mx-auto ${pagePaddingClass} py-4`}>
             <Link href="/" prefetch={true} className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
               <span className="text-lg">←</span> 返回首页

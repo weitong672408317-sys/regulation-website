@@ -112,7 +112,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
 
       <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 传统烟草产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 russia-product-access-nature">
             <BulletPoint>根据 TR CU 035/2014，烟草制品是全部或部分以烟草叶为原料制成，并以消费者包装投放市场的产品。</BulletPoint>
             <BulletPoint>烟草制品主要包括：传统卷烟、雪茄、小雪茄、烟丝、烟斗烟、水烟烟草，以及 papirosy（俄式纸嘴卷烟，即一端为烟草段、另一端为较长中空纸嘴的传统燃烧型烟草制品）。</BulletPoint>
           </div>
@@ -130,7 +130,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="2. 加热烟草产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 russia-product-access-nature">
             <BulletPoint>第15-FZ号法将加热烟草产品列入尼古丁产品范围。</BulletPoint>
             <BulletPoint>HNB 烟支通常指含烟草材料、通过加热装置加热后供消费者吸入的产品。</BulletPoint>
           </div>
@@ -148,7 +148,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="3. 电子烟及液体产品" label="分类监管" id="module-ecig">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 russia-product-access-nature">
             <BulletPoint>俄罗斯按产品构成对电子烟相关产品分类监管，主要分类包括设备、液体、预灌装 / 组合产品和空组件。</BulletPoint>
             <BulletPoint>俄罗斯目前尚未实施全国性电子烟全面禁售，电子烟及相关液体产品仍有合法市场空间。近期围绕"允许地区政府自行禁止电子烟及相关液体销售"的立法讨论，可能改变部分地区的销售可行性，使该品类面临明显高于传统烟草和加热烟草产品的政策变动风险。</BulletPoint>
           </div>
@@ -246,7 +246,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="4. 无烟烟草及新型尼古丁产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 russia-product-access-nature">
             <BulletPoint>无烟烟草产品是一个大类。俄罗斯法规主要根据产品成分、使用方式和具体产品类别区分监管，没有对所有无烟烟草产品适用统一准入规则。</BulletPoint>
             <BulletPoint>nasvay、snus、食品型尼古丁产品，以及用于咀嚼、吸吮、鼻吸的尼古丁产品，属于明确禁售产品。</BulletPoint>
             <BulletPoint>咀嚼烟草、鼻烟等无烟烟草产品，在俄罗斯法规体系中仍有合规准入路径，但适用强监管要求。</BulletPoint>
@@ -323,7 +323,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="5. 烟草及尼古丁原料" label="产品定性" id="module-tobacco-raw">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 russia-product-access-nature">
             <BulletPoint>烟叶、烟草薄片、烟草原料和尼古丁原料主要作为生产原料管理。第203-FZ号法已将烟草制品、烟草产品、尼古丁产品及其生产原料纳入生产流通监管。</BulletPoint>
           </div>
           <StatusCard
@@ -357,7 +357,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="6. 普通辅材" label="产品定性" id="module-ordinary-material">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 russia-product-access-nature">
             <BulletPoint>滤嘴棒、爆珠、香精胶囊和香精香料主要作为普通辅材或配套材料管理；是否进入烟草制品、尼古丁产品、电子烟液或相关生产原料路径，应按成分和产品形态判断。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-2 gap-4">

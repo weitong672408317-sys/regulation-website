@@ -89,9 +89,142 @@ body {
     line-height: 1.25 !important;
   }
 
+  .russia-page #product-access-overview > div > p,
+  .russia-page #overview > div > p,
+  .russia-page #licenses > div > p,
+  .russia-page #tax > div > .mb-6 > p,
+  .russia-page #tax > div .mb-6 > p,
+  .russia-page #resources .bg-\[\#E8EDF5\] p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .russia-page #overview h3,
+  .russia-page #overview h4,
+  .russia-page #regulatory-system h3,
+  .russia-page #regulatory-system h4,
+  .russia-page #product-access-overview .md\:hidden h3,
+  .russia-page #product-access-overview .md\:hidden h4,
+  .russia-page #licenses .grid > div h4,
+  .russia-page #tax > div > .space-y-4 > .rounded-xl > h3,
+  .russia-page #operation-rules .grid > div h4,
+  .russia-page #trend h3,
+  .russia-page #trend h4,
+  .russia-page #red-lines h3,
+  .russia-page #red-lines h4,
+  .russia-page #resources h3,
+  .russia-page #resources h4,
+  .russia-page #product-access > div > .space-y-4 > .rounded-xl > h3 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden > .rounded-xl,
+  .russia-page #overview > div > .space-y-3 > .rounded-xl,
+  .russia-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .russia-page #licenses .grid > div,
+  .russia-page #tax > div > .space-y-4 > .rounded-xl,
+  .russia-page #tax .md\:hidden > .rounded-xl,
+  .russia-page #operation-rules .grid > div,
+  .russia-page #trend > div > .rounded-xl,
+  .russia-page #red-lines,
+  .russia-page #resources .rounded-xl.border,
+  .russia-page #resources .rounded-xl[class*="border-"] {
+    padding: 12px !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden .flex.items-start,
+  .russia-page #overview .flex.items-start.gap-3,
+  .russia-page #regulatory-system .flex.items-start.gap-3,
+  .russia-page #licenses .grid > div .flex.items-start.gap-3,
+  .russia-page #tax .flex.items-start.gap-3,
   .russia-page #operation-rules .flex.items-start.gap-3,
-  .russia-page #red-lines .flex.items-start.gap-3 {
+  .russia-page #red-lines .flex.items-start.gap-3,
+  .russia-page #resources .flex.items-start.gap-3 {
     gap: 8px !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden button,
+  .russia-page #overview > div > .space-y-3 > .rounded-xl div,
+  .russia-page #overview > div > .space-y-3 > .rounded-xl p,
+  .russia-page #overview > div > .space-y-3 > .rounded-xl span,
+  .russia-page #regulatory-system > div > .space-y-4 > .rounded-xl div,
+  .russia-page #regulatory-system > div > .space-y-4 > .rounded-xl p,
+  .russia-page #regulatory-system > div > .space-y-4 > .rounded-xl span,
+  .russia-page #licenses .grid > div .flex-1,
+  .russia-page #licenses .grid > div .space-y-1,
+  .russia-page #operation-rules .grid > div .flex-1,
+  .russia-page #operation-rules .grid > div .space-y-2,
+  .russia-page #licenses .grid > div span.text-\[\#334155\],
+  .russia-page #tax span.text-\[\#334155\],
+  .russia-page #tax .md\:hidden > .rounded-xl > div,
+  .russia-page #operation-rules .grid > div span.text-\[\#334155\],
+  .russia-page #trend p,
+  .russia-page #red-lines span.text-\[\#334155\],
+  .russia-page #resources p,
+  .russia-page #resources .text-base,
+  .russia-page #resources .text-sm {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .russia-page #overview h3,
+  .russia-page #overview h4,
+  .russia-page #regulatory-system h3,
+  .russia-page #regulatory-system h4,
+  .russia-page #licenses .grid > div h4,
+  .russia-page #operation-rules .grid > div h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden button,
+  .russia-page #overview .flex-1,
+  .russia-page #regulatory-system .flex-1,
+  .russia-page #licenses .grid > div .flex-1,
+  .russia-page #operation-rules .grid > div .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .russia-page #tax .md\:hidden > .rounded-xl > div:first-child {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .russia-page #resources a.font-semibold {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 700 !important;
+  }
+
+  .russia-page .russia-product-access-nature,
+  .russia-page .russia-product-access-nature span,
+  .russia-page .russia-product-access-nature p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .russia-page .russia-product-access-nature .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .russia-page .russia-product-access-nature span.text-\[\#334155\] {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+  }
+
+  .russia-page #licenses .grid > div span.text-\[\#334155\],
+  .russia-page #tax span.text-\[\#334155\],
+  .russia-page #operation-rules .grid > div span.text-\[\#334155\],
+  .russia-page #red-lines span.text-\[\#334155\] {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
   }
 
   .russia-page #resources .russia-resource-nested-list {
