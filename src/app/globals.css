@@ -203,7 +203,7 @@ body {
   .uae-page #tax .uae-tax-mobile-card p,
   .uae-page #tax .uae-tax-mobile-card .flex-1 {
     font-size: 14px !important;
-    line-height: 1.55 !important;
+    line-height: 1.5 !important;
     font-weight: 400 !important;
     color: #334155 !important;
   }
@@ -418,10 +418,10 @@ body {
   .malaysia-page #operation-rules > div > h2,
   .malaysia-page #trend > div > h2,
   .malaysia-page #resources > div > h2 {
-    font-size: 19px !important;
+    font-size: 18px !important;
     line-height: 1.25 !important;
     font-weight: 700 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 18px !important;
   }
 
   .malaysia-page #overview h3,
@@ -542,7 +542,7 @@ body {
   }
 
   .malaysia-page #product-access [id^="product-"] {
-    padding: 16px !important;
+    padding: 14px !important;
   }
 
   .malaysia-page #product-access [id^="product-"] > div.font-bold.text-\[\#263247\] {
@@ -605,8 +605,10 @@ body {
   }
 
   .russia-page section[id] > div > h2 {
-    font-size: 19px !important;
+    font-size: 18px !important;
     line-height: 1.25 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
   }
 
   .russia-page #product-access-overview > div > p,
@@ -754,12 +756,92 @@ body {
   .russia-page #resources .russia-resource-nested-list > .russia-resource-nested-item + .russia-resource-nested-item {
     margin-top: 12px !important;
   }
-}
 
-.russia-page #resources .russia-resource-nested-list {
-  margin-top: 12px;
-}
+  .russia-page #product-access [id^="product-"] {
+    padding: 14px !important;
+  }
 
-.russia-page #resources .russia-resource-nested-list > .russia-resource-nested-item + .russia-resource-nested-item {
-  margin-top: 12px;
+  .russia-page #product-access [id^="product-"] > div:first-child span:first-child {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+  }
+
+  .russia-page #product-access [id^="product-"] > div:nth-child(2) {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .russia-page #product-access [id^="product-"] > div:nth-child(3) {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .russia-page #product-access [id^="product-"] .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .russia-page #product-access [id^="product-"] .flex-1.min-w-0 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
+
+  .russia-page #tax .md\:hidden > .rounded-xl .font-semibold {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .malaysia-page #tax .malaysia-tax-mobile-card .font-semibold {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .malaysia-page #product-access [id^="product-"] > div:first-child span:first-child {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+  }
+
+  .malaysia-page #product-access [id^="product-"] > div:nth-child(2) {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .malaysia-page #product-access [id^="product-"] > div:nth-child(3) {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .malaysia-page #product-access [id^="product-"] .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .malaysia-page #product-access [id^="product-"] .flex-1.min-w-0 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
 }
