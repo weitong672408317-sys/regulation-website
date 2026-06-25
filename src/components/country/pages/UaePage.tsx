@@ -32,7 +32,7 @@ interface UaePageProps {
 export default function UaePage({ country }: UaePageProps) {
   return (
     <CountryPageTemplate>
-      <ProductAccessOverviewSection data={uaeProductAccessOverview} sectionId="product-access-overview" />
+      <ProductAccessOverviewSection data={uaeProductAccessOverview} sectionId="product-access-overview" useMobileCards />
       <SeasonSummarySection introText="本季无重大监管更新。" sectionId="overview" />
 
       <RegulatorySystemSection sectionId="regulatory-system" cards={[
@@ -75,7 +75,7 @@ export default function UaePage({ country }: UaePageProps) {
 
       <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 烟草材料" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 uae-product-access-nature">
             <BulletPoint>阿联酋控烟法将烟草界定为各类烟草植物及其根、茎、叶、果实、绿色或干燥种子等部分。烟叶属于典型烟草原料。</BulletPoint>
           </div>
           <StatusCard
@@ -83,6 +83,7 @@ export default function UaePage({ country }: UaePageProps) {
             title="烟草材料"
             id="product-tobacco-material"
             customLabel="可准入"
+            className="uae-product-access-card"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：烟叶、烟草薄片、烟草废料及其他烟草原料</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -101,7 +102,7 @@ export default function UaePage({ country }: UaePageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="2. 燃烧类烟草制品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 uae-product-access-nature">
             <BulletPoint>阿联酋控烟法将烟草制品界定为全部或部分以烟叶为原料制成的产品，包括保持原形、切碎、切丁、与其他材料混合、加工成粉末或以其他形态形成的产品，也包括含有烟草成分的复合材料。</BulletPoint>
             <BulletPoint>传统卷烟、水烟烟草、雪茄、烟斗烟草、小雪茄等通过点燃并燃烧方式使用的产品，属于燃烧类烟草制品。</BulletPoint>
           </div>
@@ -110,6 +111,7 @@ export default function UaePage({ country }: UaePageProps) {
             title="燃烧类烟草制品"
             id="product-combustible-tobacco"
             customLabel="可准入"
+            className="uae-product-access-card"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：传统卷烟、水烟烟草、雪茄、烟丝及其他燃烧类烟草制品</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -132,7 +134,7 @@ export default function UaePage({ country }: UaePageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="3. 电子尼古丁产品及加热烟草产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 uae-product-access-nature">
             <BulletPoint>UAE.S 5030:2018《电子尼古丁产品（传统烟草产品等同物）》适用于设计成传统烟草产品形式的电子尼古丁产品，例如卷烟、雪茄、烟斗、小雪茄或水烟形式的产品。</BulletPoint>
             <BulletPoint>该标准覆盖两类产品：
               <br />（1）不含烟草的电子雾化产品，其可能含有尼古丁，也可能不含尼古丁，以及其补充装，例如电子液体容器；
@@ -145,6 +147,7 @@ export default function UaePage({ country }: UaePageProps) {
               status="green"
               title="电子尼古丁产品"
               customLabel="可准入"
+              className="uae-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：电子烟设备、雾化器、烟油 / 电子烟液 / 补充液、烟弹 / 预灌装产品、设备与液体组合产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -177,6 +180,7 @@ export default function UaePage({ country }: UaePageProps) {
               title="加热烟草产品"
               id="product-heat-not-burn"
               customLabel="可准入"
+              className="uae-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：HNB 烟支、加热烟草棒、加热烟草产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -196,7 +200,7 @@ export default function UaePage({ country }: UaePageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="4. 无烟烟草 / 新型尼古丁产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 uae-product-access-nature">
             <BulletPoint>在阿联酋，无烟烟草 / 新型尼古丁产品不按单一产品路径处理。</BulletPoint>
             <BulletPoint>结合现有公开规则，可以分为三类：
               <br />（1）无烟草尼古丁袋；
@@ -211,6 +215,7 @@ export default function UaePage({ country }: UaePageProps) {
               title="无烟草尼古丁袋"
               id="product-nicotine-pouch"
               customLabel="可准入"
+              className="uae-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：无烟草尼古丁袋、袋状口含尼古丁产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -236,6 +241,7 @@ export default function UaePage({ country }: UaePageProps) {
               title="无烟烟草产品"
               id="product-smokeless-tobacco"
               customLabel="完全禁止"
+              className="uae-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：含烟草咀嚼制品及其他含烟草但不经燃烧吸用的产品</div>
                 <p className="text-sm leading-[1.55] mb-2 text-[#334155]">公开资料未见阿联酋对"含烟草咀嚼制品"设置单独完整定义。</p>
@@ -259,6 +265,7 @@ export default function UaePage({ country }: UaePageProps) {
               title="其他新型尼古丁产品"
               id="product-novel-nicotine"
               customLabel="监管要求不明确"
+              className="uae-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：尼古丁口含膜、尼古丁片、尼古丁粉末、鼻吸尼古丁产品及其他不含烟草但含尼古丁、且不属于无烟草尼古丁袋的口腔或鼻用产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -282,7 +289,7 @@ export default function UaePage({ country }: UaePageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="5. 普通辅材" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 uae-product-access-nature">
             <BulletPoint>阿联酋公开资料未见对滤嘴棒、爆珠、香精胶囊、香精香料设置单独产品定义。该类产品应重点核对成分、用途、HS 编码、进口申报和下游客户产品用途。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -291,6 +298,7 @@ export default function UaePage({ country }: UaePageProps) {
               title="普通辅材"
               id="product-ordinary-material"
               customLabel="可准入"
+              className="uae-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：不含尼古丁、烟草成分或烟草提取物的普通辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -306,6 +314,7 @@ export default function UaePage({ country }: UaePageProps) {
               status="amber"
               title="含尼古丁 / 烟草成分辅材"
               customLabel="需结合产品特性确认"
+              className="uae-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：含尼古丁、烟草成分或烟草提取物的辅材</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -325,7 +334,7 @@ export default function UaePage({ country }: UaePageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="6. 仿烟糖果 / 玩具" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 uae-product-access-nature">
             <BulletPoint>仿烟糖果/玩具是指外观、表达或使用方式类似烟草或烟草制品的糖果、游戏或玩具类产品。</BulletPoint>
           </div>
           <StatusCard
@@ -333,6 +342,7 @@ export default function UaePage({ country }: UaePageProps) {
             title="仿烟糖果 / 玩具"
             id="product-imitation"
             customLabel="完全禁止"
+            className="uae-product-access-card"
             content={<>
               <div className="text-sm text-[#334155] mb-2">适用产品：仿烟糖果 / 玩具</div>
               <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -348,7 +358,7 @@ export default function UaePage({ country }: UaePageProps) {
 
         {country.emirateDifferences && (
           <SubCard title="主要酋长国差异">
-            <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+            <div className="hidden md:block overflow-x-auto rounded-xl border border-[#D8DDED]">
               <table className="w-full text-base min-w-[600px] bg-white">
                 <thead>
                   <tr className="bg-[#E8EDF5]">
@@ -376,6 +386,30 @@ export default function UaePage({ country }: UaePageProps) {
                   ))}
                 </tbody>
               </table>
+            </div>
+            <div className="md:hidden space-y-3">
+              {country.emirateDifferences.map((row, index) => (
+                <div key={index} className="uae-mobile-emirate-card bg-white border border-[#D8DDED] rounded-xl p-3.5">
+                  <div className="uae-mobile-emirate-title">{row.emirate}</div>
+                  <div className="uae-mobile-emirate-fields space-y-2.5">
+                    <div>
+                      <div className="uae-mobile-emirate-label">咀嚼烟草制品</div>
+                      <div className="uae-mobile-emirate-body">{row.chewingTobacco}</div>
+                    </div>
+                    <div>
+                      <div className="uae-mobile-emirate-label">电子烟</div>
+                      <div className="uae-mobile-emirate-body">{row.electronicCigarette}</div>
+                    </div>
+                    <div>
+                      <div className="uae-mobile-emirate-label">水烟</div>
+                      <div className="uae-mobile-emirate-body">{row.hookah}</div>
+                    </div>
+                  </div>
+                  {row.note && index === country.emirateDifferences!.length - 1 && (
+                    <div className="uae-mobile-emirate-note">备注：{row.note}</div>
+                  )}
+                </div>
+              ))}
             </div>
           </SubCard>
         )}
@@ -490,7 +524,7 @@ export default function UaePage({ country }: UaePageProps) {
         <TaxTableCard title="主要税种">
           <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mb-4">烟草制品因其特殊性，在阿联酋涉及多种税务规定。主要包括消费税、增值税和企业所得税三类。</p>
           <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mb-4">下面通过表格汇总对比这三种税种的适用范围、税率和企业的注册义务：</p>
-          <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+          <div className="hidden md:block overflow-x-auto rounded-xl border border-[#D8DDED]">
             <table className="w-full text-sm min-w-[800px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
@@ -574,6 +608,106 @@ export default function UaePage({ country }: UaePageProps) {
               </tbody>
             </table>
           </div>
+          <div className="md:hidden space-y-3">
+            <div className="uae-tax-mobile-card rounded-xl border border-[#D8E0F0] bg-white p-3.5">
+              <div className="uae-mobile-tax-title font-bold text-[#27406E]">消费税</div>
+              <div className="uae-mobile-tax-en text-xs text-[#64748B]">(Excise Tax)</div>
+              <div className="uae-mobile-tax-body mt-3 space-y-2.5">
+                <div>
+                  <div className="uae-mobile-card-label">适用对象 / 范围</div>
+                  <p className="text-[#334155]">针对特定有害商品征收的税，包括：烟草制品、电子烟及其液体、能量饮料、含糖饮料等。征税环节为进口、出仓或本地生产释放到市场时。</p>
+                </div>
+                <div>
+                  <div className="uae-mobile-card-label">税率</div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">100%：烟草制品、电子烟装置及烟油；</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">50%：含糖饮料等。</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="uae-mobile-card-label">注册要求及门槛</div>
+                  <p className="text-[#334155]">无营业额门槛。凡从事应税特定有害商品进口、本地生产或经营指定仓库者，均须向FTA注册为应税人，并履行申报缴税义务。</p>
+                </div>
+              </div>
+            </div>
+            <div className="uae-tax-mobile-card rounded-xl border border-[#D8E0F0] bg-white p-3.5">
+              <div className="uae-mobile-tax-title font-bold text-[#27406E]">增值税</div>
+              <div className="uae-mobile-tax-en text-xs text-[#64748B]">(VAT)</div>
+              <div className="uae-mobile-tax-body mt-3 space-y-2.5">
+                <div>
+                  <div className="uae-mobile-card-label">适用对象 / 范围</div>
+                  <p className="text-[#334155]">对几乎所有商品和服务增值额征收的税（少数豁免项目如部分教育、医疗和金融服务除外）。每一笔应税交易由最终消费者承担税负。</p>
+                </div>
+                <div>
+                  <div className="uae-mobile-card-label">税率</div>
+                  <p className="text-[#334155]">5%（标准税率）</p>
+                </div>
+                <div>
+                  <div className="uae-mobile-card-label">注册要求及门槛</div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">年应税营业额 ≥ 375,000 AED 须注册；</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">187,500–375,000 AED 可自愿注册；</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">低于 187,500 AED 不可注册。</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="uae-tax-mobile-card rounded-xl border border-[#D8E0F0] bg-white p-3.5">
+              <div className="uae-mobile-tax-title font-bold text-[#27406E]">企业所得税</div>
+              <div className="uae-mobile-tax-en text-xs text-[#64748B]">(Corporate Tax)</div>
+              <div className="uae-mobile-tax-body mt-3 space-y-2.5">
+                <div>
+                  <div className="uae-mobile-card-label">适用对象 / 范围</div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">对阿联酋境内开展营业的公司的净利润征收；</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">石油和天然气行业及特定自由区合格企业有特殊豁免；</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">适用于在阿联酋注册的本土公司、符合条件的自由区公司，以及在阿境内有持续经营场所的外国企业。</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="uae-mobile-card-label">税率</div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">0%：年净利润 ≤ 375,000 AED；</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="mt-[8px] w-1 h-1 rounded-full bg-[#4A6290] flex-shrink-0"></span>
+                      <span className="flex-1 min-w-0 text-[#334155]">9%：年净利润超出 375,000 AED 的部分。</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="uae-mobile-card-label">注册要求及门槛</div>
+                  <p className="text-[#334155]">无收入门槛（除特定豁免情形外）。几乎所有在阿联酋境内开展业务的法人实体都须按规定注册企业税，并在规定时限内申报纳税；逾期注册或申报将面临罚款。</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </TaxTableCard>
 
         <TaxTableCard title="消费税合规要点">
@@ -646,7 +780,7 @@ export default function UaePage({ country }: UaePageProps) {
                 <div className="space-y-2">
                   <div className="flex items-start gap-3">
                     <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#4A6290] flex-shrink-0"></span>
-                    <span className="flex-1 min-w-0 text-base leading-[1.6] font-normal text-[#334155] text-justify break-words [overflow-wrap:anywhere]">包装本身不作为广告，但产品包装本身及其上所印内容亦受限。包装上不能出现公司名称以外的品牌延伸宣传，不能宣称任何健康好处或暗示风险较低。例如禁止标榜"有机烟草""无害电子烟"等误导性字样。一些国家常见的"低焦油""薄荷提神"等卖点在阿联酋都是明令禁止印于包装上的。监管部门也禁止包装内附带促销券或积分卡等营销手段。总之，包装只能传递法规许可的信息（品牌、警示、成分等），不可成为广告载体。</span>
+                    <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="flex-1 min-w-0 text-base leading-[1.6] text-[#334155] text-justify m-0">包装本身不作为广告，但产品包装本身及其上所印内容亦受限。包装上不能出现公司名称以外的品牌延伸宣传，不能宣称任何健康好处或暗示风险较低。例如禁止标榜"有机烟草""无害电子烟"等误导性字样。一些国家常见的"低焦油""薄荷提神"等卖点在阿联酋都是明令禁止印于包装上的。监管部门也禁止包装内附带促销券或积分卡等营销手段。总之，包装只能传递法规许可的信息（品牌、警示、成分等），不可成为广告载体。</p>
                   </div>
                 </div>
               </div>
@@ -675,6 +809,7 @@ export default function UaePage({ country }: UaePageProps) {
       </MarketOperationSection>
 
       <TrendAndRedLinesSection
+        sectionId="trend-redline"
         trendId="trend"
         redLineId="red-lines"
         trendContent={

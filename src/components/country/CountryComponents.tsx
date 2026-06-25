@@ -81,7 +81,7 @@ export const SeasonSummaryCard = ({ title, text }: { title: string; text: string
   );
 };
 
-export const StatusCard = ({ status, title, subtitle, content, customLabel, id }: { status: 'green' | 'amber' | 'red'; title: string; subtitle?: string; content: React.ReactNode; customLabel?: string; id?: string }) => {
+export const StatusCard = ({ status, title, subtitle, content, customLabel, id, className }: { status: 'green' | 'amber' | 'red'; title: string; subtitle?: string; content: React.ReactNode; customLabel?: string; id?: string; className?: string }) => {
   const styles = {
     green: {
       borderLeft: 'border-l-[#6AAF7C]',
@@ -106,7 +106,7 @@ export const StatusCard = ({ status, title, subtitle, content, customLabel, id }
   const s = styles[status];
 
   return (
-    <div id={id} className={`bg-white border border-[#E2E6EF] ${s.borderLeft} border-l-2 rounded-xl p-6 shadow-sm w-full${id ? ' scroll-mt-4' : ''}`}>
+    <div id={id} className={`bg-white border border-[#E2E6EF] ${s.borderLeft} border-l-2 rounded-xl p-6 shadow-sm w-full${id ? ' scroll-mt-4' : ''}${className ? ` ${className}` : ''}`}>
       <div className="flex items-center gap-2 mb-4">
         <span className={`px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap w-fit ${s.badge}`}>{customLabel || s.label}</span>
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}

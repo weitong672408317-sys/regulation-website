@@ -31,6 +31,345 @@ body {
 }
 
 @media (max-width: 767px) {
+  .uae-page {
+    overflow-x: clip;
+  }
+
+  .uae-page main > .flex {
+    display: block !important;
+  }
+
+  .uae-page main > .flex > nav {
+    display: none !important;
+  }
+
+  .uae-page main > .flex > .flex-1 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .uae-page [id] {
+    scroll-margin-top: 64px !important;
+  }
+
+  .uae-page h1 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .uae-page #product-access-overview > div,
+  .uae-page #overview > div,
+  .uae-page #regulatory-system > div,
+  .uae-page #product-access > div,
+  .uae-page #licenses > div,
+  .uae-page #tax > div,
+  .uae-page #operation-rules > div,
+  .uae-page #resources > div {
+    padding: 16px !important;
+  }
+
+  .uae-page section[id] > div > h2 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .uae-page section#trend-redline > div > h2 {
+    font-size: 17px !important;
+    line-height: 1.3 !important;
+  }
+
+  .uae-page section[id] > div > h2 > div {
+    width: 3px !important;
+    height: 20px !important;
+  }
+
+  .uae-page #product-access-overview .md\:hidden h3,
+  .uae-page #product-access-overview .md\:hidden h4,
+  .uae-page #regulatory-system h3,
+  .uae-page #regulatory-system h4,
+  .uae-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .uae-page #licenses h4,
+  .uae-page #tax h3,
+  .uae-page #tax h4,
+  .uae-page #operation-rules h4,
+  .uae-page #trend h3,
+  .uae-page #trend h4,
+  .uae-page #red-lines h3,
+  .uae-page #red-lines h4,
+  .uae-page #resources h3,
+  .uae-page #resources h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .uae-page #product-access-overview > div > p,
+  .uae-page #product-access-overview .md\:hidden button,
+  .uae-page #overview p,
+  .uae-page #regulatory-system p,
+  .uae-page #regulatory-system span,
+  .uae-page #licenses > div > p,
+  .uae-page #licenses .grid > div p,
+  .uae-page #licenses .grid > div span.text-\[\#334155\],
+  .uae-page #tax p,
+  .uae-page #tax .uae-tax-mobile-card div,
+  .uae-page #tax .uae-tax-mobile-card span,
+  .uae-page #operation-rules p,
+  .uae-page #operation-rules .grid > div span.text-\[\#334155\],
+  .uae-page #trend p,
+  .uae-page #red-lines span.text-\[\#334155\],
+  .uae-page #resources p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .uae-page #overview > div > .space-y-3 > .rounded-xl,
+  .uae-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .uae-page #product-access > div > .space-y-4 > .rounded-xl,
+  .uae-page #licenses .grid > div,
+  .uae-page #tax > div > .space-y-4 > .rounded-xl,
+  .uae-page #tax .uae-tax-mobile-card,
+  .uae-page #operation-rules .grid > div,
+  .uae-page #red-lines,
+  .uae-page #resources .rounded-xl.border,
+  .uae-page #resources .rounded-xl[class*="border-"] {
+    padding: 12px !important;
+  }
+
+  .uae-page #licenses .grid > div .ml-6,
+  .uae-page #licenses .grid > div .ml-9 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .uae-page #licenses .flex.items-start.gap-3,
+  .uae-page #tax .flex.items-start.gap-3,
+  .uae-page #operation-rules .flex.items-start.gap-3,
+  .uae-page #red-lines .flex.items-start.gap-3,
+  .uae-page #resources .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .uae-page #licenses .flex-1,
+  .uae-page #tax .flex-1,
+  .uae-page #operation-rules .flex-1,
+  .uae-page #red-lines .flex-1,
+  .uae-page #resources .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .uae-page #resources a.font-semibold {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 700 !important;
+  }
+
+  .uae-page #tax .uae-tax-mobile-card {
+    padding: 14px !important;
+  }
+
+  .uae-page #tax .uae-mobile-tax-title {
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: #27406E !important;
+  }
+
+  .uae-page #tax .uae-mobile-tax-en {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    font-weight: 500 !important;
+    color: #64748B !important;
+    margin-top: 2px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .uae-page #tax .uae-mobile-tax-body {
+    gap: 10px !important;
+  }
+
+  .uae-page #tax .uae-tax-mobile-card .uae-mobile-card-label {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .uae-page #tax .uae-tax-mobile-card p,
+  .uae-page #tax .uae-tax-mobile-card .flex-1 {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .uae-page #tax .uae-tax-mobile-card .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .uae-page #tax .uae-tax-mobile-card .space-y-1\.5 {
+    gap: 6px !important;
+  }
+
+  .uae-page #tax > div > .space-y-4 > .rounded-xl .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .uae-page #tax > div > .space-y-4 > .rounded-xl span.flex-1 {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .uae-page #tax > div > .space-y-4 > .rounded-xl span.font-semibold {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+  }
+
+  .uae-page .uae-mobile-emirate-card {
+    padding: 14px !important;
+  }
+
+  .uae-page .uae-mobile-emirate-title {
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    color: #1F2A44 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .uae-page .uae-mobile-emirate-fields {
+    gap: 10px !important;
+  }
+
+  .uae-page .uae-mobile-emirate-label {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .uae-page .uae-mobile-emirate-body {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .uae-page .uae-mobile-emirate-note {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #64748B !important;
+    font-style: italic !important;
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid #D8DDED !important;
+  }
+
+  .uae-page .uae-product-access-nature,
+  .uae-page .uae-product-access-nature span,
+  .uae-page .uae-product-access-nature p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .uae-page .uae-product-access-nature .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .uae-page .uae-product-access-nature span.text-\[\#334155\] {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+  }
+
+  .uae-page .uae-mobile-card-label {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .uae-page .uae-product-access-card {
+    padding: 14px !important;
+  }
+
+  .uae-page .uae-product-access-card > div:first-child {
+    margin-bottom: 10px !important;
+  }
+
+  .uae-page .uae-product-access-card > div:first-child span:first-child {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+  }
+
+  .uae-page .uae-product-access-card > div:nth-child(2) {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .uae-page .uae-product-access-card > div:nth-child(3) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .uae-page .uae-product-access-card .text-sm.text-\[\#334155\] {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .uae-page .uae-product-access-card p.text-sm.leading-\[1\.55\] {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .uae-page .uae-product-access-card .font-semibold.text-\[\#263247\] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .uae-page .uae-product-access-card .space-y-2 {
+    gap: 8px !important;
+  }
+
+  .uae-page .uae-product-access-card .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .uae-page .uae-product-access-card .flex-1.min-w-0 {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
+
   .malaysia-page {
     overflow-x: clip;
   }
