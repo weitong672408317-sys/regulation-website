@@ -74,6 +74,77 @@ const uaeMobileNavItems = [
   { id: 'resources', label: '重要资讯' },
 ];
 
+const indonesiaMobileNavItems = [
+  { id: 'home', label: '返回首页' },
+  { id: 'product-access-overview', label: '准入速览' },
+  { id: 'overview', label: '监管动态' },
+  { id: 'regulatory-system', label: '监管体系' },
+  { id: 'product-access', label: '产品口径' },
+  { id: 'licenses', label: '合规资质' },
+  { id: 'tax', label: '税收政策' },
+  { id: 'operation-rules', label: '运营规范' },
+  { id: 'trend', label: '监管趋势' },
+  { id: 'red-lines', label: '红线清单' },
+  { id: 'resources', label: '重要资讯' },
+];
+
+const paraguayMobileNavItems = [
+  { id: 'home', label: '返回首页' },
+  { id: 'product-access-overview', label: '准入速览' },
+  { id: 'overview', label: '监管动态' },
+  { id: 'regulatory-system', label: '监管体系' },
+  { id: 'product-access', label: '产品口径' },
+  { id: 'licenses', label: '合规资质' },
+  { id: 'tax', label: '税收政策' },
+  { id: 'sales-rules', label: '销售规则' },
+  { id: 'operation-rules', label: '运营规范' },
+  { id: 'trend', label: '监管趋势' },
+  { id: 'red-lines', label: '红线清单' },
+  { id: 'resources', label: '重要资讯' },
+];
+
+const chinaMobileNavItems = [
+  { id: 'home', label: '返回首页' },
+  { id: 'product-access-overview', label: '准入速览' },
+  { id: 'overview', label: '监管动态' },
+  { id: 'regulatory-system', label: '监管体系' },
+  { id: 'product-access', label: '产品口径' },
+  { id: 'licenses', label: '合规资质' },
+  { id: 'tax', label: '税收政策' },
+  { id: 'operation-rules', label: '运营规范' },
+  { id: 'trend', label: '监管趋势' },
+  { id: 'red-lines', label: '红线清单' },
+  { id: 'resources', label: '重要资讯' },
+];
+
+const hongkongMobileNavItems = [
+  { id: 'home', label: '返回首页' },
+  { id: 'product-access-overview', label: '准入速览' },
+  { id: 'overview', label: '监管动态' },
+  { id: 'regulatory-system', label: '监管体系' },
+  { id: 'product-access', label: '产品口径' },
+  { id: 'licenses', label: '合规资质' },
+  { id: 'tax', label: '税收政策' },
+  { id: 'operation-rules', label: '运营规范' },
+  { id: 'trend', label: '监管趋势' },
+  { id: 'red-lines', label: '红线清单' },
+  { id: 'resources', label: '重要资讯' },
+];
+
+const singaporeMobileNavItems = [
+  { id: 'home', label: '返回首页' },
+  { id: 'product-access-overview', label: '准入速览' },
+  { id: 'overview', label: '监管动态' },
+  { id: 'regulatory-system', label: '监管体系' },
+  { id: 'product-access', label: '产品口径' },
+  { id: 'licenses', label: '合规资质' },
+  { id: 'tax', label: '税收政策' },
+  { id: 'operation-rules', label: '运营规范' },
+  { id: 'trend', label: '监管趋势' },
+  { id: 'red-lines', label: '红线清单' },
+  { id: 'resources', label: '重要资讯' },
+];
+
 function MobileSectionNav({ items }: { items: { id: string; label: string }[] }) {
   return (
     <nav className="lg:hidden sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-[#D8E0EA]">
@@ -115,13 +186,23 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
   const isRussia = country.id === 'russia';
   const isMalaysia = country.id === 'malaysia';
   const isUae = country.id === 'uae';
+  const isIndonesia = country.id === 'indonesia';
+  const isParaguay = country.id === 'paraguay';
+  const isChina = country.id === 'china';
+  const isHongkong = country.id === 'hongkong';
+  const isSingapore = country.id === 'singapore';
   const countryPageClass = [
     'min-h-screen bg-[#F7F9FC]',
     isRussia ? 'russia-page' : '',
     isMalaysia ? 'malaysia-page' : '',
     isUae ? 'uae-page' : '',
+    isIndonesia ? 'indonesia-page' : '',
+    isParaguay ? 'paraguay-page' : '',
+    isChina ? 'china-page' : '',
+    isHongkong ? 'hongkong-page' : '',
+    isSingapore ? 'singapore-page' : '',
   ].filter(Boolean).join(' ');
-  const pagePaddingClass = isRussia || isMalaysia || isUae
+  const pagePaddingClass = isRussia || isMalaysia || isUae || isIndonesia || isParaguay || isChina || isHongkong || isSingapore
     ? 'px-4 sm:px-6 md:px-12 xl:px-16 2xl:pl-20 2xl:pr-24'
     : 'px-8 md:px-12 xl:px-16 2xl:pl-20 2xl:pr-24';
 
@@ -130,7 +211,7 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
     return (
       <div className={countryPageClass}>
         <ScrollToTop countryId={country.id} />
-        <header className={`bg-white border-b border-[#D8E0EA] shadow-sm${isRussia || isMalaysia || isUae ? ' hidden lg:block' : ''}`}>
+        <header className={`bg-white border-b border-[#D8E0EA] shadow-sm${isRussia || isMalaysia || isUae || isIndonesia || isParaguay || isChina || isHongkong || isSingapore ? ' hidden lg:block' : ''}`}>
           <div className={`max-w-7xl lg:max-w-[1800px] mx-auto ${pagePaddingClass} py-4`}>
             <Link href="/" prefetch={true} className="text-[#64748B] hover:text-[#4A6290] flex items-center gap-2 transition-colors">
               <span className="text-lg">←</span> 返回首页
@@ -140,6 +221,11 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
         {isRussia && <MobileSectionNav items={russiaMobileNavItems} />}
         {isMalaysia && <MobileSectionNav items={malaysiaMobileNavItems} />}
         {isUae && <MobileSectionNav items={uaeMobileNavItems} />}
+        {isIndonesia && <MobileSectionNav items={indonesiaMobileNavItems} />}
+        {isParaguay && <MobileSectionNav items={paraguayMobileNavItems} />}
+        {isChina && <MobileSectionNav items={chinaMobileNavItems} />}
+        {isHongkong && <MobileSectionNav items={hongkongMobileNavItems} />}
+        {isSingapore && <MobileSectionNav items={singaporeMobileNavItems} />}
 
         <main className={`max-w-7xl lg:max-w-[1920px] mx-auto ${pagePaddingClass} py-8`}>
           <div className="flex gap-6">

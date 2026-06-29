@@ -84,21 +84,21 @@ export const SeasonSummaryCard = ({ title, text }: { title: string; text: string
 export const StatusCard = ({ status, title, subtitle, content, customLabel, id, className }: { status: 'green' | 'amber' | 'red'; title: string; subtitle?: string; content: React.ReactNode; customLabel?: string; id?: string; className?: string }) => {
   const styles = {
     green: {
-      borderLeft: 'border-l-[#6AAF7C]',
-      badge: 'bg-[#E8F5ED] text-[#3D7050]',
-      dot: 'bg-[#6AAF7C]',
+      borderLeftColor: '#6AAF7C',
+      badgeBg: '#E8F5ED',
+      badgeText: '#3D7050',
       label: '可合规准入',
     },
     amber: {
-      borderLeft: 'border-l-[#C9A24C]',
-      badge: 'bg-[#F8F3E8] text-[#8B6F2E]',
-      dot: 'bg-[#C9A24C]',
+      borderLeftColor: '#C9A24C',
+      badgeBg: '#F8F3E8',
+      badgeText: '#8B6F2E',
       label: '需拆分判断',
     },
     red: {
-      borderLeft: 'border-l-[#DC6B6B]',
-      badge: 'bg-[#FCEAEA] text-[#B33B3B]',
-      dot: 'bg-[#DC6B6B]',
+      borderLeftColor: '#DC6B6B',
+      badgeBg: '#FCEAEA',
+      badgeText: '#B33B3B',
       label: '完全禁止',
     },
   };
@@ -106,9 +106,16 @@ export const StatusCard = ({ status, title, subtitle, content, customLabel, id, 
   const s = styles[status];
 
   return (
-    <div id={id} className={`bg-white border border-[#E2E6EF] ${s.borderLeft} border-l-2 rounded-xl p-6 shadow-sm w-full${id ? ' scroll-mt-4' : ''}${className ? ` ${className}` : ''}`}>
+    <div
+      id={id}
+      className={`bg-white border border-[#E2E6EF] rounded-xl p-6 shadow-sm w-full${id ? ' scroll-mt-4' : ''}${className ? ` ${className}` : ''}`}
+      style={{ borderLeft: `2px solid ${s.borderLeftColor}` }}
+    >
       <div className="flex items-center gap-2 mb-4">
-        <span className={`px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap w-fit ${s.badge}`}>{customLabel || s.label}</span>
+        <span
+          className="px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap w-fit"
+          style={{ backgroundColor: s.badgeBg, color: s.badgeText }}
+        >{customLabel || s.label}</span>
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}
       </div>
       {title && <div className="font-bold text-[#263247] text-base mb-3">{title}</div>}
@@ -120,13 +127,16 @@ export const StatusCard = ({ status, title, subtitle, content, customLabel, id, 
 /** Colored bullet point for use inside StatusCard content areas */
 export const StatusBulletPoint = ({ status, children }: { status: 'green' | 'amber' | 'red'; children: React.ReactNode }) => {
   const dotColors = {
-    green: 'bg-[#6AAF7C]',
-    amber: 'bg-[#C9A24C]',
-    red: 'bg-[#DC6B6B]',
+    green: '#6AAF7C',
+    amber: '#C9A24C',
+    red: '#DC6B6B',
   };
   return (
     <div className="flex items-start gap-3">
-      <span className={`w-1.5 h-1.5 rounded-full ${dotColors[status]} mt-[9px] flex-shrink-0`}></span>
+      <span
+        className="w-1.5 h-1.5 rounded-full mt-[9px] flex-shrink-0"
+        style={{ backgroundColor: dotColors[status] }}
+      ></span>
       <span style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-sm leading-[1.55] flex-1 min-w-0">{children}</span>
     </div>
   );
@@ -514,7 +524,7 @@ export const EmirateDifferencesTable = ({ data }: { data: EmirateDifferenceRow[]
   );
 };
 
-export const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: ComplianceLicenseCard[], isRussia?: boolean }) => {
+export const ComplianceLicenseCards = ({ cards, isRussia = false, isRussiaLicense = false }: { cards: ComplianceLicenseCard[], isRussia?: boolean, isRussiaLicense?: boolean }) => {
   const renderDescription = (description: string) => {
     const hasSemicolon = description.includes('；');
     if (hasSemicolon) {
@@ -527,26 +537,57 @@ export const ComplianceLicenseCards = ({ cards, isRussia = false }: { cards: Com
         </div>
       );
     }
-    return (
-      <BulletPoint textClassName="text-base">{description}</BulletPoint>
-    );
+    return <BulletPoint textClassName="text-base">{description}</BulletPoint>;
   };
 
   return (
     <div className="grid md:grid-cols-2 gap-4">
-      {cards.map((card, index) => (
-        <div key={index} className={isRussia ? "bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 hover:shadow-md transition-shadow" : "bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow"}>
-          <div className="flex items-start gap-3">
-            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">
-              {index + 1}
-            </span>
-            <div className="flex-1">
-              <h4 className={isRussia ? "font-bold text-[#2E3F73] text-base mb-3" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
-              {isRussia ? renderDescription(card.description) : <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-slate-700 leading-[1.6]">{card.description}</p>}
+      {cards.map((card, index) => {
+        if (isRussiaLicense) {
+          return (
+            <React.Fragment key={index}>
+              <div className="russia-license-card md:hidden bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 hover:shadow-md transition-shadow">
+                <div className="russia-license-heading">
+                  <span className="russia-license-index w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">
+                    {index + 1}
+                  </span>
+                  <h4 className="russia-license-title font-bold text-[#2E3F73] text-base">
+                    {card.title}
+                  </h4>
+                </div>
+                <div className="russia-license-body">
+                  {renderDescription(card.description)}
+                </div>
+              </div>
+              <div className="hidden md:block bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 hover:shadow-md transition-shadow">
+                <div className="flex items-start gap-3">
+                  <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">
+                    {index + 1}
+                  </span>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-[#2E3F73] text-base mb-3">{card.title}</h4>
+                    {renderDescription(card.description)}
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>
+          );
+        }
+
+        return (
+          <div key={index} className={isRussia ? "bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5 hover:shadow-md transition-shadow" : "bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow"}>
+            <div className="flex items-start gap-3">
+              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">
+                {index + 1}
+              </span>
+              <div className="flex-1">
+                <h4 className={isRussia ? "font-bold text-[#2E3F73] text-base mb-3" : "font-bold text-slate-900 text-lg mb-3"}>{card.title}</h4>
+                {isRussia ? renderDescription(card.description) : <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-slate-700 leading-[1.6]">{card.description}</p>}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

@@ -65,6 +65,7 @@ body {
   .uae-page #licenses > div,
   .uae-page #tax > div,
   .uae-page #operation-rules > div,
+  .uae-page #trend-redline > div,
   .uae-page #resources > div {
     padding: 16px !important;
   }
@@ -134,7 +135,8 @@ body {
   .uae-page #tax > div > .space-y-4 > .rounded-xl,
   .uae-page #tax .uae-tax-mobile-card,
   .uae-page #operation-rules .grid > div,
-  .uae-page #red-lines,
+  .uae-page #trend-redline > div > .space-y-4 #trend,
+  .uae-page #trend-redline > div > .space-y-4 #red-lines,
   .uae-page #resources .rounded-xl.border,
   .uae-page #resources .rounded-xl[class*="border-"] {
     padding: 12px !important;
@@ -305,6 +307,14 @@ body {
     padding: 14px !important;
   }
 
+  .uae-page #product-access-overview .md\:hidden > .rounded-xl {
+    background-color: #F1F3FA !important;
+  }
+
+  .uae-page #product-access-overview .md\:hidden .text-\[\#4A6290\] {
+    color: #334155 !important;
+  }
+
   .uae-page .uae-product-access-card > div:first-child {
     margin-bottom: 10px !important;
   }
@@ -333,17 +343,17 @@ body {
 
   .uae-page .uae-product-access-card .text-sm.text-\[\#334155\] {
     font-size: 14px !important;
-    line-height: 1.55 !important;
+    line-height: 1.5 !important;
     font-weight: 400 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
   }
 
   .uae-page .uae-product-access-card p.text-sm.leading-\[1\.55\] {
     font-size: 14px !important;
-    line-height: 1.55 !important;
+    line-height: 1.5 !important;
     font-weight: 400 !important;
     color: #334155 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
   }
 
   .uae-page .uae-product-access-card .font-semibold.text-\[\#263247\] {
@@ -358,13 +368,17 @@ body {
     gap: 8px !important;
   }
 
+  .uae-page .uae-product-access-card .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 8px !important;
+  }
+
   .uae-page .uae-product-access-card .flex.items-start.gap-2 {
     gap: 8px !important;
   }
 
   .uae-page .uae-product-access-card .flex-1.min-w-0 {
     font-size: 14px !important;
-    line-height: 1.55 !important;
+    line-height: 1.5 !important;
     font-weight: 400 !important;
     color: #334155 !important;
     min-width: 0 !important;
@@ -541,6 +555,14 @@ body {
     min-width: 0 !important;
   }
 
+  .malaysia-page #product-access-overview .md\:hidden > .rounded-xl {
+    background-color: #F1F3FA !important;
+  }
+
+  .malaysia-page #product-access-overview .md\:hidden .text-\[\#4A6290\] {
+    color: #334155 !important;
+  }
+
   .malaysia-page #product-access [id^="product-"] {
     padding: 14px !important;
   }
@@ -655,6 +677,14 @@ body {
   .russia-page #resources .rounded-xl.border,
   .russia-page #resources .rounded-xl[class*="border-"] {
     padding: 12px !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden > .rounded-xl {
+    background-color: #F1F3FA !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden .text-\[\#4A6290\] {
+    color: #334155 !important;
   }
 
   .russia-page #product-access-overview .md\:hidden .flex.items-start,
@@ -843,5 +873,3511 @@ body {
     font-weight: 400 !important;
     color: #334155 !important;
     min-width: 0 !important;
+  }
+
+  .indonesia-page {
+    overflow-x: clip;
+  }
+
+  .indonesia-page main > .flex {
+    display: block !important;
+  }
+
+  .indonesia-page main > .flex > nav {
+    display: none !important;
+  }
+
+  .indonesia-page main > .flex > .flex-1 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .indonesia-page [id] {
+    scroll-margin-top: 64px !important;
+  }
+
+  .indonesia-page h1 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .indonesia-page #product-access-overview > div,
+  .indonesia-page #overview > div,
+  .indonesia-page #regulatory-system > div,
+  .indonesia-page #product-access > div,
+  .indonesia-page #licenses > div,
+  .indonesia-page #tax > div,
+  .indonesia-page #operation-rules > div,
+  .indonesia-page #trend > div,
+  .indonesia-page #resources > div {
+    padding: 16px !important;
+  }
+
+  .indonesia-page section[id] > div > h2 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .indonesia-page section[id] > div > h2 > div {
+    width: 3px !important;
+    height: 20px !important;
+  }
+
+  .indonesia-page #product-access-overview > div > p,
+  .indonesia-page #overview > div > p,
+  .indonesia-page #licenses > div > p,
+  .indonesia-page #tax > div > p,
+  .indonesia-page #operation-rules > div > p,
+  .indonesia-page #resources p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .indonesia-page #overview h3,
+  .indonesia-page #overview h4,
+  .indonesia-page #regulatory-system h3,
+  .indonesia-page #regulatory-system h4,
+  .indonesia-page #product-access-overview .md\:hidden h3,
+  .indonesia-page #product-access-overview .md\:hidden h4,
+  .indonesia-page .indonesia-license-overview-card h4,
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl > h3,
+  .indonesia-page #operation-rules .grid > div h4,
+  .indonesia-page #trend h3,
+  .indonesia-page #trend h4,
+  .indonesia-page #red-lines h3,
+  .indonesia-page #red-lines h4,
+  .indonesia-page #resources h3,
+  .indonesia-page #resources h4,
+  .indonesia-page #product-access > div > .space-y-4 > .rounded-xl > h3 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .indonesia-page #product-access-overview .md\:hidden > .rounded-xl,
+  .indonesia-page #overview > div > .space-y-3 > .rounded-xl,
+  .indonesia-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .indonesia-page .indonesia-license-overview-card,
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl,
+  .indonesia-page #operation-rules .grid > div,
+  .indonesia-page #trend > div > .space-y-4 #trend-item,
+  .indonesia-page #trend > div > .space-y-4 #red-lines,
+  .indonesia-page #resources .rounded-xl.border,
+  .indonesia-page #resources .rounded-xl[class*="border-"] {
+    padding: 12px !important;
+  }
+
+  .indonesia-page #product-access-overview .md\:hidden > .rounded-xl {
+    background-color: #F1F3FA !important;
+  }
+
+  .indonesia-page #product-access-overview .md\:hidden .text-\[\#4A6290\] {
+    color: #334155 !important;
+  }
+
+  .indonesia-page #product-access-overview .md\:hidden .flex.items-start,
+  .indonesia-page #overview .flex.items-start.gap-3,
+  .indonesia-page #overview .flex.items-start.gap-2,
+  .indonesia-page #regulatory-system .flex.items-start.gap-3,
+  .indonesia-page #regulatory-system .flex.items-start.gap-2,
+  .indonesia-page .indonesia-license-overview-card .flex.items-start.gap-3,
+  .indonesia-page .indonesia-license-overview-card .flex.items-start.gap-2,
+  .indonesia-page #tax .flex.items-start.gap-3,
+  .indonesia-page #tax .flex.items-start.gap-2,
+  .indonesia-page #operation-rules .flex.items-start.gap-3,
+  .indonesia-page #operation-rules .flex.items-start.gap-2,
+  .indonesia-page #red-lines .flex.items-start.gap-3,
+  .indonesia-page #red-lines .flex.items-start.gap-2,
+  .indonesia-page #resources .flex.items-start.gap-3,
+  .indonesia-page #resources .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .indonesia-page #overview > div > .space-y-3 > .rounded-xl div,
+  .indonesia-page #overview > div > .space-y-3 > .rounded-xl p,
+  .indonesia-page #overview > div > .space-y-3 > .rounded-xl span,
+  .indonesia-page #regulatory-system > div > .space-y-4 > .rounded-xl div,
+  .indonesia-page #regulatory-system > div > .space-y-4 > .rounded-xl p,
+  .indonesia-page #regulatory-system > div > .space-y-4 > .rounded-xl span,
+  .indonesia-page .indonesia-license-overview-card .flex-1,
+  .indonesia-page .indonesia-license-overview-card .space-y-1,
+  .indonesia-page #operation-rules .grid > div .flex-1,
+  .indonesia-page #operation-rules .grid > div .space-y-2,
+  .indonesia-page .indonesia-license-overview-card span.text-\[\#334155\],
+  .indonesia-page #tax span.text-\[\#334155\],
+  .indonesia-page #operation-rules .grid > div span.text-\[\#334155\],
+  .indonesia-page #trend p,
+  .indonesia-page #red-lines span.text-\[\#334155\],
+  .indonesia-page #resources p,
+  .indonesia-page #resources .text-base,
+  .indonesia-page #resources .text-sm,
+  .indonesia-page #overview span.text-\[\#334155\],
+  .indonesia-page #regulatory-system span.text-\[\#334155\] {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .indonesia-page #overview .flex-1,
+  .indonesia-page #regulatory-system .flex-1,
+  .indonesia-page .indonesia-license-overview-card .flex-1,
+  .indonesia-page #operation-rules .grid > div .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .indonesia-page #product-access [id^="product-"] {
+    padding: 12px !important;
+  }
+
+  .indonesia-page #product-access [id^="product-"] > div:first-child span:first-child {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+  }
+
+  .indonesia-page #product-access [id^="product-"] > div:nth-child(2) {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .indonesia-page #product-access [id^="product-"] > div:nth-child(3),
+  .indonesia-page #product-access [id^="product-"] .text-sm.text-\[\#334155\],
+  .indonesia-page #product-access [id^="product-"] p.text-sm,
+  .indonesia-page #product-access [id^="product-"] .flex-1.min-w-0 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
+
+  .indonesia-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .indonesia-page #product-access [id^="product-"] .flex.items-start.gap-2,
+  .indonesia-page #product-access [id^="product-"] .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .indonesia-page #product-access [id^="product-"] .space-y-2 {
+    gap: 8px !important;
+  }
+
+  .indonesia-page .indonesia-product-access-intro {
+    padding: 12px !important;
+  }
+
+  .indonesia-page .indonesia-product-access-intro span,
+  .indonesia-page .indonesia-product-access-intro .flex-1 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
+
+  .indonesia-page .indonesia-product-access-intro .flex.items-start.gap-3,
+  .indonesia-page .indonesia-product-access-intro .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .indonesia-page .indonesia-product-access-module > div {
+    padding: 16px !important;
+  }
+
+  .indonesia-page .indonesia-product-access-module > div > h3,
+  .indonesia-page .indonesia-product-access-card > div:nth-child(2) {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+  }
+
+  .indonesia-page .indonesia-product-access-nature-text {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .indonesia-page .indonesia-product-access-nature {
+    padding: 0 !important;
+  }
+
+  .indonesia-page .indonesia-product-access-nature span,
+  .indonesia-page .indonesia-product-access-nature p,
+  .indonesia-page .indonesia-product-access-nature .flex-1,
+  .indonesia-page .indonesia-product-access-nature-text {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
+
+  .indonesia-page .indonesia-product-access-nature .flex.items-start.gap-3,
+  .indonesia-page .indonesia-product-access-nature .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .indonesia-page #product-access .indonesia-product-access-module > div > .mb-4:has(> .inline-flex),
+  .indonesia-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4:has(> .inline-flex) {
+    margin-bottom: 4px !important;
+  }
+
+  .indonesia-page #product-access .indonesia-product-access-module > div > .mb-4:has(> .inline-flex) > .inline-flex,
+  .indonesia-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4:has(> .inline-flex) > .inline-flex {
+    margin-bottom: 0 !important;
+  }
+
+  .indonesia-page .indonesia-product-access-nature-list {
+    margin-left: 12px !important;
+  }
+
+  .indonesia-page .indonesia-product-access-nature-text > :not([hidden]) ~ :not([hidden]),
+  .indonesia-page .indonesia-product-access-nature-list > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 8px !important;
+  }
+
+  .indonesia-page .indonesia-product-access-module .flex.items-start.gap-3,
+  .indonesia-page .indonesia-product-access-module .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .indonesia-page .indonesia-product-access-module .flex-1,
+  .indonesia-page .indonesia-product-access-module .text-sm.text-\[\#334155\],
+  .indonesia-page .indonesia-product-access-module p.text-sm {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
+
+  .indonesia-page .indonesia-product-access-card {
+    padding: 12px !important;
+  }
+
+  .indonesia-page .indonesia-product-access-card .font-semibold.text-\[\#263247\] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .indonesia-page #product-access-overview .md\:hidden > .rounded-xl,
+  .indonesia-page #product-access-overview .md\:hidden .rounded-xl {
+    padding: 14px !important;
+  }
+
+  .indonesia-page #product-access-overview .md\:hidden li,
+  .indonesia-page #product-access-overview .md\:hidden p,
+  .indonesia-page #product-access-overview .md\:hidden span,
+  .indonesia-page #product-access-overview .md\:hidden button {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .indonesia-page #product-access-overview .md\:hidden h3,
+  .indonesia-page #product-access-overview .md\:hidden h4,
+  .indonesia-page #product-access-overview .md\:hidden [class*="rounded-full"] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .indonesia-page #product-access-overview .md\:hidden .flex.items-start {
+    gap: 8px !important;
+  }
+
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl {
+    padding: 14px !important;
+  }
+
+  .indonesia-page .indonesia-tax-intro-text {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl .text-base,
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl span.text-\[\#334155\],
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl div.text-\[\#334155\],
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl .flex-1 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
+
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl .font-semibold {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl .ml-6 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl .flex.items-start.gap-2,
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .indonesia-page #licenses h3 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .indonesia-page .indonesia-license-intro {
+    padding: 12px !important;
+  }
+
+  .indonesia-page .indonesia-license-intro p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .indonesia-page #licenses .indonesia-license-overview {
+    padding: 12px !important;
+  }
+
+  .indonesia-page .indonesia-license-overview-card {
+    padding: 12px !important;
+  }
+
+  .indonesia-page .indonesia-license-overview .grid {
+    gap: 12px !important;
+  }
+
+  .indonesia-page .indonesia-license-overview-card h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .indonesia-page .indonesia-license-overview-card .w-10.h-10 {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .indonesia-page .indonesia-license-overview-card .w-6.h-6 {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .indonesia-page .indonesia-license-overview-card .space-y-3 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 8px !important;
+  }
+
+  .indonesia-page .indonesia-license-overview-card .flex.items-start.gap-2,
+  .indonesia-page .indonesia-license-overview-card .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .indonesia-page .indonesia-license-overview-card .flex-1,
+  .indonesia-page .indonesia-license-overview-card span.text-\[\#334155\] {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .indonesia-page .indonesia-license-overview-card .font-semibold {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-card {
+    padding: 14px !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E6EF !important;
+    border-radius: 12px !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-group-heading {
+    color: #1F3B63 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-group-note {
+    color: #64748B !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-title {
+    display: block !important;
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #1F3B63 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-label {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #1f3b63 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-body,
+  .indonesia-page .indonesia-license-mobile-body span,
+  .indonesia-page .indonesia-license-mobile-body p,
+  .indonesia-page .indonesia-license-mobile-body .flex-1 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-body .font-semibold {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-card > .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 10px !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-body .space-y-1 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 8px !important;
+  }
+
+  .indonesia-page .indonesia-license-mobile-body .flex.items-start.gap-3,
+  .indonesia-page .indonesia-license-mobile-body .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .russia-page #operation-rules .grid > div .ml-9,
+  .russia-page #operation-rules .grid > div .ml-6,
+  .russia-page #operation-rules .grid > div .pl-9,
+  .russia-page #operation-rules .grid > div .pl-6,
+  .malaysia-page #operation-rules .grid > div .ml-9,
+  .malaysia-page #operation-rules .grid > div .ml-6,
+  .malaysia-page #operation-rules .grid > div .pl-9,
+  .malaysia-page #operation-rules .grid > div .pl-6,
+  .uae-page #operation-rules .grid > div .ml-9,
+  .uae-page #operation-rules .grid > div .ml-6,
+  .uae-page #operation-rules .grid > div .pl-9,
+  .uae-page #operation-rules .grid > div .pl-6,
+  .indonesia-page #operation-rules .grid > div .ml-9,
+  .indonesia-page #operation-rules .grid > div .ml-6,
+  .indonesia-page #operation-rules .grid > div .pl-9,
+  .indonesia-page #operation-rules .grid > div .pl-6 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .russia-page #operation-rules .flex.items-start.gap-3,
+  .russia-page #operation-rules .flex.items-start.gap-2,
+  .malaysia-page #operation-rules .flex.items-start.gap-3,
+  .malaysia-page #operation-rules .flex.items-start.gap-2,
+  .uae-page #operation-rules .flex.items-start.gap-3,
+  .uae-page #operation-rules .flex.items-start.gap-2,
+  .indonesia-page #operation-rules .flex.items-start.gap-3,
+  .indonesia-page #operation-rules .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .russia-page #operation-rules .flex-1,
+  .malaysia-page #operation-rules .flex-1,
+  .uae-page #operation-rules .flex-1,
+  .indonesia-page #operation-rules .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .russia-page #operation-rules .grid > div > .flex.items-start.gap-3 > .flex-1 > .space-y-2,
+  .russia-page #operation-rules .grid > div > .flex.items-start.gap-3 > .flex-1 > .space-y-3 {
+    margin-left: -32px !important;
+    padding-left: 0 !important;
+  }
+
+  .uae-page #trend-redline > div > h2 {
+    margin-bottom: 18px !important;
+  }
+
+  .uae-page #trend-redline > div > .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 12px !important;
+  }
+
+  .uae-page #trend {
+    padding: 12px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .uae-page #trend > h3 {
+    margin-bottom: 12px !important;
+  }
+
+  .uae-page #trend p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .uae-page #trend p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .uae-page #trend .flex.items-start.gap-3,
+  .uae-page #trend .flex.items-start.gap-2,
+  .uae-page #trend-redline .flex.items-start.gap-3,
+  .uae-page #trend-redline .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .uae-page #trend .flex-1,
+  .uae-page #trend-redline .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .indonesia-page #operation-rules .grid > div span.text-\[\#334155\],
+  .indonesia-page #trend span.text-\[\#334155\],
+  .indonesia-page #red-lines span.text-\[\#334155\] {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .paraguay-page {
+    overflow-x: clip;
+  }
+
+  .paraguay-page main > .flex {
+    display: block !important;
+  }
+
+  .paraguay-page main > .flex > nav {
+    display: none !important;
+  }
+
+  .paraguay-page main > .flex > .flex-1 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .paraguay-page [id] {
+    scroll-margin-top: 64px !important;
+  }
+
+  .paraguay-page section[id] > div {
+    padding: 16px !important;
+  }
+
+  .paraguay-page section[id] > div > h2 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .paraguay-page .paraguay-mobile-card {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 14px !important;
+  }
+
+  /* 通用卡片（不包含 #product-access 的外层，#product-access 单独处理） */
+  .paraguay-page #overview > div > .space-y-3 > .rounded-xl,
+  .paraguay-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .paraguay-page #licenses .grid > div,
+  .paraguay-page #tax > div > .space-y-4 > .rounded-xl,
+  .paraguay-page #operation-rules .grid > div,
+  .paraguay-page #resources .rounded-xl.border,
+  .paraguay-page #resources .rounded-xl[class*="border-"] {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 12px !important;
+  }
+
+  .paraguay-page .paraguay-mobile-card-label {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #1f3b63 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .paraguay-page .paraguay-mobile-card-body {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .paraguay-page #product-access-overview .md\:hidden > .rounded-xl {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 12px !important;
+  }
+
+  .paraguay-page #product-access-overview .md\:hidden .text-\[\#4A6290\] {
+    color: #334155 !important;
+  }
+
+  .paraguay-page #product-access-overview .md\:hidden h3,
+  .paraguay-page #product-access-overview .md\:hidden h4,
+  .paraguay-page #regulatory-system h3,
+  .paraguay-page #regulatory-system h4,
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .paraguay-page #licenses h4,
+  .paraguay-page #licenses .text-lg,
+  .paraguay-page #tax h3,
+  .paraguay-page #tax h4,
+  .paraguay-page #operation-rules h4,
+  .paraguay-page #trend h3,
+  .paraguay-page #trend h4,
+  .paraguay-page #red-lines h3,
+  .paraguay-page #red-lines h4,
+  .paraguay-page #resources h3,
+  .paraguay-page #resources h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .paraguay-page #product-access-overview > div > p,
+  .paraguay-page #product-access-overview .md\:hidden button,
+  .paraguay-page #overview p,
+  .paraguay-page #overview span.text-\[\#334155\],
+  .paraguay-page #regulatory-system p,
+  .paraguay-page #regulatory-system span,
+  .paraguay-page #licenses > div > p,
+  .paraguay-page #licenses .grid > div p,
+  .paraguay-page #licenses .grid > div span.text-\[\#334155\],
+  .paraguay-page #tax p,
+  .paraguay-page #tax .paraguay-mobile-card div,
+  .paraguay-page #tax .paraguay-mobile-card span,
+  .paraguay-page #operation-rules p,
+  .paraguay-page #operation-rules .grid > div span.text-\[\#334155\],
+  .paraguay-page #trend p,
+  .paraguay-page #red-lines span.text-\[\#334155\],
+  .paraguay-page #resources p,
+  .paraguay-page #overview .text-base,
+  .paraguay-page #regulatory-system .text-base,
+  .paraguay-page #licenses .text-base,
+  .paraguay-page #tax .text-base,
+  .paraguay-page #operation-rules .text-base,
+  .paraguay-page #trend .text-base {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .paraguay-page #operation-rules .grid > div .ml-6,
+  .paraguay-page #operation-rules .grid > div .ml-9,
+  .paraguay-page #operation-rules .grid > div .pl-6,
+  .paraguay-page #operation-rules .grid > div .pl-9 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card {
+    background-color: #F1F3FA !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card-label {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #1f3b63 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card-body {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card-body .font-semibold {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+  }
+
+  .paraguay-page #overview > div > .bg-\[#F3F5FB\],
+  .paraguay-page #licenses > div > .bg-\[#F3F5FB\],
+  .paraguay-page #regulatory-system .bg-\[#F3F5FB\] {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+  }
+
+  .paraguay-page #overview > div > .bg-\[#F3F5FB\],
+  .paraguay-page #licenses > div > .bg-\[#F3F5FB\],
+  .paraguay-page #regulatory-system .bg-\[#F3F5FB\],
+  .paraguay-page #overview > div > .p-5,
+  .paraguay-page #licenses > div > .p-5,
+  .paraguay-page #regulatory-system .p-5 {
+    padding: 12px !important;
+  }
+
+  .paraguay-page #trend > div > .space-y-4 #trend-item,
+  .paraguay-page #trend > div > .space-y-4 #red-lines {
+    padding: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 产品监管口径 - 内层 StatusCard (白底 + 14px padding，与俄罗斯一致) */
+  .paraguay-page #product-access [id^="product-"] {
+    padding: 14px !important;
+    background-color: #FFFFFF !important;
+    border-color: #E2E6EF !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] > div:first-child span:first-child {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] > div:nth-child(2) {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] > div:nth-child(3),
+  .paraguay-page #product-access [id^="product-"] .text-sm.text-\[\#334155\],
+  .paraguay-page #product-access [id^="product-"] p.text-sm,
+  .paraguay-page #product-access [id^="product-"] .flex-1.min-w-0 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] .flex.items-start.gap-2,
+  .paraguay-page #product-access [id^="product-"] .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] .space-y-2 {
+    gap: 8px !important;
+  }
+
+  /* 产品监管口径 - 产品定性 bullet 列表（与俄罗斯 russia-product-access-nature 一致） */
+  .paraguay-page .paraguay-product-access-nature,
+  .paraguay-page .paraguay-product-access-nature span,
+  .paraguay-page .paraguay-product-access-nature p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .paraguay-page .paraguay-product-access-nature .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .paraguay-page .paraguay-product-access-nature span.text-\[\#334155\] {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+  }
+
+  .paraguay-page #operation-rules .flex.items-start.gap-3,
+  .paraguay-page #operation-rules .flex.items-start.gap-2,
+  .paraguay-page #red-lines .flex.items-start.gap-3,
+  .paraguay-page #red-lines .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .paraguay-page #operation-rules .flex-1,
+  .paraguay-page #red-lines .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .paraguay-page #operation-rules h3,
+  .paraguay-page #operation-rules h3.text-base {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .paraguay-page #trend-item,
+  .paraguay-page #red-lines {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+  }
+
+  .paraguay-page #trend-item > h3,
+  .paraguay-page #red-lines > h3 {
+    margin-bottom: 12px !important;
+  }
+
+  .paraguay-page #trend-item p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* 产品监管口径 - 外层 ProductModuleCard (#F3F5FB + 24px padding，与俄罗斯一致) */
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl:not(.bg-white) {
+    background-color: #F3F5FB !important;
+    border-color: #D8DDED !important;
+    padding: 24px !important;
+  }
+
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl > h3 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+  }
+
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl > div,
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl > p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  /* 税收政策 */
+  .paraguay-page #tax > div > .space-y-4 > .rounded-xl {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 12px !important;
+  }
+
+  .paraguay-page #tax > div > .space-y-4 > .rounded-xl > h3 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .paraguay-page #tax > div > .space-y-4 > .rounded-xl > div,
+  .paraguay-page #tax > div > .space-y-4 > .rounded-xl > p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .paraguay-page #trend > div > .space-y-4 > .rounded-xl {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 12px !important;
+  }
+
+  .paraguay-page #regulatory-system > div > .space-y-4 > .rounded-xl > div,
+  .paraguay-page #regulatory-system > div > .space-y-4 > .rounded-xl > p,
+  .paraguay-page #regulatory-system > div > .space-y-4 > .rounded-xl > span {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .paraguay-page #regulatory-system > div > .space-y-4 > .rounded-xl > h3,
+  .paraguay-page #regulatory-system > div > .space-y-4 > .rounded-xl > h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .paraguay-page #licenses .font-semibold.text-\[\#2E3F73\] {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .paraguay-page #licenses .font-semibold.text-\[\#1F3B63\] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] .font-semibold {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] .space-y-2 {
+    gap: 8px !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card .font-semibold {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .paraguay-page #resources .font-semibold.text-\[\#1F3B63\] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .paraguay-page #resources .font-semibold.text-\[\#2E3F73\] {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .china-page {
+    overflow-x: clip;
+  }
+
+  .china-page main > .flex {
+    display: block !important;
+  }
+
+  .china-page main > .flex > nav {
+    display: none !important;
+  }
+
+  .china-page main > .flex > .flex-1 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .china-page [id] {
+    scroll-margin-top: 64px !important;
+  }
+
+  .china-page section[id] > div {
+    padding: 16px !important;
+  }
+
+  .china-page section[id] > div > h2 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .china-page #trend-redline > div {
+    padding: 16px !important;
+  }
+
+  .china-page #trend-redline > div > h2 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .china-page .china-mobile-card {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 14px !important;
+  }
+
+  .china-page .china-mobile-card-label {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #1f3b63 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .china-page .china-mobile-card-body {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .china-page #product-access-overview .md\:hidden > .rounded-xl {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 12px !important;
+  }
+
+  .china-page #product-access-overview .md\:hidden .text-\[\#4A6290\] {
+    color: #334155 !important;
+  }
+
+  .china-page .china-excise-mobile-card {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 14px !important;
+  }
+
+  .china-page .china-excise-mobile-title {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #1f3b63 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .china-page .china-excise-mobile-label {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #1f3b63 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .china-page .china-excise-mobile-body {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .china-page .china-excise-mobile-card .space-y-1\.5 {
+    gap: 8px !important;
+  }
+
+  .china-page .china-excise-mobile-card .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  /* 通用卡片（不包含 #product-access 的外层，#product-access 单独处理） */
+  .china-page #overview > div > .space-y-3 > .rounded-xl,
+  .china-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .china-page #licenses .grid > div,
+  .china-page #tax > div > .space-y-4 > .rounded-xl,
+  .china-page #operation-rules .grid > div,
+  .china-page #resources .rounded-xl.border,
+  .china-page #resources .rounded-xl[class*="border-"] {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 12px !important;
+  }
+
+  .china-page #licenses > div > .bg-\[#F3F5FB\],
+  .china-page #overview > div > .bg-\[#F3F5FB\],
+  .china-page #regulatory-system .bg-\[#F3F5FB\] {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+  }
+
+  .china-page #licenses > div > .bg-\[#F3F5FB\],
+  .china-page #overview > div > .bg-\[#F3F5FB\],
+  .china-page #regulatory-system .bg-\[#F3F5FB\],
+  .china-page #licenses > div > .p-5,
+  .china-page #overview > div > .p-5,
+  .china-page #regulatory-system .p-5 {
+    padding: 12px !important;
+  }
+
+  .china-page #product-access-overview > div > p,
+  .china-page #product-access-overview .md\:hidden button,
+  .china-page #overview p,
+  .china-page #overview span.text-\[\#334155\],
+  .china-page #regulatory-system p,
+  .china-page #regulatory-system span,
+  .china-page #licenses > div > p,
+  .china-page #licenses .grid > div p,
+  .china-page #licenses .grid > div span.text-\[\#334155\],
+  .china-page #tax p,
+  .china-page #tax .china-excise-mobile-card div,
+  .china-page #tax .china-excise-mobile-card span,
+  .china-page #operation-rules p,
+  .china-page #operation-rules .grid > div span.text-\[\#334155\],
+  .china-page #trend p,
+  .china-page #red-lines span.text-\[\#334155\],
+  .china-page #resources p,
+  .china-page #overview .text-base,
+  .china-page #regulatory-system .text-base,
+  .china-page #licenses .text-base,
+  .china-page #tax .text-base,
+  .china-page #operation-rules .text-base,
+  .china-page #trend .text-base {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .china-page #product-access-overview .md\:hidden h3,
+  .china-page #product-access-overview .md\:hidden h4,
+  .china-page #regulatory-system h3,
+  .china-page #regulatory-system h4,
+  .china-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .china-page #licenses h4,
+  .china-page #licenses .text-lg,
+  .china-page #tax h3,
+  .china-page #tax h4,
+  .china-page #operation-rules h4,
+  .china-page #trend h3,
+  .china-page #trend h4,
+  .china-page #red-lines h3,
+  .china-page #red-lines h4,
+  .china-page #resources h3,
+  .china-page #resources h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .china-page #overview .flex.items-start.gap-3,
+  .china-page #regulatory-system .flex.items-start.gap-3,
+  .china-page #licenses .flex.items-start.gap-3,
+  .china-page #tax .flex.items-start.gap-3,
+  .china-page #operation-rules .flex.items-start.gap-3,
+  .china-page #red-lines .flex.items-start.gap-3,
+  .china-page #resources .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .china-page #overview .flex-1,
+  .china-page #regulatory-system .flex-1,
+  .china-page #licenses .flex-1,
+  .china-page #tax .flex-1,
+  .china-page #operation-rules .flex-1,
+  .china-page #red-lines .flex-1,
+  .china-page #resources .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .china-page #licenses .grid > div .ml-6,
+  .china-page #licenses .grid > div .ml-9,
+  .china-page #operation-rules .grid > div .ml-6,
+  .china-page #operation-rules .grid > div .ml-9 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .china-page #resources a.font-semibold {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 700 !important;
+  }
+
+  .china-page #trend,
+  .china-page #red-lines {
+    padding: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .china-page #trend,
+  .china-page #red-lines {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+  }
+
+  .china-page #trend > h3,
+  .china-page #red-lines > h3 {
+    margin-bottom: 12px !important;
+  }
+
+  .china-page #trend p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* 产品监管口径 - 外层 ProductModuleCard (#F3F5FB + 24px padding) */
+  .china-page #product-access > div > .space-y-4 > .rounded-xl:not(.bg-white) {
+    background-color: #F3F5FB !important;
+    border-color: #D8DDED !important;
+    padding: 24px !important;
+  }
+
+  .china-page #product-access > div > .space-y-4 > .rounded-xl > h3 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+  }
+
+  .china-page #product-access > div > .space-y-4 > .rounded-xl > div,
+  .china-page #product-access > div > .space-y-4 > .rounded-xl > p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  /* 产品监管口径 - 内层 StatusCard (白底 + 14px padding) */
+  .china-page #product-access [id^="product-"] {
+    background-color: #FFFFFF !important;
+    border-color: #E2E6EF !important;
+    padding: 14px !important;
+  }
+
+  .china-page #product-access [id^="product-"] > div:first-child span:first-child {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+  }
+
+  .china-page #product-access [id^="product-"] > div:nth-child(2) {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .china-page #product-access [id^="product-"] > div:nth-child(3),
+  .china-page #product-access [id^="product-"] .text-sm.text-\[\#334155\],
+  .china-page #product-access [id^="product-"] p.text-sm,
+  .china-page #product-access [id^="product-"] .flex-1.min-w-0 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+    min-width: 0 !important;
+  }
+
+  .china-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .china-page #product-access [id^="product-"] .flex.items-start.gap-2,
+  .china-page #product-access [id^="product-"] .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .china-page #product-access [id^="product-"] .space-y-2 {
+    gap: 8px !important;
+  }
+
+  /* 产品监管口径 - 产品定性 bullet 列表（与俄罗斯 russia-product-access-nature 一致） */
+  .china-page .china-product-access-nature,
+  .china-page .china-product-access-nature span,
+  .china-page .china-product-access-nature p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .china-page .china-product-access-nature .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .china-page .china-product-access-nature span.text-\[\#334155\] {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+  }
+
+  /* 税收政策 */
+  .china-page #tax > div > .space-y-4 > .rounded-xl {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 12px !important;
+  }
+
+  .china-page #tax > div > .space-y-4 > .rounded-xl > h3 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .china-page #tax > div > .space-y-4 > .rounded-xl > div,
+  .china-page #tax > div > .space-y-4 > .rounded-xl > p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  /* 监管趋势 */
+  .china-page #trend > div > .space-y-4 > .rounded-xl {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    padding: 12px !important;
+  }
+
+  /* 监管体系 */
+  .china-page #regulatory-system > div > .space-y-4 > .rounded-xl > div,
+  .china-page #regulatory-system > div > .space-y-4 > .rounded-xl > p,
+  .china-page #regulatory-system > div > .space-y-4 > .rounded-xl > span {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+  }
+
+  .china-page #regulatory-system > div > .space-y-4 > .rounded-xl > h3,
+  .china-page #regulatory-system > div > .space-y-4 > .rounded-xl > h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .china-page #operation-rules .grid > div .ml-9,
+  .china-page #operation-rules .grid > div .ml-6,
+  .china-page #operation-rules .grid > div .pl-9,
+  .china-page #operation-rules .grid > div .pl-6 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .china-page #operation-rules .flex.items-start.gap-3,
+  .china-page #operation-rules .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .china-page #operation-rules .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .china-page #operation-rules h3,
+  .china-page #operation-rules h3.text-base {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Column mobile standards: six adapted country pages only */
+  .russia-page #product-access-overview > div,
+  .malaysia-page #product-access-overview > div,
+  .uae-page #product-access-overview > div,
+  .indonesia-page #product-access-overview > div,
+  .paraguay-page #product-access-overview > div,
+  .china-page #product-access-overview > div,
+  .russia-page #overview > div,
+  .malaysia-page #overview > div,
+  .uae-page #overview > div,
+  .indonesia-page #overview > div,
+  .paraguay-page #overview > div,
+  .china-page #overview > div,
+  .russia-page #regulatory-system > div,
+  .malaysia-page #regulatory-system > div,
+  .uae-page #regulatory-system > div,
+  .indonesia-page #regulatory-system > div,
+  .paraguay-page #regulatory-system > div,
+  .china-page #regulatory-system > div,
+  .russia-page #product-access > div,
+  .malaysia-page #product-access > div,
+  .uae-page #product-access > div,
+  .indonesia-page #product-access > div,
+  .paraguay-page #product-access > div,
+  .china-page #product-access > div,
+  .russia-page #licenses > div,
+  .malaysia-page #licenses > div,
+  .uae-page #licenses > div,
+  .indonesia-page #licenses > div,
+  .paraguay-page #licenses > div,
+  .china-page #licenses > div,
+  .russia-page #tax > div,
+  .malaysia-page #tax > div,
+  .uae-page #tax > div,
+  .indonesia-page #tax > div,
+  .paraguay-page #tax > div,
+  .china-page #tax > div,
+  .russia-page #operation-rules > div,
+  .malaysia-page #operation-rules > div,
+  .uae-page #operation-rules > div,
+  .indonesia-page #operation-rules > div,
+  .paraguay-page #operation-rules > div,
+  .china-page #operation-rules > div,
+  .russia-page #resources > div,
+  .malaysia-page #resources > div,
+  .uae-page #resources > div,
+  .indonesia-page #resources > div,
+  .paraguay-page #resources > div,
+  .china-page #resources > div,
+  .russia-page #trend > div,
+  .malaysia-page #trend > div,
+  .uae-page #trend-redline > div,
+  .indonesia-page #trend > div,
+  .paraguay-page #trend > div,
+  .china-page #trend-redline > div {
+    padding: 16px !important;
+  }
+
+  .russia-page #product-access-overview > div > h2,
+  .malaysia-page #product-access-overview > div > h2,
+  .uae-page #product-access-overview > div > h2,
+  .indonesia-page #product-access-overview > div > h2,
+  .paraguay-page #product-access-overview > div > h2,
+  .china-page #product-access-overview > div > h2,
+  .russia-page #overview > div > h2,
+  .malaysia-page #overview > div > h2,
+  .uae-page #overview > div > h2,
+  .indonesia-page #overview > div > h2,
+  .paraguay-page #overview > div > h2,
+  .china-page #overview > div > h2,
+  .russia-page #regulatory-system > div > h2,
+  .malaysia-page #regulatory-system > div > h2,
+  .uae-page #regulatory-system > div > h2,
+  .indonesia-page #regulatory-system > div > h2,
+  .paraguay-page #regulatory-system > div > h2,
+  .china-page #regulatory-system > div > h2,
+  .russia-page #product-access > div > h2,
+  .malaysia-page #product-access > div > h2,
+  .uae-page #product-access > div > h2,
+  .indonesia-page #product-access > div > h2,
+  .paraguay-page #product-access > div > h2,
+  .china-page #product-access > div > h2,
+  .russia-page #licenses > div > h2,
+  .malaysia-page #licenses > div > h2,
+  .uae-page #licenses > div > h2,
+  .indonesia-page #licenses > div > h2,
+  .paraguay-page #licenses > div > h2,
+  .china-page #licenses > div > h2,
+  .russia-page #tax > div > h2,
+  .malaysia-page #tax > div > h2,
+  .uae-page #tax > div > h2,
+  .indonesia-page #tax > div > h2,
+  .paraguay-page #tax > div > h2,
+  .china-page #tax > div > h2,
+  .russia-page #operation-rules > div > h2,
+  .malaysia-page #operation-rules > div > h2,
+  .uae-page #operation-rules > div > h2,
+  .indonesia-page #operation-rules > div > h2,
+  .paraguay-page #operation-rules > div > h2,
+  .china-page #operation-rules > div > h2,
+  .russia-page #resources > div > h2,
+  .malaysia-page #resources > div > h2,
+  .uae-page #resources > div > h2,
+  .indonesia-page #resources > div > h2,
+  .paraguay-page #resources > div > h2,
+  .china-page #resources > div > h2,
+  .russia-page #trend > div > h2,
+  .malaysia-page #trend > div > h2,
+  .uae-page #trend-redline > div > h2,
+  .indonesia-page #trend > div > h2,
+  .paraguay-page #trend > div > h2,
+  .china-page #trend-redline > div > h2 {
+    color: #243B63 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .russia-page #product-access-overview > div > p,
+  .malaysia-page #product-access-overview > div > p,
+  .uae-page #product-access-overview > div > p,
+  .indonesia-page #product-access-overview > div > p,
+  .paraguay-page #product-access-overview > div > p,
+  .china-page #product-access-overview > div > p,
+  .russia-page #overview > div > p,
+  .malaysia-page #overview > div > p,
+  .uae-page #overview > div > p,
+  .indonesia-page #overview > div > p,
+  .paraguay-page #overview > div > p,
+  .china-page #overview > div > p,
+  .russia-page #regulatory-system > div > p,
+  .malaysia-page #regulatory-system > div > p,
+  .uae-page #regulatory-system > div > p,
+  .indonesia-page #regulatory-system > div > p,
+  .paraguay-page #regulatory-system > div > p,
+  .china-page #regulatory-system > div > p,
+  .russia-page #product-access > div > p,
+  .malaysia-page #product-access > div > p,
+  .uae-page #product-access > div > p,
+  .indonesia-page #product-access > div > p,
+  .paraguay-page #product-access > div > p,
+  .china-page #product-access > div > p,
+  .russia-page #licenses > div > p,
+  .malaysia-page #licenses > div > p,
+  .uae-page #licenses > div > p,
+  .indonesia-page #licenses > div > p,
+  .paraguay-page #licenses > div > p,
+  .china-page #licenses > div > p,
+  .russia-page #tax > div > p,
+  .malaysia-page #tax > div > p,
+  .uae-page #tax > div > p,
+  .indonesia-page #tax > div > p,
+  .paraguay-page #tax > div > p,
+  .china-page #tax > div > p,
+  .russia-page #operation-rules > div > p,
+  .malaysia-page #operation-rules > div > p,
+  .uae-page #operation-rules > div > p,
+  .indonesia-page #operation-rules > div > p,
+  .paraguay-page #operation-rules > div > p,
+  .china-page #operation-rules > div > p,
+  .russia-page #resources > div > p,
+  .malaysia-page #resources > div > p,
+  .uae-page #resources > div > p,
+  .indonesia-page #resources > div > p,
+  .paraguay-page #resources > div > p,
+  .china-page #resources > div > p,
+  .russia-page #trend > div > p,
+  .malaysia-page #trend > div > p,
+  .uae-page #trend-redline > div > p,
+  .indonesia-page #trend > div > p,
+  .paraguay-page #trend > div > p,
+  .china-page #trend-redline > div > p {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden > .rounded-xl,
+  .malaysia-page #product-access-overview .md\:hidden > .rounded-xl,
+  .uae-page #product-access-overview .md\:hidden > .rounded-xl,
+  .indonesia-page #product-access-overview .md\:hidden > .rounded-xl,
+  .paraguay-page #product-access-overview .md\:hidden > .rounded-xl,
+  .china-page #product-access-overview .md\:hidden > .rounded-xl {
+    background-color: #F1F3FA !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    padding: 12px !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden > .rounded-xl button,
+  .malaysia-page #product-access-overview .md\:hidden > .rounded-xl button,
+  .uae-page #product-access-overview .md\:hidden > .rounded-xl button,
+  .indonesia-page #product-access-overview .md\:hidden > .rounded-xl button,
+  .paraguay-page #product-access-overview .md\:hidden > .rounded-xl button,
+  .china-page #product-access-overview .md\:hidden > .rounded-xl button,
+  .russia-page #product-access-overview .md\:hidden > .rounded-xl p,
+  .malaysia-page #product-access-overview .md\:hidden > .rounded-xl p,
+  .uae-page #product-access-overview .md\:hidden > .rounded-xl p,
+  .indonesia-page #product-access-overview .md\:hidden > .rounded-xl p,
+  .paraguay-page #product-access-overview .md\:hidden > .rounded-xl p,
+  .china-page #product-access-overview .md\:hidden > .rounded-xl p {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden > .rounded-xl .rounded-full,
+  .malaysia-page #product-access-overview .md\:hidden > .rounded-xl .rounded-full,
+  .uae-page #product-access-overview .md\:hidden > .rounded-xl .rounded-full,
+  .indonesia-page #product-access-overview .md\:hidden > .rounded-xl .rounded-full,
+  .paraguay-page #product-access-overview .md\:hidden > .rounded-xl .rounded-full,
+  .china-page #product-access-overview .md\:hidden > .rounded-xl .rounded-full {
+    border-radius: 9999px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    padding: 4px 12px !important;
+  }
+
+  .russia-page #product-access-overview .md\:hidden .flex.items-start,
+  .malaysia-page #product-access-overview .md\:hidden .flex.items-start,
+  .uae-page #product-access-overview .md\:hidden .flex.items-start,
+  .indonesia-page #product-access-overview .md\:hidden .flex.items-start,
+  .paraguay-page #product-access-overview .md\:hidden .flex.items-start,
+  .china-page #product-access-overview .md\:hidden .flex.items-start {
+    gap: 8px !important;
+  }
+
+  .russia-page #overview > div > .rounded-xl,
+  .malaysia-page #overview > div > .rounded-xl,
+  .uae-page #overview > div > .rounded-xl,
+  .indonesia-page #overview > div > .rounded-xl,
+  .paraguay-page #overview > div > .rounded-xl,
+  .china-page #overview > div > .rounded-xl,
+  .russia-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .malaysia-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .uae-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .indonesia-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .paraguay-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .china-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .russia-page #licenses .grid > div,
+  .malaysia-page #licenses .grid > div,
+  .uae-page #licenses .grid > div,
+  .indonesia-page #licenses .grid > div,
+  .paraguay-page #licenses .grid > div,
+  .china-page #licenses .grid > div,
+  .russia-page #tax > div > .space-y-4 > .rounded-xl,
+  .malaysia-page #tax > div > .space-y-4 > .rounded-xl,
+  .uae-page #tax > div > .space-y-4 > .rounded-xl,
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl,
+  .paraguay-page #tax > div > .space-y-4 > .rounded-xl,
+  .china-page #tax > div > .space-y-4 > .rounded-xl,
+  .russia-page #operation-rules .grid > div,
+  .malaysia-page #operation-rules .grid > div,
+  .uae-page #operation-rules .grid > div,
+  .indonesia-page #operation-rules .grid > div,
+  .paraguay-page #operation-rules .grid > div,
+  .china-page #operation-rules .grid > div,
+  .russia-page #resources .grid > div,
+  .malaysia-page #resources .grid > div,
+  .uae-page #resources .grid > div,
+  .indonesia-page #resources .grid > div,
+  .paraguay-page #resources .grid > div,
+  .china-page #resources .grid > div {
+    background-color: #F3F5FB !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    padding: 12px !important;
+  }
+
+  .russia-page #product-access > div > .space-y-4 > .rounded-xl,
+  .malaysia-page #product-access > div > .space-y-4 > .rounded-xl,
+  .uae-page #product-access > div > .space-y-4 > .rounded-xl,
+  .indonesia-page #product-access > div > .space-y-4 > .rounded-xl,
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl,
+  .china-page #product-access > div > .space-y-4 > .rounded-xl {
+    background-color: #F3F5FB !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    padding: 12px !important;
+  }
+
+  .russia-page #regulatory-system h3,
+  .malaysia-page #regulatory-system h3,
+  .uae-page #regulatory-system h3,
+  .indonesia-page #regulatory-system h3,
+  .paraguay-page #regulatory-system h3,
+  .china-page #regulatory-system h3,
+  .russia-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .malaysia-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .uae-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .indonesia-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .china-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .russia-page #licenses h3,
+  .malaysia-page #licenses h3,
+  .uae-page #licenses h3,
+  .indonesia-page #licenses h3,
+  .paraguay-page #licenses h3,
+  .china-page #licenses h3,
+  .russia-page #tax h3,
+  .malaysia-page #tax h3,
+  .uae-page #tax h3,
+  .indonesia-page #tax h3,
+  .paraguay-page #tax h3,
+  .china-page #tax h3,
+  .russia-page #operation-rules h3,
+  .malaysia-page #operation-rules h3,
+  .uae-page #operation-rules h3,
+  .indonesia-page #operation-rules h3,
+  .paraguay-page #operation-rules h3,
+  .china-page #operation-rules h3,
+  .russia-page #resources h3,
+  .malaysia-page #resources h3,
+  .uae-page #resources h3,
+  .indonesia-page #resources h3,
+  .paraguay-page #resources h3,
+  .china-page #resources h3 {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  .russia-page #product-access .font-semibold.text-\[\#263247\],
+  .malaysia-page #product-access .font-semibold.text-\[\#263247\],
+  .uae-page #product-access .font-semibold.text-\[\#263247\],
+  .indonesia-page #product-access .font-semibold.text-\[\#263247\],
+  .paraguay-page #product-access .font-semibold.text-\[\#263247\],
+  .china-page #product-access .font-semibold.text-\[\#263247\],
+  .russia-page #tax .font-semibold,
+  .malaysia-page #tax .font-semibold,
+  .uae-page #tax .font-semibold,
+  .indonesia-page #tax .font-semibold,
+  .paraguay-page #tax .font-semibold,
+  .china-page #tax .font-semibold {
+    color: #263247 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  .russia-page #regulatory-system p,
+  .malaysia-page #regulatory-system p,
+  .uae-page #regulatory-system p,
+  .indonesia-page #regulatory-system p,
+  .paraguay-page #regulatory-system p,
+  .china-page #regulatory-system p,
+  .russia-page #product-access p,
+  .malaysia-page #product-access p,
+  .uae-page #product-access p,
+  .indonesia-page #product-access p,
+  .paraguay-page #product-access p,
+  .china-page #product-access p,
+  .russia-page #product-access .flex-1,
+  .malaysia-page #product-access .flex-1,
+  .uae-page #product-access .flex-1,
+  .indonesia-page #product-access .flex-1,
+  .paraguay-page #product-access .flex-1,
+  .china-page #product-access .flex-1,
+  .russia-page #licenses p,
+  .malaysia-page #licenses p,
+  .uae-page #licenses p,
+  .indonesia-page #licenses p,
+  .paraguay-page #licenses p,
+  .china-page #licenses p,
+  .russia-page #tax p,
+  .malaysia-page #tax p,
+  .uae-page #tax p,
+  .indonesia-page #tax p,
+  .paraguay-page #tax p,
+  .china-page #tax p,
+  .russia-page #operation-rules p,
+  .malaysia-page #operation-rules p,
+  .uae-page #operation-rules p,
+  .indonesia-page #operation-rules p,
+  .paraguay-page #operation-rules p,
+  .china-page #operation-rules p {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .russia-page #product-access [id^="product-"],
+  .malaysia-page #product-access [id^="product-"],
+  .uae-page #product-access [id^="product-"],
+  .indonesia-page #product-access [id^="product-"],
+  .paraguay-page #product-access [id^="product-"],
+  .china-page #product-access [id^="product-"] {
+    background-color: #FFFFFF !important;
+    border-radius: 12px !important;
+    border-top-color: #E2E6EF !important;
+    border-right-color: #E2E6EF !important;
+    border-bottom-color: #E2E6EF !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    padding: 14px !important;
+  }
+
+  .indonesia-page #product-access .indonesia-product-access-card {
+    padding: 12px !important;
+  }
+
+  .russia-page #product-access [id^="product-"] > div:first-child span:first-child,
+  .malaysia-page #product-access [id^="product-"] > div:first-child span:first-child,
+  .uae-page #product-access [id^="product-"] > div:first-child span:first-child,
+  .indonesia-page #product-access [id^="product-"] > div:first-child span:first-child,
+  .paraguay-page #product-access [id^="product-"] > div:first-child span:first-child,
+  .china-page #product-access [id^="product-"] > div:first-child span:first-child {
+    border-radius: 9999px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    padding: 4px 10px !important;
+  }
+
+  .russia-page #product-access [id^="product-"] > div:nth-child(2),
+  .malaysia-page #product-access [id^="product-"] > div:nth-child(2),
+  .uae-page #product-access [id^="product-"] > div:nth-child(2),
+  .indonesia-page #product-access [id^="product-"] > div:nth-child(2),
+  .paraguay-page #product-access [id^="product-"] > div:nth-child(2),
+  .china-page #product-access [id^="product-"] > div:nth-child(2) {
+    color: #263247 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .russia-page #product-access .flex.items-start,
+  .malaysia-page #product-access .flex.items-start,
+  .uae-page #product-access .flex.items-start,
+  .indonesia-page #product-access .flex.items-start,
+  .paraguay-page #product-access .flex.items-start,
+  .china-page #product-access .flex.items-start,
+  .russia-page #licenses .flex.items-start,
+  .malaysia-page #licenses .flex.items-start,
+  .uae-page #licenses .flex.items-start,
+  .indonesia-page #licenses .flex.items-start,
+  .paraguay-page #licenses .flex.items-start,
+  .china-page #licenses .flex.items-start,
+  .russia-page #tax .flex.items-start,
+  .malaysia-page #tax .flex.items-start,
+  .uae-page #tax .flex.items-start,
+  .indonesia-page #tax .flex.items-start,
+  .paraguay-page #tax .flex.items-start,
+  .china-page #tax .flex.items-start,
+  .russia-page #operation-rules .flex.items-start,
+  .malaysia-page #operation-rules .flex.items-start,
+  .uae-page #operation-rules .flex.items-start,
+  .indonesia-page #operation-rules .flex.items-start,
+  .paraguay-page #operation-rules .flex.items-start,
+  .china-page #operation-rules .flex.items-start {
+    gap: 8px !important;
+  }
+
+  .russia-page #operation-rules .grid > div .ml-6,
+  .malaysia-page #operation-rules .grid > div .ml-6,
+  .uae-page #operation-rules .grid > div .ml-6,
+  .indonesia-page #operation-rules .grid > div .ml-6,
+  .paraguay-page #operation-rules .grid > div .ml-6,
+  .china-page #operation-rules .grid > div .ml-6,
+  .russia-page #operation-rules .grid > div .ml-9,
+  .malaysia-page #operation-rules .grid > div .ml-9,
+  .uae-page #operation-rules .grid > div .ml-9,
+  .indonesia-page #operation-rules .grid > div .ml-9,
+  .paraguay-page #operation-rules .grid > div .ml-9,
+  .china-page #operation-rules .grid > div .ml-9,
+  .russia-page #operation-rules .grid > div .pl-6,
+  .malaysia-page #operation-rules .grid > div .pl-6,
+  .uae-page #operation-rules .grid > div .pl-6,
+  .indonesia-page #operation-rules .grid > div .pl-6,
+  .paraguay-page #operation-rules .grid > div .pl-6,
+  .china-page #operation-rules .grid > div .pl-6,
+  .russia-page #operation-rules .grid > div .pl-9,
+  .malaysia-page #operation-rules .grid > div .pl-9,
+  .uae-page #operation-rules .grid > div .pl-9,
+  .indonesia-page #operation-rules .grid > div .pl-9,
+  .paraguay-page #operation-rules .grid > div .pl-9,
+  .china-page #operation-rules .grid > div .pl-9 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .russia-page #operation-rules .grid > div .flex-1,
+  .malaysia-page #operation-rules .grid > div .flex-1,
+  .uae-page #operation-rules .grid > div .flex-1,
+  .indonesia-page #operation-rules .grid > div .flex-1,
+  .paraguay-page #operation-rules .grid > div .flex-1,
+  .china-page #operation-rules .grid > div .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .russia-page #tax .md\:hidden .rounded-xl,
+  .malaysia-page #tax .md\:hidden .rounded-xl,
+  .uae-page #tax .md\:hidden .rounded-xl,
+  .indonesia-page #tax .md\:hidden .rounded-xl,
+  .paraguay-page #tax .md\:hidden .rounded-xl,
+  .china-page #tax .md\:hidden .rounded-xl,
+  .russia-page #tax .russia-mobile-card,
+  .malaysia-page #tax .malaysia-tax-mobile-card,
+  .uae-page #tax .uae-tax-mobile-card,
+  .indonesia-page #tax .indonesia-mobile-card,
+  .paraguay-page #tax .paraguay-mobile-card,
+  .china-page #tax .china-excise-mobile-card {
+    background-color: #FFFFFF !important;
+    border-color: #D8E0F0 !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    padding: 14px !important;
+  }
+
+  .russia-page #trend > div > .rounded-xl,
+  .malaysia-page #trend #trend,
+  .uae-page #trend-redline #trend,
+  .indonesia-page #trend #trend-item,
+  .paraguay-page #trend #trend-item,
+  .china-page #trend-redline #trend {
+    background-color: #F3F5FB !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    padding: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .russia-page #red-lines,
+  .malaysia-page #red-lines,
+  .uae-page #red-lines,
+  .indonesia-page #red-lines,
+  .paraguay-page #red-lines,
+  .china-page #red-lines {
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    padding: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .russia-page #trend > div > .rounded-xl > h3,
+  .malaysia-page #trend #trend > h3,
+  .uae-page #trend-redline #trend > h3,
+  .indonesia-page #trend #trend-item > h3,
+  .paraguay-page #trend #trend-item > h3,
+  .china-page #trend-redline #trend > h3,
+  .russia-page #red-lines > h3,
+  .malaysia-page #red-lines > h3,
+  .uae-page #red-lines > h3,
+  .indonesia-page #red-lines > h3,
+  .paraguay-page #red-lines > h3,
+  .china-page #red-lines > h3 {
+    color: #2E3F73 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .russia-page #trend p,
+  .malaysia-page #trend p,
+  .uae-page #trend-redline p,
+  .indonesia-page #trend p,
+  .paraguay-page #trend p,
+  .china-page #trend-redline p,
+  .russia-page #red-lines p,
+  .malaysia-page #red-lines p,
+  .uae-page #red-lines p,
+  .indonesia-page #red-lines p,
+  .paraguay-page #red-lines p,
+  .china-page #red-lines p {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .russia-page #trend .flex.items-start,
+  .malaysia-page #trend .flex.items-start,
+  .uae-page #trend-redline .flex.items-start,
+  .indonesia-page #trend .flex.items-start,
+  .paraguay-page #trend .flex.items-start,
+  .china-page #trend-redline .flex.items-start,
+  .russia-page #red-lines .flex.items-start,
+  .malaysia-page #red-lines .flex.items-start,
+  .uae-page #red-lines .flex.items-start,
+  .indonesia-page #red-lines .flex.items-start,
+  .paraguay-page #red-lines .flex.items-start,
+  .china-page #red-lines .flex.items-start {
+    gap: 8px !important;
+  }
+
+  .russia-page #resources .grid > div p,
+  .malaysia-page #resources .grid > div p,
+  .uae-page #resources .grid > div p,
+  .indonesia-page #resources .grid > div p,
+  .paraguay-page #resources .grid > div p,
+  .china-page #resources .grid > div p {
+    color: #64748B !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .russia-page #resources .grid > div a.font-semibold,
+  .malaysia-page #resources .grid > div a.font-semibold,
+  .uae-page #resources .grid > div a.font-semibold,
+  .indonesia-page #resources .grid > div a.font-semibold,
+  .paraguay-page #resources .grid > div a.font-semibold,
+  .china-page #resources .grid > div a.font-semibold {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl:not(.bg-white),
+  .china-page #product-access > div > .space-y-4 > .rounded-xl:not(.bg-white) {
+    padding: 12px !important;
+  }
+
+  .russia-page #trend > div > .space-y-4 > .rounded-xl:first-child,
+  .malaysia-page #trend > div > .space-y-4 > .rounded-xl:first-child,
+  .uae-page #trend-redline #trend,
+  .indonesia-page #trend #trend-item,
+  .paraguay-page #trend #trend-item,
+  .china-page #trend-redline #trend {
+    background-color: #F3F5FB !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    padding: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .russia-page #red-lines,
+  .malaysia-page #red-lines,
+  .uae-page #red-lines,
+  .indonesia-page #red-lines,
+  .paraguay-page #red-lines,
+  .china-page #red-lines {
+    background-color: #FEF2F2 !important;
+    border-color: #FCA5A5 !important;
+  }
+
+  .russia-page #trend > div > .space-y-4 > .rounded-xl:first-child > h3,
+  .malaysia-page #trend > div > .space-y-4 > .rounded-xl:first-child > h3,
+  .uae-page #trend-redline #trend > h3,
+  .indonesia-page #trend #trend-item > h3,
+  .paraguay-page #trend #trend-item > h3,
+  .china-page #trend-redline #trend > h3,
+  .russia-page #red-lines h3,
+  .malaysia-page #red-lines h3,
+  .uae-page #red-lines h3,
+  .indonesia-page #red-lines h3,
+  .paraguay-page #red-lines h3,
+  .china-page #red-lines h3,
+  .russia-page #red-lines h4,
+  .malaysia-page #red-lines h4,
+  .uae-page #red-lines h4,
+  .indonesia-page #red-lines h4,
+  .paraguay-page #red-lines h4,
+  .china-page #red-lines h4 {
+    color: #2E3F73 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .russia-page #trend span.flex-1,
+  .malaysia-page #trend span.flex-1,
+  .uae-page #trend-redline span.flex-1,
+  .indonesia-page #trend span.flex-1,
+  .paraguay-page #trend span.flex-1,
+  .china-page #trend-redline span.flex-1,
+  .russia-page #red-lines span.flex-1,
+  .malaysia-page #red-lines span.flex-1,
+  .uae-page #red-lines span.flex-1,
+  .indonesia-page #red-lines span.flex-1,
+  .paraguay-page #red-lines span.flex-1,
+  .china-page #red-lines span.flex-1 {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    min-width: 0 !important;
+  }
+
+  .russia-page #resources .rounded-xl.border,
+  .malaysia-page #resources .rounded-xl.border,
+  .uae-page #resources .rounded-xl.border,
+  .indonesia-page #resources .rounded-xl.border,
+  .paraguay-page #resources .rounded-xl.border,
+  .china-page #resources .rounded-xl.border,
+  .russia-page #resources .rounded-xl[class*="border-"],
+  .malaysia-page #resources .rounded-xl[class*="border-"],
+  .uae-page #resources .rounded-xl[class*="border-"],
+  .indonesia-page #resources .rounded-xl[class*="border-"],
+  .paraguay-page #resources .rounded-xl[class*="border-"],
+  .china-page #resources .rounded-xl[class*="border-"] {
+    background-color: #F3F5FB !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    padding: 12px !important;
+  }
+
+  .russia-page #resources .rounded-xl.border p,
+  .malaysia-page #resources .rounded-xl.border p,
+  .uae-page #resources .rounded-xl.border p,
+  .indonesia-page #resources .rounded-xl.border p,
+  .paraguay-page #resources .rounded-xl.border p,
+  .china-page #resources .rounded-xl.border p,
+  .russia-page #resources .rounded-xl[class*="border-"] p,
+  .malaysia-page #resources .rounded-xl[class*="border-"] p,
+  .uae-page #resources .rounded-xl[class*="border-"] p,
+  .indonesia-page #resources .rounded-xl[class*="border-"] p,
+  .paraguay-page #resources .rounded-xl[class*="border-"] p,
+  .china-page #resources .rounded-xl[class*="border-"] p {
+    color: #64748B !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .russia-page #resources a.font-semibold,
+  .malaysia-page #resources a.font-semibold,
+  .uae-page #resources a.font-semibold,
+  .indonesia-page #resources a.font-semibold,
+  .paraguay-page #resources a.font-semibold,
+  .china-page #resources a.font-semibold {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  .russia-page #trend #red-lines,
+  .malaysia-page #trend #red-lines,
+  .uae-page #trend-redline #red-lines,
+  .indonesia-page #trend #red-lines,
+  .paraguay-page #trend #red-lines,
+  .china-page #trend-redline #red-lines {
+    background-color: #FEF2F2 !important;
+    border-color: #FCA5A5 !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    padding: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Current mobile fixes: product overview status dots */
+  .russia-page #product-access-overview .md\:hidden .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .malaysia-page #product-access-overview .md\:hidden .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .uae-page #product-access-overview .md\:hidden .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .indonesia-page #product-access-overview .md\:hidden .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .paraguay-page #product-access-overview .md\:hidden .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .china-page #product-access-overview .md\:hidden .flex.items-start > span.w-1\.5.h-1\.5.rounded-full {
+    width: 6px !important;
+    height: 6px !important;
+    min-width: 6px !important;
+    min-height: 6px !important;
+    padding: 0 !important;
+    margin-top: 8px !important;
+    border-radius: 9999px !important;
+    display: block !important;
+  }
+
+  /* Current mobile fixes: Russia licenses indentation (via dedicated classes in ComplianceLicenseCards) */
+  .russia-page #licenses .russia-license-card {
+    padding: 12px !important;
+  }
+
+  .russia-page #licenses .russia-license-heading {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .russia-page #licenses .russia-license-title {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #1F3B63 !important;
+    margin: 0 !important;
+  }
+
+  .russia-page #licenses .russia-license-index {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    flex: 0 0 24px !important;
+    border-radius: 9999px !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 0 !important;
+  }
+
+  .russia-page #licenses .russia-license-body {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .russia-page #licenses .russia-license-body p,
+  .russia-page #licenses .russia-license-body span,
+  .russia-page #licenses .russia-license-body li,
+  .russia-page #licenses .russia-license-body div {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .russia-page #licenses .russia-license-body .flex.items-start {
+    gap: 8px !important;
+  }
+
+  .russia-page #licenses .russia-license-body .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .russia-page #licenses .russia-license-body .ml-6,
+  .russia-page #licenses .russia-license-body .ml-9,
+  .russia-page #licenses .russia-license-body .pl-6,
+  .russia-page #licenses .russia-license-body .pl-9 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  /* Current mobile fixes: product access label-to-body spacing */
+  .russia-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4,
+  .malaysia-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4,
+  .uae-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4,
+  .indonesia-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4,
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4,
+  .china-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4 {
+    margin-bottom: 10px !important;
+  }
+
+  .russia-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4 > .inline-flex,
+  .malaysia-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4 > .inline-flex,
+  .uae-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4 > .inline-flex,
+  .indonesia-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4 > .inline-flex,
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4 > .inline-flex,
+  .china-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4 > .inline-flex {
+    margin-bottom: 6px !important;
+  }
+
+  .russia-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\],
+  .malaysia-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\],
+  .uae-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\],
+  .indonesia-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\],
+  .paraguay-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\],
+  .china-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\] {
+    margin-bottom: 4px !important;
+  }
+
+  .russia-page #product-access [id^="product-"] .text-sm.text-\[\#334155\].mb-2,
+  .malaysia-page #product-access [id^="product-"] .text-sm.text-\[\#334155\].mb-2,
+  .uae-page #product-access [id^="product-"] .text-sm.text-\[\#334155\].mb-2,
+  .indonesia-page #product-access [id^="product-"] .text-sm.text-\[\#334155\].mb-2,
+  .paraguay-page #product-access [id^="product-"] .text-sm.text-\[\#334155\].mb-2,
+  .china-page #product-access [id^="product-"] .text-sm.text-\[\#334155\].mb-2 {
+    margin-bottom: 6px !important;
+  }
+
+  /* Current mobile fixes: overview/news hierarchy */
+  .russia-page #overview > div > h2,
+  .malaysia-page #overview > div > h2,
+  .uae-page #overview > div > h2,
+  .indonesia-page #overview > div > h2,
+  .paraguay-page #overview > div > h2,
+  .china-page #overview > div > h2 {
+    color: #243B63 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .russia-page #overview h3,
+  .malaysia-page #overview h3,
+  .uae-page #overview h3,
+  .indonesia-page #overview h3,
+  .paraguay-page #overview h3,
+  .china-page #overview h3 {
+    color: #2E3F73 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .russia-page #overview h4,
+  .malaysia-page #overview h4,
+  .uae-page #overview h4,
+  .indonesia-page #overview h4,
+  .paraguay-page #overview h4,
+  .china-page #overview h4,
+  .russia-page #overview a.font-semibold,
+  .malaysia-page #overview a.font-semibold,
+  .uae-page #overview a.font-semibold,
+  .indonesia-page #overview a.font-semibold,
+  .paraguay-page #overview a.font-semibold,
+  .china-page #overview a.font-semibold {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .russia-page #overview p,
+  .malaysia-page #overview p,
+  .uae-page #overview p,
+  .indonesia-page #overview p,
+  .paraguay-page #overview p,
+  .china-page #overview p,
+  .russia-page #overview .text-\[\#334155\],
+  .malaysia-page #overview .text-\[\#334155\],
+  .uae-page #overview .text-\[\#334155\],
+  .indonesia-page #overview .text-\[\#334155\],
+  .paraguay-page #overview .text-\[\#334155\],
+  .china-page #overview .text-\[\#334155\] {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Current mobile fixes: Indonesia license overview cards */
+  .indonesia-page #licenses .indonesia-license-overview-card {
+    background-color: #FFFFFF !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    padding: 14px !important;
+  }
+
+  .indonesia-page #licenses .indonesia-license-overview-card h4 {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Current mobile fixes: Paraguay product access status cards */
+  .paraguay-page #product-access [id^="product-"] {
+    background-color: #FFFFFF !important;
+    border-top-color: #E2E6EF !important;
+    border-right-color: #E2E6EF !important;
+    border-bottom-color: #E2E6EF !important;
+    border-left-width: 2px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    padding: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] > div:first-child {
+    margin-bottom: 12px !important;
+  }
+
+  .paraguay-page #product-access [id^="product-"] > div:nth-child(2) {
+    color: #263247 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Current mobile fixes: red-line title hierarchy */
+  .russia-page #red-lines h3,
+  .malaysia-page #red-lines h3,
+  .uae-page #red-lines h3,
+  .indonesia-page #red-lines h3,
+  .paraguay-page #red-lines h3,
+  .china-page #red-lines h3 {
+    color: #B91C1C !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .russia-page #red-lines h4,
+  .malaysia-page #red-lines h4,
+  .uae-page #red-lines h4,
+  .indonesia-page #red-lines h4,
+  .paraguay-page #red-lines h4,
+  .china-page #red-lines h4 {
+    color: #B91C1C !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .russia-page #red-lines > .flex.items-center,
+  .malaysia-page #red-lines > .flex.items-center,
+  .uae-page #red-lines > .flex.items-center,
+  .indonesia-page #red-lines > .flex.items-center,
+  .paraguay-page #red-lines > .flex.items-center,
+  .china-page #red-lines > .flex.items-center {
+    margin-bottom: 10px !important;
+  }
+
+  .russia-page #red-lines .space-y-5,
+  .malaysia-page #red-lines .space-y-5,
+  .uae-page #red-lines .space-y-5,
+  .indonesia-page #red-lines .space-y-5,
+  .paraguay-page #red-lines .space-y-5,
+  .china-page #red-lines .space-y-5 {
+    gap: 12px !important;
+  }
+
+  .russia-page #red-lines span.flex-1,
+  .malaysia-page #red-lines span.flex-1,
+  .uae-page #red-lines span.flex-1,
+  .indonesia-page #red-lines span.flex-1,
+  .paraguay-page #red-lines span.flex-1,
+  .china-page #red-lines span.flex-1 {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Current mobile fixes: China card titles */
+  .china-page #licenses h3,
+  .china-page #licenses h4,
+  .china-page #trend-redline #trend h3,
+  .china-page #trend-redline #trend h4 {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  .russia-page #licenses .grid > div .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .indonesia-page #licenses .indonesia-license-overview .grid > div.indonesia-license-overview-card {
+    background-color: #FFFFFF !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+    padding: 14px !important;
+  }
+
+  .russia-page #overview > div > .space-y-3 > .rounded-xl h4.text-base,
+  .malaysia-page #overview > div > .space-y-3 > .rounded-xl h4.text-base,
+  .uae-page #overview > div > .space-y-3 > .rounded-xl h4.text-base,
+  .indonesia-page #overview > div > .space-y-3 > .rounded-xl h4.text-base,
+  .paraguay-page #overview > div > .space-y-3 > .rounded-xl h4.text-base,
+  .china-page #overview > div > .space-y-3 > .rounded-xl h4.text-base {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .russia-page #red-lines .space-y-5 h4.text-base,
+  .malaysia-page #red-lines .space-y-5 h4.text-base,
+  .uae-page #red-lines .space-y-5 h4.text-base,
+  .indonesia-page #red-lines .space-y-5 h4.text-base,
+  .paraguay-page #red-lines .space-y-5 h4.text-base,
+  .china-page #red-lines .space-y-5 h4.text-base {
+    color: #B91C1C !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .china-page #licenses .grid > div h3.text-base,
+  .china-page #licenses .grid > div h4.text-base,
+  .china-page #trend-redline #trend h3.text-base,
+  .china-page #trend-redline #trend h4.text-base,
+  .china-page #trend-redline #trend .rounded-xl h3,
+  .china-page #trend-redline #trend .rounded-xl h4 {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  .paraguay-page #product-access #product-traditional-tobacco,
+  .paraguay-page #product-access #product-ecig,
+  .paraguay-page #product-access #product-heat-not-burn,
+  .paraguay-page #product-access #product-heating-device,
+  .paraguay-page #product-access #product-tobacco-raw,
+  .paraguay-page #product-access #product-ordinary-material {
+    border-left-color: #6AAF7C !important;
+  }
+
+  .paraguay-page #product-access #product-nicotine-pouch,
+  .paraguay-page #product-access #product-oral-nicotine,
+  .paraguay-page #product-access #product-smokeless-tobacco,
+  .paraguay-page #product-access #product-nicotine-material {
+    border-left-color: #C9A24C !important;
+  }
+
+  /* Current follow-up mobile fixes: resources/news summary color */
+  .russia-page #resources .rounded-xl.border p,
+  .malaysia-page #resources .rounded-xl.border p,
+  .uae-page #resources .rounded-xl.border p,
+  .indonesia-page #resources .rounded-xl.border p,
+  .paraguay-page #resources .rounded-xl.border p,
+  .china-page #resources .rounded-xl.border p,
+  .russia-page #resources .rounded-xl[class*="border-"] p,
+  .malaysia-page #resources .rounded-xl[class*="border-"] p,
+  .uae-page #resources .rounded-xl[class*="border-"] p,
+  .indonesia-page #resources .rounded-xl[class*="border-"] p,
+  .paraguay-page #resources .rounded-xl[class*="border-"] p,
+  .china-page #resources .rounded-xl[class*="border-"] p {
+    color: #334155 !important;
+    font-weight: 400 !important;
+  }
+
+  .russia-page #resources p,
+  .malaysia-page #resources p,
+  .uae-page #resources p,
+  .indonesia-page #resources p,
+  .paraguay-page #resources p,
+  .china-page #resources p {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Current follow-up mobile fixes: moderate title/body spacing */
+  .russia-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .malaysia-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .uae-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .indonesia-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .paraguay-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .china-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .russia-page #tax > div > .space-y-4 > .rounded-xl > h3,
+  .malaysia-page #tax > div > .space-y-4 > .rounded-xl > h3,
+  .uae-page #tax > div > .space-y-4 > .rounded-xl > h3,
+  .indonesia-page #tax > div > .space-y-4 > .rounded-xl > h3,
+  .paraguay-page #tax > div > .space-y-4 > .rounded-xl > h3,
+  .china-page #tax > div > .space-y-4 > .rounded-xl > h3 {
+    margin-bottom: 10px !important;
+  }
+
+  /* Current follow-up mobile fixes: Indonesia license table-card titles */
+  .indonesia-page #licenses .indonesia-license-mobile-card {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E6EF !important;
+    border-radius: 12px !important;
+    padding: 14px !important;
+  }
+
+  .indonesia-page #licenses .indonesia-license-mobile-card > .indonesia-license-mobile-title {
+    color: #1F3B63 !important;
+    display: block !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .indonesia-page #licenses .indonesia-license-mobile-label {
+    color: #1F3B63 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .indonesia-page #licenses .indonesia-license-mobile-body {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Current follow-up mobile fixes: Indonesia red-line item alignment */
+  .indonesia-page #red-lines li.flex.items-start {
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .indonesia-page #red-lines li.flex.items-start > span:first-child {
+    flex: 0 0 18px !important;
+    width: 18px !important;
+    margin-top: 2px !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+  }
+
+  .indonesia-page #red-lines li.flex.items-start > span.flex-1 {
+    min-width: 0 !important;
+  }
+
+  /* Current follow-up mobile fixes: resources title hierarchy */
+  .russia-page #resources h3,
+  .malaysia-page #resources h3,
+  .uae-page #resources h3,
+  .indonesia-page #resources h3,
+  .paraguay-page #resources h3,
+  .china-page #resources h3,
+  .russia-page #resources h4,
+  .malaysia-page #resources h4,
+  .uae-page #resources h4,
+  .indonesia-page #resources h4,
+  .paraguay-page #resources h4,
+  .china-page #resources h4 {
+    color: #1F3B63 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  .russia-page #resources a.font-semibold,
+  .malaysia-page #resources a.font-semibold,
+  .uae-page #resources a.font-semibold,
+  .indonesia-page #resources a.font-semibold,
+  .paraguay-page #resources a.font-semibold,
+  .china-page #resources a.font-semibold {
+    color: #2E3F73 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.45 !important;
+  }
+
+  .russia-page #resources p,
+  .malaysia-page #resources p,
+  .uae-page #resources p,
+  .indonesia-page #resources p,
+  .paraguay-page #resources p,
+  .china-page #resources p {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Current follow-up mobile fixes: UAE tax card title hierarchy */
+  .uae-page #tax .uae-tax-mobile-card > .uae-mobile-tax-title.font-bold {
+    color: #27406E !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 2px !important;
+  }
+
+  .uae-page #tax .uae-tax-mobile-card > .uae-mobile-tax-en {
+    color: #64748B !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Current follow-up mobile fixes: Paraguay sales rules */
+  .paraguay-page #sales-rules > div > div > p {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card-label {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card-body {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card-body .font-semibold {
+    color: #263247 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .paraguay-page #sales-rules .paraguay-mobile-card-body .mb-3 {
+    margin-bottom: 10px !important;
+  }
+
+  /* Current follow-up mobile fixes: Paraguay status badge text colors */
+  .paraguay-page #product-access #product-traditional-tobacco > div:first-child span:first-child,
+  .paraguay-page #product-access #product-ecig > div:first-child span:first-child,
+  .paraguay-page #product-access #product-heat-not-burn > div:first-child span:first-child,
+  .paraguay-page #product-access #product-heating-device > div:first-child span:first-child,
+  .paraguay-page #product-access #product-tobacco-raw > div:first-child span:first-child,
+  .paraguay-page #product-access #product-ordinary-material > div:first-child span:first-child {
+    color: #3D7050 !important;
+  }
+
+  .paraguay-page #product-access #product-nicotine-pouch > div:first-child span:first-child,
+  .paraguay-page #product-access #product-oral-nicotine > div:first-child span:first-child,
+  .paraguay-page #product-access #product-smokeless-tobacco > div:first-child span:first-child,
+  .paraguay-page #product-access #product-nicotine-material > div:first-child span:first-child {
+    color: #8B6F2E !important;
+  }
+
+  /* Current follow-up mobile fixes: China core feature and excise titles */
+  .china-page #regulatory-system > div > .space-y-4 > .rounded-xl h4.text-base {
+    color: #2E3F73 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .china-page #tax .china-excise-mobile-card > .china-excise-mobile-title {
+    color: #1F3B63 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .china-page #tax .china-excise-mobile-card > .china-excise-mobile-label {
+    color: #263247 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .china-page #tax .china-excise-mobile-card > .china-excise-mobile-body,
+  .china-page #tax .china-excise-mobile-card > .china-excise-mobile-body span.flex-1 {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Current follow-up mobile fixes: China product access status-card bars */
+  .china-page #product-access #product-tobacco-raw,
+  .china-page #product-access #product-special-material,
+  .china-page #product-access #product-ecig,
+  .china-page #product-access #product-e-liquid,
+  .china-page #product-access #product-machinery,
+  .china-page #product-access #product-nicotine-bead {
+    border-left-color: #C9A24C !important;
+  }
+
+  .china-page #product-access #product-nicotine-free-ecig,
+  .china-page #product-access #product-heat-not-burn,
+  .china-page #product-access #product-smokeless-tobacco {
+    border-left-color: #DC6B6B !important;
+  }
+
+  .china-page #product-access #product-ordinary-bead {
+    border-left-color: #6AAF7C !important;
+  }
+
+  /* ===== Hong Kong mobile styles ===== */
+  .hongkong-page {
+    overflow-x: clip;
+  }
+
+  .hongkong-page main > .flex {
+    display: block !important;
+  }
+
+  .hongkong-page main > .flex > nav {
+    display: none !important;
+  }
+
+  .hongkong-page main > .flex > .flex-1 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hongkong-page [id] {
+    scroll-margin-top: 64px !important;
+  }
+
+  .hongkong-page h1 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hongkong-page #product-access-overview > div,
+  .hongkong-page #overview > div,
+  .hongkong-page #regulatory-system > div,
+  .hongkong-page #product-access > div,
+  .hongkong-page #licenses > div,
+  .hongkong-page #tax > div,
+  .hongkong-page #operation-rules > div,
+  .hongkong-page #trend > div,
+  .hongkong-page #red-lines > div,
+  .hongkong-page #resources > div {
+    padding: 16px !important;
+  }
+
+  .hongkong-page section[id] > div > h2 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hongkong-page #product-access-overview > div > p,
+  .hongkong-page #overview > div > p,
+  .hongkong-page #licenses > div > p,
+  .hongkong-page #tax > div > p,
+  .hongkong-page #operation-rules > div > p,
+  .hongkong-page #red-lines > div > p,
+  .hongkong-page #resources > div > p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .hongkong-page #overview h3,
+  .hongkong-page #overview h4,
+  .hongkong-page #regulatory-system h3,
+  .hongkong-page #regulatory-system h4,
+  .hongkong-page #product-access-overview .md\:hidden h3,
+  .hongkong-page #product-access-overview .md\:hidden h4,
+  .hongkong-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .hongkong-page #operation-rules h3,
+  .hongkong-page #operation-rules h4,
+  .hongkong-page #tax h3,
+  .hongkong-page #tax h4,
+  .hongkong-page #licenses .grid > div h4,
+  .hongkong-page #resources h3,
+  .hongkong-page #resources h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hongkong-page #product-access-overview .md\:hidden > .rounded-xl,
+  .hongkong-page #overview > div > .space-y-3 > .rounded-xl,
+  .hongkong-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .hongkong-page #product-access > div > .space-y-4 > .rounded-xl,
+  .hongkong-page #licenses .grid > div,
+  .hongkong-page #tax > div > .space-y-4 > .rounded-xl,
+  .hongkong-page #operation-rules .grid > div,
+  .hongkong-page #trend > div > .space-y-4 .rounded-xl,
+  .hongkong-page #resources .rounded-xl.border,
+  .hongkong-page #resources .rounded-xl[class*="border-"] {
+    padding: 12px !important;
+    background-color: #F3F5FB !important;
+    border-color: #D8DDED !important;
+  }
+
+  .hongkong-page #product-access-overview .md\:hidden > .rounded-xl {
+    background-color: #F1F3FA !important;
+  }
+
+  .hongkong-page #product-access-overview .md\:hidden .text-\[\#4A6290\] {
+    color: #334155 !important;
+  }
+
+  .hongkong-page #product-access-overview .md\:hidden .flex.items-start,
+  .hongkong-page #overview .flex.items-start.gap-3,
+  .hongkong-page #overview .flex.items-start.gap-2,
+  .hongkong-page #regulatory-system .flex.items-start.gap-3,
+  .hongkong-page #regulatory-system .flex.items-start.gap-2,
+  .hongkong-page #licenses .flex.items-start.gap-3,
+  .hongkong-page #licenses .flex.items-start.gap-2,
+  .hongkong-page #tax .flex.items-start.gap-3,
+  .hongkong-page #tax .flex.items-start.gap-2,
+  .hongkong-page #operation-rules .flex.items-start.gap-3,
+  .hongkong-page #operation-rules .flex.items-start.gap-2,
+  .hongkong-page #red-lines .flex.items-start.gap-3,
+  .hongkong-page #red-lines .flex.items-start.gap-2 {
+    gap: 8px !important;
+    align-items: flex-start !important;
+  }
+
+  .hongkong-page #product-access-overview .md\:hidden .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .hongkong-page #overview > div > .space-y-3 > .rounded-xl > .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .hongkong-page #regulatory-system .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .hongkong-page #licenses .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .hongkong-page #tax .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .hongkong-page #operation-rules .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .hongkong-page #red-lines .flex.items-start > span.w-1\.5.h-1\.5.rounded-full {
+    width: 6px !important;
+    height: 6px !important;
+    min-width: 6px !important;
+    min-height: 6px !important;
+    margin-top: 8px !important;
+  }
+
+  .hongkong-page #overview > div > .space-y-3 > .rounded-xl div,
+  .hongkong-page #overview > div > .space-y-3 > .rounded-xl p,
+  .hongkong-page #overview > div > .space-y-3 > .rounded-xl span,
+  .hongkong-page #regulatory-system > div > .space-y-4 > .rounded-xl div,
+  .hongkong-page #regulatory-system > div > .space-y-4 > .rounded-xl p,
+  .hongkong-page #regulatory-system > div > .space-y-4 > .rounded-xl span,
+  .hongkong-page #licenses .grid > div span.text-\[\#334155\],
+  .hongkong-page #licenses .grid > div p,
+  .hongkong-page #tax span.text-\[\#334155\],
+  .hongkong-page #tax p.text-\[\#334155\],
+  .hongkong-page #tax span.text-sm,
+  .hongkong-page #tax p.text-sm,
+  .hongkong-page #operation-rules .grid > div span.text-\[\#334155\],
+  .hongkong-page #operation-rules .grid > div p,
+  .hongkong-page #trend p,
+  .hongkong-page #red-lines span.text-\[\#334155\],
+  .hongkong-page #resources p,
+  .hongkong-page #resources .text-base,
+  .hongkong-page #resources .text-sm,
+  .hongkong-page #overview span.text-\[\#334155\],
+  .hongkong-page #regulatory-system span.text-\[\#334155\] {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .hongkong-page #product-access [id^="product-"] {
+    padding: 14px !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E6EF !important;
+  }
+
+  .hongkong-page #product-access [id^="product-"] > div:first-child span:first-child {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+  }
+
+  .hongkong-page #product-access [id^="product-"] > div:nth-child(2) {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hongkong-page #product-access [id^="product-"] > div:nth-child(3),
+  .hongkong-page #product-access [id^="product-"] .text-sm,
+  .hongkong-page #product-access [id^="product-"] span,
+  .hongkong-page #product-access [id^="product-"] p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .hongkong-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hongkong-page #product-access [id^="product-"] .flex.items-start.gap-2,
+  .hongkong-page #product-access [id^="product-"] .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .hongkong-page #product-access .space-y-2 {
+    gap: 8px !important;
+  }
+
+  .hongkong-page #licenses .grid > div .flex.items-start {
+    gap: 8px !important;
+    align-items: flex-start !important;
+  }
+
+  .hongkong-page #licenses .grid > div .w-6.h-6.rounded-full {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .hongkong-page #licenses .grid > div .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .hongkong-page #licenses .grid > div .ml-6,
+  .hongkong-page #licenses .grid > div .ml-9,
+  .hongkong-page #licenses .grid > div .pl-6,
+  .hongkong-page #licenses .grid > div .pl-9 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .hongkong-page #licenses .grid > div h4 {
+    color: #2E3F73 !important;
+  }
+
+  .hongkong-page #tax table {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    border-collapse: collapse !important;
+  }
+
+  .hongkong-page #tax table thead {
+    display: none !important;
+  }
+
+  .hongkong-page #tax table tbody {
+    display: block !important;
+  }
+
+  .hongkong-page #tax table tbody tr {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 14px !important;
+    margin-bottom: 12px !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E6EF !important;
+    border-radius: 12px !important;
+  }
+
+  .hongkong-page #tax table tbody tr:nth-child(even) {
+    background-color: #F3F5FB !important;
+  }
+
+  .hongkong-page #tax table tbody tr td {
+    display: block !important;
+    width: 100% !important;
+    padding: 4px 0 !important;
+    border: none !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: #334155 !important;
+    font-weight: 400 !important;
+  }
+
+  .hongkong-page #tax table tbody tr td:first-child {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .hongkong-page #tax .hongkong-tax-mobile-card {
+    padding: 14px !important;
+    background-color: #FFFFFF !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .hongkong-page #tax .hongkong-tax-mobile-title {
+    color: #1F3B63 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .hongkong-page #tax .hongkong-tax-mobile-label {
+    color: #2E3F73 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .hongkong-page #tax .hongkong-tax-mobile-body {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .hongkong-page #red-lines > div > .space-y-4 .rounded-xl,
+  .hongkong-page #red-lines {
+    background-color: #FFF7F7 !important;
+    border-color: #FECACA !important;
+  }
+
+  .hongkong-page #red-lines h3,
+  .hongkong-page #red-lines h4,
+  .hongkong-page #red-lines .text-red-600,
+  .hongkong-page #red-lines [class*="text-red"] {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #B91C1C !important;
+  }
+
+  .hongkong-page #red-lines .flex.items-start > span:first-child {
+    width: 18px !important;
+    min-width: 18px !important;
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+    line-height: 1 !important;
+  }
+
+  .hongkong-page #red-lines .flex.items-start > span.flex-1 {
+    min-width: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .hongkong-page #resources h3,
+  .hongkong-page #resources h4 {
+    color: #1F3B63 !important;
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .hongkong-page #resources a {
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+  }
+
+  /* ===== Singapore mobile styles ===== */
+  .singapore-page {
+    overflow-x: clip;
+  }
+
+  .singapore-page main > .flex {
+    display: block !important;
+  }
+
+  .singapore-page main > .flex > nav {
+    display: none !important;
+  }
+
+  .singapore-page main > .flex > .flex-1 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .singapore-page [id] {
+    scroll-margin-top: 64px !important;
+  }
+
+  .singapore-page h1 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .singapore-page #product-access-overview > div,
+  .singapore-page #overview > div,
+  .singapore-page #regulatory-system > div,
+  .singapore-page #product-access > div,
+  .singapore-page #licenses > div,
+  .singapore-page #tax > div,
+  .singapore-page #operation-rules > div,
+  .singapore-page #trend > div,
+  .singapore-page #red-lines > div,
+  .singapore-page #resources > div {
+    padding: 16px !important;
+  }
+
+  .singapore-page section[id] > div > h2 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .singapore-page #product-access-overview > div > p,
+  .singapore-page #overview > div > p,
+  .singapore-page #licenses > div > p,
+  .singapore-page #tax > div > p,
+  .singapore-page #operation-rules > div > p,
+  .singapore-page #red-lines > div > p,
+  .singapore-page #resources > div > p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .singapore-page #overview h3,
+  .singapore-page #overview h4,
+  .singapore-page #regulatory-system h3,
+  .singapore-page #regulatory-system h4,
+  .singapore-page #product-access-overview .md\:hidden h3,
+  .singapore-page #product-access-overview .md\:hidden h4,
+  .singapore-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .singapore-page #operation-rules h3,
+  .singapore-page #operation-rules h4,
+  .singapore-page #tax h3,
+  .singapore-page #tax h4,
+  .singapore-page #licenses .grid > div h4,
+  .singapore-page #resources h3,
+  .singapore-page #resources h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .singapore-page #product-access-overview .md\:hidden > .rounded-xl,
+  .singapore-page #overview > div > .space-y-3 > .rounded-xl,
+  .singapore-page #regulatory-system > div > .space-y-4 > .rounded-xl,
+  .singapore-page #product-access > div > .space-y-4 > .rounded-xl,
+  .singapore-page #licenses .grid > div,
+  .singapore-page #tax > div > .space-y-4 > .rounded-xl,
+  .singapore-page #operation-rules .grid > div,
+  .singapore-page #resources .rounded-xl.border,
+  .singapore-page #resources .rounded-xl[class*="border-"] {
+    padding: 12px !important;
+    background-color: #F3F5FB !important;
+    border-color: #D8DDED !important;
+  }
+
+  .singapore-page #product-access-overview .md\:hidden > .rounded-xl {
+    background-color: #F1F3FA !important;
+  }
+
+  .singapore-page #product-access-overview .md\:hidden .text-\[\#4A6290\] {
+    color: #334155 !important;
+  }
+
+  .singapore-page #product-access-overview .md\:hidden .flex.items-start,
+  .singapore-page #overview .flex.items-start.gap-3,
+  .singapore-page #overview .flex.items-start.gap-2,
+  .singapore-page #regulatory-system .flex.items-start.gap-3,
+  .singapore-page #regulatory-system .flex.items-start.gap-2,
+  .singapore-page #licenses .flex.items-start.gap-3,
+  .singapore-page #licenses .flex.items-start.gap-2,
+  .singapore-page #tax .flex.items-start.gap-3,
+  .singapore-page #tax .flex.items-start.gap-2,
+  .singapore-page #operation-rules .flex.items-start.gap-3,
+  .singapore-page #operation-rules .flex.items-start.gap-2,
+  .singapore-page #red-lines .flex.items-start.gap-3,
+  .singapore-page #red-lines .flex.items-start.gap-2 {
+    gap: 8px !important;
+    align-items: flex-start !important;
+  }
+
+  .singapore-page #product-access-overview .md\:hidden .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .singapore-page #overview > div > .space-y-3 > .rounded-xl > .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .singapore-page #regulatory-system .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .singapore-page #licenses .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .singapore-page #tax .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .singapore-page #operation-rules .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
+  .singapore-page #red-lines .flex.items-start > span.w-1\.5.h-1\.5.rounded-full {
+    width: 6px !important;
+    height: 6px !important;
+    min-width: 6px !important;
+    min-height: 6px !important;
+    margin-top: 8px !important;
+  }
+
+  .singapore-page #overview > div > .space-y-3 > .rounded-xl div,
+  .singapore-page #overview > div > .space-y-3 > .rounded-xl p,
+  .singapore-page #overview > div > .space-y-3 > .rounded-xl span,
+  .singapore-page #regulatory-system > div > .space-y-4 > .rounded-xl div,
+  .singapore-page #regulatory-system > div > .space-y-4 > .rounded-xl p,
+  .singapore-page #regulatory-system > div > .space-y-4 > .rounded-xl span,
+  .singapore-page #licenses .grid > div span.text-\[\#334155\],
+  .singapore-page #licenses .grid > div p,
+  .singapore-page #tax span.text-\[\#334155\],
+  .singapore-page #tax p.text-\[\#334155\],
+  .singapore-page #tax span.text-sm,
+  .singapore-page #tax p.text-sm,
+  .singapore-page #operation-rules .grid > div span.text-\[\#334155\],
+  .singapore-page #operation-rules .grid > div p,
+  .singapore-page #trend p,
+  .singapore-page #red-lines span.text-\[\#334155\],
+  .singapore-page #resources p,
+  .singapore-page #resources .text-base,
+  .singapore-page #resources .text-sm,
+  .singapore-page #overview span.text-\[\#334155\],
+  .singapore-page #regulatory-system span.text-\[\#334155\] {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .singapore-page #product-access [id^="product-"] {
+    padding: 14px !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E6EF !important;
+  }
+
+  .singapore-page #product-access [id^="product-"] > div:first-child span:first-child {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+  }
+
+  .singapore-page #product-access [id^="product-"] > div:nth-child(2) {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .singapore-page #product-access [id^="product-"] .font-semibold.text-\[\#263247\] {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .singapore-page #product-access [id^="product-"] .flex.items-start.gap-2,
+  .singapore-page #product-access [id^="product-"] .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .singapore-page #product-access .space-y-2 {
+    gap: 8px !important;
+  }
+
+  .singapore-page #licenses .grid > div .flex.items-start {
+    gap: 8px !important;
+    align-items: flex-start !important;
+  }
+
+  .singapore-page #licenses .grid > div .w-6.h-6.rounded-full {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .singapore-page #licenses .grid > div .flex-1 {
+    min-width: 0 !important;
+  }
+
+  .singapore-page #licenses .grid > div .ml-6,
+  .singapore-page #licenses .grid > div .ml-9,
+  .singapore-page #licenses .grid > div .pl-6,
+  .singapore-page #licenses .grid > div .pl-9 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .singapore-page #licenses .grid > div h4 {
+    color: #2E3F73 !important;
+  }
+
+  .singapore-page #tax table {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    border-collapse: collapse !important;
+  }
+
+  .singapore-page #tax table thead {
+    display: none !important;
+  }
+
+  .singapore-page #tax table tbody {
+    display: block !important;
+  }
+
+  .singapore-page #tax table tbody tr {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 14px !important;
+    margin-bottom: 12px !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E6EF !important;
+    border-radius: 12px !important;
+  }
+
+  .singapore-page #tax table tbody tr:nth-child(even) {
+    background-color: #F3F5FB !important;
+  }
+
+  .singapore-page #tax table tbody tr td {
+    display: block !important;
+    width: 100% !important;
+    padding: 4px 0 !important;
+    border: none !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: #334155 !important;
+    font-weight: 400 !important;
+  }
+
+  .singapore-page #tax table tbody tr td:first-child {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #263247 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .singapore-page #tax .singapore-tax-mobile-card {
+    padding: 14px !important;
+    background-color: #FFFFFF !important;
+    border-color: #D8DDED !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .singapore-page #tax .singapore-tax-mobile-title {
+    color: #1F3B63 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .singapore-page #tax .singapore-tax-mobile-label {
+    color: #2E3F73 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .singapore-page #tax .singapore-tax-mobile-body {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  .singapore-page #red-lines > div > .space-y-4 .rounded-xl,
+  .singapore-page #red-lines {
+    background-color: #FFF7F7 !important;
+    border-color: #FECACA !important;
+  }
+
+  .singapore-page #red-lines h3,
+  .singapore-page #red-lines h4,
+  .singapore-page #red-lines .text-red-600,
+  .singapore-page #red-lines [class*="text-red"] {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #B91C1C !important;
+  }
+
+  .singapore-page #red-lines .flex.items-start > span:first-child {
+    width: 18px !important;
+    min-width: 18px !important;
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+    line-height: 1 !important;
+  }
+
+  .singapore-page #red-lines .flex.items-start > span.flex-1 {
+    min-width: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: #334155 !important;
+  }
+
+  .singapore-page #resources h3,
+  .singapore-page #resources h4 {
+    color: #1F3B63 !important;
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .singapore-page #resources a {
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    font-weight: 700 !important;
+    color: #2E3F73 !important;
   }
 }

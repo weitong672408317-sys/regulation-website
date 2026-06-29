@@ -32,7 +32,7 @@ interface ChinaPageProps {
 export default function ChinaPage({ country }: ChinaPageProps) {
   return (
     <CountryPageTemplate>
-      <ProductAccessOverviewSection data={chinaProductAccessOverview} sectionId="product-access-overview" />
+      <ProductAccessOverviewSection data={chinaProductAccessOverview} sectionId="product-access-overview" useMobileCards />
 
       <SeasonSummarySection
         sectionId="overview"
@@ -111,7 +111,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
 
       <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 烟草专卖品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 china-product-access-nature">
             <BulletPoint>《中华人民共和国烟草专卖法》将烟草专卖品定义为卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、卷烟纸、滤嘴棒、烟用丝束和烟草专用机械；其中，卷烟、雪茄烟、烟丝、复烤烟叶统称烟草制品。烟草薄片作为烟草原料加工形成的再造烟草材料，应结合具体产品形态、用途及流通环节，确定相应的烟草专卖监管要求。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -150,7 +150,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="2. 电子烟、雾化物及电子烟用烟碱" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 china-product-access-nature">
             <BulletPoint>《电子烟管理办法》规定，电子烟包括烟弹、烟具以及烟弹与烟具组合销售的产品等。《电子烟》强制性国家标准将电子烟界定为用于产生气溶胶供人抽吸等的电子传送系统。</BulletPoint>
             <BulletPoint>雾化物是可被电子装置等全部或部分雾化为气溶胶的混合物及辅助物质。</BulletPoint>
           </div>
@@ -212,7 +212,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="3. 新型烟草 / 尼古丁制品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 china-product-access-nature">
             <BulletPoint>新型烟草 / 尼古丁制品主要包括加热烟草产品、无烟气烟草制品等产品。</BulletPoint>
             <BulletPoint>中国目前尚未开放加热卷烟、尼古丁袋等产品在境内消费者市场销售或流通。2026年以来，相关标准和监管文件已释放规则建设信号，但境内销售准入、产品标准和销售渠道仍未明确。</BulletPoint>
           </div>
@@ -252,7 +252,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="4. 烟草专用机械" label="产品定性" id="module-machinery">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 china-product-access-nature">
             <BulletPoint>《中华人民共和国烟草专卖法》将烟草专用机械列入烟草专卖品。</BulletPoint>
             <BulletPoint>《中华人民共和国烟草专卖法实施条例》规定，烟草专用机械是指烟草专用机械的整机，具体范围以国务院烟草专卖行政主管部门公布的烟草专用机械名录为准。</BulletPoint>
           </div>
@@ -273,7 +273,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="5. 爆珠 / 香精胶囊" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 china-product-access-nature">
             <BulletPoint>中国现行公开烟草专卖法规未对爆珠 / 香精胶囊设置专门定义。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -372,118 +372,211 @@ export default function ChinaPage({ country }: ChinaPageProps) {
       <TaxSection sectionId="tax">
         <TaxTableCard title="消费税">
           <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-4">中国对卷烟、雪茄烟、烟丝、电子烟等产品征收消费税。卷烟和电子烟的税率结构涉及多个征税环节，雪茄烟和烟丝的主要税率较明确。</p>
-          <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
-            <table className="w-full text-base min-w-[600px] bg-white">
-              <thead>
-                <tr className="bg-[#E8EDF5]">
-                  <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED]" style={{ width: '12%' }}>产品</th>
-                  <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED]" style={{ width: '18%' }}>征税环节</th>
-                  <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED]" style={{ width: '70%' }}>税率口径</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* 卷烟 - 生产/进口环节 */}
-                <tr className="bg-white/50">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top" rowSpan={2}>卷烟</td>
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
-                  <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
-                    <ul className="space-y-1.5">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">按甲类、乙类分别计征，并叠加从量税。</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">甲类卷烟：调拨价每标准条 70 元以上，税率为 56% + 0.003 元 / 支。</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">乙类卷烟：调拨价每标准条 70 元以下，税率为 36% + 0.003 元 / 支。</span>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                {/* 卷烟 - 批发环节 */}
-                <tr className="bg-white/50">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">批发环节</td>
-                  <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
-                    <ul className="space-y-1.5">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">批发环节不区分甲类、乙类。</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">按批发卷烟的销售额计征 11%，并按 0.005 元 / 支加征从量税。</span>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                {/* 雪茄烟 */}
-                <tr className="bg-[#F3F5FB]">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top">雪茄烟</td>
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
-                  <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
-                    <ul className="space-y-1.5">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">36%。</span>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                {/* 烟丝 */}
-                <tr className="bg-white/50">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top">烟丝</td>
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
-                  <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
-                    <ul className="space-y-1.5">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">30%。</span>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                {/* 电子烟 - 生产/进口环节 */}
-                <tr className="bg-[#F3F5FB]">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top" rowSpan={2}>电子烟</td>
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
-                  <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
-                    <ul className="space-y-1.5">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">生产 / 进口环节税率为 36%。</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">生产环节按生产电子烟的销售额计税；进口环节按组成计税价格计税。</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">通过代加工方式生产电子烟的，由持有商标的企业缴纳消费税。</span>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                {/* 电子烟 - 批发环节 */}
-                <tr className="bg-[#F3F5FB]">
-                  <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">批发环节</td>
-                  <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
-                    <ul className="space-y-1.5">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">批发环节税率为 11%。</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
-                        <span className="flex-1 min-w-0">按批发电子烟的销售额计税。</span>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="hidden md:block">
+            <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+              <table className="w-full text-base min-w-[600px] bg-white">
+                <thead>
+                  <tr className="bg-[#E8EDF5]">
+                    <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED]" style={{ width: '12%' }}>产品</th>
+                    <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-r border-[#D8DDED]" style={{ width: '18%' }}>征税环节</th>
+                    <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b-2 border-[#D8DDED]" style={{ width: '70%' }}>税率口径</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* 卷烟 - 生产/进口环节 */}
+                  <tr className="bg-white/50">
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top" rowSpan={2}>卷烟</td>
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
+                    <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
+                      <ul className="space-y-1.5">
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">按甲类、乙类分别计征，并叠加从量税。</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">甲类卷烟：调拨价每标准条 70 元以上，税率为 56% + 0.003 元 / 支。</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">乙类卷烟：调拨价每标准条 70 元以下，税率为 36% + 0.003 元 / 支。</span>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  {/* 卷烟 - 批发环节 */}
+                  <tr className="bg-white/50">
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">批发环节</td>
+                    <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
+                      <ul className="space-y-1.5">
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">批发环节不区分甲类、乙类。</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">按批发卷烟的销售额计征 11%，并按 0.005 元 / 支加征从量税。</span>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  {/* 雪茄烟 */}
+                  <tr className="bg-[#F3F5FB]">
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top">雪茄烟</td>
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
+                    <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
+                      <ul className="space-y-1.5">
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">36%。</span>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  {/* 烟丝 */}
+                  <tr className="bg-white/50">
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top">烟丝</td>
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
+                    <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
+                      <ul className="space-y-1.5">
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">30%。</span>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  {/* 电子烟 - 生产/进口环节 */}
+                  <tr className="bg-[#F3F5FB]">
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] font-semibold text-[#1F2A44] align-top" rowSpan={2}>电子烟</td>
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">生产 / 进口环节</td>
+                    <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
+                      <ul className="space-y-1.5">
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">生产 / 进口环节税率为 36%。</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">生产环节按生产电子烟的销售额计税；进口环节按组成计税价格计税。</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">通过代加工方式生产电子烟的，由持有商标的企业缴纳消费税。</span>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  {/* 电子烟 - 批发环节 */}
+                  <tr className="bg-[#F3F5FB]">
+                    <td className="px-5 py-4 border-b border-r border-[#D8DDED] text-[#334155] align-top">批发环节</td>
+                    <td className="px-5 py-4 border-b border-[#D8DDED] text-[#334155] align-top">
+                      <ul className="space-y-1.5">
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">批发环节税率为 11%。</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                          <span className="flex-1 min-w-0">按批发电子烟的销售额计税。</span>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="md:hidden space-y-3">
+            <div className="china-excise-mobile-card rounded-xl border border-[#D8DDED]">
+              <div className="china-excise-mobile-title">卷烟</div>
+              <div className="china-excise-mobile-label">征税环节</div>
+              <div className="china-excise-mobile-body">生产 / 进口环节；批发环节</div>
+              <div className="china-excise-mobile-label">税率口径</div>
+              <div className="china-excise-mobile-body">
+                <ul className="space-y-1.5">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">按甲类、乙类分别计征，并叠加从量税。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">甲类卷烟：调拨价每标准条 70 元以上，税率为 56% + 0.003 元 / 支。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">乙类卷烟：调拨价每标准条 70 元以下，税率为 36% + 0.003 元 / 支。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">批发环节不区分甲类、乙类。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">按批发卷烟的销售额计征 11%，并按 0.005 元 / 支加征从量税。</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="china-excise-mobile-card rounded-xl border border-[#D8DDED]">
+              <div className="china-excise-mobile-title">雪茄烟</div>
+              <div className="china-excise-mobile-label">征税环节</div>
+              <div className="china-excise-mobile-body">生产 / 进口环节</div>
+              <div className="china-excise-mobile-label">税率口径</div>
+              <div className="china-excise-mobile-body">
+                <ul className="space-y-1.5">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">36%。</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="china-excise-mobile-card rounded-xl border border-[#D8DDED]">
+              <div className="china-excise-mobile-title">烟丝</div>
+              <div className="china-excise-mobile-label">征税环节</div>
+              <div className="china-excise-mobile-body">生产 / 进口环节</div>
+              <div className="china-excise-mobile-label">税率口径</div>
+              <div className="china-excise-mobile-body">
+                <ul className="space-y-1.5">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">30%。</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="china-excise-mobile-card rounded-xl border border-[#D8DDED]">
+              <div className="china-excise-mobile-title">电子烟</div>
+              <div className="china-excise-mobile-label">征税环节</div>
+              <div className="china-excise-mobile-body">生产 / 进口环节；批发环节</div>
+              <div className="china-excise-mobile-label">税率口径</div>
+              <div className="china-excise-mobile-body">
+                <ul className="space-y-1.5">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">生产 / 进口环节税率为 36%。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">生产环节按生产电子烟的销售额计税；进口环节按组成计税价格计税。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">通过代加工方式生产电子烟的，由持有商标的企业缴纳消费税。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">批发环节税率为 11%。</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-[#4A6290] mt-2 flex-shrink-0"></span>
+                    <span className="flex-1 min-w-0">按批发电子烟的销售额计税。</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </TaxTableCard>
 
@@ -540,6 +633,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
       </MarketOperationSection>
 
       <TrendAndRedLinesSection
+        sectionId="trend-redline"
         trendId="trend"
         redLineId="red-lines"
         trendContent={

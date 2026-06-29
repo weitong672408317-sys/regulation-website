@@ -32,7 +32,7 @@ interface ParaguayPageProps {
 export default function ParaguayPage({ country }: ParaguayPageProps) {
   return (
     <CountryPageTemplate>
-      <ProductAccessOverviewSection data={paraguayProductAccessOverview} sectionId="product-access-overview" />
+      <ProductAccessOverviewSection data={paraguayProductAccessOverview} sectionId="product-access-overview" useMobileCards />
       <SeasonSummarySection sectionId="overview">
         <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
           <div style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="space-y-4 text-[#334155] text-base leading-[1.6] text-justify">
@@ -77,7 +77,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
 
       <ProductAccessSection sectionId="product-access">
         <ProductModuleCard title="1. 传统烟草产品 / 烟草基产品" label="产品定性" id="module-traditional-tobacco">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 paraguay-product-access-nature">
             <BulletPoint>根据《第5538/2015号法》，"烟草产品"包括全部或部分以烟草叶为原料制备，并用于吸食、吸吮、咀嚼、鼻吸，或通过电子烟、雾化器或类似产品进行雾化、吸食或吸入的产品。</BulletPoint>
             <BulletPoint>DINAVISA 办理资料中使用 Productos a base de Tabaco（烟草基产品）作为烟草产品登记类别。传统卷烟、雪茄、烟丝、加工烟草等属于典型烟草基产品。</BulletPoint>
           </div>
@@ -108,7 +108,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="2. 电子烟及雾化产品" label="产品定性" id="module-ecig">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 paraguay-product-access-nature">
             <BulletPoint>《第7508/2025号法》使用 Sistemas Electrónicos de Administración de Nicotina（SEAN，电子尼古丁输送系统）和 Sistemas Similares Sin Nicotina（SSSN，无尼古丁类似系统）两个核心概念。</BulletPoint>
             <BulletPoint>SEAN 指通过电子装置加热含尼古丁溶液并产生可吸入气溶胶的系统；SSSN 指通过电子装置加热不含尼古丁溶液并产生可吸入气溶胶的系统。</BulletPoint>
             <BulletPoint>《第7508/2025号法》同时覆盖其他含或不含尼古丁的新兴装置、相关设备、配件、耗材以及用于雾化的物质。雾化类电子烟、雾化器、烟油 / 补充液、相关配件和耗材，应纳入该专项监管框架判断。</BulletPoint>
@@ -144,7 +144,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="3. 加热烟草产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 paraguay-product-access-nature">
             <BulletPoint>巴拉圭公开法规资料未见对 HNB 烟支 / 加热烟草产品设置单独、完整定义。</BulletPoint>
             <BulletPoint>就监管判断而言，加热烟草产品应区分两类：</BulletPoint>
             <div className="ml-4 space-y-2">
@@ -205,7 +205,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="4. 无烟烟草及新型尼古丁产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 paraguay-product-access-nature">
             <BulletPoint>巴拉圭公开法规资料未见对无烟烟草产品及新型尼古丁产品设置统一定义或统一监管路径。该类产品应根据是否已有专项规则、是否含烟草材料、是否含尼古丁及具体使用方式分类判断。</BulletPoint>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -307,7 +307,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="5. 烟草原料 / 半成品" label="产品定性" id="module-tobacco-raw">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 paraguay-product-access-nature">
             <BulletPoint>烟草薄片、烟叶主要作为烟草原料或半成品管理；如已经制成供消费者使用的烟草基产品，应转入烟草产品登记路径。</BulletPoint>
           </div>
           <StatusCard
@@ -337,7 +337,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
         </ProductModuleCard>
 
         <ProductModuleCard title="6. 普通辅材" label="产品定性" id="module-ordinary-material">
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-4 paraguay-product-access-nature">
             <BulletPoint>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；是否涉及烟草产品、SEAN / SSSN 产品、雾化物质或尼古丁产品监管，应按成分和产品形态判断。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -439,7 +439,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
 
       <TaxSection sectionId="tax" introText="巴拉圭烟草、尼古丁产品进入本土市场，主要涉及三类税费：ISC（选择性消费税）、IVA（增值税）以及进口环节税费。">
         <TaxTableCard title="ISC（选择性消费税）">
-          <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+          <div className="hidden md:block overflow-x-auto rounded-xl border border-[#D8DDED]">
             <table className="w-full text-base min-w-[500px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
@@ -467,11 +467,29 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               </tbody>
             </table>
           </div>
+          <div className="md:hidden space-y-3">
+            <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+              <div className="paraguay-mobile-card-label">卷烟、雪茄、小雪茄、手卷烟草</div>
+              <div className="paraguay-mobile-card-body">20%</div>
+            </div>
+            <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+              <div className="paraguay-mobile-card-label">加热烟草产品 / HNB 烟支</div>
+              <div className="paraguay-mobile-card-body">20%</div>
+            </div>
+            <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+              <div className="paraguay-mobile-card-label">用于电子烟、雾化器或类似装置的烟草香精或类似产品</div>
+              <div className="paraguay-mobile-card-body">18%</div>
+            </div>
+            <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+              <div className="paraguay-mobile-card-label">雾化器及其可雾化液体，无论是否含尼古丁</div>
+              <div className="paraguay-mobile-card-body">22%</div>
+            </div>
+          </div>
           <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mt-3">《第7508/2025号法》将雾化器及其可雾化液体纳入 ISC 范围；公开税务解读显示，该类产品现行适用 22% 税率。</p>
         </TaxTableCard>
 
         <TaxTableCard title="IVA（增值税）">
-          <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+          <div className="hidden md:block overflow-x-auto rounded-xl border border-[#D8DDED]">
             <table className="w-full text-base min-w-[500px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
@@ -491,6 +509,16 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
               </tbody>
             </table>
           </div>
+          <div className="md:hidden space-y-3">
+            <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+              <div className="paraguay-mobile-card-label">IVA 一般税率</div>
+              <div className="paraguay-mobile-card-body">10%</div>
+            </div>
+            <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+              <div className="paraguay-mobile-card-label">未经加工的叶烟等部分初级农产品</div>
+              <div className="paraguay-mobile-card-body">5%</div>
+            </div>
+          </div>
         </TaxTableCard>
 
         <TaxTableCard title="进口环节税费">
@@ -503,7 +531,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
       </TaxSection>
 
       <SalesRulesSection sectionId="sales-rules" introText={'巴拉圭传统烟草产品和电子烟/雾化产品都要求避免未成年人购买和消费者直接接触产品；差异在于，传统烟草销售限制更接近"直接禁止"，电子烟/雾化产品则在远程销售、自动售货和陈列方面更强调身份识别、年龄识别和封闭管理。'}>
-        <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+        <div className="hidden md:block overflow-x-auto rounded-xl border border-[#D8DDED]">
           <table className="w-full text-base min-w-[900px] bg-white">
             <thead>
               <tr className="bg-[#E8EDF5]">
@@ -541,6 +569,52 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
             </tbody>
           </table>
         </div>
+        <div className="md:hidden space-y-3">
+          <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+            <div className="paraguay-mobile-card-label">远程销售</div>
+            <div className="paraguay-mobile-card-body">
+              <div className="font-semibold text-[#2E3F73] mb-2">传统烟草产品</div>
+              <div className="mb-3">禁止通过电话、数字、电子、邮寄或类似远程方式向消费者销售</div>
+              <div className="font-semibold text-[#2E3F73] mb-2">电子烟、雾化产品及相关产品</div>
+              <div className="mb-3">禁止通过无法清楚、及时识别购买者身份的远程销售、互联网、社交媒体、电商平台或类似渠道销售</div>
+              <div className="font-semibold text-[#2E3F73] mb-2">实操差异</div>
+              <div>传统烟草基本不能做远程销售；电子烟/雾化产品的核心是远程销售场景能否做到清楚、及时识别购买者身份。</div>
+            </div>
+          </div>
+          <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+            <div className="paraguay-mobile-card-label">自动售货机 / 分配机</div>
+            <div className="paraguay-mobile-card-body">
+              <div className="font-semibold text-[#2E3F73] mb-2">传统烟草产品</div>
+              <div className="mb-3">禁止通过自动售货机或分配机销售</div>
+              <div className="font-semibold text-[#2E3F73] mb-2">电子烟、雾化产品及相关产品</div>
+              <div className="mb-3">禁止通过不能识别购买者不是未成年人的自动售货机、分配机或无人值守设备销售</div>
+              <div className="font-semibold text-[#2E3F73] mb-2">实操差异</div>
+              <div>传统烟草不能通过自动售货机销售；电子烟/雾化产品理论上存在年龄识别例外，但普通无人值守设备不能直接销售。</div>
+            </div>
+          </div>
+          <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+            <div className="paraguay-mobile-card-label">销售点陈列</div>
+            <div className="paraguay-mobile-card-body">
+              <div className="font-semibold text-[#2E3F73] mb-2">传统烟草产品</div>
+              <div className="mb-3">应在收银台或销售点销售，不得让消费者直接接触或自行拿取</div>
+              <div className="font-semibold text-[#2E3F73] mb-2">电子烟、雾化产品及相关产品</div>
+              <div className="mb-3">可以在销售点展示，但不得让消费者直接接触或自行拿取；不得放置在未上锁的开放式货架、展示架、展示柜或桌台</div>
+              <div className="font-semibold text-[#2E3F73] mb-2">实操差异</div>
+              <div>两类产品都不能让消费者自行拿取；电子烟/雾化产品对陈列方式写得更细，必须采用上锁、封闭或由销售人员控制取用的展示方式。</div>
+            </div>
+          </div>
+          <div className="paraguay-mobile-card rounded-xl border border-[#D8DDED] bg-white">
+            <div className="paraguay-mobile-card-label">未成年人销售</div>
+            <div className="paraguay-mobile-card-body">
+              <div className="font-semibold text-[#2E3F73] mb-2">传统烟草产品</div>
+              <div className="mb-3">不得向未满18岁人员销售、供应或交付</div>
+              <div className="font-semibold text-[#2E3F73] mb-2">电子烟、雾化产品及相关产品</div>
+              <div className="mb-3">不得向未满18岁人员销售、供应、交付或免费分发；销售时应核验购买者年龄</div>
+              <div className="font-semibold text-[#2E3F73] mb-2">实操差异</div>
+              <div>实质要求一致：不能面向未成年人销售或提供；电子烟/雾化产品规则更明确强调销售时年龄核验。</div>
+            </div>
+          </div>
+        </div>
       </SalesRulesSection>
 
       <MarketOperationSection sectionId="operation-rules">
@@ -572,6 +646,7 @@ export default function ParaguayPage({ country }: ParaguayPageProps) {
 
       <TrendAndRedLinesSection
         sectionId="trend"
+        trendId="trend-item"
         redLineId="red-lines"
         trendContent={
           <>

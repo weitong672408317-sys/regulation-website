@@ -32,7 +32,7 @@ interface IndonesiaPageProps {
 export default function IndonesiaPage({ country }: IndonesiaPageProps) {
   return (
     <CountryPageTemplate>
-      <ProductAccessOverviewSection data={indonesiaProductAccessOverview} sectionId="product-access-overview" />
+      <ProductAccessOverviewSection data={indonesiaProductAccessOverview} sectionId="product-access-overview" useMobileCards />
       {/* 一、本季监管动态 */}
       <SeasonSummarySection
         sectionId="overview"
@@ -88,7 +88,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       {/* 三、产品准入与监管口径 */}
       <ProductAccessSection sectionId="product-access">
         {/* 产品定义 */}
-        <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-5 mb-6">
+        <div className="indonesia-product-access-intro bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-5 mb-6">
           <div className="space-y-2">
             <BulletPoint>根据《健康法》实施条例，成瘾性物质包括含烟草或不含烟草的产品，无论是香烟或其他具有成瘾性质的形式，只要其使用可能对个人和／或社会造成损害，且可以是固体、液体或气体形态。</BulletPoint>
             <BulletPoint>烟草制品是指全部或部分以烟草叶为原料制成的任何产品，经加工后可通过燃烧、加热、雾化、吸食、吸入、咀嚼或其他消费方式使用。法规明确列举的烟草制品包括香烟、雪茄、烟叶卷烟、切丝烟草、固态和液态烟草以及其他烟草加工产品。</BulletPoint>
@@ -136,11 +136,12 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
         </ProductModuleCard>
 
         {/* 2. 电子烟产品 */}
+        <div className="indonesia-product-access-module">
         <ProductModuleCard title="2. 电子烟产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="indonesia-product-access-nature indonesia-product-access-nature-text space-y-2 mb-4">
             <BulletPoint>根据印尼消费税规则，电子烟是指以液态、固态或其他形态存在，由烟叶经提取或其他方式加工制成，不论生产过程中是否使用替代材料或辅助材料，以零售包装向最终消费者提供，并通过电子加热装置加热后吸用的烟草制品。</BulletPoint>
             <BulletPoint>电子烟具体包括：</BulletPoint>
-            <div className="ml-4 space-y-2">
+            <div className="indonesia-product-access-nature-list ml-4 space-y-2">
               <BulletPoint>固体电子烟（Rokok Elektrik Padat）：是指由烟叶经提取或其他方式加工制成的固态电子烟，不论生产过程中是否使用替代材料或辅助材料，以零售包装向最终消费者提供，并通过电子加热装置加热后吸用。</BulletPoint>
               <BulletPoint>开放式液体电子烟（Rokok Elektrik Cair Sistem Terbuka）：是指由烟叶经提取或其他方式加工制成的液态电子烟，不论生产过程中是否使用替代材料或辅助材料，以零售包装向最终消费者提供，并通过电子加热装置加热后吸用。</BulletPoint>
               <BulletPoint>封闭式液体电子烟（Rokok Elektrik Cair Sistem Tertutup）：是指由烟叶经提取或其他方式加工制成的液态电子烟，不论生产过程中是否使用替代材料或辅助材料，装在不可重复加注的一体式装置或者储液容器内，以零售包装向最终消费者提供，并且只能通过专用电子加热装置加热后吸用。</BulletPoint>
@@ -153,6 +154,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               status="green"
               title="固体电子烟产品"
               customLabel="可准入，监管趋严"
+              className="indonesia-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">典型产品：HNB烟支、加热烟草棒</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -178,6 +180,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               status="green"
               title="液体电子烟产品"
               customLabel="可准入，监管趋严"
+              className="indonesia-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：开放式电子烟液、补充液、封闭式烟弹、一次性预灌装电子烟产品</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -215,6 +218,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               status="green"
               title="电子烟设备"
               customLabel="可准入"
+              className="indonesia-product-access-card"
               content={<>
                 <div className="text-sm text-[#334155] mb-2">适用产品：电子烟设备、雾化器、HNB加热设备、加热组件</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
@@ -240,10 +244,11 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             />
           </div>
         </ProductModuleCard>
+        </div>
 
         {/* 3. 无烟烟草及新型尼古丁产品 */}
         <ProductModuleCard title="3. 无烟烟草及新型尼古丁产品" label="产品定性">
-          <div className="space-y-2 mb-4">
+          <div className="indonesia-product-access-nature indonesia-product-access-nature-text space-y-2 mb-4">
             <BulletPoint>该类产品不通过燃烧使用，也不通过电子加热装置吸入使用。印尼现行《健康法》及《健康法》实施条例主要针对"烟草制品"和"电子烟"设置监管规则，尚未对尼古丁袋、尼古丁口含膜等新型口腔尼古丁产品建立清晰、专门的定义和准入路径。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -308,7 +313,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
         {/* 4. 烟草原料 */}
         <ProductModuleCard title="4. 烟草原料" label="产品定性" id="product-tobacco-raw">
-          <div className="space-y-2 mb-4">
+          <div className="indonesia-product-access-nature indonesia-product-access-nature-text space-y-2 mb-4">
             <BulletPoint>烟草薄片、烟叶主要作为烟草原料或半成品管理；具体监管要求取决于产品形态、是否进入应税消费品生产链条，以及是否涉及进口批准要求。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -365,7 +370,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
         {/* 5. 普通辅材及香精香料 */}
         <ProductModuleCard title="5. 普通辅材" label="产品定性" id="product-ordinary-material">
-          <div className="space-y-2 mb-4">
+          <div className="indonesia-product-access-nature indonesia-product-access-nature-text space-y-2 mb-4">
             <BulletPoint>爆珠、香精胶囊、滤嘴棒和香精香料主要作为普通辅材或配套材料管理；是否进入烟草制品、电子烟、雾化液、应税消费品或其他专项监管路径，应按成分和产品形态判断。</BulletPoint>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -423,16 +428,16 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
 
       {/* 四、合规资质 */}
       <ComplianceSection sectionId="licenses" country={country}>
-        <div className="bg-[#F3F5FB] border-l-4 border-[#4A6290] p-4 mb-6">
+        <div className="indonesia-license-intro bg-[#F3F5FB] border-l-4 border-[#4A6290] p-4 mb-6">
           <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] leading-[1.6] text-justify">
             印尼烟草及尼古丁相关业务的资质判断，应先看经营主体是否已取得基础经营身份，再看产品是否属于应税消费品、限制类进口商品、电子烟或特殊区域经营项目。不同产品在 NPPBKC、PI 进口批准、BPOM 路径和 Halal 认证上的要求并不相同。
           </p>
         </div>
 
-        <div className="bg-[#F1F5F9] rounded-lg p-6 mb-6">
+        <div className="indonesia-license-overview bg-[#F1F5F9] rounded-lg p-6 mb-6">
           <h3 className="text-[#2E3F73] font-bold text-lg mb-4">烟草企业主要资质与认证要求概览</h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-lg p-7 shadow-sm border border-[#E2E8F0]">
+            <div className="indonesia-license-overview-card bg-white rounded-lg p-7 shadow-sm border border-[#E2E8F0]">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-10 h-10 bg-[#4A6290] rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -477,7 +482,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg p-7 shadow-sm border border-[#E2E8F0]">
+            <div className="indonesia-license-overview-card bg-white rounded-lg p-7 shadow-sm border border-[#E2E8F0]">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-10 h-10 bg-[#64748B] rounded-lg flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -520,7 +525,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-base" style={{ tableLayout: 'auto' }}>
             <colgroup>
               <col style={{ width: '14%' }} />
@@ -551,10 +556,50 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
             </tbody>
           </table>
         </div>
+        <div className="md:hidden">
+          <div className="indonesia-license-mobile-group-heading">
+            不同产品类别的资质要求对比
+          </div>
+          <p className="indonesia-license-mobile-group-note">
+            以下卡片按照产品类别拆分展示 NPPBKC、PI 进口批准、BPOM 注册及 Halal 认证要求。
+          </p>
+          <div className="space-y-3">
+            {country.compliance.table.map((row, index) => (
+              <div key={index} className="indonesia-license-mobile-card bg-white border border-[#E2E6EF] rounded-xl p-4">
+                <div className="indonesia-license-mobile-title font-bold text-[#263247] mb-3">{row.product}</div>
+                <div className="space-y-2">
+                  <div>
+                    <div className="indonesia-license-mobile-label font-semibold text-[#2E3F73] mb-1">NPPBKC</div>
+                    <div className="indonesia-license-mobile-body text-[#334155]"><TableCellContent content={row.nppbkc} /></div>
+                  </div>
+                  <div>
+                    <div className="indonesia-license-mobile-label font-semibold text-[#2E3F73] mb-1">PI 进口批准</div>
+                    <div className="indonesia-license-mobile-body text-[#334155]"><TableCellContent content={row.piImportApproval} /></div>
+                  </div>
+                  <div>
+                    <div className="indonesia-license-mobile-label font-semibold text-[#2E3F73] mb-1">BPOM 注册</div>
+                    <div className="indonesia-license-mobile-body text-[#334155]"><TableCellContent content={row.bpomRegistration} /></div>
+                  </div>
+                  <div>
+                    <div className="indonesia-license-mobile-label font-semibold text-[#2E3F73] mb-1">Halal 认证</div>
+                    <div className="indonesia-license-mobile-body text-[#334155]"><TableCellContent content={row.halalCertification} /></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </ComplianceSection>
 
       {/* 五、税收政策 */}
-      <TaxSection sectionId="tax" introText="印尼烟草及尼古丁相关产品的税务判断，核心看两点：产品是否属于 BKC（应税消费品），以及产品是否进入印尼本土市场流通。">
+      <TaxSection
+        sectionId="tax"
+        introText={
+          <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="indonesia-tax-intro-text text-[#334155] text-base leading-[1.6]">
+            印尼烟草及尼古丁相关产品的税务判断，核心看两点：产品是否属于 BKC（应税消费品），以及产品是否进入印尼本土市场流通。
+          </p>
+        }
+      >
         <TaxTableCard title="1. 消费税 Cukai">
           <div className="space-y-2">
             <div className="flex items-start gap-2">
@@ -708,6 +753,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       {/* 七、监管趋势与红线警告 */}
       <TrendAndRedLinesSection
         sectionId="trend"
+        trendId="trend-item"
         redLineId="red-lines"
         trendContent={
           <>

@@ -32,7 +32,7 @@ interface SingaporePageProps {
 export default function SingaporePage({ country }: SingaporePageProps) {
   return (
     <CountryPageTemplate>
-      <ProductAccessOverviewSection data={singaporeProductAccessOverview} sectionId="product-access-overview" />
+      <ProductAccessOverviewSection data={singaporeProductAccessOverview} sectionId="product-access-overview" useMobileCards />
       {/* 本季监管动态 */}
       <SeasonSummarySection
         sectionId="overview"
@@ -431,7 +431,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
       <TaxSection sectionId="tax">
         <TaxTableCard title="1. 烟草消费税">
           <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mb-4">新加坡烟草相关税负主要包括烟草消费税、关税和 GST。自2026年2月12日起，新加坡所有烟草产品消费税提高20%；下表为提高后的现行消费税率。</p>
-          <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+          <div className="hidden md:block overflow-x-auto rounded-xl border border-[#D8DDED]">
             <table className="w-full text-base min-w-[500px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
@@ -455,11 +455,34 @@ export default function SingaporePage({ country }: SingaporePageProps) {
               </tbody>
             </table>
           </div>
+          <div className="md:hidden space-y-3">
+            <div className="singapore-tax-mobile-card rounded-xl border border-[#D8DDED] bg-white p-3.5">
+              <div className="singapore-tax-mobile-title">卷烟、雪茄、小雪茄及其他制成烟草产品</div>
+              <div className="singapore-tax-mobile-field">
+                <div className="singapore-tax-mobile-label">提高后的现行消费税率</div>
+                <div className="singapore-tax-mobile-body">每支 58.9 新分</div>
+              </div>
+            </div>
+            <div className="singapore-tax-mobile-card rounded-xl border border-[#D8DDED] bg-white p-3.5">
+              <div className="singapore-tax-mobile-title">其他无烟烟草和 beedies</div>
+              <div className="singapore-tax-mobile-field">
+                <div className="singapore-tax-mobile-label">提高后的现行消费税率</div>
+                <div className="singapore-tax-mobile-body">每公斤 454 新元</div>
+              </div>
+            </div>
+            <div className="singapore-tax-mobile-card rounded-xl border border-[#D8DDED] bg-white p-3.5">
+              <div className="singapore-tax-mobile-title">未加工烟草、切丝烟草及烟草废料</div>
+              <div className="singapore-tax-mobile-field">
+                <div className="singapore-tax-mobile-label">提高后的现行消费税率</div>
+                <div className="singapore-tax-mobile-body">每公斤 535 新元</div>
+              </div>
+            </div>
+          </div>
         </TaxTableCard>
 
         <TaxTableCard title="2. 关税 / 消费税计征方式">
           <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] text-justify mb-4">新加坡烟草产品属于应税货物，适用特定税率，不按统一百分比区间计征。非卷烟类烟草通常按重量计算；卷烟按支数及每支重量计算，且每支重量向上取整至最接近的克数。</p>
-          <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+          <div className="hidden md:block overflow-x-auto rounded-xl border border-[#D8DDED]">
             <table className="w-full text-base min-w-[500px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
@@ -478,6 +501,22 @@ export default function SingaporePage({ country }: SingaporePageProps) {
                 </tr>
               </tbody>
             </table>
+          </div>
+          <div className="md:hidden space-y-3">
+            <div className="singapore-tax-mobile-card rounded-xl border border-[#D8DDED] bg-white p-3.5">
+              <div className="singapore-tax-mobile-title">非卷烟类烟草产品</div>
+              <div className="singapore-tax-mobile-field">
+                <div className="singapore-tax-mobile-label">计征方式 / 适用税率</div>
+                <div className="singapore-tax-mobile-body">按重量计征，适用每公斤 454 新元或 535 新元的具体税率</div>
+              </div>
+            </div>
+            <div className="singapore-tax-mobile-card rounded-xl border border-[#D8DDED] bg-white p-3.5">
+              <div className="singapore-tax-mobile-title">卷烟</div>
+              <div className="singapore-tax-mobile-field">
+                <div className="singapore-tax-mobile-label">计征方式 / 适用税率</div>
+                <div className="singapore-tax-mobile-body">按支数 × 每支重量计征，税率为每克每支 0.589 新元</div>
+              </div>
+            </div>
           </div>
         </TaxTableCard>
 

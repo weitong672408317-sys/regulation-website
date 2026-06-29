@@ -32,7 +32,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
   return (
     <CountryPageTemplate>
       <div className="hk-page">
-        <ProductAccessOverviewSection data={hongkongProductAccessOverview} sectionId="product-access-overview" />
+        <ProductAccessOverviewSection data={hongkongProductAccessOverview} sectionId="product-access-overview" useMobileCards />
         <SeasonSummarySection
           sectionId="overview"
           introText="2026年以来，香港控烟监管继续围绕另类吸烟产品禁令、禁烟场景扩展、传统卷烟追溯和包装展示监管推进。"
@@ -293,7 +293,7 @@ export default function HongkongPage({ country }: HongkongPageProps) {
       <TaxSection sectionId="tax">
         <TaxTableCard title="烟草税">
           <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-4">香港税收政策重点集中在传统吸烟产品的烟草税和卷烟完税识别。传统卷烟、雪茄、中国熟烟及其他制成烟草依法进入香港市场前，应按类别缴纳烟草税；另类吸烟产品、无烟烟草产品等禁止类产品，不能通过缴纳税款取得本地市场准入资格。</p>
-          <div className="overflow-x-auto rounded-xl border border-[#D8DDED]">
+          <div className="hidden md:block overflow-x-auto rounded-xl border border-[#D8DDED]">
             <table className="w-full text-base min-w-[500px] bg-white">
               <thead>
                 <tr className="bg-[#E8EDF5]">
@@ -320,6 +320,36 @@ export default function HongkongPage({ country }: HongkongPageProps) {
                 </tr>
               </tbody>
             </table>
+          </div>
+          <div className="md:hidden space-y-3">
+            <div className="hongkong-tax-mobile-card rounded-xl border border-[#D8DDED] bg-white p-3.5">
+              <div className="hongkong-tax-mobile-title">香烟</div>
+              <div className="hongkong-tax-mobile-field">
+                <div className="hongkong-tax-mobile-label">现行烟草税率</div>
+                <div className="hongkong-tax-mobile-body">每 1,000 支港币 3,306 元</div>
+              </div>
+            </div>
+            <div className="hongkong-tax-mobile-card rounded-xl border border-[#D8DDED] bg-white p-3.5">
+              <div className="hongkong-tax-mobile-title">雪茄</div>
+              <div className="hongkong-tax-mobile-field">
+                <div className="hongkong-tax-mobile-label">现行烟草税率</div>
+                <div className="hongkong-tax-mobile-body">每公斤港币 4,258 元</div>
+              </div>
+            </div>
+            <div className="hongkong-tax-mobile-card rounded-xl border border-[#D8DDED] bg-white p-3.5">
+              <div className="hongkong-tax-mobile-title">中国熟烟</div>
+              <div className="hongkong-tax-mobile-field">
+                <div className="hongkong-tax-mobile-label">现行烟草税率</div>
+                <div className="hongkong-tax-mobile-body">每公斤港币 811 元</div>
+              </div>
+            </div>
+            <div className="hongkong-tax-mobile-card rounded-xl border border-[#D8DDED] bg-white p-3.5">
+              <div className="hongkong-tax-mobile-title">其他制成烟草</div>
+              <div className="hongkong-tax-mobile-field">
+                <div className="hongkong-tax-mobile-label">现行烟草税率</div>
+                <div className="hongkong-tax-mobile-body">每公斤港币 4,005 元</div>
+              </div>
+            </div>
           </div>
           <div className="mt-3 space-y-2">
             <p className="text-[#334155] text-base leading-[1.6]">香烟长度超过 90 毫米的，不包括滤嘴或烟嘴，每增加 90 毫米或不足 90 毫米，按另一支香烟计算。</p>

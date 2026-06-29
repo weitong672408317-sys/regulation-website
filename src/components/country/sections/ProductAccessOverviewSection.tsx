@@ -2,18 +2,21 @@ import React from 'react';
 import { SectionCard } from './SectionCard';
 import { accessStatusColors, type ProductAccessOverviewData, type AccessStatusType } from '../../../data/productAccessOverview';
 
-const statusStyles: Record<AccessStatusType, { badge: string; dot: string }> = {
+const statusStyles: Record<AccessStatusType, { badgeBg: string; badgeText: string; dot: string }> = {
   green: {
-    badge: `bg-[${accessStatusColors.green.badge}] text-[${accessStatusColors.green.badgeText}]`,
-    dot: `bg-[${accessStatusColors.green.dot}]`,
+    badgeBg: accessStatusColors.green.badge,
+    badgeText: accessStatusColors.green.badgeText,
+    dot: accessStatusColors.green.dot,
   },
   amber: {
-    badge: `bg-[${accessStatusColors.amber.badge}] text-[${accessStatusColors.amber.badgeText}]`,
-    dot: `bg-[${accessStatusColors.amber.dot}]`,
+    badgeBg: accessStatusColors.amber.badge,
+    badgeText: accessStatusColors.amber.badgeText,
+    dot: accessStatusColors.amber.dot,
   },
   red: {
-    badge: `bg-[${accessStatusColors.red.badge}] text-[${accessStatusColors.red.badgeText}]`,
-    dot: `bg-[${accessStatusColors.red.dot}]`,
+    badgeBg: accessStatusColors.red.badge,
+    badgeText: accessStatusColors.red.badgeText,
+    dot: accessStatusColors.red.dot,
   },
 };
 
@@ -39,7 +42,7 @@ export function ProductAccessOverviewSection({ data, sectionId, useMobileCards =
       <div className={`${useMobileCards ? 'hidden md:block ' : ''}overflow-x-auto rounded-xl border border-[#D8DDED]`}>
         <table className="w-full text-base bg-white">
           <thead>
-            <tr className="bg-[#E8EDF5]">
+            <tr style={{ backgroundColor: '#E8EDF5' }}>
               <th className="px-5 py-4 text-center font-bold text-[#2E3F73] border-b border-r border-[#D8DDED]" style={{ width: '24%' }}>准入状态</th>
               <th className="px-5 py-4 text-left font-bold text-[#2E3F73] border-b border-[#D8DDED]" style={{ width: '76%' }}>产品</th>
             </tr>
@@ -48,9 +51,12 @@ export function ProductAccessOverviewSection({ data, sectionId, useMobileCards =
             {data.groups.map((group, groupIdx) => {
               const isEven = groupIdx % 2 === 0;
               return (
-                <tr key={groupIdx} className={isEven ? 'bg-white' : 'bg-[#F3F5FB]'}>
+                <tr key={groupIdx} style={{ backgroundColor: isEven ? '#FFFFFF' : '#F3F5FB' }}>
                   <td className="px-5 py-4 border-b border-r border-[#D8DDED] align-middle text-center">
-                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap ${statusStyles[group.statusType].badge}`}>
+                    <span
+                      className="inline-block px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap"
+                      style={{ backgroundColor: statusStyles[group.statusType].badgeBg, color: statusStyles[group.statusType].badgeText }}
+                    >
                       {group.status}
                     </span>
                   </td>
@@ -58,7 +64,10 @@ export function ProductAccessOverviewSection({ data, sectionId, useMobileCards =
                     <ul className="space-y-1.5">
                       {group.products.map((product, productIdx) => (
                         <li key={productIdx} className="flex items-start gap-2">
-                          <span className={`w-1.5 h-1.5 rounded-full ${statusStyles[group.statusType].dot} mt-[9px] flex-shrink-0`}></span>
+                          <span
+                            className="w-1.5 h-1.5 rounded-full mt-[9px] flex-shrink-0"
+                            style={{ backgroundColor: statusStyles[group.statusType].dot }}
+                          ></span>
                           <button
                             onClick={() => handleClick(product.targetId)}
                             className="text-[#4A6290] hover:underline text-base leading-7 text-justify break-words-force cursor-pointer"
@@ -78,19 +87,28 @@ export function ProductAccessOverviewSection({ data, sectionId, useMobileCards =
       {useMobileCards && (
         <div className="md:hidden space-y-3">
           {data.groups.map((group, groupIdx) => (
-            <div key={groupIdx} className="rounded-xl border border-[#D8DDED] bg-white p-4">
+            <div
+              key={groupIdx}
+              className="rounded-xl border border-[#D8DDED] bg-[#F1F3FA] p-4"
+            >
               <div className="mb-3">
-                <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap ${statusStyles[group.statusType].badge}`}>
+                <span
+                  className="inline-block px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap w-fit"
+                  style={{ backgroundColor: statusStyles[group.statusType].badgeBg, color: statusStyles[group.statusType].badgeText }}
+                >
                   {group.status}
                 </span>
               </div>
               <ul className="space-y-2">
                 {group.products.map((product, productIdx) => (
                   <li key={productIdx} className="flex items-start gap-2">
-                    <span className={`w-1.5 h-1.5 rounded-full ${statusStyles[group.statusType].dot} mt-[9px] flex-shrink-0`}></span>
+                    <span
+                      className="w-1.5 h-1.5 rounded-full mt-[9px] flex-shrink-0"
+                      style={{ backgroundColor: statusStyles[group.statusType].dot }}
+                    ></span>
                     <button
                       onClick={() => handleClick(product.targetId)}
-                      className="text-left text-[#4A6290] hover:underline text-base leading-[1.6] break-words-force cursor-pointer"
+                      className="text-left text-[#334155] hover:underline text-sm leading-[1.6] break-words-force cursor-pointer"
                     >
                       {product.productName}
                     </button>

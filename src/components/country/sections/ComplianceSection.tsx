@@ -22,7 +22,7 @@ export function ComplianceSection({ country, isRussiaStyle = true, overview, chi
               {(overview || country.compliance.licenseRequirements) && (
                 <p className="text-[#334155] mb-6 leading-[1.6] text-justify">{overview || country.compliance.licenseRequirements}</p>
               )}
-              <ComplianceLicenseCards cards={country.compliance.licenseCards} isRussia={isRussiaStyle} />
+              <ComplianceLicenseCards cards={country.compliance.licenseCards} isRussia={isRussiaStyle} isRussiaLicense={isRussiaStyle && sectionId === 'licenses'} />
             </>
           ) : country.compliance.genericTable ? (
             <>
