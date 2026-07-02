@@ -3690,7 +3690,6 @@ body {
   .hongkong-page #tax > div,
   .hongkong-page #operation-rules > div,
   .hongkong-page #trend > div,
-  .hongkong-page #red-lines > div,
   .hongkong-page #resources > div {
     padding: 16px !important;
   }
@@ -3707,7 +3706,6 @@ body {
   .hongkong-page #licenses > div > p,
   .hongkong-page #tax > div > p,
   .hongkong-page #operation-rules > div > p,
-  .hongkong-page #red-lines > div > p,
   .hongkong-page #resources > div > p {
     font-size: 14px !important;
     line-height: 1.5 !important;
@@ -3743,7 +3741,7 @@ body {
   .hongkong-page #licenses .grid > div,
   .hongkong-page #tax > div > .space-y-4 > .rounded-xl,
   .hongkong-page #operation-rules .grid > div,
-  .hongkong-page #trend > div > .space-y-4 .rounded-xl,
+  .hongkong-page #trend #trend-item,
   .hongkong-page #resources .rounded-xl.border,
   .hongkong-page #resources .rounded-xl[class*="border-"] {
     padding: 12px !important;
@@ -3769,9 +3767,7 @@ body {
   .hongkong-page #tax .flex.items-start.gap-3,
   .hongkong-page #tax .flex.items-start.gap-2,
   .hongkong-page #operation-rules .flex.items-start.gap-3,
-  .hongkong-page #operation-rules .flex.items-start.gap-2,
-  .hongkong-page #red-lines .flex.items-start.gap-3,
-  .hongkong-page #red-lines .flex.items-start.gap-2 {
+  .hongkong-page #operation-rules .flex.items-start.gap-2 {
     gap: 8px !important;
     align-items: flex-start !important;
   }
@@ -3781,8 +3777,7 @@ body {
   .hongkong-page #regulatory-system .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
   .hongkong-page #licenses .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
   .hongkong-page #tax .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
-  .hongkong-page #operation-rules .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
-  .hongkong-page #red-lines .flex.items-start > span.w-1\.5.h-1\.5.rounded-full {
+  .hongkong-page #operation-rules .flex.items-start > span.w-1\.5.h-1\.5.rounded-full {
     width: 6px !important;
     height: 6px !important;
     min-width: 6px !important;
@@ -3805,7 +3800,6 @@ body {
   .hongkong-page #operation-rules .grid > div span.text-\[\#334155\],
   .hongkong-page #operation-rules .grid > div p,
   .hongkong-page #trend p,
-  .hongkong-page #red-lines span.text-\[\#334155\],
   .hongkong-page #resources p,
   .hongkong-page #resources .text-base,
   .hongkong-page #resources .text-sm,
@@ -3976,51 +3970,12 @@ body {
     line-height: 1.5 !important;
   }
 
-  .hongkong-page #red-lines > div > .space-y-4 .rounded-xl,
-  .hongkong-page #red-lines {
-    background-color: #FFF7F7 !important;
-    border-color: #FECACA !important;
-  }
-
-  .hongkong-page #red-lines h3,
-  .hongkong-page #red-lines h4,
-  .hongkong-page #red-lines .text-red-600,
-  .hongkong-page #red-lines [class*="text-red"] {
-    font-size: 15px !important;
-    line-height: 1.35 !important;
-    font-weight: 700 !important;
-    color: #B91C1C !important;
-  }
-
-  .hongkong-page #red-lines .flex.items-start > span:first-child {
-    width: 18px !important;
-    min-width: 18px !important;
-    flex-shrink: 0 !important;
-    margin-top: 2px !important;
-    line-height: 1 !important;
-  }
-
-  .hongkong-page #red-lines .flex.items-start > span.flex-1 {
-    min-width: 0 !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-    font-weight: 400 !important;
-    color: #334155 !important;
-  }
-
   .hongkong-page #resources h3,
   .hongkong-page #resources h4 {
     color: #1F3B63 !important;
     font-size: 16px !important;
     line-height: 1.35 !important;
     font-weight: 700 !important;
-  }
-
-  .hongkong-page #resources a {
-    font-size: 14px !important;
-    line-height: 1.45 !important;
-    font-weight: 700 !important;
-    color: #2E3F73 !important;
   }
 
   /* ===== Singapore mobile styles ===== */
@@ -4059,7 +4014,6 @@ body {
   .singapore-page #tax > div,
   .singapore-page #operation-rules > div,
   .singapore-page #trend > div,
-  .singapore-page #red-lines > div,
   .singapore-page #resources > div {
     padding: 16px !important;
   }
@@ -4076,7 +4030,6 @@ body {
   .singapore-page #licenses > div > p,
   .singapore-page #tax > div > p,
   .singapore-page #operation-rules > div > p,
-  .singapore-page #red-lines > div > p,
   .singapore-page #resources > div > p {
     font-size: 14px !important;
     line-height: 1.5 !important;
@@ -4137,9 +4090,7 @@ body {
   .singapore-page #tax .flex.items-start.gap-3,
   .singapore-page #tax .flex.items-start.gap-2,
   .singapore-page #operation-rules .flex.items-start.gap-3,
-  .singapore-page #operation-rules .flex.items-start.gap-2,
-  .singapore-page #red-lines .flex.items-start.gap-3,
-  .singapore-page #red-lines .flex.items-start.gap-2 {
+  .singapore-page #operation-rules .flex.items-start.gap-2 {
     gap: 8px !important;
     align-items: flex-start !important;
   }
@@ -4149,8 +4100,7 @@ body {
   .singapore-page #regulatory-system .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
   .singapore-page #licenses .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
   .singapore-page #tax .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
-  .singapore-page #operation-rules .flex.items-start > span.w-1\.5.h-1\.5.rounded-full,
-  .singapore-page #red-lines .flex.items-start > span.w-1\.5.h-1\.5.rounded-full {
+  .singapore-page #operation-rules .flex.items-start > span.w-1\.5.h-1\.5.rounded-full {
     width: 6px !important;
     height: 6px !important;
     min-width: 6px !important;
@@ -4173,7 +4123,6 @@ body {
   .singapore-page #operation-rules .grid > div span.text-\[\#334155\],
   .singapore-page #operation-rules .grid > div p,
   .singapore-page #trend p,
-  .singapore-page #red-lines span.text-\[\#334155\],
   .singapore-page #resources p,
   .singapore-page #resources .text-base,
   .singapore-page #resources .text-sm,
@@ -4334,38 +4283,6 @@ body {
     line-height: 1.5 !important;
   }
 
-  .singapore-page #red-lines > div > .space-y-4 .rounded-xl,
-  .singapore-page #red-lines {
-    background-color: #FFF7F7 !important;
-    border-color: #FECACA !important;
-  }
-
-  .singapore-page #red-lines h3,
-  .singapore-page #red-lines h4,
-  .singapore-page #red-lines .text-red-600,
-  .singapore-page #red-lines [class*="text-red"] {
-    font-size: 15px !important;
-    line-height: 1.35 !important;
-    font-weight: 700 !important;
-    color: #B91C1C !important;
-  }
-
-  .singapore-page #red-lines .flex.items-start > span:first-child {
-    width: 18px !important;
-    min-width: 18px !important;
-    flex-shrink: 0 !important;
-    margin-top: 2px !important;
-    line-height: 1 !important;
-  }
-
-  .singapore-page #red-lines .flex.items-start > span.flex-1 {
-    min-width: 0 !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-    font-weight: 400 !important;
-    color: #334155 !important;
-  }
-
   .singapore-page #resources h3,
   .singapore-page #resources h4 {
     color: #1F3B63 !important;
@@ -4374,10 +4291,798 @@ body {
     font-weight: 700 !important;
   }
 
-  .singapore-page #resources a {
-    font-size: 14px !important;
-    line-height: 1.45 !important;
-    font-weight: 700 !important;
-    color: #2E3F73 !important;
+  .hongkong-page #product-access .hongkong-product-access-nature-text,
+  .singapore-page #product-access .singapore-product-access-nature-text {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
   }
+
+  .hongkong-page #product-access .hongkong-product-access-nature,
+  .singapore-page #product-access .singapore-product-access-nature {
+    padding: 0 !important;
+  }
+
+  .hongkong-page #product-access .hongkong-product-access-nature span,
+  .hongkong-page #product-access .hongkong-product-access-nature p,
+  .hongkong-page #product-access .hongkong-product-access-nature .flex-1,
+  .hongkong-page #product-access .hongkong-product-access-nature-text,
+  .singapore-page #product-access .singapore-product-access-nature span,
+  .singapore-page #product-access .singapore-product-access-nature p,
+  .singapore-page #product-access .singapore-product-access-nature .flex-1,
+  .singapore-page #product-access .singapore-product-access-nature-text {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    min-width: 0 !important;
+  }
+
+  .hongkong-page #product-access .hongkong-product-access-nature .flex.items-start.gap-3,
+  .hongkong-page #product-access .hongkong-product-access-nature .flex.items-start.gap-2,
+  .singapore-page #product-access .singapore-product-access-nature .flex.items-start.gap-3,
+  .singapore-page #product-access .singapore-product-access-nature .flex.items-start.gap-2 {
+    gap: 8px !important;
+  }
+
+  .hongkong-page #product-access .hongkong-product-access-nature-list,
+  .singapore-page #product-access .singapore-product-access-nature-list {
+    margin-left: 12px !important;
+  }
+
+  .hongkong-page #product-access .hongkong-product-access-nature-text > :not([hidden]) ~ :not([hidden]),
+  .hongkong-page #product-access .hongkong-product-access-nature-list > :not([hidden]) ~ :not([hidden]),
+  .singapore-page #product-access .singapore-product-access-nature-text > :not([hidden]) ~ :not([hidden]),
+  .singapore-page #product-access .singapore-product-access-nature-list > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 8px !important;
+  }
+
+  .hongkong-page .hongkong-product-access-card,
+  .singapore-page .singapore-product-access-card {
+    padding: 12px !important;
+    background-color: #FFFFFF !important;
+    border-radius: 12px !important;
+    max-width: 100% !important;
+  }
+
+  .hongkong-page .hongkong-product-access-card > div:nth-child(2),
+  .singapore-page .singapore-product-access-card > div:nth-child(2) {
+    color: #263247 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hongkong-page .hongkong-product-access-card .font-semibold.text-\[\#263247\],
+  .singapore-page .singapore-product-access-card .font-semibold.text-\[\#263247\] {
+    color: #263247 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .hongkong-page .hongkong-product-access-card .text-sm,
+  .hongkong-page .hongkong-product-access-card .flex-1,
+  .singapore-page .singapore-product-access-card .text-sm,
+  .singapore-page .singapore-product-access-card .flex-1 {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .hongkong-page .hongkong-product-access-card .flex.items-start.gap-2,
+  .hongkong-page .hongkong-product-access-card .flex.items-start.gap-3,
+  .singapore-page .singapore-product-access-card .flex.items-start.gap-2,
+  .singapore-page .singapore-product-access-card .flex.items-start.gap-3 {
+    gap: 8px !important;
+  }
+
+  .hongkong-page .hongkong-product-access-card .w-1\.5.h-1\.5.rounded-full,
+  .singapore-page .singapore-product-access-card .w-1\.5.h-1\.5.rounded-full {
+    width: 6px !important;
+    height: 6px !important;
+    min-width: 6px !important;
+    min-height: 6px !important;
+    margin-top: 8px !important;
+  }
+
+  .hongkong-page #operation-rules .grid > div,
+  .singapore-page #operation-rules .grid > div {
+    padding: 12px !important;
+  }
+
+  .hongkong-page #operation-rules .grid > div > .flex.items-start,
+  .singapore-page #operation-rules .grid > div > .flex.items-start {
+    gap: 8px !important;
+  }
+
+  .hongkong-page #operation-rules .grid > div > .flex.items-start > span:first-child,
+  .singapore-page #operation-rules .grid > div > .flex.items-start > span:first-child {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    flex: 0 0 28px !important;
+    border-radius: 9999px !important;
+    background-color: #4A6290 !important;
+    color: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+  }
+
+  .hongkong-page #operation-rules .grid > div h4,
+  .singapore-page #operation-rules .grid > div h4 {
+    color: #263247 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+    min-width: 0 !important;
+  }
+
+  .hongkong-page #operation-rules .grid > div span.text-\[\#334155\],
+  .singapore-page #operation-rules .grid > div span.text-\[\#334155\] {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    min-width: 0 !important;
+  }
+
+  .hongkong-page #operation-rules .grid > div .flex.items-start,
+  .singapore-page #operation-rules .grid > div .flex.items-start {
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .hongkong-page #operation-rules .grid > div .w-1\.5.h-1\.5.rounded-full,
+  .singapore-page #operation-rules .grid > div .w-1\.5.h-1\.5.rounded-full {
+    background-color: #4A6290 !important;
+    width: 6px !important;
+    height: 6px !important;
+    min-width: 6px !important;
+    min-height: 6px !important;
+    margin-top: 8px !important;
+  }
+
+  .hongkong-page #trend > div > h2,
+  .singapore-page #trend > div > h2 {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hongkong-page #resources > div > h2,
+  .singapore-page #resources > div > h2 {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+  }
+
+  .hongkong-page #resources > div > div > h3,
+  .singapore-page #resources > div > div > h3 {
+    color: #1F3B63 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  .hongkong-page #resources .rounded-xl h4,
+  .singapore-page #resources .rounded-xl h4 {
+    color: #1F3B63 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  .hongkong-page #resources a.font-semibold,
+  .singapore-page #resources a.font-semibold {
+    color: #2E3F73 !important;
+    display: block !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  .hongkong-page #resources p,
+  .singapore-page #resources p {
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+
+  /* ===== Final HK/SG mobile alignment overrides - do not remove ===== */
+
+/* 1. Product access: align Hong Kong and Singapore with Indonesia */
+.hongkong-page #product-access > div,
+.singapore-page #product-access > div {
+  padding: 16px !important;
+}
+
+.hongkong-page #product-access > div > .space-y-4,
+.singapore-page #product-access > div > .space-y-4 {
+  row-gap: 12px !important;
+}
+
+.hongkong-page #product-access > div > .space-y-4 > .rounded-xl,
+.singapore-page #product-access > div > .space-y-4 > .rounded-xl {
+  padding: 16px !important;
+  background-color: #F3F5FB !important;
+  border-color: #D8DDED !important;
+}
+
+.hongkong-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+.singapore-page #product-access > div > .space-y-4 > .rounded-xl > h3 {
+  color: #263247 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 10px !important;
+}
+
+.hongkong-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4:has(> .inline-flex),
+.singapore-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4:has(> .inline-flex) {
+  margin-bottom: 4px !important;
+}
+
+.hongkong-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4:has(> .inline-flex) > .inline-flex,
+.singapore-page #product-access > div > .space-y-4 > .rounded-xl > .mb-4:has(> .inline-flex) > .inline-flex {
+  margin-bottom: 0 !important;
+  color: #2E3F73 !important;
+  background-color: #E8EDF5 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  padding: 4px 10px !important;
+}
+
+.hongkong-page #product-access .hongkong-product-access-nature,
+.singapore-page #product-access .singapore-product-access-nature {
+  padding: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.hongkong-page #product-access .hongkong-product-access-nature > :not([hidden]) ~ :not([hidden]),
+.singapore-page #product-access .singapore-product-access-nature > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 8px !important;
+}
+
+.hongkong-page #product-access .hongkong-product-access-nature .flex.items-start,
+.singapore-page #product-access .singapore-product-access-nature .flex.items-start {
+  gap: 8px !important;
+}
+
+.hongkong-page #product-access .hongkong-product-access-nature span.flex-1,
+.singapore-page #product-access .singapore-product-access-nature span.flex-1,
+.hongkong-page #product-access .hongkong-product-access-nature p,
+.singapore-page #product-access .singapore-product-access-nature p {
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  min-width: 0 !important;
+}
+
+/* HK/SG product access cards: align with Indonesia, state driven by StatusCard */
+.hongkong-page #product-access .product-status-card,
+.singapore-page #product-access .product-status-card {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 12px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E6EF !important;
+  border-left-width: 4px !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
+.hongkong-page #product-access .product-status-card[data-status="green"],
+.singapore-page #product-access .product-status-card[data-status="green"] {
+  border-left-color: #6AAF7C !important;
+}
+
+.hongkong-page #product-access .product-status-card[data-status="green"] .product-status-badge,
+.singapore-page #product-access .product-status-card[data-status="green"] .product-status-badge {
+  background-color: #E8F5ED !important;
+  color: #3D7050 !important;
+}
+
+.hongkong-page #product-access .product-status-card[data-status="amber"],
+.singapore-page #product-access .product-status-card[data-status="amber"] {
+  border-left-color: #C9A24C !important;
+}
+
+.hongkong-page #product-access .product-status-card[data-status="amber"] .product-status-badge,
+.singapore-page #product-access .product-status-card[data-status="amber"] .product-status-badge {
+  background-color: #F8F3E8 !important;
+  color: #8B6F2E !important;
+}
+
+.hongkong-page #product-access .product-status-card[data-status="red"],
+.singapore-page #product-access .product-status-card[data-status="red"] {
+  border-left-color: #DC6B6B !important;
+}
+
+.hongkong-page #product-access .product-status-card[data-status="red"] .product-status-badge,
+.singapore-page #product-access .product-status-card[data-status="red"] .product-status-badge {
+  background-color: #FCEAEA !important;
+  color: #B33B3B !important;
+}
+
+.hongkong-page #product-access .product-status-card .product-status-badge,
+.singapore-page #product-access .product-status-card .product-status-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  padding: 4px 10px !important;
+  margin-bottom: 0 !important;
+}
+
+.hongkong-page #product-access .product-status-card > div:first-child,
+.singapore-page #product-access .product-status-card > div:first-child {
+  margin-bottom: 10px !important;
+}
+
+.hongkong-page #product-access .product-status-card > div:nth-child(2),
+.singapore-page #product-access .product-status-card > div:nth-child(2) {
+  color: #263247 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 8px !important;
+}
+
+.hongkong-page #product-access .product-status-card .text-sm,
+.hongkong-page #product-access .product-status-card .flex-1,
+.singapore-page #product-access .product-status-card .text-sm,
+.singapore-page #product-access .product-status-card .flex-1 {
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+}
+
+.hongkong-page #product-access .product-status-card .font-semibold.text-\[\#263247\],
+.singapore-page #product-access .product-status-card .font-semibold.text-\[\#263247\] {
+  color: #263247 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 4px !important;
+}
+
+.hongkong-page #product-access .product-status-card .flex.items-start,
+.singapore-page #product-access .product-status-card .flex.items-start {
+  gap: 8px !important;
+}
+
+.hongkong-page #product-access .product-status-card .w-1\.5.h-1\.5.rounded-full,
+.singapore-page #product-access .product-status-card .w-1\.5.h-1\.5.rounded-full {
+  width: 6px !important;
+  height: 6px !important;
+  min-width: 6px !important;
+  min-height: 6px !important;
+  margin-top: 8px !important;
+}
+
+/* Restore HK/SG market operation mobile indentation */
+.hongkong-page #operation-rules > div,
+.singapore-page #operation-rules > div {
+  padding: 16px !important;
+}
+
+.hongkong-page #operation-rules .grid,
+.singapore-page #operation-rules .grid {
+  grid-template-columns: 1fr !important;
+  gap: 12px !important;
+}
+
+.hongkong-page #operation-rules .grid > div,
+.singapore-page #operation-rules .grid > div {
+  padding: 12px !important;
+  background-color: #F3F5FB !important;
+  border-color: #D8DDED !important;
+}
+
+.hongkong-page #operation-rules .grid > div > .flex.items-start,
+.singapore-page #operation-rules .grid > div > .flex.items-start {
+  gap: 8px !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+}
+
+.hongkong-page #operation-rules .grid > div > .flex.items-start > span:first-child,
+.singapore-page #operation-rules .grid > div > .flex.items-start > span:first-child {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  flex: 0 0 26px !important;
+  border-radius: 9999px !important;
+  background-color: #4A6290 !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.hongkong-page #operation-rules .grid > div h3,
+.hongkong-page #operation-rules .grid > div h4,
+.singapore-page #operation-rules .grid > div h3,
+.singapore-page #operation-rules .grid > div h4 {
+  color: #2E3F73 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+}
+
+.hongkong-page #operation-rules .grid > div > div:nth-child(2),
+.singapore-page #operation-rules .grid > div > div:nth-child(2) {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.hongkong-page #operation-rules .grid > div > div:nth-child(2) .flex.items-start,
+.singapore-page #operation-rules .grid > div > div:nth-child(2) .flex.items-start {
+  gap: 8px !important;
+  align-items: flex-start !important;
+}
+
+.hongkong-page #operation-rules .grid > div > div:nth-child(2) span.flex-1,
+.singapore-page #operation-rules .grid > div > div:nth-child(2) span.flex-1 {
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  min-width: 0 !important;
+}
+
+/* Restore Singapore license-card mobile sizing and indentation */
+.singapore-page #licenses > div {
+  padding: 16px !important;
+}
+
+.singapore-page #licenses .bg-\[\#F3F5FB\].border.border-\[\#D8DDED\].rounded-xl {
+  padding: 12px !important;
+  background-color: #F3F5FB !important;
+  border-color: #D8DDED !important;
+  border-radius: 12px !important;
+}
+
+.singapore-page #licenses .bg-\[\#F3F5FB\].border.border-\[\#D8DDED\].rounded-xl > .flex.items-start {
+  gap: 8px !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+}
+
+.singapore-page #licenses .bg-\[\#F3F5FB\].border.border-\[\#D8DDED\].rounded-xl > .flex.items-start > span:first-child {
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  flex: 0 0 26px !important;
+  border-radius: 9999px !important;
+  background-color: #4A6290 !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.singapore-page #licenses .bg-\[\#F3F5FB\].border.border-\[\#D8DDED\].rounded-xl h4 {
+  color: #2E3F73 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+}
+
+.singapore-page #licenses .bg-\[\#F3F5FB\].border.border-\[\#D8DDED\].rounded-xl > .ml-9 {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.singapore-page #licenses .bg-\[\#F3F5FB\].border.border-\[\#D8DDED\].rounded-xl > .ml-9 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 8px !important;
+}
+
+.singapore-page #licenses .bg-\[\#F3F5FB\].border.border-\[\#D8DDED\].rounded-xl .flex.items-start {
+  gap: 8px !important;
+  align-items: flex-start !important;
+}
+
+.singapore-page #licenses .bg-\[\#F3F5FB\].border.border-\[\#D8DDED\].rounded-xl span.flex-1,
+.singapore-page #licenses .bg-\[\#F3F5FB\].border.border-\[\#D8DDED\].rounded-xl span.text-\[\#334155\] {
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  min-width: 0 !important;
+}
+
+/* ============= 本轮新增：监管趋势卡片字号层级（#trend #trend-item） ============= */
+.hongkong-page #trend #trend-item > h3,
+.singapore-page #trend #trend-item > h3 {
+  color: #1F3B63 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 12px !important;
+}
+
+.hongkong-page #trend #trend-item h4,
+.singapore-page #trend #trend-item h4 {
+  color: #263247 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  margin-top: 0 !important;
+  margin-bottom: 6px !important;
+}
+
+.hongkong-page #trend #trend-item p,
+.hongkong-page #trend #trend-item span.flex-1,
+.hongkong-page #trend #trend-item li,
+.singapore-page #trend #trend-item p,
+.singapore-page #trend #trend-item span.flex-1,
+.singapore-page #trend #trend-item li {
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+}
+
+.hongkong-page #trend #trend-item .font-bold,
+.hongkong-page #trend #trend-item .font-semibold,
+.singapore-page #trend #trend-item .font-bold,
+.singapore-page #trend #trend-item .font-semibold {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  color: #263247 !important;
+}
+
+/* ============= 本轮新增：新加坡产品监管口径 StatusCard（用语义 class，不按 id 写死） ============= */
+.hongkong-page #product-access .product-status-card,
+.singapore-page #product-access .product-status-card {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 12px 12px 12px 14px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E6EF !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+}
+
+.hongkong-page #product-access .product-status-card .product-status-badge,
+.singapore-page #product-access .product-status-card .product-status-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  padding: 4px 10px !important;
+  margin-bottom: 0 !important;
+}
+
+.hongkong-page #product-access .product-status-card > div:first-child,
+.singapore-page #product-access .product-status-card > div:first-child {
+  margin-bottom: 10px !important;
+}
+
+.hongkong-page #product-access .product-status-card > div:nth-child(2),
+.singapore-page #product-access .product-status-card > div:nth-child(2) {
+  color: #263247 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 8px !important;
+}
+
+.hongkong-page #product-access .product-status-card .text-sm,
+.hongkong-page #product-access .product-status-card .flex-1,
+.singapore-page #product-access .product-status-card .text-sm,
+.singapore-page #product-access .product-status-card .flex-1 {
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+}
+
+.hongkong-page #product-access .product-status-card .font-semibold,
+.singapore-page #product-access .product-status-card .font-semibold {
+  color: #263247 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 4px !important;
+}
+
+.hongkong-page #product-access .product-status-card .flex.items-start,
+.singapore-page #product-access .product-status-card .flex.items-start {
+  gap: 8px !important;
+  align-items: flex-start !important;
+}
+
+/* bullet 圆点尺寸统一，但不覆盖背景色（保留 data-status 驱动的状态色） */
+.hongkong-page #product-access .product-status-card .w-1\.5.h-1\.5.rounded-full,
+.singapore-page #product-access .product-status-card .w-1\.5.h-1\.5.rounded-full {
+  width: 6px !important;
+  height: 6px !important;
+  min-width: 6px !important;
+  min-height: 6px !important;
+  margin-top: 8px !important;
+}
+
+/* Singapore only - trend card final adjustment */
+.singapore-page #trend #trend-item {
+  padding: 12px !important;
+  background-color: #F1F3FA !important;
+  border-color: #D8DDED !important;
+  border-radius: 12px !important;
+}
+
+.singapore-page #trend #trend-item > h3 {
+  color: #1F3B63 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 12px !important;
+}
+
+.singapore-page #trend #trend-item p {
+  color: #334155 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+}
+
+.singapore-page #trend #trend-item > .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 12px !important;
+}
+
+/* ===== Unified mobile RedLineBox - final source of truth ===== */
+#red-lines.redline-box,
+.redline-box {
+  background-color: #FEF2F2 !important;
+  border: 1px solid #FCA5A5 !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  padding: 12px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#red-lines.redline-box .redline-header,
+.redline-box .redline-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 10px !important;
+  padding: 0 !important;
+}
+
+#red-lines.redline-box .redline-title,
+.redline-box .redline-title {
+  color: #B91C1C !important;
+  display: block !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: normal !important;
+  writing-mode: horizontal-tb !important;
+}
+
+#red-lines.redline-box .redline-groups,
+.redline-box .redline-groups {
+  margin-top: 0 !important;
+}
+
+#red-lines.redline-box .redline-groups > :not([hidden]) ~ :not([hidden]),
+.redline-box .redline-groups > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 12px !important;
+}
+
+#red-lines.redline-box .redline-group,
+.redline-box .redline-group {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#red-lines.redline-box .redline-group-title,
+.redline-box .redline-group-title {
+  color: #B91C1C !important;
+  display: block !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 8px 0 !important;
+  padding: 0 !important;
+  white-space: normal !important;
+  writing-mode: horizontal-tb !important;
+}
+
+#red-lines.redline-box .redline-list,
+.redline-box .redline-list {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#red-lines.redline-box .redline-list > :not([hidden]) ~ :not([hidden]),
+.redline-box .redline-list > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 8px !important;
+}
+
+#red-lines.redline-box .redline-item,
+.redline-box .redline-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#red-lines.redline-box .redline-icon,
+.redline-box .redline-icon {
+  color: #DC2626 !important;
+  flex: 0 0 16px !important;
+  width: 16px !important;
+  min-width: 16px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  margin-top: 1px !important;
+  text-align: center !important;
+}
+
+#red-lines.redline-box .redline-text,
+.redline-box .redline-text {
+  color: #334155 !important;
+  display: block !important;
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  overflow-wrap: anywhere !important;
+  text-align: left !important;
+  white-space: normal !important;
+  writing-mode: horizontal-tb !important;
+}
+/* ===== End unified mobile RedLineBox ===== */
+
+/* ===== End final HK/SG mobile alignment overrides ===== */
+
 }

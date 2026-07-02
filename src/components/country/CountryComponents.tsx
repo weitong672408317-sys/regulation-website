@@ -108,12 +108,13 @@ export const StatusCard = ({ status, title, subtitle, content, customLabel, id, 
   return (
     <div
       id={id}
-      className={`bg-white border border-[#E2E6EF] rounded-xl p-6 shadow-sm w-full${id ? ' scroll-mt-4' : ''}${className ? ` ${className}` : ''}`}
+      data-status={status}
+      className={`product-status-card bg-white border border-[#E2E6EF] rounded-xl p-6 shadow-sm w-full${id ? ' scroll-mt-4' : ''}${className ? ` ${className}` : ''}`}
       style={{ borderLeft: `2px solid ${s.borderLeftColor}` }}
     >
       <div className="flex items-center gap-2 mb-4">
         <span
-          className="px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap w-fit"
+          className="product-status-badge px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap w-fit"
           style={{ backgroundColor: s.badgeBg, color: s.badgeText }}
         >{customLabel || s.label}</span>
         {subtitle && <span className="text-[#64748B] text-sm">{subtitle}</span>}

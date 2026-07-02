@@ -7,27 +7,39 @@ interface RedLineGroup {
 }
 
 interface RedLineBoxProps {
+  id?: string;
   groups?: RedLineGroup[];
   items?: React.ReactNode[];
   children?: React.ReactNode;
 }
 
-export function RedLineBox({ groups, items, children, id }: RedLineBoxProps & { id?: string }) {
+export function RedLineBox({ id, groups, items, children }: RedLineBoxProps) {
   return (
-    <div id={id} className={`bg-[#FEF2F2] border border-[#FCA5A5] rounded-xl p-5${id ? ' scroll-mt-4' : ''}`}>
-      <div className="flex items-center gap-2 mb-5">
-        <h3 className="text-lg font-bold text-[#DC2626]">合规红线清单</h3>
+    <div
+      id={id}
+      className={`redline-box bg-[#FEF2F2] border border-[#FCA5A5] rounded-xl p-5${id ? ' scroll-mt-4' : ''}`}
+    >
+      <div className="redline-header flex items-center gap-2 mb-5">
+        <h3 className="redline-title text-lg font-bold text-[#DC2626]">
+          合规红线清单
+        </h3>
       </div>
       {groups && groups.length > 0 && (
-        <div className="space-y-5">
+        <div className="redline-groups space-y-5">
           {groups.map((group, index) => (
-            <div key={index}>
-              <h4 className="font-bold text-[#7F1D1D] text-base leading-[1.6] mb-2">{group.title}</h4>
-              <ul className="space-y-2">
+            <div key={index} className="redline-group">
+              <h4 className="redline-group-title font-bold text-[#7F1D1D] text-base leading-[1.6] mb-2">
+                {group.title}
+              </h4>
+              <ul className="redline-list space-y-2">
                 {group.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start gap-3">
-                    <span className={`text-[#DC2626] text-sm leading-6 flex-shrink-0 w-4 text-center`}>✗</span>
-                    <span className="text-[#334155] text-base leading-[1.6] font-normal flex-1 min-w-0 text-left">{item}</span>
+                  <li key={itemIndex} className="redline-item flex items-start gap-3">
+                    <span className="redline-icon text-[#DC2626] text-sm leading-6 flex-shrink-0 w-4 text-center">
+                      ✗
+                    </span>
+                    <span className="redline-text text-[#334155] text-base leading-[1.6] font-normal flex-1 min-w-0 text-left">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -36,11 +48,15 @@ export function RedLineBox({ groups, items, children, id }: RedLineBoxProps & { 
         </div>
       )}
       {items && (!groups || groups.length === 0) && (
-        <ul className="space-y-2">
+        <ul className="redline-list space-y-2">
           {items.map((item, index) => (
-            <li key={index} className="flex items-start gap-3">
-              <span className={`text-[#DC2626] text-sm leading-6 flex-shrink-0 w-4 text-center`}>✗</span>
-              <span className="text-[#334155] text-base leading-[1.6] font-normal flex-1 min-w-0 text-left">{item}</span>
+            <li key={index} className="redline-item flex items-start gap-3">
+              <span className="redline-icon text-[#DC2626] text-sm leading-6 flex-shrink-0 w-4 text-center">
+                ✗
+              </span>
+              <span className="redline-text text-[#334155] text-base leading-[1.6] font-normal flex-1 min-w-0 text-left">
+                {item}
+              </span>
             </li>
           ))}
         </ul>
