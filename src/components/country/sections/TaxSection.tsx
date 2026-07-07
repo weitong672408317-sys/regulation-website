@@ -4,11 +4,12 @@ import { SectionCard, SubCard } from './SectionCard';
 interface TaxTableCardProps {
   title: string;
   children: React.ReactNode;
+  className?: string;
 }
 
-export function TaxTableCard({ title, children }: TaxTableCardProps) {
+export function TaxTableCard({ title, children, className = '' }: TaxTableCardProps) {
   return (
-    <SubCard title={title}>
+    <SubCard title={title} className={className}>
       {children}
     </SubCard>
   );
