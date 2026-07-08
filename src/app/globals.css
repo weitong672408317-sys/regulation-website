@@ -1981,6 +1981,7 @@ body {
   .china-page #overview > div > .space-y-3 > .rounded-xl,
   .china-page #regulatory-system > div > .space-y-4 > .rounded-xl,
   .china-page #licenses .grid > div,
+  .china-page #licenses .flex > div,
   .china-page #tax > div > .space-y-4 > .rounded-xl,
   .china-page #operation-rules .grid > div,
   .china-page #resources .rounded-xl.border,
@@ -2014,7 +2015,9 @@ body {
   .china-page #regulatory-system span,
   .china-page #licenses > div > p,
   .china-page #licenses .grid > div p,
+  .china-page #licenses .flex > div p,
   .china-page #licenses .grid > div span.text-\[\#334155\],
+  .china-page #licenses .flex > div span.text-\[\#334155\],
   .china-page #tax p,
   .china-page #tax .china-excise-mobile-card div,
   .china-page #tax .china-excise-mobile-card span,
@@ -2039,6 +2042,7 @@ body {
   .china-page #regulatory-system h3,
   .china-page #regulatory-system h4,
   .china-page #product-access > div > .space-y-4 > .rounded-xl > h3,
+  .china-page #licenses .flex > div h4,
   .china-page #licenses h4,
   .china-page #licenses .text-lg,
   .china-page #tax h3,
@@ -2052,6 +2056,12 @@ body {
   .china-page #resources h4 {
     font-size: 15px !important;
     line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+
+  .china-page #licenses .flex > div p.font-semibold {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
     font-weight: 700 !important;
   }
 
@@ -2077,6 +2087,8 @@ body {
 
   .china-page #licenses .grid > div .ml-6,
   .china-page #licenses .grid > div .ml-9,
+  .china-page #licenses .flex > div .ml-6,
+  .china-page #licenses .flex > div .ml-9,
   .china-page #operation-rules .grid > div .ml-6,
   .china-page #operation-rules .grid > div .ml-9 {
     margin-left: 0 !important;

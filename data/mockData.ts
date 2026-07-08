@@ -1,135 +1,29 @@
 
 
-export interface ProductCategoryRestrictions {
-  prohibited: string[];
-  partiallyProhibited: string[];
-  open: string[];
-}
+/**
+ * 类型现在集中定义于 ./countryTypes.ts（零运行时代码）。
+ * 此处 re-export 以保持对现有 `import { CountryData } from './mockData'` 的兼容。
+ * 页面组件推荐使用:
+ *   import type { CountryData } from './countryTypes';
+ * 这样不会把 ~200KB 的法规正文拉入页面的 JS bundle。
+ */
+export type {
+  ProductCategoryRestrictions,
+  AccessRestrictionItem,
+  AccessRestrictionsByStatus,
+  EmirateDifferenceRow,
+  ComplianceLicenseCard,
+  ComplianceTable,
+  GenericComplianceTable,
+  TaxPolicy,
+  MarketOperationItem,
+  RedLineGroup,
+  ReferenceItemWithDescription,
+  ReferenceGroup,
+  CountryData,
+} from './countryTypes';
 
-// 新的准入限制结构 - 按状态分组，每个状态下列出产品和规则
-export interface AccessRestrictionItem {
-  productName: string;
-  rule: string;
-}
-
-export interface AccessRestrictionsByStatus {
-  fullyProhibited: AccessRestrictionItem[];
-  partiallyRestricted: AccessRestrictionItem[];
-  openAccessible: AccessRestrictionItem[];
-}
-
-// 酋长国差异表格行数据
-export interface EmirateDifferenceRow {
-  emirate: string;
-  chewingTobacco: string;
-  electronicCigarette: string;
-  hookah: string;
-  note?: string;
-}
-
-// 合规资质卡片数据
-export interface ComplianceLicenseCard {
-  title: string;
-  description: string;
-}
-
-// 印尼专用合规表格
-export interface ComplianceTable {
-  product: string;
-  nppbkc: string | string[];
-  piImportApproval: string | string[];
-  bpomRegistration: string | string[];
-  halalCertification: string | string[];
-}
-
-// 通用合规表格（支持自定义表头）
-export interface GenericComplianceTable {
-  headers: string[];
-  rows: (string | string[])[][];
-}
-
-export interface TaxPolicy {
-  title: string;
-  description: string;
-}
-
-export interface MarketOperationItem {
-  category: string;
-  items: string[];
-}
-
-export interface RedLineGroup {
-  groupName: string;
-  items: string[];
-}
-
-export interface ReferenceItemWithDescription {
-  title: string;
-  description: string;
-  url: string;
-}
-
-export interface ReferenceGroup {
-  groupName: string;
-  items: ReferenceItemWithDescription[];
-}
-
-export interface CountryData {
-  id: string;
-  name: string;
-  isoCode: string;
-  status: string;
-  productQualification: string;
-  restrictions: string;
-  regulatoryIntensity: '低' | '中' | '高' | '极高' | '低至中';
-  hasChangesThisSeason: boolean;
-  seasonSummary: string;
-  regulatoryUpdates: string[];
-  regulatorySystem: {
-    overview: string;
-    definition: string;
-  };
-  accessRestrictions?: {
-    electronicCigarette: ProductCategoryRestrictions;
-    hnb: ProductCategoryRestrictions;
-    nicotinePouch: ProductCategoryRestrictions;
-    cigarette: ProductCategoryRestrictions;
-    otherNovel: ProductCategoryRestrictions;
-  };
-  accessRestrictionsByStatus?: AccessRestrictionsByStatus;
-  emirateDifferences?: EmirateDifferenceRow[];
-  compliance: {
-    licenseRequirements: string;
-    table: ComplianceTable[];
-    licenseCards?: ComplianceLicenseCard[];
-    genericTable?: GenericComplianceTable;
-    secondGenericTable?: GenericComplianceTable;
-  };
-  tax: {
-    exciseTax: string;
-    policies: TaxPolicy[];
-    exciseTaxTable?: GenericComplianceTable;
-    minimumPriceTable?: GenericComplianceTable;
-    vatTaxTable?: GenericComplianceTable;
-    salesComparisonTable?: GenericComplianceTable;
-  };
-  marketOperation: {
-    marketingRestrictions: string;
-    displaySales: string;
-    regulations: MarketOperationItem[];
-  };
-  trendsWarnings: {
-    trendAnalysis: string;
-    redLines: string[];
-    redLineGroups?: RedLineGroup[];
-  };
-  references: {
-    regulations: { title: string; url: string }[];
-    news: { title: string; url: string }[];
-    pdfs: { title: string; url: string }[];
-    referenceGroups?: ReferenceGroup[];
-  };
-}
+import type { CountryData } from './countryTypes';
 
 // 基础国家数据 - 作为备份，当无法读取 data.json 时使用
 const fallbackCountries: CountryData[] = [
@@ -1985,12 +1879,23 @@ export const mapHighlightColor = '#f59e0b';
 // 基础国家数据 - 直接使用 fallbackCountries 确保客户端和服务器端都能正常工作
 export const baseCountries: CountryData[] = fallbackCountries;
 
+// 预建 O(1) 查找索引：避免每次路由跳转或页面渲染时在整个数组上执行 .find()
+// 在导航「首页地图 → 国家子页面」时，页面顶层通过 id 定位国家数据，
+// 使用 Map 可以将查找成本从 O(n) 降到 O(1)，并减少 V8 对大数组的遍历/反序列化开销。
+const countryByIdMap = new Map<string, CountryData>(
+  baseCountries.map(country => [country.id, country]),
+);
+
+const countryByIsoCodeMap = new Map<string, CountryData>(
+  baseCountries.map(country => [country.isoCode, country]),
+);
+
 export const getCountryById = (id: string): CountryData | undefined => {
-  return baseCountries.find(country => country.id === id);
+  return countryByIdMap.get(id);
 };
 
 export const getCountryByIsoCode = (isoCode: string): CountryData | undefined => {
-  return baseCountries.find(country => country.isoCode === isoCode);
+  return countryByIsoCodeMap.get(isoCode);
 };
 
 // 用于初始化的默认国家数据

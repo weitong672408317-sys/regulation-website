@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState, useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 
 // Pre-generated SVG path data (no runtime d3-geo dependency)
 import worldPaths from '@/data/world-paths.json';
@@ -36,21 +35,32 @@ const highlightCountryNames = new Set(labels.map((l) => l.countryName));
 const countryNameToLabel = new Map<string, LabelItem>();
 labels.forEach((l) => countryNameToLabel.set(l.countryName, l));
 
+// 预先把每个高亮国家的跳转 href 算好，避免每次渲染重复拼接字符串
+const labelToHref = new Map<string, string>();
+labels.forEach((l) => labelToHref.set(l.countryName, `/country/${l.id}`));
+
 // Pre-compute static path rendering data (does not change between renders)
 type PathRenderData = {
   name: string;
   path: string;
   isHighlighted: boolean;
   fillColor: string;
+  href: string | null;
 };
 
 const pathRenderData: PathRenderData[] = (worldPaths as PathItem[]).map((item) => {
   const isHighlighted = highlightCountryNames.has(item.name);
-  const label = countryNameToLabel.get(item.name);
-  const fillColor = isHighlighted && label
+  const label = isHighlighted ? countryNameToLabel.get(item.name) : undefined;
+  const fillColor = label
     ? intensityColorMap[label.intensity] || '#FACC15'
     : '#e5e7eb';
-  return { name: item.name, path: item.path, isHighlighted, fillColor };
+  return {
+    name: item.name,
+    path: item.path,
+    isHighlighted,
+    fillColor,
+    href: label ? `/country/${label.id}` : null,
+  };
 });
 
 const legendItems = [
@@ -62,64 +72,71 @@ const legendItems = [
 
 export default function WorldMap() {
   const router = useRouter();
-  const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
 
-  const handleCountryClick = useCallback((countryName: string) => {
-    const label = countryNameToLabel.get(countryName);
-    if (label) {
-      router.push(`/country/${label.id}`);
+  // 已预取过的国家 id 集合，避免每次 hover 重复调用 router.prefetch + 重复状态更新
+  const prefetchedRef = useRef<Set<string>>(new Set());
+
+  const prefetchCountry = useCallback((countryId: string) => {
+    if (prefetchedRef.current.has(countryId)) return;
+    prefetchedRef.current.add(countryId);
+    try {
+      router.prefetch(`/country/${countryId}`);
+    } catch (_e) {
+      // prefetch 失败不应影响导航
     }
-  }, [router]);
-
-  const handleLabelClick = useCallback((countryId: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    router.push(`/country/${countryId}`);
   }, [router]);
 
   const handleCountryHover = useCallback((countryName: string) => {
     const label = countryNameToLabel.get(countryName);
-    if (label) {
-      setHoveredCountry(label.name);
-      router.prefetch(`/country/${label.id}`);
-    }
+    if (label) prefetchCountry(label.id);
+  }, [prefetchCountry]);
+
+  // 单一、统一的点击处理器 —— 没有重复绑定，也不触发多余的 setState
+  const handleNavigate = useCallback((href: string) => {
+    router.push(href);
   }, [router]);
 
   return (
     <div className="w-full bg-gray-100 rounded-lg p-4">
-      {/* Prefetch links for country pages */}
-      {labels.map((label) => (
-        <Link
-          key={label.id}
-          href={`/country/${label.id}`}
-          prefetch={true}
-          className="hidden"
-        />
-      ))}
-
       <div className="overflow-x-auto">
         <div className="min-w-[800px] h-[550px]">
           <svg viewBox="0 0 960 550" width="100%" height="100%">
             {/* Country paths */}
-            {pathRenderData.map((item, index) => (
-              <path
-                key={index}
-                d={item.path}
-                fill={item.fillColor}
-                stroke="#9ca3af"
-                strokeWidth={0.5}
-                style={{
-                  cursor: item.isHighlighted ? 'pointer' : 'default',
-                  transition: 'fill 0.2s ease',
-                }}
-                onClick={() => item.isHighlighted && handleCountryClick(item.name)}
-                onMouseEnter={() => item.isHighlighted && handleCountryHover(item.name)}
-                onMouseLeave={() => setHoveredCountry(null)}
-              />
-            ))}
+            {pathRenderData.map((item, index) => {
+              if (item.isHighlighted && item.href) {
+                return (
+                  <path
+                    key={index}
+                    d={item.path}
+                    fill={item.fillColor}
+                    stroke="#9ca3af"
+                    strokeWidth={0.5}
+                    style={{
+                      cursor: 'pointer',
+                      transition: 'fill 0.2s ease',
+                    }}
+                    // 统一的悬停预取 + 点击跳转 —— 只在高亮路径上绑定
+                    onMouseEnter={() => handleCountryHover(item.name)}
+                    onClick={() => handleNavigate(item.href!)}
+                  />
+                );
+              }
+              // 非高亮国家：纯展示，不做交互，避免无意义的事件处理
+              return (
+                <path
+                  key={index}
+                  d={item.path}
+                  fill={item.fillColor}
+                  stroke="#9ca3af"
+                  strokeWidth={0.5}
+                />
+              );
+            })}
 
             {/* Country markers and labels */}
             {labels.map((label) => {
               const color = intensityColorMap[label.intensity] || '#FACC15';
+              const href = `/country/${label.id}`;
               return (
                 <g key={label.id}>
                   {/* Center marker */}
@@ -131,7 +148,8 @@ export default function WorldMap() {
                     stroke="white"
                     strokeWidth={2}
                     style={{ cursor: 'pointer' }}
-                    onClick={(e) => handleLabelClick(label.id, e)}
+                    onMouseEnter={() => prefetchCountry(label.id)}
+                    onClick={() => handleNavigate(href)}
                   />
 
                   {/* Label line (for Singapore) */}
@@ -162,7 +180,7 @@ export default function WorldMap() {
                     strokeWidth={2}
                     strokeLinejoin="round"
                     style={{ cursor: 'pointer' }}
-                    onClick={(e) => handleLabelClick(label.id, e)}
+                    onClick={() => handleNavigate(href)}
                   >
                     {label.name}
                   </text>
@@ -172,12 +190,6 @@ export default function WorldMap() {
           </svg>
         </div>
       </div>
-
-      {hoveredCountry && (
-        <div className="text-center mt-2 text-gray-700 font-medium text-lg">
-          {hoveredCountry} - 点击查看详情
-        </div>
-      )}
 
       {/* Legend - single line */}
       <div className="flex items-center justify-center gap-4 mt-4 flex-wrap">

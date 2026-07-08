@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionCard, SubCard } from './SectionCard';
 import { ComplianceLicenseCards, GenericComplianceTable, TableCellContent } from '../CountryComponents';
-import { CountryData } from '../../../../data/mockData';
+import type { CountryData } from '../../../../data/countryTypes';
 
 interface ComplianceSectionProps {
   country: CountryData;

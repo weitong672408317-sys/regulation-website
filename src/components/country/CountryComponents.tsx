@@ -1,5 +1,5 @@
 import React from 'react';
-import { AccessRestrictionsByStatus, EmirateDifferenceRow, ComplianceLicenseCard } from '../../../data/mockData';
+import type { AccessRestrictionsByStatus, EmirateDifferenceRow, ComplianceLicenseCard } from '../../../data/countryTypes';
 import { BulletPoint } from './sections/SectionCard';
 
 export const colors = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { baseCountries } from '../../../../data/mockData';
+import { getCountryById, baseCountries } from '../../../../data/mockData';
 import {
   InfoBlock, FormattedText, parseOverview,
   ComplianceLicenseCards, GenericComplianceTable,
@@ -10,27 +10,42 @@ import {
 import ScrollToTop from '../../../components/country/ScrollToTop';
 import SidebarNav from '../../../components/country/SidebarNav';
 
-// Dynamic imports - each country page is loaded as a separate chunk
-// for faster initial page load and navigation
-const RussiaPage = dynamic(() => import('../../../components/country/pages/RussiaPage'));
-const UaePage = dynamic(() => import('../../../components/country/pages/UaePage'));
-const ParaguayPage = dynamic(() => import('../../../components/country/pages/ParaguayPage'));
-const IndonesiaPage = dynamic(() => import('../../../components/country/pages/IndonesiaPage'));
-const MalaysiaPage = dynamic(() => import('../../../components/country/pages/MalaysiaPage'));
-const SingaporePage = dynamic(() => import('../../../components/country/pages/SingaporePage'));
-const ChinaPage = dynamic(() => import('../../../components/country/pages/ChinaPage'));
-const HongkongPage = dynamic(() => import('../../../components/country/pages/HongkongPage'));
-
-const countryPageMap: Record<string, React.ComponentType<{ country: any }>> = {
-  russia: RussiaPage,
-  uae: UaePage,
-  paraguay: ParaguayPage,
-  indonesia: IndonesiaPage,
-  malaysia: MalaysiaPage,
-  singapore: SingaporePage,
-  hongkong: HongkongPage,
-  china: ChinaPage,
+/**
+ * 按需懒加载每个国家的子页面组件。
+ *
+ * 原本 8 个 `dynamic(() => import('...'))` 在文件顶部并列，会让打包器在同一个
+ * chunk 依赖图里一次性解析所有国家页面。现在使用 lazyCountryPage(id) 仅在
+ * 运行时按需触发对应组件的加载：被导航命中的国家页面才会被加载，
+ * 其余 7 个国家的文件 (~50-90KB 每个) 不会出现在首屏 JS bundle 中。
+ *
+ * 注：CountryDetail 本身是 Server Component，动态导入的子页面是 Client Component。
+ * Next.js App Router 会将 lazy loading 组件对应的 chunk 在客户端按需加载。
+ */
+const countryPageImporters: Record<string, () => Promise<{ default: React.ComponentType<any> }>> = {
+  russia: () => import('../../../components/country/pages/RussiaPage'),
+  uae: () => import('../../../components/country/pages/UaePage'),
+  paraguay: () => import('../../../components/country/pages/ParaguayPage'),
+  indonesia: () => import('../../../components/country/pages/IndonesiaPage'),
+  malaysia: () => import('../../../components/country/pages/MalaysiaPage'),
+  singapore: () => import('../../../components/country/pages/SingaporePage'),
+  china: () => import('../../../components/country/pages/ChinaPage'),
+  hongkong: () => import('../../../components/country/pages/HongkongPage'),
 };
+
+// 缓存已解析的 dynamic 组件，避免每次导航 / 服务端渲染时重复调用 dynamic()
+const countryPageComponentCache = new Map<string, React.ComponentType<{ country: any }>>();
+
+function getCountryPageComponent(countryId: string): React.ComponentType<{ country: any }> | null {
+  const importer = countryPageImporters[countryId];
+  if (!importer) return null;
+
+  let component = countryPageComponentCache.get(countryId);
+  if (!component) {
+    component = dynamic(importer, { ssr: true });
+    countryPageComponentCache.set(countryId, component);
+  }
+  return component;
+}
 
 const russiaMobileNavItems = [
   { id: 'home', label: '返回首页' },
@@ -169,7 +184,7 @@ export function generateStaticParams() {
 
 export default async function CountryDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id: countryId } = await params;
-  const country = baseCountries.find(c => c.id === countryId) || null;
+  const country = getCountryById(countryId) || null;
 
   if (!country) {
     return (
@@ -182,7 +197,8 @@ export default async function CountryDetail({ params }: { params: Promise<{ id: 
     );
   }
 
-  const CountryPageComponent = countryPageMap[country.id];
+  // 仅按需实例化当前导航命中的国家组件 —— 其他 7 个页面此时尚未被 import() 解析
+  const CountryPageComponent = getCountryPageComponent(country.id);
   const isRussia = country.id === 'russia';
   const isMalaysia = country.id === 'malaysia';
   const isUae = country.id === 'uae';

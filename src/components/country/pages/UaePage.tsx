@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { CountryData } from '../../../../data/mockData';
+import type { CountryData } from '../../../../data/countryTypes';
 import {
   CountryPageTemplate,
   SeasonSummarySection,

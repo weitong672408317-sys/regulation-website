@@ -1,7 +1,8 @@
 'use server';
 
 import { put } from '@vercel/blob';
-import { baseCountries, CountryData } from '../../../data/mockData';
+import { baseCountries } from '../../../data/mockData';
+import type { CountryData } from '../../../data/countryTypes';
 
 export async function uploadFile(formData: FormData) {
   console.log('=== SERVER_ACTION: uploadFile START ===');

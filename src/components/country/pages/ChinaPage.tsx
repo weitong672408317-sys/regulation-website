@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { CountryData } from '../../../../data/mockData';
+import type { CountryData } from '../../../../data/countryTypes';
 import { chinaProductAccessOverview } from '../../../data/productAccessOverview';
 import {
   CountryPageTemplate,
@@ -36,11 +36,11 @@ export default function ChinaPage({ country }: ChinaPageProps) {
 
       <SeasonSummarySection
         sectionId="overview"
-        introText="2026年以来，中国内地烟草及新型烟草监管重点继续向产业秩序、出口合规和新型产品规则建设延伸。电子烟监管更关注产能、订单、供应链和出口真实性；加热卷烟、尼古丁袋等产品的标准建设正在推进，但中国市场尚未开放。"
+        introText="2026年以来，中国内地烟草及新型烟草监管重点继续围绕产业秩序、供需平衡、出口合规和新型产品规则建设展开。电子烟监管进一步强化产能约束、年度生产规模、出口真实性和产业秩序治理；加热卷烟、尼古丁袋等产品的国家标准建设正在推进，但中国市场尚未开放。"
         items={[
           {
-            title: '1. 电子烟监管继续向生产端、供应链和出口端延伸',
-            content: '电子烟监管不再只关注门店销售、口味限制和产品标准，而是进一步关注生产端产能、产能利用率、订单真实性、无证代工、出口回流和落后产能出清，并对产能利用率较低、存在违法违规或失信行为的企业实施更严格监管。',
+            title: '1. 电子烟监管规则集中修订，强化供需平衡和总量管理',
+            content: '2026年7月，国家烟草专卖局集中修订7份电子烟监管政策文件。此次修订的重点，是让电子烟企业不能再单纯按订单和产能自行安排生产，而要在监管核定的规模内经营，以减少产能过剩、低效扩张、虚假出口和出口回流等问题。相关要求已进一步落实到生产规模、原料使用、产品追溯、出口订单和企业重组等环节。',
           },
           {
             title: '2. 电子烟出口退税政策收紧',
@@ -51,8 +51,8 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             content: '国家烟草专卖局已明确无烟气烟草制品范围，包括尼古丁袋、尼古丁片、尼古丁贴、含烟、嚼烟、膏烟、溶烟、嗅烟等。相关产品按照卷烟或烟丝管理，严禁未经许可生产销售。',
           },
           {
-            title: '4. 加热卷烟和尼古丁袋强制性国家标准拟立项',
-            content: '2026年4月，《加热卷烟》《尼古丁袋》两项拟立项强制性国家标准项目公开征求意见，公示期至2026年5月7日。该动态体现出监管规则正在向加热卷烟、尼古丁袋等新型产品延伸，但在正式准入规则、产品标准和销售渠道安排落地前，相关产品不能据此直接进入中国市场。',
+            title: '4. 加热卷烟和尼古丁袋强制性国家标准进入起草阶段',
+            content: '2026年4月，《加热卷烟》《尼古丁袋》两项拟立项强制性国家标准项目公开征求意见，目前相关标准尚未正式落地。在正式准入规则、产品标准和销售渠道安排落地前，相关产品仍不能据此直接进入中国市场。',
           },
         ]}
       />
@@ -82,7 +82,7 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                   <div>
                     <h4 className="text-base font-bold text-[#2E3F73] mb-2">电子烟</h4>
                     <div className="space-y-2">
-                      <p className="text-[#334155] text-base leading-[1.6]">电子烟已经纳入烟草监管体系，但与传统卷烟适用不同规则，主要体现在许可证类型、产品技术审评、交易平台、批发零售渠道和产品标准等方面。</p>
+                      <p className="text-[#334155] text-base leading-[1.6]">电子烟已纳入烟草专卖监管框架，但具体监管规则不同于传统卷烟。2026年监管规则修订后，电子烟监管的严格许可准入和强计划管理特征进一步强化，企业生产多少、交易多少、出口多少，均需受到国家烟草专卖主管部门核定规模的约束。</p>
                     </div>
                   </div>
                   <div>
@@ -166,10 +166,11 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                 <div className="space-y-2">
                   <StatusBulletPoint status="amber">生产、代加工、品牌持有、批发和零售主体均需取得对应烟草专卖许可，实际经营内容应与许可范围一致。</StatusBulletPoint>
                   <StatusBulletPoint status="amber">境内上市销售的电子烟产品应通过技术审评，符合强制性国家标准、包装警语、追溯管理和质量安全要求。</StatusBulletPoint>
-                  <StatusBulletPoint status="amber">电子烟产品经营主体之间的购销交易，应依法通过电子烟交易管理平台进行。</StatusBulletPoint>
-                  <StatusBulletPoint status="amber">零售主体应通过电子烟交易管理平台向电子烟批发企业或电子烟进口经营企业购进电子烟产品，并在持证门店销售。</StatusBulletPoint>
-                  <StatusBulletPoint status="amber">不得通过电子烟交易管理平台以外的信息网络销售电子烟产品。</StatusBulletPoint>
-                  <StatusBulletPoint status="amber">在中国内地只能销售烟草口味的电子烟，不得销售其他任何口味的调味电子烟。</StatusBulletPoint>
+                  <StatusBulletPoint status="amber">电子烟产品的生产经营应受核定产能和年度生产规模约束；企业生产、交易和委托加工规模，应在国家烟草专卖主管部门核定范围内。</StatusBulletPoint>
+                  <StatusBulletPoint status="amber">电子烟产品经营主体之间的购销交易，应按规定通过电子烟交易管理平台进行。</StatusBulletPoint>
+                  <StatusBulletPoint status="amber">电子烟产品应按规定申领、使用追溯二维码；二维码使用数量应与核定产能和年度生产规模相衔接。</StatusBulletPoint>
+                  <StatusBulletPoint status="amber">用于出口的电子烟产品，应在许可范围、核定产能和核定出口生产规模内生产经营；如境外订单超出核定出口生产规模，相关企业应通过电子烟交易管理平台向烟草专卖主管部门备案核实后，方可组织生产销售。</StatusBulletPoint>
+                  <StatusBulletPoint status="amber">在中国内地只能销售烟草口味的电子烟，不得销售其他口味的调味电子烟。</StatusBulletPoint>
                   <StatusBulletPoint status="amber">不得销售可自行添加雾化物的电子烟。</StatusBulletPoint>
                 </div>
               </>}
@@ -183,11 +184,12 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                 <div className="text-sm text-[#334155] mb-2">适用产品：雾化物、电子烟用烟碱及相关原料</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
-                  <StatusBulletPoint status="amber">电子烟产品所使用的烟碱（尼古丁），应使用烟草中提取的烟碱，且纯度不应低于 99%（质量分数）。</StatusBulletPoint>
+                  <StatusBulletPoint status="amber">电子烟产品所使用的烟碱，应使用烟草中提取的烟碱，且纯度不应低于99%（质量分数）。</StatusBulletPoint>
                   <StatusBulletPoint status="amber">雾化物生产企业、电子烟用烟碱生产企业应取得烟草专卖生产企业许可证，实际生产、销售内容应与许可范围一致。</StatusBulletPoint>
-                  <StatusBulletPoint status="amber">雾化物、电子烟用烟碱的经营主体之间交易，应按规定通过电子烟交易管理平台进行。</StatusBulletPoint>
+                  <StatusBulletPoint status="amber">雾化物、电子烟用烟碱及相关原料的生产经营应受核定产能和年度生产规模约束；电子烟用烟碱的年度产销规模和相关烟草专卖品购销计划，将结合境内销售和出口需要统一安排。</StatusBulletPoint>
+                  <StatusBulletPoint status="amber">雾化物、电子烟用烟碱及相关原料的经营主体之间交易，应按规定通过电子烟交易管理平台进行，不得作为普通原料在平台外自由销售或流通。</StatusBulletPoint>
                   <StatusBulletPoint status="amber">进出口雾化物、电子烟用烟碱，应按规定通过电子烟交易管理平台备案。</StatusBulletPoint>
-                  <StatusBulletPoint status="amber">雾化物和电子烟用烟碱主要流向电子烟产品、雾化物等合规生产环节，不得作为普通原料自由销售或流通。</StatusBulletPoint>
+                  <StatusBulletPoint status="amber">用于出口的雾化物、电子烟用烟碱及相关原料，应在许可范围、核定产能和核定出口生产规模内生产经营；如境外订单超出核定出口生产规模，相关企业应通过电子烟交易管理平台向烟草专卖主管部门备案核实后，方可组织生产销售。</StatusBulletPoint>
                   <StatusBulletPoint status="amber">不得通过电子烟交易管理平台以外的信息网络销售雾化物和电子烟用烟碱。</StatusBulletPoint>
                 </div>
               </>}
@@ -228,8 +230,8 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
                   <StatusBulletPoint status="red">加热烟草产品具有烟草属性，但不同于已开放销售的传统卷烟，也不属于现行电子烟产品路径下的普通电子烟。</StatusBulletPoint>
-                  <StatusBulletPoint status="red">中国目前尚未开放加热卷烟在境内消费者市场销售或流通。</StatusBulletPoint>
-                  <StatusBulletPoint status="red">2026年《加热卷烟》强制性国家标准拟立项，说明相关产品的监管标准建设正在推进；在正式准入规则落地前，相关产品不得在中国境内生产、销售或流通。</StatusBulletPoint>
+                  <StatusBulletPoint status="red">中国目前尚未开放加热烟草产品在境内消费者市场销售或流通。</StatusBulletPoint>
+                  <StatusBulletPoint status="red">《加热卷烟》强制性国家标准已进入起草阶段，但尚未正式发布实施；在正式准入规则、产品标准和销售渠道安排落地前，相关产品不得在中国境内生产、销售或流通。</StatusBulletPoint>
                 </div>
               </>}
             />
@@ -243,8 +245,9 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                 <div className="text-sm text-[#334155] mb-2">适用产品：尼古丁袋、尼古丁片、尼古丁贴、含烟、嚼烟、膏烟、溶烟、嗅烟</div>
                 <div className="font-semibold text-[#263247] mb-1">主要合规要点：</div>
                 <div className="space-y-2">
-                  <StatusBulletPoint status="red">中国目前尚未开放无烟气烟草制品 / 尼古丁制品在境内生产、销售或流通。</StatusBulletPoint>
-                  <StatusBulletPoint status="red">2026年《尼古丁袋》强制性国家标准拟立项，说明相关产品的监管标准建设正在推进；在正式准入规则落地前，相关产品不得在中国境内生产、销售或流通。</StatusBulletPoint>
+                  <StatusBulletPoint status="red">中国目前尚未开放无烟气烟草制品/尼古丁制品在境内生产、销售或流通。</StatusBulletPoint>
+                  <StatusBulletPoint status="red">《尼古丁袋》强制性国家标准已进入起草阶段，但尚未正式发布实施；在正式准入规则、产品标准和销售渠道安排落地前，相关产品不得在中国境内生产、销售或流通。</StatusBulletPoint>
+                  <StatusBulletPoint status="red">以本草、中药、无烟碱、医疗器械等名义包装或宣传，也不能规避烟草、药品、医疗器械等相关监管要求。</StatusBulletPoint>
                 </div>
               </>}
             />
@@ -312,13 +315,13 @@ export default function ChinaPage({ country }: ChinaPageProps) {
       <ComplianceSection country={country} sectionId="licenses">
         <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-6">中国烟草业务的合规资质应按产品品类和经营活动分别判断。一般营业执照不足以开展涉烟业务，不同产品、不同环节需要不同类型和不同范围的烟草专卖许可证。</p>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-4">
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
             <div className="flex items-start gap-3 mb-4">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">1</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">烟草制品及烟草专卖品</h4>
+              <h4 className="font-bold text-[#2E3F73] text-base">传统烟草制品及配套专卖品</h4>
             </div>
-            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="ml-9 text-[#334155] text-base leading-[1.6] mb-3">涉及卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、卷烟纸、滤嘴棒、烟用丝束、烟草专用机械等烟草专卖品的生产、批发、零售、运输和进出口，应按烟草专卖体系取得相应许可或纳入相应管理。</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="ml-9 text-[#334155] text-base leading-[1.6] mb-3">涉及卷烟、雪茄烟、烟丝、复烤烟叶、烟叶、卷烟纸、滤嘴棒、烟用丝束等传统烟草制品及配套专卖品的生产、批发、零售、运输和进出口，应按烟草专卖体系取得相应许可或纳入相应管理。电子烟、雾化物及电子烟用烟碱适用下方"电子烟"项下的专门许可和监管路径。</p>
             <div className="ml-9 space-y-2">
               <BulletPoint><span className="font-semibold text-[#263247]">烟草专卖生产企业许可证：</span>适用于生产环节。</BulletPoint>
               <BulletPoint><span className="font-semibold text-[#263247]">烟草专卖批发企业许可证：</span>适用于批发环节。</BulletPoint>
@@ -333,19 +336,22 @@ export default function ChinaPage({ country }: ChinaPageProps) {
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">2</span>
               <h4 className="font-bold text-[#2E3F73] text-base">电子烟</h4>
             </div>
-            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="ml-9 text-[#334155] text-base leading-[1.6] mb-3">电子烟与传统卷烟虽然同属烟草监管体系，但证照和监管路径是分开的。电子烟相关主体应根据实际角色取得对应烟草专卖许可证，不能用传统卷烟相关许可当然覆盖电子烟业务。</p>
+            <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="ml-9 text-[#334155] text-base leading-[1.6] mb-3">电子烟已纳入烟草专卖监管框架，但具体监管规则不同于传统卷烟。电子烟相关主体应根据实际角色取得电子烟产品生产、品牌持有、雾化物生产、电子烟用烟碱生产、批发或零售等相应许可。</p>
             <div className="ml-9 space-y-2">
-              <BulletPoint>电子烟产品生产企业许可</BulletPoint>
-              <BulletPoint>电子烟品牌持有企业许可</BulletPoint>
-              <BulletPoint>雾化物生产企业许可</BulletPoint>
-              <BulletPoint>电子烟用烟碱生产企业许可</BulletPoint>
-              <BulletPoint>电子烟批发企业许可</BulletPoint>
-              <BulletPoint>电子烟零售许可</BulletPoint>
+              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#263247] text-base font-semibold">许可证类别：</p>
+              <BulletPoint><span className="font-semibold text-[#263247]">电子烟产品生产企业许可证：</span>适用于电子烟产品生产企业。</BulletPoint>
+              <BulletPoint><span className="font-semibold text-[#263247]">电子烟品牌持有企业许可证：</span>适用于电子烟品牌持有企业。</BulletPoint>
+              <BulletPoint><span className="font-semibold text-[#263247]">雾化物生产企业许可证：</span>适用于雾化物生产企业。</BulletPoint>
+              <BulletPoint><span className="font-semibold text-[#263247]">电子烟用烟碱生产企业许可证：</span>适用于电子烟用烟碱生产企业。</BulletPoint>
+              <BulletPoint><span className="font-semibold text-[#263247]">电子烟批发企业许可证：</span>适用于电子烟批发企业。</BulletPoint>
+              <BulletPoint><span className="font-semibold text-[#263247]">电子烟零售许可证：</span>适用于电子烟零售主体。</BulletPoint>
+            </div>
+            <div className="ml-9 mt-3 space-y-2">
+              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#263247] text-base font-semibold">证载产能：</p>
+              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">电子烟生产类许可证载明核定产能。2026年监管规则修订后，核定产能不仅是许可证信息，也成为年度生产规模、出口生产规模和日常生产经营数量控制的基础。年度生产规模和出口生产规模由烟草专卖主管部门在核定产能范围内核定，企业不得超核定产能或超核定规模生产经营；产能利用不足的，也可能影响后续年度生产规模调整和新增产能安排。</p>
             </div>
           </div>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-4 mt-4">
           <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
             <div className="flex items-start gap-3 mb-4">
               <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">3</span>
@@ -353,17 +359,6 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             </div>
             <div className="ml-9 space-y-2">
               <BulletPoint>烟草专用机械属于烟草专卖品。涉及烟草专用机械整机生产、销售、运输、进出口的，应按烟草专卖品路径判断。</BulletPoint>
-            </div>
-          </div>
-
-          <div className="bg-[#F3F5FB] border border-[#D8DDED] rounded-xl p-5">
-            <div className="flex items-start gap-3 mb-4">
-              <span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#4A6290] text-white text-xs font-bold flex-shrink-0">4</span>
-              <h4 className="font-bold text-[#2E3F73] text-base">电子烟交易管理平台</h4>
-            </div>
-            <div className="ml-9 space-y-2">
-              <BulletPoint>电子烟交易管理平台是电子烟供应链交易和监管平台。生产企业、品牌持有企业、批发企业、零售主体均应按规定通过平台完成相应交易或购进安排。</BulletPoint>
-              <BulletPoint>零售主体应通过电子烟交易管理平台，向当地具备电子烟批发业务资格的企业购进电子烟产品，并在持证门店销售。</BulletPoint>
             </div>
           </div>
         </div>
@@ -597,36 +592,55 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         <div className="grid md:grid-cols-2 gap-x-5 gap-y-6">
           <RuleModuleCard number={1} title="销售渠道与平台交易">
             <DotList className="space-y-3" textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[8px]" items={[
-              '烟草专卖品、电子烟应在烟草专卖许可范围和规定渠道内经营',
-              '电子烟经营主体之间的购销交易，应依法通过电子烟交易管理平台进行',
-              '零售主体应通过电子烟交易管理平台，向当地具备电子烟批发业务资格的企业购进电子烟产品，并在持证门店销售',
-              '进出口电子烟应按规定通过电子烟交易管理平台备案',
-              '不得通过电子烟交易管理平台以外的信息网络销售电子烟和电子烟用烟碱',
+              '卷烟、雪茄烟、烟丝等传统烟草制品的批发、零售应通过烟草专卖体系开展；零售主体应取得烟草专卖零售许可证，并在当地烟草专卖批发企业进货。',
+              '电子烟产品、雾化物、电子烟用烟碱等相关交易，应按电子烟专门规则通过电子烟交易管理平台进行。',
+              '电子烟零售主体应通过电子烟交易管理平台，向当地具备电子烟批发业务资格的企业购进电子烟产品，并在持证门店销售。',
+              '雾化物、电子烟用烟碱及相关原料不得作为普通原料在平台外自由销售或流通。',
             ]} />
           </RuleModuleCard>
 
-          <RuleModuleCard number={2} title="产品销售与品类限制">
+          <RuleModuleCard number={2} title="电子烟生产经营规模管理">
             <DotList className="space-y-3" textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[8px]" items={[
-              '中国内地只能销售烟草口味电子烟，不得销售其他任何口味的调味电子烟',
-              '不得销售可自行添加雾化物的电子烟。',
-              '电子烟雾化物应含有烟碱，不符合《电子烟》强制性国家标准或未通过技术审评的产品不得上市销售。',
-              '加热卷烟、尼古丁袋、其他无烟气烟草制品等未开放品类，不得在中国境内生产、销售或流通',
+              '电子烟产品、雾化物及电子烟用烟碱的生产经营，应受核定产能和年度生产规模约束。',
+              '年度生产规模由烟草专卖主管部门在核定产能范围内核定，作为相应产品属类自然年度生产交易量上限。',
+              '电子烟产品追溯二维码的申领、使用、结转和报废，应与核定产能和年度生产规模相衔接；二维码信息应与产品实物信息一致。',
+              '电子烟委托加工业务应同时符合委托方和受托方各自的许可范围、核定产能及年度生产规模要求。',
             ]} />
           </RuleModuleCard>
 
-          <RuleModuleCard number={3} title="广告与宣传限制">
+          <RuleModuleCard number={3} title="产品销售边界">
             <DotList className="space-y-3" textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[8px]" items={[
-              '烟草广告受到严格限制，广播、电影、电视、报纸、期刊及法定公共场所不得发布或设置烟草广告',
-              '不得通过广播、电视、电影节目以及报纸、期刊文章变相发布烟草广告',
-              '不得通过大众传播媒介、公共场所、网络平台、展会、论坛、博览会等方式违规宣传或推介电子烟产品',
+              '境内销售的烟草制品、电子烟产品及相关产品，应符合适用的产品标准、包装标识、警语和质量安全要求。',
+              '中国内地目前仅允许销售烟草口味电子烟，不得销售其他口味的调味电子烟，也不得销售可自行添加雾化物的电子烟。',
+              '加热卷烟、尼古丁袋及其他无烟气烟草制品的标准建设正在推进；在正式准入规则、产品标准和销售渠道安排落地前，相关产品不能直接进入中国境内消费者市场。',
+              '以本草、中药、无烟碱、医疗器械等名义包装或宣传，也不能规避烟草、药品、医疗器械等相关监管要求。',
             ]} />
           </RuleModuleCard>
 
           <RuleModuleCard number={4} title="出口合规与回流管控">
             <DotList className="space-y-3" textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[8px]" items={[
-              '电子烟出口产品应符合目的地国家或地区的法律法规和标准要求，并按中国监管要求完成出口备案和相关证明',
-              '不得通过虚假报关、错报品名、错报用途、拆分流转、虚报价格等方式规避中国监管要求',
-              '严禁出口回流，严禁以出口名义将不符合中国境内销售要求的电子烟产品变相投入中国市场',
+              '烟草制品、烟草专卖品及电子烟相关产品出口，应符合中国出口监管要求及目的地国家或地区的法律法规和标准要求。',
+              '用于出口的电子烟产品、雾化物及电子烟用烟碱，应在许可范围、核定产能和核定出口生产规模内生产经营。',
+              '超出核定出口生产规模的境外订单，应通过电子烟交易管理平台向烟草专卖主管部门备案核实后，方可组织生产销售。',
+              '出口业务应保持订单、报关、产品流向和实际用途一致，防止出口回流或借出口名义规避境内监管。',
+            ]} />
+          </RuleModuleCard>
+
+          <RuleModuleCard number={5} title="广告与宣传限制">
+            <DotList className="space-y-3" textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[8px]" items={[
+              '烟草广告受到严格限制，广播、电影、电视、报纸、期刊及法定公共场所不得发布或设置烟草广告。',
+              '不得通过广播、电视、电影节目以及报纸、期刊文章变相发布烟草广告。',
+              '不得通过网络平台、展会、论坛、博览会等方式违规宣传、推介或变相推广电子烟产品。',
+              '电子烟销售应落实未成年人保护要求，不得向未成年人销售电子烟产品。',
+            ]} />
+          </RuleModuleCard>
+
+          <RuleModuleCard number={6} title="运输与跨区域流转">
+            <DotList className="space-y-3" textClassName="text-base leading-[1.6] font-normal" dotClassName="mt-[8px]" items={[
+              '烟草专卖品运输、跨区域流转，应按烟草专卖管理要求办理准运或其他相应手续。',
+              '托运或者自运烟草专卖品，应持有烟草专卖主管部门或者其授权机构签发的准运证。',
+              '卷烟纸、滤嘴棒、烟用丝束、烟草专用机械等烟草专卖品的运输和流转，也应纳入烟草专卖监管路径。',
+              '涉及进口、出口或跨境流转的，还应同时符合海关、外贸及目的地国家或地区的监管要求。',
             ]} />
           </RuleModuleCard>
         </div>
@@ -639,27 +653,24 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         trendContent={
           <div className="space-y-4">
             <div className="space-y-2">
-              <h4 className="font-bold text-[#243B63] text-base">1. 从产品纳管转向产业秩序治理</h4>
-              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">中国烟草监管的重点，正在从单个产品是否纳入监管，转向对生产、渠道、税收、出口和线上销售的全链条治理。</p>
-              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">传统烟草继续以专卖体系为基础，电子烟监管则会更强调产能、平台交易、出口回流和税收合规。后续监管重点预计不只是"能不能卖"，还会更关注产业端是否存在无序扩产、低价竞争、无证代工和规避监管等问题。</p>
+              <h4 className="font-bold text-[#243B63] text-base">1. 监管将继续围绕市场稳定和风险可控展开</h4>
+              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">中国烟草监管长期建立在专卖体系基础上，政策取向具有明显的顺序感：首先维护财政征管和合法市场稳定，其次保持产业链、就业和渠道体系平稳运行，同时兼顾公共健康、未成年人保护和成瘾风险控制。</p>
+              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">未来烟草和尼古丁产品能否进入中国市场，预计会更多取决于其是否能够被纳入稳定、可管理的正式体系。监管部门会综合判断产品属性、消费场景、产业基础、销售渠道、税收安排、追溯能力和公共健康影响，防止新产品或新渠道冲击既有市场秩序、税收基础和未成年人保护要求。</p>
             </div>
 
             <div className="space-y-2">
-              <h4 className="font-bold text-[#243B63] text-base">2. 新型产品标准先行，开放仍会谨慎</h4>
-              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">加热卷烟、尼古丁袋等产品已经出现规则建设信号，但标准建设不等于短期开放销售。</p>
-              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">后续更可能先明确产品定义、技术要求和质量安全边界，再逐步判断是否开放生产、销售等商业化路径。考虑到专卖体系衔接、尼古丁成瘾性、公共健康保护等因素，相关产品即使未来开放，也大概率会采取较谨慎、有限度的路径。</p>
+              <h4 className="font-bold text-[#243B63] text-base">2. 不同产品将根据市场影响采取不同监管路径</h4>
+              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">中国对烟草和尼古丁产品的监管，预计会继续采取分类处理的思路。判断重点包括产品是否含烟草、是否替代卷烟、是否影响既有税收和渠道体系、是否已有成熟产业基础、是否容易扩大新增成瘾，以及是否能够实现许可、征管、追溯和执法管理。</p>
+              <BulletPoint><span className="font-semibold text-[#263247]">传统卷烟：</span>将继续在成熟专卖体系内运行，监管重点是维持税利、渠道、价格和市场秩序，并通过控烟措施逐步压缩高危害消费。</BulletPoint>
+              <BulletPoint><span className="font-semibold text-[#263247]">电子烟：</span>已经形成多元持证主体经营模式，后续会继续通过许可、平台、追溯、产能和生产规模管理，将企业生产经营活动纳入持续监管。</BulletPoint>
+              <BulletPoint><span className="font-semibold text-[#263247]">加热卷烟：</span>以烟草为基础，与卷烟在消费场景、替代关系、税收安排和渠道承接上更接近；未来如开放，预计会更靠近传统烟草制品路径，经营主体、销售渠道和税负安排都会较为审慎。</BulletPoint>
+              <BulletPoint><span className="font-semibold text-[#263247]">新型尼古丁产品及其他无烟气产品：</span>路径仍需结合具体产品判断。监管部门预计会重点评估尼古丁来源、使用场景、青少年接触风险、销售渠道、税收安排和追溯管理能力；规则和标准逐步建立后，商业化路径仍可能采取较谨慎的方式。</BulletPoint>
             </div>
 
             <div className="space-y-2">
-              <h4 className="font-bold text-[#243B63] text-base">3. 电子烟进入产能、税务和出口综合监管阶段</h4>
-              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">电子烟监管将继续从产品审评和持证经营，延伸到产能利用、订单真实性、出口合规和税务处理。</p>
-              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">出口退税取消、产能利用率管理、供需平衡和低效产能出清等信号，说明行业低价扩张空间会进一步压缩。后续更可能出现合规产能集中、低效产线退出、市场向规范企业集中的趋势。</p>
-            </div>
-
-            <div className="space-y-2">
-              <h4 className="font-bold text-[#243B63] text-base">4. 全链条监管会继续强化</h4>
-              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">未来涉烟业务的合规判断，不会只看主体是否有证、产品是否符合标准，而会继续延伸到生产安排、交易对手、平台交易、物流路径、资金税务、出口目的地和最终流向。</p>
-              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">监管重点预计会从单点审批，进一步转向覆盖生产、交易、运输、销售、出口和税务处理的全链条管理，要求业务过程持续合规、流向清晰可追溯。</p>
+              <h4 className="font-bold text-[#243B63] text-base">3. 全链条监管和执法会继续强化</h4>
+              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">电子烟规模管控框架已经建立，后续重点会转向规则落地和执法执行。</p>
+              <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">监管部门预计会围绕许可资质、生产规模、平台交易、追溯二维码、委托加工、运输流向和出口真实性开展更连续的监管，推动生产、交易、流通和销售各环节相互对应，压缩无证经营、平台外交易、虚假订单、违规代工和产品回流等空间。</p>
             </div>
           </div>
         }
@@ -668,32 +679,42 @@ export default function ChinaPage({ country }: ChinaPageProps) {
             title: '产品上市与经营资质',
             items: [
               '严禁未取得相应烟草专卖许可证，生产、批发、零售、进出口烟草专卖品、电子烟产品、雾化物或电子烟用烟碱。',
-              '严禁销售未通过技术审评、不符合强制性国家标准、未按要求使用注册商标、来源不明或伪劣电子烟产品。',
-              '严禁将加热卷烟、尼古丁袋、其他无烟气烟草制品等未开放销售路径的新型产品投入中国内地市场。',
+              '严禁销售未通过技术审评、不符合强制性国家标准、未按要求使用注册商标、来源不明或伪劣的电子烟产品。',
+              '严禁将加热卷烟、尼古丁袋、其他无烟气烟草制品等尚未开放销售路径的产品投入中国内地消费者市场。',
+              '严禁通过设备销售、样品派发、体验活动、组合销售、配套辅材销售等方式，变相销售或推广尚未开放销售路径的产品。',
             ]
           },
           {
             title: '销售渠道与流通',
             items: [
               '严禁通过普通电商平台、社交媒体、自动售货机、未持证门店或其他非合规渠道销售电子烟产品、雾化物和电子烟用烟碱。',
-              '严禁电子烟生产、批发、零售等经营主体之间脱离电子烟交易管理平台进行电子烟交易。',
-              '严禁无准运手续运输烟草专卖品，或通过设备、辅材、样品、体验活动、组合销售等方式变相推动未开放产品进入消费场景。',
+              '严禁电子烟产品、雾化物、电子烟用烟碱等相关经营主体之间脱离电子烟交易管理平台进行交易。',
+              '严禁无准运证或者超出准运证范围运输烟草专卖品。',
             ]
           },
           {
-            title: '包装、标签与宣传',
+            title: '包装、追溯与宣传',
             items: [
-              '严禁销售包装、标签、警语、追溯或产品标准不符合中国监管要求的烟草及电子烟产品。',
+              '严禁销售无追溯二维码、二维码异常、二维码信息与实物不一致，或来源无法核验的电子烟产品。',
+              '严禁销售包装警语、注册商标、产品名称、成分信息等不符合中国监管要求的电子烟产品。',
               '严禁在包装、标签、说明书、销售展示或宣传材料中使用"减害""健康""戒烟""治疗""不成瘾""更安全"等未经批准的功效性、治疗性或降低风险表述。',
               '严禁违法开展烟草、电子烟及相关产品广告、促销、赞助、免费样品、试用、递样、折扣、抽奖、会员积分或面向未成年人的营销活动。',
             ]
           },
           {
-            title: '出口、产能与供应链',
+            title: '产能、追溯与供应链',
             items: [
-              '严禁违规新增电子烟生产线、扩大产能、规避固定资产投资审批，或将主要生产工序委托至无证企业代工。',
-              '严禁以出口名义规避国内电子烟生产许可、质量安全、产能管理、监管检查或目的地合规要求。',
-              '严禁合同、发票、包装标签、海关申报、目的地合规文件和实际流向不一致，严禁出口回流或以出口名义变相进入中国内地市场。',
+              '严禁未经审批或备案违规新增电子烟生产线、扩大产能，或超出核定产能、年度生产规模、出口生产规模开展生产经营。',
+              '严禁违规申领、使用、结转、转让、冒用或重复使用电子烟追溯二维码，或使二维码信息与产品实物、生产规模、交易记录、实际流向不一致。',
+              '严禁将电子烟产品、雾化物、电子烟用烟碱的主要生产工序委托至无证企业，或通过委托加工、关联交易、重组安排等方式规避许可范围、产能和生产规模管理。',
+            ]
+          },
+          {
+            title: '出口与跨境流向',
+            items: [
+              '严禁以出口名义规避国内电子烟生产许可、质量安全、产能管理、平台交易、监管检查或目的地合规要求。',
+              '严禁境外订单、合同、发票、包装标签、海关申报、目的地合规文件和实际流向不一致。',
+              '严禁虚假出口、出口回流，或以出口名义变相进入中国内地市场。',
             ]
           },
         ]}
@@ -742,6 +763,43 @@ export default function ChinaPage({ country }: ChinaPageProps) {
                 description="说明 GB 41700-2022《电子烟》强制性国家标准的制定背景、主要内容、技术特点及实施过渡期。"
                 showSeparator
               />
+              <ReferenceItem
+                title="国家烟草专卖局公告2026年第2号"
+                url="http://www.tobacco.gov.cn/gjyc/tzgg/202607/7f25356065124efea486900a564bdea1.shtml"
+                description="2026年7月，国家烟草专卖局集中修订7份电子烟监管政策文件。此次修订的重点，是将电子烟生产经营进一步纳入监管核定规模内管理，减少产能过剩、低效扩张、虚假出口和出口回流等问题，并将相关要求落实到生产规模、原料使用、产品追溯、出口订单和企业重组等环节。修订涉及以下规则："
+                showSeparator
+              >
+                <div className="ml-4 pl-4 border-l-2 border-[#D8DDED] space-y-3">
+                  <div>
+                    <p className="text-sm font-semibold text-[#263247] mb-1">1. 《关于促进电子烟产业法治化规范化的若干政策措施（试行）》</p>
+                    <p className="text-sm text-[#334155]">主要涉及电子烟产业规范发展、供需动态平衡、总量管理和产能控制。</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[#263247] mb-1">2. 《电子烟固定资产投资管理细则》</p>
+                    <p className="text-sm text-[#334155]">主要涉及电子烟固定资产投资、新增产能、生产线建设和产能安排。</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[#263247] mb-1">3. 《电子烟产品技术审评实施细则》</p>
+                    <p className="text-sm text-[#334155]">主要涉及电子烟产品技术审评、产品合规和上市销售管理。</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[#263247] mb-1">4. 《电子烟产品追溯管理细则》</p>
+                    <p className="text-sm text-[#334155]">主要涉及电子烟追溯二维码、追溯信息、产品实物和流向管理。</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[#263247] mb-1">5. 《电子烟进出口贸易和对外经济技术合作管理细则》</p>
+                    <p className="text-sm text-[#334155]">主要涉及电子烟进出口贸易、出口生产规模、目的地合规和跨境流向管理。</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[#263247] mb-1">6. 《电子烟相关生产企业设立、分立、合并、撤销管理细则》</p>
+                    <p className="text-sm text-[#334155]">主要涉及电子烟相关生产企业设立、分立、合并、撤销以及产能整合重组管理。</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[#263247] mb-1">7. 《一体化政务服务平台 电子证照 烟草专卖生产企业许可证第2部分：电子烟》</p>
+                    <p className="text-sm text-[#334155]">主要涉及电子烟生产企业许可证电子证照、证载产能和许可信息管理。</p>
+                  </div>
+                </div>
+              </ReferenceItem>
             </ReferenceGroupCard>
 
             <ReferenceGroupCard title="产业政策与出口监管">
@@ -810,9 +868,9 @@ export default function ChinaPage({ country }: ChinaPageProps) {
         newsContent={
           <ReferenceGroupCard title="政策与监管动态">
             <ReferenceItem
-              title="电子烟产业政策进一步强化供需动态平衡"
-              url="https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=104986"
-              description="相关政策文件体现电子烟监管继续从产品准入和零售监管延伸到产能、投资、委托加工、出口目的地合规和产业秩序管理。"
+              title="国家烟草专卖局修订发布7份电子烟监管政策文件"
+              url="http://www.tobacco.gov.cn/gjyc/tzgg/202607/7f25356065124efea486900a564bdea1.shtml"
+              description="2026年7月，国家烟草专卖局公告第2号发布，集中修订7份电子烟监管政策文件，进一步将电子烟生产经营纳入监管核定规模内管理，并将相关要求落实到生产规模、原料使用、产品追溯、出口订单和企业重组等环节。"
             />
             <ReferenceItem
               title="中国将自2026年4月1日起取消电子烟产品增值税出口退税"
