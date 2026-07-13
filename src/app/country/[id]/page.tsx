@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import { getCountryById, baseCountries } from '../../../../data/mockData';
 import {
   InfoBlock, FormattedText, parseOverview,
@@ -9,42 +8,28 @@ import {
 } from '../../../components/country/CountryComponents';
 import ScrollToTop from '../../../components/country/ScrollToTop';
 import SidebarNav from '../../../components/country/SidebarNav';
+import RussiaPage from '../../../components/country/pages/RussiaPage';
+import UaePage from '../../../components/country/pages/UaePage';
+import ParaguayPage from '../../../components/country/pages/ParaguayPage';
+import IndonesiaPage from '../../../components/country/pages/IndonesiaPage';
+import MalaysiaPage from '../../../components/country/pages/MalaysiaPage';
+import SingaporePage from '../../../components/country/pages/SingaporePage';
+import ChinaPage from '../../../components/country/pages/ChinaPage';
+import HongkongPage from '../../../components/country/pages/HongkongPage';
 
-/**
- * 按需懒加载每个国家的子页面组件。
- *
- * 原本 8 个 `dynamic(() => import('...'))` 在文件顶部并列，会让打包器在同一个
- * chunk 依赖图里一次性解析所有国家页面。现在使用 lazyCountryPage(id) 仅在
- * 运行时按需触发对应组件的加载：被导航命中的国家页面才会被加载，
- * 其余 7 个国家的文件 (~50-90KB 每个) 不会出现在首屏 JS bundle 中。
- *
- * 注：CountryDetail 本身是 Server Component，动态导入的子页面是 Client Component。
- * Next.js App Router 会将 lazy loading 组件对应的 chunk 在客户端按需加载。
- */
-const countryPageImporters: Record<string, () => Promise<{ default: React.ComponentType<any> }>> = {
-  russia: () => import('../../../components/country/pages/RussiaPage'),
-  uae: () => import('../../../components/country/pages/UaePage'),
-  paraguay: () => import('../../../components/country/pages/ParaguayPage'),
-  indonesia: () => import('../../../components/country/pages/IndonesiaPage'),
-  malaysia: () => import('../../../components/country/pages/MalaysiaPage'),
-  singapore: () => import('../../../components/country/pages/SingaporePage'),
-  china: () => import('../../../components/country/pages/ChinaPage'),
-  hongkong: () => import('../../../components/country/pages/HongkongPage'),
+const countryPageComponents: Record<string, React.ComponentType<{ country: any }>> = {
+  russia: RussiaPage,
+  uae: UaePage,
+  paraguay: ParaguayPage,
+  indonesia: IndonesiaPage,
+  malaysia: MalaysiaPage,
+  singapore: SingaporePage,
+  china: ChinaPage,
+  hongkong: HongkongPage,
 };
 
-// 缓存已解析的 dynamic 组件，避免每次导航 / 服务端渲染时重复调用 dynamic()
-const countryPageComponentCache = new Map<string, React.ComponentType<{ country: any }>>();
-
 function getCountryPageComponent(countryId: string): React.ComponentType<{ country: any }> | null {
-  const importer = countryPageImporters[countryId];
-  if (!importer) return null;
-
-  let component = countryPageComponentCache.get(countryId);
-  if (!component) {
-    component = dynamic(importer, { ssr: true });
-    countryPageComponentCache.set(countryId, component);
-  }
-  return component;
+  return countryPageComponents[countryId] || null;
 }
 
 const russiaMobileNavItems = [
@@ -165,13 +150,24 @@ function MobileSectionNav({ items }: { items: { id: string; label: string }[] })
     <nav className="lg:hidden sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-[#D8E0EA]">
       <div className="russia-mobile-nav-scroll flex gap-2 overflow-x-auto px-4 py-2">
         {items.map(item => (
-          <a
-            key={item.id}
-            href={item.id === 'home' ? '/' : `#${item.id}`}
-            className="flex-shrink-0 rounded-full border border-[#D8DDED] bg-[#F7F9FC] px-3 py-1.5 text-sm font-medium text-[#2E3F73]"
-          >
-            {item.label}
-          </a>
+          item.id === 'home' ? (
+            <Link
+              key={item.id}
+              href="/"
+              prefetch={true}
+              className="flex-shrink-0 rounded-full border border-[#D8DDED] bg-[#F7F9FC] px-3 py-1.5 text-sm font-medium text-[#2E3F73]"
+            >
+              {item.label}
+            </Link>
+          ) : (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className="flex-shrink-0 rounded-full border border-[#D8DDED] bg-[#F7F9FC] px-3 py-1.5 text-sm font-medium text-[#2E3F73]"
+            >
+              {item.label}
+            </a>
+          )
         ))}
       </div>
     </nav>

@@ -36,7 +36,7 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
       {/* 一、本季监管动态 */}
       <SeasonSummarySection
         sectionId="overview"
-        introText="2026年以来，印尼烟草及电子烟监管的可确认新动态主要集中在电子烟监管新规、加强流通监管和烟草税收政策三个方面。传统烟草、电子烟和HPTL仍有合法经营空间，但监管重点继续向产品标准、包装标签、广告限制、违法烟液和非法烟草市场治理集中。"
+        introText="2026年以来，印尼烟草及电子烟监管的可确认新动态主要集中在电子烟规则实施、流通监管、包装健康警示和烟草税收政策。传统烟草、电子烟和HPTL仍有合法经营空间，但监管重点继续向产品标准、包装标签、广告限制、违法烟液和非法烟草市场治理集中。"
         items={[
           {
             title: '电子烟新规实施',
@@ -49,6 +49,10 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
           {
             title: '烟草税收政策',
             content: '2025年9月，印尼财政部长表示，2026年烟草产品消费税税率维持不变，政策重点转向治理非法烟草市场。2026年5月，第26/2026号财政部长条例生效，重新规范卷烟税征收、缴存和地方分配机制，维持卷烟税按消费税额的10%计征，并进一步明确电子烟及其他烟草产品的卷烟税适用范围。'
+          },
+          {
+            title: '烟草及电子烟标准化包装规则推进',
+            content: '2026年6月，印度尼西亚卫生部表示，正在起草有关烟草产品及电子烟健康警示和健康信息的卫生部长规章，并推进标准化包装安排。拟议规则可能统一包装基础颜色和整体展示方式，同时保留按规定展示的品牌名称、字体和图形健康警示。具体包装规格、过渡期和正式生效日期仍以最终发布的部长规章为准。'
           }
         ]}
       />
@@ -902,6 +906,12 @@ export default function IndonesiaPage({ country }: IndonesiaPageProps) {
               url="https://www.pom.go.id/berita/bpom-soroti-ancaman-zat-adiktif-pada-rokok-elektronik-bagi-generasi-muda"
               title="2026年5月｜BPOM 将加强电子烟流通监管，重点关注非法或含违禁成分烟液"
               description="BPOM 表示将加强电子烟流通监管，并与国家禁毒机构 BNN 协作应对含毒品或违禁成分电子烟液问题；BPOM并未支持直接实施电子烟全面禁令。"
+            />
+            <ReferenceItem
+              showSeparator
+              url="https://www.kemkes.go.id/id/lindungi-generasi-muda-kemenkes-siapkan-aturan-bungkus-rokok-seragam"
+              title="2026年6月｜卫生部推进烟草及电子烟标准化包装部门规章"
+              description="印度尼西亚卫生部正在起草关于烟草产品及电子烟健康警示和健康信息的卫生部长规章，并提出推进标准化包装安排，包括统一包装基础颜色和整体展示方式，同时保留规定形式的品牌名称、字体和图形健康警示。相关规则仍处于部门规章起草阶段，最终包装规格、过渡期限和实施日期应以正式发布文本为准。"
             />
           </ReferenceGroupCard>
         }

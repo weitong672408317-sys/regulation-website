@@ -42,6 +42,12 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                 <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-3">2026年5月，马来西亚高等法院认定，2023年将电子烟用液体/凝胶尼古丁从《毒药法》毒物清单中移除的决定违法。判决后，含尼古丁电子烟相关产品重新涉及《毒药法》管制。</p>
                 <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6] mb-3">在《毒药法》及药剂监管框架下，含尼古丁制剂通常需要药品/制剂注册或主管机关批准，供应主体通常限于持牌药剂师、注册医生、牙医、兽医等特定主体，使用场景通常限于药剂、医疗、牙科、兽医等用途。</p>
                 <p style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties} className="text-[#334155] text-base leading-[1.6]">因此，判决带来的核心变化是：含尼古丁电子烟相关产品重新从"吸烟产品销售监管"进入"尼古丁成分管制 + 药剂供应监管"的问题。对于面向一般消费者销售的电子烟产品而言，药品/制剂注册门槛较高，供应主体和使用场景也受到严格限制，这实际上会显著压缩其作为普通消费品上市、分销和零售的空间。</p>
+                <p
+                  style={{ textAlignLast: 'left', textJustify: 'inter-ideograph' } as unknown as React.CSSProperties}
+                  className="text-[#334155] text-base leading-[1.6] mt-3"
+                >
+                  2026年6月，马来西亚政府确认已就该判决提出上诉。目前高等法院判决仍然有效，但上诉法院未来可能推翻或修改该判决，从而再次改变液体及凝胶尼古丁的法律地位及含尼古丁电子烟的销售条件。
+                </p>
               </>
             ),
           },
@@ -774,6 +780,12 @@ export default function MalaysiaPage({ country }: MalaysiaPageProps) {
                 url="https://codeblue.galencentre.org/2026/05/analysis-court-decision-marks-de-facto-ban-on-nicotine-vape/"
                 title="CodeBlue：液体尼古丁判决对含尼古丁电子烟监管影响的分析"
                 description="用于说明 2026 年液体尼古丁判决对含尼古丁电子烟普通零售、分销和上市空间的影响。"
+              />
+              <ReferenceItem
+                showSeparator
+                url="https://www.parlimen.gov.my/files/jindex/pdf/JDR24062026.pdf"
+                title="马来西亚国会：政府确认液体及凝胶尼古丁案件处于上诉程序"
+                description="用于说明马来西亚政府已就高等法院判决提出上诉，并将根据上诉法院的裁决协调含尼古丁电子烟及雾化产品的税收政策。目前高等法院判决仍然有效，但上诉结果可能再次改变液体及凝胶尼古丁的法律地位及相关产品的销售条件。"
               />
             </ReferenceGroupCard>
 

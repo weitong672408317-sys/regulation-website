@@ -52,7 +52,7 @@ export default function SingaporePage({ country }: SingaporePageProps) {
           },
           {
             title: '4. 电子烟及含依托咪酯产品执法持续加强',
-            content: '2026年以来，新加坡继续加强电子烟及含依托咪酯等特定精神活性物质产品的执法。自2026年5月1日起，依托咪酯及其类似物被纳入 TVCA 下的特定精神活性物质安排；含有该等物质的产品同属禁止对象，购买、使用或持有最高罚款10,000新元，供应、进口则分别适用最高6年和9年强制监禁及罚款。',
+            content: '2026年以来，新加坡持续加强电子烟及含依托咪酯等特定精神活性物质产品的执法。自2026年5月1日起，依托咪酯及其类似物被纳入《Tobacco and Vaporisers Control Act 1993》下的特定精神活性物质监管框架。2026年6月，卫生科学局首次依据新法调查涉嫌跨国供应依托咪酯雾化烟弹的集团案件，显示执法重点已由个人持有和使用进一步延伸至跨境供应链及有组织分销网络。',
           },
         ]}
       />
@@ -658,6 +658,12 @@ export default function SingaporePage({ country }: SingaporePageProps) {
                 description="说明烟草进口商、批发商、分销商和零售商许可证要求，以及烟草零售许可证按具体门店管理、不得转让等安排。"
               />
               <ReferenceItem
+                showSeparator
+                title="《Tobacco and Vaporisers Control (Licensing) Regulations 2017》"
+                url="https://sso.agc.gov.sg/SL/TVCA1993-S769-2017"
+                description="新加坡烟草许可证的现行配套规例，规定烟草产品进口、批发、分销和零售许可证的申请、费用、期限及相关管理要求。该规例自2026年7月1日起采用现行名称，主要属于配合上位法更名及更新法律引用的技术性调整，未改变许可证类别、费用、期限或核心经营义务。"
+              />
+              <ReferenceItem
                 title="新加坡卫生部 MOH：Standardised packaging and enlarged graphic health warnings"
                 url="https://www.moh.gov.sg/newsroom/standardised-packaging-enlarged-graphic-health-warnings-mandatory-for-all-tobacco-products-in-singapore-from-1-july-2020/"
                 description="说明新加坡自2020年7月1日起对所有烟草产品实施标准化包装和放大图形健康警示要求。"
@@ -687,15 +693,9 @@ export default function SingaporePage({ country }: SingaporePageProps) {
 
             <ReferenceGroupCard title="禁止类产品有限豁免">
               <ReferenceItem
-                title="《Tobacco and Vaporisers Control (Prohibited Tobacco Products and Imitation Tobacco Products) (Exemption) Order 2018》"
+                title="《Tobacco and Vaporisers Control (Prohibited Tobacco Products and Imitation Tobacco Products) (Exemption) Order 2018》（现行合并文本）"
                 url="https://sso.agc.gov.sg/SL/TVCA1993-S70-2018"
-                description="对部分禁止类产品、仿烟产品及相关组件，在非临床研究、产品开发、供应链相关活动等特定目的下设置有限豁免，并规定适用产品、行为、通知、记录、储存和期限等条件。"
-              />
-              <ReferenceItem
-                title="《Tobacco and Vaporisers Control (Prohibited Tobacco Products and Imitation Tobacco Products) (Exemption) (Amendment) Order 2026》"
-                url="https://assets.egazette.gov.sg/2026/Legislative%20Supplements/Subsidiary%20Legislation%20Supplement/254.pdf"
-                description="配合2026年 TVCA 修法更新相关豁免安排，是判断禁止类产品研发、产品开发和供应链相关活动边界的重要文件。"
-                showSeparator
+                description="对特定禁止类产品、HNB加热装置及相关组件，在非临床研究、产品开发和供应链相关活动等限定目的下设置有限豁免，并规定通知、记录、储存、期限和流向管理要求。现行文本已纳入自2026年5月1日起生效的修订。"
               />
             </ReferenceGroupCard>
           </div>
@@ -718,20 +718,20 @@ export default function SingaporePage({ country }: SingaporePageProps) {
 
             <ReferenceGroupCard title="电子烟与依托咪酯执法">
               <ReferenceItem
+                title="2026年6月：新加坡首次依据新法调查跨国依托咪酯雾化烟弹供应集团"
+                url="https://www.hsa.gov.sg/announcements/hsa-investigating-first-suspected-transnational-etomidate-vaporiser-pod-supply-syndicate-under-tobacco-and-vaporisers-control-act/"
+                description="新加坡卫生科学局调查首宗涉嫌跨国供应依托咪酯雾化烟弹的集团案件，4名嫌疑人被起诉，并查获1,111个依托咪酯烟弹及超过83,000新加坡元现金。该案反映新加坡对依托咪酯电子烟的执法已延伸至跨境供应链和有组织分销活动。"
+              />
+              <ReferenceItem
                 title="2026年5月：新加坡公布2026年第一季度电子烟执法情况，超过2,500人被查获"
                 url="https://www.moh.gov.sg/newsroom/over-2-500-caught-vaping-in-first-3-months-of-2026/"
                 description="2026年第一季度，新加坡查获并处罚超过2,500名电子烟相关违法人员，并查获大量雾化器及相关组件。"
+                showSeparator
               />
               <ReferenceItem
                 title="2025年8月：新加坡跨部门强化电子烟及依托咪酯相关执法"
                 url="https://www.moh.gov.sg/newsroom/whole-of-government-efforts-to-tackle-vaping/"
                 description="新加坡启动跨部门执法机制，加强对电子烟、含依托咪酯产品和相关违法行为的治理。"
-                showSeparator
-              />
-              <ReferenceItem
-                title="2025年8月：MOH 与 HSA 继续加强电子雾化器违法行为执法"
-                url="https://www.moh.gov.sg/newsroom/moh-and-hsa-continue-to-intensify-enforcement-on-e-vaporiser-offences/"
-                description="MOH 和 HSA 继续强化电子雾化器进口、销售、持有、使用和相关线上违法行为执法。"
                 showSeparator
               />
             </ReferenceGroupCard>
