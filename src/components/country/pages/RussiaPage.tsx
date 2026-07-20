@@ -41,7 +41,7 @@ export default function RussiaPage({ country }: RussiaPageProps) {
       <ProductAccessOverviewSection data={russiaProductAccessOverview} sectionId="product-access-overview" useMobileCards />
       <SeasonSummarySection
         sectionId="overview"
-        introText="2026年6月26日，俄罗斯通过第186-FZ号联邦法律《关于修改俄罗斯联邦若干立法法案》、第187-FZ号联邦法律《关于修改俄罗斯联邦税法典第二部分第333.33条》及第188-FZ号联邦法律《关于修改俄罗斯联邦刑法典第171.3条》。本次调整重点集中在经营许可、地方零售监管、电子烟地区差异、流通合规和无证经营责任。"
+        introText="本季俄罗斯烟草与尼古丁监管有两条主线：一是2026年6月26日签署第186-FZ号联邦法律《关于修改俄罗斯联邦若干立法法案》、第187-FZ号联邦法律《关于修改俄罗斯联邦税法典第二部分第333.33条》及第188-FZ号联邦法律《关于修改俄罗斯联邦刑法典第171.3条》，集中调整经营许可、地方零售监管、电子烟地区差异、流通合规和无证经营责任；二是2026年7月13日，第1286415-8号法案提交国家杜马，拟限制烟草及含尼古丁产品有害成分信息作为商业秘密，显示俄罗斯监管正在从经营端控制进一步延伸至产品成分透明度和消费者知情权。"
         items={[
           {
             title: '经营端许可扩大',
@@ -58,6 +58,10 @@ export default function RussiaPage({ country }: RussiaPageProps) {
           {
             title: '流通合规与无证经营责任',
             content: '第186-FZ号联邦法律强化原料和尼古丁原料的系统信息报送、合法流通文件、交易对手许可证核查和仓储接收责任；第188-FZ号联邦法律将达到相应金额标准的无证经营行为纳入刑事责任范围。'
+          },
+          {
+            title: '产品成分透明度法案',
+            content: '2026年7月13日，第1286415-8号法案提交国家杜马，拟修改《商业秘密法》第5条，规定烟草制品和含尼古丁产品中会增强尼古丁依赖、具有毒性、致癌性、致突变性、生殖毒性，或在加热、阴燃后产生上述性质的成分，其存在及数量信息不得被设定为商业秘密。该事项目前仍处于法案审议阶段，尚未构成正式生效义务，但反映俄罗斯监管正从许可、销售和流通监管进一步延伸至产品成分透明度。'
           }
         ]}
       />
@@ -1058,31 +1062,45 @@ export default function RussiaPage({ country }: RussiaPageProps) {
         }
         newsContent={
           <div className="space-y-4">
-            <ReferenceGroupCard title="许可、税费与价格监管动态">
+            <ReferenceGroupCard title="许可、税费与经营合规动态">
               <ReferenceItem
-                url="https://www.2firsts.com/news/russia-approves-law-requiring-sales-permits-for-cigarettes-and-e-cigarettes-starting-march-1-2026"
-                title="俄罗斯推进烟草和含尼古丁产品批发 / 零售许可改革"
-                description="报道涉及俄罗斯烟草和含尼古丁产品批发、零售许可改革安排，反映监管重点正在从生产、进口环节延伸至经营端控制。"
+                url="https://rg.ru/documents/2026/07/01/fz-186-doc.html"
+                title="俄罗斯签署第186-FZ号联邦法律，扩展烟草及含尼古丁产品经营许可和地方监管"
+                description="第186-FZ号联邦法律修改多项俄罗斯联邦法律，新增采购、储存、供应、普通零售、车辆流动零售等经营端许可安排，并设立区域零售监管和电子尼古丁递送系统地方禁售授权。该法反映俄罗斯监管重点从生产、进口环节进一步延伸至批发、仓储、固定门店零售和车辆流动零售。"
               />
               <ReferenceItem
                 showSeparator
-                url="https://interfax.com/newsroom/top-stories/116871/"
-                title="俄罗斯批发 / 零售许可改革时间调整相关报道"
-                description="报道显示，烟草和含尼古丁产品批发、零售许可改革的实施时间和落地节奏仍在调整，企业需关注正式生效时间和主管机关操作口径。"
+                url="https://www.consultant.ru/law/hotdocs/94625.html"
+                title="俄罗斯明确烟草及含尼古丁产品相关许可费用"
+                description="第187-FZ号联邦法律修改俄罗斯税法典第二部分第333.33条，明确烟草及含尼古丁产品相关许可的国家费用。采购、储存和供应许可费用为80万卢布；普通零售和车辆流动零售许可费用为每年2万卢布。该法自2026年10月1日起生效。"
               />
               <ReferenceItem
                 showSeparator
-                url="https://en.iz.ru/en/2019182/2026-01-01/excise-taxes-tobacco-products-have-been-indexed-russia-january-1"
-                title="俄罗斯2026年烟草产品消费税调整报道"
-                description="报道涉及2026年烟草、含尼古丁及相关产品消费税调整，反映俄罗斯继续通过税收工具提高合法产品成本和监管强度。"
+                url="https://rg.ru/documents/2026/07/01/fz-188.html"
+                title="俄罗斯扩大无证经营烟草及含尼古丁产品的刑事责任范围"
+                description="第188-FZ号联邦法律修改俄罗斯刑法典第171.3条，将较大金额标准下的无证生产、供应、采购、进出口采购、储存，以及无证零售烟草产品和含尼古丁产品纳入刑事责任衔接范围。该法自2027年3月1日起生效。"
               />
             </ReferenceGroupCard>
 
             <ReferenceGroupCard title="电子烟地方禁售落地跟踪">
               <ReferenceItem
+                url="https://rg.ru/documents/2026/07/01/fz-186-doc.html"
+                title="俄罗斯授权地方在2027年至2032年期间禁止零售电子尼古丁递送系统"
+                description="第186-FZ号联邦法律授权各联邦主体在2027年3月1日至2032年3月1日期间，通过本地区法律禁止零售电子尼古丁递送系统及其液体。该机制意味着俄罗斯电子烟监管可能出现地区差异，后续应重点跟踪各联邦主体是否出台本地区零售禁售规则。"
+              />
+              <ReferenceItem
+                showSeparator
                 url="https://www.kommersant.ru/doc/8655501"
                 title="Kommersant：国家杜马委员会支持地区禁售 vape 方案"
-                description={'报道称，国家杜马相关委员会支持允许地区禁止销售 vape 的方案，并提到下诺夫哥罗德州曾提出地区性禁售安排。第186-FZ号联邦法律通过后，电子烟监管重点已从联邦层面授权转向各联邦主体是否出台本地区零售禁售规则。'}
+                description="报道称，国家杜马相关委员会支持允许地区禁止销售 vape 的方案，并提到下诺夫哥罗德州曾提出地区性禁售安排。该报道可作为地方禁售落地跟踪线索；正式监管依据仍应以第186-FZ号联邦法律及各联邦主体后续地方法律为准。"
+              />
+            </ReferenceGroupCard>
+
+            <ReferenceGroupCard title="产品成分透明度动态">
+              <ReferenceItem
+                url="https://www.consultant.ru/law/hotdocs/94841.html"
+                title="俄罗斯向国家杜马提交第1286415-8号法案，拟限制有害成分信息作为商业秘密"
+                description="第1286415-8号法案拟修改《商业秘密法》第5条，规定烟草制品和含尼古丁产品中会增强尼古丁依赖、具有毒性、致癌性、致突变性、生殖毒性，或在加热、阴燃后产生上述性质的成分，其存在及数量信息不得被设定为商业秘密。该事项目前处于法案审议阶段，尚未构成正式生效义务，但值得作为产品成分透明度和消费者知情权监管趋势持续跟踪。"
               />
             </ReferenceGroupCard>
           </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 // Pre-generated SVG path data (no runtime d3-geo dependency)
 import worldPaths from '@/data/world-paths.json';
@@ -96,6 +96,13 @@ export default function WorldMap() {
     router.push(href);
   }, [router]);
 
+  // 组件挂载后立即预取所有高亮国家，避免首次 hover/click 时才触发预取导致导航延迟
+  useEffect(() => {
+    labels.forEach((label) => {
+      prefetchCountry(label.id);
+    });
+  }, [prefetchCountry]);
+
   return (
     <div className="w-full bg-gray-100 rounded-lg p-4">
       <div className="overflow-x-auto">
@@ -180,6 +187,7 @@ export default function WorldMap() {
                     strokeWidth={2}
                     strokeLinejoin="round"
                     style={{ cursor: 'pointer' }}
+                    onMouseEnter={() => prefetchCountry(label.id)}
                     onClick={() => handleNavigate(href)}
                   >
                     {label.name}
